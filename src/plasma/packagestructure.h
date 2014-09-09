@@ -24,8 +24,7 @@
 
 #include <kplugininfo.h>
 
-#include <plasma/plasma.h>
-#include <plasma/plasma_export.h>
+#include <package/package_export.h>
 #include <plasma/package.h>
 #include <plasma/version.h>
 
@@ -34,7 +33,7 @@ namespace Plasma
 
 class PackageStructurePrivate;
 
-class PLASMA_EXPORT PackageStructure : public QObject
+class PACKAGE_EXPORT PackageStructure : public QObject
 {
     Q_OBJECT
 

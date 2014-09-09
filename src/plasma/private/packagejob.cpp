@@ -19,7 +19,7 @@
 
 #include "packagejob_p.h"
 #include "packagejobthread_p.h"
-#include "config-plasma.h"
+#include "config-package.h"
 
 #include <QDebug>
 

@@ -31,15 +31,14 @@
 #include <ktar.h>
 #include <kzip.h>
 
-#include "config-plasma.h"
+#include "config-package.h"
 
 #include <qstandardpaths.h>
 #include <qmimedatabase.h>
 
 #include "packagestructure.h"
-#include "pluginloader.h"
 #include "private/package_p.h"
-#include "private/packages_p.h"
+//#include "private/packages_p.h"
 #include "private/packagejob_p.h"
 
 namespace Plasma

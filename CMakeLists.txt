@@ -22,7 +22,7 @@ set(KF5_DEP_VERSION "5.2.0") # handled by release scripts
 ecm_setup_version(${KF5_VERSION}
                   VARIABLE_PREFIX PLASMA
                   VERSION_HEADER "${CMAKE_CURRENT_BINARY_DIR}/plasma_version.h"
-                  PACKAGE_VERSION_FILE "${CMAKE_CURRENT_BINARY_DIR}/KF5PlasmaConfigVersion.cmake"
+                  PACKAGE_VERSION_FILE "${CMAKE_CURRENT_BINARY_DIR}/KF5PackageConfigVersion.cmake"
                   SOVERSION 5)
 
 if(KDE_PLATFORM_FEATURE_DISABLE_DEPRECATED)
@@ -118,7 +118,7 @@ add_definitions(-DQT_NO_URL_CAST_FROM_STRING)
 
 remove_definitions(-DQT_NO_CAST_FROM_ASCII -DQT_STRICT_ITERATORS -DQT_NO_CAST_FROM_BYTEARRAY -DQT_NO_KEYWORDS)
 
-include(KF5PlasmaMacros.cmake)
+include(KF5PackageMacros.cmake)
 
 #########################################################################
 
@@ -135,26 +135,26 @@ endif()
 
 # create a Config.cmake and a ConfigVersion.cmake file and install them
 
-set(CMAKECONFIG_INSTALL_DIR "${CMAKECONFIG_INSTALL_PREFIX}/KF5Plasma")
+set(CMAKECONFIG_INSTALL_DIR "${CMAKECONFIG_INSTALL_PREFIX}/KF5Package")
 
 ecm_configure_package_config_file(
-  "${CMAKE_CURRENT_SOURCE_DIR}/KF5PlasmaConfig.cmake.in"
-  "${CMAKE_CURRENT_BINARY_DIR}/KF5PlasmaConfig.cmake"
+  "${CMAKE_CURRENT_SOURCE_DIR}/KF5PackageConfig.cmake.in"
+  "${CMAKE_CURRENT_BINARY_DIR}/KF5PackageConfig.cmake"
   INSTALL_DESTINATION  ${CMAKECONFIG_INSTALL_DIR}
   PATH_VARS  KF5_INCLUDE_INSTALL_DIR CMAKE_INSTALL_PREFIX
 )
 
 install(FILES
-  "${CMAKE_CURRENT_BINARY_DIR}/KF5PlasmaConfig.cmake"
-  "${CMAKE_CURRENT_BINARY_DIR}/KF5PlasmaConfigVersion.cmake"
-  "${CMAKE_CURRENT_SOURCE_DIR}/KF5PlasmaMacros.cmake"
+  "${CMAKE_CURRENT_BINARY_DIR}/KF5PackageConfig.cmake"
+  "${CMAKE_CURRENT_BINARY_DIR}/KF5PackageConfigVersion.cmake"
+  "${CMAKE_CURRENT_SOURCE_DIR}/KF5PackageMacros.cmake"
   DESTINATION "${CMAKECONFIG_INSTALL_DIR}"
   COMPONENT Devel
 )
 
-install(EXPORT KF5PlasmaTargets
+install(EXPORT KF5PackageTargets
         DESTINATION "${CMAKECONFIG_INSTALL_DIR}"
-        FILE KF5PlasmaTargets.cmake
+        FILE KF5PackageTargets.cmake
         NAMESPACE KF5::
         COMPONENT Devel)
 
@@ -166,7 +166,6 @@ include_directories(${CMAKE_CURRENT_BINARY_DIR})
 
 ################# list the subdirectories #################
 if (KF5DocTools_FOUND)
-    add_subdirectory(docs)
 endif()
 add_definitions(-DTRANSLATION_DOMAIN=\"libplasma5\")
 if (IS_DIRECTORY "${CMAKE_CURRENT_SOURCE_DIR}/po")
@@ -175,11 +174,8 @@ if (IS_DIRECTORY "${CMAKE_CURRENT_SOURCE_DIR}/po")
 endif()
 add_subdirectory(src)
 
-if (BUILD_EXAMPLES)
-    add_subdirectory(examples)
-endif()
 
-add_subdirectory(autotests)
-add_subdirectory(tests)
+#add_subdirectory(autotests)
+#add_subdirectory(tests)
 
 feature_summary(WHAT ALL FATAL_ON_MISSING_REQUIRED_PACKAGES)

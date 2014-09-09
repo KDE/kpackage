@@ -24,8 +24,7 @@
 
 #include <kplugininfo.h>
 
-#include <plasma/plasma.h>
-#include <plasma/plasma_export.h>
+#include <package/package_export.h>
 
 class KJob;
 
@@ -75,7 +74,7 @@ namespace Plasma
 class PackagePrivate;
 class PackageStructure;
 
-class PLASMA_EXPORT Package
+class PACKAGE_EXPORT Package
 {
 public:
     /**

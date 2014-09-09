@@ -21,7 +21,7 @@
 #include "private/packagejobthread_p.h"
 
 #include "package.h"
-#include "config-plasma.h"
+#include "config-package.h"
 
 #include <karchive.h>
 #include <kdesktopfile.h>
