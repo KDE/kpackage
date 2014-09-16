@@ -11,7 +11,7 @@ find_package(KF5CoreAddons REQUIRED)
 
 MACRO(PLASMA_UNIT_TESTS)
        FOREACH(_testname ${ARGN})
-               add_executable(${_testname} ${_testname}.cpp)
+               add_executable(${_testname} genericstructure.cpp ${_testname}.cpp)
                target_link_libraries(${_testname} Qt5::Test
                                      KF5::Package KF5::Archive KF5::CoreAddons
                                      KF5::I18n

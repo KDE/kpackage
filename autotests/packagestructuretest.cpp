@@ -26,6 +26,7 @@
 
 #include "packagestructure.h"
 #include "pluginloader.h"
+#include "genericstructure.h"
 
 class NoPrefixes : public Plasma::Package
 {
@@ -44,7 +45,7 @@ public:
 void PackageStructureTest::initTestCase()
 {
     m_packagePath = QFINDTESTDATA("data/testpackage");
-    ps = Plasma::PluginLoader::self()->loadPackage("Plasma/Generic");
+    ps = Plasma::Package(new Plasma::GenericPackage);
     ps.setPath(m_packagePath);
 }
 
@@ -62,7 +63,7 @@ void PackageStructureTest::validPackages()
     QVERIFY(!Plasma::PluginLoader::self()->loadPackage("doesNotExist").isValid());
     QVERIFY(NoPrefixes().isValid());
 
-    Plasma::Package p = Plasma::PluginLoader::self()->loadPackage("Plasma/Generic");
+    Plasma::Package p = Plasma::Package(new Plasma::GenericPackage);
     QVERIFY(!p.isValid());
     p.setPath("/does/not/exist");
     QVERIFY(!p.isValid());

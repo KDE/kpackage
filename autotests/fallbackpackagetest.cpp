@@ -25,15 +25,16 @@
 
 #include "packagestructure.h"
 #include "pluginloader.h"
+#include "genericstructure.h"
 
 void FallbackPackageTest::initTestCase()
 {
     m_fallPackagePath = QFINDTESTDATA("data/testpackage");
-    m_fallbackPkg = Plasma::PluginLoader::self()->loadPackage("Plasma/Generic");
+    m_fallbackPkg = Plasma::Package(new Plasma::GenericPackage);
     m_fallbackPkg.setPath(m_fallPackagePath);
 
     m_packagePath = QFINDTESTDATA("data/testfallbackpackage");
-    m_pkg = Plasma::PluginLoader::self()->loadPackage("Plasma/Generic");
+    m_pkg = Plasma::Package(new Plasma::GenericPackage);
     m_pkg.setPath(m_packagePath);
 }
 
