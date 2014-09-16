@@ -18,7 +18,7 @@
 *******************************************************************************/
 
 #include "plasmoidpackagetest.h"
-#include "../config-plasma.h"
+#include "../config-package.h"
 
 #include <QDir>
 #include <QFile>
@@ -28,7 +28,6 @@
 
 #include <QDebug>
 
-#include "applet.h"
 #include "pluginloader.h"
 
 void PlasmoidPackageTest::initTestCase()

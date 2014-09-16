@@ -16,6 +16,7 @@ add_definitions(-DKDE_DEFAULT_DEBUG_AREA=1209)
 set(Package_LIB_SRCS
     package.cpp
     packagestructure.cpp
+    pluginloader.cpp
     private/packagejob.cpp
     private/packagejobthread.cpp
 )

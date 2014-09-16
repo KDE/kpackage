@@ -79,7 +79,7 @@ include(KF5PackageMacros.cmake)
 #########################################################################
 
 
-option(BUILD_COVERAGE "Build Plasma Frameworks with gcov support" OFF)
+option(BUILD_COVERAGE "Build Package Frameworks with gcov support" OFF)
 
 if(BUILD_COVERAGE)
     set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} -fprofile-arcs -ftest-coverage")
@@ -127,9 +127,8 @@ if (IS_DIRECTORY "${CMAKE_CURRENT_SOURCE_DIR}/po")
     ki18n_install(po)
     kdoctools_install(po)
 endif()
+
 add_subdirectory(src)
-
-
-#add_subdirectory(autotests)
+add_subdirectory(autotests)
 
 feature_summary(WHAT ALL FATAL_ON_MISSING_REQUIRED_PACKAGES)
