@@ -91,6 +91,16 @@ void GenericPackage::initPackage(Package *package)
     package->addDirectoryDefinition("translations", "locale", i18n("Translations"));
 }
 
+void PlasmoidPackage::initPackage(Package *package)
+{
+    GenericPackage::initPackage(package);
+    package->setServicePrefix("plasma-applet-");
+    package->setDefaultPackageRoot(PLASMA_RELATIVE_DATA_INSTALL_DIR "/plasmoids/");
+
+    package->addFileDefinition("configmodel", "config/config.qml", i18n("Configuration UI pages model"));
+    package->addFileDefinition("mainconfigxml", "config/main.xml", i18n("Configuration XML file"));
+}
+
 
 } // namespace Plasma
 

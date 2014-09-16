@@ -27,5 +27,5 @@ ENDMACRO(PLASMA_UNIT_TESTS)
 PLASMA_UNIT_TESTS(
     fallbackpackagetest
     packagestructuretest
-    #plasmoidpackagetest
+    plasmoidpackagetest
 )

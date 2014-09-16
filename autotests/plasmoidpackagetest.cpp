@@ -29,6 +29,7 @@
 #include <QDebug>
 
 #include "pluginloader.h"
+#include "genericstructure.h"
 
 void PlasmoidPackageTest::initTestCase()
 {
@@ -40,7 +41,7 @@ void PlasmoidPackageTest::init()
     qDebug() << "PlasmoidPackage::init()";
     m_package = QString("Package");
     m_packageRoot = QStandardPaths::writableLocation(QStandardPaths::GenericDataLocation) + "/packageRoot";
-    m_defaultPackage = Plasma::PluginLoader::self()->loadPackage("Plasma/Applet");
+    m_defaultPackage = Plasma::Package(new Plasma::PlasmoidPackage);
     cleanup(); // to prevent previous runs from interfering with this one
 }
 
@@ -48,7 +49,7 @@ void PlasmoidPackageTest::cleanup()
 {
     qDebug() << "cleaning up";
     // Clean things up.
-    QDir(m_packageRoot).removeRecursively();
+   QDir(m_packageRoot).removeRecursively();
 }
 
 void PlasmoidPackageTest::createTestPackage(const QString &packageName)
@@ -111,6 +112,17 @@ void PlasmoidPackageTest::createTestPackage(const QString &packageName)
     out << "<svg>This is another test image</svg>";
     file.flush();
     file.close();
+
+    // Create the scripts dir.
+    QVERIFY(QDir().mkpath(m_packageRoot + "/" + packageName + "/contents/code"));
+
+    // Create 2 js files
+    file.setFileName(m_packageRoot + "/" + packageName + "/contents/code/script.js");
+    QVERIFY(file.open(QIODevice::WriteOnly | QIODevice::Text));
+
+    out << "THIS IS A SCRIPT.....";
+    file.flush();
+    file.close();
 }
 
 void PlasmoidPackageTest::isValid()
@@ -171,7 +183,7 @@ void PlasmoidPackageTest::isValid()
     p = new Plasma::Package(m_defaultPackage);
     p->setPath(m_packageRoot + '/' + m_package);
     QVERIFY(p->isValid());
-    QCOMPARE(p->contentsHash(), QString("db0b38c2b4fe21a9f37923cc25152340de055f6d"));
+    QCOMPARE(p->contentsHash(), QString("a41160c6a763ea505c95bee12a7fc87952a61cf1"));
     delete p;
 }
 
@@ -227,11 +239,11 @@ void PlasmoidPackageTest::entryList()
     // Now we have a valid package that should contain the following files in
     // given filetypes:
     // fileTye - Files
-    // scripts - {"main"}
+    // scripts - {"script.js"}
     // images - {"image-1.svg", "image-2.svg"}
     QStringList files = p->entryList("scripts");
     QCOMPARE(files.size(), 1);
-    QVERIFY(files.contains("main"));
+    QVERIFY(files.contains("script.js"));
 
     files = p->entryList("images");
     QCOMPARE(files.size(), 2);
@@ -251,7 +263,8 @@ void PlasmoidPackageTest::createAndInstallPackage()
     QVERIFY(creator.open(QIODevice::WriteOnly));
     creator.addLocalDirectory(m_packageRoot + '/' + "plasmoid_to_package", ".");
     creator.close();
-    KIO::NetAccess::del(QUrl::fromLocalFile(m_packageRoot + "/plasmoid_to_package"), 0);
+    QDir rootDir(m_packageRoot + "/plasmoid_to_package");
+    rootDir.removeRecursively();
 
     QVERIFY(QFile::exists(packagePath));
 
@@ -269,10 +282,10 @@ void PlasmoidPackageTest::createAndInstallPackage()
 
     m_defaultPackageStructure = new Plasma::PackageStructure(this);
     Plasma::Package *p = new Plasma::Package(m_defaultPackageStructure);
-    qDebug() << "Installing " << archivePath;
+    qDebug() << "Installing " << packagePath;
     //const QString packageRoot = "plasma/plasmoids/";
     //const QString servicePrefix = "plasma-applet-";
-    KJob *job = p->install(archivePath, m_packageRoot);
+    KJob *job = p->install(packagePath, m_packageRoot);
     connect(job, SIGNAL(finished(KJob*)), SLOT(packageInstalled(KJob*)));
 
     //QVERIFY(p->isValid());

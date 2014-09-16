@@ -41,6 +41,12 @@ public:
     void initPackage(Package *package);
 };
 
+class PlasmoidPackage : public GenericPackage
+{
+public:
+    void initPackage(Package *package);
+};
+
 } // namespace Plasma
 
 #endif // LIBS_PLASMA_PACKAGES_P_H
