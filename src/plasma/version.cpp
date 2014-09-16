@@ -25,27 +25,27 @@ namespace Plasma
 
 unsigned int version()
 {
-    return PLASMA_VERSION;
+    return PACKAGE_VERSION;
 }
 
 unsigned int versionMajor()
 {
-    return PLASMA_VERSION_MAJOR;
+    return PACKAGE_VERSION_MAJOR;
 }
 
 unsigned int versionMinor()
 {
-    return PLASMA_VERSION_MINOR;
+    return PACKAGE_VERSION_MINOR;
 }
 
 unsigned int versionRelease()
 {
-    return PLASMA_VERSION_PATCH;
+    return PACKAGE_VERSION_PATCH;
 }
 
 const char *versionString()
 {
-    return PLASMA_VERSION_STRING;
+    return PACKAGE_VERSION_STRING;
 }
 
 bool isPluginVersionCompatible(unsigned int version)
@@ -56,15 +56,15 @@ bool isPluginVersionCompatible(unsigned int version)
         return true;
     }
 
-    // we require PLASMA_VERSION_MAJOR and PLASMA_VERSION_MINOR
-    const quint32 minVersion = PLASMA_MAKE_VERSION(PLASMA_VERSION_MAJOR, 0, 0);
-    const quint32 maxVersion = PLASMA_MAKE_VERSION(PLASMA_VERSION_MAJOR, PLASMA_VERSION_MINOR, 60);
+    // we require PACKAGE_VERSION_MAJOR and PACKAGE_VERSION_MINOR
+    const quint32 minVersion = PACKAGE_MAKE_VERSION(PACKAGE_VERSION_MAJOR, 0, 0);
+    const quint32 maxVersion = PACKAGE_MAKE_VERSION(PACKAGE_VERSION_MAJOR, PACKAGE_VERSION_MINOR, 60);
 
     if (version < minVersion || version > maxVersion) {
 #ifndef NDEBUG
         // qDebug() << "plugin is compiled against incompatible Plasma version  " << version
-        //         << "This build is compatible with" << PLASMA_VERSION_MAJOR << ".0.0 (" << minVersion
-        //         << ") to" << PLASMA_VERSION_STRING << "(" << maxVersion << ")";
+        //         << "This build is compatible with" << PACKAGE_VERSION_MAJOR << ".0.0 (" << minVersion
+        //         << ") to" << PACKAGE_VERSION_STRING << "(" << maxVersion << ")";
 #endif
         return false;
     }

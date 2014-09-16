@@ -24,7 +24,6 @@
 #include <QDebug>
 #include <klocalizedstring.h>
 
-#include "applet.h"
 #include "packagestructure.h"
 #include "pluginloader.h"
 

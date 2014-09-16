@@ -1,13 +1,12 @@
 maintainer: mart
-description: Plugin based UI runtime used to write primary user interfaces
-tier: 3
-type: solution
+description: Library to load and install packages of non binary files as they were a plugin
+tier: 2
+type: functional
 platforms:
     - name: All
 portingAid: false
 deprecated: false
-release: true
+release: false
 libraries:
- - cmake: KF5::Plasma
- - cmake: KF5::PlasmaQuick
-cmakename: KF5Plasma
+ - cmake: KF5::Package
+cmakename: KF5Package
