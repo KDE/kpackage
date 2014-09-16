@@ -25,11 +25,6 @@ ecm_setup_version(${KF5_VERSION}
                   PACKAGE_VERSION_FILE "${CMAKE_CURRENT_BINARY_DIR}/KF5PackageConfigVersion.cmake"
                   SOVERSION 5)
 
-if(KDE_PLATFORM_FEATURE_DISABLE_DEPRECATED)
-   set(KDE_NO_DEPRECATED TRUE)
-   set(CMAKE_AUTOMOC_MOC_OPTIONS "-DKDE_NO_DEPRECATED")
-endif()
-
 ################# Enable C++0x (still too early for -std=c++11) features for clang and gcc #################
 
 if(UNIX)
