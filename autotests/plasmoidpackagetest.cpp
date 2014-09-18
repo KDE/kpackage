@@ -41,7 +41,7 @@ void PlasmoidPackageTest::init()
     qDebug() << "PlasmoidPackage::init()";
     m_package = QString("Package");
     m_packageRoot = QStandardPaths::writableLocation(QStandardPaths::GenericDataLocation) + "/packageRoot";
-    m_defaultPackage = Plasma::Package(new Plasma::PlasmoidPackage);
+    m_defaultPackage = KPackage::Package(new KPackage::PlasmoidPackage);
     cleanup(); // to prevent previous runs from interfering with this one
 }
 
@@ -127,7 +127,7 @@ void PlasmoidPackageTest::createTestPackage(const QString &packageName)
 
 void PlasmoidPackageTest::isValid()
 {
-    Plasma::Package *p = new Plasma::Package(m_defaultPackage);
+    KPackage::Package *p = new KPackage::Package(m_defaultPackage);
     p->setPath(m_packageRoot + '/' + m_package);
 #ifndef NDEBUG
     qDebug() << "package path is" << p->path();
@@ -144,7 +144,7 @@ void PlasmoidPackageTest::isValid()
 
     // Should still be invalid.
     delete p;
-    p = new Plasma::Package(m_defaultPackage);
+    p = new KPackage::Package(m_defaultPackage);
     p->setPath(m_packageRoot + '/' + m_package);
     QVERIFY(!p->isValid());
 
@@ -164,7 +164,7 @@ void PlasmoidPackageTest::isValid()
 
     // No main file yet so should still be invalid.
     delete p;
-    p = new Plasma::Package(m_defaultPackage);
+    p = new KPackage::Package(m_defaultPackage);
     p->setPath(m_packageRoot + '/' + m_package);
     QVERIFY(!p->isValid());
 
@@ -180,7 +180,7 @@ void PlasmoidPackageTest::isValid()
     file.setPermissions(QFile::ReadUser | QFile::WriteUser);
     // Main file exists so should be valid now.
     delete p;
-    p = new Plasma::Package(m_defaultPackage);
+    p = new KPackage::Package(m_defaultPackage);
     p->setPath(m_packageRoot + '/' + m_package);
     QVERIFY(p->isValid());
     QCOMPARE(p->contentsHash(), QString("a41160c6a763ea505c95bee12a7fc87952a61cf1"));
@@ -193,7 +193,7 @@ void PlasmoidPackageTest::filePath()
     // Package::filePath() returns
     // - {package_root}/{package_name}/path/to/file if the file exists
     // - QString() otherwise.
-    Plasma::Package *p = new Plasma::Package(m_defaultPackage);
+    KPackage::Package *p = new KPackage::Package(m_defaultPackage);
     p->setPath(m_packageRoot + '/' + m_package);
 
     QCOMPARE(p->filePath("scripts", "main"), QString());
@@ -209,7 +209,7 @@ void PlasmoidPackageTest::filePath()
 
     // The package is valid by now so a path for code/main should get returned.
     delete p;
-    p = new Plasma::Package(m_defaultPackage);
+    p = new KPackage::Package(m_defaultPackage);
     p->setPath(m_packageRoot + '/' + m_package);
 
     const QString path = QFileInfo(m_packageRoot + "/" + m_package + "/contents/ui/main.qml").canonicalFilePath();
@@ -232,7 +232,7 @@ void PlasmoidPackageTest::entryList()
     createTestPackage(m_package);
 
     // Create a package object and verify that it is valid.
-    Plasma::Package *p = new Plasma::Package(m_defaultPackage);
+    KPackage::Package *p = new KPackage::Package(m_defaultPackage);
     p->setPath(m_packageRoot + '/' + m_package);
     QVERIFY(p->isValid());
 
@@ -280,8 +280,8 @@ void PlasmoidPackageTest::createAndInstallPackage()
     QVERIFY(contents->entry("ui"));
     QVERIFY(contents->entry("images"));
 
-    m_defaultPackageStructure = new Plasma::PackageStructure(this);
-    Plasma::Package *p = new Plasma::Package(m_defaultPackageStructure);
+    m_defaultPackageStructure = new KPackage::PackageStructure(this);
+    KPackage::Package *p = new KPackage::Package(m_defaultPackageStructure);
     qDebug() << "Installing " << packagePath;
     //const QString packageRoot = "plasma/plasmoids/";
     //const QString servicePrefix = "plasma-applet-";
@@ -298,7 +298,7 @@ void PlasmoidPackageTest::packageInstalled(KJob *j)
     QVERIFY(j->error() == KJob::NoError);
     //QVERIFY(p->path());
 
-    Plasma::Package *p = new Plasma::Package(m_defaultPackageStructure);
+    KPackage::Package *p = new KPackage::Package(m_defaultPackageStructure);
     KJob *jj = p->uninstall("org.kde.microblog-qml", m_packageRoot);
     //QObject::disconnect(j, SIGNAL(finished(KJob*)), this, SLOT(packageInstalled(KJob*)));
     connect(jj, SIGNAL(finished(KJob*)), SLOT(packageInstalled(KJob*)));

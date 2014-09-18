@@ -45,7 +45,7 @@ private Q_SLOTS:
     void mimeTypes();
 
 private:
-    Plasma::Package ps;
+    KPackage::Package ps;
     QString m_packagePath;
 };
 

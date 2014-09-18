@@ -32,7 +32,7 @@
 #include "package.h"
 #include "config-package.h"
 
-namespace Plasma
+namespace KPackage
 {
 
 void ChangeableMainScriptPackage::initPackage(Package *package)
@@ -102,5 +102,5 @@ void PlasmoidPackage::initPackage(Package *package)
 }
 
 
-} // namespace Plasma
+} // namespace KPackage
 

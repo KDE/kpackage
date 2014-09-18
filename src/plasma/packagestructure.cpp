@@ -22,7 +22,7 @@
 #include <private/packagejob_p.h>
 #include "private/package_p.h"
 
-namespace Plasma
+namespace KPackage
 {
 
 PackageStructure::PackageStructure(QObject *parent, const QVariantList &args)

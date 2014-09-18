@@ -22,7 +22,7 @@
 
 #include "kjob.h"
 
-namespace Plasma
+namespace KPackage
 {
 
 class PackageJobPrivate;

@@ -28,11 +28,11 @@
 #include "pluginloader.h"
 #include "genericstructure.h"
 
-class NoPrefixes : public Plasma::Package
+class NoPrefixes : public KPackage::Package
 {
 public:
     explicit NoPrefixes()
-        : Plasma::Package(new Plasma::PackageStructure)
+        : KPackage::Package(new KPackage::PackageStructure)
     {
         setContentsPrefixPaths(QStringList());
         addDirectoryDefinition("bin", "bin", "bin");
@@ -45,25 +45,25 @@ public:
 void PackageStructureTest::initTestCase()
 {
     m_packagePath = QFINDTESTDATA("data/testpackage");
-    ps = Plasma::Package(new Plasma::GenericPackage);
+    ps = KPackage::Package(new KPackage::GenericPackage);
     ps.setPath(m_packagePath);
 }
 
 void PackageStructureTest::validStructures()
 {
     QVERIFY(ps.hasValidStructure());
-    QVERIFY(!Plasma::Package().hasValidStructure());
-    QVERIFY(!Plasma::PluginLoader::self()->loadPackage("doesNotExist").hasValidStructure());
+    QVERIFY(!KPackage::Package().hasValidStructure());
+    QVERIFY(!KPackage::PluginLoader::self()->loadPackage("doesNotExist").hasValidStructure());
 }
 
 void PackageStructureTest::validPackages()
 {
     QVERIFY(ps.isValid());
-    QVERIFY(!Plasma::Package().isValid());
-    QVERIFY(!Plasma::PluginLoader::self()->loadPackage("doesNotExist").isValid());
+    QVERIFY(!KPackage::Package().isValid());
+    QVERIFY(!KPackage::PluginLoader::self()->loadPackage("doesNotExist").isValid());
     QVERIFY(NoPrefixes().isValid());
 
-    Plasma::Package p = Plasma::Package(new Plasma::GenericPackage);
+    KPackage::Package p = KPackage::Package(new KPackage::GenericPackage);
     QVERIFY(!p.isValid());
     p.setPath("/does/not/exist");
     QVERIFY(!p.isValid());
@@ -80,7 +80,7 @@ void PackageStructureTest::copyPerformance()
     t.start();
 
     for (int i = 0; i < 100000; ++i) {
-        Plasma::Package foo(ps);
+        KPackage::Package foo(ps);
         const QString bar = foo.filePath("mainscript");
     }
 
@@ -99,7 +99,7 @@ void PackageStructureTest::mutateAfterCopy()
     const QList<const char *> files = ps.files();
     const QList<const char *> dirs = ps.directories();
 
-    Plasma::Package copy(ps);
+    KPackage::Package copy(ps);
 
     copy.setRequired("mainscript", !mainscriptRequired);
     QCOMPARE(ps.isRequired("mainscript"), mainscriptRequired);

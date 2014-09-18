@@ -22,7 +22,7 @@
 
 #include "packagestructure.h"
 
-namespace Plasma
+namespace KPackage
 {
 
 class ChangeableMainScriptPackage : public PackageStructure
@@ -47,6 +47,6 @@ public:
     void initPackage(Package *package);
 };
 
-} // namespace Plasma
+} // namespace KPackage
 
 #endif // LIBS_PLASMA_PACKAGES_P_H

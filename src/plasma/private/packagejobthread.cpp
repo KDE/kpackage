@@ -42,7 +42,7 @@
 
 #include <QDebug>
 
-namespace Plasma
+namespace KPackage
 {
 
 bool copyFolder(QString sourcePath, QString targetPath)
@@ -366,7 +366,7 @@ bool PackageJobThread::uninstallPackage(const QString &packagePath)
     return true;
 }
 
-} // namespace Plasma
+} // namespace KPackage
 
 #include "moc_packagejobthread_p.cpp"
 

@@ -36,7 +36,7 @@
 /**
  * Namespace for everything in libplasma
  */
-namespace Plasma
+namespace KPackage
 {
 
 /**

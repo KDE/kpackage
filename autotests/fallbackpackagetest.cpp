@@ -30,11 +30,11 @@
 void FallbackPackageTest::initTestCase()
 {
     m_fallPackagePath = QFINDTESTDATA("data/testpackage");
-    m_fallbackPkg = Plasma::Package(new Plasma::GenericPackage);
+    m_fallbackPkg = KPackage::Package(new KPackage::GenericPackage);
     m_fallbackPkg.setPath(m_fallPackagePath);
 
     m_packagePath = QFINDTESTDATA("data/testfallbackpackage");
-    m_pkg = Plasma::Package(new Plasma::GenericPackage);
+    m_pkg = KPackage::Package(new KPackage::GenericPackage);
     m_pkg.setPath(m_packagePath);
 }
 

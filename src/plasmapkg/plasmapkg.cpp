@@ -49,7 +49,7 @@
 
 static QTextStream cout(stdout);
 
-namespace Plasma
+namespace KPackage
 {
 class PlasmaPkgPrivate
 {
@@ -59,8 +59,8 @@ public:
     QString package;
     QString servicePrefix;
     QStringList pluginTypes;
-    Plasma::PackageStructure *structure;
-    Plasma::Package *installer;
+    KPackage::PackageStructure *structure;
+    KPackage::Package *installer;
     KPluginInfo metadata;
     QString installPath;
     void output(const QString &msg);
@@ -88,10 +88,10 @@ PlasmaPkg::~PlasmaPkg()
 
 void PlasmaPkg::runMain()
 {
-    Plasma::PackageStructure *structure = new Plasma::PackageStructure;
+    KPackage::PackageStructure *structure = new KPackage::PackageStructure;
     if (d->parser->isSet("hash")) {
         const QString path = d->parser->value("hash");
-        Plasma::Package package(structure);
+        KPackage::Package package(structure);
         package.setPath(path);
         const QString hash = package.contentsHash();
         if (hash.isEmpty()) {
@@ -139,7 +139,7 @@ void PlasmaPkg::runMain()
                                       type.compare(i18nc("package type", "wallpaper"), Qt::CaseInsensitive) == 0 ||
                                       type.compare("wallpaper", Qt::CaseInsensitive) == 0)) {
         // Check type for common plasma packages
-        Plasma::Package package(structure);
+        KPackage::Package package(structure);
         QString serviceType;
         if (d->parser->isSet("remove")) {
             package.setPath(d->package);
@@ -266,7 +266,7 @@ void PlasmaPkg::runMain()
         KService::Ptr offer = offers.first();
         QString error;
 
-        d->installer = new Plasma::Package(offer->createInstance<Plasma::PackageStructure>(0, QVariantList(), &error));
+        d->installer = new KPackage::Package(offer->createInstance<KPackage::PackageStructure>(0, QVariantList(), &error));
 
         if (!d->installer) {
             d->coutput(i18n("Could not load installer for package of type %1. Error reported was: %2",
@@ -292,7 +292,7 @@ void PlasmaPkg::runMain()
         // install, remove or upgrade
         if (!d->installer) {
 
-            d->installer = new Plasma::Package(new Plasma::PackageStructure());
+            d->installer = new KPackage::Package(new KPackage::PackageStructure());
             d->installer->setServicePrefix(d->servicePrefix);
         }
 
@@ -301,7 +301,7 @@ void PlasmaPkg::runMain()
         if (d->parser->isSet("remove") || d->parser->isSet("upgrade")) {
             QString pkgPath;
             foreach (const QString &t, d->pluginTypes) {
-                Plasma::Package pkg = Plasma::PluginLoader::self()->loadPackage(t);
+                KPackage::Package pkg = KPackage::PluginLoader::self()->loadPackage(t);
                 pkg.setPath(d->package);
                 if (pkg.isValid()) {
                     pkgPath = pkg.path();
@@ -460,7 +460,7 @@ void PlasmaPkg::showPackageInfo(const QString &pluginName)
     if (!d->pluginTypes.contains(type) && d->pluginTypes.count() > 0) {
         type = d->pluginTypes.at(0);
     }
-    Plasma::Package pkg = Plasma::PluginLoader::self()->loadPackage(type);
+    KPackage::Package pkg = KPackage::PluginLoader::self()->loadPackage(type);
 
     pkg.setDefaultPackageRoot(d->packageRoot);
 
@@ -596,7 +596,7 @@ void PlasmaPkgPrivate::listTypes()
         foreach (const KService::Ptr service, offers) {
             KPluginInfo info(service);
             //const QString proot = "";
-            //Plasma::PackageStructure* structure = Plasma::PackageStructure::load(info.pluginName());
+            //KPackage::PackageStructure* structure = KPackage::PackageStructure::load(info.pluginName());
             QString name = info.name();
             QString comment = info.comment();
             QString plugin = info.pluginName();
@@ -613,14 +613,14 @@ void PlasmaPkgPrivate::listTypes()
 
     if (!desktopFiles.isEmpty()) {
         coutput(i18n("Provided by .desktop files:"));
-        Plasma::PackageStructure structure;
+        KPackage::PackageStructure structure;
         QMap<QString, QStringList> plugins;
         foreach (const QString &file, desktopFiles) {
             // extract the type
             KConfig config(file, KConfig::SimpleConfig);
 #pragma message("read config here")
             // structure.read(&config);
-            // get the name based on the rc file name, just as Plasma::PackageStructure does
+            // get the name based on the rc file name, just as KPackage::PackageStructure does
             const QString name = file.left(file.length() - 2);
             //plugins.insert(name, QStringList() << structure.type() << structure.defaultPackageRoot());
         }
@@ -663,7 +663,7 @@ void PlasmaPkg::packageUninstalled(KJob *job)
     exit(exitcode);
 }
 
-} // namespace Plasma
+} // namespace KPackage
 
 #include "moc_plasmapkg.cpp"
 

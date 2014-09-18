@@ -24,7 +24,7 @@
 #include "kjob.h"
 #include <QThread>
 
-namespace Plasma
+namespace KPackage
 {
 
 class PackageJobThreadPrivate;

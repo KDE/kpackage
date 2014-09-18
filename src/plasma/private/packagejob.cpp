@@ -23,7 +23,7 @@
 
 #include <QDebug>
 
-namespace Plasma
+namespace KPackage
 {
 class PackageJobPrivate
 {
@@ -75,6 +75,6 @@ void PackageJob::uninstall(const QString &installationPath)
     d->thread->uninstall(installationPath);
 }
 
-} // namespace Plasma
+} // namespace KPackage
 
 #include "moc_packagejob_p.cpp"

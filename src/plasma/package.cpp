@@ -41,7 +41,7 @@
 //#include "private/packages_p.h"
 #include "private/packagejob_p.h"
 
-namespace Plasma
+namespace KPackage
 {
 
 Package::Package(PackageStructure *structure)
@@ -188,7 +188,7 @@ void Package::setDefaultPackageRoot(const QString &packageRoot)
     }
 }
 
-void Package::setFallbackPackage(const Plasma::Package &package)
+void Package::setFallbackPackage(const KPackage::Package &package)
 {
     if ((d->fallbackPackage && d->fallbackPackage->path() == package.path() && d->fallbackPackage->metadata() == package.metadata()) ||
         //can't be fallback of itself
@@ -200,7 +200,7 @@ void Package::setFallbackPackage(const Plasma::Package &package)
     d->fallbackPackage = new Package(package);
 }
 
-Plasma::Package Package::fallbackPackage() const
+KPackage::Package Package::fallbackPackage() const
 {
     if (d->fallbackPackage) {
         return (*d->fallbackPackage);
@@ -915,7 +915,7 @@ QString PackagePrivate::fallbackFilePath(const char *key, const QString &filenam
     }
 }
 
-bool PackagePrivate::hasCycle(const Plasma::Package &package)
+bool PackagePrivate::hasCycle(const KPackage::Package &package)
 {
     if (!package.d->fallbackPackage) {
         return false;
@@ -923,8 +923,8 @@ bool PackagePrivate::hasCycle(const Plasma::Package &package)
 
     //This is the Floyd cycle detection algorithm
     //http://en.wikipedia.org/wiki/Cycle_detection#Tortoise_and_hare
-    Plasma::Package *slowPackage = const_cast<Plasma::Package *>(&package);
-    Plasma::Package *fastPackage = const_cast<Plasma::Package *>(&package);
+    KPackage::Package *slowPackage = const_cast<KPackage::Package *>(&package);
+    KPackage::Package *fastPackage = const_cast<KPackage::Package *>(&package);
 
     while (fastPackage && fastPackage->d->fallbackPackage) {
         //consider two packages the same if they have the same metadata

@@ -23,7 +23,7 @@
 #include <plasma/package.h>
 #include <kplugininfo.h>
 
-namespace Plasma
+namespace KPackage
 {
 
 class PluginLoaderPrivate;
@@ -79,7 +79,7 @@ protected:
      * @param args a list of arguments to supply to the service plugin when loading it
      * @param parent the parent object, if any, for the service
      *
-     * @return a Service object, unlike Plasma::Service::loadService, this can return null.
+     * @return a Service object, unlike KPackage::Service::loadService, this can return null.
      **/
     virtual Package internalLoadPackage(const QString &name, const QString &specialization);
 
@@ -92,6 +92,6 @@ private:
 
 }
 
-Q_DECLARE_METATYPE(Plasma::PluginLoader *)
+Q_DECLARE_METATYPE(KPackage::PluginLoader *)
 
 #endif

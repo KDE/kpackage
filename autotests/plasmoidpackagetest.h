@@ -48,8 +48,8 @@ private:
     QString m_packageRoot;
     QString m_package;
     KJob *m_packageJob;
-    Plasma::Package m_defaultPackage;
-    Plasma::PackageStructure *m_defaultPackageStructure;
+    KPackage::Package m_defaultPackage;
+    KPackage::PackageStructure *m_defaultPackageStructure;
 };
 
 #endif

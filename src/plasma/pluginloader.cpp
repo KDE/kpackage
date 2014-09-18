@@ -34,7 +34,7 @@
 #include "package.h"
 #include "packagestructure.h"
 
-namespace Plasma
+namespace KPackage
 {
 
 static PluginLoader *s_pluginLoader = 0;
@@ -181,7 +181,7 @@ Package PluginLoader::loadPackage(const QString &packageFormat, const QString &s
 
     // first we check for plugins in sycoca
     const QString constraint = QString("[X-KDE-PluginInfo-Name] == '%1'").arg(packageFormat);
-    structure = KPluginTrader::createInstanceFromQuery<Plasma::PackageStructure>(d->packageStructurePluginDir, "Plasma/PackageStructure", constraint, 0);
+    structure = KPluginTrader::createInstanceFromQuery<KPackage::PackageStructure>(d->packageStructurePluginDir, "Plasma/PackageStructure", constraint, 0);
     if (structure) {
         d->structures.insert(hashkey, structure);
         return Package(structure);

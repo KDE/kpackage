@@ -36,8 +36,8 @@ private Q_SLOTS:
 
 
 private:
-    Plasma::Package m_pkg;
-    Plasma::Package m_fallbackPkg;
+    KPackage::Package m_pkg;
+    KPackage::Package m_fallbackPkg;
     QString m_packagePath;
     QString m_fallPackagePath;
 };

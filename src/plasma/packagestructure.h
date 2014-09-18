@@ -28,7 +28,7 @@
 #include <plasma/package.h>
 #include <plasma/version.h>
 
-namespace Plasma
+namespace KPackage
 {
 
 class PackageStructurePrivate;
@@ -64,7 +64,7 @@ public:
 
     /**
      * Installs a package matching this package structure. By default installs a
-     * native Plasma::Package.
+     * native KPackage::Package.
      *
      * @param package the instance of Package that is being used for the install; useful for
      * accessing file paths

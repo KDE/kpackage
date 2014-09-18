@@ -26,7 +26,7 @@
 class QCommandLineParser;
 class KJob;
 
-namespace Plasma
+namespace KPackage
 {
 
 class PlasmaPkgPrivate;

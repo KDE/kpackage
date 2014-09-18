@@ -28,7 +28,7 @@
 
 class KJob;
 
-namespace Plasma
+namespace KPackage
 {
 
 /**
@@ -296,12 +296,12 @@ public:
      * It is intended to be used by the packageStructure
      * @param path package root path @see setPath
      */
-    void setFallbackPackage(const Plasma::Package &package);
+    void setFallbackPackage(const KPackage::Package &package);
 
     /**
      * @return The fallback package root path
      */
-    Plasma::Package fallbackPackage() const;
+    KPackage::Package fallbackPackage() const;
 
     // Content structure description methods
     /**
@@ -326,7 +326,7 @@ public:
 
     /**
      * Installs a package matching this package structure. By default installs a
-     * native Plasma::Package.
+     * native KPackage::Package.
      *
      * @return KJob to track installation progress and result
      **/
@@ -346,6 +346,6 @@ private:
 
 }
 
-Q_DECLARE_METATYPE(Plasma::Package)
+Q_DECLARE_METATYPE(KPackage::Package)
 #endif
 

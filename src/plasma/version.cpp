@@ -20,7 +20,7 @@
 #include <plasma/version.h>
 #include <QDebug>
 
-namespace Plasma
+namespace KPackage
 {
 
 unsigned int version()
