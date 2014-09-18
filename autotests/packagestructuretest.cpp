@@ -25,7 +25,7 @@
 #include <klocalizedstring.h>
 
 #include "packagestructure.h"
-#include "pluginloader.h"
+#include "packagetrader.h"
 #include "genericstructure.h"
 
 class NoPrefixes : public KPackage::Package
@@ -53,14 +53,14 @@ void PackageStructureTest::validStructures()
 {
     QVERIFY(ps.hasValidStructure());
     QVERIFY(!KPackage::Package().hasValidStructure());
-    QVERIFY(!KPackage::PluginLoader::self()->loadPackage("doesNotExist").hasValidStructure());
+    QVERIFY(!KPackage::PackageTrader::self()->loadPackage("doesNotExist").hasValidStructure());
 }
 
 void PackageStructureTest::validPackages()
 {
     QVERIFY(ps.isValid());
     QVERIFY(!KPackage::Package().isValid());
-    QVERIFY(!KPackage::PluginLoader::self()->loadPackage("doesNotExist").isValid());
+    QVERIFY(!KPackage::PackageTrader::self()->loadPackage("doesNotExist").isValid());
     QVERIFY(NoPrefixes().isValid());
 
     KPackage::Package p = KPackage::Package(new KPackage::GenericPackage);

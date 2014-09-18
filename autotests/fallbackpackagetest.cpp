@@ -24,7 +24,7 @@
 #include <QDebug>
 
 #include "packagestructure.h"
-#include "pluginloader.h"
+#include "packagetrader.h"
 #include "genericstructure.h"
 
 void FallbackPackageTest::initTestCase()

@@ -26,13 +26,13 @@
 namespace KPackage
 {
 
-class PluginLoaderPrivate;
+class PackageTraderPrivate;
 
 /**
  * This is an abstract base class which defines an interface to which Plasma's
  * Applet Loading logic can communicate with a parent application. The plugin loader
  * must be set before any plugins are loaded, otherwise (for safety reasons), the
- * default PluginLoader implementation will be used. The reimplemented version should
+ * default PackageTrader implementation will be used. The reimplemented version should
  * not do more than simply returning a loaded plugin. It should not init() it, and it should not
  * hang on to it. The associated methods will be called only when a component of Plasma
  * needs to load a _new_ plugin. (e.g. DataEngine does its own caching).
@@ -40,7 +40,7 @@ class PluginLoaderPrivate;
  * @author Ryan Rix <ry@n.rix.si>
  * @since 4.6
  **/
-class PACKAGE_EXPORT PluginLoader
+class PACKAGE_EXPORT PackageTrader
 {
 public:
     /**
@@ -56,15 +56,15 @@ public:
     /**
      * Set the plugin loader which will be queried for all loads.
      *
-     * @param loader A subclass of PluginLoader which will be supplied
+     * @param loader A subclass of PackageTrader which will be supplied
      * by the application
      **/
-    static void setPluginLoader(PluginLoader *loader);
+    static void setPackageTrader(PackageTrader *loader);
 
     /**
      * Return the active plugin loader
      **/
-    static PluginLoader *self();
+    static PackageTrader *self();
 
 protected:
 
@@ -83,15 +83,15 @@ protected:
      **/
     virtual Package internalLoadPackage(const QString &name, const QString &specialization);
 
-    PluginLoader();
-    virtual ~PluginLoader();
+    PackageTrader();
+    virtual ~PackageTrader();
 
 private:
-    PluginLoaderPrivate *const d;
+    PackageTraderPrivate *const d;
 };
 
 }
 
-Q_DECLARE_METATYPE(KPackage::PluginLoader *)
+Q_DECLARE_METATYPE(KPackage::PackageTrader *)
 
 #endif

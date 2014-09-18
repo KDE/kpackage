@@ -30,7 +30,7 @@
 
 #include <plasma/packagestructure.h>
 #include <plasma/package.h>
-#include <plasma/pluginloader.h>
+#include <plasma/packagetrader.h>
 #include <kjob.h>
 
 #include <qcommandlineparser.h>
@@ -301,7 +301,7 @@ void PlasmaPkg::runMain()
         if (d->parser->isSet("remove") || d->parser->isSet("upgrade")) {
             QString pkgPath;
             foreach (const QString &t, d->pluginTypes) {
-                KPackage::Package pkg = KPackage::PluginLoader::self()->loadPackage(t);
+                KPackage::Package pkg = KPackage::PackageTrader::self()->loadPackage(t);
                 pkg.setPath(d->package);
                 if (pkg.isValid()) {
                     pkgPath = pkg.path();
@@ -460,7 +460,7 @@ void PlasmaPkg::showPackageInfo(const QString &pluginName)
     if (!d->pluginTypes.contains(type) && d->pluginTypes.count() > 0) {
         type = d->pluginTypes.at(0);
     }
-    KPackage::Package pkg = KPackage::PluginLoader::self()->loadPackage(type);
+    KPackage::Package pkg = KPackage::PackageTrader::self()->loadPackage(type);
 
     pkg.setDefaultPackageRoot(d->packageRoot);
 

@@ -17,7 +17,7 @@
  *   51 Franklin Street, Fifth Floor, Boston, MA  02110-1301, USA.
  */
 
-#include "pluginloader.h"
+#include "packagetrader.h"
 
 #include <QStandardPaths>
 
@@ -37,12 +37,12 @@
 namespace KPackage
 {
 
-static PluginLoader *s_pluginLoader = 0;
+static PackageTrader *s_packageTrader = 0;
 
-class PluginLoaderPrivate
+class PackageTraderPrivate
 {
 public:
-    PluginLoaderPrivate()
+    PackageTraderPrivate()
         : isDefaultLoader(false),
           packageStructurePluginDir("plasma/packagestructure"),
           packageRE("[^a-zA-Z0-9\\-_]")
@@ -59,9 +59,9 @@ public:
     QRegExp packageRE;
 };
 
-QSet<QString> PluginLoaderPrivate::s_customCategories;
+QSet<QString> PackageTraderPrivate::s_customCategories;
 
-QSet<QString> PluginLoaderPrivate::knownCategories()
+QSet<QString> PackageTraderPrivate::knownCategories()
 {
     // this is to trick the tranlsation tools into making the correct
     // strings for translation
@@ -89,7 +89,7 @@ QSet<QString> PluginLoaderPrivate::knownCategories()
     return categories;
 }
 
-QString PluginLoaderPrivate::parentAppConstraint(const QString &parentApp)
+QString PackageTraderPrivate::parentAppConstraint(const QString &parentApp)
 {
     if (parentApp.isEmpty()) {
         QCoreApplication *app = QCoreApplication::instance();
@@ -104,12 +104,12 @@ QString PluginLoaderPrivate::parentAppConstraint(const QString &parentApp)
     return QString("[X-KDE-ParentApp] == '%1'").arg(parentApp);
 }
 
-PluginLoader::PluginLoader()
-    : d(new PluginLoaderPrivate)
+PackageTrader::PackageTrader()
+    : d(new PackageTraderPrivate)
 {
 }
 
-PluginLoader::~PluginLoader()
+PackageTrader::~PackageTrader()
 {
     typedef QWeakPointer<PackageStructure> pswp;
     foreach (pswp wp, d->structures) {
@@ -118,31 +118,31 @@ PluginLoader::~PluginLoader()
     delete d;
 }
 
-void PluginLoader::setPluginLoader(PluginLoader *loader)
+void PackageTrader::setPackageTrader(PackageTrader *loader)
 {
-    if (!s_pluginLoader) {
-        s_pluginLoader = loader;
+    if (!s_packageTrader) {
+        s_packageTrader = loader;
     } else {
 #ifndef NDEBUG
-        // qDebug() << "Cannot set pluginLoader, already set!" << s_pluginLoader;
+        // qDebug() << "Cannot set packageTrader, already set!" << s_packageTrader;
 #endif
     }
 }
 
-PluginLoader *PluginLoader::self()
+PackageTrader *PackageTrader::self()
 {
-    if (!s_pluginLoader) {
-        // we have been called before any PluginLoader was set, so just use the default
+    if (!s_packageTrader) {
+        // we have been called before any PackageTrader was set, so just use the default
         // implementation. this prevents plugins from nefariously injecting their own
         // plugin loader if the app doesn't
-        s_pluginLoader = new PluginLoader;
-        s_pluginLoader->d->isDefaultLoader = true;
+        s_packageTrader = new PackageTrader;
+        s_packageTrader->d->isDefaultLoader = true;
     }
 
-    return s_pluginLoader;
+    return s_packageTrader;
 }
 
-Package PluginLoader::loadPackage(const QString &packageFormat, const QString &specialization)
+Package PackageTrader::loadPackage(const QString &packageFormat, const QString &specialization)
 {
     if (!d->isDefaultLoader) {
         Package p = internalLoadPackage(packageFormat, specialization);
@@ -194,7 +194,7 @@ Package PluginLoader::loadPackage(const QString &packageFormat, const QString &s
     return Package();
 }
 
-Package PluginLoader::internalLoadPackage(const QString &name, const QString &specialization)
+Package PackageTrader::internalLoadPackage(const QString &name, const QString &specialization)
 {
     Q_UNUSED(name);
     Q_UNUSED(specialization);
