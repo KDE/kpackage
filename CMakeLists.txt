@@ -42,10 +42,10 @@ find_package(KF5Archive ${KF5_DEP_VERSION} REQUIRED)
 find_package(KF5I18n ${KF5_DEP_VERSION} REQUIRED)
 find_package(KF5Service ${KF5_DEP_VERSION} REQUIRED)
 
-find_package(KF5DocTools ${KF5_DEP_VERSION})
-set_package_properties(KF5DocTools PROPERTIES DESCRIPTION "Tools to generate documentation"
-                       TYPE OPTIONAL
-                      )
+#find_package(KF5DocTools ${KF5_DEP_VERSION})
+#set_package_properties(KF5DocTools PROPERTIES DESCRIPTION "Tools to generate documentation"
+#                       TYPE OPTIONAL
+#                      )
 
 #########################################################################
 
