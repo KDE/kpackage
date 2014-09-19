@@ -1,0 +1,14 @@
+[Desktop Entry]
+Type=ServiceType
+X-KDE-ServiceType=KPackage/PackageStructure
+Comment=KPackage package structure definition
+
+[PropertyDef::X-KPackage-PackageFileFilter]
+Type=QString
+
+[PropertyDef::X-KPackage-PackageFileMimetypes]
+Type=QStringList
+
+[PropertyDef::X-KPackage-ProvidesWidgetBrowser]
+Type=bool
+

@@ -75,7 +75,7 @@ install(DIRECTORY
 
 
 install(FILES
-   data/servicetypes/plasma-packagestructure.desktop
+   data/servicetypes/kpackage-packagestructure.desktop
    DESTINATION ${SERVICETYPES_INSTALL_DIR})
 
 
