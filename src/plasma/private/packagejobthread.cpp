@@ -37,7 +37,6 @@
 #include <QMimeType>
 #include <QMimeDatabase>
 #include <QRegExp>
-#include <QtNetwork/QHostInfo>
 #include <qtemporarydir.h>
 
 #include <QDebug>
