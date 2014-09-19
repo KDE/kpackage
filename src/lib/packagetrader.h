@@ -20,7 +20,7 @@
 #ifndef PLUGIN_LOADER_H
 #define PLUGIN_LOADER_H
 
-#include <plasma/package.h>
+#include <package/package.h>
 #include <kplugininfo.h>
 
 namespace KPackage

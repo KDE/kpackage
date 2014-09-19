@@ -22,7 +22,7 @@
 
 #include <QtTest/QtTest>
 
-#include "plasma/package.h"
+#include "package/package.h"
 
 class FallbackPackageTest : public QObject
 {

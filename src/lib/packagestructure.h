@@ -25,8 +25,8 @@
 #include <kplugininfo.h>
 
 #include <package/package_export.h>
-#include <plasma/package.h>
-#include <plasma/version.h>
+#include <package/package.h>
+#include <package/version.h>
 
 namespace KPackage
 {
