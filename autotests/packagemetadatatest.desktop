@@ -1,16 +1,6 @@
 [Desktop Entry]
 Name=Package metadata test file
-Name[fr]=Fichier de test de métadonnées de paquets
-Name[pt]=Ficheiro de testes de meta-dados dos pacotes
-Name[sv]=Testfil för paketmetadata
-Name[uk]=Тестовий файл метаданих пакунка
-Name[x-test]=xxPackage metadata test filexx
 Comment=A test desktop file to test the PackageMetaData class.
-Comment[fr]=Un fichier « desktop » de test pour tester la classe PackageMetaData.
-Comment[pt]=Um ficheiro '.desktop' de testes para testar a classe PackageMetaData.
-Comment[sv]=En skrivbordsfil för att testa klassen PackageMetaData.
-Comment[uk]=Тестовий стільничний файл для перевірки класу PackageMetaData.
-Comment[x-test]=xxA test desktop file to test the PackageMetaData class.xx
 
 Icon=test
 Type=Service
