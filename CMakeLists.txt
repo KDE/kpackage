@@ -105,7 +105,7 @@ include_directories(${CMAKE_CURRENT_BINARY_DIR})
 ################# list the subdirectories #################
 if (KF5DocTools_FOUND)
 endif()
-add_definitions(-DTRANSLATION_DOMAIN=\"libpackage5\")
+add_definitions(-DTRANSLATION_DOMAIN=\"libkpackage5\")
 if (IS_DIRECTORY "${CMAKE_CURRENT_SOURCE_DIR}/po")
     ki18n_install(po)
     kdoctools_install(po)
