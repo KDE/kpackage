@@ -1,6 +1,20 @@
 [Desktop Entry]
 Name=Package metadata test file
+Name[ca]=Fitxer de proves per a les metadades del paquet
+Name[hu]=Tesztfájl csomagok metaadatához
+Name[pt]=Ficheiro de testes de meta-dados dos pacotes
+Name[pt_BR]=Arquivo de teste dos metadados do pacote
+Name[sv]=Testfil för paketmetadata
+Name[uk]=Тестовий файл метаданих пакунка
+Name[x-test]=xxPackage metadata test filexx
 Comment=A test desktop file to test the PackageMetaData class.
+Comment[ca]=Un fitxer d'escriptori de proves per provar la classe «PackageMetaData».
+Comment[hu]=Teszt .desktop fájl a PackageMetaData osztály teszteléséhez.
+Comment[pt]=Um ficheiro 'desktop' de testes da classe PackageMetaData.
+Comment[pt_BR]=Um arquivo desktop de testes para a classe PackageMetaData.
+Comment[sv]=En skrivbordsfil för att testa klassen PackageMetaData.
+Comment[uk]=Тестовий стільничний файл для перевірки класу PackageMetaData.
+Comment[x-test]=xxA test desktop file to test the PackageMetaData class.xx
 
 Icon=test
 Type=Service

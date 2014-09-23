@@ -2,6 +2,13 @@
 Type=ServiceType
 X-KDE-ServiceType=KPackage/PackageStructure
 Comment=KPackage package structure definition
+Comment[ca]=Definició de l'estructura d'un paquet de KPackage
+Comment[hu]=KPackage csomag struktúradefiníció
+Comment[pt]=Definição de estrutura de pacotes do KPackage
+Comment[pt_BR]=Definição de estrutura de pacote do KPackage
+Comment[sv]=Kpackage strukturdefinition av paket
+Comment[uk]=Визначення структури пакунка KPackage
+Comment[x-test]=xxKPackage package structure definitionxx
 
 [PropertyDef::X-KPackage-PackageFileFilter]
 Type=QString
