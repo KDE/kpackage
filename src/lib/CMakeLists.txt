@@ -58,6 +58,7 @@ ecm_generate_headers(Package_CamelCase_HEADERS
     HEADER_NAMES
         Package
         PackageStructure
+        PackageTrader
     REQUIRED_HEADERS Package_HEADERS
     PREFIX Package
 )
