@@ -17,8 +17,10 @@
  *   51 Franklin Street, Fifth Floor, Boston, MA  02110-1301, USA.
  */
 
-#include <plasma/version.h>
+#include <package/version.h>
 #include <QDebug>
+
+#define PACKAGE_MAKE_VERSION(MAJOR, MINOR, PATCH) (MAJOR << 16) | (MINOR << 8) | (PATCH << 0)
 
 namespace KPackage
 {
@@ -72,5 +74,5 @@ bool isPluginVersionCompatible(unsigned int version)
     return true;
 }
 
-} // Plasma namespace
+} // namespace
 

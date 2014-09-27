@@ -19,6 +19,7 @@ set(Package_LIB_SRCS
     packagetrader.cpp
     private/packagejob.cpp
     private/packagejobthread.cpp
+    version.cpp
 )
 
 
