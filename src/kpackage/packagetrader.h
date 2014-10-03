@@ -17,11 +17,13 @@
  *   51 Franklin Street, Fifth Floor, Boston, MA  02110-1301, USA.
  */
 
-#ifndef PLUGIN_LOADER_H
-#define PLUGIN_LOADER_H
+#ifndef PACKAGE_TRADER_H
+#define PACKAGE_TRADER_H
 
 #include <kpackage/package.h>
 #include <kplugininfo.h>
+
+#include <kpackage/package_export.h>
 
 namespace KPackage
 {
