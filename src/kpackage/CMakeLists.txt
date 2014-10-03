@@ -53,25 +53,25 @@ set_target_properties(KF5Package PROPERTIES
 ########### install files ###############
 generate_export_header(KF5Package
     BASE_NAME Package
-    EXPORT_FILE_NAME package/package_export.h)
+    EXPORT_FILE_NAME kpackage/package_export.h)
 ecm_generate_headers(Package_CamelCase_HEADERS
     HEADER_NAMES
         Package
         PackageStructure
         PackageTrader
     REQUIRED_HEADERS Package_HEADERS
-    PREFIX Package
+    PREFIX KPackage
 )
 
 
 install(FILES
         ${Package_HEADERS}
-        ${CMAKE_CURRENT_BINARY_DIR}/package/package_export.h
+        ${CMAKE_CURRENT_BINARY_DIR}/kpackage/package_export.h
         version.h
-        DESTINATION ${KF5_INCLUDE_INSTALL_DIR}/package COMPONENT Devel)
+        DESTINATION ${KF5_INCLUDE_INSTALL_DIR}/kpackage COMPONENT Devel)
 
 install(DIRECTORY
-        ${CMAKE_CURRENT_BINARY_DIR}/Package
+        ${CMAKE_CURRENT_BINARY_DIR}/KPackage
         DESTINATION ${KF5_INCLUDE_INSTALL_DIR} COMPONENT Devel)
 
 

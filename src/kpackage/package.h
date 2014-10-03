@@ -24,7 +24,7 @@
 
 #include <kplugininfo.h>
 
-#include <package/package_export.h>
+#include <kpackage/package_export.h>
 
 class KJob;
 

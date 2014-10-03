@@ -20,7 +20,7 @@
 #ifndef PLUGIN_LOADER_H
 #define PLUGIN_LOADER_H
 
-#include <package/package.h>
+#include <kpackage/package.h>
 #include <kplugininfo.h>
 
 namespace KPackage

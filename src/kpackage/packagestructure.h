@@ -24,9 +24,9 @@
 
 #include <kplugininfo.h>
 
-#include <package/package_export.h>
-#include <package/package.h>
-#include <package/version.h>
+#include <kpackage/package_export.h>
+#include <kpackage/package.h>
+#include <kpackage/version.h>
 
 namespace KPackage
 {

@@ -17,7 +17,8 @@
  *   51 Franklin Street, Fifth Floor, Boston, MA  02110-1301, USA.
  */
 
-#include <package/version.h>
+#include <kpackage/version.h>
+
 #include <QDebug>
 
 #define PACKAGE_MAKE_VERSION(MAJOR, MINOR, PATCH) (MAJOR << 16) | (MINOR << 8) | (PATCH << 0)
