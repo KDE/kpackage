@@ -18,7 +18,7 @@
 *******************************************************************************/
 
 #include "plasmoidpackagetest.h"
-#include "../config-package.h"
+#include "../src/kpackage/config-package.h"
 
 #include <QDir>
 #include <QFile>
