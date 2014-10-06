@@ -22,7 +22,7 @@
 
 /** @file plasma/version.h <Plasma/Version> */
 
-#include <package/package_export.h>
+#include <kpackage/package_export.h>
 #include <package_version.h>
 
 #define PACKAGE_MAKE_VERSION(a,b,c) (((a) << 16) | ((b) << 8) | (c))
