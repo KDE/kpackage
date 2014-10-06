@@ -16,12 +16,12 @@ include(ECMPackageConfigHelpers)
 include(ECMSetupVersion)
 include(KDEFrameworkCompilerSettings)
 
-set(KF5_VERSION "5.2.0") # handled by release scripts
-set(KF5_DEP_VERSION "5.2.0") # handled by release scripts
+set(KF5_VERSION "5.3.0") # handled by release scripts
+set(KF5_DEP_VERSION "5.3.0") # handled by release scripts
 
 ecm_setup_version(${KF5_VERSION}
                   VARIABLE_PREFIX PACKAGE
-                  VERSION_HEADER "${CMAKE_CURRENT_BINARY_DIR}/package/version.h"
+                  VERSION_HEADER "${CMAKE_CURRENT_BINARY_DIR}/kpackage_version.h"
                   PACKAGE_VERSION_FILE "${CMAKE_CURRENT_BINARY_DIR}/KF5PackageConfigVersion.cmake"
                   SOVERSION 5)
 
