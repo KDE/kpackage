@@ -21,7 +21,7 @@
 
 #include <QtTest/QtTest>
 
-#include "package/package.h"
+#include "kpackage/package.h"
 
 class PackageStructureTest : public QObject
 {

@@ -22,7 +22,7 @@
 
 #include <QtTest/QtTest>
 
-#include "package/package.h"
+#include "kpackage/package.h"
 
 class FallbackPackageTest : public QObject
 {

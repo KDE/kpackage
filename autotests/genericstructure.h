@@ -20,7 +20,7 @@
 #ifndef LIBS_PLASMA_PACKAGES_P_H
 #define LIBS_PLASMA_PACKAGES_P_H
 
-#include "packagestructure.h"
+#include "kpackage/packagestructure.h"
 
 namespace KPackage
 {

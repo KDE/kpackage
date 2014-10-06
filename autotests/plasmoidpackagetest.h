@@ -21,8 +21,8 @@
 
 #include <QtTest/QtTest>
 
-#include "package/package.h"
-#include "package/packagestructure.h"
+#include "kpackage/package.h"
+#include "kpackage/packagestructure.h"
 
 class PlasmoidPackageTest : public QObject
 {
