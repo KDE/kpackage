@@ -59,6 +59,12 @@ public:
      **/
     Package loadPackage(const QString &packageFormat, const QString &packagePath = QString(), const QString &specialization = QString());
 
+
+    QList<Package> query(const QString &packageFormat,
+                         const QString &constraint = QString(),
+                         const QString &requiredKey = QString(),
+                         const QString &requiredFilename = QString());
+
     /**
      * Set the plugin loader which will be queried for all loads.
      *

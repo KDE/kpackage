@@ -209,6 +209,29 @@ Package PackageTrader::loadPackage(const QString &packageFormat, const QString &
     return Package();
 }
 
+QList<Package> PackageTrader::query(const QString &packageFormat,
+                                    const QString &constraint,
+                                    const QString &requiredKey,
+                                    const QString &requiredFilename)
+{
+    QList<Package> list;
+    KPluginInfo::List plugins = KPluginTrader::self()->query(packageFormat, QString(), constraint);
+
+    foreach (const KPluginInfo &info, plugins) {qWarning()<<"AAAA"<<info.pluginName();
+        Package p = loadPackage(packageFormat, info.pluginName());
+
+        if (!requiredKey.isEmpty()) {
+            if (p.filePath(requiredKey.toLatin1(), requiredFilename).isEmpty()) {
+                continue;
+            }
+        }
+
+        list << p;
+    }
+
+    return list;
+}
+
 Package PackageTrader::internalLoadPackage(const QString &name, const QString &specialization)
 {
     Q_UNUSED(name);

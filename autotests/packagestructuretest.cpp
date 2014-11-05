@@ -1,5 +1,6 @@
 /******************************************************************************
 *   Copyright 2007 by Aaron Seigo <aseigo@kde.org>                            *
+*   Copyright 2014 by Marco Martin <mart@kde.org>                             *
 *                                                                             *
 *   This library is free software; you can redistribute it and/or             *
 *   modify it under the terms of the GNU Library General Public               *
@@ -275,6 +276,12 @@ void PackageStructureTest::mimeTypes()
     mimeTypes << "image/svg+xml" << "image/png" << "image/jpeg";
     QCOMPARE(ps.mimeTypes("images"), mimeTypes);
     QCOMPARE(ps.mimeTypes("theme"), mimeTypes);
+}
+
+void PackageStructureTest::query()
+{
+    QEXPECT_FAIL("", "queries don't work yet", Continue);
+    QCOMPARE(KPackage::PackageTrader::self()->query("KPackage/Generic").count(), 2);
 }
 
 QTEST_MAIN(PackageStructureTest)
