@@ -60,7 +60,7 @@ int main(int argc, char **argv)
                                                 "are recognized by the application "
                                                 "(if translated, should be same as messages with 'package type' context below)",
                                                 "The type of package, e.g. theme, wallpaper, plasmoid, dataengine, runner, layout-template, etc."),
-                                        "type", "plasmoid"));
+                                        "type", "package"));
     parser.addOption(QCommandLineOption(QStringList() << "i" << "install", i18nc("Do not translate <path>", "Install the package at <path>"), "path"));
     parser.addOption(QCommandLineOption(QStringList() << "s" << "show", i18nc("Do not translate <name>", "Show information of package <name>"), "name"));
     parser.addOption(QCommandLineOption(QStringList() << "u" << "upgrade", i18nc("Do not translate <path>", "Upgrade the package at <path>"), "path"));

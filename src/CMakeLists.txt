@@ -1,2 +1,2 @@
 add_subdirectory(kpackage)
-#add_subdirectory(plasmapkg)
+add_subdirectory(kpackagetool)
