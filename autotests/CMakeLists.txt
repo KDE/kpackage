@@ -11,7 +11,7 @@ find_package(KF5CoreAddons REQUIRED)
 
 MACRO(PLASMA_UNIT_TESTS)
        FOREACH(_testname ${ARGN})
-               add_executable(${_testname} genericstructure.cpp ${_testname}.cpp)
+               add_executable(${_testname} plasmoidstructure.cpp ${_testname}.cpp ${CMAKE_CURRENT_SOURCE_DIR}/../src/kpackage/private/packages.cpp)
                target_link_libraries(${_testname} Qt5::Test
                                      KF5::Package KF5::Archive KF5::CoreAddons
                                      KF5::I18n

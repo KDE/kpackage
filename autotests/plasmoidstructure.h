@@ -17,29 +17,14 @@
 *   Boston, MA 02110-1301, USA.                                               *
 *******************************************************************************/
 
-#ifndef LIBS_PLASMA_PACKAGES_P_H
-#define LIBS_PLASMA_PACKAGES_P_H
+#ifndef PLASMOIDSTRUCTURE_P_H
+#define PLASMOIDSTRUCTURE_P_H
 
 #include "kpackage/packagestructure.h"
+#include "../../../src/kpackage/private/packages_p.h"
 
 namespace KPackage
 {
-
-class ChangeableMainScriptPackage : public PackageStructure
-{
-public:
-    void initPackage(Package *package);
-
-protected:
-    virtual QString mainScriptConfigKey() const;
-    void pathChanged(Package *package);
-};
-
-class GenericPackage : public ChangeableMainScriptPackage
-{
-public:
-    void initPackage(Package *package);
-};
 
 class PlasmoidPackage : public GenericPackage
 {

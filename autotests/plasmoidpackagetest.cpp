@@ -29,7 +29,7 @@
 #include <QDebug>
 
 #include "packagetrader.h"
-#include "genericstructure.h"
+#include "plasmoidstructure.h"
 
 void PlasmoidPackageTest::initTestCase()
 {
