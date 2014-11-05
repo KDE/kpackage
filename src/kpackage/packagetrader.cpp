@@ -44,7 +44,7 @@ class PackageTraderPrivate
 public:
     PackageTraderPrivate()
         : isDefaultLoader(false),
-          packageStructurePluginDir("plasma/packagestructure"),
+          packageStructurePluginDir("kpackage/packagestructure"),
           packageRE("[^a-zA-Z0-9\\-_]")
     {
     }
@@ -164,24 +164,17 @@ Package PackageTrader::loadPackage(const QString &packageFormat, const QString &
     if (!specialization.isEmpty()) {
         // check that the provided strings are safe to use in a ServiceType query
         if (d->packageRE.indexIn(specialization) == -1 && d->packageRE.indexIn(packageFormat) == -1) {
-            // FIXME: The query below is rather spepcific to script engines. generify if possible
-            const QString component = packageFormat.right(packageFormat.size() - packageFormat.lastIndexOf('/') - 1);
-            const QString constraint = QString("[X-Plasma-API] == '%1' and " "'%2' in [X-Plasma-ComponentTypes]").arg(specialization, component);
-            KService::List offers = KServiceTypeTrader::self()->query("Plasma/ScriptEngine", constraint);
+            KPluginInfo::List offers = KPluginTrader::self()->query(packageFormat, QString(), specialization);
 
             if (!offers.isEmpty()) {
-                KService::Ptr offer = offers.first();
-                QString packageFormat = offer->property("X-Plasma-PackageFormat").toString();
-                if (!packageFormat.isEmpty()) {
-                    return loadPackage(packageFormat);
-                }
+                return loadPackage(packageFormat);
             }
         }
     }
 
     // first we check for plugins in sycoca
     const QString constraint = QString("[X-KDE-PluginInfo-Name] == '%1'").arg(packageFormat);
-    structure = KPluginTrader::createInstanceFromQuery<KPackage::PackageStructure>(d->packageStructurePluginDir, "Plasma/PackageStructure", constraint, 0);
+    structure = KPluginTrader::createInstanceFromQuery<KPackage::PackageStructure>(d->packageStructurePluginDir, "KPackage/PackageStructure", constraint, 0);
     if (structure) {
         d->structures.insert(hashkey, structure);
         return Package(structure);

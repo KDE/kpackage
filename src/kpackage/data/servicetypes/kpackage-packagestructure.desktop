@@ -25,12 +25,6 @@ Comment[tr]=KPackage paket yapı tanımlaması
 Comment[uk]=Визначення структури пакунка KPackage
 Comment[x-test]=xxKPackage package structure definitionxx
 
-[PropertyDef::X-KPackage-PackageFileFilter]
-Type=QString
 
-[PropertyDef::X-KPackage-PackageFileMimetypes]
-Type=QStringList
 
-[PropertyDef::X-KPackage-ProvidesWidgetBrowser]
-Type=bool
 

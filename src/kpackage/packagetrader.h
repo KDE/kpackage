@@ -49,7 +49,8 @@ public:
      * Load a Package plugin.
      *
      * @param name the plugin name of the package to load
-     * @param specialization used to find script extensions for the given format, e.g. "QML" for "Plasma/Applet"
+     * @param specialization extra constraints in the query, such as
+     *          "[X-Plasma-API] == 'declarativeappletscript'"
      *
      * @return a Package object matching name, or an invalid package on failure
      **/
