@@ -17,8 +17,8 @@
 *   Boston, MA 02110-1301, USA.                                               *
 *******************************************************************************/
 
-#ifndef LIBS_PLASMA_PACKAGES_P_H
-#define LIBS_PLASMA_PACKAGES_P_H
+#ifndef LIBS_KPACKAGE_PACKAGES_P_H
+#define LIBS_KPACKAGE_PACKAGES_P_H
 
 #include "kpackage/packagestructure.h"
 
@@ -40,4 +40,4 @@ public:
 
 
 
-#endif // LIBS_PLASMA_PACKAGES_P_H
+#endif // LIBS_KPACKAGE_PACKAGES_P_H

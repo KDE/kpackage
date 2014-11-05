@@ -26,7 +26,6 @@
 
 #include "packagestructure.h"
 #include "packagetrader.h"
-#include "genericstructure.h"
 
 class NoPrefixes : public KPackage::Package
 {
@@ -45,7 +44,8 @@ public:
 void PackageStructureTest::initTestCase()
 {
     m_packagePath = QFINDTESTDATA("data/testpackage");
-    ps = KPackage::Package(new KPackage::GenericPackage);
+    ps = KPackage::PackageTrader::self()->loadPackage("KPackage/Generic");
+    ps.addFileDefinition("mainscript", "ui/main.qml", i18n("Main Script File"));
     ps.setPath(m_packagePath);
 }
 
@@ -63,7 +63,8 @@ void PackageStructureTest::validPackages()
     QVERIFY(!KPackage::PackageTrader::self()->loadPackage("doesNotExist").isValid());
     QVERIFY(NoPrefixes().isValid());
 
-    KPackage::Package p = KPackage::Package(new KPackage::GenericPackage);
+    KPackage::Package p = KPackage::PackageTrader::self()->loadPackage("KPackage/Generic");
+    p.addFileDefinition("mainscript", "ui/main.qml", i18n("Main Script File"));
     QVERIFY(!p.isValid());
     p.setPath("/does/not/exist");
     QVERIFY(!p.isValid());
