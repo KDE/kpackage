@@ -31,6 +31,7 @@
 
 
 
+#include "private/packages_p.h"
 #include "package.h"
 #include "packagestructure.h"
 
@@ -170,6 +171,12 @@ Package PackageTrader::loadPackage(const QString &packageFormat, const QString &
                 return loadPackage(packageFormat);
             }
         }
+    }
+
+    if (packageFormat == "KPackage/Generic") {
+        structure = new GenericPackage();
+        d->structures.insert(hashkey, structure);
+        return Package(structure);
     }
 
     // first we check for plugins in sycoca
