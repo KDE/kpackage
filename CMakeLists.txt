@@ -42,10 +42,10 @@ find_package(KF5Archive ${KF5_DEP_VERSION} REQUIRED)
 find_package(KF5I18n ${KF5_DEP_VERSION} REQUIRED)
 find_package(KF5Service ${KF5_DEP_VERSION} REQUIRED)
 
-#find_package(KF5DocTools ${KF5_DEP_VERSION})
-#set_package_properties(KF5DocTools PROPERTIES DESCRIPTION "Tools to generate documentation"
-#                       TYPE OPTIONAL
-#                      )
+find_package(KF5DocTools ${KF5_DEP_VERSION})
+set_package_properties(KF5DocTools PROPERTIES DESCRIPTION "Tools to generate documentation"
+                       TYPE OPTIONAL
+                      )
 
 #########################################################################
 
@@ -104,6 +104,7 @@ include_directories(${CMAKE_CURRENT_BINARY_DIR})
 
 ################# list the subdirectories #################
 if (KF5DocTools_FOUND)
+    add_subdirectory(docs)
 endif()
 add_definitions(-DTRANSLATION_DOMAIN=\"libkpackage5\")
 if (IS_DIRECTORY "${CMAKE_CURRENT_SOURCE_DIR}/po")

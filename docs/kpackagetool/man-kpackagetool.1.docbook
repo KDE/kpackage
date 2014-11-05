@@ -5,25 +5,25 @@
 
 <refentry lang="&language;">
 <refentryinfo>
-<title>Plasma Package Manager</title>
+<title>KPackage Manager</title>
 <date>2014-04-25</date>
 <releaseinfo>5.0</releaseinfo>
-<productname>&kde; plasmapkg2</productname>
+<productname>&kde; kpackagetool</productname>
 </refentryinfo>
 
 <refmeta>
-<refentrytitle><command>plasmapkg2</command></refentrytitle>
+<refentrytitle><command>kpackagetool</command></refentrytitle>
 <manvolnum>1</manvolnum>
 </refmeta>
 
 <refnamediv>
-<refname><command>plasmapkg2</command></refname>
+<refname><command>kpackagetool</command></refname>
 <refpurpose>Install, list, remove Plasma packages</refpurpose>
 </refnamediv>
 
 <refsynopsisdiv>
 <cmdsynopsis>
-<command>plasmapkg2</command>
+<command>kpackagetool</command>
 
 <group choice="opt"><option>--hash</option> <replaceable> path</replaceable></group>
 <group choice="opt"><option>-g, --global</option></group>
@@ -42,7 +42,7 @@
 
 <refsect1>
 <title>Description</title>
-<para><command>plasmapkg2</command> is a command line tool to
+<para><command>kpackagetool</command> is a command line tool to
 install, list, remove Plasma packages.</para>
 
 </refsect1>
@@ -110,7 +110,7 @@ url="help:/plasma-desktop">help:/plasma-desktop</ulink>
 
 <refsect1>
 <title>Authors</title>
-<para><command>plasmapkg2</command> was written by
+<para><command>kpackagetool</command> was written by
 <personname><firstname>Aaron</firstname><surname>Seigo</surname></personname> <email>aseigo@kde.org</email>.</para>
 </refsect1>
 
