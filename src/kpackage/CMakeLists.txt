@@ -35,7 +35,6 @@ PUBLIC
 PRIVATE
      KF5::Archive
      KF5::I18n
-     Qt5::DBus
 )
 
 target_include_directories(KF5Package PUBLIC

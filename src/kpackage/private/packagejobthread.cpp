@@ -30,8 +30,6 @@
 #include <kzip.h>
 
 #include <QDir>
-#include <QDBusInterface>
-#include <QDBusPendingCall>
 #include <QFile>
 #include <QIODevice>
 #include <QMimeType>
@@ -307,8 +305,9 @@ bool PackageJobThread::installPackage(const QString &src, const QString &dest)
             d->errorMessage = i18n("Could not register package as service (this is not necessarily fatal): %1", serviceName);
         }
     }
-    QDBusInterface sycoca("org.kde.kded5", "/kbuildsycoca");
-    sycoca.asyncCall("recreate");
+
+    //TODO: Call to recreate the plugin cache here
+
     d->installPath = targetName;
 
     //qWarning() << "Not updating kbuildsycoca4, since that will go away. Do it yourself for now if needed.";
@@ -360,8 +359,8 @@ bool PackageJobThread::uninstallPackage(const QString &packagePath)
         return false;
     }
 
-    QDBusInterface sycoca("org.kde.kded5", "/kbuildsycoca");
-    sycoca.asyncCall("recreate");
+    //TODO: Call to recreate the plugin cache here
+
     return true;
 }
 
