@@ -143,11 +143,14 @@ PackageTrader *PackageTrader::self()
     return s_packageTrader;
 }
 
-Package PackageTrader::loadPackage(const QString &packageFormat, const QString &specialization)
+Package PackageTrader::loadPackage(const QString &packageFormat, const QString &packagePath, const QString &specialization)
 {
     if (!d->isDefaultLoader) {
         Package p = internalLoadPackage(packageFormat, specialization);
         if (p.hasValidStructure()) {
+            if (!packagePath.isEmpty()) {
+                p.setPath(packagePath);
+            }
             return p;
         }
     }
@@ -159,7 +162,11 @@ Package PackageTrader::loadPackage(const QString &packageFormat, const QString &
     const QString hashkey = packageFormat + '%' + specialization;
     PackageStructure *structure = d->structures.value(hashkey).data();
     if (structure) {
-        return Package(structure);
+        Package p(structure);
+        if (!packagePath.isEmpty()) {
+            p.setPath(packagePath);
+        }
+        return p;
     }
 
     if (!specialization.isEmpty()) {
@@ -168,7 +175,7 @@ Package PackageTrader::loadPackage(const QString &packageFormat, const QString &
             KPluginInfo::List offers = KPluginTrader::self()->query(packageFormat, QString(), specialization);
 
             if (!offers.isEmpty()) {
-                return loadPackage(packageFormat);
+                return loadPackage(packageFormat, packagePath);
             }
         }
     }
@@ -176,7 +183,11 @@ Package PackageTrader::loadPackage(const QString &packageFormat, const QString &
     if (packageFormat == "KPackage/Generic") {
         structure = new GenericPackage();
         d->structures.insert(hashkey, structure);
-        return Package(structure);
+        Package p(structure);
+        if (!packagePath.isEmpty()) {
+            p.setPath(packagePath);
+        }
+        return p;
     }
 
     // first we check for plugins in sycoca
@@ -184,7 +195,11 @@ Package PackageTrader::loadPackage(const QString &packageFormat, const QString &
     structure = KPluginTrader::createInstanceFromQuery<KPackage::PackageStructure>(d->packageStructurePluginDir, "KPackage/PackageStructure", constraint, 0);
     if (structure) {
         d->structures.insert(hashkey, structure);
-        return Package(structure);
+        Package p(structure);
+        if (!packagePath.isEmpty()) {
+            p.setPath(packagePath);
+        }
+        return p;
     }
 
 #ifndef NDEBUG

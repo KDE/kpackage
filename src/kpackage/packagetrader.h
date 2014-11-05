@@ -48,13 +48,16 @@ public:
     /**
      * Load a Package plugin.
      *
-     * @param name the plugin name of the package to load
+     * @param packageFormat the format of the package to load
+     * @param packagePath the package name: the path of the package relative to the
+     *        packageFormat root path. If not specified it will have to be set manually
+     *        with Package::setPath() by the caller.
      * @param specialization extra constraints in the query, such as
      *          "[X-Plasma-API] == 'declarativeappletscript'"
      *
      * @return a Package object matching name, or an invalid package on failure
      **/
-    Package loadPackage(const QString &packageFormat, const QString &specialization = QString());
+    Package loadPackage(const QString &packageFormat, const QString &packagePath = QString(), const QString &specialization = QString());
 
     /**
      * Set the plugin loader which will be queried for all loads.
@@ -74,17 +77,18 @@ protected:
     /**
      * A re-implementable method that allows subclasses to override
      * the default behaviour of loadPackage. If the service requested is not recognized,
-     * then the implementation should return a NULL pointer. This method is called
-     * by loadService prior to attempting to load a Service using the standard Plasma
+     * then the implementation should return an empty and invalid Package(). 
+     * This method is called
+     * by loadPackage prior to attempting to load a Package using the standard
      * plugin mechanisms.
      *
-     * @param name the plugin name of the service to load
-     * @param args a list of arguments to supply to the service plugin when loading it
-     * @param parent the parent object, if any, for the service
+     * @param packageFormat the format of the package to load
+     * @param specialization extra constraints in the query, such as
+     *          "[X-Plasma-API] == 'declarativeappletscript'"
      *
-     * @return a Service object, unlike KPackage::Service::loadService, this can return null.
+     * @return a Package instance with the proper PackageStructure
      **/
-    virtual Package internalLoadPackage(const QString &name, const QString &specialization);
+    virtual Package internalLoadPackage(const QString &packageFormat, const QString &specialization);
 
     PackageTrader();
     virtual ~PackageTrader();
