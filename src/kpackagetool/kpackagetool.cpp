@@ -18,7 +18,7 @@
 *   Boston, MA 02110-1301, USA.                                               *
 *******************************************************************************/
 
-#include "plasmapkg.h"
+#include "kpackagetool.h"
 
 #include <QDebug>
 #include <kservice.h>
@@ -530,5 +530,5 @@ void PlasmaPkg::packageUninstalled(KJob *job)
 
 } // namespace KPackage
 
-#include "moc_plasmapkg.cpp"
+#include "moc_kpackagetool.cpp"
 

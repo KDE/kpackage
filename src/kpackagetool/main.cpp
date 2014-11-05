@@ -39,7 +39,7 @@
 #include <qcommandlineparser.h>
 #include <qcommandlineoption.h>
 
-#include "plasmapkg.h"
+#include "kpackagetool.h"
 
 int main(int argc, char **argv)
 {
