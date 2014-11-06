@@ -20,6 +20,7 @@
 #include "packagetrader.h"
 
 #include <QStandardPaths>
+#include <QDirIterator>
 
 #include <QDebug>
 #include <kservice.h>
@@ -209,15 +210,70 @@ Package PackageTrader::loadPackage(const QString &packageFormat, const QString &
     return Package();
 }
 
-QList<Package> PackageTrader::query(const QString &packageFormat,
+KPluginInfo::List PackageTrader::query(const QString &packageFormat,
+                                    const QString &constraint)
+{
+    KPluginInfo::List lst;
+
+
+    QString packageRoot = packageFormat;
+
+    PackageStructure *structure = d->structures.value(packageFormat).data();
+    if (!structure) {
+        if (packageFormat == "KPackage/Generic") {
+            structure = new GenericPackage();
+        }
+    }
+
+    if (!structure) {
+        const QString structConstraint = QString("[X-KDE-PluginInfo-Name] == '%1'").arg(packageFormat);
+        structure = KPluginTrader::createInstanceFromQuery<KPackage::PackageStructure>(d->packageStructurePluginDir, "KPackage/PackageStructure", structConstraint, 0);
+    }
+
+    if (structure) {
+        d->structures.insert(packageFormat, structure);
+        Package p(structure);
+        packageRoot = p.defaultPackageRoot();
+
+    }
+
+    //TODO: case in which defaultpackageroot is absolute
+    for (auto datadir : QStandardPaths::standardLocations(QStandardPaths::GenericDataLocation)) {
+        const QString plugindir = datadir + "/" + packageRoot;
+        //qDebug() << "Not cached";
+        // If there's no cache file, fall back to listing the directory
+        const QDirIterator::IteratorFlags flags = QDirIterator::Subdirectories;
+        const QStringList nameFilters = QStringList(QStringLiteral("metadata.desktop"));
+
+        QDirIterator it(plugindir, nameFilters, QDir::Files, flags);
+        while (it.hasNext()) {
+            it.next();
+            const QString file = it.fileInfo().absoluteFilePath();
+
+            KPluginInfo info(file);
+            if (!info.isValid()) {
+                continue;
+            }
+
+            if (packageFormat.isEmpty() || info.serviceTypes().contains(packageFormat)) {
+                lst << info;
+            }
+        }
+    }
+
+    KPluginTrader::applyConstraints(lst, constraint);
+    return lst;
+}
+
+QList<Package> PackageTrader::packagesFromQuery(const QString &packageFormat,
                                     const QString &constraint,
                                     const QString &requiredKey,
                                     const QString &requiredFilename)
 {
     QList<Package> list;
-    KPluginInfo::List plugins = KPluginTrader::self()->query(packageFormat, QString(), constraint);
+    KPluginInfo::List plugins = query(packageFormat, constraint);
 
-    foreach (const KPluginInfo &info, plugins) {qWarning()<<"AAAA"<<info.pluginName();
+    foreach (const KPluginInfo &info, plugins) {
         Package p = loadPackage(packageFormat, info.pluginName());
 
         if (!requiredKey.isEmpty()) {
@@ -228,7 +284,6 @@ QList<Package> PackageTrader::query(const QString &packageFormat,
 
         list << p;
     }
-
     return list;
 }
 

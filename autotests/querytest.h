@@ -24,30 +24,19 @@
 
 #include "kpackage/package.h"
 
-class PackageStructureTest : public QObject
+class QueryTest : public QObject
 {
     Q_OBJECT
 
 private Q_SLOTS:
     void initTestCase();
-    void validStructures();
-    void validPackages();
-    void copyPerformance();
-    void mutateAfterCopy();
-    void emptyContentsPrefix();
-    void multiplePaths();
-    void directories();
-    void requiredDirectories();
-    void files();
-    void requiredFiles();
-    void path();
-    void name();
-    void required();
-    void mimeTypes();
+    void cleanupTestCase();
+    void install();
+    void query();
 
 private:
     KPackage::Package ps;
-    QString m_packagePath;
+    QDir m_dataDir;
 };
 
 #endif

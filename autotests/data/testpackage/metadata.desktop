@@ -27,6 +27,7 @@ Name[uk]=Тестовий пакунок
 Name[x-test]=xxTest Packagexx
 Type=Service
 
+X-KDE-ServiceTypes=KPackage/Generic
 X-KDE-ParentApp=
 X-KDE-PluginInfo-Author=Joe Blow
 X-KDE-PluginInfo-Category=

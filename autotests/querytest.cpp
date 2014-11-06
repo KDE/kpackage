@@ -18,37 +18,45 @@
 *   Boston, MA 02110-1301, USA.                                               *
 *******************************************************************************/
 
-#ifndef PACKAGESTRUCTURETEST_H
+#include "querytest.h"
 
-#include <QtTest/QtTest>
+#include <kconfig.h>
+#include <kconfiggroup.h>
+#include <QDebug>
+#include <klocalizedstring.h>
 
-#include "kpackage/package.h"
+#include "packagestructure.h"
+#include "packagetrader.h"
 
-class PackageStructureTest : public QObject
+void QueryTest::initTestCase()
 {
-    Q_OBJECT
+    QStandardPaths::setTestModeEnabled(true);
 
-private Q_SLOTS:
-    void initTestCase();
-    void validStructures();
-    void validPackages();
-    void copyPerformance();
-    void mutateAfterCopy();
-    void emptyContentsPrefix();
-    void multiplePaths();
-    void directories();
-    void requiredDirectories();
-    void files();
-    void requiredFiles();
-    void path();
-    void name();
-    void required();
-    void mimeTypes();
+    m_dataDir = QDir(QStandardPaths::writableLocation(QStandardPaths::GenericDataLocation));
+    m_dataDir.removeRecursively();
 
-private:
-    KPackage::Package ps;
-    QString m_packagePath;
-};
+    QVERIFY(m_dataDir.mkpath("."));
 
-#endif
+    ps = KPackage::PackageTrader::self()->loadPackage("KPackage/Generic");
+    ps.addFileDefinition("mainscript", "ui/main.qml", i18n("Main Script File"));
+}
+
+void QueryTest::cleanupTestCase()
+{
+    m_dataDir.removeRecursively();
+}
+
+void QueryTest::install()
+{
+    ps.install(QFINDTESTDATA("data/testpackage"));
+    ps.install(QFINDTESTDATA("data/testfallbackpackage"));
+}
+
+void QueryTest::query()
+{
+    //QEXPECT_FAIL("", "queries don't work yet", Continue);
+    QCOMPARE(KPackage::PackageTrader::self()->query("KPackage/Generic").count(), 2);
+}
+
+QTEST_MAIN(QueryTest)
 

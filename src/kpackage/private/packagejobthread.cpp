@@ -134,6 +134,7 @@ bool PackageJobThread::install(const QString &src, const QString &dest)
 bool PackageJobThread::installPackage(const QString &src, const QString &dest)
 {
     QString packageRoot = dest;
+
     QDir root(dest);
     if (!root.exists()) {
         QDir().mkpath(dest);
@@ -264,7 +265,8 @@ bool PackageJobThread::installPackage(const QString &src, const QString &dest)
         tempdir.setAutoRemove(false);
     }
 
-    if (!d->servicePrefix.isEmpty()) {
+    //FIXME: remove
+    if (0&&!d->servicePrefix.isEmpty()) {
         // and now we register it as a service =)
         QString metaPath = targetName + "/metadata.desktop";
         KDesktopFile df(metaPath);

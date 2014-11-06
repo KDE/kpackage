@@ -771,7 +771,13 @@ QList<const char *> Package::requiredFiles() const
 KJob *Package::install(const QString &sourcePackage, const QString &packageRoot)
 {
     const QString src = sourcePackage;
-    const QString dest = packageRoot.isEmpty() ? defaultPackageRoot() : packageRoot;
+    QString dest = packageRoot.isEmpty() ? defaultPackageRoot() : packageRoot;
+
+    //use absolute paths if passed, otherwise go under share
+    if (!QDir::isAbsolutePath(dest)) {
+        dest = QStandardPaths::writableLocation(QStandardPaths::GenericDataLocation) + "/" + dest;
+    }
+
     //qDebug() << "Source: " << src;
     //qDebug() << "PackageRoot: " << dest;
     KJob *j = d->structure.data()->install(this, src, dest);

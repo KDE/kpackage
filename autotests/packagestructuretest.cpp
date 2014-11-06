@@ -278,11 +278,5 @@ void PackageStructureTest::mimeTypes()
     QCOMPARE(ps.mimeTypes("theme"), mimeTypes);
 }
 
-void PackageStructureTest::query()
-{
-    QEXPECT_FAIL("", "queries don't work yet", Continue);
-    QCOMPARE(KPackage::PackageTrader::self()->query("KPackage/Generic").count(), 2);
-}
-
 QTEST_MAIN(PackageStructureTest)
 
