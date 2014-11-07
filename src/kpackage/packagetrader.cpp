@@ -94,7 +94,7 @@ QSet<QString> PackageTraderPrivate::knownCategories()
 QString PackageTraderPrivate::parentAppConstraint(const QString &parentApp)
 {
     if (parentApp.isEmpty()) {
-        QCoreApplication *app = QCoreApplication::instance();
+        const QCoreApplication *app = QCoreApplication::instance();
         if (!app) {
             return QString();
         }
@@ -181,7 +181,7 @@ Package PackageTrader::loadPackage(const QString &packageFormat, const QString &
         }
     }
 
-    if (packageFormat == "KPackage/Generic") {
+    if (packageFormat == QStringLiteral("KPackage/Generic")) {
         structure = new GenericPackage();
         d->structures.insert(hashkey, structure);
         Package p(structure);
@@ -220,14 +220,15 @@ KPluginInfo::List PackageTrader::query(const QString &packageFormat,
 
     PackageStructure *structure = d->structures.value(packageFormat).data();
     if (!structure) {
-        if (packageFormat == "KPackage/Generic") {
+        if (packageFormat == QStringLiteral("KPackage/Generic")) {
             structure = new GenericPackage();
         }
     }
 
     if (!structure) {
         const QString structConstraint = QString("[X-KDE-PluginInfo-Name] == '%1'").arg(packageFormat);
-        structure = KPluginTrader::createInstanceFromQuery<KPackage::PackageStructure>(d->packageStructurePluginDir, "KPackage/PackageStructure", structConstraint, 0);
+        structure = KPluginTrader::createInstanceFromQuery<KPackage::PackageStructure>(d->packageStructurePluginDir,
+                                                           QStringLiteral("KPackage/PackageStructure"), structConstraint, 0);
     }
 
     if (structure) {
@@ -276,10 +277,8 @@ QList<Package> PackageTrader::packagesFromQuery(const QString &packageFormat,
     foreach (const KPluginInfo &info, plugins) {
         Package p = loadPackage(packageFormat, info.pluginName());
 
-        if (!requiredKey.isEmpty()) {
-            if (p.filePath(requiredKey.toLatin1(), requiredFilename).isEmpty()) {
-                continue;
-            }
+        if (!requiredKey.isEmpty() && p.filePath(requiredKey.toLatin1(), requiredFilename).isEmpty()) {
+            continue;
         }
 
         list << p;
