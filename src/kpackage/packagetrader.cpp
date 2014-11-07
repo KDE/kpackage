@@ -172,7 +172,7 @@ Package PackageTrader::loadPackage(const QString &packageFormat, const QString &
     if (!specialization.isEmpty()) {
         // check that the provided strings are safe to use in a ServiceType query
         if (d->packageRE.indexIn(specialization) == -1 && d->packageRE.indexIn(packageFormat) == -1) {
-            KPluginInfo::List offers = KPluginTrader::self()->query(packageFormat, QString(), specialization);
+            const KPluginInfo::List offers = KPluginTrader::self()->query(packageFormat, QString(), specialization);
 
             if (!offers.isEmpty()) {
                 return loadPackage(packageFormat, packagePath);
@@ -214,7 +214,6 @@ KPluginInfo::List PackageTrader::query(const QString &packageFormat,
 {
     KPluginInfo::List lst;
 
-
     QString packageRoot = packageFormat;
 
     PackageStructure *structure = d->structures.value(packageFormat).data();
@@ -250,7 +249,7 @@ KPluginInfo::List PackageTrader::query(const QString &packageFormat,
             it.next();
             const QString file = it.fileInfo().absoluteFilePath();
 
-            KPluginInfo info(file);
+            const KPluginInfo info(file);
             if (!info.isValid()) {
                 continue;
             }
