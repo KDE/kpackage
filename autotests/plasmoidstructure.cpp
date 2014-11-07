@@ -19,16 +19,7 @@
 
 #include "plasmoidstructure.h"
 
-#include <math.h>
-#include <float.h> // FLT_MAX
-
-#include <QCoreApplication>
-#include <QFileInfo>
-
-#include <kconfiggroup.h>
-#include <kdesktopfile.h>
 #include <klocalizedstring.h>
-
 #include "package.h"
 #include "config-package.h"
 
