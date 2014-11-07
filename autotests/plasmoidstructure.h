@@ -34,4 +34,4 @@ public:
 
 } // namespace KPackage
 
-#endif // LIBS_PLASMA_PACKAGES_P_H
+#endif // PLASMOIDSTRUCTURE_P_H
