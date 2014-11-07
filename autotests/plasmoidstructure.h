@@ -21,7 +21,7 @@
 #define PLASMOIDSTRUCTURE_P_H
 
 #include "kpackage/packagestructure.h"
-#include "../../../src/kpackage/private/packages_p.h"
+#include "../src/kpackage/private/packages_p.h"
 
 namespace KPackage
 {
