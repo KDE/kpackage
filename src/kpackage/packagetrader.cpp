@@ -23,10 +23,10 @@
 #include <QDirIterator>
 
 #include <QDebug>
-#include <kservice.h>
-#include <kservicetypetrader.h>
-#include <kplugintrader.h>
-#include <klocalizedstring.h>
+#include <KService>
+#include <KServiceTypeTrader>
+#include <KPluginTrader>
+#include <KLocalizedString>
 
 #include "config-package.h"
 
@@ -240,7 +240,7 @@ KPluginInfo::List PackageTrader::query(const QString &packageFormat,
 
     //TODO: case in which defaultpackageroot is absolute
     for (auto datadir : QStandardPaths::standardLocations(QStandardPaths::GenericDataLocation)) {
-        const QString plugindir = datadir + "/" + packageRoot;
+        const QString plugindir = datadir + '/' + packageRoot;
         //qDebug() << "Not cached";
         // If there's no cache file, fall back to listing the directory
         const QDirIterator::IteratorFlags flags = QDirIterator::Subdirectories;
