@@ -113,8 +113,7 @@ PackageTrader::PackageTrader()
 
 PackageTrader::~PackageTrader()
 {
-    typedef QWeakPointer<PackageStructure> pswp;
-    foreach (pswp wp, d->structures) {
+    foreach (auto wp, d->structures) {
         delete wp.data();
     }
     delete d;
