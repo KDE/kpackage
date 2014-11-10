@@ -278,29 +278,20 @@ KPackage::PackageStructure *PackageTrader::loadPackageStructure(const QString &p
 
     QStringList libraryPaths;
 
-    QVector<KPluginMetaData> allMetaData;
     const QString subDirectory = "kpackage/packagestructure";
 
-    if (QDir::isAbsolutePath(subDirectory)) {
-        //qDebug() << "ABSOLUTE path: " << subDirectory;
-        if (subDirectory.endsWith(QDir::separator())) {
-            libraryPaths << subDirectory;
-        } else {
-            libraryPaths << (subDirectory + QDir::separator());
+    Q_FOREACH (const QString &dir, QCoreApplication::libraryPaths()) {
+        QString d = dir + QDir::separator() + subDirectory;
+        if (!d.endsWith(QDir::separator())) {
+            d += QDir::separator();
         }
-    } else {
-        Q_FOREACH (const QString &dir, QCoreApplication::libraryPaths()) {
-            QString d = dir + QDir::separator() + subDirectory;
-            if (!d.endsWith(QDir::separator())) {
-                d += QDir::separator();
-            }
-            libraryPaths << d;
-        }
+        libraryPaths << d;
     }
+
 
     QString pluginFileName;
 
-     Q_FOREACH (const QString &plugindir, libraryPaths) {
+    Q_FOREACH (const QString &plugindir, libraryPaths) {
         const QString &_ixfile = plugindir + QStringLiteral("kpluginindex.json");
         QFile indexFile(_ixfile);
         if (indexFile.exists()) {

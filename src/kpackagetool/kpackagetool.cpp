@@ -27,6 +27,7 @@
 #include <kconfig.h>
 #include <klocalizedstring.h>
 #include <kaboutdata.h>
+#include <KPluginLoader>
 
 #include <kpackage/packagestructure.h>
 #include <kpackage/package.h>
@@ -300,6 +301,7 @@ QStringList PlasmaPkgPrivate::packages(const QStringList &types)
                 }
             }
         }
+//FIXME: restore this
 /*
         const KService::List services = KServiceTypeTrader::self()->query(type);
         foreach (const KService::Ptr &service, services) {
@@ -430,19 +432,63 @@ void PlasmaPkgPrivate::listTypes()
     QMap<QString, QStringList> builtIns;
     builtIns.insert(i18n("Package"), QStringList() << "Plasma/Generic" << PLASMA_RELATIVE_DATA_INSTALL_DIR "/packages/" << "package");
 
-/*    KPluginInfo::List offers = KPluginTrader::self()->query("KPackage/PackageStructure");
+    QStringList libraryPaths;
+
+    const QString subDirectory = "kpackage/packagestructure";
+
+    Q_FOREACH (const QString &dir, QCoreApplication::libraryPaths()) {
+        QString d = dir + QDir::separator() + subDirectory;
+        if (!d.endsWith(QDir::separator())) {
+            d += QDir::separator();
+        }
+        libraryPaths << d;
+    }
+
+
+    QString pluginFileName;
+
+    QList<KPluginMetaData> offers;
+
+    Q_FOREACH (const QString &plugindir, libraryPaths) {
+        const QString &_ixfile = plugindir + QStringLiteral("kpluginindex.json");
+        QFile indexFile(_ixfile);
+        if (indexFile.exists()) {
+            indexFile.open(QIODevice::ReadOnly);
+            QJsonDocument jdoc = QJsonDocument::fromBinaryData(indexFile.readAll());
+            indexFile.close();
+
+
+            QJsonArray plugins = jdoc.array();
+
+            for (QJsonArray::const_iterator iter = plugins.constBegin(); iter != plugins.constEnd(); ++iter) {
+                const QJsonObject &obj = QJsonValue(*iter).toObject();
+                const QString &candidate = obj.value(QStringLiteral("FileName")).toString();
+                const KPluginMetaData m(obj, candidate);
+                offers << m;
+            }
+        } else {
+            QVector<KPluginMetaData> plugins = KPluginLoader::findPlugins(plugindir);
+            QVectorIterator<KPluginMetaData> iter(plugins);
+            while (iter.hasNext()) {
+                auto md = iter.next();
+                offers << md;
+            }
+        }
+    }
+
+
 
     if (!offers.isEmpty()) {
         std::cout << std::endl;
         coutput(i18n("Provided by plugins:"));
 
         QMap<QString, QStringList> plugins;
-        foreach (const KPluginInfo &info, offers) {
+        foreach (const KPluginMetaData &info, offers) {
             //const QString proot = "";
             //KPackage::PackageStructure* structure = KPackage::PackageStructure::load(info.pluginName());
             QString name = info.name();
-            QString comment = info.comment();
-            QString plugin = info.pluginName();
+            QString comment = info.value("Comment");
+            QString plugin = info.pluginId();
             //QString path = structure->defaultPackageRoot();
             //QString path = defaultPackageRoot;
             plugins.insert(name, QStringList() << plugin);
@@ -450,7 +496,7 @@ void PlasmaPkgPrivate::listTypes()
         }
 
         renderTypeTable(plugins);
-    }*/
+    }
 
     QStringList desktopFiles = QStandardPaths::locateAll(QStandardPaths::DataLocation, PLASMA_RELATIVE_DATA_INSTALL_DIR "/packageformats/*rc", QStandardPaths::LocateFile);
 
