@@ -209,36 +209,45 @@ Package PackageTrader::loadPackage(const QString &packageFormat, const QString &
     return Package();
 }
 
-KPluginInfo::List PackageTrader::query(const QString &packageFormat,
+KPluginInfo::List PackageTrader::query(const QString &packageFormat, const QString &packageRoot,
                                     const QString &constraint)
 {
     KPluginInfo::List lst;
 
-    QString packageRoot = packageFormat;
 
-    PackageStructure *structure = d->structures.value(packageFormat).data();
-    if (!structure) {
-        if (packageFormat == QStringLiteral("KPackage/Generic")) {
-            structure = new GenericPackage();
+    //has been a root specified?
+    QString actualRoot = packageRoot;
+
+    //try to take it from the ackage structure
+    if (actualRoot.isEmpty()) {
+        PackageStructure *structure = d->structures.value(packageFormat).data();
+        if (!structure) {
+            if (packageFormat == QStringLiteral("KPackage/Generic")) {
+                structure = new GenericPackage();
+            }
+        }
+
+        if (!structure) {
+            const QString structConstraint = QString("[X-KDE-PluginInfo-Name] == '%1'").arg(packageFormat);
+            structure = KPluginTrader::createInstanceFromQuery<KPackage::PackageStructure>(d->packageStructurePluginDir,
+                                                            QStringLiteral("KPackage/PackageStructure"), structConstraint, 0);
+        }
+
+        if (structure) {
+            d->structures.insert(packageFormat, structure);
+            Package p(structure);
+            actualRoot = p.defaultPackageRoot();
+
         }
     }
 
-    if (!structure) {
-        const QString structConstraint = QString("[X-KDE-PluginInfo-Name] == '%1'").arg(packageFormat);
-        structure = KPluginTrader::createInstanceFromQuery<KPackage::PackageStructure>(d->packageStructurePluginDir,
-                                                           QStringLiteral("KPackage/PackageStructure"), structConstraint, 0);
-    }
-
-    if (structure) {
-        d->structures.insert(packageFormat, structure);
-        Package p(structure);
-        packageRoot = p.defaultPackageRoot();
-
+    if (actualRoot.isEmpty()) {
+        actualRoot = packageFormat;
     }
 
     //TODO: case in which defaultpackageroot is absolute
     for (auto datadir : QStandardPaths::standardLocations(QStandardPaths::GenericDataLocation)) {
-        const QString plugindir = datadir + '/' + packageRoot;
+        const QString plugindir = datadir + '/' + actualRoot;
         //qDebug() << "Not cached";
         // If there's no cache file, fall back to listing the directory
         const QDirIterator::IteratorFlags flags = QDirIterator::Subdirectories;
@@ -265,12 +274,13 @@ KPluginInfo::List PackageTrader::query(const QString &packageFormat,
 }
 
 QList<Package> PackageTrader::packagesFromQuery(const QString &packageFormat,
+                                    const QString &packageRoot,
                                     const QString &constraint,
                                     const QString &requiredKey,
                                     const QString &requiredFilename)
 {
     QList<Package> list;
-    KPluginInfo::List plugins = query(packageFormat, constraint);
+    KPluginInfo::List plugins = query(packageFormat, packageRoot, constraint);
 
     foreach (const KPluginInfo &info, plugins) {
         Package p = loadPackage(packageFormat, info.pluginName());

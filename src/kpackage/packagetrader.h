@@ -59,10 +59,11 @@ public:
      **/
     Package loadPackage(const QString &packageFormat, const QString &packagePath = QString(), const QString &specialization = QString());
 
-    KPluginInfo::List query(const QString &packageFormat,
+    KPluginInfo::List query(const QString &packageFormat, const QString &packageRoot = QString(),
                          const QString &constraint = QString());
 
     QList<Package> packagesFromQuery(const QString &packageFormat,
+                         const QString &packageRoot = QString(),
                          const QString &constraint = QString(),
                          const QString &requiredKey = QString(),
                          const QString &requiredFilename = QString());
