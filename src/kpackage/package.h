@@ -22,7 +22,7 @@
 
 #include <QtCore/QStringList>
 
-#include <kplugininfo.h>
+#include <kpluginmetadata.h>
 
 #include <kpackage/package_export.h>
 
@@ -189,7 +189,7 @@ public:
     /**
       * @return the package metadata object.
       */
-    KPluginInfo metadata() const;
+    KPluginMetaData metadata() const;
 
     /**
      * @return a SHA1 hash digest of the contents of the package in hexadecimal form

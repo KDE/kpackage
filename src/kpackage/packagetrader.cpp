@@ -231,6 +231,8 @@ KPluginInfo::List PackageTrader::query(const QString &packageFormat, const QStri
             const QString structConstraint = QString("[X-KDE-PluginInfo-Name] == '%1'").arg(packageFormat);
             structure = KPluginTrader::createInstanceFromQuery<KPackage::PackageStructure>(d->packageStructurePluginDir,
                                                             QStringLiteral("KPackage/PackageStructure"), structConstraint, 0);
+
+            
         }
 
         if (structure) {

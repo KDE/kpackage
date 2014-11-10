@@ -28,6 +28,7 @@
 #include <klocalizedstring.h>
 #include <ktar.h>
 #include <kzip.h>
+#include <KConfigGroup>
 
 #include <QDir>
 #include <QFile>
@@ -211,9 +212,9 @@ bool PackageJobThread::installPackage(const QString &src, const QString &dest)
         return false;
     }
 
-    KPluginInfo meta(metadataPath);
-    QString pluginName = meta.pluginName();
-    qDebug() << "pluginname: " << meta.pluginName();
+    KPluginMetaData meta(metadataPath);
+    QString pluginName = meta.pluginId();
+    qDebug() << "pluginname: " << meta.pluginId();
     if (pluginName.isEmpty()) {
         //qWarning() << "Package plugin name not specified";
         d->errorMessage = i18n("Package plugin name not specified: %1", src);
@@ -279,7 +280,7 @@ bool PackageJobThread::installPackage(const QString &src, const QString &dest)
 
         //TODO: reduce code duplication with registerPackage below
 
-        const QString serviceName = d->servicePrefix + meta.pluginName() + ".desktop";
+        const QString serviceName = d->servicePrefix + meta.pluginId() + ".desktop";
 
         QString localServiceDirectory = QStandardPaths::writableLocation(QStandardPaths::GenericDataLocation) + QLatin1String("/kservices5/");
         if (!QDir().mkpath(localServiceDirectory)) {

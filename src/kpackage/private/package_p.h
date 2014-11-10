@@ -86,7 +86,7 @@ public:
 #ifndef PLASMA_NO_PACKAGE_EXTRADATA
     QStringList mimeTypes;
 #endif
-    KPluginInfo *metadata;
+    KPluginMetaData *metadata;
     bool externalPaths : 1;
     bool valid : 1;
     bool checkedValid : 1;
