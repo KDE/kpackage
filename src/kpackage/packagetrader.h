@@ -68,6 +68,8 @@ public:
                          const QString &requiredKey = QString(),
                          const QString &requiredFilename = QString());
 
+    KPackage::PackageStructure *loadPackageStructure(const QString &packageFormat);
+
     /**
      * Set the plugin loader which will be queried for all loads.
      *

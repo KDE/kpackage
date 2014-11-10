@@ -170,87 +170,14 @@ void PlasmaPkg::runMain()
         d->pluginTypes << "Plasma/Generic";
     } else { /* if (KSycoca::isAvailable()) */
 
-        QStringList libraryPaths;
-
-        QVector<KPluginMetaData> allMetaData;
-        const QString subDirectory = "kpackage/packagestructure";
-
-        if (QDir::isAbsolutePath(subDirectory)) {
-            //qDebug() << "ABSOLUTE path: " << subDirectory;
-            if (subDirectory.endsWith(QDir::separator())) {
-                libraryPaths << subDirectory;
-            } else {
-                libraryPaths << (subDirectory + QDir::separator());
-            }
-        } else {
-            Q_FOREACH (const QString &dir, QCoreApplication::libraryPaths()) {
-                QString d = dir + QDir::separator() + subDirectory;
-                if (!d.endsWith(QDir::separator())) {
-                    d += QDir::separator();
-                }
-                libraryPaths << d;
-            }
-        }
-
-        QString pluginFileName;
-
-        Q_FOREACH (const QString &plugindir, libraryPaths) {
-            const QString &_ixfile = plugindir + QStringLiteral("kpluginindex.json");
-            QFile indexFile(_ixfile);
-            if (indexFile.exists()) {
-                indexFile.open(QIODevice::ReadOnly);
-                QJsonDocument jdoc = QJsonDocument::fromBinaryData(indexFile.readAll());
-                indexFile.close();
+        PackageStructure *structure = PackageTrader::self()->loadPackageStructure(type);
 
 
-                QJsonArray plugins = jdoc.array();
-
-                for (QJsonArray::const_iterator iter = plugins.constBegin(); iter != plugins.constEnd(); ++iter) {
-                    const QJsonObject &obj = QJsonValue(*iter).toObject();
-                    const QString &candidate = obj.value(QStringLiteral("FileName")).toString();
-                    const KPluginMetaData m(obj, candidate);
-                    if (m.value("X-KDE-PluginInfo-Name") == type) {
-                        pluginFileName = candidate;
-                        break;
-                    }
-                }
-            } else {
-                QVector<KPluginMetaData> plugins = KPluginLoader::findPlugins(plugindir);
-                QVectorIterator<KPluginMetaData> iter(plugins);
-                while (iter.hasNext()) {
-                    auto md = iter.next();
-                    if (md.value("X-KDE-PluginInfo-Name") == type) {
-                        pluginFileName = md.fileName();
-                        break;
-                    }
-                }
-            }
-        }
-
-        QString error;
-        if (!pluginFileName.isEmpty()) {
-            KPluginLoader loader(pluginFileName);
-            const QVariantList argsWithMetaData = QVariantList() << loader.metaData().toVariantMap();
-            KPluginFactory *factory = loader.factory();
-            if (factory) {
-                structure = factory->create<PackageStructure>(0, argsWithMetaData);
-                if (!structure) {
-                    error = QCoreApplication::translate("", "No service matching the requirements was found");
-                }
-            }
-        }
-        
-        
-        
-        
-        
         if (structure) {
             d->installer = Package(structure);
         }
 
         if (!d->installer.isValid()) {
-            d->coutput(i18n("Could not load installer for package of type %1. Error reported was: %2",
-                            d->parser->value("type"), error));
             return;
         }
 

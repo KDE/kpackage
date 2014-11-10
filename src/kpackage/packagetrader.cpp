@@ -21,6 +21,8 @@
 
 #include <QStandardPaths>
 #include <QDirIterator>
+#include <QJsonDocument>
+#include <QJsonArray>
 
 #include <QDebug>
 #include <KService>
@@ -159,42 +161,9 @@ Package PackageTrader::loadPackage(const QString &packageFormat, const QString &
         return Package();
     }
 
-    const QString hashkey = packageFormat + '%' + specialization;
-    PackageStructure *structure = d->structures.value(hashkey).data();
+    PackageStructure *structure = loadPackageStructure(packageFormat);
+
     if (structure) {
-        Package p(structure);
-        if (!packagePath.isEmpty()) {
-            p.setPath(packagePath);
-        }
-        return p;
-    }
-
-    if (!specialization.isEmpty()) {
-        // check that the provided strings are safe to use in a ServiceType query
-        if (d->packageRE.indexIn(specialization) == -1 && d->packageRE.indexIn(packageFormat) == -1) {
-            const KPluginInfo::List offers = KPluginTrader::self()->query(packageFormat, QString(), specialization);
-
-            if (!offers.isEmpty()) {
-                return loadPackage(packageFormat, packagePath);
-            }
-        }
-    }
-
-    if (packageFormat == QStringLiteral("KPackage/Generic")) {
-        structure = new GenericPackage();
-        d->structures.insert(hashkey, structure);
-        Package p(structure);
-        if (!packagePath.isEmpty()) {
-            p.setPath(packagePath);
-        }
-        return p;
-    }
-
-    // first we check for plugins in sycoca
-    const QString constraint = QString("[X-KDE-PluginInfo-Name] == '%1'").arg(packageFormat);
-    structure = KPluginTrader::createInstanceFromQuery<KPackage::PackageStructure>(d->packageStructurePluginDir, "KPackage/PackageStructure", constraint, 0);
-    if (structure) {
-        d->structures.insert(hashkey, structure);
         Package p(structure);
         if (!packagePath.isEmpty()) {
             p.setPath(packagePath);
@@ -294,6 +263,96 @@ QList<Package> PackageTrader::packagesFromQuery(const QString &packageFormat,
         list << p;
     }
     return list;
+}
+
+
+KPackage::PackageStructure *PackageTrader::loadPackageStructure(const QString &packageFormat)
+{
+    PackageStructure *structure = d->structures.value(packageFormat).data();
+    if (!structure) {
+        if (packageFormat == QStringLiteral("KPackage/Generic")) {
+            structure = new GenericPackage();
+        }
+    }
+
+    QStringList libraryPaths;
+
+    QVector<KPluginMetaData> allMetaData;
+    const QString subDirectory = "kpackage/packagestructure";
+
+    if (QDir::isAbsolutePath(subDirectory)) {
+        //qDebug() << "ABSOLUTE path: " << subDirectory;
+        if (subDirectory.endsWith(QDir::separator())) {
+            libraryPaths << subDirectory;
+        } else {
+            libraryPaths << (subDirectory + QDir::separator());
+        }
+    } else {
+        Q_FOREACH (const QString &dir, QCoreApplication::libraryPaths()) {
+            QString d = dir + QDir::separator() + subDirectory;
+            if (!d.endsWith(QDir::separator())) {
+                d += QDir::separator();
+            }
+            libraryPaths << d;
+        }
+    }
+
+    QString pluginFileName;
+
+     Q_FOREACH (const QString &plugindir, libraryPaths) {
+        const QString &_ixfile = plugindir + QStringLiteral("kpluginindex.json");
+        QFile indexFile(_ixfile);
+        if (indexFile.exists()) {
+            indexFile.open(QIODevice::ReadOnly);
+            QJsonDocument jdoc = QJsonDocument::fromBinaryData(indexFile.readAll());
+            indexFile.close();
+
+
+            QJsonArray plugins = jdoc.array();
+
+            for (QJsonArray::const_iterator iter = plugins.constBegin(); iter != plugins.constEnd(); ++iter) {
+                const QJsonObject &obj = QJsonValue(*iter).toObject();
+                const QString &candidate = obj.value(QStringLiteral("FileName")).toString();
+                const KPluginMetaData m(obj, candidate);
+                if (m.value("X-KDE-PluginInfo-Name") == packageFormat) {
+                    pluginFileName = candidate;
+                    break;
+                }
+            }
+        } else {
+            QVector<KPluginMetaData> plugins = KPluginLoader::findPlugins(plugindir);
+            QVectorIterator<KPluginMetaData> iter(plugins);
+            while (iter.hasNext()) {
+                auto md = iter.next();
+                if (md.value("X-KDE-PluginInfo-Name") == packageFormat) {
+                    pluginFileName = md.fileName();
+                    break;
+                }
+            }
+        }
+    }
+
+    QString error;
+    if (!pluginFileName.isEmpty()) {
+        KPluginLoader loader(pluginFileName);
+        const QVariantList argsWithMetaData = QVariantList() << loader.metaData().toVariantMap();
+        KPluginFactory *factory = loader.factory();
+        if (factory) {
+            structure = factory->create<PackageStructure>(0, argsWithMetaData);
+            if (!structure) {
+                error = QCoreApplication::translate("", "No service matching the requirements was found");
+            }
+        }
+    }
+
+    if (structure && !error.isEmpty()) {
+        qWarning() << i18n("Could not load installer for package of type %1. Error reported was: %2",
+                            packageFormat, error);
+    }
+
+    d->structures.insert(packageFormat, structure);
+
+    return structure;
 }
 
 Package PackageTrader::internalLoadPackage(const QString &name, const QString &specialization)
