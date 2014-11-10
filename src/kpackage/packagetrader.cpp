@@ -145,10 +145,10 @@ PackageTrader *PackageTrader::self()
     return s_packageTrader;
 }
 
-Package PackageTrader::loadPackage(const QString &packageFormat, const QString &packagePath, const QString &specialization)
+Package PackageTrader::loadPackage(const QString &packageFormat, const QString &packagePath)
 {
     if (!d->isDefaultLoader) {
-        Package p = internalLoadPackage(packageFormat, specialization);
+        Package p = internalLoadPackage(packageFormat);
         if (p.hasValidStructure()) {
             if (!packagePath.isEmpty()) {
                 p.setPath(packagePath);
@@ -355,10 +355,9 @@ KPackage::PackageStructure *PackageTrader::loadPackageStructure(const QString &p
     return structure;
 }
 
-Package PackageTrader::internalLoadPackage(const QString &name, const QString &specialization)
+Package PackageTrader::internalLoadPackage(const QString &name)
 {
     Q_UNUSED(name);
-    Q_UNUSED(specialization);
     return Package();
 }
 

@@ -52,12 +52,10 @@ public:
      * @param packagePath the package name: the path of the package relative to the
      *        packageFormat root path. If not specified it will have to be set manually
      *        with Package::setPath() by the caller.
-     * @param specialization extra constraints in the query, such as
-     *          "[X-Plasma-API] == 'declarativeappletscript'"
      *
      * @return a Package object matching name, or an invalid package on failure
      **/
-    Package loadPackage(const QString &packageFormat, const QString &packagePath = QString(), const QString &specialization = QString());
+    Package loadPackage(const QString &packageFormat, const QString &packagePath = QString());
 
     KPluginInfo::List query(const QString &packageFormat, const QString &packageRoot = QString(),
                          const QString &constraint = QString());
@@ -94,12 +92,10 @@ protected:
      * plugin mechanisms.
      *
      * @param packageFormat the format of the package to load
-     * @param specialization extra constraints in the query, such as
-     *          "[X-Plasma-API] == 'declarativeappletscript'"
      *
      * @return a Package instance with the proper PackageStructure
      **/
-    virtual Package internalLoadPackage(const QString &packageFormat, const QString &specialization);
+    virtual Package internalLoadPackage(const QString &packageFormat);
 
     PackageTrader();
     virtual ~PackageTrader();
