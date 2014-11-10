@@ -15,7 +15,7 @@ MACRO(PLASMA_UNIT_TESTS)
                target_link_libraries(${_testname} Qt5::Test
                                      KF5::Package KF5::Archive KF5::CoreAddons
                                      KF5::I18n
-                                     KF5::Service)
+                                     KF5::ConfigCore)
                if(QT_QTOPENGL_FOUND)
                    target_link_libraries(${_testname} Qt5::OpenGL)
                endif()
@@ -28,5 +28,5 @@ PLASMA_UNIT_TESTS(
     fallbackpackagetest
     packagestructuretest
     plasmoidpackagetest
-    querytest
+   # querytest
 )

@@ -31,8 +31,10 @@ add_library(KF5::Package ALIAS KF5Package)
 
 target_link_libraries(KF5Package
 PUBLIC
-     KF5::Service # For kplugininfo.h and kservice.h
+     #KF5::Service # For kplugininfo.h and kservice.h
+     KF5::CoreAddons
 PRIVATE
+     KF5::ConfigCore
      KF5::Archive
      KF5::I18n
 )

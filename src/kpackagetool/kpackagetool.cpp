@@ -23,11 +23,8 @@
 #include <QDebug>
 #include <QJsonDocument>
 #include <QJsonArray>
-#include <kservice.h>
-#include <kservicetypetrader.h>
 #include <kshell.h>
 #include <kconfig.h>
-#include <ksycoca.h>
 #include <klocalizedstring.h>
 #include <kaboutdata.h>
 
@@ -35,11 +32,9 @@
 #include <kpackage/package.h>
 #include <kpackage/packagetrader.h>
 #include <kjob.h>
-#include <kplugintrader.h>
 
 #include <qcommandlineparser.h>
 #include <QDir>
-#include <QDBusInterface>
 #include <QFileInfo>
 #include <QMap>
 #include <QStandardPaths>
@@ -67,7 +62,6 @@ public:
     KPluginMetaData metadata;
     QString installPath;
     void output(const QString &msg);
-    void runKbuildsycoca();
     QStringList packages(const QStringList &types);
     void renderTypeTable(const QMap<QString, QStringList> &plugins);
     void listTypes();
@@ -277,8 +271,6 @@ void PlasmaPkg::runMain()
         if (d->package.isEmpty()) {
             qWarning() << i18nc("No option was given, this is the error message telling the user he needs at least one, do not translate install, remove, upgrade nor list", "One of install, remove, upgrade or list is required.");
             exit(6);
-        } else {
-            d->runKbuildsycoca();
         }
     }
 }
@@ -286,15 +278,6 @@ void PlasmaPkg::runMain()
 void PlasmaPkgPrivate::coutput(const QString &msg)
 {
     cout << msg.toLocal8Bit().constData() << endl;
-}
-
-void PlasmaPkgPrivate::runKbuildsycoca()
-{
-    return;
-    if (KSycoca::isAvailable()) {
-        QDBusInterface dbus("org.kde.kded5", "/kbuildsycoca", "org.kde.kbuildsycoca");
-        dbus.call(QDBus::NoBlock, "recreate");
-    }
 }
 
 QStringList PlasmaPkgPrivate::packages(const QStringList &types)
@@ -317,14 +300,14 @@ QStringList PlasmaPkgPrivate::packages(const QStringList &types)
                 }
             }
         }
-
+/*
         const KService::List services = KServiceTypeTrader::self()->query(type);
         foreach (const KService::Ptr &service, services) {
             const QString _plugin = service->property("X-KDE-PluginInfo-Name", QVariant::String).toString();
             if (!result.contains(_plugin)) {
                 result << _plugin;
             }
-        }
+        }*/
     }
 
     return result;
@@ -447,7 +430,7 @@ void PlasmaPkgPrivate::listTypes()
     QMap<QString, QStringList> builtIns;
     builtIns.insert(i18n("Package"), QStringList() << "Plasma/Generic" << PLASMA_RELATIVE_DATA_INSTALL_DIR "/packages/" << "package");
 
-    KPluginInfo::List offers = KPluginTrader::self()->query("KPackage/PackageStructure");
+/*    KPluginInfo::List offers = KPluginTrader::self()->query("KPackage/PackageStructure");
 
     if (!offers.isEmpty()) {
         std::cout << std::endl;
@@ -467,7 +450,7 @@ void PlasmaPkgPrivate::listTypes()
         }
 
         renderTypeTable(plugins);
-    }
+    }*/
 
     QStringList desktopFiles = QStandardPaths::locateAll(QStandardPaths::DataLocation, PLASMA_RELATIVE_DATA_INSTALL_DIR "/packageformats/*rc", QStandardPaths::LocateFile);
 

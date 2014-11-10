@@ -19,6 +19,7 @@
 
 #include "plasmoidstructure.h"
 
+#include <QVariant>
 #include <klocalizedstring.h>
 #include "package.h"
 #include "config-package.h"

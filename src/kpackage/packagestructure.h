@@ -22,8 +22,6 @@
 
 #include <QtCore/QStringList>
 
-#include <kplugininfo.h>
-
 #include <kpackage/package_export.h>
 #include <kpackage/package.h>
 #include <kpackage/version.h>
@@ -47,7 +45,7 @@ public:
      * Called when a the PackageStructure should initialize a Package with the initial
      * structure. This allows setting paths before setPath is called.
      *
-     * Note: one special value is "metadata" which can be set to the location of KPluginInfo
+     * Note: one special value is "metadata" which can be set to the location of KPluginMetaData
      * compatible .desktop file within the package. If not defined, it is assumed that this file
      * exists under the top level directory of the package.
      *

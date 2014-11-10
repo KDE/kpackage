@@ -23,12 +23,13 @@
 #include <QDirIterator>
 #include <QJsonDocument>
 #include <QJsonArray>
+#include <QCoreApplication>
+#include <QPointer>
 
 #include <QDebug>
-#include <KService>
-#include <KServiceTypeTrader>
-#include <KPluginTrader>
 #include <KLocalizedString>
+#include <KPluginLoader>
+#include <KPluginFactory>
 
 #include "config-package.h"
 
@@ -57,7 +58,7 @@ public:
     static QString parentAppConstraint(const QString &parentApp = QString());
 
     static QSet<QString> s_customCategories;
-    QHash<QString, QWeakPointer<PackageStructure> > structures;
+    QHash<QString, QPointer<PackageStructure> > structures;
     bool isDefaultLoader;
     QString packageStructurePluginDir;
     QRegExp packageRE;
@@ -177,7 +178,7 @@ Package PackageTrader::loadPackage(const QString &packageFormat, const QString &
 
     return Package();
 }
-
+/*
 KPluginInfo::List PackageTrader::query(const QString &packageFormat, const QString &packageRoot,
                                     const QString &constraint)
 {
@@ -264,7 +265,7 @@ QList<Package> PackageTrader::packagesFromQuery(const QString &packageFormat,
     }
     return list;
 }
-
+*/
 
 KPackage::PackageStructure *PackageTrader::loadPackageStructure(const QString &packageFormat)
 {

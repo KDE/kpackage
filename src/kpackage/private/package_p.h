@@ -25,6 +25,7 @@
 #include <QDir>
 #include <QString>
 #include <QSharedData>
+#include <QPointer>
 
 namespace KPackage
 {
@@ -74,7 +75,7 @@ public:
     QString fallbackFilePath(const char *key, const QString &filename = QString()) const;
     bool hasCycle(const KPackage::Package &package);
 
-    QWeakPointer<PackageStructure> structure;
+    QPointer<PackageStructure> structure;
     QString path;
     QString tempRoot;
     QStringList contentsPrefixPaths;
