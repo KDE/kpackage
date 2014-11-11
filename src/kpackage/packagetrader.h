@@ -17,8 +17,8 @@
  *   51 Franklin Street, Fifth Floor, Boston, MA  02110-1301, USA.
  */
 
-#ifndef PACKAGE_TRADER_H
-#define PACKAGE_TRADER_H
+#ifndef KPACKAGE_TRADER_H
+#define KPACKAGE_TRADER_H
 
 #include <kpackage/package.h>
 
