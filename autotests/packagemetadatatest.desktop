@@ -21,7 +21,7 @@ Name[sr@ijekavian]=Пробни фајл метаподатака пакета
 Name[sr@ijekavianlatin]=Probni fajl metapodataka paketa
 Name[sr@latin]=Probni fajl metapodataka paketa
 Name[sv]=Testfil för paketmetadata
-Name[tr]=Paket üstveri test dosyası
+Name[tr]=Paket metadata test dosyası
 Name[uk]=Тестовий файл метаданих пакунка
 Name[x-test]=xxPackage metadata test filexx
 Comment=A test desktop file to test the PackageMetaData class.
@@ -45,7 +45,7 @@ Comment[sr@ijekavian]=Пробни .десктоп фајл за класу Pack
 Comment[sr@ijekavianlatin]=Probni .desktop fajl za klasu PackageMetaData.
 Comment[sr@latin]=Probni .desktop fajl za klasu PackageMetaData.
 Comment[sv]=En skrivbordsfil för att testa klassen PackageMetaData.
-Comment[tr]=PackageMetaData sınıfını denemek için bir test masaüstü dosyası.
+Comment[tr]=PackageMetaData sınıfını test etmek için bir masaüstü dosyası.
 Comment[uk]=Тестовий стільничний файл для перевірки класу PackageMetaData.
 Comment[x-test]=xxA test desktop file to test the PackageMetaData class.xx
 
