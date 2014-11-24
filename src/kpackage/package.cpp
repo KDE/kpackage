@@ -908,6 +908,7 @@ void PackagePrivate::createPackageMetadata(const QString &path)
         metadataPath.clear();
     }
 
+    //TODO: replace with new KPluginMetaData ctor
     KDesktopFile file(metadataPath);
     KConfigGroup cg = file.desktopGroup();
 

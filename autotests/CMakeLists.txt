@@ -28,5 +28,5 @@ PLASMA_UNIT_TESTS(
     fallbackpackagetest
     packagestructuretest
     plasmoidpackagetest
-   # querytest
+    querytest
 )

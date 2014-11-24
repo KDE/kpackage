@@ -212,7 +212,32 @@ bool PackageJobThread::installPackage(const QString &src, const QString &dest)
         return false;
     }
 
-    KPluginMetaData meta(metadataPath);
+    //TODO: replace with new KPluginMetadata ctor
+    KDesktopFile file(metadataPath);
+    KConfigGroup cg = file.desktopGroup();
+
+    QJsonObject obj;
+    for (auto key : cg.keyList()) {
+        obj[key] = cg.readEntry(key);
+    }
+
+    QJsonObject plugJson;
+    plugJson["Id"] = cg.readEntry("X-KDE-PluginInfo-Name");
+    plugJson["Authors"] = cg.readEntry("X-KDE-PluginInfo-Author");
+    plugJson["Category"] = cg.readEntry("X-KDE-PluginInfo-Category");
+    plugJson["Description"] = file.readComment();
+    plugJson["Icon"] = file.readIcon();
+    plugJson["License"] = cg.readEntry("X-KDE-PluginInfo-License");
+    plugJson["Name"] = file.readName();
+    plugJson["Version"] = cg.readEntry("X-KDE-PluginInfo-Version");
+    plugJson["Website"] = cg.readEntry("X-KDE-PluginInfo-Website");
+    plugJson["ServiceTypes"] = cg.readEntry("X-KDE-ServiceTypes");
+    plugJson["EnabledByDefault"] = cg.readEntry("X-KDE-PluginInfo-EnabledByDefault");
+    plugJson["Dependencies"] = cg.readEntry("X-KDE-PluginInfo-Depends");
+    obj["KPlugin"] = plugJson;
+    KPluginMetaData meta(obj, metadataPath);
+
+
     QString pluginName = meta.pluginId();
     qDebug() << "pluginname: " << meta.pluginId();
     if (pluginName.isEmpty()) {

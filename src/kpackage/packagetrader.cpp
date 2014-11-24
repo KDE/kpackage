@@ -30,6 +30,8 @@
 #include <KLocalizedString>
 #include <KPluginLoader>
 #include <KPluginFactory>
+#include <KDesktopFile>
+#include <KConfigGroup>
 
 #include "config-package.h"
 
@@ -214,23 +216,70 @@ QList<KPluginMetaData> PackageTrader::listPackages(const QString &packageFormat,
     //TODO: case in which defaultpackageroot is absolute
     for (auto datadir : QStandardPaths::standardLocations(QStandardPaths::GenericDataLocation)) {
         const QString plugindir = datadir + '/' + actualRoot;
-        //qDebug() << "Not cached";
-        // If there's no cache file, fall back to listing the directory
-        const QDirIterator::IteratorFlags flags = QDirIterator::Subdirectories;
-        const QStringList nameFilters = QStringList(QStringLiteral("metadata.desktop"));
 
-        QDirIterator it(plugindir, nameFilters, QDir::Files, flags);
-        while (it.hasNext()) {
-            it.next();
-            const QString file = it.fileInfo().absoluteFilePath();
+        const QString &_ixfile = plugindir + QStringLiteral("kpluginindex.json");
+        QFile indexFile(_ixfile);
+        //qDebug() << "indexfile: " << _ixfile << indexFile.exists();
+        if (indexFile.exists()) {
+            indexFile.open(QIODevice::ReadOnly);
+            QJsonDocument jdoc = QJsonDocument::fromBinaryData(indexFile.readAll());
+            indexFile.close();
 
-            const KPluginMetaData info(file);
-            if (!info.isValid()) {
-                continue;
+
+            QJsonArray plugins = jdoc.array();
+
+            for (QJsonArray::const_iterator iter = plugins.constBegin(); iter != plugins.constEnd(); ++iter) {
+                const QJsonObject &obj = QJsonValue(*iter).toObject();
+                const QString &pluginFileName = obj.value(QStringLiteral("FileName")).toString();
+                const KPluginMetaData m(obj, pluginFileName);
+                if (m.isValid()) {
+                    lst << m;
+                }
             }
 
-            if (packageFormat.isEmpty() || info.serviceTypes().contains(packageFormat)) {
-                lst << info;
+        } else {
+            //qDebug() << "Not cached";
+            // If there's no cache file, fall back to listing the directory
+            const QDirIterator::IteratorFlags flags = QDirIterator::Subdirectories;
+            const QStringList nameFilters = QStringList(QStringLiteral("metadata.desktop"));
+
+            QDirIterator it(plugindir, nameFilters, QDir::Files, flags);
+            while (it.hasNext()) {
+                it.next();
+                const QString metadataPath = it.fileInfo().absoluteFilePath();
+
+                //TODO: replace with new KPluginMetadata ctor
+                KDesktopFile file(metadataPath);
+                KConfigGroup cg = file.desktopGroup();
+
+                QJsonObject obj;
+                for (auto key : cg.keyList()) {
+                    obj[key] = cg.readEntry(key);
+                }
+
+                QJsonObject plugJson;
+                plugJson["Id"] = cg.readEntry("X-KDE-PluginInfo-Name");
+                plugJson["Authors"] = cg.readEntry("X-KDE-PluginInfo-Author");
+                plugJson["Category"] = cg.readEntry("X-KDE-PluginInfo-Category");
+                plugJson["Description"] = file.readComment();
+                plugJson["Icon"] = file.readIcon();
+                plugJson["License"] = cg.readEntry("X-KDE-PluginInfo-License");
+                plugJson["Name"] = file.readName();
+                plugJson["Version"] = cg.readEntry("X-KDE-PluginInfo-Version");
+                plugJson["Website"] = cg.readEntry("X-KDE-PluginInfo-Website");
+                plugJson["ServiceTypes"] = cg.readEntry("X-KDE-ServiceTypes");
+                plugJson["EnabledByDefault"] = cg.readEntry("X-KDE-PluginInfo-EnabledByDefault");
+                plugJson["Dependencies"] = cg.readEntry("X-KDE-PluginInfo-Depends");
+                obj["KPlugin"] = plugJson;
+                const KPluginMetaData info(obj, metadataPath);
+
+                if (!info.isValid()) {
+                    continue;
+                }
+
+                if (packageFormat.isEmpty() || info.serviceTypes().contains(packageFormat)) {
+                    lst << info;
+                }
             }
         }
     }

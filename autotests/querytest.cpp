@@ -55,7 +55,7 @@ void QueryTest::install()
 void QueryTest::query()
 {
     //QEXPECT_FAIL("", "queries don't work yet", Continue);
-    QCOMPARE(KPackage::PackageTrader::self()->query("KPackage/Generic").count(), 2);
+    QCOMPARE(KPackage::PackageTrader::self()->listPackages("KPackage/Generic").count(), 2);
 }
 
 QTEST_MAIN(QueryTest)
