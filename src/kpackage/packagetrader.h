@@ -56,14 +56,7 @@ public:
      **/
     Package loadPackage(const QString &packageFormat, const QString &packagePath = QString());
 
-    /*KPluginInfo::List query(const QString &packageFormat, const QString &packageRoot = QString(),
-                         const QString &constraint = QString());
-
-    QList<Package> packagesFromQuery(const QString &packageFormat,
-                         const QString &packageRoot = QString(),
-                         const QString &constraint = QString(),
-                         const QString &requiredKey = QString(),
-                         const QString &requiredFilename = QString());*/
+    QList<KPluginMetaData> listPackages(const QString &packageFormat, const QString &packageRoot = QString());
 
     KPackage::PackageStructure *loadPackageStructure(const QString &packageFormat);
 

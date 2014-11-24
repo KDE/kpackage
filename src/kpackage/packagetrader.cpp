@@ -178,12 +178,10 @@ Package PackageTrader::loadPackage(const QString &packageFormat, const QString &
 
     return Package();
 }
-/*
-KPluginInfo::List PackageTrader::query(const QString &packageFormat, const QString &packageRoot,
-                                    const QString &constraint)
-{
-    KPluginInfo::List lst;
 
+QList<KPluginMetaData> PackageTrader::listPackages(const QString &packageFormat, const QString &packageRoot)
+{
+    QList<KPluginMetaData> lst;
 
     //has been a root specified?
     QString actualRoot = packageRoot;
@@ -198,11 +196,7 @@ KPluginInfo::List PackageTrader::query(const QString &packageFormat, const QStri
         }
 
         if (!structure) {
-            const QString structConstraint = QString("[X-KDE-PluginInfo-Name] == '%1'").arg(packageFormat);
-            structure = KPluginTrader::createInstanceFromQuery<KPackage::PackageStructure>(d->packageStructurePluginDir,
-                                                            QStringLiteral("KPackage/PackageStructure"), structConstraint, 0);
-
-            
+            structure = loadPackageStructure(packageFormat);
         }
 
         if (structure) {
@@ -230,7 +224,7 @@ KPluginInfo::List PackageTrader::query(const QString &packageFormat, const QStri
             it.next();
             const QString file = it.fileInfo().absoluteFilePath();
 
-            const KPluginInfo info(file);
+            const KPluginMetaData info(file);
             if (!info.isValid()) {
                 continue;
             }
@@ -241,31 +235,8 @@ KPluginInfo::List PackageTrader::query(const QString &packageFormat, const QStri
         }
     }
 
-    KPluginTrader::applyConstraints(lst, constraint);
     return lst;
 }
-
-QList<Package> PackageTrader::packagesFromQuery(const QString &packageFormat,
-                                    const QString &packageRoot,
-                                    const QString &constraint,
-                                    const QString &requiredKey,
-                                    const QString &requiredFilename)
-{
-    QList<Package> list;
-    KPluginInfo::List plugins = query(packageFormat, packageRoot, constraint);
-
-    foreach (const KPluginInfo &info, plugins) {
-        Package p = loadPackage(packageFormat, info.pluginName());
-
-        if (!requiredKey.isEmpty() && p.filePath(requiredKey.toLatin1(), requiredFilename).isEmpty()) {
-            continue;
-        }
-
-        list << p;
-    }
-    return list;
-}
-*/
 
 KPackage::PackageStructure *PackageTrader::loadPackageStructure(const QString &packageFormat)
 {
