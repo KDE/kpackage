@@ -56,7 +56,7 @@ KJob *PackageStructure::install(Package *package, const QString &archivePath, co
 KJob *PackageStructure::uninstall(Package *package, const QString &packageRoot)
 {
     PackageJob *j = new PackageJob(package->servicePrefix(), this);
-    j->uninstall(packageRoot + package->metadata().pluginName());
+    j->uninstall(packageRoot + package->metadata().pluginId());
     return j;
 }
 

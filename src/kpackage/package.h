@@ -17,12 +17,12 @@
 *   Boston, MA 02110-1301, USA.                                               *
 *******************************************************************************/
 
-#ifndef PLASMA_PACKAGE_H
-#define PLASMA_PACKAGE_H
+#ifndef KPACKAGE_PACKAGE_H
+#define KPACKAGE_PACKAGE_H
 
 #include <QtCore/QStringList>
 
-#include <kplugininfo.h>
+#include <kpluginmetadata.h>
 
 #include <kpackage/package_export.h>
 
@@ -189,7 +189,7 @@ public:
     /**
       * @return the package metadata object.
       */
-    KPluginInfo metadata() const;
+    KPluginMetaData metadata() const;
 
     /**
      * @return a SHA1 hash digest of the contents of the package in hexadecimal form

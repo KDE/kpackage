@@ -26,7 +26,7 @@
 #include <klocalizedstring.h>
 
 #include "packagestructure.h"
-#include "packagetrader.h"
+#include "packageloader.h"
 
 void QueryTest::initTestCase()
 {
@@ -37,7 +37,7 @@ void QueryTest::initTestCase()
 
     QVERIFY(m_dataDir.mkpath("."));
 
-    ps = KPackage::PackageTrader::self()->loadPackage("KPackage/Generic");
+    ps = KPackage::PackageLoader::self()->loadPackage("KPackage/Generic");
     ps.addFileDefinition("mainscript", "ui/main.qml", i18n("Main Script File"));
 }
 
@@ -55,7 +55,7 @@ void QueryTest::install()
 void QueryTest::query()
 {
     //QEXPECT_FAIL("", "queries don't work yet", Continue);
-    QCOMPARE(KPackage::PackageTrader::self()->query("KPackage/Generic").count(), 2);
+    QCOMPARE(KPackage::PackageLoader::self()->listPackages("KPackage/Generic").count(), 2);
 }
 
 QTEST_MAIN(QueryTest)

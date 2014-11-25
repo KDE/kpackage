@@ -16,7 +16,7 @@ add_definitions(-DKDE_DEFAULT_DEBUG_AREA=1209)
 set(Package_LIB_SRCS
     package.cpp
     packagestructure.cpp
-    packagetrader.cpp
+    packageloader.cpp
     private/packages.cpp
     private/packagejob.cpp
     private/packagejobthread.cpp
@@ -31,8 +31,10 @@ add_library(KF5::Package ALIAS KF5Package)
 
 target_link_libraries(KF5Package
 PUBLIC
-     KF5::Service # For kplugininfo.h and kservice.h
+     #KF5::Service # For kplugininfo.h and kservice.h
+     KF5::CoreAddons
 PRIVATE
+     KF5::ConfigCore
      KF5::Archive
      KF5::I18n
 )
@@ -58,7 +60,7 @@ ecm_generate_headers(Package_CamelCase_HEADERS
     HEADER_NAMES
         Package
         PackageStructure
-        PackageTrader
+        PackageLoader
     REQUIRED_HEADERS Package_HEADERS
     PREFIX KPackage
 )

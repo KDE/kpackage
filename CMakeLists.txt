@@ -16,8 +16,8 @@ include(ECMPackageConfigHelpers)
 include(ECMSetupVersion)
 include(KDEFrameworkCompilerSettings)
 
-set(KF5_VERSION "5.3.0") # handled by release scripts
-set(KF5_DEP_VERSION "5.3.0") # handled by release scripts
+set(KF5_VERSION "5.4.0") # handled by release scripts
+set(KF5_DEP_VERSION "5.4.0") # handled by release scripts
 
 ecm_setup_version(${KF5_VERSION}
                   VARIABLE_PREFIX PACKAGE
@@ -40,7 +40,8 @@ find_package(Qt5 ${REQUIRED_QT_VERSION} REQUIRED NO_MODULE COMPONENTS Core)
 
 find_package(KF5Archive ${KF5_DEP_VERSION} REQUIRED)
 find_package(KF5I18n ${KF5_DEP_VERSION} REQUIRED)
-find_package(KF5Service ${KF5_DEP_VERSION} REQUIRED)
+find_package(KF5CoreAddons ${KF5_DEP_VERSION} REQUIRED)
+find_package(KF5Config ${KF5_DEP_VERSION} REQUIRED)
 
 find_package(KF5DocTools ${KF5_DEP_VERSION})
 set_package_properties(KF5DocTools PROPERTIES DESCRIPTION "Tools to generate documentation"

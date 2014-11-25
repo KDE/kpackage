@@ -18,8 +18,8 @@
 *   Boston, MA 02110-1301, USA.                                               *
 *******************************************************************************/
 
-#ifndef PLASMA_PACKAGEJOBTHREAD_P_H
-#define PLASMA_PACKAGEJOBTHREAD_P_H
+#ifndef KPACKAGE_PACKAGEJOBTHREAD_P_H
+#define KPACKAGE_PACKAGEJOBTHREAD_P_H
 
 #include "kjob.h"
 #include <QThread>

@@ -25,17 +25,17 @@
 
 #include <klocalizedstring.h>
 #include "packagestructure.h"
-#include "packagetrader.h"
+#include "packageloader.h"
 
 void FallbackPackageTest::initTestCase()
 {
     m_fallPackagePath = QFINDTESTDATA("data/testpackage");
-    m_fallbackPkg = KPackage::PackageTrader::self()->loadPackage("KPackage/Generic");
+    m_fallbackPkg = KPackage::PackageLoader::self()->loadPackage("KPackage/Generic");
     m_fallbackPkg.addFileDefinition("mainscript", "ui/main.qml", i18n("Main Script File"));
     m_fallbackPkg.setPath(m_fallPackagePath);
 
     m_packagePath = QFINDTESTDATA("data/testfallbackpackage");
-    m_pkg = KPackage::PackageTrader::self()->loadPackage("KPackage/Generic");
+    m_pkg = KPackage::PackageLoader::self()->loadPackage("KPackage/Generic");
     m_pkg.addFileDefinition("mainscript", "ui/main.qml", i18n("Main Script File"));
     m_pkg.setPath(m_packagePath);
 }

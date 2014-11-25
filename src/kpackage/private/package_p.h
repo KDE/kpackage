@@ -16,8 +16,8 @@
  *   51 Franklin Street, Fifth Floor, Boston, MA  02110-1301, USA.
  */
 
-#ifndef PLASMA_PACKAGE_P_H
-#define PLASMA_PACKAGE_P_H
+#ifndef KPACKAGE_PACKAGE_P_H
+#define KPACKAGE_PACKAGE_P_H
 
 #include "../package.h"
 
@@ -25,6 +25,7 @@
 #include <QDir>
 #include <QString>
 #include <QSharedData>
+#include <QPointer>
 
 namespace KPackage
 {
@@ -74,7 +75,7 @@ public:
     QString fallbackFilePath(const char *key, const QString &filename = QString()) const;
     bool hasCycle(const KPackage::Package &package);
 
-    QWeakPointer<PackageStructure> structure;
+    QPointer<PackageStructure> structure;
     QString path;
     QString tempRoot;
     QStringList contentsPrefixPaths;
@@ -86,7 +87,7 @@ public:
 #ifndef PLASMA_NO_PACKAGE_EXTRADATA
     QStringList mimeTypes;
 #endif
-    KPluginInfo *metadata;
+    KPluginMetaData *metadata;
     bool externalPaths : 1;
     bool valid : 1;
     bool checkedValid : 1;

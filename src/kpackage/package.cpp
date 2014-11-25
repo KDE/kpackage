@@ -27,9 +27,9 @@
 #include <karchive.h>
 #include <QDebug>
 #include <kdesktopfile.h>
-#include <kservicetypetrader.h>
 #include <ktar.h>
 #include <kzip.h>
+#include <KConfigGroup>
 
 #include "config-package.h"
 
@@ -85,7 +85,7 @@ bool Package::isValid() const
 
     //Minimal packages with no metadata *are* supposed to be possible
     //so if !metadata().isValid() go ahead
-    if (metadata().isValid() && metadata().isHidden()) {
+    if (metadata().isValid() && metadata().value("isHidden", "false") == "true") {
         return false;
     }
 
@@ -231,7 +231,7 @@ void Package::setAllowExternalPaths(bool allow)
     d->externalPaths = allow;
 }
 
-KPluginInfo Package::metadata() const
+KPluginMetaData Package::metadata() const
 {
     //qDebug() << "metadata: " << d->path << filePath("metadata");
     if (!d->metadata && !d->path.isEmpty()) {
@@ -257,7 +257,7 @@ KPluginInfo Package::metadata() const
     }
 
     if (!d->metadata) {
-        d->metadata = new KPluginInfo();
+        d->metadata = new KPluginMetaData();
     }
 
     return *d->metadata;
@@ -908,7 +908,31 @@ void PackagePrivate::createPackageMetadata(const QString &path)
         metadataPath.clear();
     }
 
-    metadata = new KPluginInfo(metadataPath);
+    //TODO: replace with new KPluginMetaData ctor
+    KDesktopFile file(metadataPath);
+    KConfigGroup cg = file.desktopGroup();
+
+    QJsonObject obj;
+    for (auto key : cg.keyList()) {
+        obj[key] = cg.readEntry(key);
+    }
+
+    QJsonObject plugJson;
+    plugJson["Id"] = cg.readEntry("X-KDE-PluginInfo-Name");
+    plugJson["Authors"] = cg.readEntry("X-KDE-PluginInfo-Author");
+    plugJson["Category"] = cg.readEntry("X-KDE-PluginInfo-Category");
+    plugJson["Description"] = file.readComment();
+    plugJson["Icon"] = file.readIcon();
+    plugJson["License"] = cg.readEntry("X-KDE-PluginInfo-License");
+    plugJson["Name"] = file.readName();
+    plugJson["Version"] = cg.readEntry("X-KDE-PluginInfo-Version");
+    plugJson["Website"] = cg.readEntry("X-KDE-PluginInfo-Website");
+    plugJson["ServiceTypes"] = cg.readEntry("X-KDE-ServiceTypes");
+    plugJson["EnabledByDefault"] = cg.readEntry("X-KDE-PluginInfo-EnabledByDefault");
+    plugJson["Dependencies"] = cg.readEntry("X-KDE-PluginInfo-Depends");
+    obj["KPlugin"] = plugJson;
+
+    metadata = new KPluginMetaData(obj, metadataPath);
 }
 
 QString PackagePrivate::fallbackFilePath(const char *key, const QString &filename) const
@@ -936,7 +960,7 @@ bool PackagePrivate::hasCycle(const KPackage::Package &package)
         //consider two packages the same if they have the same metadata
         if ((fastPackage->d->fallbackPackage->metadata().isValid() && fastPackage->d->fallbackPackage->metadata() == slowPackage->metadata()) ||
             (fastPackage->d->fallbackPackage->d->fallbackPackage && fastPackage->d->fallbackPackage->d->fallbackPackage->metadata().isValid() && fastPackage->d->fallbackPackage->d->fallbackPackage->metadata() == slowPackage->metadata())) {
-            qWarning() << "Warning: the fallback chain of " << package.metadata().pluginName() << "contains a cyclical dependency.";
+            qWarning() << "Warning: the fallback chain of " << package.metadata().pluginId() << "contains a cyclical dependency.";
             return true;
         }
         fastPackage = fastPackage->d->fallbackPackage->d->fallbackPackage;

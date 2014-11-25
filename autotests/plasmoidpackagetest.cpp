@@ -28,7 +28,7 @@
 
 #include <QDebug>
 
-#include "packagetrader.h"
+#include "packageloader.h"
 #include "plasmoidstructure.h"
 
 void PlasmoidPackageTest::initTestCase()

@@ -21,22 +21,21 @@
 #include "kpackagetool.h"
 
 #include <QDebug>
-#include <kservice.h>
-#include <kservicetypetrader.h>
+#include <QJsonDocument>
+#include <QJsonArray>
 #include <kshell.h>
 #include <kconfig.h>
-#include <ksycoca.h>
 #include <klocalizedstring.h>
+#include <kaboutdata.h>
+#include <KPluginLoader>
 
 #include <kpackage/packagestructure.h>
 #include <kpackage/package.h>
-#include <kpackage/packagetrader.h>
+#include <kpackage/packageloader.h>
 #include <kjob.h>
-#include <kplugintrader.h>
 
 #include <qcommandlineparser.h>
 #include <QDir>
-#include <QDBusInterface>
 #include <QFileInfo>
 #include <QMap>
 #include <QStandardPaths>
@@ -61,10 +60,9 @@ public:
     QString servicePrefix;
     QStringList pluginTypes;
     KPackage::Package installer;
-    KPluginInfo metadata;
+    KPluginMetaData metadata;
     QString installPath;
     void output(const QString &msg);
-    void runKbuildsycoca();
     QStringList packages(const QStringList &types);
     void renderTypeTable(const QMap<QString, QStringList> &plugins);
     void listTypes();
@@ -147,7 +145,7 @@ void PlasmaPkg::runMain()
             package.setPath(d->packageFile);
         }
         if (package.isValid() && package.metadata().isValid()) {
-            serviceType = package.metadata().property("X-Plasma-ServiceType").toString();
+            serviceType = package.metadata().value("X-Plasma-ServiceType");
         }
 
         if (!serviceType.isEmpty()) {
@@ -166,23 +164,15 @@ void PlasmaPkg::runMain()
         d->servicePrefix = "plasma-package-";
         d->pluginTypes << "Plasma/Generic";
     } else { /* if (KSycoca::isAvailable()) */
-        const QString constraint = QString("[X-KDE-PluginInfo-Name] == '%1'").arg(type);
-        KPluginInfo::List offers = KPluginTrader::self()->query("KPackage/PackageStructure", constraint);
-        if (offers.isEmpty()) {
-            d->coutput(i18n("Could not find a suitable installer for package of type %1", type));
-            exit(5);
-            return;
-        }
 
-        QString error;
-        PackageStructure *structure = KPluginTrader::createInstanceFromQuery<KPackage::PackageStructure>("kpackage/packagestructure", "KPackage/PackageStructure", constraint, 0, 0, QVariantList(), &error);
+        PackageStructure *structure = PackageLoader::self()->loadPackageStructure(type);
+
+
         if (structure) {
             d->installer = Package(structure);
         }
 
         if (!d->installer.isValid()) {
-            d->coutput(i18n("Could not load installer for package of type %1. Error reported was: %2",
-                            d->parser->value("type"), error));
             return;
         }
 
@@ -213,7 +203,7 @@ void PlasmaPkg::runMain()
         if (d->parser->isSet("remove") || d->parser->isSet("upgrade")) {
             QString pkgPath;
             foreach (const QString &t, d->pluginTypes) {
-                KPackage::Package pkg = KPackage::PackageTrader::self()->loadPackage(t);
+                KPackage::Package pkg = KPackage::PackageLoader::self()->loadPackage(t);
                 pkg.setPath(d->package);
                 if (pkg.isValid()) {
                     pkgPath = pkg.path();
@@ -242,12 +232,12 @@ void PlasmaPkg::runMain()
                 d->metadata = d->installer.metadata();
                 if (!d->metadata.isValid()) {
                     pluginName = d->package;
-                } else if (!d->metadata.isValid() && d->metadata.pluginName().isEmpty()) {
+                } else if (!d->metadata.isValid() && d->metadata.pluginId().isEmpty()) {
                     // plugin name given in command line
                     pluginName = d->package;
                 } else {
                     // Parameter was a plasma package, get plugin name from the package
-                    pluginName = d->metadata.pluginName();
+                    pluginName = d->metadata.pluginId();
                 }
             }
             QStringList installed = d->packages(d->pluginTypes);
@@ -259,7 +249,7 @@ void PlasmaPkg::runMain()
                 d->installer.setPath(d->packageFile);
                 if (d->installer.isValid()) {
                     if (d->installer.metadata().isValid()) {
-                        pluginName = d->installer.metadata().pluginName();
+                        pluginName = d->installer.metadata().pluginId();
                     }
                 }
             }
@@ -282,8 +272,6 @@ void PlasmaPkg::runMain()
         if (d->package.isEmpty()) {
             qWarning() << i18nc("No option was given, this is the error message telling the user he needs at least one, do not translate install, remove, upgrade nor list", "One of install, remove, upgrade or list is required.");
             exit(6);
-        } else {
-            d->runKbuildsycoca();
         }
     }
 }
@@ -291,15 +279,6 @@ void PlasmaPkg::runMain()
 void PlasmaPkgPrivate::coutput(const QString &msg)
 {
     cout << msg.toLocal8Bit().constData() << endl;
-}
-
-void PlasmaPkgPrivate::runKbuildsycoca()
-{
-    return;
-    if (KSycoca::isAvailable()) {
-        QDBusInterface dbus("org.kde.kded5", "/kbuildsycoca", "org.kde.kbuildsycoca");
-        dbus.call(QDBus::NoBlock, "recreate");
-    }
 }
 
 QStringList PlasmaPkgPrivate::packages(const QStringList &types)
@@ -322,14 +301,15 @@ QStringList PlasmaPkgPrivate::packages(const QStringList &types)
                 }
             }
         }
-
+//FIXME: restore this
+/*
         const KService::List services = KServiceTypeTrader::self()->query(type);
         foreach (const KService::Ptr &service, services) {
             const QString _plugin = service->property("X-KDE-PluginInfo-Name", QVariant::String).toString();
             if (!result.contains(_plugin)) {
                 result << _plugin;
             }
-        }
+        }*/
     }
 
     return result;
@@ -341,7 +321,7 @@ void PlasmaPkg::showPackageInfo(const QString &pluginName)
     if (!d->pluginTypes.contains(type) && d->pluginTypes.count() > 0) {
         type = d->pluginTypes.at(0);
     }
-    KPackage::Package pkg = KPackage::PackageTrader::self()->loadPackage(type);
+    KPackage::Package pkg = KPackage::PackageLoader::self()->loadPackage(type);
 
     pkg.setDefaultPackageRoot(d->packageRoot);
 
@@ -351,16 +331,16 @@ void PlasmaPkg::showPackageInfo(const QString &pluginName)
         pkg.setPath(pluginName);
     }
 
-    KPluginInfo i = pkg.metadata();
+    KPluginMetaData i = pkg.metadata();
     if (!i.isValid()) {
         d->coutput(i18n("Error: Can't find plugin metadata: %1", pluginName));
         exit(3);
     }
     d->coutput(i18n("Showing info for package: %1", pluginName));
     d->coutput(i18n("      Name : %1", i.name()));
-    d->coutput(i18n("   Comment : %1", i.comment()));
-    d->coutput(i18n("    Plugin : %1", i.pluginName()));
-    d->coutput(i18n("    Author : %1", i.author()));
+    d->coutput(i18n("   Comment : %1", i.value("Comment")));
+    d->coutput(i18n("    Plugin : %1", i.pluginId()));
+    d->coutput(i18n("    Author : %1", i.authors().first().name()));
     d->coutput(i18n("      Path : %1", pkg.path()));
 
     exit(0);
@@ -452,19 +432,63 @@ void PlasmaPkgPrivate::listTypes()
     QMap<QString, QStringList> builtIns;
     builtIns.insert(i18n("Package"), QStringList() << "Plasma/Generic" << PLASMA_RELATIVE_DATA_INSTALL_DIR "/packages/" << "package");
 
-    KPluginInfo::List offers = KPluginTrader::self()->query("KPackage/PackageStructure");
+    QStringList libraryPaths;
+
+    const QString subDirectory = "kpackage/packagestructure";
+
+    Q_FOREACH (const QString &dir, QCoreApplication::libraryPaths()) {
+        QString d = dir + QDir::separator() + subDirectory;
+        if (!d.endsWith(QDir::separator())) {
+            d += QDir::separator();
+        }
+        libraryPaths << d;
+    }
+
+
+    QString pluginFileName;
+
+    QList<KPluginMetaData> offers;
+
+    Q_FOREACH (const QString &plugindir, libraryPaths) {
+        const QString &_ixfile = plugindir + QStringLiteral("kpluginindex.json");
+        QFile indexFile(_ixfile);
+        if (indexFile.exists()) {
+            indexFile.open(QIODevice::ReadOnly);
+            QJsonDocument jdoc = QJsonDocument::fromBinaryData(indexFile.readAll());
+            indexFile.close();
+
+
+            QJsonArray plugins = jdoc.array();
+
+            for (QJsonArray::const_iterator iter = plugins.constBegin(); iter != plugins.constEnd(); ++iter) {
+                const QJsonObject &obj = QJsonValue(*iter).toObject();
+                const QString &candidate = obj.value(QStringLiteral("FileName")).toString();
+                const KPluginMetaData m(obj, candidate);
+                offers << m;
+            }
+        } else {
+            QVector<KPluginMetaData> plugins = KPluginLoader::findPlugins(plugindir);
+            QVectorIterator<KPluginMetaData> iter(plugins);
+            while (iter.hasNext()) {
+                auto md = iter.next();
+                offers << md;
+            }
+        }
+    }
+
+
 
     if (!offers.isEmpty()) {
         std::cout << std::endl;
         coutput(i18n("Provided by plugins:"));
 
         QMap<QString, QStringList> plugins;
-        foreach (const KPluginInfo &info, offers) {
+        foreach (const KPluginMetaData &info, offers) {
             //const QString proot = "";
             //KPackage::PackageStructure* structure = KPackage::PackageStructure::load(info.pluginName());
             QString name = info.name();
-            QString comment = info.comment();
-            QString plugin = info.pluginName();
+            QString comment = info.value("Comment");
+            QString plugin = info.pluginId();
             //QString path = structure->defaultPackageRoot();
             //QString path = defaultPackageRoot;
             plugins.insert(name, QStringList() << plugin);

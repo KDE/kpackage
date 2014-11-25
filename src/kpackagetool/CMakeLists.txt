@@ -3,7 +3,7 @@ add_executable(kpackagetool
     kpackagetool.cpp
 )
 
-target_link_libraries(kpackagetool KF5::Package KF5::I18n KF5::Service KF5::CoreAddons Qt5::DBus)
+target_link_libraries(kpackagetool KF5::Package KF5::I18n KF5::ConfigCore KF5::CoreAddons)
 
 install(TARGETS kpackagetool ${KF5_INSTALL_TARGETS_DEFAULT_ARGS})
 

@@ -17,12 +17,12 @@
 *   Boston, MA 02110-1301, USA.                                               *
 *******************************************************************************/
 
-#ifndef PACKAGE_PACKAGESTRUCTURE_H
-#define PACKAGE_PACKAGESTRUCTURE_H
+#ifndef KPACKAGE_PACKAGESTRUCTURE_H
+#define KPACKAGE_PACKAGESTRUCTURE_H
 
 #include <QtCore/QStringList>
 
-#include <kplugininfo.h>
+#include <KPluginFactory>
 
 #include <kpackage/package_export.h>
 #include <kpackage/package.h>
@@ -47,7 +47,7 @@ public:
      * Called when a the PackageStructure should initialize a Package with the initial
      * structure. This allows setting paths before setPath is called.
      *
-     * Note: one special value is "metadata" which can be set to the location of KPluginInfo
+     * Note: one special value is "metadata" which can be set to the location of KPluginMetaData
      * compatible .desktop file within the package. If not defined, it is assumed that this file
      * exists under the top level directory of the package.
      *
@@ -95,11 +95,8 @@ private:
 /**
  * Register a Package class when it is contained in a loadable module
  */
-#define K_EXPORT_PACKAGE_PACKAGE(libname, classname) \
-    K_PLUGIN_FACTORY(factory, registerPlugin<classname>();) \
-    K_EXPORT_PLUGIN_VERSION(PACKAGE_VERSION)
 
-#define K_EXPORT_PACKAGE_PACKAGE_WITH_JSON(classname, jsonFile) \
+#define K_EXPORT_KPACKAGE_PACKAGE_WITH_JSON(classname, jsonFile) \
     K_PLUGIN_FACTORY_WITH_JSON(factory, jsonFile, registerPlugin<classname>();) \
     K_EXPORT_PLUGIN_VERSION(PACKAGE_VERSION)
 

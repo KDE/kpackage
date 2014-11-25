@@ -26,7 +26,7 @@
 #include <klocalizedstring.h>
 
 #include "packagestructure.h"
-#include "packagetrader.h"
+#include "packageloader.h"
 
 class NoPrefixes : public KPackage::Package
 {
@@ -45,7 +45,7 @@ public:
 void PackageStructureTest::initTestCase()
 {
     m_packagePath = QFINDTESTDATA("data/testpackage");
-    ps = KPackage::PackageTrader::self()->loadPackage("KPackage/Generic");
+    ps = KPackage::PackageLoader::self()->loadPackage("KPackage/Generic");
     ps.addFileDefinition("mainscript", "ui/main.qml", i18n("Main Script File"));
     ps.setPath(m_packagePath);
 }
@@ -54,17 +54,17 @@ void PackageStructureTest::validStructures()
 {
     QVERIFY(ps.hasValidStructure());
     QVERIFY(!KPackage::Package().hasValidStructure());
-    QVERIFY(!KPackage::PackageTrader::self()->loadPackage("doesNotExist").hasValidStructure());
+    QVERIFY(!KPackage::PackageLoader::self()->loadPackage("doesNotExist").hasValidStructure());
 }
 
 void PackageStructureTest::validPackages()
 {
     QVERIFY(ps.isValid());
     QVERIFY(!KPackage::Package().isValid());
-    QVERIFY(!KPackage::PackageTrader::self()->loadPackage("doesNotExist").isValid());
+    QVERIFY(!KPackage::PackageLoader::self()->loadPackage("doesNotExist").isValid());
     QVERIFY(NoPrefixes().isValid());
 
-    KPackage::Package p = KPackage::PackageTrader::self()->loadPackage("KPackage/Generic");
+    KPackage::Package p = KPackage::PackageLoader::self()->loadPackage("KPackage/Generic");
     p.addFileDefinition("mainscript", "ui/main.qml", i18n("Main Script File"));
     QVERIFY(!p.isValid());
     p.setPath("/does/not/exist");
