@@ -36,6 +36,9 @@
 #include <QMimeType>
 #include <QMimeDatabase>
 #include <QRegExp>
+#include <QJsonArray>
+#include <QDirIterator>
+#include <QJsonDocument>
 #include <qtemporarydir.h>
 
 #include <QDebug>
@@ -103,6 +106,108 @@ bool removeFolder(QString folderPath)
     folder.cdUp();
     return folder.rmdir(folderName);
 }
+
+
+QVariantMap convert(const QString &src)
+{
+    KDesktopFile df(src);
+    KConfigGroup c = df.desktopGroup();
+
+    static const QSet<QString> boolkeys = QSet<QString>()
+                                          << QStringLiteral("Hidden") << QStringLiteral("X-KDE-PluginInfo-EnabledByDefault");
+    static const QSet<QString> stringlistkeys = QSet<QString>()
+            << QStringLiteral("X-KDE-ServiceTypes") << QStringLiteral("X-KDE-PluginInfo-Depends")
+            << QStringLiteral("X-Plasma-Provides");
+
+    QVariantMap vm;
+    foreach (const QString &k, c.keyList()) {
+        if (boolkeys.contains(k)) {
+            vm[k] = c.readEntry(k, false);
+        } else if (stringlistkeys.contains(k)) {
+            vm[k] = c.readEntry(k, QStringList());
+        } else {
+            vm[k] = c.readEntry(k, QString());
+        }
+    }
+
+    return vm;
+}
+
+bool removeIndex(const QString& dir)
+{
+    bool ok = true;
+    QFileInfo fileInfo(dir, QStringLiteral("kpluginindex.json"));
+    if (fileInfo.exists()) {
+        if (fileInfo.isWritable()) {
+            QFile f(fileInfo.absoluteFilePath());
+            if (!f.remove()) {
+                ok = false;
+                qWarning() << "Cannot remove kplugin index file: " << fileInfo.absoluteFilePath();
+            } else {
+                //qDebug() << "Deleted index: " << fileInfo.absoluteFilePath();
+            }
+        } else {
+            qWarning() << "Cannot remove kplugin index file (not writable): " << fileInfo.absoluteFilePath();
+            ok = false;
+        }
+    }
+    return ok;
+}
+
+bool indexDirectory(const QString& dir, const QString& dest)
+{
+    QVariantMap vm;
+    QVariantMap pluginsVm;
+    vm[QStringLiteral("Version")] = QStringLiteral("1.0");
+    vm[QStringLiteral("Timestamp")] = QDateTime::currentMSecsSinceEpoch();
+
+    QJsonArray plugins;
+
+    int i = 0;
+    QDirIterator it(dir, QStringList()<<QStringLiteral("*.desktop"), QDir::Files, QDirIterator::Subdirectories);
+    while (it.hasNext()) {
+        it.next();
+        const QString _f = it.fileInfo().absoluteFilePath();
+
+        QJsonObject obj;
+        obj["FileName"] = _f;
+
+        if (_f.endsWith(".desktop")) {
+            obj["KPlugin"] = QJsonObject::fromVariantMap(convert(_f));
+        }
+        plugins.insert(i, obj);
+        i++;
+    }
+
+
+    // Less than two plugin means it's not worth indexing
+    if (plugins.count() < 2) {
+        removeIndex(dir);
+        return true;
+    }
+
+    QJsonDocument jdoc;
+    jdoc.setArray(plugins);
+
+    QString destfile = dest;
+    const QFileInfo fi(dest);
+    if (!fi.isAbsolute()) {
+        destfile = dir + dest;
+    }
+    QFile file(destfile);
+    if (!file.open(QIODevice::WriteOnly | QIODevice::Text)) {
+        qWarning() << "Failed to open " << destfile;
+        return false;
+    }
+
+//     file.write(jdoc.toJson());
+    file.write(jdoc.toBinaryData());
+    qWarning() << "Generated " << destfile << " (" << i << " plugins)";
+
+    return true;
+}
+
+
 
 class PackageJobThreadPrivate
 {
@@ -291,50 +396,9 @@ bool PackageJobThread::installPackage(const QString &src, const QString &dest)
         tempdir.setAutoRemove(false);
     }
 
-    //FIXME: remove
-    if (0&&!d->servicePrefix.isEmpty()) {
-        // and now we register it as a service =)
-        QString metaPath = targetName + "/metadata.desktop";
-        KDesktopFile df(metaPath);
-        KConfigGroup cg = df.desktopGroup();
 
-        // Q: should not installing it as a service disqualify it?
-        // Q: i don't think so since KServiceTypeTrader may not be
-        // used by the installing app in any case, and the
-        // package is properly installed - aseigo
+    indexDirectory(dest, QStringLiteral("kpluginindex.json"));
 
-        //TODO: reduce code duplication with registerPackage below
-
-        const QString serviceName = d->servicePrefix + meta.pluginId() + ".desktop";
-
-        QString localServiceDirectory = QStandardPaths::writableLocation(QStandardPaths::GenericDataLocation) + QLatin1String("/kservices5/");
-        if (!QDir().mkpath(localServiceDirectory)) {
-            qDebug() << "Failed to create ... " << localServiceDirectory;
-            d->errorMessage = i18n("Could not create local service directory: %1", localServiceDirectory);
-            return false;
-        }
-        QString service = localServiceDirectory + serviceName;
-
-        qDebug() << "-- Copying " << metaPath << service;
-        const bool ok = QFile::copy(metaPath, service);
-        if (ok) {
-            qDebug() << "Copying metadata went ok.";
-            // the icon in the installed file needs to point to the icon in the
-            // installation dir!
-            QString iconPath = targetName + '/' + cg.readEntry("Icon");
-            QFile icon(iconPath);
-            if (icon.exists()) {
-                KDesktopFile df(service);
-                KConfigGroup cg = df.desktopGroup();
-                cg.writeEntry("Icon", iconPath);
-            }
-        } else {
-            qDebug() << "Could not register package as service (this is not necessarily fatal):" << serviceName;
-            d->errorMessage = i18n("Could not register package as service (this is not necessarily fatal): %1", serviceName);
-        }
-    }
-
-    //TODO: Call to recreate the plugin cache here
 
     d->installPath = targetName;
 
