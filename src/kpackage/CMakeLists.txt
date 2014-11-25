@@ -16,7 +16,7 @@ add_definitions(-DKDE_DEFAULT_DEBUG_AREA=1209)
 set(Package_LIB_SRCS
     package.cpp
     packagestructure.cpp
-    packagetrader.cpp
+    packageloader.cpp
     private/packages.cpp
     private/packagejob.cpp
     private/packagejobthread.cpp
@@ -60,7 +60,7 @@ ecm_generate_headers(Package_CamelCase_HEADERS
     HEADER_NAMES
         Package
         PackageStructure
-        PackageTrader
+        PackageLoader
     REQUIRED_HEADERS Package_HEADERS
     PREFIX KPackage
 )
