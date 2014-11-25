@@ -326,7 +326,7 @@ KPackage::PackageStructure *PackageLoader::loadPackageStructure(const QString &p
                 const QJsonObject &obj = QJsonValue(*iter).toObject();
                 const QString &candidate = obj.value(QStringLiteral("FileName")).toString();
                 const KPluginMetaData m(obj, candidate);
-                if (m.value("X-KDE-PluginInfo-Name") == packageFormat) {
+                if (m.pluginId() == packageFormat) {
                     pluginFileName = candidate;
                     break;
                 }
@@ -336,7 +336,7 @@ KPackage::PackageStructure *PackageLoader::loadPackageStructure(const QString &p
             QVectorIterator<KPluginMetaData> iter(plugins);
             while (iter.hasNext()) {
                 auto md = iter.next();
-                if (md.value("X-KDE-PluginInfo-Name") == packageFormat) {
+                if (md.pluginId() == packageFormat) {
                     pluginFileName = md.fileName();
                     break;
                 }

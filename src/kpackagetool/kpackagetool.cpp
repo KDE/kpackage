@@ -485,14 +485,15 @@ void PlasmaPkgPrivate::listTypes()
         QMap<QString, QStringList> plugins;
         foreach (const KPluginMetaData &info, offers) {
             //const QString proot = "";
-            //KPackage::PackageStructure* structure = KPackage::PackageStructure::load(info.pluginName());
+            KPackage::Package pkg = KPackage::PackageLoader::self()->loadPackage(info.pluginId());
             QString name = info.name();
             QString comment = info.value("Comment");
             QString plugin = info.pluginId();
-            //QString path = structure->defaultPackageRoot();
+            QString path = pkg.defaultPackageRoot();
+            QString types = info.serviceTypes().join(",");
             //QString path = defaultPackageRoot;
-            plugins.insert(name, QStringList() << plugin);
-            //qDebug() << "KService stuff:" << name << plugin << comment;
+            plugins.insert(name, QStringList() << plugin << path << types);
+            //qDebug() << "KService stuff:" << name << plugin << comment << path;
         }
 
         renderTypeTable(plugins);
