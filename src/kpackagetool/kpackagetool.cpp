@@ -167,17 +167,18 @@ void PlasmaPkg::runMain()
 
         PackageStructure *structure = PackageLoader::self()->loadPackageStructure(type);
 
-
         if (structure) {
             d->installer = Package(structure);
         }
 
         if (!d->installer.isValid()) {
+            qWarning() << "Package type" << type << "not found";
+            exit(0);
             return;
         }
 
-        //d->packageRoot = d->installer.defaultPackageRoot();
-        //pluginTypes << d->installer.type();
+        d->packageRoot = d->installer.defaultPackageRoot();
+        d->pluginTypes << type;
     }
     if (d->parser->isSet("show")) {
         const QString pluginName = d->package;
@@ -288,7 +289,7 @@ QStringList PlasmaPkgPrivate::packages(const QStringList &types)
     foreach (const QString &type, types) {
 
         if (type.compare("Plasma/Generic", Qt::CaseInsensitive) == 0) {
-            const QStringList &packs = QStandardPaths::locateAll(QStandardPaths::GenericDataLocation, PLASMA_RELATIVE_DATA_INSTALL_DIR "/packages/", QStandardPaths::LocateDirectory);
+            const QStringList &packs = QStandardPaths::locateAll(QStandardPaths::GenericDataLocation, "kpackage/", QStandardPaths::LocateDirectory);
             foreach (const QString &ppath, packs) {
                 const QDir cd(ppath);
                 const QStringList &entries = cd.entryList(QDir::Dirs);
@@ -301,15 +302,14 @@ QStringList PlasmaPkgPrivate::packages(const QStringList &types)
                 }
             }
         }
-//FIXME: restore this
-/*
-        const KService::List services = KServiceTypeTrader::self()->query(type);
-        foreach (const KService::Ptr &service, services) {
-            const QString _plugin = service->property("X-KDE-PluginInfo-Name", QVariant::String).toString();
+
+        const QList<KPluginMetaData> services = KPackage::PackageLoader::self()->listPackages(type);
+        foreach (const KPluginMetaData &service, services) {
+            const QString _plugin = service.pluginId();
             if (!result.contains(_plugin)) {
                 result << _plugin;
             }
-        }*/
+        }
     }
 
     return result;
