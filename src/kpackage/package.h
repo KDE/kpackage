@@ -176,11 +176,6 @@ public:
     QString defaultPackageRoot() const;
 
     /**
-     * @return service prefix used in desktop files. This defaults to plasma-applet-
-     */
-    QString servicePrefix() const;
-
-    /**
      * @return true if paths/symlinks outside the package itself should be followed.
      * By default this is set to false for security reasons.
      */
@@ -271,11 +266,6 @@ public:
      * @since 4.6
      */
     void setContentsPrefixPaths(const QStringList &prefixPaths);
-
-    /**
-     * Sets service prefix.
-     */
-    void setServicePrefix(const QString &servicePrefix);
 
     /**
      * Sets whether or not external paths/symlinks can be followed by a package

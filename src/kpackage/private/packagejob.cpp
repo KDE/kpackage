@@ -32,11 +32,11 @@ public:
     QString installPath;
 };
 
-PackageJob::PackageJob(const QString &servicePrefix, QObject *parent) :
+PackageJob::PackageJob(QObject *parent) :
     KJob(parent)
 {
     d = new PackageJobPrivate;
-    d->thread = new PackageJobThread(servicePrefix, this);
+    d->thread = new PackageJobThread(this);
     connect(d->thread, SIGNAL(finished(bool,QString)),
             SLOT(slotFinished(bool,QString)), Qt::QueuedConnection);
     connect(d->thread, SIGNAL(installPathChanged(QString)),

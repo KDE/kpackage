@@ -30,7 +30,6 @@ namespace KPackage
 void PlasmoidPackage::initPackage(Package *package)
 {
     GenericPackage::initPackage(package);
-    package->setServicePrefix("plasma-applet-");
     package->setDefaultPackageRoot("plasma/plasmoids/");
 
     package->addFileDefinition("mainscript", "ui/main.qml", i18n("Main Script File"));

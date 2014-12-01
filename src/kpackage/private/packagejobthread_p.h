@@ -34,7 +34,7 @@ class PackageJobThread : public QThread
     Q_OBJECT
 
 public:
-    PackageJobThread(const QString &servicePrefix, QObject *parent = 0);
+    PackageJobThread(QObject *parent = 0);
     virtual ~PackageJobThread();
 
     bool install(const QString &src, const QString &dest);

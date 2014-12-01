@@ -80,7 +80,6 @@ public:
     QString tempRoot;
     QStringList contentsPrefixPaths;
     QString defaultPackageRoot;
-    QString servicePrefix;
     QHash<QString, QString> discoveries;
     QHash<QByteArray, ContentStructure> contents;
     Package *fallbackPackage;

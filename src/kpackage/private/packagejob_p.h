@@ -32,7 +32,7 @@ class PackageJob : public KJob
     Q_OBJECT
 
 public:
-    PackageJob(const QString &servicePrefix, QObject *parent = 0);
+    PackageJob(QObject *parent = 0);
     ~PackageJob();
 
     virtual void start();

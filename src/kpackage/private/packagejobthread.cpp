@@ -214,15 +214,12 @@ class PackageJobThreadPrivate
 public:
     QString installPath;
     QString errorMessage;
-    //TODO: remove
-    QString servicePrefix;
 };
 
-PackageJobThread::PackageJobThread(const QString &servicePrefix, QObject *parent) :
+PackageJobThread::PackageJobThread(QObject *parent) :
     QThread(parent)
 {
     d = new PackageJobThreadPrivate;
-    d->servicePrefix = servicePrefix;
 }
 
 PackageJobThread::~PackageJobThread()

@@ -209,17 +209,6 @@ KPackage::Package Package::fallbackPackage() const
     }
 }
 
-QString Package::servicePrefix() const
-{
-    return d->servicePrefix;
-}
-
-void Package::setServicePrefix(const QString &servicePrefix)
-{
-    d.detach();
-    d->servicePrefix = servicePrefix;
-}
-
 bool Package::allowExternalPaths() const
 {
     return d->externalPaths;
@@ -793,7 +782,6 @@ KJob *Package::uninstall(const QString &packageName, const QString &packageRoot)
 
 PackagePrivate::PackagePrivate()
     : QSharedData(),
-      servicePrefix("plasma-applet-"),
       fallbackPackage(0),
       metadata(0),
       externalPaths(false),
@@ -834,13 +822,11 @@ PackagePrivate &PackagePrivate::operator=(const PackagePrivate &rhs)
     }
     path = rhs.path;
     contentsPrefixPaths = rhs.contentsPrefixPaths;
-    servicePrefix = rhs.servicePrefix;
     contents = rhs.contents;
 #ifndef PLASMA_NO_PACKAGE_EXTRADATA
     mimeTypes = rhs.mimeTypes;
 #endif
     defaultPackageRoot = rhs.defaultPackageRoot;
-    servicePrefix = rhs.servicePrefix;
     metadata = 0;
     externalPaths = rhs.externalPaths;
     valid = rhs.valid;

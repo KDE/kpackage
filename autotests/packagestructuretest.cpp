@@ -96,7 +96,6 @@ void PackageStructureTest::mutateAfterCopy()
     const QStringList defaultMimeTypes = ps.mimeTypes("translations");
     const QString packageRoot = ps.defaultPackageRoot();
     const bool externalPaths = ps.allowExternalPaths();
-    const QString servicePrefix = ps.servicePrefix();
     const QStringList contentsPrefixPaths = ps.contentsPrefixPaths();
     const QList<const char *> files = ps.files();
     const QList<const char *> dirs = ps.directories();
@@ -117,12 +116,6 @@ void PackageStructureTest::mutateAfterCopy()
     copy.setAllowExternalPaths(!externalPaths);
     QCOMPARE(ps.allowExternalPaths(), externalPaths);
     QCOMPARE(copy.allowExternalPaths(), !externalPaths);
-
-    copy = ps;
-    const QString copyServicePrefix = packageRoot + "more/";
-    copy.setServicePrefix(copyServicePrefix);
-    QCOMPARE(ps.servicePrefix(), servicePrefix);
-    QCOMPARE(copy.servicePrefix(), copyServicePrefix);
 
     copy = ps;
     QStringList copyContentsPrefixPaths = contentsPrefixPaths;
