@@ -57,7 +57,6 @@ public:
     QString packageRoot;
     QString packageFile;
     QString package;
-    QString servicePrefix;
     QStringList pluginTypes;
     KPackage::Package installer;
     KPluginMetaData metadata;
@@ -158,12 +157,11 @@ void PlasmaPkg::runMain()
         }
     }
 
-    if (type.compare(i18nc("package type", "package"), Qt::CaseInsensitive) == 0 /*||
+    if (type.compare(i18nc("package type", "KPackage/Generic"), Qt::CaseInsensitive) == 0 /*||
                type.compare("theme", Qt::CaseInsensitive) == 0*/) {
         d->packageRoot = KPACKAGE_RELATIVE_DATA_INSTALL_DIR "/packages/";
-        d->servicePrefix = "plasma-package-";
-        d->pluginTypes << "Plasma/Generic";
-    } else { /* if (KSycoca::isAvailable()) */
+        d->pluginTypes << "KPackage/Generic";
+    } else {
 
         PackageStructure *structure = PackageLoader::self()->loadPackageStructure(type);
 
@@ -171,7 +169,7 @@ void PlasmaPkg::runMain()
             d->installer = Package(structure);
         }
 
-        if (!d->installer.isValid()) {
+        if (!d->installer.hasValidStructure()) {
             qWarning() << "Package type" << type << "not found";
             exit(0);
             return;
@@ -196,7 +194,6 @@ void PlasmaPkg::runMain()
         if (!d->installer.isValid()) {
 
             d->installer = KPackage::Package(new KPackage::PackageStructure());
-            d->installer.setServicePrefix(d->servicePrefix);
         }
 
         d->packageRoot = findPackageRoot(d->package, d->packageRoot);
