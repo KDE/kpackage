@@ -430,7 +430,9 @@ void PlasmaPkgPrivate::listTypes()
     coutput(i18n("Built in:"));
 
     QMap<QString, QStringList> builtIns;
-    builtIns.insert(i18n("Package"), QStringList() << "Plasma/Generic" << PLASMA_RELATIVE_DATA_INSTALL_DIR "/packages/" << "package");
+    builtIns.insert(i18n("Package"), QStringList() << "KPackage/Generic" << PLASMA_RELATIVE_DATA_INSTALL_DIR "/packages/" << "package");
+
+    renderTypeTable(builtIns);
 
     QStringList libraryPaths;
 
@@ -492,7 +494,7 @@ void PlasmaPkgPrivate::listTypes()
             QString path = pkg.defaultPackageRoot();
             QString types = info.serviceTypes().join(",");
             //QString path = defaultPackageRoot;
-            plugins.insert(name, QStringList() << plugin << path << types);
+            plugins.insert(name, QStringList() << plugin << path << plugin);
             //qDebug() << "KService stuff:" << name << plugin << comment << path;
         }
 
