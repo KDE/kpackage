@@ -31,7 +31,7 @@ void PlasmoidPackage::initPackage(Package *package)
 {
     GenericPackage::initPackage(package);
     package->setServicePrefix("plasma-applet-");
-    package->setDefaultPackageRoot(PLASMA_RELATIVE_DATA_INSTALL_DIR "/plasmoids/");
+    package->setDefaultPackageRoot("plasma/plasmoids/");
 
     package->addFileDefinition("mainscript", "ui/main.qml", i18n("Main Script File"));
     package->addFileDefinition("configmodel", "config/config.qml", i18n("Configuration UI pages model"));

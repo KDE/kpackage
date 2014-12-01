@@ -160,7 +160,7 @@ void PlasmaPkg::runMain()
 
     if (type.compare(i18nc("package type", "package"), Qt::CaseInsensitive) == 0 /*||
                type.compare("theme", Qt::CaseInsensitive) == 0*/) {
-        d->packageRoot = PLASMA_RELATIVE_DATA_INSTALL_DIR "/packages/";
+        d->packageRoot = KPACKAGE_RELATIVE_DATA_INSTALL_DIR "/packages/";
         d->servicePrefix = "plasma-package-";
         d->pluginTypes << "Plasma/Generic";
     } else { /* if (KSycoca::isAvailable()) */
@@ -430,7 +430,7 @@ void PlasmaPkgPrivate::listTypes()
     coutput(i18n("Built in:"));
 
     QMap<QString, QStringList> builtIns;
-    builtIns.insert(i18n("Package"), QStringList() << "KPackage/Generic" << PLASMA_RELATIVE_DATA_INSTALL_DIR "/packages/" << "package");
+    builtIns.insert(i18n("Package"), QStringList() << "KPackage/Generic" << KPACKAGE_RELATIVE_DATA_INSTALL_DIR "/packages/" << "package");
 
     renderTypeTable(builtIns);
 
@@ -501,7 +501,7 @@ void PlasmaPkgPrivate::listTypes()
         renderTypeTable(plugins);
     }
 
-    QStringList desktopFiles = QStandardPaths::locateAll(QStandardPaths::DataLocation, PLASMA_RELATIVE_DATA_INSTALL_DIR "/packageformats/*rc", QStandardPaths::LocateFile);
+    QStringList desktopFiles = QStandardPaths::locateAll(QStandardPaths::DataLocation, KPACKAGE_RELATIVE_DATA_INSTALL_DIR "/packageformats/*rc", QStandardPaths::LocateFile);
 
     if (!desktopFiles.isEmpty()) {
         coutput(i18n("Provided by .desktop files:"));
