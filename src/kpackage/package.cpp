@@ -908,31 +908,7 @@ void PackagePrivate::createPackageMetadata(const QString &path)
         metadataPath.clear();
     }
 
-    //TODO: replace with new KPluginMetaData ctor
-    KDesktopFile file(metadataPath);
-    KConfigGroup cg = file.desktopGroup();
-
-    QJsonObject obj;
-    for (auto key : cg.keyList()) {
-        obj[key] = cg.readEntry(key);
-    }
-
-    QJsonObject plugJson;
-    plugJson["Id"] = cg.readEntry("X-KDE-PluginInfo-Name");
-    plugJson["Authors"] = cg.readEntry("X-KDE-PluginInfo-Author");
-    plugJson["Category"] = cg.readEntry("X-KDE-PluginInfo-Category");
-    plugJson["Description"] = file.readComment();
-    plugJson["Icon"] = file.readIcon();
-    plugJson["License"] = cg.readEntry("X-KDE-PluginInfo-License");
-    plugJson["Name"] = file.readName();
-    plugJson["Version"] = cg.readEntry("X-KDE-PluginInfo-Version");
-    plugJson["Website"] = cg.readEntry("X-KDE-PluginInfo-Website");
-    plugJson["ServiceTypes"] = cg.readEntry("X-KDE-ServiceTypes");
-    plugJson["EnabledByDefault"] = cg.readEntry("X-KDE-PluginInfo-EnabledByDefault");
-    plugJson["Dependencies"] = cg.readEntry("X-KDE-PluginInfo-Depends");
-    obj["KPlugin"] = plugJson;
-
-    metadata = new KPluginMetaData(obj, metadataPath);
+    metadata = new KPluginMetaData(metadataPath);
 }
 
 QString PackagePrivate::fallbackFilePath(const char *key, const QString &filename) const
