@@ -42,6 +42,7 @@ public:
     void listPackages(const QStringList &types);
     void showPackageInfo(const QString &pluginName);
     QString findPackageRoot(const QString &pluginName, const QString &prefix);
+    void recreateIndex();
 
 private Q_SLOTS:
     void runMain();

@@ -29,6 +29,8 @@ namespace KPackage
 
 class PackageJobThreadPrivate;
 
+bool indexDirectory(const QString& dir, const QString& dest);
+
 class PackageJobThread : public QThread
 {
     Q_OBJECT

@@ -144,7 +144,7 @@ bool removeIndex(const QString& dir)
                 ok = false;
                 qWarning() << "Cannot remove kplugin index file: " << fileInfo.absoluteFilePath();
             } else {
-                //qDebug() << "Deleted index: " << fileInfo.absoluteFilePath();
+                qDebug() << "Deleted index: " << fileInfo.absoluteFilePath();
             }
         } else {
             qWarning() << "Cannot remove kplugin index file (not writable): " << fileInfo.absoluteFilePath();

@@ -46,6 +46,8 @@
 #include <iomanip>
 
 #include "../kpackage/config-package.h"
+//for the index creation function
+#include "../kpackage/private/packagejobthread_p.h"
 
 static QTextStream cout(stdout);
 
@@ -184,6 +186,11 @@ void PlasmaPkg::runMain()
         d->coutput(i18n("Listing service types: %1", d->pluginTypes.join(", ")));
         listPackages(d->pluginTypes);
         exit(0);
+
+    } else if (d->parser->isSet("index")) {
+        recreateIndex();
+        exit(0);
+
     } else {
         // install, remove or upgrade
         if (!d->installer.isValid()) {
@@ -489,6 +496,25 @@ void PlasmaPkgPrivate::listTypes()
             //plugins.insert(name, QStringList() << structure.type() << structure.defaultPackageRoot());
         }
     }
+}
+
+void PlasmaPkg::recreateIndex()
+{
+    d->packageRoot = findPackageRoot(d->package, d->packageRoot);
+
+    if (!QDir::isAbsolutePath(d->packageRoot)) {
+        if (d->parser->isSet("global")) {
+            for (auto p : QStandardPaths::locateAll(QStandardPaths::GenericDataLocation, d->packageRoot, QStandardPaths::LocateDirectory)) {
+                d->coutput(i18n("Generating %1/kpluginindex.json", p));
+                KPackage::indexDirectory(p, QStringLiteral("kpluginindex.json"));
+            }
+        } else {
+            d->packageRoot = QStandardPaths::writableLocation(QStandardPaths::GenericDataLocation) + QLatin1Char('/') + d->packageRoot;
+        }
+    }
+
+    d->coutput(i18n("Generating %1/kpluginindex.json", d->packageRoot));
+    KPackage::indexDirectory(d->packageRoot, QStringLiteral("kpluginindex.json"));
 }
 
 void PlasmaPkg::packageInstalled(KJob *job)
