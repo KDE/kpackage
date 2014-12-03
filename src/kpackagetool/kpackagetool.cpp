@@ -187,7 +187,7 @@ void PlasmaPkg::runMain()
         listPackages(d->pluginTypes);
         exit(0);
 
-    } else if (d->parser->isSet("index")) {
+    } else if (d->parser->isSet("generate-index")) {
         recreateIndex();
         exit(0);
 
@@ -334,7 +334,7 @@ void PlasmaPkg::showPackageInfo(const QString &pluginName)
 QString PlasmaPkg::findPackageRoot(const QString &pluginName, const QString &prefix)
 {
     QString packageRoot;
-    if (d->parser->isSet("packageroot") && d->parser->isSet("global") && !d->parser->isSet("index")) {
+    if (d->parser->isSet("packageroot") && d->parser->isSet("global") && !d->parser->isSet("generate-index")) {
         qWarning() << i18nc("The user entered conflicting options packageroot and global, this is the error message telling the user he can use only one", "The packageroot and global options conflict each other, please select only one.");
         ::exit(7);
     } else if (d->parser->isSet("packageroot")) {
