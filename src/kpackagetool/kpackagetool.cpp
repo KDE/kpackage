@@ -298,8 +298,15 @@ void PlasmaPkg::showPackageInfo(const QString &pluginName)
     if (!d->pluginTypes.contains(type) && d->pluginTypes.count() > 0) {
         type = d->pluginTypes.at(0);
     }
-    KPackage::Package pkg = KPackage::PackageLoader::self()->loadPackage(type, pluginName);
+    KPackage::Package pkg = KPackage::PackageLoader::self()->loadPackage(type);
 
+    pkg.setDefaultPackageRoot(d->packageRoot);
+
+    if (QFile::exists(d->packageFile)) {
+        pkg.setPath(d->packageFile);
+    } else {
+        pkg.setPath(pluginName);
+    }
 
     KPluginMetaData i = pkg.metadata();
     if (!i.isValid()) {
