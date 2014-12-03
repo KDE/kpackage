@@ -355,11 +355,9 @@ void PlasmaPkgPrivate::renderTypeTable(const QMap<QString, QStringList> &plugins
     const QString nameHeader = i18n("Addon Name");
     const QString pluginHeader = i18n("Service Type");
     const QString pathHeader = i18n("Path");
-    const QString typeHeader = i18n("Type Argument");
     int nameWidth = nameHeader.length();
     int pluginWidth = pluginHeader.length();
     int pathWidth = pathHeader.length();
-    int typeWidth = typeHeader.length();
 
     QMapIterator<QString, QStringList> pluginIt(plugins);
     while (pluginIt.hasNext()) {
@@ -376,19 +374,16 @@ void PlasmaPkgPrivate::renderTypeTable(const QMap<QString, QStringList> &plugins
             pathWidth = pluginIt.value()[1].length();
         }
 
-        if (pluginIt.value()[2].length() > typeWidth) {
-            typeWidth = pluginIt.value()[2].length();
-        }
     }
 
     std::cout << nameHeader.toLocal8Bit().constData() << std::setw(nameWidth - nameHeader.length() + 2) << ' '
               << pluginHeader.toLocal8Bit().constData() << std::setw(pluginWidth - pluginHeader.length() + 2) << ' '
               << pathHeader.toLocal8Bit().constData() << std::setw(pathWidth - pathHeader.length() + 2) << ' '
-              << typeHeader.toLocal8Bit().constData() << std::endl;
+              << std::endl;
     std::cout << std::setfill('-') << std::setw(nameWidth) << '-' << "  "
               << std::setw(pluginWidth) << '-' << "  "
               << std::setw(pathWidth) << '-' << "  "
-              << std::setw(typeWidth) << '-' << std::endl;
+              << std::endl;
     std::cout << std::setfill(' ');
 
     pluginIt.toFront();
@@ -396,8 +391,7 @@ void PlasmaPkgPrivate::renderTypeTable(const QMap<QString, QStringList> &plugins
         pluginIt.next();
         std::cout << pluginIt.key().toLocal8Bit().constData() << std::setw(nameWidth - pluginIt.key().length() + 2) << ' '
                   << pluginIt.value()[0].toLocal8Bit().constData() << std::setw(pluginWidth - pluginIt.value()[0].length() + 2) << ' '
-                  << pluginIt.value()[1].toLocal8Bit().constData() << std::setw(pathWidth - pluginIt.value()[1].length() + 2) << ' '
-                  << pluginIt.value()[2].toLocal8Bit().constData() << std::endl;
+                  << pluginIt.value()[1].toLocal8Bit().constData() << std::setw(pathWidth - pluginIt.value()[1].length() + 2) << std::endl;
     }
 }
 
@@ -407,7 +401,7 @@ void PlasmaPkgPrivate::listTypes()
     coutput(i18n("Built in:"));
 
     QMap<QString, QStringList> builtIns;
-    builtIns.insert(i18n("KPackage/Generic"), QStringList() << "KPackage/Generic" << KPACKAGE_RELATIVE_DATA_INSTALL_DIR "/packages/" << "KPackage/Generic");
+    builtIns.insert(i18n("KPackage/Generic"), QStringList() << "KPackage/Generic" << KPACKAGE_RELATIVE_DATA_INSTALL_DIR "/packages/");
 
     renderTypeTable(builtIns);
 
@@ -471,7 +465,7 @@ void PlasmaPkgPrivate::listTypes()
             QString path = pkg.defaultPackageRoot();
             QString types = info.serviceTypes().join(",");
             //QString path = defaultPackageRoot;
-            plugins.insert(name, QStringList() << plugin << path << plugin);
+            plugins.insert(name, QStringList() << plugin << path);
             //qDebug() << "KService stuff:" << name << plugin << comment << path;
         }
 
