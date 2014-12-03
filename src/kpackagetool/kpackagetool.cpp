@@ -148,8 +148,8 @@ void PlasmaPkg::runMain()
         }
 
         if (!serviceType.isEmpty()) {
-            if (serviceType == "Plasma/Generic") {
-                type = "package";
+            if (serviceType == "KPackage/Generic") {
+                type = "KPackage/Generic";
             } else {
                 type = serviceType;
                 //qDebug() << "fallthrough type is" << serviceType;
@@ -157,12 +157,7 @@ void PlasmaPkg::runMain()
         }
     }
 
-    if (type.compare(i18nc("package type", "KPackage/Generic"), Qt::CaseInsensitive) == 0 /*||
-               type.compare("theme", Qt::CaseInsensitive) == 0*/) {
-        d->packageRoot = KPACKAGE_RELATIVE_DATA_INSTALL_DIR "/packages/";
-        d->pluginTypes << "KPackage/Generic";
-    } else {
-
+    {
         PackageStructure *structure = PackageLoader::self()->loadPackageStructure(type);
 
         if (structure) {
@@ -284,21 +279,6 @@ QStringList PlasmaPkgPrivate::packages(const QStringList &types)
     QStringList result;
 
     foreach (const QString &type, types) {
-
-        if (type.compare("Plasma/Generic", Qt::CaseInsensitive) == 0) {
-            const QStringList &packs = QStandardPaths::locateAll(QStandardPaths::GenericDataLocation, "kpackage/", QStandardPaths::LocateDirectory);
-            foreach (const QString &ppath, packs) {
-                const QDir cd(ppath);
-                const QStringList &entries = cd.entryList(QDir::Dirs);
-                foreach (const QString pack, entries) {
-                    if ((pack != "." && pack != "..") &&
-                            (QFile::exists(ppath + '/' + pack + "/metadata.desktop"))) {
-
-                        result << pack;
-                    }
-                }
-            }
-        }
 
         const QList<KPluginMetaData> services = KPackage::PackageLoader::self()->listPackages(type);
         foreach (const KPluginMetaData &service, services) {
@@ -427,7 +407,7 @@ void PlasmaPkgPrivate::listTypes()
     coutput(i18n("Built in:"));
 
     QMap<QString, QStringList> builtIns;
-    builtIns.insert(i18n("Package"), QStringList() << "KPackage/Generic" << KPACKAGE_RELATIVE_DATA_INSTALL_DIR "/packages/" << "package");
+    builtIns.insert(i18n("KPackage/Generic"), QStringList() << "KPackage/Generic" << KPACKAGE_RELATIVE_DATA_INSTALL_DIR "/packages/" << "KPackage/Generic");
 
     renderTypeTable(builtIns);
 

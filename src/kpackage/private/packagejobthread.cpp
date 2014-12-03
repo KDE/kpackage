@@ -167,18 +167,11 @@ bool indexDirectory(const QString& dir, const QString& dest)
     QDirIterator it(dir, QStringList()<<QStringLiteral("*.desktop"), QDir::Files, QDirIterator::Subdirectories);
     while (it.hasNext()) {
         it.next();
-        const QString _f = it.fileInfo().absoluteFilePath();
+        const QString path = it.fileInfo().absoluteFilePath();
 
-        QJsonObject obj;
-        obj["FileName"] = _f;
-
-        if (_f.endsWith(".desktop")) {
-            obj["KPlugin"] = QJsonObject::fromVariantMap(convert(_f));
-        }
-        plugins.insert(i, obj);
+        plugins.insert(i, KPluginMetaData(path).rawData());
         i++;
     }
-
 
     // Less than two plugin means it's not worth indexing
     if (plugins.count() < 2) {

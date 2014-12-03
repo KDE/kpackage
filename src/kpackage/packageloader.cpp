@@ -231,7 +231,7 @@ QList<KPluginMetaData> PackageLoader::listPackages(const QString &packageFormat,
             for (QJsonArray::const_iterator iter = plugins.constBegin(); iter != plugins.constEnd(); ++iter) {
                 const QJsonObject &obj = QJsonValue(*iter).toObject();
                 const QString &pluginFileName = obj.value(QStringLiteral("FileName")).toString();
-                const KPluginMetaData m(obj, pluginFileName);
+                const KPluginMetaData m(obj, QString(), pluginFileName);
                 if (m.isValid()) {
                     lst << m;
                 }
