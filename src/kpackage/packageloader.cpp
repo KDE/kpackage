@@ -216,7 +216,6 @@ QList<KPluginMetaData> PackageLoader::listPackages(const QString &packageFormat,
     //TODO: case in which defaultpackageroot is absolute
     for (auto datadir : QStandardPaths::standardLocations(QStandardPaths::GenericDataLocation)) {
         const QString plugindir = datadir + '/' + actualRoot;
-
         const QString &_ixfile = plugindir + QStringLiteral("kpluginindex.json");
         QFile indexFile(_ixfile);
         //qDebug() << "indexfile: " << _ixfile << indexFile.exists();

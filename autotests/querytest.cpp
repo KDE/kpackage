@@ -31,6 +31,8 @@
 void QueryTest::initTestCase()
 {
     QStandardPaths::setTestModeEnabled(true);
+    //Remove any eventual installed package globally on the system
+    setenv("XDG_DATA_DIRS", "/not/valid", 1);
 
     m_dataDir = QDir(QStandardPaths::writableLocation(QStandardPaths::GenericDataLocation));
     m_dataDir.removeRecursively();
