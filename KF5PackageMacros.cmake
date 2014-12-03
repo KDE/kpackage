@@ -36,7 +36,11 @@ macro(kpackage_install_package dir component)
            PATTERN Messages.sh EXCLUDE
            PATTERN dummydata EXCLUDE)
 
-   file(APPEND ${CMAKE_CURRENT_BINARY_DIR}/regenerateindex.sh "kpackagetool --generate-index -g -p ${CMAKE_INSTALL_PREFIX}/${DATA_INSTALL_DIR}/${install_dir}/${root}\n")
+   set(kpackagetool_cmd ${CMAKE_INSTALL_PREFIX}/bin/kpackagetool)
+
+   execute_process(COMMAND ${kpackagetool_cmd} --generate-index -g -p ${CMAKE_INSTALL_PREFIX}/${DATA_INSTALL_DIR}/${install_dir}/${root})
+
+   file(APPEND ${CMAKE_CURRENT_BINARY_DIR}/regenerateindex.sh "${kpackagetool_cmd} --generate-index -g -p ${CMAKE_INSTALL_PREFIX}/${DATA_INSTALL_DIR}/${install_dir}/${root}\n")
 endmacro()
 
 
