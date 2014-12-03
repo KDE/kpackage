@@ -294,24 +294,18 @@ QStringList PlasmaPkgPrivate::packages(const QStringList &types)
 
 void PlasmaPkg::showPackageInfo(const QString &pluginName)
 {
-    QString type = QStringLiteral("Plasma/Applet");
+    QString type = "KPackage/Generic";
     if (!d->pluginTypes.contains(type) && d->pluginTypes.count() > 0) {
         type = d->pluginTypes.at(0);
     }
-    KPackage::Package pkg = KPackage::PackageLoader::self()->loadPackage(type);
+    KPackage::Package pkg = KPackage::PackageLoader::self()->loadPackage(type, pluginName);
 
-    pkg.setDefaultPackageRoot(d->packageRoot);
-
-    if (QFile::exists(d->packageFile)) {
-        pkg.setPath(d->packageFile);
-    } else {
-        pkg.setPath(pluginName);
-    }
 
     KPluginMetaData i = pkg.metadata();
     if (!i.isValid()) {
         d->coutput(i18n("Error: Can't find plugin metadata: %1", pluginName));
         exit(3);
+        return;
     }
     d->coutput(i18n("Showing info for package: %1", pluginName));
     d->coutput(i18n("      Name : %1", i.name()));
