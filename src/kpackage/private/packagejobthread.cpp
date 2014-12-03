@@ -185,7 +185,7 @@ bool indexDirectory(const QString& dir, const QString& dest)
     QString destfile = dest;
     const QFileInfo fi(dest);
     if (!fi.isAbsolute()) {
-        destfile = dir + dest;
+        destfile = dir + '/' + dest;
     }
     QFile file(destfile);
     if (!file.open(QIODevice::WriteOnly | QIODevice::Text)) {

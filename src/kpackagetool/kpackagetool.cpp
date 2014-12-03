@@ -334,7 +334,7 @@ void PlasmaPkg::showPackageInfo(const QString &pluginName)
 QString PlasmaPkg::findPackageRoot(const QString &pluginName, const QString &prefix)
 {
     QString packageRoot;
-    if (d->parser->isSet("packageroot") && d->parser->isSet("global")) {
+    if (d->parser->isSet("packageroot") && d->parser->isSet("global") && !d->parser->isSet("index")) {
         qWarning() << i18nc("The user entered conflicting options packageroot and global, this is the error message telling the user he can use only one", "The packageroot and global options conflict each other, please select only one.");
         ::exit(7);
     } else if (d->parser->isSet("packageroot")) {
@@ -508,6 +508,7 @@ void PlasmaPkg::recreateIndex()
                 d->coutput(i18n("Generating %1/kpluginindex.json", p));
                 KPackage::indexDirectory(p, QStringLiteral("kpluginindex.json"));
             }
+            return;
         } else {
             d->packageRoot = QStandardPaths::writableLocation(QStandardPaths::GenericDataLocation) + QLatin1Char('/') + d->packageRoot;
         }
