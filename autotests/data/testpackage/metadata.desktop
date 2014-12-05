@@ -2,6 +2,11 @@
 Encoding=UTF-8
 Keywords=
 Name=Test Package
+Name[nl]=Testpakket
+Name[pt]=Pacote de Testes
+Name[pt_BR]=Pacote de teste
+Name[uk]=Тестовий пакунок
+Name[x-test]=xxTest Packagexx
 Type=Service
 
 X-KDE-ServiceTypes=KPackage/Generic

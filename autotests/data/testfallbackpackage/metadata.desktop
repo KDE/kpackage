@@ -2,6 +2,11 @@
 Encoding=UTF-8
 Keywords=
 Name=Test Fallback Package
+Name[nl]=Testterugvalpakket
+Name[pt]=Pacote de Salvaguarda de Testes
+Name[pt_BR]=Pacote teste alternativo
+Name[uk]=Тестовий резервний пакунок
+Name[x-test]=xxTest Fallback Packagexx
 Type=Service
 
 X-KDE-ServiceTypes=KPackage/Generic
