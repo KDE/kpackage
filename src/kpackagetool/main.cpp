@@ -68,7 +68,7 @@ int main(int argc, char **argv)
     parser.addOption(QCommandLineOption(QStringList() << "list-types", i18n("List all known package types that can be installed")));
     parser.addOption(QCommandLineOption(QStringList() << "r" << "remove", i18nc("Do not translate <name>", "Remove the package named <name>"), "name"));
     parser.addOption(QCommandLineOption(QStringList() << "p" << "packageroot", i18n("Absolute path to the package root. If not supplied, then the standard data directories for this KDE session will be searched instead."), "path"));
-    parser.addOption(QCommandLineOption(QStringList() << "generate-index", i18n("Recreate the plugin index. to be used in conjunction with either the option -t or -t. Recreates the index for the given type or package root. Operates in the user directory, unless -g is used")));
+    parser.addOption(QCommandLineOption(QStringList() << "generate-index", i18n("Recreate the plugin index. To be used in conjunction with either the option -t or -g. Recreates the index for the given type or package root. Operates in the user directory, unless -g is used")));
 
     parser.process(app);
 
