@@ -2,9 +2,11 @@
 Type=ServiceType
 X-KDE-ServiceType=KPackage/PackageStructure
 Comment=KPackage package structure definition
+Comment[cs]=Definice struktury balíčku KPackage
 Comment[nl]=Structuurdefinitie van KPackage-pakket
 Comment[pt]=Definição da estrutura de pacotes do KPackage
 Comment[pt_BR]=KPackage definição de estrutura de pacote
+Comment[sk]=Definícia štruktúry balíka KPackage
 Comment[uk]=Визначення структури пакунка KPackage
 Comment[x-test]=xxKPackage package structure definitionxx
 

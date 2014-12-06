@@ -5,6 +5,7 @@ Name=Test Fallback Package
 Name[nl]=Testterugvalpakket
 Name[pt]=Pacote de Salvaguarda de Testes
 Name[pt_BR]=Pacote teste alternativo
+Name[sk]=Testovací záchranný balík
 Name[uk]=Тестовий резервний пакунок
 Name[x-test]=xxTest Fallback Packagexx
 Type=Service
