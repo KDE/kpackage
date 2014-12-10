@@ -137,7 +137,7 @@ public:
      * @param filename optional name of the file to locate within the package
      * @return path to the file on disk. QString() if not found.
      **/
-    QString filePath(const char *key, const QString &filename = QString()) const;
+    QString filePath(const QByteArray &key, const QString &filename = QString()) const;
 
     /**
      * Get the list of files of a given type.
@@ -146,22 +146,22 @@ public:
      *               package structure.
      * @return list of files by name, suitable for passing to filePath
      **/
-    QStringList entryList(const char *key) const;
+    QStringList entryList(const QByteArray &key) const;
 
     /**
      * @return user visible name for the given entry
      **/
-    QString name(const char *key) const;
+    QString name(const QByteArray &key) const;
 
     /**
      * @return true if the item at path exists and is required
      **/
-    bool isRequired(const char *key) const;
+    bool isRequired(const QByteArray &key) const;
 
     /**
      * @return the mimeTypes associated with the path, if any
      **/
-    QStringList mimeTypes(const char *key) const;
+    QStringList mimeTypes(const QByteArray &key) const;
 
     /**
      * @return the prefix paths inserted between the base path and content entries, in order of priority.
@@ -203,7 +203,7 @@ public:
      * @param path the path within the package for this directory
      * @param name the user visible (translated) name for the directory
      **/
-    void addDirectoryDefinition(const char *key, const QString &path, const QString &name);
+    void addDirectoryDefinition(const QByteArray &key, const QString &path, const QString &name);
 
     /**
      * Adds a file to the structure of the package. It is added as
@@ -216,14 +216,14 @@ public:
      * @param path the path within the package for this file
      * @param name the user visible (translated) name for the file
      **/
-    void addFileDefinition(const char *key, const QString &path, const QString &name);
+    void addFileDefinition(const QByteArray &key, const QString &path, const QString &name);
 
     /**
      * Removes a definition from the structure of the package.
      * @since 4.6
      * @param key the internal label of the file or directory to remove
      */
-    void removeDefinition(const char *key);
+    void removeDefinition(const QByteArray &key);
 
     /**
      * Sets whether or not a given part of the structure is required or not.
@@ -233,7 +233,7 @@ public:
      * @param key the entry within the package
      * @param required true if this entry is required, false if not
      */
-    void setRequired(const char *key, bool required);
+    void setRequired(const QByteArray &key, bool required);
 
     /**
      * Defines the default mimeTypes for any definitions that do not have
@@ -252,7 +252,7 @@ public:
      * @param key the entry within the package
      * @param mimeTypes a list of mimeTypes
      **/
-    void setMimeTypes(const char *key, const QStringList &mimeTypes);
+    void setMimeTypes(const QByteArray &key, const QStringList &mimeTypes);
 
     /**
      * Sets the prefixes that all the contents in this package should
@@ -297,22 +297,22 @@ public:
     /**
      * @return all directories registered as part of this Package's structure
      */
-    QList<const char *> directories() const;
+    QList<QByteArray> directories() const;
 
     /**
      * @return all directories registered as part of this Package's required structure
      */
-    QList<const char *> requiredDirectories() const;
+    QList<QByteArray> requiredDirectories() const;
 
     /**
      * @return all files registered as part of this Package's structure
      */
-    QList<const char *> files() const;
+    QList<QByteArray> files() const;
 
     /**
      * @return all files registered as part of this Package's required structure
      */
-    QList<const char *> requiredFiles() const;
+    QList<QByteArray> requiredFiles() const;
 
     /**
      * Installs a package matching this package structure. By default installs a

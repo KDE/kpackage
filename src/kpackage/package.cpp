@@ -131,7 +131,7 @@ bool Package::isValid() const
     return d->valid;
 }
 
-QString Package::name(const char *key) const
+QString Package::name(const QByteArray &key) const
 {
 #ifndef PLASMA_NO_PACKAGE_EXTRADATA
     QHash<QByteArray, ContentStructure>::const_iterator it = d->contents.constFind(key);
@@ -146,7 +146,7 @@ QString Package::name(const char *key) const
 #endif
 }
 
-bool Package::isRequired(const char *key) const
+bool Package::isRequired(const QByteArray &key) const
 {
     QHash<QByteArray, ContentStructure>::const_iterator it = d->contents.constFind(key);
     if (it == d->contents.constEnd()) {
@@ -156,7 +156,7 @@ bool Package::isRequired(const char *key) const
     return it.value().required;
 }
 
-QStringList Package::mimeTypes(const char *key) const
+QStringList Package::mimeTypes(const QByteArray &key) const
 {
 #ifndef PLASMA_NO_PACKAGE_EXTRADATA
     QHash<QByteArray, ContentStructure>::const_iterator it = d->contents.constFind(key);
@@ -296,7 +296,7 @@ QString PackagePrivate::unpack(const QString &filePath)
     return tempRoot;
 }
 
-QString Package::filePath(const char *fileType, const QString &filename) const
+QString Package::filePath(const QByteArray &fileType, const QString &filename) const
 {
     if (!d->valid) {
         //qDebug() << "package is not valid";
@@ -369,7 +369,7 @@ QString Package::filePath(const char *fileType, const QString &filename) const
     return d->fallbackFilePath(fileType, filename);
 }
 
-QStringList Package::entryList(const char *key) const
+QStringList Package::entryList(const QByteArray &key) const
 {
     if (!d->valid) {
         return QStringList();
@@ -598,7 +598,7 @@ QString Package::contentsHash() const
     return hash.result().toHex();
 }
 
-void Package::addDirectoryDefinition(const char *key, const QString &path, const QString &name)
+void Package::addDirectoryDefinition(const QByteArray &key, const QString &path, const QString &name)
 {
     ContentStructure s;
 
@@ -629,7 +629,7 @@ void Package::addDirectoryDefinition(const char *key, const QString &path, const
     d->contents[key] = s;
 }
 
-void Package::addFileDefinition(const char *key, const QString &path, const QString &name)
+void Package::addFileDefinition(const QByteArray &key, const QString &path, const QString &name)
 {
     ContentStructure s;
 
@@ -659,7 +659,7 @@ void Package::addFileDefinition(const char *key, const QString &path, const QStr
     d->contents[key] = s;
 }
 
-void Package::removeDefinition(const char *key)
+void Package::removeDefinition(const QByteArray &key)
 {
     if (d->contents.contains(key)) {
         d.detach();
@@ -667,7 +667,7 @@ void Package::removeDefinition(const char *key)
     }
 }
 
-void Package::setRequired(const char *key, bool required)
+void Package::setRequired(const QByteArray &key, bool required)
 {
     QHash<QByteArray, ContentStructure>::iterator it = d->contents.find(key);
     if (it == d->contents.end()) {
@@ -688,7 +688,7 @@ void Package::setDefaultMimeTypes(const QStringList &mimeTypes)
 #endif
 }
 
-void Package::setMimeTypes(const char *key, const QStringList &mimeTypes)
+void Package::setMimeTypes(const QByteArray &key, const QStringList &mimeTypes)
 {
 #ifndef PLASMA_NO_PACKAGE_EXTRADATA
     QHash<QByteArray, ContentStructure>::iterator it = d->contents.find(key);
@@ -703,9 +703,9 @@ void Package::setMimeTypes(const char *key, const QStringList &mimeTypes)
 #endif
 }
 
-QList<const char *> Package::directories() const
+QList<QByteArray> Package::directories() const
 {
-    QList<const char *> dirs;
+    QList<QByteArray> dirs;
     QHash<QByteArray, ContentStructure>::const_iterator it = d->contents.constBegin();
     while (it != d->contents.constEnd()) {
         if (it.value().directory) {
@@ -716,9 +716,9 @@ QList<const char *> Package::directories() const
     return dirs;
 }
 
-QList<const char *> Package::requiredDirectories() const
+QList<QByteArray> Package::requiredDirectories() const
 {
-    QList<const char *> dirs;
+    QList<QByteArray> dirs;
     QHash<QByteArray, ContentStructure>::const_iterator it = d->contents.constBegin();
     while (it != d->contents.constEnd()) {
         if (it.value().directory &&
@@ -730,9 +730,9 @@ QList<const char *> Package::requiredDirectories() const
     return dirs;
 }
 
-QList<const char *> Package::files() const
+QList<QByteArray> Package::files() const
 {
-    QList<const char *> files;
+    QList<QByteArray> files;
     QHash<QByteArray, ContentStructure>::const_iterator it = d->contents.constBegin();
     while (it != d->contents.constEnd()) {
         if (!it.value().directory) {
@@ -743,9 +743,9 @@ QList<const char *> Package::files() const
     return files;
 }
 
-QList<const char *> Package::requiredFiles() const
+QList<QByteArray> Package::requiredFiles() const
 {
-    QList<const char *> files;
+    QList<QByteArray> files;
     QHash<QByteArray, ContentStructure>::const_iterator it = d->contents.constBegin();
     while (it != d->contents.constEnd()) {
         if (!it.value().directory && it.value().required) {
@@ -897,7 +897,7 @@ void PackagePrivate::createPackageMetadata(const QString &path)
     metadata = new KPluginMetaData(metadataPath);
 }
 
-QString PackagePrivate::fallbackFilePath(const char *key, const QString &filename) const
+QString PackagePrivate::fallbackFilePath(const QByteArray &key, const QString &filename) const
 {
     //don't fallback if the package isn't valid and never fallback the metadata file
     if (qstrcmp(key, "metadata") != 0 && fallbackPackage && fallbackPackage->isValid()) {

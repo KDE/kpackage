@@ -97,8 +97,8 @@ void PackageStructureTest::mutateAfterCopy()
     const QString packageRoot = ps.defaultPackageRoot();
     const bool externalPaths = ps.allowExternalPaths();
     const QStringList contentsPrefixPaths = ps.contentsPrefixPaths();
-    const QList<const char *> files = ps.files();
-    const QList<const char *> dirs = ps.directories();
+    const QList<QByteArray> files = ps.files();
+    const QList<QByteArray> dirs = ps.directories();
 
     KPackage::Package copy(ps);
 
@@ -174,10 +174,10 @@ void PackageStructureTest::multiplePaths()
 
 void PackageStructureTest::directories()
 {
-    QList<const char *> dirs;
+    QList<QByteArray> dirs;
     dirs << "config" << "data" << "images" << "theme" << "scripts" << "translations" << "ui";
 
-    QList<const char *> psDirs = ps.directories();
+    QList<QByteArray> psDirs = ps.directories();
 
     QCOMPARE(dirs.count(), psDirs.count());
 
@@ -206,16 +206,16 @@ void PackageStructureTest::directories()
 
 void PackageStructureTest::requiredDirectories()
 {
-    QList<const char *> dirs;
+    QList<QByteArray> dirs;
     QCOMPARE(ps.requiredDirectories(), dirs);
 }
 
 void PackageStructureTest::files()
 {
-    QList<const char *> files;
+    QList<QByteArray> files;
     files << "mainconfigui" << "mainconfigxml" << "mainscript";
 
-    QList<const char *> psFiles = ps.files();
+    QList<QByteArray> psFiles = ps.files();
 
     //for (int i = 0; i < psFiles.count(); ++i) {
     //    qDebug() << psFiles[i];
@@ -234,10 +234,10 @@ void PackageStructureTest::files()
 
 void PackageStructureTest::requiredFiles()
 {
-    QList<const char *> files;
+    QList<QByteArray> files;
     files << "mainscript";
 
-    QList<const char *> psFiles = ps.requiredFiles();
+    QList<QByteArray> psFiles = ps.requiredFiles();
 
     QCOMPARE(files.count(), psFiles.count());
     for (int i = 0; i < files.count(); ++i) {

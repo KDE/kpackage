@@ -72,7 +72,7 @@ public:
     void createPackageMetadata(const QString &path);
     QString unpack(const QString &filePath);
     void updateHash(const QString &basePath, const QString &subPath, const QDir &dir, QCryptographicHash &hash);
-    QString fallbackFilePath(const char *key, const QString &filename = QString()) const;
+    QString fallbackFilePath(const QByteArray &key, const QString &filename = QString()) const;
     bool hasCycle(const KPackage::Package &package);
 
     QPointer<PackageStructure> structure;
