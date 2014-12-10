@@ -242,7 +242,7 @@ public:
      *
      * @param mimeTypes a list of mimeTypes
      **/
-    void setDefaultMimeTypes(QStringList mimeTypes);
+    void setDefaultMimeTypes(const QStringList &mimeTypes);
 
     /**
      * Define mimeTypes for a given part of the structure
@@ -252,7 +252,7 @@ public:
      * @param key the entry within the package
      * @param mimeTypes a list of mimeTypes
      **/
-    void setMimeTypes(const char *key, QStringList mimeTypes);
+    void setMimeTypes(const char *key, const QStringList &mimeTypes);
 
     /**
      * Sets the prefixes that all the contents in this package should

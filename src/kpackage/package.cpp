@@ -680,7 +680,7 @@ void Package::setRequired(const char *key, bool required)
     it.value().required = required;
 }
 
-void Package::setDefaultMimeTypes(QStringList mimeTypes)
+void Package::setDefaultMimeTypes(const QStringList &mimeTypes)
 {
 #ifndef PLASMA_NO_PACKAGE_EXTRADATA
     d.detach();
@@ -688,7 +688,7 @@ void Package::setDefaultMimeTypes(QStringList mimeTypes)
 #endif
 }
 
-void Package::setMimeTypes(const char *key, QStringList mimeTypes)
+void Package::setMimeTypes(const char *key, const QStringList &mimeTypes)
 {
 #ifndef PLASMA_NO_PACKAGE_EXTRADATA
     QHash<QByteArray, ContentStructure>::iterator it = d->contents.find(key);
