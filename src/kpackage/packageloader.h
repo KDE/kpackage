@@ -94,6 +94,7 @@ protected:
 
 private:
     PackageLoaderPrivate *const d;
+    Q_DISABLE_COPY(PackageLoader)
 };
 
 }

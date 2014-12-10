@@ -584,7 +584,7 @@ QString Package::contentsHash() const
         qWarning() << "no metadata at" << metadataPath;
     }
 
-    foreach (QString prefix, d->contentsPrefixPaths) {
+    foreach (const QString &prefix, d->contentsPrefixPaths) {
         const QString basePath = d->path + prefix;
         QDir dir(basePath);
 
