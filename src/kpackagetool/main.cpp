@@ -19,7 +19,7 @@
  */
 
 /**
- * plasmapkg2 exit codes used in this program
+ * kpackagetool5 exit codes used in this program
 
     0 No error
 
@@ -46,7 +46,7 @@ int main(int argc, char **argv)
     QCommandLineParser parser;
     KPackage::PackageTool app(argc, argv, &parser);
 
-    const QString description = i18n("Plasma Package Manager");
+    const QString description = i18n("KPackage Manager");
     const char version[] = "2.0";
 
     app.setApplicationVersion(version);

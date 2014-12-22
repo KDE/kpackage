@@ -90,7 +90,7 @@ private:
     PackageStructurePrivate *d;
 };
 
-} // Plasma namespace
+} // KPackage namespace
 
 /**
  * Register a Package class when it is contained in a loadable module

@@ -18,8 +18,8 @@
 *   Boston, MA 02110-1301, USA.                                               *
 *******************************************************************************/
 
-#ifndef PLASMAPKG_H
-#define PLASMAPKG_H
+#ifndef PACKAGETOOL_H
+#define PACKAGETOOL_H
 
 #include <QCoreApplication>
 

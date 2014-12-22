@@ -32,9 +32,9 @@ namespace KPackage
 {
 
 /**
- * @class Package plasma/package.h <Plasma/Package>
+ * @class Package kpackage/package.h <KPackage/Package>
  *
- * @short object representing an installed Plasma package
+ * @short object representing an installed package
  *
  * Package defines what is in a package and provides easy access to the contents.
  *
@@ -171,7 +171,7 @@ public:
     QStringList contentsPrefixPaths() const;
 
     /**
-     * @return preferred package root. This defaults to plasma/plasmoids/
+     * @return preferred package root. This defaults to kpackage/generic/
      */
     QString defaultPackageRoot() const;
 

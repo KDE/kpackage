@@ -20,7 +20,7 @@
 #ifndef KPACKAGEVERSION_H
 #define KPACKAGEVERSION_H
 
-/** @file plasma/version.h <Plasma/Version> */
+/** @file kpackage/version.h <KPackage/Version> */
 
 #include <kpackage/package_export.h>
 #include <kpackage_version.h>
@@ -28,39 +28,39 @@
 #define PACKAGE_MAKE_VERSION(a,b,c) (((a) << 16) | ((b) << 8) | (c))
 
 /**
- * Compile-time macro for checking the plasma version. Not useful for
- * detecting the version of libplasma at runtime.
+ * Compile-time macro for checking the kpackage version. Not useful for
+ * detecting the version of kpackage at runtime.
  */
 #define PACKAGE_IS_VERSION(a,b,c) (PACKAGE_VERSION >= PACKAGE_MAKE_VERSION(a,b,c))
 
 /**
- * Namespace for everything in libplasma
+ * Namespace for everything in kpackage
  */
 namespace KPackage
 {
 
 /**
- * The runtime version of libplasma
+ * The runtime version of libkpackage
  */
 PACKAGE_EXPORT unsigned int version();
 
 /**
- * The runtime major version of libplasma
+ * The runtime major version of libkpackage
  */
 PACKAGE_EXPORT unsigned int versionMajor();
 
 /**
- * The runtime major version of libplasma
+ * The runtime major version of libkpackage
  */
 PACKAGE_EXPORT unsigned int versionMinor();
 
 /**
- * The runtime major version of libplasma
+ * The runtime major version of libkpackage
  */
 PACKAGE_EXPORT unsigned int versionRelease();
 
 /**
- * The runtime version string of libplasma
+ * The runtime version string of libkpackage
  */
 PACKAGE_EXPORT const char *versionString();
 

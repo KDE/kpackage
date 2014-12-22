@@ -63,7 +63,7 @@ bool isPluginVersionCompatible(unsigned int version)
 
     if (version < minVersion || version > maxVersion) {
 #ifndef NDEBUG
-        // qDebug() << "plugin is compiled against incompatible Plasma version  " << version
+        // qDebug() << "plugin is compiled against incompatible KPackage version  " << version
         //         << "This build is compatible with" << PACKAGE_VERSION_MAJOR << ".0.0 (" << minVersion
         //         << ") to" << PACKAGE_VERSION_STRING << "(" << maxVersion << ")";
 #endif

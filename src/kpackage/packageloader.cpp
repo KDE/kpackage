@@ -349,5 +349,5 @@ Package PackageLoader::internalLoadPackage(const QString &name)
     return Package();
 }
 
-} // Plasma Namespace
+} // KPackage Namespace
 
