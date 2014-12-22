@@ -770,7 +770,6 @@ KJob *Package::install(const QString &sourcePackage, const QString &packageRoot)
     //qDebug() << "Source: " << src;
     //qDebug() << "PackageRoot: " << dest;
     KJob *j = d->structure.data()->install(this, src, dest);
-    //connect(j, SIGNAL(finished(bool)), SLOT(installFinished(bool)));
     return j;
 }
 
