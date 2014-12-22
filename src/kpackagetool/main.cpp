@@ -72,6 +72,14 @@ int main(int argc, char **argv)
 
     parser.process(app);
 
+    //at least one operation should be specified
+    if (!parser.isSet("hash") && !parser.isSet("g") &&
+        !parser.isSet("i") && !parser.isSet("s") &&
+        !parser.isSet("u") && !parser.isSet("l") &&
+        !parser.isSet("list-types") && !parser.isSet("r") &&
+        !parser.isSet("generate-index")) {
+        parser.showHelp(0);
+    }
     return app.exec();
 }
 
