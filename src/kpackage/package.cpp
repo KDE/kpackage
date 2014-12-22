@@ -133,17 +133,12 @@ bool Package::isValid() const
 
 QString Package::name(const QByteArray &key) const
 {
-#ifndef PLASMA_NO_PACKAGE_EXTRADATA
     QHash<QByteArray, ContentStructure>::const_iterator it = d->contents.constFind(key);
     if (it == d->contents.constEnd()) {
         return QString();
     }
 
     return it.value().name;
-#else
-    Q_UNUSED(key);
-    return QString();
-#endif
 }
 
 bool Package::isRequired(const QByteArray &key) const
@@ -158,7 +153,6 @@ bool Package::isRequired(const QByteArray &key) const
 
 QStringList Package::mimeTypes(const QByteArray &key) const
 {
-#ifndef PLASMA_NO_PACKAGE_EXTRADATA
     QHash<QByteArray, ContentStructure>::const_iterator it = d->contents.constFind(key);
     if (it == d->contents.constEnd()) {
         return QStringList();
@@ -169,9 +163,6 @@ QStringList Package::mimeTypes(const QByteArray &key) const
     }
 
     return it.value().mimeTypes;
-#else
-    return QStringList();
-#endif
 }
 
 QString Package::defaultPackageRoot() const
@@ -605,9 +596,7 @@ void Package::addDirectoryDefinition(const QByteArray &key, const QString &path,
     if (d->contents.contains(key)) {
         s = d->contents[key];
         if (s.paths.contains(path) && s.directory == true
-#ifndef PLASMA_NO_PACKAGE_EXTRADATA
             && s.name == name
-#endif
         ) {
             return;
         }
@@ -615,13 +604,9 @@ void Package::addDirectoryDefinition(const QByteArray &key, const QString &path,
 
     d.detach();
 
-#ifndef PLASMA_NO_PACKAGE_EXTRADATA
     if (!name.isEmpty()) {
         s.name = name;
     }
-#else
-    Q_UNUSED(name)
-#endif
 
     s.paths.append(path);
     s.directory = true;
@@ -636,22 +621,16 @@ void Package::addFileDefinition(const QByteArray &key, const QString &path, cons
     if (d->contents.contains(key)) {
         s = d->contents[key];
         if (s.paths.contains(path) && s.directory == false
-#ifndef PLASMA_NO_PACKAGE_EXTRADATA
             && s.name == name
-#endif
         ) {
             return;
         }
     }
 
     d.detach();
-#ifndef PLASMA_NO_PACKAGE_EXTRADATA
     if (!name.isEmpty()) {
         s.name = name;
     }
-#else
-    Q_UNUSED(name)
-#endif
 
     s.paths.append(path);
     s.directory = false;
@@ -682,15 +661,12 @@ void Package::setRequired(const QByteArray &key, bool required)
 
 void Package::setDefaultMimeTypes(const QStringList &mimeTypes)
 {
-#ifndef PLASMA_NO_PACKAGE_EXTRADATA
     d.detach();
     d->mimeTypes = mimeTypes;
-#endif
 }
 
 void Package::setMimeTypes(const QByteArray &key, const QStringList &mimeTypes)
 {
-#ifndef PLASMA_NO_PACKAGE_EXTRADATA
     QHash<QByteArray, ContentStructure>::iterator it = d->contents.find(key);
     if (it == d->contents.end()) {
         return;
@@ -700,7 +676,6 @@ void Package::setMimeTypes(const QByteArray &key, const QStringList &mimeTypes)
     // have to find the item again after detaching: d->contents is a different object now
     it = d->contents.find(key);
     it.value().mimeTypes = mimeTypes;
-#endif
 }
 
 QList<QByteArray> Package::directories() const
@@ -822,9 +797,7 @@ PackagePrivate &PackagePrivate::operator=(const PackagePrivate &rhs)
     path = rhs.path;
     contentsPrefixPaths = rhs.contentsPrefixPaths;
     contents = rhs.contents;
-#ifndef PLASMA_NO_PACKAGE_EXTRADATA
     mimeTypes = rhs.mimeTypes;
-#endif
     defaultPackageRoot = rhs.defaultPackageRoot;
     metadata = 0;
     externalPaths = rhs.externalPaths;

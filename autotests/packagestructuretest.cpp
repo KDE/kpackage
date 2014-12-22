@@ -139,7 +139,6 @@ void PackageStructureTest::mutateAfterCopy()
     QCOMPARE(ps.files(), files);
     QVERIFY(ps.files() != copy.files());
 
-#ifndef PLASMA_NO_PACKAGE_EXTRADATA
     copy = ps;
     QVERIFY(!imageMimeTypes.isEmpty());
     QStringList copyMimeTypes;
@@ -155,7 +154,6 @@ void PackageStructureTest::mutateAfterCopy()
     copy.setDefaultMimeTypes(copyDefaultMimeTypes);
     QCOMPARE(ps.mimeTypes("translations"), defaultMimeTypes);
     QCOMPARE(copy.mimeTypes("translations"), copyDefaultMimeTypes);
-#endif
 }
 
 void PackageStructureTest::emptyContentsPrefix()

@@ -48,6 +48,7 @@ void PackageStructure::pathChanged(Package *package)
 
 KJob *PackageStructure::install(Package *package, const QString &archivePath, const QString &packageRoot)
 {
+    Q_UNUSED(package)
     PackageJob *j = new PackageJob();
     j->install(archivePath, packageRoot);
     return j;

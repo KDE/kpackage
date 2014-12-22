@@ -42,20 +42,16 @@ public:
     ContentStructure(const ContentStructure &other)
     {
         paths = other.paths;
-#ifndef PLASMA_NO_PACKAGE_EXTRADATA
         name = other.name;
         mimeTypes = other.mimeTypes;
-#endif
         directory = other.directory;
         required = other.required;
     }
 
     QString found;
     QStringList paths;
-#ifndef PLASMA_NO_PACKAGE_EXTRADATA
     QString name;
     QStringList mimeTypes;
-#endif
     bool directory : 1;
     bool required : 1;
 };
@@ -83,9 +79,7 @@ public:
     QHash<QString, QString> discoveries;
     QHash<QByteArray, ContentStructure> contents;
     Package *fallbackPackage;
-#ifndef PLASMA_NO_PACKAGE_EXTRADATA
     QStringList mimeTypes;
-#endif
     KPluginMetaData *metadata;
     bool externalPaths : 1;
     bool valid : 1;
