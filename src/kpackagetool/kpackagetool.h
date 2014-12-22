@@ -29,15 +29,15 @@ class KJob;
 namespace KPackage
 {
 
-class PlasmaPkgPrivate;
+class PackageToolPrivate;
 
-class PlasmaPkg : public QCoreApplication
+class PackageTool : public QCoreApplication
 {
     Q_OBJECT
 
 public:
-    PlasmaPkg(int &argc, char **argv, QCommandLineParser *parser);
-    virtual ~PlasmaPkg();
+    PackageTool(int &argc, char **argv, QCommandLineParser *parser);
+    virtual ~PackageTool();
 
     void listPackages(const QStringList &types);
     void showPackageInfo(const QString &pluginName);
@@ -50,7 +50,7 @@ private Q_SLOTS:
     void packageUninstalled(KJob *job);
 
 private:
-    PlasmaPkgPrivate *d;
+    PackageToolPrivate *d;
 };
 
 }

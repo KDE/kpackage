@@ -44,7 +44,7 @@
 int main(int argc, char **argv)
 {
     QCommandLineParser parser;
-    KPackage::PlasmaPkg app(argc, argv, &parser);
+    KPackage::PackageTool app(argc, argv, &parser);
 
     const QString description = i18n("Plasma Package Manager");
     const char version[] = "2.0";

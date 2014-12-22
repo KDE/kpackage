@@ -53,7 +53,7 @@ static QTextStream cout(stdout);
 
 namespace KPackage
 {
-class PlasmaPkgPrivate
+class PackageToolPrivate
 {
 public:
     QString packageRoot;
@@ -72,20 +72,20 @@ public:
 
 };
 
-PlasmaPkg::PlasmaPkg(int &argc, char **argv, QCommandLineParser *parser) :
+PackageTool::PackageTool(int &argc, char **argv, QCommandLineParser *parser) :
     QCoreApplication(argc, argv)
 {
-    d = new PlasmaPkgPrivate;
+    d = new PackageToolPrivate;
     d->parser = parser;
     QTimer::singleShot(0, this, SLOT(runMain()));
 }
 
-PlasmaPkg::~PlasmaPkg()
+PackageTool::~PackageTool()
 {
     delete d;
 }
 
-void PlasmaPkg::runMain()
+void PackageTool::runMain()
 {
     KPackage::PackageStructure *structure = new KPackage::PackageStructure;
     if (d->parser->isSet("hash")) {
@@ -276,12 +276,12 @@ void PlasmaPkg::runMain()
     }
 }
 
-void PlasmaPkgPrivate::coutput(const QString &msg)
+void PackageToolPrivate::coutput(const QString &msg)
 {
     cout << msg.toLocal8Bit().constData() << endl;
 }
 
-QStringList PlasmaPkgPrivate::packages(const QStringList &types)
+QStringList PackageToolPrivate::packages(const QStringList &types)
 {
     QStringList result;
 
@@ -299,7 +299,7 @@ QStringList PlasmaPkgPrivate::packages(const QStringList &types)
     return result;
 }
 
-void PlasmaPkg::showPackageInfo(const QString &pluginName)
+void PackageTool::showPackageInfo(const QString &pluginName)
 {
     QString type = "KPackage/Generic";
     if (!d->pluginTypes.contains(type) && d->pluginTypes.count() > 0) {
@@ -331,7 +331,7 @@ void PlasmaPkg::showPackageInfo(const QString &pluginName)
     exit(0);
 }
 
-QString PlasmaPkg::findPackageRoot(const QString &pluginName, const QString &prefix)
+QString PackageTool::findPackageRoot(const QString &pluginName, const QString &prefix)
 {
     QString packageRoot;
     if (d->parser->isSet("packageroot") && d->parser->isSet("global") && !d->parser->isSet("generate-index")) {
@@ -348,7 +348,7 @@ QString PlasmaPkg::findPackageRoot(const QString &pluginName, const QString &pre
     return packageRoot;
 }
 
-void PlasmaPkg::listPackages(const QStringList &types)
+void PackageTool::listPackages(const QStringList &types)
 {
     QStringList list = d->packages(types);
     list.sort();
@@ -358,7 +358,7 @@ void PlasmaPkg::listPackages(const QStringList &types)
     exit(0);
 }
 
-void PlasmaPkgPrivate::renderTypeTable(const QMap<QString, QStringList> &plugins)
+void PackageToolPrivate::renderTypeTable(const QMap<QString, QStringList> &plugins)
 {
     const QString nameHeader = i18n("Addon Name");
     const QString pluginHeader = i18n("Service Type");
@@ -403,7 +403,7 @@ void PlasmaPkgPrivate::renderTypeTable(const QMap<QString, QStringList> &plugins
     }
 }
 
-void PlasmaPkgPrivate::listTypes()
+void PackageToolPrivate::listTypes()
 {
     coutput(i18n("Package types that are installable with this tool:"));
     coutput(i18n("Built in:"));
@@ -498,7 +498,7 @@ void PlasmaPkgPrivate::listTypes()
     }
 }
 
-void PlasmaPkg::recreateIndex()
+void PackageTool::recreateIndex()
 {
     d->packageRoot = findPackageRoot(d->package, d->packageRoot);
 
@@ -518,7 +518,7 @@ void PlasmaPkg::recreateIndex()
     KPackage::indexDirectory(d->packageRoot, QStringLiteral("kpluginindex.json"));
 }
 
-void PlasmaPkg::packageInstalled(KJob *job)
+void PackageTool::packageInstalled(KJob *job)
 {
     bool success = (job->error() == KJob::NoError);
     int exitcode = 0;
@@ -535,7 +535,7 @@ void PlasmaPkg::packageInstalled(KJob *job)
     exit(exitcode);
 }
 
-void PlasmaPkg::packageUninstalled(KJob *job)
+void PackageTool::packageUninstalled(KJob *job)
 {
     bool success = (job->error() == KJob::NoError);
     int exitcode = 0;
