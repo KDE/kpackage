@@ -48,14 +48,14 @@ void PackageStructure::pathChanged(Package *package)
 
 KJob *PackageStructure::install(Package *package, const QString &archivePath, const QString &packageRoot)
 {
-    PackageJob *j = new PackageJob(this);
+    PackageJob *j = new PackageJob();
     j->install(archivePath, packageRoot);
     return j;
 }
 
 KJob *PackageStructure::uninstall(Package *package, const QString &packageRoot)
 {
-    PackageJob *j = new PackageJob(this);
+    PackageJob *j = new PackageJob();
     j->uninstall(packageRoot + package->metadata().pluginId());
     return j;
 }
