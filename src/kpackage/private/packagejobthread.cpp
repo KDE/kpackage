@@ -82,29 +82,10 @@ bool copyFolder(QString sourcePath, QString targetPath)
     return true;
 }
 
-// Qt5 TODO: use QDir::removeRecursively() instead
 bool removeFolder(QString folderPath)
 {
     QDir folder(folderPath);
-    if (!folder.exists()) {
-        return false;
-    }
-
-    foreach (const QString &fileName, folder.entryList(QDir::Files)) {
-        if (!QFile::remove(folderPath + QDir::separator() + fileName)) {
-            return false;
-        }
-    }
-
-    foreach (const QString &subFolderName, folder.entryList(QDir::AllDirs | QDir::NoDotAndDotDot)) {
-        if (!removeFolder(folderPath + QDir::separator() + subFolderName)) {
-            return false;
-        }
-    }
-
-    QString folderName = folder.dirName();
-    folder.cdUp();
-    return folder.rmdir(folderName);
+    return folder.removeRecursively();
 }
 
 
