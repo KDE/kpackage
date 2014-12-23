@@ -6,7 +6,7 @@ platforms:
     - name: All
 portingAid: false
 deprecated: false
-release: false
+release: true
 libraries:
  - cmake: KF5::Package
 cmakename: KF5Package
