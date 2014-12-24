@@ -87,12 +87,12 @@ public:
     explicit Package(PackageStructure *structure = 0);
 
     /**
-     * Copy constructore
+     * Copy constructor
      * @since 4.6
      */
     Package(const Package &other);
 
-    ~Package();
+    virtual ~Package();
 
     /**
      * Assignment operator
