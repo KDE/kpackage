@@ -863,10 +863,10 @@ void PackagePrivate::createPackageMetadata(const QString &path)
     QString metadataPath(path + "/metadata.desktop");
     if (!QFile::exists(metadataPath)) {
         qWarning() << "No metadata file in the package, expected it at:" << metadataPath;
-        metadataPath.clear();
+        metadata = new KPluginMetaData();
+    } else {
+        metadata = new KPluginMetaData(metadataPath);
     }
-
-    metadata = new KPluginMetaData(metadataPath);
 }
 
 QString PackagePrivate::fallbackFilePath(const QByteArray &key, const QString &filename) const
