@@ -1,0 +1,4 @@
+REPOSITORY = "git://anongit.kde.org/kpackage"
+REVIEWBOARD_URL = "https://git.reviewboard.kde.org"
+TARGET_GROUPS = "kdeframeworks, plasma"
+BRANCH = "master"
