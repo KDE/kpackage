@@ -8,22 +8,22 @@
 <title>KPackage Manager</title>
 <date>2014-04-25</date>
 <releaseinfo>5.0</releaseinfo>
-<productname>&kde; kpackagetool</productname>
+<productname>&kde; kpackagetool5</productname>
 </refentryinfo>
 
 <refmeta>
-<refentrytitle><command>kpackagetool</command></refentrytitle>
+<refentrytitle><command>kpackagetool5</command></refentrytitle>
 <manvolnum>1</manvolnum>
 </refmeta>
 
 <refnamediv>
-<refname><command>kpackagetool</command></refname>
+<refname><command>kpackagetool5</command></refname>
 <refpurpose>Install, list, remove Plasma packages</refpurpose>
 </refnamediv>
 
 <refsynopsisdiv>
 <cmdsynopsis>
-<command>kpackagetool</command>
+<command>kpackagetool5</command>
 
 <group choice="opt"><option>--hash</option> <replaceable> path</replaceable></group>
 <group choice="opt"><option>-g, --global</option></group>
@@ -42,7 +42,7 @@
 
 <refsect1>
 <title>Description</title>
-<para><command>kpackagetool</command> is a command line tool to
+<para><command>kpackagetool5</command> is a command line tool to
 install, list, remove Plasma packages.</para>
 
 </refsect1>
@@ -110,7 +110,7 @@ url="help:/plasma-desktop">help:/plasma-desktop</ulink>
 
 <refsect1>
 <title>Authors</title>
-<para><command>kpackagetool</command> was written by
+<para><command>kpackagetool5</command> was written by
 <personname><firstname>Aaron</firstname><surname>Seigo</surname></personname> <email>aseigo@kde.org</email>.</para>
 </refsect1>
 
