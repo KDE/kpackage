@@ -43,7 +43,7 @@ target_include_directories(KF5Package PUBLIC
   "$<BUILD_INTERFACE:${CMAKE_CURRENT_SOURCE_DIR}/..;${CMAKE_CURRENT_BINARY_DIR};${CMAKE_CURRENT_BINARY_DIR}/KPackage>"
 )
 target_include_directories(KF5Package INTERFACE
-  "$<INSTALL_INTERFACE:${KF5_INCLUDE_INSTALL_DIR};${KF5_INCLUDE_INSTALL_DIR}/KPackage>"
+  "$<INSTALL_INTERFACE:${KDE_INSTALL_INCLUDEDIR_KF5};${KF5_INCLUDE_INSTALL_DIR}/KPackage>"
 )
 
 set_target_properties(KF5Package PROPERTIES
@@ -70,17 +70,17 @@ install(FILES
         ${Package_HEADERS}
         ${CMAKE_CURRENT_BINARY_DIR}/kpackage/package_export.h
         version.h
-        DESTINATION ${KF5_INCLUDE_INSTALL_DIR}/kpackage COMPONENT Devel)
+        DESTINATION ${KDE_INSTALL_INCLUDEDIR_KF5}/kpackage COMPONENT Devel)
 
 install(DIRECTORY
         ${CMAKE_CURRENT_BINARY_DIR}/KPackage
-        DESTINATION ${KF5_INCLUDE_INSTALL_DIR} COMPONENT Devel)
+        DESTINATION ${KDE_INSTALL_INCLUDEDIR_KF5} COMPONENT Devel)
 
 
 
 install(FILES
    data/servicetypes/kpackage-packagestructure.desktop
-   DESTINATION ${SERVICETYPES_INSTALL_DIR})
+   DESTINATION ${KDE_INSTALL_KSERVICETYPES5DIR})
 
 
 install(TARGETS KF5Package EXPORT KF5PackageTargets ${KF5_INSTALL_TARGETS_DEFAULT_ARGS})
