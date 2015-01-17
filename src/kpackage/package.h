@@ -21,6 +21,7 @@
 #define KPACKAGE_PACKAGE_H
 
 #include <QtCore/QStringList>
+#include <QtCore/QMetaType>
 
 #include <kpluginmetadata.h>
 
