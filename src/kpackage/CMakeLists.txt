@@ -65,18 +65,15 @@ ecm_generate_headers(Package_CamelCase_HEADERS
     PREFIX KPackage
 )
 
-
 install(FILES
         ${Package_HEADERS}
         ${CMAKE_CURRENT_BINARY_DIR}/kpackage/package_export.h
         version.h
-        DESTINATION ${KDE_INSTALL_INCLUDEDIR_KF5}/kpackage COMPONENT Devel)
+        DESTINATION ${KDE_INSTALL_INCLUDEDIR_KF5}/KPackage/kpackage COMPONENT Devel)
 
-install(DIRECTORY
-        ${CMAKE_CURRENT_BINARY_DIR}/KPackage
-        DESTINATION ${KDE_INSTALL_INCLUDEDIR_KF5} COMPONENT Devel)
-
-
+install(FILES
+        ${Package_CamelCase_HEADERS}
+        DESTINATION ${KDE_INSTALL_INCLUDEDIR_KF5}/KPackage/KPackage COMPONENT Devel)
 
 install(FILES
    data/servicetypes/kpackage-packagestructure.desktop
