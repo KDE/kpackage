@@ -12,13 +12,13 @@
 <releaseinfo
 >5.0</releaseinfo>
 <productname
->&kde;-kpackagetool</productname>
+>&kde;-kpackagetool5</productname>
 </refentryinfo>
 
 <refmeta>
 <refentrytitle
 ><command
->kpackagetool</command
+>kpackagetool5</command
 ></refentrytitle>
 <manvolnum
 >1</manvolnum>
@@ -27,7 +27,7 @@
 <refnamediv>
 <refname
 ><command
->kpackagetool</command
+>kpackagetool5</command
 ></refname>
 <refpurpose
 >Installieren, Auflisten und Entfernen von Plasma-Paketen</refpurpose>
@@ -36,7 +36,7 @@
 <refsynopsisdiv>
 <cmdsynopsis
 ><command
->kpackagetool</command
+>kpackagetool5</command
 > <group choice="opt"
 ><option
 >--hash</option
@@ -103,7 +103,7 @@
 >Beschreibung</title>
 <para
 ><command
->kpackagetool</command
+>kpackagetool5</command
 > ist ein Befehlszeilenprogramm zum Installieren, Auflisten und Entfernen von Plasma-Paketen.</para>
 
 </refsect1>
@@ -266,7 +266,7 @@
 >Autoren</title>
 <para
 ><command
->kpackagetool</command
+>kpackagetool5</command
 > wurde von <personname
 ><firstname
 >Aaron</firstname
