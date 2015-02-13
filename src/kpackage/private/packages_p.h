@@ -25,17 +25,17 @@
 class ChangeableMainScriptPackage : public KPackage::PackageStructure
 {
 public:
-    void initPackage(KPackage::Package *package);
+    void initPackage(KPackage::Package *package) Q_DECL_OVERRIDE;
 
 protected:
     virtual QString mainScriptConfigKey() const;
-    void pathChanged(KPackage::Package *package);
+    void pathChanged(KPackage::Package *package) Q_DECL_OVERRIDE;
 };
 
 class GenericPackage : public ChangeableMainScriptPackage
 {
 public:
-    void initPackage(KPackage::Package *package);
+    void initPackage(KPackage::Package *package) Q_DECL_OVERRIDE;
 };
 
 

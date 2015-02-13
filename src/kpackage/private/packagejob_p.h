@@ -35,7 +35,7 @@ public:
     PackageJob(QObject *parent = 0);
     ~PackageJob();
 
-    virtual void start();
+    void start() Q_DECL_OVERRIDE;
 
     void install(const QString &src, const QString &dest);
     void uninstall(const QString &installationPath);

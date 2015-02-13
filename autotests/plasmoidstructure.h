@@ -29,7 +29,7 @@ namespace KPackage
 class PlasmoidPackage : public GenericPackage
 {
 public:
-    void initPackage(Package *package);
+    void initPackage(Package *package) Q_DECL_OVERRIDE;
 };
 
 } // namespace KPackage
