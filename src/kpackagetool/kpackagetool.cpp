@@ -408,7 +408,8 @@ void PackageToolPrivate::listTypes()
     coutput(i18n("Built in:"));
 
     QMap<QString, QStringList> builtIns;
-    builtIns.insert(i18n("KPackage/Generic"), QStringList() << "KPackage/Generic" << KPACKAGE_RELATIVE_DATA_INSTALL_DIR "/packages/");
+    builtIns.insert(i18n("KPackage/Generic"), QStringList() << QStringLiteral("KPackage/Generic") << KPACKAGE_RELATIVE_DATA_INSTALL_DIR "/packages/");
+    builtIns.insert(i18n("KPackage/GenericQML"), QStringList() << QStringLiteral("KPackage/GenericQML") << KPACKAGE_RELATIVE_DATA_INSTALL_DIR "/packagesqml/");
 
     renderTypeTable(builtIns);
 

@@ -194,6 +194,8 @@ QList<KPluginMetaData> PackageLoader::listPackages(const QString &packageFormat,
         if (!structure) {
             if (packageFormat == QStringLiteral("KPackage/Generic")) {
                 structure = new GenericPackage();
+            } else if (packageFormat == QStringLiteral("KPackage/GenericQML")) {
+                structure = new GenericQMLPackage();
             }
         }
 

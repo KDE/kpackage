@@ -38,6 +38,10 @@ public:
     void initPackage(KPackage::Package *package) Q_DECL_OVERRIDE;
 };
 
-
+class GenericQMLPackage : public GenericPackage
+{
+public:
+    void initPackage(KPackage::Package *package) Q_DECL_OVERRIDE;
+};
 
 #endif // LIBS_KPACKAGE_PACKAGES_P_H

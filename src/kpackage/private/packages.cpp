@@ -87,5 +87,12 @@ void GenericPackage::initPackage(KPackage::Package *package)
     package->addDirectoryDefinition("translations", "locale", i18n("Translations"));
 }
 
+void GenericQMLPackage::initPackage(KPackage::Package *package)
+{
+    GenericPackage::initPackage(package);
 
+    package->addFileDefinition("mainscript", "ui/main.qml", i18n("Main UI File"));
+    package->setRequired("mainscript", true);
+    package->setDefaultPackageRoot("kpackage" "/genericqml/");
+}
 
