@@ -69,7 +69,6 @@ public:
     void listTypes();
     void coutput(const QString &msg);
     QCommandLineParser *parser;
-
 };
 
 PackageTool::PackageTool(int &argc, char **argv, QCommandLineParser *parser) :
@@ -301,7 +300,7 @@ QStringList PackageToolPrivate::packages(const QStringList &types)
 
 void PackageTool::showPackageInfo(const QString &pluginName)
 {
-    QString type = "KPackage/Generic";
+    QString type = QStringLiteral("KPackage/Generic");
     if (!d->pluginTypes.contains(type) && d->pluginTypes.count() > 0) {
         type = d->pluginTypes.at(0);
     }
@@ -335,7 +334,7 @@ QString PackageTool::findPackageRoot(const QString &pluginName, const QString &p
 {
     QString packageRoot;
     if (d->parser->isSet("packageroot") && d->parser->isSet("global") && !d->parser->isSet("generate-index")) {
-        qWarning() << i18nc("The user entered conflicting options packageroot and global, this is the error message telling the user he can use only one", "The packageroot and global options conflict each other, please select only one.");
+        qWarning() << i18nc("The user entered conflicting options packageroot and global, this is the error message telling the user he can use only one", "The packageroot and global options conflict with each other, please select only one.");
         ::exit(7);
     } else if (d->parser->isSet("packageroot")) {
         packageRoot = d->parser->value("packageroot");
@@ -480,7 +479,7 @@ void PackageToolPrivate::listTypes()
         renderTypeTable(plugins);
     }
 
-    QStringList desktopFiles = QStandardPaths::locateAll(QStandardPaths::DataLocation, KPACKAGE_RELATIVE_DATA_INSTALL_DIR "/packageformats/*rc", QStandardPaths::LocateFile);
+    QStringList desktopFiles = QStandardPaths::locateAll(QStandardPaths::DataLocation, KPACKAGE_RELATIVE_DATA_INSTALL_DIR + QStringLiteral("/packageformats/*rc"), QStandardPaths::LocateFile);
 
     if (!desktopFiles.isEmpty()) {
         coutput(i18n("Provided by .desktop files:"));
