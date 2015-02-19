@@ -271,6 +271,8 @@ KPackage::PackageStructure *PackageLoader::loadPackageStructure(const QString &p
     if (!structure) {
         if (packageFormat == QStringLiteral("KPackage/Generic")) {
             structure = new GenericPackage();
+        } else if (packageFormat == QStringLiteral("KPackage/GenericQML")) {
+            structure = new GenericQMLPackage();
         }
     }
 
