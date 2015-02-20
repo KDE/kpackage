@@ -126,13 +126,10 @@ PackageLoader::~PackageLoader()
 
 void PackageLoader::setPackageLoader(PackageLoader *loader)
 {
-    if (!s_packageTrader) {
-        s_packageTrader = loader;
-    } else {
-#ifndef NDEBUG
-        // qDebug() << "Cannot set packageTrader, already set!" << s_packageTrader;
-#endif
+    if (s_packageTrader) {
+        delete s_packageTrader;
     }
+    s_packageTrader = loader;
 }
 
 PackageLoader *PackageLoader::self()
