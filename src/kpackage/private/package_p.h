@@ -70,6 +70,7 @@ public:
     void updateHash(const QString &basePath, const QString &subPath, const QDir &dir, QCryptographicHash &hash);
     QString fallbackFilePath(const QByteArray &key, const QString &filename = QString()) const;
     bool hasCycle(const KPackage::Package &package);
+    bool isInsidePackageDir(const QString& canonicalPath) const;
 
     QPointer<PackageStructure> structure;
     QString path;

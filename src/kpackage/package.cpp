@@ -230,7 +230,7 @@ KPluginMetaData Package::metadata() const
             if (fileInfo.isDir()) {
                 d->createPackageMetadata(d->path);
             } else if (fileInfo.exists()) {
-                d->path = p;
+                d->path = fileInfo.canonicalFilePath();
                 d->tempRoot = d->unpack(p);
             }
         }
@@ -287,10 +287,32 @@ QString PackagePrivate::unpack(const QString &filePath)
     return tempRoot;
 }
 
+bool PackagePrivate::isInsidePackageDir(const QString &canonicalPath) const
+{
+    // make sure that the target file is actually inside the package dir to prevent
+    // path traversal using symlinks or "../" path segments
+
+    // make sure we got passed a valid path
+    Q_ASSERT(QFileInfo(canonicalPath).exists());
+    Q_ASSERT(QFileInfo(canonicalPath).canonicalFilePath() == canonicalPath);
+    // make sure that the base path is also canonical
+    // this was not the case until 5.8, making this check fail e.g. if /home is a symlink
+    // which in turn would make plasmashell not find the .qml files
+    Q_ASSERT(QDir(path).exists());
+    Q_ASSERT(QDir(path).canonicalPath() + '/' == path);
+    if (canonicalPath.startsWith(path)) {
+        return true;
+    }
+    qWarning() << "Path traversal attempt detected:" << canonicalPath << "is not inside" << path;
+    return false;
+}
+
+
 QString Package::filePath(const QByteArray &fileType, const QString &filename) const
 {
     if (!d->valid) {
-        //qDebug() << "package is not valid";
+        qWarning() << "Attempting to read file from invalid package! file type:" << fileType
+                   << "file name:" << filename << "package path:" << d->path;
         return d->fallbackFilePath(fileType, filename);
     }
 
@@ -333,8 +355,8 @@ QString Package::filePath(const QByteArray &fileType, const QString &filename) c
                 file.append("/").append(filename);
             }
 
-            //qDebug() << "testing" << file << QFile::exists("/bin/ls") << QFile::exists(file);
-            if (QFile::exists(file)) {
+            QFileInfo fi(file);
+            if (fi.exists()) {
                 if (d->externalPaths) {
                     //qDebug() << "found" << file;
                     d->discoveries.insert(discoveryKey, file);
@@ -343,11 +365,7 @@ QString Package::filePath(const QByteArray &fileType, const QString &filename) c
 
                 // ensure that we don't return files outside of our base path
                 // due to symlink or ../ games
-                QDir dir(file);
-                QString canonicalized = dir.canonicalPath() + QDir::separator();
-
-                //qDebug() << "testing that" << canonicalized << "is in" << d->path;
-                if (canonicalized.startsWith(d->path)) {
+                if (d->isInsidePackageDir(fi.canonicalFilePath())) {
                     //qDebug() << "found" << file;
                     d->discoveries.insert(discoveryKey, file);
                     return file;
@@ -463,7 +481,7 @@ void Package::setPath(const QString &path)
             paths << QStandardPaths::locateAll(QStandardPaths::GenericDataLocation, p, QStandardPaths::LocateDirectory);
         } else {
             const QDir dir(p);
-            if (QFile::exists(dir.canonicalPath())) {
+            if (dir.exists()) {
                 paths << p;
             }
         }
@@ -471,14 +489,14 @@ void Package::setPath(const QString &path)
         //qDebug() << "paths:" << p << paths << d->defaultPackageRoot;
     } else {
         const QDir dir(path);
-        if (QFile::exists(dir.canonicalPath())) {
+        if (dir.exists()) {
             paths << path;
         }
     }
 
     QFileInfo fileInfo(path);
     if (fileInfo.isFile() && d->tempRoot.isEmpty()) {
-        d->path = path;
+        d->path = fileInfo.canonicalFilePath();
         d->tempRoot = d->unpack(path);
     }
 
@@ -487,11 +505,11 @@ void Package::setPath(const QString &path)
     const QString previousPath = d->path;
     foreach (const QString &p, paths) {
         d->checkedValid = false;
-        d->path = p;
-
-        if (!d->path.endsWith('/')) {
-            d->path.append('/');
-        }
+        QDir dir(p);
+        Q_ASSERT(dir.exists());
+        d->path = dir.canonicalPath();
+         // canonicalPath() does not include a trailing slash
+        d->path.append('/');
 
         // we need to tell the structure we're changing paths ...
         d->structure.data()->pathChanged(this);
