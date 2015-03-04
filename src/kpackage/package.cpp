@@ -299,7 +299,7 @@ bool PackagePrivate::isInsidePackageDir(const QString &canonicalPath) const
     // this was not the case until 5.8, making this check fail e.g. if /home is a symlink
     // which in turn would make plasmashell not find the .qml files
     Q_ASSERT(QDir(path).exists());
-    Q_ASSERT(QDir(path).canonicalPath() + '/' == path);
+    Q_ASSERT(path == QStringLiteral("/") || QDir(path).canonicalPath() + '/' == path);
     if (canonicalPath.startsWith(path)) {
         return true;
     }
@@ -508,8 +508,10 @@ void Package::setPath(const QString &path)
         QDir dir(p);
         Q_ASSERT(dir.exists());
         d->path = dir.canonicalPath();
-         // canonicalPath() does not include a trailing slash
-        d->path.append('/');
+         // canonicalPath() does not include a trailing slash (unless it is the root dir)
+        if (!d->path.endsWith(QLatin1Char('/'))) {
+            d->path.append('/');
+        }
 
         // we need to tell the structure we're changing paths ...
         d->structure.data()->pathChanged(this);
