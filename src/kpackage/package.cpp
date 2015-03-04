@@ -311,9 +311,12 @@ bool PackagePrivate::isInsidePackageDir(const QString &canonicalPath) const
 QString Package::filePath(const QByteArray &fileType, const QString &filename) const
 {
     if (!d->valid) {
-        qWarning() << "Attempting to read file from invalid package! file type:" << fileType
-                   << "file name:" << filename << "package path:" << d->path;
-        return d->fallbackFilePath(fileType, filename);
+        QString result = d->fallbackFilePath(fileType, filename);
+        if (result.isEmpty()) {
+            // qDebug() << fileType << "file with name" << filename
+            //    << "was not found in package with path" << d->path;
+        }
+        return result;
     }
 
     const QString discoveryKey(fileType + filename);
