@@ -32,6 +32,7 @@ private Q_SLOTS:
     void initTestCase();
     void validStructures();
     void validPackages();
+    void wallpaperPackage();
     void copyPerformance();
     void mutateAfterCopy();
     void emptyContentsPrefix();

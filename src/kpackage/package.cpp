@@ -484,7 +484,7 @@ void Package::setPath(const QString &path)
             paths << QStandardPaths::locateAll(QStandardPaths::GenericDataLocation, p, QStandardPaths::LocateDirectory);
         } else {
             const QDir dir(p);
-            if (dir.exists()) {
+            if (QFile::exists(dir.canonicalPath())) {
                 paths << p;
             }
         }
@@ -492,7 +492,7 @@ void Package::setPath(const QString &path)
         //qDebug() << "paths:" << p << paths << d->defaultPackageRoot;
     } else {
         const QDir dir(path);
-        if (dir.exists()) {
+        if (QFile::exists(dir.canonicalPath())) {
             paths << path;
         }
     }
@@ -509,7 +509,7 @@ void Package::setPath(const QString &path)
     foreach (const QString &p, paths) {
         d->checkedValid = false;
         QDir dir(p);
-        Q_ASSERT(dir.exists());
+        Q_ASSERT(QFile::exists(dir.canonicalPath()));
         d->path = dir.canonicalPath();
          // canonicalPath() does not include a trailing slash (unless it is the root dir)
         if (!d->path.endsWith(QLatin1Char('/'))) {

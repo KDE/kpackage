@@ -42,6 +42,56 @@ public:
     }
 };
 
+class Wallpaper : public KPackage::PackageStructure
+{
+public:
+    void initPackage(KPackage::Package *package)
+    {
+        package->addDirectoryDefinition("images", "images/", i18n("Images"));
+
+        QStringList mimetypes;
+        mimetypes << "image/svg" << "image/png" << "image/jpeg" << "image/jpg";
+        package->setMimeTypes("images", mimetypes);
+
+        package->setRequired("images", true);
+        package->addFileDefinition("screenshot", "screenshot.png", i18n("Screenshot"));
+        package->setAllowExternalPaths(true);
+    }
+    void pathChanged(KPackage::Package *package)
+    {
+        static bool guard = false;
+
+        if (guard) {
+            return;
+        }
+
+        guard = true;
+        QString ppath = package->path();
+        if (ppath.endsWith('/')) {
+            ppath.chop(1);
+            if (!QFile::exists(ppath)) {
+                ppath = package->path();
+            }
+        }
+
+        QFileInfo info(ppath);
+        const bool isFullPackage = info.isDir();
+        package->removeDefinition("preferred");
+        package->setRequired("images", isFullPackage);
+
+        if (isFullPackage) {
+            package->setContentsPrefixPaths(QStringList() << "contents/");
+        } else {
+            package->addFileDefinition("screenshot", info.fileName(), i18n("Preview"));
+            package->addFileDefinition("preferred", info.fileName(), QString());
+            package->setContentsPrefixPaths(QStringList());
+            package->setPath(info.path());
+        }
+
+        guard = false;
+    }
+};
+
 void PackageStructureTest::initTestCase()
 {
     m_packagePath = QFINDTESTDATA("data/testpackage");
@@ -71,6 +121,17 @@ void PackageStructureTest::validPackages()
     QVERIFY(!p.isValid());
     p.setPath(ps.path());
     QVERIFY(p.isValid());
+}
+
+void PackageStructureTest::wallpaperPackage()
+{
+    KPackage::Package p(new Wallpaper);
+    p.setPath(m_packagePath);
+    QVERIFY(p.isValid());
+
+    KPackage::Package p2(new Wallpaper);
+    p2.setPath(m_packagePath + "/contents/images/empty.png");
+    QVERIFY(p2.isValid());
 }
 
 void PackageStructureTest::copyPerformance()
