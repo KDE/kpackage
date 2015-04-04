@@ -1,0 +1,422 @@
+# Copyright (C) YEAR This_file_is_part_of_KDE
+# This file is distributed under the same license as the libplasma5 package.
+# Safa Alfulaij <safa1996alfulaij@gmail.com>, 2014.
+msgid ""
+msgstr ""
+"Project-Id-Version: \n"
+"Report-Msgid-Bugs-To: http://bugs.kde.org\n"
+"POT-Creation-Date: 2015-02-21 09:31+0000\n"
+"PO-Revision-Date: 2014-06-28 05:59+0300\n"
+"Last-Translator: Safa Alfulaij <safa1996alfulaij@gmail.com>\n"
+"Language-Team: Arabic <doc@arabeyes.org>\n"
+"Language: ar\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=6; plural=n==0 ? 0 : n==1 ? 1 : n==2 ? 2 : n%100>=3 "
+"&& n%100<=10 ? 3 : n%100>=11 && n%100<=99 ? 4 : 5;\n"
+"X-Generator: Virtaal 0.7.1\n"
+"X-Project-Style: kde\n"
+
+#: kpackage/packageloader.cpp:76
+msgid "Accessibility"
+msgstr "الإتاحة"
+
+#: kpackage/packageloader.cpp:77
+msgid "Application Launchers"
+msgstr "مُطلِقات التطبيقات"
+
+#: kpackage/packageloader.cpp:78
+msgid "Astronomy"
+msgstr "الفلك"
+
+#: kpackage/packageloader.cpp:79
+msgid "Date and Time"
+msgstr "التاريخ والوقت"
+
+#: kpackage/packageloader.cpp:80
+msgid "Development Tools"
+msgstr "أدوات التطوير"
+
+#: kpackage/packageloader.cpp:81
+msgid "Education"
+msgstr "التعليم"
+
+#: kpackage/packageloader.cpp:82
+msgid "Environment and Weather"
+msgstr "البيئة والطقس"
+
+#: kpackage/packageloader.cpp:83
+msgid "Examples"
+msgstr "أمثلة"
+
+#: kpackage/packageloader.cpp:84
+msgid "File System"
+msgstr "نظام الملفات"
+
+#: kpackage/packageloader.cpp:85
+msgid "Fun and Games"
+msgstr "الترفيه والألعاب"
+
+#: kpackage/packageloader.cpp:86
+msgid "Graphics"
+msgstr "الرسوميات"
+
+#: kpackage/packageloader.cpp:87
+msgid "Language"
+msgstr "اللغة"
+
+#: kpackage/packageloader.cpp:88
+msgid "Mapping"
+msgstr ""
+
+#: kpackage/packageloader.cpp:89
+msgid "Miscellaneous"
+msgstr "متنوّع"
+
+#: kpackage/packageloader.cpp:90
+msgid "Multimedia"
+msgstr "الوسائط المتعدّدة"
+
+#: kpackage/packageloader.cpp:91
+msgid "Online Services"
+msgstr "الخدمات على الإنترنت"
+
+#: kpackage/packageloader.cpp:92
+msgid "Productivity"
+msgstr "الإنتاجية"
+
+#: kpackage/packageloader.cpp:93
+msgid "System Information"
+msgstr "معلومات النظام"
+
+#: kpackage/packageloader.cpp:94
+msgid "Utilities"
+msgstr "أدوات"
+
+#: kpackage/packageloader.cpp:95
+msgid "Windows and Tasks"
+msgstr "النوافذ والمهام"
+
+#: kpackage/packageloader.cpp:341
+#, kde-format
+msgid "Could not load installer for package of type %1. Error reported was: %2"
+msgstr "تعذّر تحميل المثبِّت المناسب لنوع الحزم %1. الخطأ المبلّغ عنه كان: %2"
+
+#: kpackage/private/packagejobthread.cpp:220
+#, kde-format
+msgid "Could not create package root directory: %1"
+msgstr ""
+
+#: kpackage/private/packagejobthread.cpp:228
+#, kde-format
+msgid "No such file: %1"
+msgstr "لا ملف كهذا: %1"
+
+#: kpackage/private/packagejobthread.cpp:255
+#, kde-format
+msgid "Could not open package file, unsupported archive format: %1 %2"
+msgstr "تعذّر فتح الملف، هيئة الأرشيف غير مدعومة: %1 %2"
+
+#: kpackage/private/packagejobthread.cpp:262
+#, kde-format
+msgid "Could not open package file: %1"
+msgstr "تعذّر فتح ملف الحزمة: %1"
+
+#: kpackage/private/packagejobthread.cpp:288
+#, kde-format
+msgid "No metadata file in package: %1"
+msgstr "لا ملف بيانات وصفية في الحزمة: %1"
+
+#: kpackage/private/packagejobthread.cpp:299
+#, kde-format
+msgid "Package plugin name not specified: %1"
+msgstr "اسم ملحقة الحزمة غير محدَّد: %1"
+
+#: kpackage/private/packagejobthread.cpp:308
+#, kde-format
+msgid "Package plugin name %1 contains invalid characters"
+msgstr "اسم ملحقة الحزمة %1 يحوي محارف غير صالحة"
+
+#: kpackage/private/packagejobthread.cpp:319
+#, kde-format
+msgid "%1 already exists"
+msgstr "%1 موجود بالفعل"
+
+#: kpackage/private/packagejobthread.cpp:329
+#, kde-format
+msgid "Could not move package to destination: %1"
+msgstr "تعذّر نقل الحزمة إلى المقصد: %1"
+
+#: kpackage/private/packagejobthread.cpp:338
+#, kde-format
+msgid "Could not copy package to destination: %1"
+msgstr "تعذّر نسخ الحزمة إلى المقصد: %1"
+
+#: kpackage/private/packagejobthread.cpp:372
+#, kde-format
+msgid "%1 does not exist"
+msgstr "%1 غير موجود"
+
+#: kpackage/private/packagejobthread.cpp:391
+#, kde-format
+msgid "Could not delete package from: %1"
+msgstr "تعذّر حذف الحزمة من: %1"
+
+#: kpackage/private/packages.cpp:36 kpackage/private/packages.cpp:59
+msgid "Main Script File"
+msgstr "ملف السكرِبت الرئيسي"
+
+#: kpackage/private/packages.cpp:69
+msgid "Images"
+msgstr "الصور"
+
+#: kpackage/private/packages.cpp:70
+msgid "Themed Images"
+msgstr ""
+
+#: kpackage/private/packages.cpp:76
+msgid "Configuration Definitions"
+msgstr ""
+
+#: kpackage/private/packages.cpp:81
+msgid "User Interface"
+msgstr "واجهة المستخدِم"
+
+#: kpackage/private/packages.cpp:83
+msgid "Data Files"
+msgstr "ملفات البيانات"
+
+#: kpackage/private/packages.cpp:85
+msgid "Executable Scripts"
+msgstr "السكرِبتات التنفيذية"
+
+#: kpackage/private/packages.cpp:90
+msgid "Translations"
+msgstr "الترجمات"
+
+#: kpackage/private/packages.cpp:97
+#, fuzzy
+#| msgid "Main Script File"
+msgid "Main UI File"
+msgstr "ملف السكرِبت الرئيسي"
+
+#: kpackagetool/kpackagetool.cpp:96
+#, kde-format
+msgid "Failed to generate a Package hash for %1"
+msgstr ""
+
+#: kpackagetool/kpackagetool.cpp:99
+#, kde-format
+msgid "SHA1 hash for Package at %1: '%2'"
+msgstr ""
+
+#: kpackagetool/kpackagetool.cpp:137
+#, fuzzy
+msgctxt "package type"
+msgid "wallpaper"
+msgstr "(هناك مشكلة) خلفية"
+
+#: kpackagetool/kpackagetool.cpp:185
+#, kde-format
+msgid "Listing service types: %1"
+msgstr "يسرد أنواع الخدمات: %1"
+
+#: kpackagetool/kpackagetool.cpp:262
+#, kde-format
+msgid "Error: Plugin %1 is not installed."
+msgstr "خطأ: الملحقة %1 غير مثبّتة."
+
+#: kpackagetool/kpackagetool.cpp:272
+msgctxt ""
+"No option was given, this is the error message telling the user he needs at "
+"least one, do not translate install, remove, upgrade nor list"
+msgid "One of install, remove, upgrade or list is required."
+msgstr ""
+
+#: kpackagetool/kpackagetool.cpp:319
+#, kde-format
+msgid "Error: Can't find plugin metadata: %1"
+msgstr "خطأ: تعذّر العثور على بيانات الملحقة الوصفية: %1"
+
+#: kpackagetool/kpackagetool.cpp:323
+#, kde-format
+msgid "Showing info for package: %1"
+msgstr "يظهر معلومات الحزمة: %1"
+
+#: kpackagetool/kpackagetool.cpp:324
+#, kde-format
+msgid "      Name : %1"
+msgstr "      الاسم: %1"
+
+#: kpackagetool/kpackagetool.cpp:325
+#, kde-format
+msgid "   Comment : %1"
+msgstr "   التعليق: %1"
+
+#: kpackagetool/kpackagetool.cpp:326
+#, kde-format
+msgid "    Plugin : %1"
+msgstr "    الملحقة: %1"
+
+#: kpackagetool/kpackagetool.cpp:327
+#, kde-format
+msgid "    Author : %1"
+msgstr "    المؤلف: %1"
+
+#: kpackagetool/kpackagetool.cpp:328
+#, kde-format
+msgid "      Path : %1"
+msgstr "      المسار: %1"
+
+#: kpackagetool/kpackagetool.cpp:337
+msgctxt ""
+"The user entered conflicting options packageroot and global, this is the "
+"error message telling the user he can use only one"
+msgid ""
+"The packageroot and global options conflict with each other, please select "
+"only one."
+msgstr ""
+
+#: kpackagetool/kpackagetool.cpp:362
+msgid "Addon Name"
+msgstr "اسم الإضافة"
+
+#: kpackagetool/kpackagetool.cpp:363
+msgid "Service Type"
+msgstr "نوع الخدمة"
+
+#: kpackagetool/kpackagetool.cpp:364
+msgid "Path"
+msgstr "المسار"
+
+#: kpackagetool/kpackagetool.cpp:407
+msgid "Package types that are installable with this tool:"
+msgstr "الحزم القابلة للتثبيت بهذه الأداة:"
+
+#: kpackagetool/kpackagetool.cpp:408
+msgid "Built in:"
+msgstr "مدمَجة:"
+
+#: kpackagetool/kpackagetool.cpp:411
+#, fuzzy
+msgid "KPackage/Generic"
+msgstr "حزمة"
+
+#: kpackagetool/kpackagetool.cpp:412
+#, fuzzy
+msgid "KPackage/GenericQML"
+msgstr "حزمة"
+
+#: kpackagetool/kpackagetool.cpp:464
+msgid "Provided by plugins:"
+msgstr "توفّرها الملحقات:"
+
+#: kpackagetool/kpackagetool.cpp:486
+msgid "Provided by .desktop files:"
+msgstr "توفّرها ملفات ‎.desktop:"
+
+#: kpackagetool/kpackagetool.cpp:508 kpackagetool/kpackagetool.cpp:517
+#, kde-format
+msgid "Generating %1/kpluginindex.json"
+msgstr ""
+
+#: kpackagetool/kpackagetool.cpp:527
+#, kde-format
+msgid "Successfully upgraded %1"
+msgstr "رُقِّيت %1 بنجاح"
+
+#: kpackagetool/kpackagetool.cpp:529
+#, kde-format
+msgid "Successfully installed %1"
+msgstr "ثُبِّتت %1 بنجاح"
+
+#: kpackagetool/kpackagetool.cpp:532
+#, kde-format
+msgid "Error: Installation of %1 failed: %2"
+msgstr "خطأ: فشل تثبيت %1: %2"
+
+#: kpackagetool/kpackagetool.cpp:544
+#, kde-format
+msgid "Upgrading package from file: %1"
+msgstr "يرقّي الحزمة من الملف: %1"
+
+#: kpackagetool/kpackagetool.cpp:549
+#, kde-format
+msgid "Successfully uninstalled %1"
+msgstr "أُزيلت %1 بنجاح"
+
+#: kpackagetool/kpackagetool.cpp:551
+#, kde-format
+msgid "Error: Uninstallation of %1 failed: %2"
+msgstr "خطأ: فشلت إزالة %1: %2"
+
+#: kpackagetool/main.cpp:49
+#, fuzzy
+#| msgid "Plasma Package Manager"
+msgid "KPackage Manager"
+msgstr "مدير بلازما للحزم"
+
+#: kpackagetool/main.cpp:56
+msgctxt "Do not translate <path>"
+msgid "Generate a SHA1 hash for the package at <path>"
+msgstr ""
+
+#: kpackagetool/main.cpp:57
+msgid "For install or remove, operates on packages installed for all users."
+msgstr ""
+
+#: kpackagetool/main.cpp:62
+#, fuzzy
+msgctxt ""
+"theme, wallpaper, etc. are keywords, but they may be translated, as both "
+"versions are recognized by the application (if translated, should be same as "
+"messages with 'package type' context below)"
+msgid ""
+"The type of package, e.g. theme, wallpaper, plasmoid, dataengine, runner, "
+"layout-template, etc."
+msgstr "(هناك مشكلة بالأسفل)"
+
+#: kpackagetool/main.cpp:64
+msgctxt "Do not translate <path>"
+msgid "Install the package at <path>"
+msgstr "ثبّت الحزمة في <path>"
+
+#: kpackagetool/main.cpp:65
+msgctxt "Do not translate <name>"
+msgid "Show information of package <name>"
+msgstr "أظهر معلومات الحزمة <name>"
+
+#: kpackagetool/main.cpp:66
+#, fuzzy
+msgctxt "Do not translate <path>"
+msgid "Upgrade the package at <path>"
+msgstr "ثبّت الحزمة في <path>"
+
+#: kpackagetool/main.cpp:67
+msgid "List installed packages"
+msgstr "اسرد الحزم المثبّتة"
+
+#: kpackagetool/main.cpp:68
+#, fuzzy
+#| msgid "lists all known Package types that can be installed"
+msgid "List all known package types that can be installed"
+msgstr "يسرد كل أنواع الحزم المعروفة التي يمكن تثبيتها"
+
+#: kpackagetool/main.cpp:69
+msgctxt "Do not translate <name>"
+msgid "Remove the package named <name>"
+msgstr "أزل الحزمة المسماة <name>"
+
+#: kpackagetool/main.cpp:70
+msgid ""
+"Absolute path to the package root. If not supplied, then the standard data "
+"directories for this KDE session will be searched instead."
+msgstr ""
+
+#: kpackagetool/main.cpp:71
+msgid ""
+"Recreate the plugin index. To be used in conjunction with either the option -"
+"t or -g. Recreates the index for the given type or package root. Operates in "
+"the user directory, unless -g is used"
+msgstr ""
