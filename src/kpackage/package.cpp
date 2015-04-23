@@ -30,6 +30,7 @@
 #include <ktar.h>
 #include <kzip.h>
 #include <KConfigGroup>
+#include <KLocalizedString>
 
 #include "config-package.h"
 
@@ -51,6 +52,7 @@ Package::Package(PackageStructure *structure)
 
     if (d->structure) {
         d->structure.data()->initPackage(this);
+        addFileDefinition("metadata", "metadata.desktop", i18n("Desktop file that describes this package."));
     }
 }
 
@@ -349,7 +351,7 @@ QString Package::filePath(const QByteArray &fileType, const QString &filename) c
     //Nested loop, but in the medium case resolves to just one iteration
     //qDebug() << "prefixes:" << prefixes.count() << prefixes;
     foreach (const QString &contentsPrefix, d->contentsPrefixPaths) {
-        const QString prefix(d->path + contentsPrefix);
+        const QString prefix = fileType == "metadata" ? d->path : (d->path + contentsPrefix);
 
         foreach (const QString &path, paths) {
             QString file = prefix + path;
@@ -883,7 +885,7 @@ void PackagePrivate::updateHash(const QString &basePath, const QString &subPath,
 void PackagePrivate::createPackageMetadata(const QString &path)
 {
     delete metadata;
-    QString metadataPath(path + "/metadata.desktop");
+    QString metadataPath = path.endsWith("/metadata.desktop") ? path : (path + "/metadata.desktop");
     if (!QFile::exists(metadataPath)) {
         qWarning() << "No metadata file in the package, expected it at:" << metadataPath;
         metadata = new KPluginMetaData();
