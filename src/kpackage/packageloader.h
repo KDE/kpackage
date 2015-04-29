@@ -54,7 +54,30 @@ public:
      **/
     Package loadPackage(const QString &packageFormat, const QString &packagePath = QString());
 
+    /**
+     * List all available packages of a certain type
+     * 
+     * @param packageFormat the format of the packages to list
+     * @param packageRoot the root folder where the packages are installed.
+     *          If not specified the default from the packageformat will be taken.
+     *
+     * @return metadata for all the matching packages
+     */
     QList<KPluginMetaData> listPackages(const QString &packageFormat, const QString &packageRoot = QString());
+
+    /**
+     * List package of a certain type that match a certain filter function
+     *
+     * @param packageFormat the format of the packages to list
+     * @param packageRoot the root folder where the packages are installed.
+     *          If not specified the default from the packageformat will be taken.
+     * @param filter a filter function that will be called on each package:
+     *          will return true for the matching ones
+     *
+     * @return metadata for all the matching packages
+     * @since 5.10
+     */
+    QList<KPluginMetaData> findPackages(const QString &packageFormat, const QString &packageRoot = QString(), std::function<bool(const KPluginMetaData &)> filter = std::function<bool(const KPluginMetaData &)>());
 
     KPackage::PackageStructure *loadPackageStructure(const QString &packageFormat);
 

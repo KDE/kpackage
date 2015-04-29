@@ -265,6 +265,19 @@ QList<KPluginMetaData> PackageLoader::listPackages(const QString &packageFormat,
     return lst;
 }
 
+QList<KPluginMetaData> PackageLoader::findPackages(const QString &packageFormat, const QString &packageRoot, std::function<bool(const KPluginMetaData &)> filter)
+{
+    QList<KPluginMetaData> lst;
+
+    for (auto plugin : listPackages(packageFormat, packageRoot)) {
+        if (filter(plugin)) {
+            lst << plugin;
+        }
+    }
+
+    return lst;
+}
+
 KPackage::PackageStructure *PackageLoader::loadPackageStructure(const QString &packageFormat)
 {
     PackageStructure *structure = d->structures.value(packageFormat).data();
