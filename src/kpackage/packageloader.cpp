@@ -270,7 +270,7 @@ QList<KPluginMetaData> PackageLoader::findPackages(const QString &packageFormat,
     QList<KPluginMetaData> lst;
 
     for (auto plugin : listPackages(packageFormat, packageRoot)) {
-        if (filter(plugin)) {
+        if (!filter || filter(plugin)) {
             lst << plugin;
         }
     }
