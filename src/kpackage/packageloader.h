@@ -79,7 +79,22 @@ public:
      */
     QList<KPluginMetaData> findPackages(const QString &packageFormat, const QString &packageRoot = QString(), std::function<bool(const KPluginMetaData &)> filter = std::function<bool(const KPluginMetaData &)>());
 
+    /**
+     * Loads a PackageStructure for a given format. The structure can then be used as
+     * paramenter for a Package instance constructor
+     * @param packageFormat the package format, such as "KPackage/GenericQML"
+     * @return the structure instance
+     */
     KPackage::PackageStructure *loadPackageStructure(const QString &packageFormat);
+
+    /**
+     * Adds a new known package structure that can be used by the functions to load packages such
+     * as loadPackage, findPackages etc
+     * @param packageFormat the package format, such as "KPackage/GenericQML"
+     * @param structure the package structure we want to be able to load packages from
+     * @since 5.10
+     */
+    void addKnownPackageStructure(const QString &packageFormat, KPackage::PackageStructure *structure);
 
     /**
      * Set the plugin loader which will be queried for all loads.

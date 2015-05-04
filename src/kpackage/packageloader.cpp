@@ -360,6 +360,11 @@ KPackage::PackageStructure *PackageLoader::loadPackageStructure(const QString &p
     return structure;
 }
 
+void PackageLoader::addKnownPackageStructure(const QString &packageFormat, KPackage::PackageStructure *structure)
+{
+    d->structures.insert(packageFormat, structure);
+}
+
 Package PackageLoader::internalLoadPackage(const QString &name)
 {
     Q_UNUSED(name);
