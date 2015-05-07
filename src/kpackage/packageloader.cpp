@@ -284,9 +284,15 @@ KPackage::PackageStructure *PackageLoader::loadPackageStructure(const QString &p
     if (!structure) {
         if (packageFormat == QStringLiteral("KPackage/Generic")) {
             structure = new GenericPackage();
+            d->structures.insert(packageFormat, structure);
         } else if (packageFormat == QStringLiteral("KPackage/GenericQML")) {
             structure = new GenericQMLPackage();
+            d->structures.insert(packageFormat, structure);
         }
+    }
+
+    if (structure) {
+        return structure;
     }
 
     QStringList libraryPaths;
