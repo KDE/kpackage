@@ -361,7 +361,8 @@ KPackage::PackageStructure *PackageLoader::loadPackageStructure(const QString &p
                             packageFormat, error);
     }
 
-    d->structures.insert(packageFormat, structure);
+    if (structure)
+        d->structures.insert(packageFormat, structure);
 
     return structure;
 }
