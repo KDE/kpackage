@@ -149,8 +149,10 @@ bool indexDirectory(const QString& dir, const QString& dest)
     while (it.hasNext()) {
         it.next();
         const QString path = it.fileInfo().absoluteFilePath();
+        QJsonObject obj = KPluginMetaData(path).rawData();
+        obj.insert("FileName", path);
 
-        plugins.insert(i, KPluginMetaData(path).rawData());
+        plugins.insert(i, obj);
         i++;
     }
 
