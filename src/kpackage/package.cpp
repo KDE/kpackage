@@ -767,6 +767,9 @@ KJob *Package::install(const QString &sourcePackage, const QString &packageRoot)
         dest = QStandardPaths::writableLocation(QStandardPaths::GenericDataLocation) + "/" + dest;
     }
 
+    if (!d->structure) {
+        return 0;
+    }
     //qDebug() << "Source: " << src;
     //qDebug() << "PackageRoot: " << dest;
     KJob *j = d->structure.data()->install(this, src, dest);
@@ -776,6 +779,9 @@ KJob *Package::install(const QString &sourcePackage, const QString &packageRoot)
 KJob *Package::uninstall(const QString &packageName, const QString &packageRoot)
 {
     d->createPackageMetadata(packageRoot + packageName);
+    if (!d->structure) {
+        return 0;
+    }
     return d->structure.data()->uninstall(this, packageRoot);
 }
 
