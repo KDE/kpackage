@@ -1,0 +1,443 @@
+# Uyghur translation for libplasma.
+# Copyright (C) YEAR This_file_is_part_of_KDE
+# This file is distributed under the same license as the PACKAGE package.
+# Gheyret Kenji <gheyret@gmail.com>, YEAR.
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: libplasma\n"
+"Report-Msgid-Bugs-To: http://bugs.kde.org\n"
+"POT-Creation-Date: 2015-05-19 12:12+0000\n"
+"PO-Revision-Date: 2013-09-08 07:05+0900\n"
+"Last-Translator: Gheyret Kenji <gheyret@gmail.com>\n"
+"Language-Team: Uyghur <kde-i18n-doc@kde.org>\n"
+"Language: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=1; plural=0;\n"
+
+#: kpackage/package.cpp:55
+msgid "Desktop file that describes this package."
+msgstr ""
+
+#: kpackage/packageloader.cpp:76
+msgid "Accessibility"
+msgstr "ياردەم ئىقتىدارى"
+
+#: kpackage/packageloader.cpp:77
+msgid "Application Launchers"
+msgstr "پروگرامما ئىجرا قىلغۇچ"
+
+#: kpackage/packageloader.cpp:78
+msgid "Astronomy"
+msgstr "ئاسترونومىيە"
+
+#: kpackage/packageloader.cpp:79
+msgid "Date and Time"
+msgstr "چېسلا ۋە ۋاقىت"
+
+#: kpackage/packageloader.cpp:80
+msgid "Development Tools"
+msgstr "ئىجادكارلار قورالى"
+
+#: kpackage/packageloader.cpp:81
+msgid "Education"
+msgstr "مائارىپ"
+
+#: kpackage/packageloader.cpp:82
+msgid "Environment and Weather"
+msgstr "مۇھىت ۋە ھاۋارايى"
+
+#: kpackage/packageloader.cpp:83
+msgid "Examples"
+msgstr "مىساللار"
+
+#: kpackage/packageloader.cpp:84
+msgid "File System"
+msgstr "ھۆججەت سىستېمىسى"
+
+#: kpackage/packageloader.cpp:85
+msgid "Fun and Games"
+msgstr "ئويۇن ۋە تاماشا"
+
+#: kpackage/packageloader.cpp:86
+msgid "Graphics"
+msgstr "گرافىك"
+
+#: kpackage/packageloader.cpp:87
+msgid "Language"
+msgstr "تىل"
+
+#: kpackage/packageloader.cpp:88
+msgid "Mapping"
+msgstr "خەرىتىلە"
+
+#: kpackage/packageloader.cpp:89
+msgid "Miscellaneous"
+msgstr "باشقىلار"
+
+#: kpackage/packageloader.cpp:90
+msgid "Multimedia"
+msgstr "كۆپ ۋاسىتە"
+
+#: kpackage/packageloader.cpp:91
+msgid "Online Services"
+msgstr "توردىكى مۇلازىمەتلەر"
+
+#: kpackage/packageloader.cpp:92
+msgid "Productivity"
+msgstr "ئىشلەپچىقىرىش ئۈنۈمى"
+
+#: kpackage/packageloader.cpp:93
+msgid "System Information"
+msgstr "سىستېما ئۇچۇرى"
+
+#: kpackage/packageloader.cpp:94
+msgid "Utilities"
+msgstr "قوراللار"
+
+#: kpackage/packageloader.cpp:95
+msgid "Windows and Tasks"
+msgstr "كۆزنەك ۋە ۋەزىپىلەر"
+
+#: kpackage/packageloader.cpp:360
+#, kde-format
+msgid "Could not load installer for package of type %1. Error reported was: %2"
+msgstr ""
+"بوغچا تىپى %1 بولغان بوغچا ئورناتقۇچنى تاپالمىدى. مەلۇم قىلغان خاتالىق: %2"
+
+#: kpackage/private/packagejobthread.cpp:222
+#, kde-format
+msgid "Could not create package root directory: %1"
+msgstr ""
+
+#: kpackage/private/packagejobthread.cpp:230
+#, kde-format
+msgid "No such file: %1"
+msgstr ""
+
+#: kpackage/private/packagejobthread.cpp:257
+#, kde-format
+msgid "Could not open package file, unsupported archive format: %1 %2"
+msgstr ""
+
+#: kpackage/private/packagejobthread.cpp:264
+#, kde-format
+msgid "Could not open package file: %1"
+msgstr ""
+
+#: kpackage/private/packagejobthread.cpp:290
+#, kde-format
+msgid "No metadata file in package: %1"
+msgstr ""
+
+#: kpackage/private/packagejobthread.cpp:301
+#, kde-format
+msgid "Package plugin name not specified: %1"
+msgstr ""
+
+#: kpackage/private/packagejobthread.cpp:310
+#, kde-format
+msgid "Package plugin name %1 contains invalid characters"
+msgstr ""
+
+#: kpackage/private/packagejobthread.cpp:321
+#, kde-format
+msgid "%1 already exists"
+msgstr ""
+
+#: kpackage/private/packagejobthread.cpp:331
+#, kde-format
+msgid "Could not move package to destination: %1"
+msgstr ""
+
+#: kpackage/private/packagejobthread.cpp:340
+#, kde-format
+msgid "Could not copy package to destination: %1"
+msgstr ""
+
+#: kpackage/private/packagejobthread.cpp:374
+#, kde-format
+msgid "%1 does not exist"
+msgstr ""
+
+#: kpackage/private/packagejobthread.cpp:393
+#, kde-format
+msgid "Could not delete package from: %1"
+msgstr ""
+
+#: kpackage/private/packages.cpp:36 kpackage/private/packages.cpp:59
+msgid "Main Script File"
+msgstr "ئاساسىي قوليازما ھۆججىتى"
+
+#: kpackage/private/packages.cpp:69
+msgid "Images"
+msgstr "سۈرەتلەر"
+
+#: kpackage/private/packages.cpp:70
+msgid "Themed Images"
+msgstr "ئۆرنەكلىك سۈرەتلەر"
+
+#: kpackage/private/packages.cpp:76
+msgid "Configuration Definitions"
+msgstr "سەپلىمە ئېنىقلىمىسى"
+
+#: kpackage/private/packages.cpp:81
+msgid "User Interface"
+msgstr "كۆرۈنمەيۈز"
+
+#: kpackage/private/packages.cpp:83
+msgid "Data Files"
+msgstr "سانلىق-مەلۇمات ھۆججەتلىرى"
+
+#: kpackage/private/packages.cpp:85
+msgid "Executable Scripts"
+msgstr "ئىجراچان قوليازمىلار"
+
+#: kpackage/private/packages.cpp:90
+msgid "Translations"
+msgstr "تەرجىمىسى"
+
+#: kpackage/private/packages.cpp:97
+#, fuzzy
+#| msgid "Main Script File"
+msgid "Main UI File"
+msgstr "ئاساسىي قوليازما ھۆججىتى"
+
+#: kpackagetool/kpackagetool.cpp:96
+#, kde-format
+msgid "Failed to generate a Package hash for %1"
+msgstr "%1 ئۈچۈن ئالاھىدىلىك كودى ھاسىل قىلىش مەغلۇپ بولدى"
+
+#: kpackagetool/kpackagetool.cpp:99
+#, kde-format
+msgid "SHA1 hash for Package at %1: '%2'"
+msgstr "%1 دىكى بوغچىنىڭ SHA1 ئالاھىدىلىك كودى: ‹%2›"
+
+#: kpackagetool/kpackagetool.cpp:137
+msgctxt "package type"
+msgid "wallpaper"
+msgstr "تام قەغىزى"
+
+#: kpackagetool/kpackagetool.cpp:185
+#, kde-format
+msgid "Listing service types: %1"
+msgstr ""
+
+#: kpackagetool/kpackagetool.cpp:262
+#, kde-format
+msgid "Error: Plugin %1 is not installed."
+msgstr ""
+
+#: kpackagetool/kpackagetool.cpp:272
+msgctxt ""
+"No option was given, this is the error message telling the user he needs at "
+"least one, do not translate install, remove, upgrade nor list"
+msgid "One of install, remove, upgrade or list is required."
+msgstr ""
+"ئاز دېگەندە بىر ئورنىتىش، چىقىرىۋېتىش، يۈكسەلدۈرۈش ياكى تىزىمىنى كۆرسىتىشنى "
+"تەلەپ قىلىدۇ."
+
+#: kpackagetool/kpackagetool.cpp:319
+#, kde-format
+msgid "Error: Can't find plugin metadata: %1"
+msgstr ""
+
+#: kpackagetool/kpackagetool.cpp:323
+#, kde-format
+msgid "Showing info for package: %1"
+msgstr ""
+
+#: kpackagetool/kpackagetool.cpp:324
+#, kde-format
+msgid "      Name : %1"
+msgstr ""
+
+#: kpackagetool/kpackagetool.cpp:325
+#, kde-format
+msgid "   Comment : %1"
+msgstr ""
+
+#: kpackagetool/kpackagetool.cpp:326
+#, kde-format
+msgid "    Plugin : %1"
+msgstr ""
+
+#: kpackagetool/kpackagetool.cpp:327
+#, kde-format
+msgid "    Author : %1"
+msgstr ""
+
+#: kpackagetool/kpackagetool.cpp:328
+#, kde-format
+msgid "      Path : %1"
+msgstr ""
+
+#: kpackagetool/kpackagetool.cpp:337
+#, fuzzy
+#| msgctxt ""
+#| "The user entered conflicting options packageroot and global, this is the "
+#| "error message telling the user he can use only one"
+#| msgid ""
+#| "The packageroot and global options conflict each other, please select "
+#| "only one."
+msgctxt ""
+"The user entered conflicting options packageroot and global, this is the "
+"error message telling the user he can use only one"
+msgid ""
+"The packageroot and global options conflict with each other, please select "
+"only one."
+msgstr ""
+"بوغچا شېخى ۋە ئومۇمىيەت تاللانمىسى ئۆزئارا توقۇنۇشىدۇ، بىرىنىلا تاللاڭ."
+
+#: kpackagetool/kpackagetool.cpp:362
+msgid "Addon Name"
+msgstr "قىستۇرما ئاتى"
+
+#: kpackagetool/kpackagetool.cpp:363
+msgid "Service Type"
+msgstr "مۇلازىمەت تىپى"
+
+#: kpackagetool/kpackagetool.cpp:364
+msgid "Path"
+msgstr "يول"
+
+#: kpackagetool/kpackagetool.cpp:407
+msgid "Package types that are installable with this tool:"
+msgstr "بۇ قورالنى ئىشلىتىپ ئورناتقىلى بولىدىغان بوغچا تىپى:"
+
+#: kpackagetool/kpackagetool.cpp:408
+msgid "Built in:"
+msgstr "ئۆزىدىكى:"
+
+#: kpackagetool/kpackagetool.cpp:411
+#, fuzzy
+#| msgid "Package"
+msgid "KPackage/Generic"
+msgstr "بوغچا"
+
+#: kpackagetool/kpackagetool.cpp:412
+#, fuzzy
+#| msgid "Package"
+msgid "KPackage/GenericQML"
+msgstr "بوغچا"
+
+#: kpackagetool/kpackagetool.cpp:464
+msgid "Provided by plugins:"
+msgstr "قىستۇرما تەمىنلىگەن:"
+
+#: kpackagetool/kpackagetool.cpp:486
+msgid "Provided by .desktop files:"
+msgstr ".desktop ھۆججەت تەمىنلىگەن"
+
+#: kpackagetool/kpackagetool.cpp:508 kpackagetool/kpackagetool.cpp:517
+#, kde-format
+msgid "Generating %1/kpluginindex.json"
+msgstr ""
+
+#: kpackagetool/kpackagetool.cpp:527
+#, kde-format
+msgid "Successfully upgraded %1"
+msgstr ""
+
+#: kpackagetool/kpackagetool.cpp:529
+#, kde-format
+msgid "Successfully installed %1"
+msgstr "%1 مۇۋەپپەقىيەتلىك ئورنىتىلدى"
+
+#: kpackagetool/kpackagetool.cpp:532
+#, kde-format
+msgid "Error: Installation of %1 failed: %2"
+msgstr ""
+
+#: kpackagetool/kpackagetool.cpp:544
+#, kde-format
+msgid "Upgrading package from file: %1"
+msgstr ""
+
+#: kpackagetool/kpackagetool.cpp:549
+#, kde-format
+msgid "Successfully uninstalled %1"
+msgstr ""
+
+#: kpackagetool/kpackagetool.cpp:551
+#, kde-format
+msgid "Error: Uninstallation of %1 failed: %2"
+msgstr ""
+
+#: kpackagetool/main.cpp:49
+#, fuzzy
+#| msgid "Plasma Package Manager"
+msgid "KPackage Manager"
+msgstr "پلازما بوغچا باشقۇرغۇچ"
+
+#: kpackagetool/main.cpp:56
+msgctxt "Do not translate <path>"
+msgid "Generate a SHA1 hash for the package at <path>"
+msgstr "<path> دىكى بوغچا ئۈچۈن SHA1 ئالاھىدىلىك كودى ھاسىل قىلىش"
+
+#: kpackagetool/main.cpp:57
+msgid "For install or remove, operates on packages installed for all users."
+msgstr ""
+"ھەممە ئىشلەتكۈچىگە نىسبەتەن يېڭى بوغچا ئورنىتىش ياكى ئورنىتىلغان بوغچىنى "
+"چىقىرىۋېتىش مەشغۇلاتى بىلەن تەمىنلەيدۇ."
+
+#: kpackagetool/main.cpp:62
+msgctxt ""
+"theme, wallpaper, etc. are keywords, but they may be translated, as both "
+"versions are recognized by the application (if translated, should be same as "
+"messages with 'package type' context below)"
+msgid ""
+"The type of package, e.g. theme, wallpaper, plasmoid, dataengine, runner, "
+"layout-template, etc."
+msgstr ""
+"بوغچىنىڭ تىپى، مەسىلەن ئۆرنەك، تام قەغەز، plasmoid، سانلىق-مەلۇمات ماتورى، "
+"ئىجراچى، جايلاشتۇرۇش قېلىپى قاتارلىق."
+
+#: kpackagetool/main.cpp:64
+msgctxt "Do not translate <path>"
+msgid "Install the package at <path>"
+msgstr "<path> دىكى بوغچىنى ئورنىتىش"
+
+#: kpackagetool/main.cpp:65
+msgctxt "Do not translate <name>"
+msgid "Show information of package <name>"
+msgstr ""
+
+#: kpackagetool/main.cpp:66
+msgctxt "Do not translate <path>"
+msgid "Upgrade the package at <path>"
+msgstr "<path> دىكى بوغچىنى يۈكسەلدۈرۈش"
+
+#: kpackagetool/main.cpp:67
+#, fuzzy
+#| msgid "Wallpaper packages"
+msgid "List installed packages"
+msgstr "تام قەغەز بوغچالارى"
+
+#: kpackagetool/main.cpp:68
+#, fuzzy
+#| msgid "lists all known Package types that can be installed"
+msgid "List all known package types that can be installed"
+msgstr "مەلۇملۇق ئورناتقىلى بولىدىغان ھەممە بوغچا تىپى تىزىمىنى كۆرسىتىدۇ"
+
+#: kpackagetool/main.cpp:69
+msgctxt "Do not translate <name>"
+msgid "Remove the package named <name>"
+msgstr "<name> ئاتلىق بوغچىنى چىقىرىۋەت"
+
+#: kpackagetool/main.cpp:70
+msgid ""
+"Absolute path to the package root. If not supplied, then the standard data "
+"directories for this KDE session will be searched instead."
+msgstr ""
+"بوغچا مۇندەرىجە شېخىنىڭ مۇتلەق يولى.  ئەگەر تەمىنلەنمىسە، ئۇنداقتا بۇ "
+"قېتىملىق KDE ئەڭگىمەنىڭ ئۆلچەملىك سانلىق-مەلۇمات مۇندەرىجىسىنى ئىزدەيدۇ."
+
+#: kpackagetool/main.cpp:71
+msgid ""
+"Recreate the plugin index. To be used in conjunction with either the option -"
+"t or -g. Recreates the index for the given type or package root. Operates in "
+"the user directory, unless -g is used"
+msgstr ""
