@@ -39,7 +39,7 @@ public:
     PackageTool(int &argc, char **argv, QCommandLineParser *parser);
     virtual ~PackageTool();
 
-    void listPackages(const QStringList &types);
+    void listPackages(const QStringList &types, const QString &path = QString());
     void showPackageInfo(const QString &pluginName);
     QString findPackageRoot(const QString &pluginName, const QString &prefix);
     void recreateIndex();

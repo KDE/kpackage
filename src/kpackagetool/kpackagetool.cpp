@@ -64,7 +64,7 @@ public:
     KPluginMetaData metadata;
     QString installPath;
     void output(const QString &msg);
-    QStringList packages(const QStringList &types);
+    QStringList packages(const QStringList &types, const QString &path = QString());
     void renderTypeTable(const QMap<QString, QStringList> &plugins);
     void listTypes();
     void coutput(const QString &msg);
@@ -167,8 +167,6 @@ void PackageTool::runMain()
 
         if (!d->installer.hasValidStructure()) {
             qWarning() << "Package type" << type << "not found";
-            exit(0);
-            return;
         }
 
         d->packageRoot = d->installer.defaultPackageRoot();
@@ -182,8 +180,9 @@ void PackageTool::runMain()
     }
 
     if (d->parser->isSet("list")) {
-        d->coutput(i18n("Listing service types: %1", d->pluginTypes.join(", ")));
-        listPackages(d->pluginTypes);
+        d->packageRoot = findPackageRoot(d->package, d->packageRoot);
+        d->coutput(i18n("Listing service types: %1 in %2", d->pluginTypes.join(", "), d->packageRoot));
+        listPackages(d->pluginTypes, d->packageRoot);
         exit(0);
 
     } else if (d->parser->isSet("generate-index")) {
@@ -280,13 +279,13 @@ void PackageToolPrivate::coutput(const QString &msg)
     cout << msg.toLocal8Bit().constData() << endl;
 }
 
-QStringList PackageToolPrivate::packages(const QStringList &types)
+QStringList PackageToolPrivate::packages(const QStringList &types, const QString &path)
 {
     QStringList result;
 
     foreach (const QString &type, types) {
 
-        const QList<KPluginMetaData> services = KPackage::PackageLoader::self()->listPackages(type);
+        const QList<KPluginMetaData> services = KPackage::PackageLoader::self()->listPackages(type, path);
         foreach (const KPluginMetaData &service, services) {
             const QString _plugin = service.pluginId();
             if (!result.contains(_plugin)) {
@@ -347,9 +346,9 @@ QString PackageTool::findPackageRoot(const QString &pluginName, const QString &p
     return packageRoot;
 }
 
-void PackageTool::listPackages(const QStringList &types)
+void PackageTool::listPackages(const QStringList &types, const QString &path)
 {
-    QStringList list = d->packages(types);
+    QStringList list = d->packages(types, path);
     list.sort();
     foreach (const QString &package, list) {
         d->coutput(package);
