@@ -276,7 +276,7 @@ void PackageTool::runMain()
 
 void PackageToolPrivate::coutput(const QString &msg)
 {
-    cout << msg.toLocal8Bit().constData() << endl;
+    cout << msg << endl;
 }
 
 QStringList PackageToolPrivate::packages(const QStringList &types, const QString &path)
