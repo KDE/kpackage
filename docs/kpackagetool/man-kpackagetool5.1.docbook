@@ -6,9 +6,9 @@
 <refentry lang="&language;">
 <refentryinfo>
 <title>KPackage Manager</title>
-<date>2014-04-25</date>
-<releaseinfo>5.0</releaseinfo>
-<productname>&kde; kpackagetool5</productname>
+<date>2015-07-31</date>
+<releaseinfo>Frameworks 5.13</releaseinfo>
+<productname>KDE Frameworks</productname>
 </refentryinfo>
 
 <refmeta>
@@ -25,6 +25,8 @@
 <cmdsynopsis>
 <command>kpackagetool5</command>
 
+<group choice="opt"><option>-v, --version</option></group>
+<group choice="opt"><option>-h, --help</option></group>
 <group choice="opt"><option>--hash</option> <replaceable> path</replaceable></group>
 <group choice="opt"><option>-g, --global</option></group>
 <group choice="opt"><option>-t, --type</option> <replaceable> type</replaceable></group>
@@ -35,8 +37,7 @@
 <group choice="opt"><option>--list-types</option></group>
 <group choice="opt"><option>-r, --remove</option> <replaceable> name</replaceable></group>
 <group choice="opt"><option>-p, --packageroot</option> <replaceable> path</replaceable></group>
-<arg choice="opt">KDE Generic Options</arg>
-<arg choice="opt">Qt Generic Options</arg>
+<group choice="opt"><option>--generate-index</option></group>
 </cmdsynopsis>
 </refsynopsisdiv>
 
@@ -51,6 +52,14 @@ install, list, remove Plasma packages.</para>
 <title>Options</title>
 
 <variablelist>
+<varlistentry>
+<term><option>-v, --version</option></term>
+<listitem><para>Displays version information.</para></listitem>
+</varlistentry>
+<varlistentry>
+<term><option>-h, --help</option></term>
+<listitem><para>Displays this help.</para></listitem>
+</varlistentry>
 <varlistentry>
 <term><option>--hash</option> <replaceable> path</replaceable></term>
 <listitem><para>Generate a SHA1 hash for the package at <quote>path</quote>.</para></listitem>
@@ -90,7 +99,14 @@ install, list, remove Plasma packages.</para>
 <varlistentry>
 <term><option>-p, --packageroot</option> <replaceable> path</replaceable></term>
 <listitem><para>Absolute path to the package root. If not supplied, then the standard data 
-directories for this &kde; session will be searched instead.</para></listitem>
+directories for this &plasma; session will be searched instead.</para></listitem>
+</varlistentry>
+<varlistentry>
+<term><option>--generate-index</option> <replaceable> path</replaceable></term>
+<listitem><para>Recreate the plugin index. To be used in conjunction with either 
+the option <option>-t</option> or <option>-g</option>. Recreates the index for the 
+given type or package root. Operates in the user directory, unless 
+<option>-g</option> is used</para></listitem>
 </varlistentry>
 
 </variablelist>
