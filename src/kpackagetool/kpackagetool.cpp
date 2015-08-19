@@ -146,6 +146,9 @@ void PackageTool::runMain()
         }
         if (package.isValid() && package.metadata().isValid()) {
             serviceType = package.metadata().value("X-Plasma-ServiceType");
+            if (serviceType.isEmpty()) {
+                serviceType = package.metadata().serviceTypes().first();
+            }
         }
 
         if (!serviceType.isEmpty()) {
