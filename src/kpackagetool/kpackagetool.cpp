@@ -225,6 +225,15 @@ void PackageTool::runMain()
             _p.append(d->package);
             d->installer.setDefaultPackageRoot(d->packageRoot);
             d->installer.setPath(pkgPath);
+
+            if (!d->parser->isSet("type")) {
+                foreach (const QString &st, d->installer.metadata().serviceTypes()) {
+                    if (!d->pluginTypes.contains(st)) {
+                        d->pluginTypes << st;
+                    }
+                }
+            }
+
             QString pluginName;
             if (d->installer.isValid()) {
                 d->metadata = d->installer.metadata();
@@ -284,7 +293,6 @@ QStringList PackageToolPrivate::packages(const QStringList &types, const QString
     QStringList result;
 
     foreach (const QString &type, types) {
-
         const QList<KPluginMetaData> services = KPackage::PackageLoader::self()->listPackages(type, path);
         foreach (const KPluginMetaData &service, services) {
             const QString _plugin = service.pluginId();
