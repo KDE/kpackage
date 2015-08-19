@@ -139,11 +139,8 @@ void PackageTool::runMain()
         // Check type for common plasma packages
         KPackage::Package package(structure);
         QString serviceType;
-        if (d->parser->isSet("remove")) {
-            package.setPath(d->package);
-        } else {
-            package.setPath(d->packageFile);
-        }
+        package.setPath(d->packageFile);
+
         if (package.isValid() && package.metadata().isValid()) {
             serviceType = package.metadata().value("X-Plasma-ServiceType");
             if (serviceType.isEmpty()) {
