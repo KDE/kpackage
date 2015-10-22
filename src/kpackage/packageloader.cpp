@@ -73,26 +73,26 @@ QSet<QString> PackageLoaderPrivate::knownCategories()
     // this is to trick the tranlsation tools into making the correct
     // strings for translation
     QSet<QString> categories = s_customCategories;
-    categories << QString(I18N_NOOP("Accessibility")).toLower()
-               << QString(I18N_NOOP("Application Launchers")).toLower()
-               << QString(I18N_NOOP("Astronomy")).toLower()
-               << QString(I18N_NOOP("Date and Time")).toLower()
-               << QString(I18N_NOOP("Development Tools")).toLower()
-               << QString(I18N_NOOP("Education")).toLower()
-               << QString(I18N_NOOP("Environment and Weather")).toLower()
-               << QString(I18N_NOOP("Examples")).toLower()
-               << QString(I18N_NOOP("File System")).toLower()
-               << QString(I18N_NOOP("Fun and Games")).toLower()
-               << QString(I18N_NOOP("Graphics")).toLower()
-               << QString(I18N_NOOP("Language")).toLower()
-               << QString(I18N_NOOP("Mapping")).toLower()
-               << QString(I18N_NOOP("Miscellaneous")).toLower()
-               << QString(I18N_NOOP("Multimedia")).toLower()
-               << QString(I18N_NOOP("Online Services")).toLower()
-               << QString(I18N_NOOP("Productivity")).toLower()
-               << QString(I18N_NOOP("System Information")).toLower()
-               << QString(I18N_NOOP("Utilities")).toLower()
-               << QString(I18N_NOOP("Windows and Tasks")).toLower();
+    categories << QStringLiteral(I18N_NOOP("Accessibility")).toLower()
+               << QStringLiteral(I18N_NOOP("Application Launchers")).toLower()
+               << QStringLiteral(I18N_NOOP("Astronomy")).toLower()
+               << QStringLiteral(I18N_NOOP("Date and Time")).toLower()
+               << QStringLiteral(I18N_NOOP("Development Tools")).toLower()
+               << QStringLiteral(I18N_NOOP("Education")).toLower()
+               << QStringLiteral(I18N_NOOP("Environment and Weather")).toLower()
+               << QStringLiteral(I18N_NOOP("Examples")).toLower()
+               << QStringLiteral(I18N_NOOP("File System")).toLower()
+               << QStringLiteral(I18N_NOOP("Fun and Games")).toLower()
+               << QStringLiteral(I18N_NOOP("Graphics")).toLower()
+               << QStringLiteral(I18N_NOOP("Language")).toLower()
+               << QStringLiteral(I18N_NOOP("Mapping")).toLower()
+               << QStringLiteral(I18N_NOOP("Miscellaneous")).toLower()
+               << QStringLiteral(I18N_NOOP("Multimedia")).toLower()
+               << QStringLiteral(I18N_NOOP("Online Services")).toLower()
+               << QStringLiteral(I18N_NOOP("Productivity")).toLower()
+               << QStringLiteral(I18N_NOOP("System Information")).toLower()
+               << QStringLiteral(I18N_NOOP("Utilities")).toLower()
+               << QStringLiteral(I18N_NOOP("Windows and Tasks")).toLower();
     return categories;
 }
 
@@ -104,11 +104,11 @@ QString PackageLoaderPrivate::parentAppConstraint(const QString &parentApp)
             return QString();
         }
 
-        return QString("((not exist [X-KDE-ParentApp] or [X-KDE-ParentApp] == '') or [X-KDE-ParentApp] == '%1')")
+        return QStringLiteral("((not exist [X-KDE-ParentApp] or [X-KDE-ParentApp] == '') or [X-KDE-ParentApp] == '%1')")
                .arg(app->applicationName());
     }
 
-    return QString("[X-KDE-ParentApp] == '%1'").arg(parentApp);
+    return QStringLiteral("[X-KDE-ParentApp] == '%1'").arg(parentApp);
 }
 
 PackageLoader::PackageLoader()
