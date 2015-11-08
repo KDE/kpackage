@@ -1,0 +1,441 @@
+# Copyright (C) YEAR This_file_is_part_of_KDE
+# This file is distributed under the same license as the PACKAGE package.
+#
+# Balázs Úr <urbalazs@gmail.com>, 2013, 2014.
+# Kristóf Kiszel <ulysses@kubuntu.org>, 2014, 2015.
+msgid ""
+msgstr ""
+"Project-Id-Version: \n"
+"Report-Msgid-Bugs-To: http://bugs.kde.org\n"
+"POT-Creation-Date: 2015-08-19 08:05+0000\n"
+"PO-Revision-Date: 2015-01-12 11:23+0100\n"
+"Last-Translator: Kristóf Kiszel <ulysses@kubuntu.org>\n"
+"Language-Team: Hungarian <kde-l10n-hu@kde.org>\n"
+"Language: hu\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=2; plural=(n != 1);\n"
+"X-Generator: Lokalize 1.5\n"
+
+#: kpackage/package.cpp:55
+msgid "Desktop file that describes this package."
+msgstr ""
+
+#: kpackage/packageloader.cpp:76
+msgid "Accessibility"
+msgstr "Akadálymentesítés"
+
+#: kpackage/packageloader.cpp:77
+msgid "Application Launchers"
+msgstr "Alkalmazásindítók"
+
+#: kpackage/packageloader.cpp:78
+msgid "Astronomy"
+msgstr "Csillagászat"
+
+#: kpackage/packageloader.cpp:79
+msgid "Date and Time"
+msgstr "Dátum és idő"
+
+#: kpackage/packageloader.cpp:80
+msgid "Development Tools"
+msgstr "Fejlesztőeszközök"
+
+#: kpackage/packageloader.cpp:81
+msgid "Education"
+msgstr "Oktatás"
+
+#: kpackage/packageloader.cpp:82
+msgid "Environment and Weather"
+msgstr "Környezet és időjárás"
+
+#: kpackage/packageloader.cpp:83
+msgid "Examples"
+msgstr "Példák"
+
+#: kpackage/packageloader.cpp:84
+msgid "File System"
+msgstr "Fájlrendszer"
+
+#: kpackage/packageloader.cpp:85
+msgid "Fun and Games"
+msgstr "Játék és szórakozás"
+
+#: kpackage/packageloader.cpp:86
+msgid "Graphics"
+msgstr "Grafika"
+
+#: kpackage/packageloader.cpp:87
+msgid "Language"
+msgstr "Nyelv"
+
+#: kpackage/packageloader.cpp:88
+msgid "Mapping"
+msgstr "Térképek"
+
+#: kpackage/packageloader.cpp:89
+msgid "Miscellaneous"
+msgstr "Egyebek"
+
+#: kpackage/packageloader.cpp:90
+msgid "Multimedia"
+msgstr "Multimédia"
+
+#: kpackage/packageloader.cpp:91
+msgid "Online Services"
+msgstr "Internetes szolgáltatások"
+
+#: kpackage/packageloader.cpp:92
+msgid "Productivity"
+msgstr "Termelékenység"
+
+#: kpackage/packageloader.cpp:93
+msgid "System Information"
+msgstr "Rendszer információk"
+
+#: kpackage/packageloader.cpp:94
+msgid "Utilities"
+msgstr "Segédprogramok"
+
+#: kpackage/packageloader.cpp:95
+msgid "Windows and Tasks"
+msgstr "Ablakok és feladatok"
+
+#: kpackage/packageloader.cpp:360
+#, kde-format
+msgid "Could not load installer for package of type %1. Error reported was: %2"
+msgstr "Nem lehet betölteni a telepítőt a(z) %1 csomagtípushoz. A hiba oka: %2"
+
+#: kpackage/private/packagejobthread.cpp:222
+#, kde-format
+msgid "Could not create package root directory: %1"
+msgstr "Nem sikerült létrehozni a csomag gyökérkönyvtárát: %1"
+
+#: kpackage/private/packagejobthread.cpp:230
+#, kde-format
+msgid "No such file: %1"
+msgstr "Nincs ilyen fájl: %1"
+
+#: kpackage/private/packagejobthread.cpp:257
+#, kde-format
+msgid "Could not open package file, unsupported archive format: %1 %2"
+msgstr ""
+"Nem sikerült megnyitni a csomagfájlt, nem támogatott archívumformátum: %1 %2"
+
+#: kpackage/private/packagejobthread.cpp:264
+#, kde-format
+msgid "Could not open package file: %1"
+msgstr "Nem sikerült megnyitni a csomagfájlt: %1"
+
+#: kpackage/private/packagejobthread.cpp:290
+#, kde-format
+msgid "No metadata file in package: %1"
+msgstr "Nincs metaadat fájl a csomagban: %1"
+
+#: kpackage/private/packagejobthread.cpp:301
+#, kde-format
+msgid "Package plugin name not specified: %1"
+msgstr "A csomag bővítményneve nincs megadva: %1"
+
+#: kpackage/private/packagejobthread.cpp:310
+#, kde-format
+msgid "Package plugin name %1 contains invalid characters"
+msgstr "A csomag bővítményneve (%1) érvénytelen karaktereket tartalmaz"
+
+#: kpackage/private/packagejobthread.cpp:321
+#, kde-format
+msgid "%1 already exists"
+msgstr "%1 már létezik"
+
+#: kpackage/private/packagejobthread.cpp:331
+#, kde-format
+msgid "Could not move package to destination: %1"
+msgstr "Nem sikerült áthelyezni a csomagot a célra: %1"
+
+#: kpackage/private/packagejobthread.cpp:340
+#, kde-format
+msgid "Could not copy package to destination: %1"
+msgstr "Nem sikerült átmásolni a csomagot a célra: %1"
+
+#: kpackage/private/packagejobthread.cpp:374
+#, kde-format
+msgid "%1 does not exist"
+msgstr "%1 nem létezik"
+
+#: kpackage/private/packagejobthread.cpp:393
+#, kde-format
+msgid "Could not delete package from: %1"
+msgstr "Nem sikerült törölni a csomagot innen: %1"
+
+#: kpackage/private/packages.cpp:36 kpackage/private/packages.cpp:59
+msgid "Main Script File"
+msgstr "Fő szkriptfájl"
+
+#: kpackage/private/packages.cpp:69
+msgid "Images"
+msgstr "Képek"
+
+#: kpackage/private/packages.cpp:70
+msgid "Themed Images"
+msgstr "Témázott képek"
+
+#: kpackage/private/packages.cpp:76
+msgid "Configuration Definitions"
+msgstr "Beállítás meghatározások"
+
+#: kpackage/private/packages.cpp:81
+msgid "User Interface"
+msgstr "Felhasználói felület"
+
+#: kpackage/private/packages.cpp:83
+msgid "Data Files"
+msgstr "Adatfájlok"
+
+#: kpackage/private/packages.cpp:85
+msgid "Executable Scripts"
+msgstr "Végrehajtható szkriptek"
+
+#: kpackage/private/packages.cpp:90
+msgid "Translations"
+msgstr "Fordítások"
+
+#: kpackage/private/packages.cpp:97
+#, fuzzy
+#| msgid "Main Script File"
+msgid "Main UI File"
+msgstr "Fő szkriptfájl"
+
+#: kpackagetool/kpackagetool.cpp:96
+#, kde-format
+msgid "Failed to generate a Package hash for %1"
+msgstr "Nem sikerült ellenőrző összeget generálni ehhez: %1"
+
+#: kpackagetool/kpackagetool.cpp:99
+#, kde-format
+msgid "SHA1 hash for Package at %1: '%2'"
+msgstr "A(z) %1 helyen lévő csomag SHA1 összege: „%2”"
+
+#: kpackagetool/kpackagetool.cpp:137
+msgctxt "package type"
+msgid "wallpaper"
+msgstr "háttérkép"
+
+#: kpackagetool/kpackagetool.cpp:184
+#, fuzzy, kde-format
+#| msgid "Listing service types: %1"
+msgid "Listing service types: %1 in %2"
+msgstr "Szolgáltatástípusok listázása: %1"
+
+#: kpackagetool/kpackagetool.cpp:270
+#, kde-format
+msgid "Error: Plugin %1 is not installed."
+msgstr "Hiba: a(z) %1 bővítmény nincs telepítve."
+
+#: kpackagetool/kpackagetool.cpp:280
+msgctxt ""
+"No option was given, this is the error message telling the user he needs at "
+"least one, do not translate install, remove, upgrade nor list"
+msgid "One of install, remove, upgrade or list is required."
+msgstr ""
+"Az install, remove, upgrade vagy list paraméterek valamelyikének megadása "
+"szükséges."
+
+#: kpackagetool/kpackagetool.cpp:326
+#, kde-format
+msgid "Error: Can't find plugin metadata: %1"
+msgstr "Hiba: nem találhatók a bővítmény metaadatai: %1"
+
+#: kpackagetool/kpackagetool.cpp:330
+#, kde-format
+msgid "Showing info for package: %1"
+msgstr "Csomag adatainak megjelenítése: %1"
+
+#: kpackagetool/kpackagetool.cpp:331
+#, kde-format
+msgid "      Name : %1"
+msgstr "      Név : %1"
+
+#: kpackagetool/kpackagetool.cpp:332
+#, kde-format
+msgid "   Comment : %1"
+msgstr "   Megjegyzés : %1"
+
+#: kpackagetool/kpackagetool.cpp:333
+#, kde-format
+msgid "    Plugin : %1"
+msgstr "    Bővítmény : %1"
+
+#: kpackagetool/kpackagetool.cpp:334
+#, kde-format
+msgid "    Author : %1"
+msgstr "    Szerző : %1"
+
+#: kpackagetool/kpackagetool.cpp:335
+#, kde-format
+msgid "      Path : %1"
+msgstr "      Elérési út : %1"
+
+#: kpackagetool/kpackagetool.cpp:344
+#, fuzzy
+#| msgctxt ""
+#| "The user entered conflicting options packageroot and global, this is the "
+#| "error message telling the user he can use only one"
+#| msgid ""
+#| "The packageroot and global options conflict each other, please select "
+#| "only one."
+msgctxt ""
+"The user entered conflicting options packageroot and global, this is the "
+"error message telling the user he can use only one"
+msgid ""
+"The packageroot and global options conflict with each other, please select "
+"only one."
+msgstr ""
+"A packageroot és global opciók ütköznek egymással, csak egyet használjon a "
+"kettő közül!"
+
+#: kpackagetool/kpackagetool.cpp:369
+msgid "Addon Name"
+msgstr "Bővítménynév"
+
+#: kpackagetool/kpackagetool.cpp:370
+msgid "Service Type"
+msgstr "Szolgáltatástípus"
+
+#: kpackagetool/kpackagetool.cpp:371
+msgid "Path"
+msgstr "Elérési út"
+
+#: kpackagetool/kpackagetool.cpp:414
+msgid "Package types that are installable with this tool:"
+msgstr "Az ezzel az eszközzel telepíthető csomagtípusok:"
+
+#: kpackagetool/kpackagetool.cpp:415
+msgid "Built in:"
+msgstr "Beépített:"
+
+#: kpackagetool/kpackagetool.cpp:418
+msgid "KPackage/Generic"
+msgstr "KPackage/Általános"
+
+#: kpackagetool/kpackagetool.cpp:419
+#, fuzzy
+#| msgid "KPackage/Generic"
+msgid "KPackage/GenericQML"
+msgstr "KPackage/Általános"
+
+#: kpackagetool/kpackagetool.cpp:471
+msgid "Provided by plugins:"
+msgstr "Bővítmények által biztosított:"
+
+#: kpackagetool/kpackagetool.cpp:493
+msgid "Provided by .desktop files:"
+msgstr ".desktop fájlok által biztosított:"
+
+#: kpackagetool/kpackagetool.cpp:515 kpackagetool/kpackagetool.cpp:524
+#, kde-format
+msgid "Generating %1/kpluginindex.json"
+msgstr "Generálás: %1/kpluginindex.json"
+
+#: kpackagetool/kpackagetool.cpp:534
+#, kde-format
+msgid "Successfully upgraded %1"
+msgstr "Sikeresen frissítve: %1"
+
+#: kpackagetool/kpackagetool.cpp:536
+#, kde-format
+msgid "Successfully installed %1"
+msgstr "Sikeresen telepítve: %1"
+
+#: kpackagetool/kpackagetool.cpp:539
+#, kde-format
+msgid "Error: Installation of %1 failed: %2"
+msgstr "Hiba: a(z) %1 telepítése meghiúsult: %2"
+
+#: kpackagetool/kpackagetool.cpp:551
+#, kde-format
+msgid "Upgrading package from file: %1"
+msgstr "Csomag frissítése fájlból: %1"
+
+#: kpackagetool/kpackagetool.cpp:556
+#, kde-format
+msgid "Successfully uninstalled %1"
+msgstr "Sikeresen eltávolítva: %1"
+
+#: kpackagetool/kpackagetool.cpp:558
+#, kde-format
+msgid "Error: Uninstallation of %1 failed: %2"
+msgstr "Hiba: a(z) %1 eltávolítása meghiúsult: %2"
+
+#: kpackagetool/main.cpp:49
+msgid "KPackage Manager"
+msgstr "KPackage csomagkezelő"
+
+#: kpackagetool/main.cpp:56
+msgctxt "Do not translate <path>"
+msgid "Generate a SHA1 hash for the package at <path>"
+msgstr "SHA1 összeg generálása ehhez a csomaghoz: <path>"
+
+#: kpackagetool/main.cpp:57
+msgid "For install or remove, operates on packages installed for all users."
+msgstr ""
+"Telepítéshez és eltávolításhoz, a mindenki számára elérhetően telepített "
+"csomagokhoz."
+
+#: kpackagetool/main.cpp:62
+msgctxt ""
+"theme, wallpaper, etc. are keywords, but they may be translated, as both "
+"versions are recognized by the application (if translated, should be same as "
+"messages with 'package type' context below)"
+msgid ""
+"The type of package, e.g. theme, wallpaper, plasmoid, dataengine, runner, "
+"layout-template, etc."
+msgstr ""
+"A csomag típusa, például téma, háttérkép, plazmoid, adatmodul, indító, "
+"elrendezéssablon, stb."
+
+#: kpackagetool/main.cpp:64
+msgctxt "Do not translate <path>"
+msgid "Install the package at <path>"
+msgstr "Csomag telepítése innen: <path>"
+
+#: kpackagetool/main.cpp:65
+msgctxt "Do not translate <name>"
+msgid "Show information of package <name>"
+msgstr "A(z) <name> csomag adatainak megjelenítése"
+
+#: kpackagetool/main.cpp:66
+msgctxt "Do not translate <path>"
+msgid "Upgrade the package at <path>"
+msgstr "Csomag frissítése innen: <path>"
+
+#: kpackagetool/main.cpp:67
+msgid "List installed packages"
+msgstr "Telepített csomagok listázása"
+
+#: kpackagetool/main.cpp:68
+msgid "List all known package types that can be installed"
+msgstr "Az összes telepíthető csomagtípus listázása"
+
+#: kpackagetool/main.cpp:69
+msgctxt "Do not translate <name>"
+msgid "Remove the package named <name>"
+msgstr "A(z) <name> csomag eltávolítása"
+
+#: kpackagetool/main.cpp:70
+msgid ""
+"Absolute path to the package root. If not supplied, then the standard data "
+"directories for this KDE session will be searched instead."
+msgstr ""
+"A csomag teljes elérési útja. Ha nincs megadva, akkor először a KDE-"
+"munkamenet standard mappái lesznek végignézve."
+
+#: kpackagetool/main.cpp:71
+msgid ""
+"Recreate the plugin index. To be used in conjunction with either the option -"
+"t or -g. Recreates the index for the given type or package root. Operates in "
+"the user directory, unless -g is used"
+msgstr ""
+"A bővítményindex újra létrehozása. A -t vagy -g opcióval együtt kell "
+"használni. Újra létrehozza az indexet a megadott típushoz vagy csomaghoz. A "
+"felhasználó könyvtárában dolgozik, hacsak a -g opció nincs megadva"
