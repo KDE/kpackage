@@ -776,6 +776,25 @@ KJob *Package::install(const QString &sourcePackage, const QString &packageRoot)
     return j;
 }
 
+KJob *Package::update(const QString &sourcePackage, const QString &packageRoot)
+{
+    const QString src = sourcePackage;
+    QString dest = packageRoot.isEmpty() ? defaultPackageRoot() : packageRoot;
+
+    //use absolute paths if passed, otherwise go under share
+    if (!QDir::isAbsolutePath(dest)) {
+        dest = QStandardPaths::writableLocation(QStandardPaths::GenericDataLocation) + QLatin1Char('/') + dest;
+    }
+
+    if (!d->structure) {
+        return 0;
+    }
+    //qDebug() << "Source: " << src;
+    //qDebug() << "PackageRoot: " << dest;
+    KJob *j = d->structure.data()->update(this, src, dest);
+    return j;
+}
+
 KJob *Package::uninstall(const QString &packageName, const QString &packageRoot)
 {
     d->createPackageMetadata(packageRoot + packageName);

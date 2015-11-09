@@ -1,5 +1,5 @@
 /******************************************************************************
-*   Copyright 2007 by Bertjan Broeksema <b.broeksema@kdemail.net>             *
+*   Copyright 2015 Marco Martin <mart@kde.org>                                *
 *                                                                             *
 *   This library is free software; you can redistribute it and/or             *
 *   modify it under the terms of the GNU Library General Public               *
@@ -17,42 +17,33 @@
 *   Boston, MA 02110-1301, USA.                                               *
 *******************************************************************************/
 
-#ifndef PACKAGETEST_H
+#include "private/packagejobthread_p.h"
 
-#include <QtTest/QtTest>
+#include "package.h"
 
-#include "kpackage/package.h"
-#include "kpackage/packagestructure.h"
 
-class PlasmoidPackageTest : public QObject
+namespace KPackage
 {
-    Q_OBJECT
 
-public Q_SLOTS:
-    void initTestCase();
-    void init();
-    void cleanup();
+bool isVersionNewer(const QString &version1, const QString &version2)
+{
+    if (version1 == version2) {
+        return false;
+    }
 
-private Q_SLOTS:
-    void createAndInstallPackage();
-    void createAndUpdatePackage();
-    void isValid();
-    void filePath();
-    void entryList();
+    const QVector<QString> versionChunks = QVector<QString>::fromList(version2.split('.'));
+    const QVector<QString> oldVersionChunks = QVector<QString>::fromList(version1.split('.'));
+    const int length = qMin(versionChunks.size(), oldVersionChunks.size());
 
-    void packageInstalled(KJob *j);
-    void packageUninstalled(KJob *j);
+    for (int i = 0; i < length; ++i) {
+        if (versionChunks[i] != oldVersionChunks[i]) {
+            return versionChunks[i] > oldVersionChunks[i];
+        }
+    }
 
-private:
-    void createTestPackage(const QString &packageName, const QString &version);
-    void cleanupPackage(const QString &packageName);
+    return versionChunks.size() > oldVersionChunks.size();
+}
 
-    QString m_packageRoot;
-    QString m_package;
-    KJob *m_packageJob;
-    KPackage::Package m_defaultPackage;
-    KPackage::PackageStructure *m_defaultPackageStructure;
-};
+} // namespace KPackage
 
-#endif
 

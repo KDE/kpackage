@@ -19,6 +19,7 @@
 
 #include "plasmoidpackagetest.h"
 #include "../src/kpackage/config-package.h"
+#include "../src/kpackage/private/versionparser.cpp"
 
 #include <QDir>
 #include <QFile>
@@ -30,6 +31,7 @@
 
 #include "packageloader.h"
 #include "plasmoidstructure.h"
+
 
 void PlasmoidPackageTest::initTestCase()
 {
@@ -52,7 +54,7 @@ void PlasmoidPackageTest::cleanup()
    QDir(m_packageRoot).removeRecursively();
 }
 
-void PlasmoidPackageTest::createTestPackage(const QString &packageName)
+void PlasmoidPackageTest::createTestPackage(const QString &packageName, const QString &version)
 {
     qDebug() << "Create test package" << m_packageRoot;
     QDir pRoot(m_packageRoot);
@@ -74,6 +76,7 @@ void PlasmoidPackageTest::createTestPackage(const QString &packageName)
     out << "[Desktop Entry]\n";
     out << "Name=" << packageName << "\n";
     out << "X-KDE-PluginInfo-Name=" << packageName << "\n";
+    out << "X-KDE-PluginInfo-Version=" << version << "\n";
     file.flush();
     file.close();
 
@@ -229,7 +232,7 @@ void PlasmoidPackageTest::filePath()
 void PlasmoidPackageTest::entryList()
 {
     // Create a package named @p packageName which is valid and has some images.
-    createTestPackage(m_package);
+    createTestPackage(m_package, QLatin1String("1.1"));
 
     // Create a package object and verify that it is valid.
     KPackage::Package *p = new KPackage::Package(m_defaultPackage);
@@ -256,7 +259,7 @@ void PlasmoidPackageTest::createAndInstallPackage()
 {
     qDebug() << "                   ";
     qDebug() << "   CreateAndInstall ";
-    createTestPackage("plasmoid_to_package");
+    createTestPackage("plasmoid_to_package", QLatin1String("1.1"));
     const QString packagePath = m_packageRoot + '/' + "testpackage.plasmoid";
 
     KZip creator(packagePath);
@@ -287,21 +290,102 @@ void PlasmoidPackageTest::createAndInstallPackage()
     //const QString servicePrefix = "plasma-applet-";
     KJob *job = p->install(packagePath, m_packageRoot);
     connect(job, SIGNAL(finished(KJob*)), SLOT(packageInstalled(KJob*)));
+    QSignalSpy spy(job, SIGNAL(finished(KJob*)));
+    QVERIFY(spy.wait(1000));
+    cleanupPackage("plasmoid_to_package");
 
     //QVERIFY(p->isValid());
     delete p;
+}
+
+void PlasmoidPackageTest::createAndUpdatePackage()
+{
+    //does the version number parsing work?
+    QVERIFY(KPackage::isVersionNewer("1.1", "1.1.1"));
+    QVERIFY(!KPackage::isVersionNewer("1.1.1", "1.1"));
+    QVERIFY(KPackage::isVersionNewer("1.1.1", "1.1.2"));
+    QVERIFY(KPackage::isVersionNewer("1.1.2", "2.1"));
+    QVERIFY(KPackage::isVersionNewer("0.1.2", "2"));
+    QVERIFY(!KPackage::isVersionNewer("1", "0.1.2"));
+
+    qDebug() << "                   ";
+    qDebug() << "   CreateAndUpdate ";
+    createTestPackage("plasmoid_to_package", QLatin1String("1.1"));
+    const QString packagePath = m_packageRoot + '/' + "testpackage.plasmoid";
+
+    KZip creator(packagePath);
+    QVERIFY(creator.open(QIODevice::WriteOnly));
+    creator.addLocalDirectory(m_packageRoot + '/' + "plasmoid_to_package", ".");
+    creator.close();
+    QDir rootDir(m_packageRoot + "/plasmoid_to_package");
+    rootDir.removeRecursively();
+
+    QVERIFY(QFile::exists(packagePath));
+
+    KZip package(packagePath);
+    QVERIFY(package.open(QIODevice::ReadOnly));
+    const KArchiveDirectory *dir = package.directory();
+    QVERIFY(dir);//
+    QVERIFY(dir->entry("metadata.desktop"));
+    const KArchiveEntry *contentsEntry = dir->entry("contents");
+    QVERIFY(contentsEntry);
+    QVERIFY(contentsEntry->isDirectory());
+    const KArchiveDirectory *contents = static_cast<const KArchiveDirectory *>(contentsEntry);
+    QVERIFY(contents->entry("ui"));
+    QVERIFY(contents->entry("images"));
+
+    m_defaultPackageStructure = new KPackage::PackageStructure(this);
+    KPackage::Package *p = new KPackage::Package(m_defaultPackageStructure);
+    qDebug() << "Installing " << packagePath;
+    //const QString packageRoot = "plasma/plasmoids/";
+    //const QString servicePrefix = "plasma-applet-";
+
+    KJob *job = p->update(packagePath, m_packageRoot);
+    connect(job, SIGNAL(finished(KJob*)), SLOT(packageInstalled(KJob*)));
+    QSignalSpy spy(job, SIGNAL(finished(KJob*)));
+    QVERIFY(spy.wait(1000));
+
+    //same version, should fail
+    job = p->update(packagePath, m_packageRoot);
+    QSignalSpy spyFail(job, SIGNAL(finished(KJob*)));
+    QVERIFY(spyFail.wait(1000));
+    QVERIFY(job->error() == KPackage::Package::JobError::NewerVersionAlreadyInstalledError);
+    qDebug()<<job->errorText();
+
+
+    //create a new package with higher version
+    createTestPackage("plasmoid_to_package", QLatin1String("1.2"));
+
+    KZip creator2(packagePath);
+    QVERIFY(creator2.open(QIODevice::WriteOnly));
+    creator2.addLocalDirectory(m_packageRoot + '/' + "plasmoid_to_package", ".");
+    creator2.close();
+    QDir rootDir2(m_packageRoot + "/plasmoid_to_package");
+    rootDir2.removeRecursively();
+
+
+    KJob *job2 = p->update(packagePath, m_packageRoot);
+    connect(job2, SIGNAL(finished(KJob*)), SLOT(packageInstalled(KJob*)));
+    QSignalSpy spy2(job2, SIGNAL(finished(KJob*)));
+    QVERIFY(spy2.wait(1000));
+
+    cleanupPackage("plasmoid_to_package");
+
+    //QVERIFY(p->isValid());
+    delete p;
+}
+
+void PlasmoidPackageTest::cleanupPackage(const QString &packageName)
+{
+    KPackage::Package *p = new KPackage::Package(m_defaultPackageStructure);
+    KJob *jj = p->uninstall(packageName, m_packageRoot);
+    connect(jj, SIGNAL(finished(KJob*)), SLOT(packageInstalled(KJob*)));
 }
 
 void PlasmoidPackageTest::packageInstalled(KJob *j)
 {
     qDebug() << "!!!!!!!!!!!!!!!!!!!! package installed" << (j->error() == KJob::NoError);
     QVERIFY(j->error() == KJob::NoError);
-    //QVERIFY(p->path());
-
-    KPackage::Package *p = new KPackage::Package(m_defaultPackageStructure);
-    KJob *jj = p->uninstall("org.kde.microblog-qml", m_packageRoot);
-    //QObject::disconnect(j, SIGNAL(finished(KJob*)), this, SLOT(packageInstalled(KJob*)));
-    connect(jj, SIGNAL(finished(KJob*)), SLOT(packageInstalled(KJob*)));
 }
 
 void PlasmoidPackageTest::packageUninstalled(KJob *j)

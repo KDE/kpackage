@@ -76,6 +76,22 @@ public:
     virtual KJob *install(Package *package, const QString &archivePath, const QString &packageRoot);
 
     /**
+     * Updates a package matching this package structure. By default installs a
+     * native KPackage::Package. If an older version is already installed,
+     * it removes the old one. If the installed one is newer,
+     * an error will occur.
+     *
+     * @param package the instance of Package that is being used for the install; useful for
+     * accessing file paths
+     * @param archivePath path to the package archive file
+     * @param packageRoot path to the directory where the package should be
+     *                    installed to
+     * @return KJob* to track the installation status
+     * @since 5.17
+     **/
+    virtual KJob *update(Package *package, const QString &archivePath, const QString &packageRoot);
+
+    /**
      * Uninstalls a package matching this package structure.
      *
      * @param package the instance of Package that is being used for the install; useful for

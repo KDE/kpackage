@@ -20,6 +20,7 @@ set(Package_LIB_SRCS
     private/packages.cpp
     private/packagejob.cpp
     private/packagejobthread.cpp
+    private/versionparser.cpp
     version.cpp
 )
 

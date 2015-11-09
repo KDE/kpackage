@@ -38,6 +38,7 @@ public:
     void start() Q_DECL_OVERRIDE;
 
     void install(const QString &src, const QString &dest);
+    void update(const QString &src, const QString &dest);
     void uninstall(const QString &installationPath);
 
 Q_SIGNALS:

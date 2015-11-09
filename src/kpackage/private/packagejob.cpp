@@ -53,7 +53,7 @@ void PackageJob::slotFinished(bool ok, const QString &err)
     if (ok) {
         setError(NoError);
     } else {
-        setError(UserDefinedError);
+        setError(d->thread->errorCode());
         setErrorText(err);
     }
     d->thread->exit(0);
@@ -68,6 +68,11 @@ void PackageJob::start()
 void PackageJob::install(const QString &src, const QString &dest)
 {
     d->thread->install(src, dest);
+}
+
+void PackageJob::update(const QString &src, const QString &dest)
+{
+    d->thread->update(src, dest);
 }
 
 void PackageJob::uninstall(const QString &installationPath)

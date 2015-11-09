@@ -54,6 +54,14 @@ KJob *PackageStructure::install(Package *package, const QString &archivePath, co
     return j;
 }
 
+KJob *PackageStructure::update(Package *package, const QString &archivePath, const QString &packageRoot)
+{
+    Q_UNUSED(package)
+    PackageJob *j = new PackageJob();
+    j->update(archivePath, packageRoot);
+    return j;
+}
+
 KJob *PackageStructure::uninstall(Package *package, const QString &packageRoot)
 {
     PackageJob *j = new PackageJob();
