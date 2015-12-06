@@ -139,15 +139,11 @@ void PackageStructureTest::copyPerformance()
     // seed the cache first
     ps.filePath("mainscript");
 
-    QTime t;
-    t.start();
-
-    for (int i = 0; i < 100000; ++i) {
+    QBENCHMARK {
         KPackage::Package foo(ps);
         const QString bar = foo.filePath("mainscript");
+        Q_UNUSED(bar);
     }
-
-    QVERIFY(t.elapsed() < 400);
 }
 
 void PackageStructureTest::mutateAfterCopy()
