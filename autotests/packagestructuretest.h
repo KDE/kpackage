@@ -45,6 +45,7 @@ private Q_SLOTS:
     void name();
     void required();
     void mimeTypes();
+    void customContent();
 
 private:
     KPackage::Package ps;

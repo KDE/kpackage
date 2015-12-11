@@ -92,6 +92,26 @@ public:
     }
 };
 
+class SimpleContent : public KPackage::PackageStructure
+{
+public:
+    void initPackage(KPackage::Package *package)
+    {
+        package->addDirectoryDefinition("ui", "ui/", i18n("User interface"));
+    }
+    void pathChanged(KPackage::Package *package)
+    {
+        if (!package->metadata().isValid()) {
+            return;
+        }
+        if (package->metadata().serviceTypes().contains("CustomContent")) {
+            package->addFileDefinition("customcontentfile", "customcontent/CustomContentFile.qml", i18n("Custom file only for packages that contain CustomContent in their servicetypes"));
+        } else {
+            package->removeDefinition("customcontentfile");
+        }
+    }
+};
+
 void PackageStructureTest::initTestCase()
 {
     m_packagePath = QFINDTESTDATA("data/testpackage");
@@ -324,6 +344,23 @@ void PackageStructureTest::mimeTypes()
     mimeTypes << "image/svg+xml" << "image/png" << "image/jpeg";
     QCOMPARE(ps.mimeTypes("images"), mimeTypes);
     QCOMPARE(ps.mimeTypes("theme"), mimeTypes);
+}
+
+void PackageStructureTest::customContent()
+{
+    KPackage::Package p(new SimpleContent);
+    p.setPath(QFINDTESTDATA("data/simplecontent"));
+    QVERIFY(p.isValid());
+    QCOMPARE(p.filePath("customcontentfile"), QString());
+
+    p.setPath(QFINDTESTDATA("data/customcontent"));
+    const QString expected = QFINDTESTDATA("data/customcontent") + "/contents/customcontent/CustomContentFile.qml";
+    QCOMPARE(p.filePath("customcontentfile"), expected);
+    QVERIFY(p.isValid());
+
+    p.setPath(QFINDTESTDATA("data/simplecontent"));
+    QVERIFY(p.isValid());
+    QCOMPARE(p.filePath("customcontentfile"), QString());
 }
 
 QTEST_MAIN(PackageStructureTest)
