@@ -2,6 +2,16 @@
 Encoding=UTF-8
 Keywords=
 Name=Custom Content
+Name[ca]=Contingut personalitzat
+Name[es]=Contenido personalizado
+Name[fi]=Mukautettu sisältö
+Name[gl]=Contido personalizado
+Name[pt]=Conteúdo Personalizado
+Name[sk]=Vlastný obsah
+Name[sv]=Eget innehåll
+Name[uk]=Нетиповий вміст
+Name[x-test]=xxCustom Contentxx
+Name[zh_CN]=自定义内容
 Type=Service
 
 X-KDE-ServiceTypes=SimpleContent,CustomContent
