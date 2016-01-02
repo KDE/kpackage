@@ -135,6 +135,8 @@ bool removeIndex(const QString& dir)
     return ok;
 }
 
+Q_GLOBAL_STATIC_WITH_ARGS(QStringList, metaDataFiles, (QStringList(QLatin1String("metadata.desktop")) << QLatin1String("metadata.json")))
+
 bool indexDirectory(const QString& dir, const QString& dest)
 {
     QVariantMap vm;
@@ -144,16 +146,14 @@ bool indexDirectory(const QString& dir, const QString& dest)
 
     QJsonArray plugins;
 
-    int i = 0;
-    QDirIterator it(dir, QStringList()<<QStringLiteral("*.desktop"), QDir::Files, QDirIterator::Subdirectories);
+    QDirIterator it(dir, *metaDataFiles, QDir::Files, QDirIterator::Subdirectories);
     while (it.hasNext()) {
         it.next();
         const QString path = it.fileInfo().absoluteFilePath();
         QJsonObject obj = KPluginMetaData(path).rawData();
         obj.insert("FileName", path);
 
-        plugins.insert(i, obj);
-        i++;
+        plugins.append(obj);
     }
 
     // Less than two plugin means it's not worth indexing
@@ -162,23 +162,23 @@ bool indexDirectory(const QString& dir, const QString& dest)
         return true;
     }
 
-    QJsonDocument jdoc;
-    jdoc.setArray(plugins);
-
     QString destfile = dest;
-    const QFileInfo fi(dest);
-    if (!fi.isAbsolute()) {
+    if (!QDir::isAbsolutePath(dest)) {
         destfile = dir + '/' + dest;
     }
+
+    QDir().mkpath(QFileInfo(destfile).dir().absolutePath());
     QFile file(destfile);
-    if (!file.open(QIODevice::WriteOnly | QIODevice::Text)) {
+    if (!file.open(QIODevice::WriteOnly)) {
         qWarning() << "Failed to open " << destfile;
         return false;
     }
 
+    QJsonDocument jdoc;
+    jdoc.setArray(plugins);
 //     file.write(jdoc.toJson());
     file.write(jdoc.toBinaryData());
-    qWarning() << "Generated " << destfile << " (" << i << " plugins)";
+    qWarning() << "Generated " << destfile << " (" << plugins.count() << " plugins)";
 
     return true;
 }
@@ -288,15 +288,32 @@ bool PackageJobThread::installPackage(const QString &src, const QString &dest, O
         delete archive;
     }
 
-    QString metadataPath = path + "metadata.desktop";
-    if (!QFile::exists(metadataPath)) {
-        qDebug() << "No metadata file in package" << src << metadataPath;
+    QDir packageDir(path);
+    QFileInfoList entries = packageDir.entryInfoList(*metaDataFiles);
+    KPluginMetaData meta;
+    if (!entries.isEmpty()) {
+        const QString metadataFilePath = entries.first().filePath();
+        if (metadataFilePath.endsWith(QLatin1String(".desktop")))
+            meta = KPluginMetaData(metadataFilePath);
+        else {
+            QFile f(metadataFilePath);
+            if(!f.open(QIODevice::ReadOnly)){
+                qWarning() << "Couldn't open metadata file" << src << path;
+                d->errorMessage = i18n("Could not open metadata file: %1", src);
+                d->errorCode = Package::JobError::MetadataFileMissingError;
+                return false;
+            }
+            QJsonObject metadataObject = QJsonDocument::fromJson(f.readAll()).object();
+            meta = KPluginMetaData(metadataObject, QString(), metadataFilePath);
+        }
+    }
+
+    if (!meta.isValid()) {
+        qDebug() << "No metadata file in package" << src << path;
         d->errorMessage = i18n("No metadata file in package: %1", src);
         d->errorCode = Package::JobError::MetadataFileMissingError;
         return false;
     }
-
-    KPluginMetaData meta(metadataPath);
 
 
     QString pluginName = meta.pluginId();

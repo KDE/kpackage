@@ -52,12 +52,12 @@ void QueryTest::install()
 {
     ps.install(QFINDTESTDATA("data/testpackage"));
     ps.install(QFINDTESTDATA("data/testfallbackpackage"));
+    ps.install(QFINDTESTDATA("data/testjsonmetadatapackage"));
 }
 
 void QueryTest::query()
 {
-    //QEXPECT_FAIL("", "queries don't work yet", Continue);
-    QCOMPARE(KPackage::PackageLoader::self()->listPackages("KPackage/Generic").count(), 2);
+    QCOMPARE(KPackage::PackageLoader::self()->listPackages("KPackage/Generic").count(), 3);
 }
 
 QTEST_MAIN(QueryTest)

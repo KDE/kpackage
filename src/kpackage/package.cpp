@@ -910,7 +910,8 @@ void PackagePrivate::updateHash(const QString &basePath, const QString &subPath,
 void PackagePrivate::createPackageMetadata(const QString &path)
 {
     delete metadata;
-    QString metadataPath = path.endsWith("/metadata.desktop") ? path : (path + "/metadata.desktop");
+
+    QString metadataPath = QFileInfo(path).isFile() ? path : (path + "/metadata.desktop");
     if (!QFile::exists(metadataPath)) {
         qWarning() << "No metadata file in the package, expected it at:" << metadataPath;
         metadata = new KPluginMetaData();

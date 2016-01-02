@@ -48,11 +48,9 @@ void ChangeableMainScriptPackage::pathChanged(KPackage::Package *package)
         return;
     }
 
-    KDesktopFile config(package->path() + "/metadata.desktop");
-    KConfigGroup cg = config.desktopGroup();
-    QString mainScript = cg.readEntry(mainScriptConfigKey(), QString());
+    QString mainScript = package->metadata().value(mainScriptConfigKey());
     if (mainScript.isEmpty()) {
-        mainScript = cg.readEntry("X-Plasma-MainScript", QString());
+        mainScript = package->metadata().value("X-Plasma-MainScript");
     }
 
     if (!mainScript.isEmpty()) {

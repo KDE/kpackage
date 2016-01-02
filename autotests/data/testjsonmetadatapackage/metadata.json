@@ -1,0 +1,15 @@
+{
+    "KPlugin": {
+        "Authors": [
+            {
+                "Email": "aleixpol@kde.org",
+                "Name": "Aleix"
+            }
+        ],
+        "Id": "org.kde.testjsonpackage",
+        "License": "GPLv2+",
+        "Name": "Test JSON Package",
+        "ServiceTypes": [ "KPackage/Generic" ]
+    },
+    "X-Plasma-MainScript": "ui/main.qml"
+}
