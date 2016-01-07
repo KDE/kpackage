@@ -216,7 +216,7 @@ QList<KPluginMetaData> PackageLoader::listPackages(const QString &packageFormat,
     }
 
     //TODO: case in which defaultpackageroot is absolute
-    for (auto datadir : QStandardPaths::standardLocations(QStandardPaths::GenericDataLocation)) {
+    Q_FOREACH(auto const &datadir, QStandardPaths::standardLocations(QStandardPaths::GenericDataLocation)) {
         const QString plugindir = datadir + '/' + actualRoot;
         const QString &_ixfile = plugindir + QStringLiteral("kpluginindex.json");
         QFile indexFile(_ixfile);
@@ -269,7 +269,7 @@ QList<KPluginMetaData> PackageLoader::findPackages(const QString &packageFormat,
 {
     QList<KPluginMetaData> lst;
 
-    for (auto plugin : listPackages(packageFormat, packageRoot)) {
+    Q_FOREACH(auto const &plugin, listPackages(packageFormat, packageRoot)) {
         if (!filter || filter(plugin)) {
             lst << plugin;
         }

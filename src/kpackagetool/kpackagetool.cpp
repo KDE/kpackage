@@ -49,7 +49,7 @@
 //for the index creation function
 #include "../kpackage/private/packagejobthread_p.h"
 
-static QTextStream cout(stdout);
+Q_GLOBAL_STATIC_WITH_ARGS(QTextStream, cout, (stdout))
 
 namespace KPackage
 {
@@ -181,7 +181,7 @@ void PackageTool::runMain()
 
     if (d->parser->isSet(QStringLiteral("list"))) {
         d->packageRoot = findPackageRoot(d->package, d->packageRoot);
-        d->coutput(i18n("Listing service types: %1 in %2", d->pluginTypes.join(", "), d->packageRoot));
+        d->coutput(i18n("Listing service types: %1 in %2", d->pluginTypes.join(QByteArray(", ")), d->packageRoot));
         listPackages(d->pluginTypes, d->packageRoot);
         exit(0);
 
@@ -285,7 +285,7 @@ void PackageTool::runMain()
 
 void PackageToolPrivate::coutput(const QString &msg)
 {
-    cout << msg << endl;
+    *cout << msg << endl;
 }
 
 QStringList PackageToolPrivate::packages(const QStringList &types, const QString &path)
@@ -329,9 +329,10 @@ void PackageTool::showPackageInfo(const QString &pluginName)
     }
     d->coutput(i18n("Showing info for package: %1", pluginName));
     d->coutput(i18n("      Name : %1", i.name()));
-    d->coutput(i18n("   Comment : %1", i.value("Comment")));
+    d->coutput(i18n("   Comment : %1", i.value(QStringLiteral("Comment"))));
     d->coutput(i18n("    Plugin : %1", i.pluginId()));
-    d->coutput(i18n("    Author : %1", i.authors().first().name()));
+    auto const authors = i.authors();
+    d->coutput(i18n("    Author : %1", authors.first().name()));
     d->coutput(i18n("      Path : %1", pkg.path()));
 
     exit(0);
@@ -347,7 +348,8 @@ QString PackageTool::findPackageRoot(const QString &pluginName, const QString &p
         packageRoot = d->parser->value(QStringLiteral("packageroot"));
         //qDebug() << "(set via arg) d->packageRoot is: " << d->packageRoot;
     } else if (d->parser->isSet(QStringLiteral("global"))) {
-        packageRoot = QStandardPaths::locateAll(QStandardPaths::GenericDataLocation, d->packageRoot, QStandardPaths::LocateDirectory).last();
+        auto const paths = QStandardPaths::locateAll(QStandardPaths::GenericDataLocation, d->packageRoot, QStandardPaths::LocateDirectory);
+        packageRoot = paths.last();
     } else {
         packageRoot = QStandardPaths::writableLocation(QStandardPaths::GenericDataLocation) + QLatin1Char('/') + d->packageRoot;
     }
@@ -511,7 +513,7 @@ void PackageTool::recreateIndex()
 
     if (!QDir::isAbsolutePath(d->packageRoot)) {
         if (d->parser->isSet(QStringLiteral("global"))) {
-            for (auto p : QStandardPaths::locateAll(QStandardPaths::GenericDataLocation, d->packageRoot, QStandardPaths::LocateDirectory)) {
+            Q_FOREACH(auto const &p, QStandardPaths::locateAll(QStandardPaths::GenericDataLocation, d->packageRoot, QStandardPaths::LocateDirectory)) {
                 d->coutput(i18n("Generating %1/kpluginindex.json", p));
                 KPackage::indexDirectory(p, QStringLiteral("kpluginindex.json"));
             }

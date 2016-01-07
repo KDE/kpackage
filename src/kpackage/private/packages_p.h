@@ -24,6 +24,7 @@
 
 class ChangeableMainScriptPackage : public KPackage::PackageStructure
 {
+    Q_OBJECT
 public:
     void initPackage(KPackage::Package *package) Q_DECL_OVERRIDE;
 
@@ -34,12 +35,14 @@ protected:
 
 class GenericPackage : public ChangeableMainScriptPackage
 {
+    Q_OBJECT
 public:
     void initPackage(KPackage::Package *package) Q_DECL_OVERRIDE;
 };
 
 class GenericQMLPackage : public GenericPackage
 {
+    Q_OBJECT
 public:
     void initPackage(KPackage::Package *package) Q_DECL_OVERRIDE;
 };
