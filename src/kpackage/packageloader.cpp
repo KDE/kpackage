@@ -51,7 +51,7 @@ class PackageLoaderPrivate
 public:
     PackageLoaderPrivate()
         : isDefaultLoader(false),
-          packageStructurePluginDir("kpackage/packagestructure"),
+          packageStructurePluginDir(QStringLiteral("kpackage/packagestructure")),
           packageRE("[^a-zA-Z0-9\\-_]")
     {
     }
@@ -297,7 +297,7 @@ KPackage::PackageStructure *PackageLoader::loadPackageStructure(const QString &p
 
     QStringList libraryPaths;
 
-    const QString subDirectory = "kpackage/packagestructure";
+    const QString subDirectory = QStringLiteral("kpackage/packagestructure");
 
     Q_FOREACH (const QString &dir, QCoreApplication::libraryPaths()) {
         QString d = dir + QDir::separator() + subDirectory;

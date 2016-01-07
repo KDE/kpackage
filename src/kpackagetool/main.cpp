@@ -53,31 +53,31 @@ int main(int argc, char **argv)
     parser.addVersionOption();
     parser.addHelpOption();
     parser.setApplicationDescription(description);
-    parser.addOption(QCommandLineOption(QStringList() << "hash", i18nc("Do not translate <path>", "Generate a SHA1 hash for the package at <path>"), "path"));
-    parser.addOption(QCommandLineOption(QStringList() << "g" << "global", i18n("For install or remove, operates on packages installed for all users.")));
-    parser.addOption(QCommandLineOption(QStringList() << "t" << "type",
+    parser.addOption(QCommandLineOption(QStringList() << QStringLiteral("hash"), i18nc("Do not translate <path>", "Generate a SHA1 hash for the package at <path>"), QStringLiteral("path")));
+    parser.addOption(QCommandLineOption(QStringList() << QStringLiteral("g") << QStringLiteral("global"), i18n("For install or remove, operates on packages installed for all users.")));
+    parser.addOption(QCommandLineOption(QStringList() << QStringLiteral("t") << QStringLiteral("type"),
                                         i18nc("theme, wallpaper, etc. are keywords, but they may be translated, as both versions "
                                                 "are recognized by the application "
                                                 "(if translated, should be same as messages with 'package type' context below)",
                                                 "The type of package, e.g. theme, wallpaper, plasmoid, dataengine, runner, layout-template, etc."),
-                                        "type", "KPackage/Generic"));
-    parser.addOption(QCommandLineOption(QStringList() << "i" << "install", i18nc("Do not translate <path>", "Install the package at <path>"), "path"));
-    parser.addOption(QCommandLineOption(QStringList() << "s" << "show", i18nc("Do not translate <name>", "Show information of package <name>"), "name"));
-    parser.addOption(QCommandLineOption(QStringList() << "u" << "upgrade", i18nc("Do not translate <path>", "Upgrade the package at <path>"), "path"));
-    parser.addOption(QCommandLineOption(QStringList() << "l" << "list", i18n("List installed packages")));
-    parser.addOption(QCommandLineOption(QStringList() << "list-types", i18n("List all known package types that can be installed")));
-    parser.addOption(QCommandLineOption(QStringList() << "r" << "remove", i18nc("Do not translate <name>", "Remove the package named <name>"), "name"));
-    parser.addOption(QCommandLineOption(QStringList() << "p" << "packageroot", i18n("Absolute path to the package root. If not supplied, then the standard data directories for this KDE session will be searched instead."), "path"));
-    parser.addOption(QCommandLineOption(QStringList() << "generate-index", i18n("Recreate the plugin index. To be used in conjunction with either the option -t or -g. Recreates the index for the given type or package root. Operates in the user directory, unless -g is used")));
+                                        QStringLiteral("type"), QStringLiteral("KPackage/Generic")));
+    parser.addOption(QCommandLineOption(QStringList() << QStringLiteral("i") << QStringLiteral("install"), i18nc("Do not translate <path>", "Install the package at <path>"), QStringLiteral("path")));
+    parser.addOption(QCommandLineOption(QStringList() << QStringLiteral("s") << QStringLiteral("show"), i18nc("Do not translate <name>", "Show information of package <name>"), QStringLiteral("name")));
+    parser.addOption(QCommandLineOption(QStringList() << QStringLiteral("u") << QStringLiteral("upgrade"), i18nc("Do not translate <path>", "Upgrade the package at <path>"), QStringLiteral("path")));
+    parser.addOption(QCommandLineOption(QStringList() << QStringLiteral("l") << QStringLiteral("list"), i18n("List installed packages")));
+    parser.addOption(QCommandLineOption(QStringList() << QStringLiteral("list-types"), i18n("List all known package types that can be installed")));
+    parser.addOption(QCommandLineOption(QStringList() << QStringLiteral("r") << QStringLiteral("remove"), i18nc("Do not translate <name>", "Remove the package named <name>"), QStringLiteral("name")));
+    parser.addOption(QCommandLineOption(QStringList() << QStringLiteral("p") << QStringLiteral("packageroot"), i18n("Absolute path to the package root. If not supplied, then the standard data directories for this KDE session will be searched instead."), QStringLiteral("path")));
+    parser.addOption(QCommandLineOption(QStringList() << QStringLiteral("generate-index"), i18n("Recreate the plugin index. To be used in conjunction with either the option -t or -g. Recreates the index for the given type or package root. Operates in the user directory, unless -g is used")));
 
     parser.process(app);
 
     //at least one operation should be specified
-    if (!parser.isSet("hash") && !parser.isSet("g") &&
-        !parser.isSet("i") && !parser.isSet("s") &&
-        !parser.isSet("u") && !parser.isSet("l") &&
-        !parser.isSet("list-types") && !parser.isSet("r") &&
-        !parser.isSet("generate-index")) {
+    if (!parser.isSet(QStringLiteral("hash")) && !parser.isSet(QStringLiteral("g")) &&
+        !parser.isSet(QStringLiteral("i")) && !parser.isSet(QStringLiteral("s")) &&
+        !parser.isSet(QStringLiteral("u")) && !parser.isSet(QStringLiteral("l")) &&
+        !parser.isSet(QStringLiteral("list-types")) && !parser.isSet(QStringLiteral("r")) &&
+        !parser.isSet(QStringLiteral("generate-index"))) {
         parser.showHelp(0);
     }
     return app.exec();

@@ -151,7 +151,7 @@ bool indexDirectory(const QString& dir, const QString& dest)
         it.next();
         const QString path = it.fileInfo().absoluteFilePath();
         QJsonObject obj = KPluginMetaData(path).rawData();
-        obj.insert("FileName", path);
+        obj.insert(QStringLiteral("FileName"), path);
 
         plugins.append(obj);
     }
@@ -248,11 +248,13 @@ bool PackageJobThread::installPackage(const QString &src, const QString &dest, O
         KArchive *archive = 0;
         QMimeDatabase db;
         QMimeType mimetype = db.mimeTypeForFile(src);
-        if (mimetype.inherits("application/zip")) {
+        if (mimetype.inherits(QStringLiteral("application/zip"))) {
             archive = new KZip(src);
-        } else if (mimetype.inherits("application/x-compressed-tar") ||
-                   mimetype.inherits("application/x-tar") || mimetype.inherits("application/x-bzip-compressed-tar") ||
-                   mimetype.inherits("application/x-xz") || mimetype.inherits("application/x-lzma")) {
+        } else if (mimetype.inherits(QStringLiteral("application/x-compressed-tar")) ||
+                   mimetype.inherits(QStringLiteral("application/x-tar")) ||
+                   mimetype.inherits(QStringLiteral("application/x-bzip-compressed-tar")) ||
+                   mimetype.inherits(QStringLiteral("application/x-xz")) ||
+                   mimetype.inherits(QStringLiteral("application/x-lzma"))) {
             archive = new KTar(src);
         } else {
             //qWarning() << "Could not open package file, unsupported archive format:" << src << mimetype.name();

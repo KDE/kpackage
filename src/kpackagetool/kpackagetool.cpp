@@ -87,8 +87,8 @@ PackageTool::~PackageTool()
 void PackageTool::runMain()
 {
     KPackage::PackageStructure *structure = new KPackage::PackageStructure;
-    if (d->parser->isSet("hash")) {
-        const QString path = d->parser->value("hash");
+    if (d->parser->isSet(QStringLiteral("hash"))) {
+        const QString path = d->parser->value(QStringLiteral("hash"));
         KPackage::Package package(structure);
         package.setPath(path);
         const QString hash = package.contentsHash();
@@ -102,55 +102,55 @@ void PackageTool::runMain()
         return;
     }
 
-    if (d->parser->isSet("list-types")) {
+    if (d->parser->isSet(QStringLiteral("list-types"))) {
         d->listTypes();
         exit(0);
         return;
     }
 
-    QString type = d->parser->value("type");
+    QString type = d->parser->value(QStringLiteral("type"));
     QString packageRoot = type;
     d->pluginTypes.clear();
     d->installer = Package();
 
-    if (d->parser->isSet("remove")) {
-        d->package = d->parser->value("remove");
-    } else if (d->parser->isSet("upgrade")) {
-        d->package = d->parser->value("upgrade");
-    } else if (d->parser->isSet("install")) {
-        d->package = d->parser->value("install");
-    } else if (d->parser->isSet("show")) {
-        d->package = d->parser->value("show");
+    if (d->parser->isSet(QStringLiteral("remove"))) {
+        d->package = d->parser->value(QStringLiteral("remove"));
+    } else if (d->parser->isSet(QStringLiteral("upgrade"))) {
+        d->package = d->parser->value(QStringLiteral("upgrade"));
+    } else if (d->parser->isSet(QStringLiteral("install"))) {
+        d->package = d->parser->value(QStringLiteral("install"));
+    } else if (d->parser->isSet(QStringLiteral("show"))) {
+        d->package = d->parser->value(QStringLiteral("show"));
     }
 
     if (!QDir::isAbsolutePath(d->package)) {
         d->packageFile = QDir(QDir::currentPath() + '/' + d->package).absolutePath();
         d->packageFile = QFileInfo(d->packageFile).canonicalFilePath();
-        if (d->parser->isSet("upgrade")) {
+        if (d->parser->isSet(QStringLiteral("upgrade"))) {
             d->package = d->packageFile;
         }
     } else {
         d->packageFile = d->package;
     }
 
-    if (!d->packageFile.isEmpty() && (!d->parser->isSet("type") ||
+    if (!d->packageFile.isEmpty() && (!d->parser->isSet(QStringLiteral("type")) ||
                                       type.compare(i18nc("package type", "wallpaper"), Qt::CaseInsensitive) == 0 ||
-                                      type.compare("wallpaper", Qt::CaseInsensitive) == 0)) {
+                                      type.compare(QLatin1String("wallpaper"), Qt::CaseInsensitive) == 0)) {
         // Check type for common plasma packages
         KPackage::Package package(structure);
         QString serviceType;
         package.setPath(d->packageFile);
 
         if (package.isValid() && package.metadata().isValid()) {
-            serviceType = package.metadata().value("X-Plasma-ServiceType");
+            serviceType = package.metadata().value(QStringLiteral("X-Plasma-ServiceType"));
             if (serviceType.isEmpty()) {
                 serviceType = package.metadata().serviceTypes().first();
             }
         }
 
         if (!serviceType.isEmpty()) {
-            if (serviceType == "KPackage/Generic") {
-                type = "KPackage/Generic";
+            if (serviceType == QLatin1String("KPackage/Generic")) {
+                type = QStringLiteral("KPackage/Generic");
             } else {
                 type = serviceType;
                 //qDebug() << "fallthrough type is" << serviceType;
@@ -172,20 +172,20 @@ void PackageTool::runMain()
         d->packageRoot = d->installer.defaultPackageRoot();
         d->pluginTypes << type;
     }
-    if (d->parser->isSet("show")) {
+    if (d->parser->isSet(QStringLiteral("show"))) {
         const QString pluginName = d->package;
         showPackageInfo(pluginName);
         exit(0);
         return;
     }
 
-    if (d->parser->isSet("list")) {
+    if (d->parser->isSet(QStringLiteral("list"))) {
         d->packageRoot = findPackageRoot(d->package, d->packageRoot);
         d->coutput(i18n("Listing service types: %1 in %2", d->pluginTypes.join(", "), d->packageRoot));
         listPackages(d->pluginTypes, d->packageRoot);
         exit(0);
 
-    } else if (d->parser->isSet("generate-index")) {
+    } else if (d->parser->isSet(QStringLiteral("generate-index"))) {
         recreateIndex();
         exit(0);
 
@@ -198,7 +198,7 @@ void PackageTool::runMain()
 
         d->packageRoot = findPackageRoot(d->package, d->packageRoot);
 
-        if (d->parser->isSet("remove") || d->parser->isSet("upgrade")) {
+        if (d->parser->isSet(QStringLiteral("remove")) || d->parser->isSet(QStringLiteral("upgrade"))) {
             QString pkgPath;
             foreach (const QString &t, d->pluginTypes) {
                 KPackage::Package pkg = KPackage::PackageLoader::self()->loadPackage(t);
@@ -215,7 +215,7 @@ void PackageTool::runMain()
                 pkgPath = d->package;
             }
 
-            if (d->parser->isSet("upgrade")) {
+            if (d->parser->isSet(QStringLiteral("upgrade"))) {
                 d->installer.setPath(d->package);
             }
             QString _p = d->packageRoot;
@@ -226,7 +226,7 @@ void PackageTool::runMain()
             d->installer.setDefaultPackageRoot(d->packageRoot);
             d->installer.setPath(pkgPath);
 
-            if (!d->parser->isSet("type")) {
+            if (!d->parser->isSet(QStringLiteral("type"))) {
                 foreach (const QString &st, d->installer.metadata().serviceTypes()) {
                     if (!d->pluginTypes.contains(st)) {
                         d->pluginTypes << st;
@@ -271,7 +271,7 @@ void PackageTool::runMain()
                 exit(2);
             }
         }
-        if (d->parser->isSet("install")) {
+        if (d->parser->isSet(QStringLiteral("install"))) {
             KJob *installJob = d->installer.install(d->packageFile, d->packageRoot);
             connect(installJob, SIGNAL(result(KJob*)), SLOT(packageInstalled(KJob*)));
             return;
@@ -340,13 +340,13 @@ void PackageTool::showPackageInfo(const QString &pluginName)
 QString PackageTool::findPackageRoot(const QString &pluginName, const QString &prefix)
 {
     QString packageRoot;
-    if (d->parser->isSet("packageroot") && d->parser->isSet("global") && !d->parser->isSet("generate-index")) {
+    if (d->parser->isSet(QStringLiteral("packageroot")) && d->parser->isSet(QStringLiteral("global")) && !d->parser->isSet(QStringLiteral("generate-index"))) {
         qWarning() << i18nc("The user entered conflicting options packageroot and global, this is the error message telling the user he can use only one", "The packageroot and global options conflict with each other, please select only one.");
         ::exit(7);
-    } else if (d->parser->isSet("packageroot")) {
-        packageRoot = d->parser->value("packageroot");
+    } else if (d->parser->isSet(QStringLiteral("packageroot"))) {
+        packageRoot = d->parser->value(QStringLiteral("packageroot"));
         //qDebug() << "(set via arg) d->packageRoot is: " << d->packageRoot;
-    } else if (d->parser->isSet("global")) {
+    } else if (d->parser->isSet(QStringLiteral("global"))) {
         packageRoot = QStandardPaths::locateAll(QStandardPaths::GenericDataLocation, d->packageRoot, QStandardPaths::LocateDirectory).last();
     } else {
         packageRoot = QStandardPaths::writableLocation(QStandardPaths::GenericDataLocation) + QLatin1Char('/') + d->packageRoot;
@@ -422,7 +422,7 @@ void PackageToolPrivate::listTypes()
 
     QStringList libraryPaths;
 
-    const QString subDirectory = "kpackage/packagestructure";
+    const QString subDirectory = QStringLiteral("kpackage/packagestructure");
 
     Q_FOREACH (const QString &dir, QCoreApplication::libraryPaths()) {
         QString d = dir + QDir::separator() + subDirectory;
@@ -475,10 +475,10 @@ void PackageToolPrivate::listTypes()
             //const QString proot = "";
             KPackage::Package pkg = KPackage::PackageLoader::self()->loadPackage(info.pluginId());
             QString name = info.name();
-            QString comment = info.value("Comment");
+            QString comment = info.value(QStringLiteral("Comment"));
             QString plugin = info.pluginId();
             QString path = pkg.defaultPackageRoot();
-            QString types = info.serviceTypes().join(",");
+            QString types = info.serviceTypes().join(QStringLiteral(","));
             //QString path = defaultPackageRoot;
             plugins.insert(name, QStringList() << plugin << path);
             //qDebug() << "KService stuff:" << name << plugin << comment << path;
@@ -510,7 +510,7 @@ void PackageTool::recreateIndex()
     d->packageRoot = findPackageRoot(d->package, d->packageRoot);
 
     if (!QDir::isAbsolutePath(d->packageRoot)) {
-        if (d->parser->isSet("global")) {
+        if (d->parser->isSet(QStringLiteral("global"))) {
             for (auto p : QStandardPaths::locateAll(QStandardPaths::GenericDataLocation, d->packageRoot, QStandardPaths::LocateDirectory)) {
                 d->coutput(i18n("Generating %1/kpluginindex.json", p));
                 KPackage::indexDirectory(p, QStringLiteral("kpluginindex.json"));
@@ -530,7 +530,7 @@ void PackageTool::packageInstalled(KJob *job)
     bool success = (job->error() == KJob::NoError);
     int exitcode = 0;
     if (success) {
-        if (d->parser->isSet("upgrade")) {
+        if (d->parser->isSet(QStringLiteral("upgrade"))) {
             d->coutput(i18n("Successfully upgraded %1", d->packageFile));
         } else {
             d->coutput(i18n("Successfully installed %1", d->packageFile));
@@ -547,7 +547,7 @@ void PackageTool::packageUninstalled(KJob *job)
     bool success = (job->error() == KJob::NoError);
     int exitcode = 0;
     if (success) {
-        if (d->parser->isSet("upgrade")) {
+        if (d->parser->isSet(QStringLiteral("upgrade"))) {
             d->coutput(i18n("Upgrading package from file: %1", d->packageFile));
             KJob *installJob = d->installer.install(d->packageFile, d->packageRoot);
             connect(installJob, SIGNAL(result(KJob*)), SLOT(packageInstalled(KJob*)));

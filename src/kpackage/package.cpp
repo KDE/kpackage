@@ -52,7 +52,7 @@ Package::Package(PackageStructure *structure)
 
     if (d->structure) {
         d->structure.data()->initPackage(this);
-        addFileDefinition("metadata", "metadata.desktop", i18n("Desktop file that describes this package."));
+        addFileDefinition("metadata", QStringLiteral("metadata.desktop"), i18n("Desktop file that describes this package."));
     }
 }
 
@@ -87,7 +87,7 @@ bool Package::isValid() const
 
     //Minimal packages with no metadata *are* supposed to be possible
     //so if !metadata().isValid() go ahead
-    if (metadata().isValid() && metadata().value("isHidden", "false") == "true") {
+    if (metadata().isValid() && metadata().value(QStringLiteral("isHidden"), QStringLiteral("false")) == QLatin1String("true")) {
         return false;
     }
 
@@ -224,7 +224,7 @@ KPluginMetaData Package::metadata() const
             // d->path might still be a file, if its path has a trailing /,
             // the fileInfo lookup will fail, so remove it.
             QString p = d->path;
-            if (p.endsWith("/")) {
+            if (p.endsWith(QLatin1Char('/'))) {
                 p.chop(1);
             }
             QFileInfo fileInfo(p);
@@ -251,11 +251,14 @@ QString PackagePrivate::unpack(const QString &filePath)
     QMimeDatabase db;
     QMimeType mimeType = db.mimeTypeForFile(filePath);
 
-    if (mimeType.inherits("application/zip")) {
+    if (mimeType.inherits(QStringLiteral("application/zip"))) {
         archive = new KZip(filePath);
-    } else if (mimeType.inherits("application/x-compressed-tar") || mimeType.inherits("application/x-gzip") ||
-               mimeType.inherits("application/x-tar") || mimeType.inherits("application/x-bzip-compressed-tar") ||
-               mimeType.inherits("application/x-xz") || mimeType.inherits("application/x-lzma")) {
+    } else if (mimeType.inherits(QStringLiteral("application/x-compressed-tar")) ||
+               mimeType.inherits(QStringLiteral("application/x-gzip")) ||
+               mimeType.inherits(QStringLiteral("application/x-tar")) ||
+               mimeType.inherits(QStringLiteral("application/x-bzip-compressed-tar")) ||
+               mimeType.inherits(QStringLiteral("application/x-xz")) ||
+               mimeType.inherits(QStringLiteral("application/x-lzma"))) {
         archive = new KTar(filePath);
     } else {
         //qWarning() << "Could not open package file, unsupported archive format:" << filePath << mimeType.name();
@@ -273,7 +276,7 @@ QString PackagePrivate::unpack(const QString &filePath)
             QDir unpackedPath(tempdir.path());
             const QStringList &entries = unpackedPath.entryList(QDir::Dirs);
             foreach (const QString &pack, entries) {
-                if ((pack != "." && pack != "..") &&
+                if ((pack != QLatin1String(".") && pack != QLatin1String("..")) &&
                         (QFile::exists(unpackedPath.absolutePath() + '/' + pack + "/metadata.desktop"))) {
                     tempRoot = unpackedPath.absolutePath() + '/' + pack + '/';
                 }
@@ -812,7 +815,7 @@ PackagePrivate::PackagePrivate()
       valid(false),
       checkedValid(false)
 {
-    contentsPrefixPaths << "contents/";
+    contentsPrefixPaths << QStringLiteral("contents/");
 }
 
 PackagePrivate::PackagePrivate(const PackagePrivate &other)
