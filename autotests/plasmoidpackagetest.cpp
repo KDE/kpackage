@@ -186,7 +186,7 @@ void PlasmoidPackageTest::isValid()
     p = new KPackage::Package(m_defaultPackage);
     p->setPath(m_packageRoot + '/' + m_package);
     QVERIFY(p->isValid());
-    QCOMPARE(p->contentsHash(), QString("a41160c6a763ea505c95bee12a7fc87952a61cf1"));
+    QCOMPARE(p->contentsHash(), QStringLiteral("a41160c6a763ea505c95bee12a7fc87952a61cf1"));
     delete p;
 }
 
@@ -199,7 +199,7 @@ void PlasmoidPackageTest::filePath()
     KPackage::Package *p = new KPackage::Package(m_defaultPackage);
     p->setPath(m_packageRoot + '/' + m_package);
 
-    QCOMPARE(p->filePath("scripts", "main"), QString());
+    QCOMPARE(p->filePath("scripts", QStringLiteral("main")), QString());
 
     QVERIFY(QDir().mkpath(m_packageRoot + "/" + m_package + "/contents/ui/main.qml"));
     QFile file(m_packageRoot + "/" + m_package + "/contents/ui/main.qml");
@@ -224,7 +224,7 @@ void PlasmoidPackageTest::filePath()
     //
     // NOTE: scripts, main and mainscript are defined in packages.cpp and are
     //       specific for a PlasmoidPackage.
-    QCOMPARE(p->filePath("scripts", "main"), path);
+    QCOMPARE(p->filePath("scripts", QStringLiteral("main")), path);
     QCOMPARE(p->filePath("mainscript"), path);
     delete p;
 }
@@ -246,12 +246,12 @@ void PlasmoidPackageTest::entryList()
     // images - {"image-1.svg", "image-2.svg"}
     QStringList files = p->entryList("scripts");
     QCOMPARE(files.size(), 1);
-    QVERIFY(files.contains("script.js"));
+    QVERIFY(files.contains(QStringLiteral("script.js")));
 
     files = p->entryList("images");
     QCOMPARE(files.size(), 2);
-    QVERIFY(files.contains("image-1.svg"));
-    QVERIFY(files.contains("image-2.svg"));
+    QVERIFY(files.contains(QStringLiteral("image-1.svg")));
+    QVERIFY(files.contains(QStringLiteral("image-2.svg")));
     delete p;
 }
 
@@ -275,13 +275,13 @@ void PlasmoidPackageTest::createAndInstallPackage()
     QVERIFY(package.open(QIODevice::ReadOnly));
     const KArchiveDirectory *dir = package.directory();
     QVERIFY(dir);//
-    QVERIFY(dir->entry("metadata.desktop"));
+    QVERIFY(dir->entry(QStringLiteral("metadata.desktop")));
     const KArchiveEntry *contentsEntry = dir->entry(QStringLiteral("contents"));
     QVERIFY(contentsEntry);
     QVERIFY(contentsEntry->isDirectory());
     const KArchiveDirectory *contents = static_cast<const KArchiveDirectory *>(contentsEntry);
-    QVERIFY(contents->entry("ui"));
-    QVERIFY(contents->entry("images"));
+    QVERIFY(contents->entry(QStringLiteral("ui")));
+    QVERIFY(contents->entry(QStringLiteral("images")));
 
     m_defaultPackageStructure = new KPackage::PackageStructure(this);
     KPackage::Package *p = new KPackage::Package(m_defaultPackageStructure);
@@ -301,12 +301,12 @@ void PlasmoidPackageTest::createAndInstallPackage()
 void PlasmoidPackageTest::createAndUpdatePackage()
 {
     //does the version number parsing work?
-    QVERIFY(KPackage::isVersionNewer("1.1", "1.1.1"));
-    QVERIFY(!KPackage::isVersionNewer("1.1.1", "1.1"));
-    QVERIFY(KPackage::isVersionNewer("1.1.1", "1.1.2"));
-    QVERIFY(KPackage::isVersionNewer("1.1.2", "2.1"));
-    QVERIFY(KPackage::isVersionNewer("0.1.2", "2"));
-    QVERIFY(!KPackage::isVersionNewer("1", "0.1.2"));
+    QVERIFY(KPackage::isVersionNewer(QStringLiteral("1.1"), QStringLiteral("1.1.1")));
+    QVERIFY(!KPackage::isVersionNewer(QStringLiteral("1.1.1"), QStringLiteral("1.1")));
+    QVERIFY(KPackage::isVersionNewer(QStringLiteral("1.1.1"), QStringLiteral("1.1.2")));
+    QVERIFY(KPackage::isVersionNewer(QStringLiteral("1.1.2"), QStringLiteral("2.1")));
+    QVERIFY(KPackage::isVersionNewer(QStringLiteral("0.1.2"), QStringLiteral("2")));
+    QVERIFY(!KPackage::isVersionNewer(QStringLiteral("1"), QStringLiteral("0.1.2")));
 
     qDebug() << "                   ";
     qDebug() << "   CreateAndUpdate ";
@@ -326,13 +326,13 @@ void PlasmoidPackageTest::createAndUpdatePackage()
     QVERIFY(package.open(QIODevice::ReadOnly));
     const KArchiveDirectory *dir = package.directory();
     QVERIFY(dir);//
-    QVERIFY(dir->entry("metadata.desktop"));
+    QVERIFY(dir->entry(QStringLiteral("metadata.desktop")));
     const KArchiveEntry *contentsEntry = dir->entry(QStringLiteral("contents"));
     QVERIFY(contentsEntry);
     QVERIFY(contentsEntry->isDirectory());
     const KArchiveDirectory *contents = static_cast<const KArchiveDirectory *>(contentsEntry);
-    QVERIFY(contents->entry("ui"));
-    QVERIFY(contents->entry("images"));
+    QVERIFY(contents->entry(QStringLiteral("ui")));
+    QVERIFY(contents->entry(QStringLiteral("images")));
 
     m_defaultPackageStructure = new KPackage::PackageStructure(this);
     KPackage::Package *p = new KPackage::Package(m_defaultPackageStructure);

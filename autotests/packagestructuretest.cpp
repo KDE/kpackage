@@ -44,6 +44,7 @@ public:
 
 class Wallpaper : public KPackage::PackageStructure
 {
+    Q_OBJECT
 public:
     void initPackage(KPackage::Package *package)
     {
@@ -94,6 +95,7 @@ public:
 
 class SimpleContent : public KPackage::PackageStructure
 {
+    Q_OBJECT
 public:
     void initPackage(KPackage::Package *package)
     {
@@ -124,14 +126,14 @@ void PackageStructureTest::validStructures()
 {
     QVERIFY(ps.hasValidStructure());
     QVERIFY(!KPackage::Package().hasValidStructure());
-    QVERIFY(!KPackage::PackageLoader::self()->loadPackage("doesNotExist").hasValidStructure());
+    QVERIFY(!KPackage::PackageLoader::self()->loadPackage(QStringLiteral("doesNotExist")).hasValidStructure());
 }
 
 void PackageStructureTest::validPackages()
 {
     QVERIFY(ps.isValid());
     QVERIFY(!KPackage::Package().isValid());
-    QVERIFY(!KPackage::PackageLoader::self()->loadPackage("doesNotExist").isValid());
+    QVERIFY(!KPackage::PackageLoader::self()->loadPackage(QStringLiteral("doesNotExist")).isValid());
     QVERIFY(NoPrefixes().isValid());
 
     KPackage::Package p = KPackage::PackageLoader::self()->loadPackage(QStringLiteral("KPackage/Generic"));
@@ -238,13 +240,13 @@ void PackageStructureTest::emptyContentsPrefix()
     NoPrefixes package;
     QString path(package.filePath("bin", QStringLiteral("ls")));
     //qDebug() << path;
-    QCOMPARE(path, QString("/bin/ls"));
+    QCOMPARE(path, QStringLiteral("/bin/ls"));
 }
 
 void PackageStructureTest::multiplePaths()
 {
     NoPrefixes package;
-    QCOMPARE(package.name("MultiplePaths"), QString("Description proper"));
+    QCOMPARE(package.name("MultiplePaths"), QStringLiteral("Description proper"));
 }
 
 void PackageStructureTest::directories()
@@ -322,9 +324,9 @@ void PackageStructureTest::requiredFiles()
 
 void PackageStructureTest::path()
 {
-    QCOMPARE(ps.filePath("images"), QDir(m_packagePath + QString("/contents/images")).canonicalPath());
-    QCOMPARE(ps.filePath("theme"), QDir(m_packagePath + QString("/contents/theme")).canonicalPath());
-    QCOMPARE(ps.filePath("mainscript"), QFileInfo(m_packagePath + QString("/contents/ui/main.qml")).canonicalFilePath());
+    QCOMPARE(ps.filePath("images"), QDir(m_packagePath + QLatin1String("/contents/images")).canonicalPath());
+    QCOMPARE(ps.filePath("theme"), QDir(m_packagePath + QLatin1String("/contents/theme")).canonicalPath());
+    QCOMPARE(ps.filePath("mainscript"), QFileInfo(m_packagePath + QLatin1String("/contents/ui/main.qml")).canonicalFilePath());
 }
 
 void PackageStructureTest::name()
@@ -365,3 +367,4 @@ void PackageStructureTest::customContent()
 
 QTEST_MAIN(PackageStructureTest)
 
+#include "packagestructuretest.moc"

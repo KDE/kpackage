@@ -37,7 +37,7 @@ void QueryTest::initTestCase()
     m_dataDir = QDir(QStandardPaths::writableLocation(QStandardPaths::GenericDataLocation));
     m_dataDir.removeRecursively();
 
-    QVERIFY(m_dataDir.mkpath("."));
+    QVERIFY(m_dataDir.mkpath(QStringLiteral(".")));
 
     ps = KPackage::PackageLoader::self()->loadPackage(QStringLiteral("KPackage/Generic"));
     ps.addFileDefinition("mainscript", QStringLiteral("ui/main.qml"), i18n("Main Script File"));
@@ -57,7 +57,7 @@ void QueryTest::install()
 
 void QueryTest::query()
 {
-    QCOMPARE(KPackage::PackageLoader::self()->listPackages("KPackage/Generic").count(), 3);
+    QCOMPARE(KPackage::PackageLoader::self()->listPackages(QStringLiteral("KPackage/Generic")).count(), 3);
 }
 
 QTEST_MAIN(QueryTest)
