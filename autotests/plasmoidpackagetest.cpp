@@ -41,7 +41,7 @@ void PlasmoidPackageTest::initTestCase()
 void PlasmoidPackageTest::init()
 {
     qDebug() << "PlasmoidPackage::init()";
-    m_package = QString("Package");
+    m_package = QStringLiteral("Package");
     m_packageRoot = QStandardPaths::writableLocation(QStandardPaths::GenericDataLocation) + "/packageRoot";
     m_defaultPackage = KPackage::Package(new KPackage::PlasmoidPackage);
     cleanup(); // to prevent previous runs from interfering with this one
@@ -232,7 +232,7 @@ void PlasmoidPackageTest::filePath()
 void PlasmoidPackageTest::entryList()
 {
     // Create a package named @p packageName which is valid and has some images.
-    createTestPackage(m_package, QLatin1String("1.1"));
+    createTestPackage(m_package, QStringLiteral("1.1"));
 
     // Create a package object and verify that it is valid.
     KPackage::Package *p = new KPackage::Package(m_defaultPackage);
@@ -259,12 +259,12 @@ void PlasmoidPackageTest::createAndInstallPackage()
 {
     qDebug() << "                   ";
     qDebug() << "   CreateAndInstall ";
-    createTestPackage("plasmoid_to_package", QLatin1String("1.1"));
+    createTestPackage(QStringLiteral("plasmoid_to_package"), QStringLiteral("1.1"));
     const QString packagePath = m_packageRoot + '/' + "testpackage.plasmoid";
 
     KZip creator(packagePath);
     QVERIFY(creator.open(QIODevice::WriteOnly));
-    creator.addLocalDirectory(m_packageRoot + '/' + "plasmoid_to_package", ".");
+    creator.addLocalDirectory(m_packageRoot + '/' + "plasmoid_to_package", QStringLiteral("."));
     creator.close();
     QDir rootDir(m_packageRoot + "/plasmoid_to_package");
     rootDir.removeRecursively();
@@ -276,7 +276,7 @@ void PlasmoidPackageTest::createAndInstallPackage()
     const KArchiveDirectory *dir = package.directory();
     QVERIFY(dir);//
     QVERIFY(dir->entry("metadata.desktop"));
-    const KArchiveEntry *contentsEntry = dir->entry("contents");
+    const KArchiveEntry *contentsEntry = dir->entry(QStringLiteral("contents"));
     QVERIFY(contentsEntry);
     QVERIFY(contentsEntry->isDirectory());
     const KArchiveDirectory *contents = static_cast<const KArchiveDirectory *>(contentsEntry);
@@ -292,7 +292,7 @@ void PlasmoidPackageTest::createAndInstallPackage()
     connect(job, SIGNAL(finished(KJob*)), SLOT(packageInstalled(KJob*)));
     QSignalSpy spy(job, SIGNAL(finished(KJob*)));
     QVERIFY(spy.wait(1000));
-    cleanupPackage("plasmoid_to_package");
+    cleanupPackage(QStringLiteral("plasmoid_to_package"));
 
     //QVERIFY(p->isValid());
     delete p;
@@ -310,12 +310,12 @@ void PlasmoidPackageTest::createAndUpdatePackage()
 
     qDebug() << "                   ";
     qDebug() << "   CreateAndUpdate ";
-    createTestPackage("plasmoid_to_package", QLatin1String("1.1"));
+    createTestPackage(QStringLiteral("plasmoid_to_package"), QStringLiteral("1.1"));
     const QString packagePath = m_packageRoot + '/' + "testpackage.plasmoid";
 
     KZip creator(packagePath);
     QVERIFY(creator.open(QIODevice::WriteOnly));
-    creator.addLocalDirectory(m_packageRoot + '/' + "plasmoid_to_package", ".");
+    creator.addLocalDirectory(m_packageRoot + '/' + "plasmoid_to_package", QStringLiteral("."));
     creator.close();
     QDir rootDir(m_packageRoot + "/plasmoid_to_package");
     rootDir.removeRecursively();
@@ -327,7 +327,7 @@ void PlasmoidPackageTest::createAndUpdatePackage()
     const KArchiveDirectory *dir = package.directory();
     QVERIFY(dir);//
     QVERIFY(dir->entry("metadata.desktop"));
-    const KArchiveEntry *contentsEntry = dir->entry("contents");
+    const KArchiveEntry *contentsEntry = dir->entry(QStringLiteral("contents"));
     QVERIFY(contentsEntry);
     QVERIFY(contentsEntry->isDirectory());
     const KArchiveDirectory *contents = static_cast<const KArchiveDirectory *>(contentsEntry);
@@ -354,11 +354,11 @@ void PlasmoidPackageTest::createAndUpdatePackage()
 
 
     //create a new package with higher version
-    createTestPackage("plasmoid_to_package", QLatin1String("1.2"));
+    createTestPackage(QStringLiteral("plasmoid_to_package"), QStringLiteral("1.2"));
 
     KZip creator2(packagePath);
     QVERIFY(creator2.open(QIODevice::WriteOnly));
-    creator2.addLocalDirectory(m_packageRoot + '/' + "plasmoid_to_package", ".");
+    creator2.addLocalDirectory(m_packageRoot + '/' + "plasmoid_to_package", QStringLiteral("."));
     creator2.close();
     QDir rootDir2(m_packageRoot + "/plasmoid_to_package");
     rootDir2.removeRecursively();
@@ -369,7 +369,7 @@ void PlasmoidPackageTest::createAndUpdatePackage()
     QSignalSpy spy2(job2, SIGNAL(finished(KJob*)));
     QVERIFY(spy2.wait(1000));
 
-    cleanupPackage("plasmoid_to_package");
+    cleanupPackage(QStringLiteral("plasmoid_to_package"));
 
     //QVERIFY(p->isValid());
     delete p;

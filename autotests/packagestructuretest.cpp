@@ -35,10 +35,10 @@ public:
         : KPackage::Package(new KPackage::PackageStructure)
     {
         setContentsPrefixPaths(QStringList());
-        addDirectoryDefinition("bin", "bin", "bin");
-        addFileDefinition("MultiplePaths", "first", "Description proper");
-        addFileDefinition("MultiplePaths", "second", "Description proper");
-        setPath("/");
+        addDirectoryDefinition("bin", QStringLiteral("bin"), QStringLiteral("bin"));
+        addFileDefinition("MultiplePaths", QStringLiteral("first"), QStringLiteral("Description proper"));
+        addFileDefinition("MultiplePaths", QStringLiteral("second"), QStringLiteral("Description proper"));
+        setPath(QStringLiteral("/"));
     }
 };
 
@@ -47,14 +47,14 @@ class Wallpaper : public KPackage::PackageStructure
 public:
     void initPackage(KPackage::Package *package)
     {
-        package->addDirectoryDefinition("images", "images/", i18n("Images"));
+        package->addDirectoryDefinition("images", QStringLiteral("images/"), i18n("Images"));
 
         QStringList mimetypes;
-        mimetypes << "image/svg" << "image/png" << "image/jpeg" << "image/jpg";
+        mimetypes << QStringLiteral("image/svg") << QStringLiteral("image/png") << QStringLiteral("image/jpeg") << QStringLiteral("image/jpg");
         package->setMimeTypes("images", mimetypes);
 
         package->setRequired("images", true);
-        package->addFileDefinition("screenshot", "screenshot.png", i18n("Screenshot"));
+        package->addFileDefinition("screenshot", QStringLiteral("screenshot.png"), i18n("Screenshot"));
         package->setAllowExternalPaths(true);
     }
     void pathChanged(KPackage::Package *package)
@@ -80,7 +80,7 @@ public:
         package->setRequired("images", isFullPackage);
 
         if (isFullPackage) {
-            package->setContentsPrefixPaths(QStringList() << "contents/");
+            package->setContentsPrefixPaths(QStringList() << QStringLiteral("contents/"));
         } else {
             package->addFileDefinition("screenshot", info.fileName(), i18n("Preview"));
             package->addFileDefinition("preferred", info.fileName(), QString());
@@ -97,15 +97,15 @@ class SimpleContent : public KPackage::PackageStructure
 public:
     void initPackage(KPackage::Package *package)
     {
-        package->addDirectoryDefinition("ui", "ui/", i18n("User interface"));
+        package->addDirectoryDefinition("ui", QStringLiteral("ui/"), i18n("User interface"));
     }
     void pathChanged(KPackage::Package *package)
     {
         if (!package->metadata().isValid()) {
             return;
         }
-        if (package->metadata().serviceTypes().contains("CustomContent")) {
-            package->addFileDefinition("customcontentfile", "customcontent/CustomContentFile.qml", i18n("Custom file only for packages that contain CustomContent in their servicetypes"));
+        if (package->metadata().serviceTypes().contains(QStringLiteral("CustomContent"))) {
+            package->addFileDefinition("customcontentfile", QStringLiteral("customcontent/CustomContentFile.qml"), i18n("Custom file only for packages that contain CustomContent in their servicetypes"));
         } else {
             package->removeDefinition("customcontentfile");
         }
@@ -115,8 +115,8 @@ public:
 void PackageStructureTest::initTestCase()
 {
     m_packagePath = QFINDTESTDATA("data/testpackage");
-    ps = KPackage::PackageLoader::self()->loadPackage("KPackage/Generic");
-    ps.addFileDefinition("mainscript", "ui/main.qml", i18n("Main Script File"));
+    ps = KPackage::PackageLoader::self()->loadPackage(QStringLiteral("KPackage/Generic"));
+    ps.addFileDefinition("mainscript", QStringLiteral("ui/main.qml"), i18n("Main Script File"));
     ps.setPath(m_packagePath);
 }
 
@@ -134,10 +134,10 @@ void PackageStructureTest::validPackages()
     QVERIFY(!KPackage::PackageLoader::self()->loadPackage("doesNotExist").isValid());
     QVERIFY(NoPrefixes().isValid());
 
-    KPackage::Package p = KPackage::PackageLoader::self()->loadPackage("KPackage/Generic");
-    p.addFileDefinition("mainscript", "ui/main.qml", i18n("Main Script File"));
+    KPackage::Package p = KPackage::PackageLoader::self()->loadPackage(QStringLiteral("KPackage/Generic"));
+    p.addFileDefinition("mainscript", QStringLiteral("ui/main.qml"), i18n("Main Script File"));
     QVERIFY(!p.isValid());
-    p.setPath("/does/not/exist");
+    p.setPath(QStringLiteral("/does/not/exist"));
     QVERIFY(!p.isValid());
     p.setPath(ps.path());
     QVERIFY(p.isValid());
@@ -196,18 +196,18 @@ void PackageStructureTest::mutateAfterCopy()
 
     copy = ps;
     QStringList copyContentsPrefixPaths = contentsPrefixPaths;
-    copyContentsPrefixPaths << "more/";
+    copyContentsPrefixPaths << QStringLiteral("more/");
     copy.setContentsPrefixPaths(copyContentsPrefixPaths);
     QCOMPARE(ps.contentsPrefixPaths(), contentsPrefixPaths);
     QCOMPARE(copy.contentsPrefixPaths(), copyContentsPrefixPaths);
 
     copy = ps;
-    copy.addFileDefinition("nonsense", "foobar", QString());
+    copy.addFileDefinition("nonsense", QStringLiteral("foobar"), QString());
     QCOMPARE(ps.files(), files);
     QVERIFY(ps.files() != copy.files());
 
     copy = ps;
-    copy.addDirectoryDefinition("nonsense", "foobar", QString());
+    copy.addDirectoryDefinition("nonsense", QStringLiteral("foobar"), QString());
     QCOMPARE(ps.directories(), dirs);
     QVERIFY(ps.directories() != copy.directories());
 
@@ -227,7 +227,7 @@ void PackageStructureTest::mutateAfterCopy()
 
     copy = ps;
     QStringList copyDefaultMimeTypes = defaultMimeTypes;
-    copyDefaultMimeTypes << "rubbish";
+    copyDefaultMimeTypes << QStringLiteral("rubbish");
     copy.setDefaultMimeTypes(copyDefaultMimeTypes);
     QCOMPARE(ps.mimeTypes("translations"), defaultMimeTypes);
     QCOMPARE(copy.mimeTypes("translations"), copyDefaultMimeTypes);
@@ -236,7 +236,7 @@ void PackageStructureTest::mutateAfterCopy()
 void PackageStructureTest::emptyContentsPrefix()
 {
     NoPrefixes package;
-    QString path(package.filePath("bin", "ls"));
+    QString path(package.filePath("bin", QStringLiteral("ls")));
     //qDebug() << path;
     QCOMPARE(path, QString("/bin/ls"));
 }
@@ -341,7 +341,7 @@ void PackageStructureTest::required()
 void PackageStructureTest::mimeTypes()
 {
     QStringList mimeTypes;
-    mimeTypes << "image/svg+xml" << "image/png" << "image/jpeg";
+    mimeTypes << QStringLiteral("image/svg+xml") << QStringLiteral("image/png") << QStringLiteral("image/jpeg");
     QCOMPARE(ps.mimeTypes("images"), mimeTypes);
     QCOMPARE(ps.mimeTypes("theme"), mimeTypes);
 }

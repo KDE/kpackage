@@ -30,11 +30,11 @@ namespace KPackage
 void PlasmoidPackage::initPackage(Package *package)
 {
     GenericPackage::initPackage(package);
-    package->setDefaultPackageRoot("plasma/plasmoids/");
+    package->setDefaultPackageRoot(QStringLiteral("plasma/plasmoids/"));
 
-    package->addFileDefinition("mainscript", "ui/main.qml", i18n("Main Script File"));
-    package->addFileDefinition("configmodel", "config/config.qml", i18n("Configuration UI pages model"));
-    package->addFileDefinition("mainconfigxml", "config/main.xml", i18n("Configuration XML file"));
+    package->addFileDefinition("mainscript", QStringLiteral("ui/main.qml"), i18n("Main Script File"));
+    package->addFileDefinition("configmodel", QStringLiteral("config/config.qml"), i18n("Configuration UI pages model"));
+    package->addFileDefinition("mainconfigxml", QStringLiteral("config/main.xml"), i18n("Configuration XML file"));
 }
 
 

@@ -39,8 +39,8 @@ void QueryTest::initTestCase()
 
     QVERIFY(m_dataDir.mkpath("."));
 
-    ps = KPackage::PackageLoader::self()->loadPackage("KPackage/Generic");
-    ps.addFileDefinition("mainscript", "ui/main.qml", i18n("Main Script File"));
+    ps = KPackage::PackageLoader::self()->loadPackage(QStringLiteral("KPackage/Generic"));
+    ps.addFileDefinition("mainscript", QStringLiteral("ui/main.qml"), i18n("Main Script File"));
 }
 
 void QueryTest::cleanupTestCase()
