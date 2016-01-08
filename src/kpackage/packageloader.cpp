@@ -215,6 +215,8 @@ QList<KPluginMetaData> PackageLoader::listPackages(const QString &packageFormat,
         actualRoot = packageFormat;
     }
 
+    QSet<QString> uniqueIds;
+
     //TODO: case in which defaultpackageroot is absolute
     Q_FOREACH(auto const &datadir, QStandardPaths::standardLocations(QStandardPaths::GenericDataLocation)) {
         const QString plugindir = datadir + '/' + actualRoot;
@@ -233,7 +235,8 @@ QList<KPluginMetaData> PackageLoader::listPackages(const QString &packageFormat,
                 const QJsonObject &obj = QJsonValue(*iter).toObject();
                 const QString &pluginFileName = obj.value(QStringLiteral("FileName")).toString();
                 const KPluginMetaData m(obj, QString(), pluginFileName);
-                if (m.isValid()) {
+                if (m.isValid() && !uniqueIds.contains(m.pluginId())) {
+                    uniqueIds << m.pluginId();
                     lst << m;
                 }
             }
@@ -251,11 +254,12 @@ QList<KPluginMetaData> PackageLoader::listPackages(const QString &packageFormat,
 
                 const KPluginMetaData info(metadataPath);
 
-                if (!info.isValid()) {
+                if (!info.isValid() || uniqueIds.contains(info.pluginId())) {
                     continue;
                 }
 
                 if (packageFormat.isEmpty() || info.serviceTypes().contains(packageFormat)) {
+                    uniqueIds << info.pluginId();
                     lst << info;
                 }
             }
