@@ -22,6 +22,7 @@
 
 #include <QtCore/QStringList>
 #include <QtCore/QMetaType>
+#include <QCryptographicHash>
 
 #include <kpluginmetadata.h>
 
@@ -211,8 +212,17 @@ public:
     /**
      * @return a SHA1 hash digest of the contents of the package in hexadecimal form
      * @since 4.4
+     * @deprecated Since 5.21 use cryptographicHash
      */
-    QString contentsHash() const;
+#ifndef PACKAGE_NO_DEPRECATED
+    PACKAGE_DEPRECATED QString contentsHash() const;
+#endif
+
+    /**
+     * @return a hash digest of the contents of the package in hexadecimal form
+     * @since 5.21
+     */
+    QByteArray cryptographicHash(QCryptographicHash::Algorithm algorithm) const;
 
     /**
      * Adds a directory to the structure of the package. It is added as

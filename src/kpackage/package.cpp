@@ -581,15 +581,22 @@ void Package::setContentsPrefixPaths(const QStringList &prefixPaths)
     }
 }
 
+#ifndef PACKAGE_NO_DEPRECATED
 QString Package::contentsHash() const
+{
+    return QString::fromLocal8Bit(cryptographicHash(QCryptographicHash::Sha1));
+}
+#endif
+
+QByteArray Package::cryptographicHash(QCryptographicHash::Algorithm algorithm) const
 {
     if (!d->valid) {
         qWarning() << "can not create hash due to Package being invalid";
-        return QString();
+        return QByteArray();
     }
 
-    QCryptographicHash hash(QCryptographicHash::Sha1);
-    QString metadataPath = d->path + "metadata.desktop";
+    QCryptographicHash hash(algorithm);
+    const QString metadataPath = d->path + "metadata.desktop";
     if (QFile::exists(metadataPath)) {
         QFile f(metadataPath);
         if (f.open(QIODevice::ReadOnly)) {
@@ -608,7 +615,7 @@ QString Package::contentsHash() const
         QDir dir(basePath);
 
         if (!dir.exists()) {
-            return QString();
+            return QByteArray();
         }
 
         d->updateHash(basePath, QString(), dir, hash);

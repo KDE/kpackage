@@ -187,6 +187,7 @@ void PlasmoidPackageTest::isValid()
     p->setPath(m_packageRoot + '/' + m_package);
     QVERIFY(p->isValid());
     QCOMPARE(p->contentsHash(), QStringLiteral("a41160c6a763ea505c95bee12a7fc87952a61cf1"));
+    QCOMPARE(p->cryptographicHash(QCryptographicHash::Sha1), QByteArrayLiteral("a41160c6a763ea505c95bee12a7fc87952a61cf1"));
     delete p;
 }
 
