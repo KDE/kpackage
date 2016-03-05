@@ -1,0 +1,447 @@
+# Copyright (C) YEAR This_file_is_part_of_KDE
+# This file is distributed under the same license as the PACKAGE package.
+#
+# Stefan Asserhäll <stefan.asserhall@bredband.net>, 2014, 2015, 2016.
+msgid ""
+msgstr ""
+"Project-Id-Version: \n"
+"Report-Msgid-Bugs-To: http://bugs.kde.org\n"
+"POT-Creation-Date: 2016-01-09 07:39+0000\n"
+"PO-Revision-Date: 2016-01-05 18:18+0100\n"
+"Last-Translator: Stefan Asserhäll <stefan.asserhall@bredband.net>\n"
+"Language-Team: Swedish <kde-i18n-doc@kde.org>\n"
+"Language: sv\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=2; plural=n != 1;\n"
+"X-Generator: Lokalize 2.0\n"
+
+#: kpackage/package.cpp:55
+msgid "Desktop file that describes this package."
+msgstr "Skrivbordsfil som beskriver paketet."
+
+#: kpackage/packageloader.cpp:76
+msgid "Accessibility"
+msgstr "Handikappstöd"
+
+#: kpackage/packageloader.cpp:77
+msgid "Application Launchers"
+msgstr "Programstartverktyg"
+
+#: kpackage/packageloader.cpp:78
+msgid "Astronomy"
+msgstr "Astronomi"
+
+#: kpackage/packageloader.cpp:79
+msgid "Date and Time"
+msgstr "Datum och tid"
+
+#: kpackage/packageloader.cpp:80
+msgid "Development Tools"
+msgstr "Utvecklingsverktyg"
+
+#: kpackage/packageloader.cpp:81
+msgid "Education"
+msgstr "Utbildning"
+
+#: kpackage/packageloader.cpp:82
+msgid "Environment and Weather"
+msgstr "Omgivning och väder"
+
+#: kpackage/packageloader.cpp:83
+msgid "Examples"
+msgstr "Exempel"
+
+#: kpackage/packageloader.cpp:84
+msgid "File System"
+msgstr "Filsystem"
+
+#: kpackage/packageloader.cpp:85
+msgid "Fun and Games"
+msgstr "Spel och annat kul"
+
+#: kpackage/packageloader.cpp:86
+msgid "Graphics"
+msgstr "Grafik"
+
+#: kpackage/packageloader.cpp:87
+msgid "Language"
+msgstr "Språk"
+
+#: kpackage/packageloader.cpp:88
+msgid "Mapping"
+msgstr "Kartor"
+
+#: kpackage/packageloader.cpp:89
+msgid "Miscellaneous"
+msgstr "Diverse"
+
+#: kpackage/packageloader.cpp:90
+msgid "Multimedia"
+msgstr "Multimedia"
+
+#: kpackage/packageloader.cpp:91
+msgid "Online Services"
+msgstr "Nättjänster"
+
+#: kpackage/packageloader.cpp:92
+msgid "Productivity"
+msgstr "Produktivitet"
+
+#: kpackage/packageloader.cpp:93
+msgid "System Information"
+msgstr "Systeminformation"
+
+#: kpackage/packageloader.cpp:94
+msgid "Utilities"
+msgstr "Verktyg"
+
+#: kpackage/packageloader.cpp:95
+msgid "Windows and Tasks"
+msgstr "Fönster och aktiviteter"
+
+#: kpackage/packageloader.cpp:364
+#, kde-format
+msgid "Could not load installer for package of type %1. Error reported was: %2"
+msgstr ""
+"Kunde inte ladda installationsprogram för paket av typ %1. Felrapport: %2"
+
+#: kpackage/private/packagejobthread.cpp:222
+#, kde-format
+msgid "Could not create package root directory: %1"
+msgstr "Kunde inte skapa paketets rotkatalog: %1"
+
+#: kpackage/private/packagejobthread.cpp:231
+#, kde-format
+msgid "No such file: %1"
+msgstr "Det finns ingen sådan fil: %1"
+
+#: kpackage/private/packagejobthread.cpp:261
+#, kde-format
+msgid "Could not open package file, unsupported archive format: %1 %2"
+msgstr "Kunde inte öppna paketfilen, arkivformatet stöds inte: %1 %2"
+
+#: kpackage/private/packagejobthread.cpp:269
+#, kde-format
+msgid "Could not open package file: %1"
+msgstr "Kunde inte öppna paketfilen: %1"
+
+#: kpackage/private/packagejobthread.cpp:304
+#, kde-format
+msgid "Could not open metadata file: %1"
+msgstr "Kunde inte öppna metadatafilen: %1"
+
+#: kpackage/private/packagejobthread.cpp:315
+#, kde-format
+msgid "No metadata file in package: %1"
+msgstr "Ingen metadatafil i paketet: %1"
+
+#: kpackage/private/packagejobthread.cpp:325
+#, kde-format
+msgid "Package plugin name not specified: %1"
+msgstr "Paketets insticksprogramnamn är inte angivet: %1"
+
+#: kpackage/private/packagejobthread.cpp:335
+#, kde-format
+msgid "Package plugin name %1 contains invalid characters"
+msgstr "Paketets insticksprogramnamn %1 innehåller ogiltiga tecken"
+
+#: kpackage/private/packagejobthread.cpp:351
+msgid ""
+"The new package has a different type from the old version already installed."
+msgstr ""
+"Det nya paketet har en annan typ än den gamla versionen som redan är "
+"installerad."
+
+#: kpackage/private/packagejobthread.cpp:357
+#, kde-format
+msgid "Impossible to remove the old installation of %1 located at %2"
+msgstr "Omöjligt att ta bort den gamla installationen av %1 på %2"
+
+#: kpackage/private/packagejobthread.cpp:362
+#, kde-format
+msgid "Not installing version %1 of %2. Version %3 already installed."
+msgstr "Installerar inte version %1 av %2. Version %3 är redan installerad."
+
+#: kpackage/private/packagejobthread.cpp:367
+#, kde-format
+msgid "%1 already exists"
+msgstr "%1 finns redan"
+
+#: kpackage/private/packagejobthread.cpp:379
+#, kde-format
+msgid "Could not move package to destination: %1"
+msgstr "Kunde inte flytta paketet till målet: %1"
+
+#: kpackage/private/packagejobthread.cpp:389
+#, kde-format
+msgid "Could not copy package to destination: %1"
+msgstr "Kunde inte kopiera paketet till målet: %1"
+
+#: kpackage/private/packagejobthread.cpp:431
+#, kde-format
+msgid "%1 does not exist"
+msgstr "%1 finns inte"
+
+#: kpackage/private/packagejobthread.cpp:451
+#, kde-format
+msgid "Could not delete package from: %1"
+msgstr "Kunde inte ta bort paketet från: %1"
+
+#: kpackage/private/packages.cpp:36 kpackage/private/packages.cpp:57
+msgid "Main Script File"
+msgstr "Huvudskriptfil"
+
+#: kpackage/private/packages.cpp:67
+msgid "Images"
+msgstr "Bilder"
+
+#: kpackage/private/packages.cpp:68
+msgid "Themed Images"
+msgstr "Bilder med teman"
+
+#: kpackage/private/packages.cpp:74
+msgid "Configuration Definitions"
+msgstr "Inställningsdefinitioner"
+
+#: kpackage/private/packages.cpp:79
+msgid "User Interface"
+msgstr "Användargränssnitt"
+
+#: kpackage/private/packages.cpp:81
+msgid "Data Files"
+msgstr "Datafiler"
+
+#: kpackage/private/packages.cpp:83
+msgid "Executable Scripts"
+msgstr "Körbara skript"
+
+#: kpackage/private/packages.cpp:88
+msgid "Translations"
+msgstr "Översättningar"
+
+#: kpackage/private/packages.cpp:95
+msgid "Main UI File"
+msgstr "Huvudfil för användargränssnitt"
+
+#: kpackagetool/kpackagetool.cpp:96
+#, kde-format
+msgid "Failed to generate a Package hash for %1"
+msgstr "Misslyckades skapa ett paketkondensat för %1"
+
+#: kpackagetool/kpackagetool.cpp:99
+#, kde-format
+msgid "SHA1 hash for Package at %1: '%2'"
+msgstr "SHA1-kondensat för paket på %1: '%2'"
+
+#: kpackagetool/kpackagetool.cpp:137
+msgctxt "package type"
+msgid "wallpaper"
+msgstr "skrivbordsunderlägg"
+
+#: kpackagetool/kpackagetool.cpp:184
+#, kde-format
+msgid "Listing service types: %1 in %2"
+msgstr "Listar tjänsttyper: %1 i %2"
+
+#: kpackagetool/kpackagetool.cpp:270
+#, kde-format
+msgid "Error: Plugin %1 is not installed."
+msgstr "Fel: Insticksprogrammet %1 är inte installerat."
+
+#: kpackagetool/kpackagetool.cpp:280
+msgctxt ""
+"No option was given, this is the error message telling the user he needs at "
+"least one, do not translate install, remove, upgrade nor list"
+msgid "One of install, remove, upgrade or list is required."
+msgstr "Antingen install, remove, upgrade eller list krävs."
+
+#: kpackagetool/kpackagetool.cpp:326
+#, kde-format
+msgid "Error: Can't find plugin metadata: %1"
+msgstr "Fel: Kan inte hitta insticksprogrammets metadata: %1"
+
+#: kpackagetool/kpackagetool.cpp:330
+#, kde-format
+msgid "Showing info for package: %1"
+msgstr "Visar information för paket: %1"
+
+#: kpackagetool/kpackagetool.cpp:331
+#, kde-format
+msgid "      Name : %1"
+msgstr "           Namn: %1"
+
+#: kpackagetool/kpackagetool.cpp:332
+#, kde-format
+msgid "   Comment : %1"
+msgstr "      Kommentar: %1"
+
+#: kpackagetool/kpackagetool.cpp:333
+#, kde-format
+msgid "    Plugin : %1"
+msgstr "Insticksprogram: %1"
+
+#: kpackagetool/kpackagetool.cpp:335
+#, kde-format
+msgid "    Author : %1"
+msgstr "     Upphovsman: %1"
+
+#: kpackagetool/kpackagetool.cpp:336
+#, kde-format
+msgid "      Path : %1"
+msgstr "         Sökväg: %1"
+
+#: kpackagetool/kpackagetool.cpp:345
+msgctxt ""
+"The user entered conflicting options packageroot and global, this is the "
+"error message telling the user he can use only one"
+msgid ""
+"The packageroot and global options conflict with each other, please select "
+"only one."
+msgstr ""
+"Paketroten och globala alternativ står i konflikt med varandra, välj bara en."
+
+#: kpackagetool/kpackagetool.cpp:371
+msgid "Addon Name"
+msgstr "Tilläggets namn"
+
+#: kpackagetool/kpackagetool.cpp:372
+msgid "Service Type"
+msgstr "Tjänsttyp"
+
+#: kpackagetool/kpackagetool.cpp:373
+msgid "Path"
+msgstr "Sökväg"
+
+#: kpackagetool/kpackagetool.cpp:416
+msgid "Package types that are installable with this tool:"
+msgstr "Typer av paket som kan installeras med det här verkyget:"
+
+#: kpackagetool/kpackagetool.cpp:417
+msgid "Built in:"
+msgstr "Inbyggda:"
+
+#: kpackagetool/kpackagetool.cpp:420
+msgid "KPackage/Generic"
+msgstr "Kpackage/Generell"
+
+#: kpackagetool/kpackagetool.cpp:421
+msgid "KPackage/GenericQML"
+msgstr "Kpackage/Generell QML"
+
+#: kpackagetool/kpackagetool.cpp:473
+msgid "Provided by plugins:"
+msgstr "Tillhandahållna av insticksprogram:"
+
+#: kpackagetool/kpackagetool.cpp:495
+msgid "Provided by .desktop files:"
+msgstr "Tillhandahållna av skrivbordsfiler:"
+
+#: kpackagetool/kpackagetool.cpp:517 kpackagetool/kpackagetool.cpp:526
+#, kde-format
+msgid "Generating %1/kpluginindex.json"
+msgstr "Skapar %1/kpluginindex.json"
+
+#: kpackagetool/kpackagetool.cpp:536
+#, kde-format
+msgid "Successfully upgraded %1"
+msgstr "Uppgraderade %1 med lyckat resultat"
+
+#: kpackagetool/kpackagetool.cpp:538
+#, kde-format
+msgid "Successfully installed %1"
+msgstr "Installerade %1 med lyckat resultat"
+
+#: kpackagetool/kpackagetool.cpp:541
+#, kde-format
+msgid "Error: Installation of %1 failed: %2"
+msgstr "Fel: Installation av %1 misslyckades: %2"
+
+#: kpackagetool/kpackagetool.cpp:553
+#, kde-format
+msgid "Upgrading package from file: %1"
+msgstr "Uppgraderar paket från fil: %1"
+
+#: kpackagetool/kpackagetool.cpp:558
+#, kde-format
+msgid "Successfully uninstalled %1"
+msgstr "Avinstallerade %1 med lyckat resultat"
+
+#: kpackagetool/kpackagetool.cpp:560
+#, kde-format
+msgid "Error: Uninstallation of %1 failed: %2"
+msgstr "Fel: Avinstallation av %1 misslyckades: %2"
+
+#: kpackagetool/main.cpp:49
+msgid "KPackage Manager"
+msgstr "Kpackage-pakethantering"
+
+#: kpackagetool/main.cpp:56
+msgctxt "Do not translate <path>"
+msgid "Generate a SHA1 hash for the package at <path>"
+msgstr "Skapa ett SHA1-kondensat för paketet på <path>"
+
+#: kpackagetool/main.cpp:57
+msgid "For install or remove, operates on packages installed for all users."
+msgstr ""
+"Installation eller borttagning utförs med paket installerade för alla "
+"användare."
+
+#: kpackagetool/main.cpp:62
+msgctxt ""
+"theme, wallpaper, etc. are keywords, but they may be translated, as both "
+"versions are recognized by the application (if translated, should be same as "
+"messages with 'package type' context below)"
+msgid ""
+"The type of package, e.g. theme, wallpaper, plasmoid, dataengine, runner, "
+"layout-template, etc."
+msgstr ""
+"Pakettypen, t.ex. tema, skrivbordsunderlägg, plasmoid, datagränssnitt, "
+"körningsprogram, layoutmall, etc."
+
+#: kpackagetool/main.cpp:64
+msgctxt "Do not translate <path>"
+msgid "Install the package at <path>"
+msgstr "Installera paketet på <path>"
+
+#: kpackagetool/main.cpp:65
+msgctxt "Do not translate <name>"
+msgid "Show information of package <name>"
+msgstr "Visar information om paket <name>"
+
+#: kpackagetool/main.cpp:66
+msgctxt "Do not translate <path>"
+msgid "Upgrade the package at <path>"
+msgstr "Uppgradera paketet på <path>"
+
+#: kpackagetool/main.cpp:67
+msgid "List installed packages"
+msgstr "Lista installerade paket"
+
+#: kpackagetool/main.cpp:68
+msgid "List all known package types that can be installed"
+msgstr "Listar alla kända pakettyper som kan installeras"
+
+#: kpackagetool/main.cpp:69
+msgctxt "Do not translate <name>"
+msgid "Remove the package named <name>"
+msgstr "Ta bort paketet som heter <name>"
+
+#: kpackagetool/main.cpp:70
+msgid ""
+"Absolute path to the package root. If not supplied, then the standard data "
+"directories for this KDE session will be searched instead."
+msgstr ""
+"Absolut sökväg till paketroten. Om den inte anges, används "
+"standarddatakatalogerna för KDE-sessionen istället."
+
+#: kpackagetool/main.cpp:71
+msgid ""
+"Recreate the plugin index. To be used in conjunction with either the option -"
+"t or -g. Recreates the index for the given type or package root. Operates in "
+"the user directory, unless -g is used"
+msgstr ""
+"Skapa om index över insticksprogram. Att användas tillsammans med väljaren -"
+"t eller -g. Skapar om index för den givna typen eller paketroten. Arbetar i "
+"användarkatalogen, om inte -g används."
