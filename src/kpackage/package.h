@@ -349,6 +349,9 @@ public:
     /**
      * Installs a package matching this package structure. By default installs a
      * native KPackage::Package.
+     * After the KJob will emitted finished(), if the install went well
+     * the Package instance will be guaranteed to have loaded the package just
+     * installed, and be valid and usable.
      *
      * @return KJob to track installation progress and result
      **/
@@ -359,6 +362,9 @@ public:
      * native KPackage::Package. If an older version is already installed,
      * it removes the old one. If the installed one is newer,
      * an error will occur.
+     * After the KJob will emitted finished(), if the install went well
+     * the Package instance will be guaranteed to have loaded the package just
+     * updated, and be valid and usable.
      *
      * @return KJob to track installation progress and result
      * @since 5.17

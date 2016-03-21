@@ -29,18 +29,23 @@ class PackageJobPrivate
 {
 public:
     PackageJobThread *thread;
+    Package *package;
     QString installPath;
 };
 
-PackageJob::PackageJob(QObject *parent) :
+PackageJob::PackageJob(Package *package, QObject *parent) :
     KJob(parent)
 {
     d = new PackageJobPrivate;
     d->thread = new PackageJobThread(this);
+    d->package = package;
     connect(d->thread, SIGNAL(finished(bool,QString)),
             SLOT(slotFinished(bool,QString)), Qt::QueuedConnection);
-    connect(d->thread, SIGNAL(installPathChanged(QString)),
-            SIGNAL(installPathChanged(QString)), Qt::QueuedConnection);
+    connect(d->thread, &PackageJobThread::installPathChanged, this,
+            [this](const QString &installPath) {
+                d->package->setPath(installPath);
+                emit installPathChanged(installPath);
+            }, Qt::QueuedConnection);
 }
 
 PackageJob::~PackageJob()

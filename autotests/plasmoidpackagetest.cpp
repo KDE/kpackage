@@ -293,6 +293,9 @@ void PlasmoidPackageTest::createAndInstallPackage()
     connect(job, SIGNAL(finished(KJob*)), SLOT(packageInstalled(KJob*)));
     QSignalSpy spy(job, SIGNAL(finished(KJob*)));
     QVERIFY(spy.wait(1000));
+
+    //is the package instance usable (ie proper path) after the install job has been completed?
+    QCOMPARE(p->path(), QString(m_packageRoot % "/plasmoid_to_package/"));
     cleanupPackage(QStringLiteral("plasmoid_to_package"));
 
     //QVERIFY(p->isValid());

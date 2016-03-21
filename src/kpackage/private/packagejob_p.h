@@ -26,13 +26,14 @@ namespace KPackage
 {
 
 class PackageJobPrivate;
+class Package;
 
 class PackageJob : public KJob
 {
     Q_OBJECT
 
 public:
-    PackageJob(QObject *parent = 0);
+    PackageJob(Package *package, QObject *parent = 0);
     ~PackageJob();
 
     void start() Q_DECL_OVERRIDE;
