@@ -350,22 +350,23 @@ bool PackageJobThread::installPackage(const QString &src, const QString &dest, O
             if (oldMeta.serviceTypes() != meta.serviceTypes()) {
                 d->errorMessage = i18n("The new package has a different type from the old version already installed.", meta.version(), meta.pluginId(), oldMeta.version());
                 d->errorCode = Package::JobError::UpdatePackageTypeMismatchError;
-                return false;
             } else if (isVersionNewer(oldMeta.version(), meta.version())) {
                 const bool ok = uninstallPackage(targetName);
                 if (!ok) {
                     d->errorMessage = i18n("Impossible to remove the old installation of %1 located at %2", pluginName, targetName);
                     d->errorCode = Package::JobError::OldVersionRemovalError;
-                    return false;
                 }
             } else {
                 d->errorMessage = i18n("Not installing version %1 of %2. Version %3 already installed.", meta.version(), meta.pluginId(), oldMeta.version());
                 d->errorCode = Package::JobError::NewerVersionAlreadyInstalledError;
-                return false;
             }
         } else {
             d->errorMessage = i18n("%1 already exists", targetName);
             d->errorCode = Package::JobError::PackageAlreadyInstalledError;
+        }
+
+        if (d->errorCode != KJob::NoError) {
+            d->installPath = targetName;
             return false;
         }
     }
