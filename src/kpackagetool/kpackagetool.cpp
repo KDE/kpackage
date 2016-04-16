@@ -340,6 +340,8 @@ void PackageTool::showPackageInfo(const QString &pluginName)
 
 QString PackageTool::findPackageRoot(const QString &pluginName, const QString &prefix)
 {
+    Q_UNUSED(pluginName);
+    Q_UNUSED(prefix);
     QString packageRoot;
     if (d->parser->isSet(QStringLiteral("packageroot")) && d->parser->isSet(QStringLiteral("global")) && !d->parser->isSet(QStringLiteral("generate-index"))) {
         qWarning() << i18nc("The user entered conflicting options packageroot and global, this is the error message telling the user he can use only one", "The packageroot and global options conflict with each other, please select only one.");
@@ -566,4 +568,3 @@ void PackageTool::packageUninstalled(KJob *job)
 } // namespace KPackage
 
 #include "moc_kpackagetool.cpp"
-
