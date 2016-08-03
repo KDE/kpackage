@@ -921,12 +921,15 @@ void PackagePrivate::createPackageMetadata(const QString &path)
 {
     delete metadata;
 
-    QString metadataPath = QFileInfo(path).isFile() ? path : (path + "/metadata.desktop");
-    if (!QFile::exists(metadataPath)) {
-        qWarning() << "No metadata file in the package, expected it at:" << metadataPath;
-        metadata = new KPluginMetaData();
+    const bool isDir = QFileInfo(path).isDir();
+    if (isDir && QFile::exists(path + "/metadata.desktop")) {
+        metadata = new KPluginMetaData(path + "/metadata.desktop");
+    } else if (isDir && QFile::exists(path + "/metadata.json")) {
+        metadata = new KPluginMetaData(path + "/metadata.json");
     } else {
-        metadata = new KPluginMetaData(metadataPath);
+        if (isDir)
+            qWarning() << "No metadata file in the package, expected it at:" << path;
+        metadata = new KPluginMetaData(path);
     }
 }
 
