@@ -36,9 +36,17 @@ macro(kpackage_install_package dir component)
            PATTERN Messages.sh EXCLUDE
            PATTERN dummydata EXCLUDE)
 
-   set(kpackagetool_cmd ${CMAKE_INSTALL_PREFIX}/bin/kpackagetool)
+   set(kpackagetool_cmd ${CMAKE_INSTALL_PREFIX}/bin/kpackagetool5)
 
    execute_process(COMMAND ${kpackagetool_cmd} --generate-index -g -p ${CMAKE_INSTALL_PREFIX}/${DATA_INSTALL_DIR}/${install_dir}/${root})
+
+   set(APPDATAFILE "${CMAKE_CURRENT_BINARY_DIR}/${component}.appdata.xml")
+   execute_process(COMMAND ${kpackagetool_cmd} --appstream-metainfo ${CMAKE_CURRENT_SOURCE_DIR}/${dir} OUTPUT_FILE ${APPDATAFILE} ERROR_VARIABLE appstreamerror)
+   if(appstreamerror)
+        message(WARNING "couldn't generate metainfo for ${component}: ${appstreamerror}")
+   else()
+        install(FILES ${APPDATAFILE} DESTINATION ${KDE_INSTALL_METAINFODIR})
+   endif()
 
    file(APPEND ${CMAKE_CURRENT_BINARY_DIR}/regenerateindex.sh "${kpackagetool_cmd} --generate-index -g -p ${CMAKE_INSTALL_PREFIX}/${DATA_INSTALL_DIR}/${install_dir}/${root}\n")
 endmacro()

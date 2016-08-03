@@ -69,12 +69,13 @@ int main(int argc, char **argv)
     parser.addOption(QCommandLineOption(QStringList() << QStringLiteral("r") << QStringLiteral("remove"), i18nc("Do not translate <name>", "Remove the package named <name>"), QStringLiteral("name")));
     parser.addOption(QCommandLineOption(QStringList() << QStringLiteral("p") << QStringLiteral("packageroot"), i18n("Absolute path to the package root. If not supplied, then the standard data directories for this KDE session will be searched instead."), QStringLiteral("path")));
     parser.addOption(QCommandLineOption(QStringList() << QStringLiteral("generate-index"), i18n("Recreate the plugin index. To be used in conjunction with either the option -t or -g. Recreates the index for the given type or package root. Operates in the user directory, unless -g is used")));
+    parser.addOption(QCommandLineOption(QStringList() << QStringLiteral("appstream-metainfo"), i18nc("Do not translate <path>", "Outputs the metadata for the package <path>"), QStringLiteral("path")));
 
     parser.process(app);
 
     //at least one operation should be specified
     if (!parser.isSet(QStringLiteral("hash")) && !parser.isSet(QStringLiteral("g")) &&
-        !parser.isSet(QStringLiteral("i")) && !parser.isSet(QStringLiteral("s")) &&
+        !parser.isSet(QStringLiteral("i")) && !parser.isSet(QStringLiteral("s")) && !parser.isSet(QStringLiteral("appstream-metainfo")) &&
         !parser.isSet(QStringLiteral("u")) && !parser.isSet(QStringLiteral("l")) &&
         !parser.isSet(QStringLiteral("list-types")) && !parser.isSet(QStringLiteral("r")) &&
         !parser.isSet(QStringLiteral("generate-index"))) {

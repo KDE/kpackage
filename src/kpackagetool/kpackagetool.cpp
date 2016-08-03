@@ -38,9 +38,11 @@
 #include <QDir>
 #include <QFileInfo>
 #include <QMap>
+#include <QRegularExpression>
 #include <QStandardPaths>
 #include <QStringList>
 #include <QTimer>
+#include <QXmlStreamWriter>
 
 #include <iostream>
 #include <iomanip>
@@ -50,6 +52,7 @@
 #include "../kpackage/private/packagejobthread_p.h"
 
 Q_GLOBAL_STATIC_WITH_ARGS(QTextStream, cout, (stdout))
+Q_GLOBAL_STATIC_WITH_ARGS(QTextStream, cerr, (stderr))
 
 namespace KPackage
 {
@@ -121,6 +124,8 @@ void PackageTool::runMain()
         d->package = d->parser->value(QStringLiteral("install"));
     } else if (d->parser->isSet(QStringLiteral("show"))) {
         d->package = d->parser->value(QStringLiteral("show"));
+    } else if (d->parser->isSet(QStringLiteral("appstream-metainfo"))) {
+        d->package = d->parser->value(QStringLiteral("appstream-metainfo"));
     }
 
     if (!QDir::isAbsolutePath(d->package)) {
@@ -175,7 +180,10 @@ void PackageTool::runMain()
     if (d->parser->isSet(QStringLiteral("show"))) {
         const QString pluginName = d->package;
         showPackageInfo(pluginName);
-        exit(0);
+        return;
+    } else if (d->parser->isSet(QStringLiteral("appstream-metainfo"))) {
+        const QString pluginName = d->package;
+        showAppstreamInfo(pluginName);
         return;
     }
 
@@ -323,7 +331,7 @@ void PackageTool::showPackageInfo(const QString &pluginName)
 
     KPluginMetaData i = pkg.metadata();
     if (!i.isValid()) {
-        d->coutput(i18n("Error: Can't find plugin metadata: %1", pluginName));
+        *cerr << i18n("Error: Can't find plugin metadata: %1\n", pluginName);
         exit(3);
         return;
     }
@@ -334,6 +342,91 @@ void PackageTool::showPackageInfo(const QString &pluginName)
     auto const authors = i.authors();
     d->coutput(i18n("    Author : %1", authors.first().name()));
     d->coutput(i18n("      Path : %1", pkg.path()));
+
+    exit(0);
+}
+
+void translateKPluginToAppstream(const QString &tagName, const QString &configField, const QJsonObject &configObject, QXmlStreamWriter& writer)
+{
+    const QRegularExpression rx(QStringLiteral("%1\\[(.*)\\]").arg(configField));
+    const QJsonValue native = configObject.value(configField);
+    if (native.isUndefined()) {
+        return;
+    }
+    writer.writeTextElement(tagName, native.toString());
+    for (auto it = configObject.begin(), itEnd = configObject.end(); it != itEnd; ++it) {
+        const auto match = rx.match(it.key());
+        if (match.hasMatch()) {
+            writer.writeStartElement(tagName);
+            writer.writeAttribute("xml:lang", match.captured(1));
+            writer.writeCharacters(it->toString());
+            writer.writeEndElement();
+        }
+    }
+}
+
+void PackageTool::showAppstreamInfo(const QString &pluginName)
+{
+    QString type = QStringLiteral("KPackage/Generic");
+    if (!d->pluginTypes.contains(type) && d->pluginTypes.count() > 0) {
+        type = d->pluginTypes.at(0);
+    }
+    KPackage::Package pkg = KPackage::PackageLoader::self()->loadPackage(type);
+
+    pkg.setDefaultPackageRoot(d->packageRoot);
+
+    if (QFile::exists(d->packageFile)) {
+        pkg.setPath(d->packageFile);
+    } else {
+        pkg.setPath(pluginName);
+    }
+
+    KPluginMetaData i = pkg.metadata();
+    if (!i.isValid()) {
+        *cerr << i18n("Error: Can't find plugin metadata: %1\n", pluginName);
+        std::exit(3);
+        return;
+    }
+
+    const QString parentApp = i.value("ParentApp");
+    const QJsonObject rootObject = i.rawData()[QStringLiteral("KPlugin")].toObject();
+
+    QXmlStreamAttributes componentAttributes;
+    if (!parentApp.isEmpty()) {
+        componentAttributes << QXmlStreamAttribute("type", "addon");
+    }
+
+    QXmlStreamWriter writer(cout->device());
+    writer.setAutoFormatting(true);
+    writer.writeStartDocument();
+    writer.writeStartElement("component");
+    writer.writeAttributes(componentAttributes);
+
+    writer.writeTextElement("id", i.pluginId());
+    if (!parentApp.isEmpty()) {
+        writer.writeTextElement("extends", parentApp);
+    }
+    translateKPluginToAppstream("name", "Name", rootObject, writer);
+    translateKPluginToAppstream("summary", "Description", rootObject, writer);
+    if (!i.website().isEmpty()) {
+        writer.writeStartElement("url");
+        writer.writeAttribute("type", "homepage");
+        writer.writeCharacters(i.website());
+        writer.writeEndElement();
+    }
+    const auto authors = i.authors();
+    if (!authors.isEmpty()) {
+        QStringList authorsText;
+        for (const auto &author: authors) {
+            authorsText += QStringLiteral("%1 <%2>").arg(author.name(), author.emailAddress());
+        }
+        writer.writeTextElement("developer_name", authorsText.join(", "));
+    }
+
+    writer.writeTextElement("project_license", i.license());
+    writer.writeTextElement("metadata_license", "CC0-1.0");
+    writer.writeEndElement();
+    writer.writeEndDocument();
 
     exit(0);
 }
