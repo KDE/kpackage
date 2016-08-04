@@ -40,7 +40,7 @@ function(kpackage_install_package dir component)
 
 
    set(APPDATAFILE "${CMAKE_CURRENT_BINARY_DIR}/${component}.appdata.xml")
-   execute_process(COMMAND KF5::kpackagetool5 --appstream-metainfo ${CMAKE_CURRENT_SOURCE_DIR}/${dir} OUTPUT_FILE ${APPDATAFILE} ERROR_VARIABLE appstreamerror)
+   execute_process(COMMAND ${kpackagetool_cmd} --appstream-metainfo ${CMAKE_CURRENT_SOURCE_DIR}/${dir} OUTPUT_FILE ${APPDATAFILE} ERROR_VARIABLE appstreamerror RESULT_VARIABLE result)
    if(appstreamerror)
         message(WARNING "couldn't generate metainfo for ${component}: ${appstreamerror}")
    else()
