@@ -541,8 +541,6 @@ void Package::setPath(const QString &path)
     delete d->metadata;
     d->metadata = 0;
 
-    QString fallback;
-
     // uh-oh, but we didn't end up with anything valid, so we sadly reset ourselves
     // to futility.
     if (!d->valid) {

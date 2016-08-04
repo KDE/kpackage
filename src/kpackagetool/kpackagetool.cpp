@@ -112,7 +112,6 @@ void PackageTool::runMain()
     }
 
     QString type = d->parser->value(QStringLiteral("type"));
-    QString packageRoot = type;
     d->pluginTypes.clear();
     d->installer = Package();
 
@@ -257,10 +256,7 @@ void PackageTool::runMain()
             }
             QStringList installed = d->packages(d->pluginTypes);
 
-            const QString file = QDir::currentPath() + '/' + pluginName;
-
             if (QFile::exists(d->packageFile)) {
-                const QString file = QDir::currentPath() + '/' + d->package;
                 d->installer.setPath(d->packageFile);
                 if (d->installer.isValid()) {
                     if (d->installer.metadata().isValid()) {
@@ -530,8 +526,6 @@ void PackageToolPrivate::listTypes()
     }
 
 
-    QString pluginFileName;
-
     QList<KPluginMetaData> offers;
 
     Q_FOREACH (const QString &plugindir, libraryPaths) {
@@ -572,10 +566,8 @@ void PackageToolPrivate::listTypes()
             //const QString proot = "";
             KPackage::Package pkg = KPackage::PackageLoader::self()->loadPackage(info.pluginId());
             QString name = info.name();
-            QString comment = info.value(QStringLiteral("Comment"));
             QString plugin = info.pluginId();
             QString path = pkg.defaultPackageRoot();
-            QString types = info.serviceTypes().join(QStringLiteral(","));
             //QString path = defaultPackageRoot;
             plugins.insert(name, QStringList() << plugin << path);
             //qDebug() << "KService stuff:" << name << plugin << comment << path;
@@ -596,7 +588,7 @@ void PackageToolPrivate::listTypes()
 #pragma message("read config here")
             // structure.read(&config);
             // get the name based on the rc file name, just as KPackage::PackageStructure does
-            const QString name = file.left(file.length() - 2);
+            //const QString name = file.left(file.length() - 2);
             //plugins.insert(name, QStringList() << structure.type() << structure.defaultPackageRoot());
         }
     }

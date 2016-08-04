@@ -213,8 +213,6 @@ bool PackageJobThread::install(const QString &src, const QString &dest)
 
 bool PackageJobThread::installPackage(const QString &src, const QString &dest, OperationType operation)
 {
-    QString packageRoot = dest;
-
     QDir root(dest);
     if (!root.exists()) {
         QDir().mkpath(dest);
