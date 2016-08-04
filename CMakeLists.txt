@@ -17,6 +17,7 @@ include(KDEInstallDirs)
 include(KDECMakeSettings)
 include(ECMPackageConfigHelpers)
 include(ECMSetupVersion)
+include(ECMMarkNonGuiExecutable)
 include(KDEFrameworkCompilerSettings NO_POLICY_SCOPE)
 
 set(KF5_VERSION "5.25.0") # handled by release scripts

@@ -4,6 +4,7 @@ include(KDEInstallDirs)
 
 set(KPACKAGE_RELATIVE_DATA_INSTALL_DIR "kpackage")
 set(KPACKAGE_DATA_INSTALL_DIR "${DATA_INSTALL_DIR}/${KPACKAGE_RELATIVE_DATA_INSTALL_DIR}")
+get_target_property(kpackagetool_cmd KF5::kpackagetool5 LOCATION)
 
 # kpackage_install_package(path componentname [root] [install_dir])
 #
@@ -21,7 +22,8 @@ set(KPACKAGE_DATA_INSTALL_DIR "${DATA_INSTALL_DIR}/${KPACKAGE_RELATIVE_DATA_INST
 # kpackage_install_package(declarativetoolbox org.kde.toolbox packages) # installs a generic package
 # kpackage_install_package(declarativetoolbox org.kde.toolbox) # installs a generic package
 #
-macro(kpackage_install_package dir component)
+
+function(kpackage_install_package dir component)
    set(root ${ARGV2})
    set(install_dir ${ARGV3})
    if(NOT root)
@@ -36,20 +38,25 @@ macro(kpackage_install_package dir component)
            PATTERN Messages.sh EXCLUDE
            PATTERN dummydata EXCLUDE)
 
-   set(kpackagetool_cmd ${CMAKE_INSTALL_PREFIX}/bin/kpackagetool5)
-
-   execute_process(COMMAND ${kpackagetool_cmd} --generate-index -g -p ${CMAKE_INSTALL_PREFIX}/${DATA_INSTALL_DIR}/${install_dir}/${root})
 
    set(APPDATAFILE "${CMAKE_CURRENT_BINARY_DIR}/${component}.appdata.xml")
-   execute_process(COMMAND ${kpackagetool_cmd} --appstream-metainfo ${CMAKE_CURRENT_SOURCE_DIR}/${dir} OUTPUT_FILE ${APPDATAFILE} ERROR_VARIABLE appstreamerror)
+   execute_process(COMMAND KF5::kpackagetool5 --appstream-metainfo ${CMAKE_CURRENT_SOURCE_DIR}/${dir} OUTPUT_FILE ${APPDATAFILE} ERROR_VARIABLE appstreamerror)
    if(appstreamerror)
         message(WARNING "couldn't generate metainfo for ${component}: ${appstreamerror}")
    else()
         install(FILES ${APPDATAFILE} DESTINATION ${KDE_INSTALL_METAINFODIR})
    endif()
 
-   file(APPEND ${CMAKE_CURRENT_BINARY_DIR}/regenerateindex.sh "${kpackagetool_cmd} --generate-index -g -p ${CMAKE_INSTALL_PREFIX}/${DATA_INSTALL_DIR}/${install_dir}/${root}\n")
-endmacro()
+   set(newentry "${kpackagetool_cmd} --generate-index -g -p ${CMAKE_INSTALL_PREFIX}/${DATA_INSTALL_DIR}/${install_dir}/${root}\n")
+   get_directory_property(currentindex kpackageindex)
+   string(FIND "${currentindex}" "${newentry}" alreadyin)
+   if (alreadyin LESS 0)
+        set(regenerateindex "${currentindex}${newentry}")
+
+        set_directory_properties(PROPERTIES kpackageindex "${regenerateindex}")
+        file(WRITE ${CMAKE_CURRENT_BINARY_DIR}/regenerateindex.sh ${regenerateindex})
+   endif()
+endfunction()
 
 
 
