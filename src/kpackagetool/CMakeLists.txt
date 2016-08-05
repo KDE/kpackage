@@ -5,6 +5,7 @@ add_executable(kpackagetool5
     ../kpackage/private/versionparser.cpp
 )
 
+add_executable(KF5::kpackagetool5 ALIAS kpackagetool5)
 target_link_libraries(kpackagetool5 KF5::Archive KF5::Package KF5::I18n KF5::ConfigCore KF5::CoreAddons)
 ecm_mark_nongui_executable(kpackagetool5)
 
