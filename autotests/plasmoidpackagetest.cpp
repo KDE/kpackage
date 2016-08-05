@@ -383,7 +383,10 @@ void PlasmoidPackageTest::cleanupPackage(const QString &packageName)
 {
     KPackage::Package *p = new KPackage::Package(m_defaultPackageStructure);
     KJob *jj = p->uninstall(packageName, m_packageRoot);
-    connect(jj, SIGNAL(finished(KJob*)), SLOT(packageInstalled(KJob*)));
+    connect(jj, SIGNAL(finished(KJob*)), SLOT(packageUninstalled(KJob*)));
+
+    QSignalSpy spy(jj, &KJob::finished);
+    QVERIFY(spy.wait(1000));
 }
 
 void PlasmoidPackageTest::packageInstalled(KJob *j)

@@ -805,7 +805,7 @@ KJob *Package::update(const QString &sourcePackage, const QString &packageRoot)
 
 KJob *Package::uninstall(const QString &packageName, const QString &packageRoot)
 {
-    d->createPackageMetadata(packageRoot + packageName);
+    d->createPackageMetadata(packageRoot + '/' + packageName);
     if (!d->structure) {
         return 0;
     }
