@@ -1,41 +1,17 @@
-<?xml version="1.0" encoding="UTF-8"?>
+<?xml version="1.0" encoding="utf-8"?>
 <component>
-    <id>org.kde.testfallbackpackage</id>
-    <name>Test Fallback Package</name>
-    <name xml:lang="ca@valencia">Paquet de proves alternatiu</name>
-    <name xml:lang="ca">Paquet de proves alternatiu</name>
-    <name xml:lang="da">Test af fallback-pakke</name>
-    <name xml:lang="de">Test-Ausweichpaket</name>
-    <name xml:lang="el">Πακέτο δοκιμής εφεδρείας</name>
-    <name xml:lang="en_GB">Test Fallback Package</name>
-    <name xml:lang="es">Probar el paquete al que recurrir</name>
-    <name xml:lang="fi">Testivarapaketti</name>
-    <name xml:lang="gd">Pacaid dheuchainneach èiginneach</name>
-    <name xml:lang="gl">Paquete de probas por omisión</name>
-    <name xml:lang="hu">Tartalék tesztcsomag</name>
-    <name xml:lang="it">Pacchetto di ripiego di test</name>
-    <name xml:lang="ko">테스트 폴백 패키지</name>
-    <name xml:lang="nb">Test reservepakke</name>
-    <name xml:lang="nds">Test-Torüchfallpaket</name>
-    <name xml:lang="nl">Testterugvalpakket</name>
-    <name xml:lang="nn">Test reservepakke</name>
-    <name xml:lang="pl">Zapasowy pakiet próbny</name>
-    <name xml:lang="pt">Pacote de Salvaguarda de Testes</name>
-    <name xml:lang="pt_BR">Pacote de teste secundário</name>
-    <name xml:lang="ru">Резервный тестовый пакет</name>
-    <name xml:lang="sk">Testovací záchranný balík</name>
-    <name xml:lang="sl">Preizkusni zasilni paket</name>
-    <name xml:lang="sr@ijekavian">Пробни одступни пакет</name>
-    <name xml:lang="sr@ijekavianlatin">Probni odstupni paket</name>
-    <name xml:lang="sr@latin">Probni odstupni paket</name>
-    <name xml:lang="sr">Пробни одступни пакет</name>
-    <name xml:lang="sv">Reservtestpaket</name>
-    <name xml:lang="tr">Yedek Paketi Denetle</name>
-    <name xml:lang="uk">Тестовий резервний пакунок</name>
-    <name xml:lang="x-test">xxTest Fallback Packagexx</name>
-    <name xml:lang="zh_CN">测试回退包</name>
-    <name xml:lang="zh_TW">測試預設套件</name>
-    <developer_name>Marco Martin &lt;mart@kde.org&gt;</developer_name>
-    <project_license>GPLv2+</project_license>
-    <metadata_license>CC0-1.0</metadata_license>
+  <id>org.kde.testfallbackpackage</id>
+  <name>Test Fallback Package</name>
+  <name xml:lang="pt">Pacote de Salvaguarda de Testes</name>
+  <name xml:lang="sv">Prova reservpaket</name>
+  <name xml:lang="uk">Тестовий резервний пакунок</name>
+  <name xml:lang="x-test">xxTest Fallback Packagexx</name>
+  <developer_name>Marco Martin &lt;mart@kde.org&gt;</developer_name>
+  <developer_name xml:lang="es">Marco Martin &lt;mart@kde.org&gt;</developer_name>
+  <developer_name xml:lang="pt">Marco Martin &lt;mart@kde.org&gt;</developer_name>
+  <developer_name xml:lang="sv">Marco Martin &lt;mart@kde.org&gt;</developer_name>
+  <developer_name xml:lang="uk">Marco Martin &lt;mart@kde.org&gt;</developer_name>
+  <developer_name xml:lang="x-test">xxMarco Martin &lt;mart@kde.org&gt;xx</developer_name>
+  <project_license>GPLv2+</project_license>
+  <metadata_license>CC0-1.0</metadata_license>
 </component>
