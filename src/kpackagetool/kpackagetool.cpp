@@ -54,6 +54,47 @@
 Q_GLOBAL_STATIC_WITH_ARGS(QTextStream, cout, (stdout))
 Q_GLOBAL_STATIC_WITH_ARGS(QTextStream, cerr, (stderr))
 
+static QVector<KPluginMetaData> listPackageTypes()
+{
+    QStringList libraryPaths;
+
+    const QString subDirectory = QStringLiteral("kpackage/packagestructure");
+
+    Q_FOREACH (const QString &dir, QCoreApplication::libraryPaths()) {
+        QString d = dir + QDir::separator() + subDirectory;
+        if (!d.endsWith(QDir::separator())) {
+            d += QDir::separator();
+        }
+        libraryPaths << d;
+    }
+
+    QVector<KPluginMetaData> offers;
+    Q_FOREACH (const QString &plugindir, libraryPaths) {
+        const QString &_ixfile = plugindir + QStringLiteral("kpluginindex.json");
+        QFile indexFile(_ixfile);
+        if (indexFile.exists()) {
+            indexFile.open(QIODevice::ReadOnly);
+            QJsonDocument jdoc = QJsonDocument::fromBinaryData(indexFile.readAll());
+            indexFile.close();
+
+            QJsonArray plugins = jdoc.array();
+            for (QJsonArray::const_iterator iter = plugins.constBegin(); iter != plugins.constEnd(); ++iter) {
+                const QJsonObject obj = iter->toObject();
+                const QString candidate = obj.value(QStringLiteral("FileName")).toString();
+                offers << KPluginMetaData(obj, candidate);
+            }
+        } else {
+            QVector<KPluginMetaData> plugins = KPluginLoader::findPlugins(plugindir);
+            QVectorIterator<KPluginMetaData> iter(plugins);
+            while (iter.hasNext()) {
+                auto md = iter.next();
+                offers << md;
+            }
+        }
+    }
+    return offers;
+}
+
 namespace KPackage
 {
 class PackageToolPrivate
@@ -377,6 +418,16 @@ void PackageTool::showAppstreamInfo(const QString &pluginName)
         pkg.setPath(pluginName);
     }
 
+    KPluginMetaData packageStructureMetaData;
+    {
+        foreach(const KPluginMetaData &md, listPackageTypes()) {
+            if (md.pluginId() == type) {
+                packageStructureMetaData = md;
+                break;
+            }
+        }
+    }
+
     KPluginMetaData i = pkg.metadata();
     if (!i.isValid()) {
         *cerr << i18n("Error: Can't find plugin metadata: %1\n", pluginName);
@@ -384,7 +435,10 @@ void PackageTool::showAppstreamInfo(const QString &pluginName)
         return;
     }
 
-    const QString parentApp = i.value("ParentApp");
+    QString parentApp = i.rawData().value("X-KDE-ParentApp").toString();
+    if (parentApp.isEmpty()) {
+        parentApp = packageStructureMetaData.rawData().value("X-KDE-ParentApp").toString();
+    }
     const QJsonObject rootObject = i.rawData()[QStringLiteral("KPlugin")].toObject();
 
     QXmlStreamAttributes componentAttributes;
@@ -513,49 +567,7 @@ void PackageToolPrivate::listTypes()
 
     renderTypeTable(builtIns);
 
-    QStringList libraryPaths;
-
-    const QString subDirectory = QStringLiteral("kpackage/packagestructure");
-
-    Q_FOREACH (const QString &dir, QCoreApplication::libraryPaths()) {
-        QString d = dir + QDir::separator() + subDirectory;
-        if (!d.endsWith(QDir::separator())) {
-            d += QDir::separator();
-        }
-        libraryPaths << d;
-    }
-
-
-    QList<KPluginMetaData> offers;
-
-    Q_FOREACH (const QString &plugindir, libraryPaths) {
-        const QString &_ixfile = plugindir + QStringLiteral("kpluginindex.json");
-        QFile indexFile(_ixfile);
-        if (indexFile.exists()) {
-            indexFile.open(QIODevice::ReadOnly);
-            QJsonDocument jdoc = QJsonDocument::fromBinaryData(indexFile.readAll());
-            indexFile.close();
-
-
-            QJsonArray plugins = jdoc.array();
-
-            for (QJsonArray::const_iterator iter = plugins.constBegin(); iter != plugins.constEnd(); ++iter) {
-                const QJsonObject &obj = QJsonValue(*iter).toObject();
-                const QString &candidate = obj.value(QStringLiteral("FileName")).toString();
-                const KPluginMetaData m(obj, candidate);
-                offers << m;
-            }
-        } else {
-            QVector<KPluginMetaData> plugins = KPluginLoader::findPlugins(plugindir);
-            QVectorIterator<KPluginMetaData> iter(plugins);
-            while (iter.hasNext()) {
-                auto md = iter.next();
-                offers << md;
-            }
-        }
-    }
-
-
+    const QVector<KPluginMetaData> offers = listPackageTypes();
 
     if (!offers.isEmpty()) {
         std::cout << std::endl;
