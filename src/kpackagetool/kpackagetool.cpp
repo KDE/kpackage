@@ -135,7 +135,8 @@ void PackageTool::runMain()
         const QString path = d->parser->value(QStringLiteral("hash"));
         KPackage::Package package(structure);
         package.setPath(path);
-        const QString hash = package.contentsHash();
+        const QString hash =
+            QString::fromLocal8Bit(package.cryptographicHash(QCryptographicHash::Sha1));
         if (hash.isEmpty()) {
             d->coutput(i18n("Failed to generate a Package hash for %1", path));
             exit(9);
