@@ -3,6 +3,8 @@
   <id>org.kde.testjsonpackage</id>
   <name>Test JSON Package</name>
   <name xml:lang="ca">Paquet JSON de proves</name>
+  <name xml:lang="ca-valencia">Paquet JSON de proves</name>
+  <name xml:lang="da">Test JSON-pakke</name>
   <name xml:lang="en-GB">Test JSON Package</name>
   <name xml:lang="nl">JSON pakket testen</name>
   <name xml:lang="pl">Pakiet próbny JSON</name>
@@ -14,6 +16,8 @@
   <name xml:lang="x-test">xxTest JSON Packagexx</name>
   <developer_name>Aleix &lt;aleixpol@kde.org&gt;</developer_name>
   <developer_name xml:lang="ca">Aleix &lt;aleixpol@kde.org&gt;</developer_name>
+  <developer_name xml:lang="ca-valencia">Aleix &lt;aleixpol@kde.org&gt;</developer_name>
+  <developer_name xml:lang="da">Aleix &lt;aleixpol@kde.org&gt;</developer_name>
   <developer_name xml:lang="en-GB">Aleix &lt;aleixpol@kde.org&gt;</developer_name>
   <developer_name xml:lang="es">Aleix &lt;aleixpol@kde.org&gt;</developer_name>
   <developer_name xml:lang="nl">Aleix &lt;aleixpol@kde.org&gt;</developer_name>

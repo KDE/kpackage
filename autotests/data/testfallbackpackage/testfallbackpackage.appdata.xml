@@ -3,6 +3,8 @@
   <id>org.kde.testfallbackpackage</id>
   <name>Test Fallback Package</name>
   <name xml:lang="ca">Paquet pel retorn de les proves</name>
+  <name xml:lang="ca-valencia">Paquet pel retorn de les proves</name>
+  <name xml:lang="da">Test af fallback-pakke</name>
   <name xml:lang="en-GB">Test Fallback Package</name>
   <name xml:lang="nl">Testterugvalpakket</name>
   <name xml:lang="pl">Zapasowy pakiet próbny</name>
@@ -14,6 +16,8 @@
   <name xml:lang="x-test">xxTest Fallback Packagexx</name>
   <developer_name>Marco Martin &lt;mart@kde.org&gt;</developer_name>
   <developer_name xml:lang="ca">Marco Martin &lt;mart@kde.org&gt;</developer_name>
+  <developer_name xml:lang="ca-valencia">Marco Martin &lt;mart@kde.org&gt;</developer_name>
+  <developer_name xml:lang="da">Marco Martin &lt;mart@kde.org&gt;</developer_name>
   <developer_name xml:lang="en-GB">Marco Martin &lt;mart@kde.org&gt;</developer_name>
   <developer_name xml:lang="es">Marco Martin &lt;mart@kde.org&gt;</developer_name>
   <developer_name xml:lang="nl">Marco Martin &lt;mart@kde.org&gt;</developer_name>
