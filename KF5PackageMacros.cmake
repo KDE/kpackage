@@ -14,7 +14,7 @@ set(KPACKAGE_DATA_INSTALL_DIR "${DATA_INSTALL_DIR}/${KPACKAGE_RELATIVE_DATA_INST
 # @arg root The subdirectory to install to, default: packages
 # @arg install_dir the path where to install packages, 
 #       such as myapp, that would go under prefix/share/myapp:
-#       default ${KPACKAGE_DATA_INSTALL_DIR}
+#       default ${KPACKAGE_RELATIVE_DATA_INSTALL_DIR}
 #
 # Examples:
 # kpackage_install_package(mywidget org.kde.plasma.mywidget plasmoids) # installs an applet
