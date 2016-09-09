@@ -1,5 +1,5 @@
 
-find_package(ECM 0.0.9 CONFIG REQUIRED)
+find_package(ECM 1.6.0 CONFIG REQUIRED)
 include(KDEInstallDirs)
 
 set(KPACKAGE_RELATIVE_DATA_INSTALL_DIR "kpackage")
@@ -30,7 +30,7 @@ function(kpackage_install_package dir component)
    if(NOT install_dir)
       set(install_dir ${KPACKAGE_RELATIVE_DATA_INSTALL_DIR})
    endif()
-   install(DIRECTORY ${dir}/ DESTINATION ${DATA_INSTALL_DIR}/${install_dir}/${root}/${component}
+   install(DIRECTORY ${dir}/ DESTINATION ${KDE_INSTALL_DATADIR}/${install_dir}/${root}/${component}
            PATTERN .svn EXCLUDE
            PATTERN CMakeLists.txt EXCLUDE
            PATTERN Messages.sh EXCLUDE
@@ -46,7 +46,7 @@ function(kpackage_install_package dir component)
         install(FILES ${APPDATAFILE} DESTINATION ${KDE_INSTALL_METAINFODIR})
    endif()
 
-   set(newentry "${kpackagetool_cmd} --generate-index -g -p ${CMAKE_INSTALL_PREFIX}/${DATA_INSTALL_DIR}/${install_dir}/${root}\n")
+   set(newentry "${kpackagetool_cmd} --generate-index -g -p ${CMAKE_INSTALL_PREFIX}/${KDE_INSTALL_DATADIR}/${install_dir}/${root}\n")
    get_directory_property(currentindex kpackageindex)
    string(FIND "${currentindex}" "${newentry}" alreadyin)
    if (alreadyin LESS 0)
