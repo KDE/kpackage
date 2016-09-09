@@ -3,7 +3,6 @@ find_package(ECM 0.0.9 CONFIG REQUIRED)
 include(KDEInstallDirs)
 
 set(KPACKAGE_RELATIVE_DATA_INSTALL_DIR "kpackage")
-set(KPACKAGE_DATA_INSTALL_DIR "${DATA_INSTALL_DIR}/${KPACKAGE_RELATIVE_DATA_INSTALL_DIR}")
 
 # kpackage_install_package(path componentname [root] [install_dir])
 #
