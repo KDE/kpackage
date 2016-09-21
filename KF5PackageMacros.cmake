@@ -37,13 +37,17 @@ function(kpackage_install_package dir component)
            PATTERN dummydata EXCLUDE)
 
 
-   get_target_property(kpackagetool_cmd KF5::kpackagetool5 LOCATION)
-   set(APPDATAFILE "${CMAKE_CURRENT_BINARY_DIR}/${component}.appdata.xml")
-   execute_process(COMMAND ${kpackagetool_cmd} --appstream-metainfo ${CMAKE_CURRENT_SOURCE_DIR}/${dir} OUTPUT_FILE ${APPDATAFILE} ERROR_VARIABLE appstreamerror RESULT_VARIABLE result)
-   if(appstreamerror)
-        message(WARNING "couldn't generate metainfo for ${component}: ${appstreamerror}")
+   if (${component} MATCHES "^.+\\..+\\.") #we make sure there's at least 2 dots
+        get_target_property(kpackagetool_cmd KF5::kpackagetool5 LOCATION)
+        set(APPDATAFILE "${CMAKE_CURRENT_BINARY_DIR}/${component}.appdata.xml")
+        execute_process(COMMAND ${kpackagetool_cmd} --appstream-metainfo ${CMAKE_CURRENT_SOURCE_DIR}/${dir} OUTPUT_FILE ${APPDATAFILE} ERROR_VARIABLE appstreamerror RESULT_VARIABLE result)
+        if(appstreamerror)
+            message(WARNING "couldn't generate metainfo for ${component}: ${appstreamerror}")
+        else()
+            install(FILES ${APPDATAFILE} DESTINATION ${KDE_INSTALL_METAINFODIR})
+        endif()
    else()
-        install(FILES ${APPDATAFILE} DESTINATION ${KDE_INSTALL_METAINFODIR})
+        message(WARNING "KPackage components should be specified in reverse domain notation. Appstream information won't be generated for ${component}.")
    endif()
 
    set(newentry "${kpackagetool_cmd} --generate-index -g -p ${CMAKE_INSTALL_PREFIX}/${KDE_INSTALL_DATADIR}/${install_dir}/${root}\n")
