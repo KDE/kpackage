@@ -1,0 +1,945 @@
+# Translation of libkpackage5.po to Catalan
+# Copyright (C) 2014-2016 This_file_is_part_of_KDE
+# This file is distributed under the license LGPL version 2.1 or
+# version 3 or later versions approved by the membership of KDE e.V.
+#
+# Josep Ma. Ferrer <txemaq@gmail.com>, 2014, 2015, 2016.
+# Antoni Bella Pérez <antonibella5@yahoo.com>, 2014, 2015, 2016.
+msgid ""
+msgstr ""
+"Project-Id-Version: libkpackage5\n"
+"Report-Msgid-Bugs-To: http://bugs.kde.org\n"
+"POT-Creation-Date: 2016-08-09 07:52+0000\n"
+"PO-Revision-Date: 2016-08-05 20:50+0100\n"
+"Last-Translator: Antoni Bella Pérez <antonibella5@yahoo.com>\n"
+"Language-Team: Catalan <kde-i18n-ca@kde.org>\n"
+"Language: ca\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=2; plural=n != 1;\n"
+"X-Accelerator-Marker: &\n"
+"X-Generator: Lokalize 2.0\n"
+
+#: kpackage/package.cpp:55
+msgid "Desktop file that describes this package."
+msgstr "Fitxer «desktop» que descriu aquest paquet."
+
+#: kpackage/packageloader.cpp:76
+msgid "Accessibility"
+msgstr "Accessibilitat"
+
+#: kpackage/packageloader.cpp:77
+msgid "Application Launchers"
+msgstr "Llançadors d'aplicacions"
+
+#: kpackage/packageloader.cpp:78
+msgid "Astronomy"
+msgstr "Astronomia"
+
+#: kpackage/packageloader.cpp:79
+msgid "Date and Time"
+msgstr "Data i hora"
+
+#: kpackage/packageloader.cpp:80
+msgid "Development Tools"
+msgstr "Eines de desenvolupament"
+
+#: kpackage/packageloader.cpp:81
+msgid "Education"
+msgstr "Educació"
+
+#: kpackage/packageloader.cpp:82
+msgid "Environment and Weather"
+msgstr "Medi ambient i meteorologia"
+
+#: kpackage/packageloader.cpp:83
+msgid "Examples"
+msgstr "Exemples"
+
+#: kpackage/packageloader.cpp:84
+msgid "File System"
+msgstr "Sistema de fitxers"
+
+#: kpackage/packageloader.cpp:85
+msgid "Fun and Games"
+msgstr "Jocs i esbarjo"
+
+#: kpackage/packageloader.cpp:86
+msgid "Graphics"
+msgstr "Gràfics"
+
+#: kpackage/packageloader.cpp:87
+msgid "Language"
+msgstr "Idioma"
+
+#: kpackage/packageloader.cpp:88
+msgid "Mapping"
+msgstr "Cartografia"
+
+#: kpackage/packageloader.cpp:89
+msgid "Miscellaneous"
+msgstr "Miscel·lània"
+
+#: kpackage/packageloader.cpp:90
+msgid "Multimedia"
+msgstr "Multimèdia"
+
+#: kpackage/packageloader.cpp:91
+msgid "Online Services"
+msgstr "Serveis en línia"
+
+#: kpackage/packageloader.cpp:92
+msgid "Productivity"
+msgstr "Productivitat"
+
+#: kpackage/packageloader.cpp:93
+msgid "System Information"
+msgstr "Informació del sistema"
+
+#: kpackage/packageloader.cpp:94
+msgid "Utilities"
+msgstr "Utilitats"
+
+#: kpackage/packageloader.cpp:95
+msgid "Windows and Tasks"
+msgstr "Finestres i tasques"
+
+#: kpackage/packageloader.cpp:364
+#, kde-format
+msgid "Could not load installer for package of type %1. Error reported was: %2"
+msgstr ""
+"No s'ha pogut carregar l'instal·lador pel paquet de tipus %1. L'error "
+"detectat és: %2"
+
+#: kpackage/private/packagejobthread.cpp:220
+#, kde-format
+msgid "Could not create package root directory: %1"
+msgstr "No s'ha pogut crear el directori arrel del paquet: %1"
+
+#: kpackage/private/packagejobthread.cpp:229
+#, kde-format
+msgid "No such file: %1"
+msgstr "No hi ha el fitxer: %1"
+
+#: kpackage/private/packagejobthread.cpp:259
+#, kde-format
+msgid "Could not open package file, unsupported archive format: %1 %2"
+msgstr "No s'ha pogut obrir el fitxer, el format d'arxiu no està admès: %1 %2"
+
+#: kpackage/private/packagejobthread.cpp:267
+#, kde-format
+msgid "Could not open package file: %1"
+msgstr "No s'ha pogut obrir el fitxer del paquet: %1"
+
+#: kpackage/private/packagejobthread.cpp:302
+#, kde-format
+msgid "Could not open metadata file: %1"
+msgstr "No s'ha pogut obrir el fitxer de les metadades: %1"
+
+#: kpackage/private/packagejobthread.cpp:313
+#, kde-format
+msgid "No metadata file in package: %1"
+msgstr "No hi ha fitxer de metadades en el paquet: %1"
+
+#: kpackage/private/packagejobthread.cpp:323
+#, kde-format
+msgid "Package plugin name not specified: %1"
+msgstr "No s'ha especificat el nom del connector del paquet: %1"
+
+#: kpackage/private/packagejobthread.cpp:333
+#, kde-format
+msgid "Package plugin name %1 contains invalid characters"
+msgstr "El nom del connector del paquet %1 conté caràcters no vàlids"
+
+#: kpackage/private/packagejobthread.cpp:349
+msgid ""
+"The new package has a different type from the old version already installed."
+msgstr ""
+"El nou paquet té un tipus diferent al de la versió antiga ja instal·lada."
+
+#: kpackage/private/packagejobthread.cpp:354
+#, kde-format
+msgid "Impossible to remove the old installation of %1 located at %2"
+msgstr ""
+"No ha estat possible eliminar la instal·lació antiga de %1 situada a %2"
+
+#: kpackage/private/packagejobthread.cpp:358
+#, kde-format
+msgid "Not installing version %1 of %2. Version %3 already installed."
+msgstr ""
+"No s'instal·la la versió %1 de %2. Ja es troba instal·lada la versió %3."
+
+#: kpackage/private/packagejobthread.cpp:362
+#, kde-format
+msgid "%1 already exists"
+msgstr "Ja existeix %1"
+
+#: kpackage/private/packagejobthread.cpp:378
+#, kde-format
+msgid "Could not move package to destination: %1"
+msgstr "No s'ha pogut moure el paquet a la destinació: %1"
+
+#: kpackage/private/packagejobthread.cpp:388
+#, kde-format
+msgid "Could not copy package to destination: %1"
+msgstr "No s'ha pogut copiar el paquet a la destinació: %1"
+
+#: kpackage/private/packagejobthread.cpp:430
+#, kde-format
+msgid "%1 does not exist"
+msgstr "%1 no existeix"
+
+#: kpackage/private/packagejobthread.cpp:450
+#, kde-format
+msgid "Could not delete package from: %1"
+msgstr "No s'ha pogut eliminar el paquet des de: %1"
+
+#: kpackage/private/packages.cpp:36 kpackage/private/packages.cpp:57
+msgid "Main Script File"
+msgstr "Fitxer principal de script"
+
+#: kpackage/private/packages.cpp:67
+msgid "Images"
+msgstr "Imatges"
+
+#: kpackage/private/packages.cpp:68
+msgid "Themed Images"
+msgstr "Imatges temàtiques"
+
+#: kpackage/private/packages.cpp:74
+msgid "Configuration Definitions"
+msgstr "Definicions de la configuració"
+
+#: kpackage/private/packages.cpp:79
+msgid "User Interface"
+msgstr "Interfície d'usuari"
+
+#: kpackage/private/packages.cpp:81
+msgid "Data Files"
+msgstr "Fitxers de dades"
+
+#: kpackage/private/packages.cpp:83
+msgid "Executable Scripts"
+msgstr "Scripts executables"
+
+#: kpackage/private/packages.cpp:88
+msgid "Translations"
+msgstr "Traduccions"
+
+#: kpackage/private/packages.cpp:95
+msgid "Main UI File"
+msgstr "Fitxer principal de la IU"
+
+#: kpackagetool/kpackagetool.cpp:141
+#, kde-format
+msgid "Failed to generate a Package hash for %1"
+msgstr "Ha fallat en generar un resum de paquet per %1"
+
+#: kpackagetool/kpackagetool.cpp:144
+#, kde-format
+msgid "SHA1 hash for Package at %1: '%2'"
+msgstr "Resum SHA1 del paquet a %1: «%2»"
+
+#: kpackagetool/kpackagetool.cpp:183
+msgctxt "package type"
+msgid "wallpaper"
+msgstr "fons d'escriptori"
+
+#: kpackagetool/kpackagetool.cpp:233
+#, kde-format
+msgid "Listing service types: %1 in %2"
+msgstr "Llistat dels tipus de serveis: %1 en %2"
+
+#: kpackagetool/kpackagetool.cpp:316
+#, kde-format
+msgid "Error: Plugin %1 is not installed."
+msgstr "Error: El connector %1 no està instal·lat."
+
+#: kpackagetool/kpackagetool.cpp:326
+msgctxt ""
+"No option was given, this is the error message telling the user he needs at "
+"least one, do not translate install, remove, upgrade nor list"
+msgid "One of install, remove, upgrade or list is required."
+msgstr ""
+"Es requereix un dels següents: «install», «remove», «upgrade» o «list»."
+
+#: kpackagetool/kpackagetool.cpp:372 kpackagetool/kpackagetool.cpp:434
+#, kde-format
+msgid "Error: Can't find plugin metadata: %1\n"
+msgstr "Error: No s'han pogut trobar les metadades del connector: %1\n"
+
+#: kpackagetool/kpackagetool.cpp:376
+#, kde-format
+msgid "Showing info for package: %1"
+msgstr "Mostra la informació del paquet: %1"
+
+#: kpackagetool/kpackagetool.cpp:377
+#, kde-format
+msgid "      Name : %1"
+msgstr "      Nom: %1"
+
+#: kpackagetool/kpackagetool.cpp:378
+#, kde-format
+msgid "   Comment : %1"
+msgstr "   Comentari: %1"
+
+#: kpackagetool/kpackagetool.cpp:379
+#, kde-format
+msgid "    Plugin : %1"
+msgstr "    Connector: %1"
+
+#: kpackagetool/kpackagetool.cpp:381
+#, kde-format
+msgid "    Author : %1"
+msgstr "    Autor: %1"
+
+#: kpackagetool/kpackagetool.cpp:382
+#, kde-format
+msgid "      Path : %1"
+msgstr "      Camí: %1"
+
+#: kpackagetool/kpackagetool.cpp:491
+msgctxt ""
+"The user entered conflicting options packageroot and global, this is the "
+"error message telling the user he can use only one"
+msgid ""
+"The packageroot and global options conflict with each other, please select "
+"only one."
+msgstr ""
+"Una arrel de paquet i les opcions globals entren en conflicte, seleccioneu-"
+"ne només un."
+
+#: kpackagetool/kpackagetool.cpp:517
+msgid "Addon Name"
+msgstr "Nom del complement"
+
+#: kpackagetool/kpackagetool.cpp:518
+msgid "Service Type"
+msgstr "Tipus de servei"
+
+#: kpackagetool/kpackagetool.cpp:519
+msgid "Path"
+msgstr "Camí"
+
+#: kpackagetool/kpackagetool.cpp:562
+msgid "Package types that are installable with this tool:"
+msgstr "Tipus de paquets que són instal·lables amb aquesta eina:"
+
+#: kpackagetool/kpackagetool.cpp:563
+msgid "Built in:"
+msgstr "Incorporats:"
+
+#: kpackagetool/kpackagetool.cpp:566
+msgid "KPackage/Generic"
+msgstr "KPackage/Genèric"
+
+#: kpackagetool/kpackagetool.cpp:567
+msgid "KPackage/GenericQML"
+msgstr "KPackage/GenericQML"
+
+#: kpackagetool/kpackagetool.cpp:575
+msgid "Provided by plugins:"
+msgstr "Proporcionat pels connectors:"
+
+#: kpackagetool/kpackagetool.cpp:595
+msgid "Provided by .desktop files:"
+msgstr "Proporcionat pels fitxers .desktop:"
+
+#: kpackagetool/kpackagetool.cpp:617 kpackagetool/kpackagetool.cpp:626
+#, kde-format
+msgid "Generating %1/kpluginindex.json"
+msgstr "S'està generant %1/kpluginindex.json"
+
+#: kpackagetool/kpackagetool.cpp:636
+#, kde-format
+msgid "Successfully upgraded %1"
+msgstr "%1 s'ha actualitzat correctament"
+
+#: kpackagetool/kpackagetool.cpp:638
+#, kde-format
+msgid "Successfully installed %1"
+msgstr "%1 s'ha instal·lat correctament"
+
+#: kpackagetool/kpackagetool.cpp:641
+#, kde-format
+msgid "Error: Installation of %1 failed: %2"
+msgstr "Error: La instal·lació de %1 ha fallat: %2"
+
+#: kpackagetool/kpackagetool.cpp:653
+#, kde-format
+msgid "Upgrading package from file: %1"
+msgstr "El paquet s'està actualitzant des del fitxer: %1"
+
+#: kpackagetool/kpackagetool.cpp:658
+#, kde-format
+msgid "Successfully uninstalled %1"
+msgstr "%1 s'ha desinstal·lat correctament"
+
+#: kpackagetool/kpackagetool.cpp:660
+#, kde-format
+msgid "Error: Uninstallation of %1 failed: %2"
+msgstr "Error: La desinstal·lació de %1 ha fallat: %2"
+
+#: kpackagetool/main.cpp:49
+msgid "KPackage Manager"
+msgstr "Gestor del KPackage"
+
+#: kpackagetool/main.cpp:56
+msgctxt "Do not translate <path>"
+msgid "Generate a SHA1 hash for the package at <path>"
+msgstr "Genera un resum SHA1 del paquet a <path>"
+
+#: kpackagetool/main.cpp:57
+msgid "For install or remove, operates on packages installed for all users."
+msgstr ""
+"Per a instal·lar o suprimir, opera amb els paquets instal·lats per a tots "
+"els usuaris."
+
+#: kpackagetool/main.cpp:62
+msgctxt ""
+"theme, wallpaper, etc. are keywords, but they may be translated, as both "
+"versions are recognized by the application (if translated, should be same as "
+"messages with 'package type' context below)"
+msgid ""
+"The type of package, e.g. theme, wallpaper, plasmoid, dataengine, runner, "
+"layout-template, etc."
+msgstr ""
+"El tipus de paquet, p.ex. tema, fons d'escriptori, plasmoide, motor de "
+"dades, executor, plantilla de disposició, etc."
+
+#: kpackagetool/main.cpp:64
+msgctxt "Do not translate <path>"
+msgid "Install the package at <path>"
+msgstr "Instal·la el paquet a <path>"
+
+#: kpackagetool/main.cpp:65
+msgctxt "Do not translate <name>"
+msgid "Show information of package <name>"
+msgstr "Mostra la informació del paquet <name>"
+
+#: kpackagetool/main.cpp:66
+msgctxt "Do not translate <path>"
+msgid "Upgrade the package at <path>"
+msgstr "Actualitza el paquet en el <path>"
+
+#: kpackagetool/main.cpp:67
+msgid "List installed packages"
+msgstr "Llista els paquets instal·lats"
+
+#: kpackagetool/main.cpp:68
+msgid "List all known package types that can be installed"
+msgstr "Llista tots els tipus de paquets coneguts que es poden instal·lar"
+
+#: kpackagetool/main.cpp:69
+msgctxt "Do not translate <name>"
+msgid "Remove the package named <name>"
+msgstr "Suprimeix el paquet anomenat <name>"
+
+#: kpackagetool/main.cpp:70
+msgid ""
+"Absolute path to the package root. If not supplied, then the standard data "
+"directories for this KDE session will be searched instead."
+msgstr ""
+"Camí absolut a l'arrel del paquet. Si no es proporciona, llavors se cercaran "
+"als directoris de dades estàndard per aquesta sessió del KDE."
+
+#: kpackagetool/main.cpp:71
+msgid ""
+"Recreate the plugin index. To be used in conjunction with either the option -"
+"t or -g. Recreates the index for the given type or package root. Operates in "
+"the user directory, unless -g is used"
+msgstr ""
+"Es torna a crear l'índex de connectors. S'utilitzarà conjuntament amb les "
+"opcions -t o -g. Torna a crear l'índex pel tipus indicat o l'arrel del "
+"paquet. Opera en el directori d'usuari, excepte si s'usa -g"
+
+#: kpackagetool/main.cpp:72
+msgctxt "Do not translate <path>"
+msgid "Outputs the metadata for the package <path>"
+msgstr "Sortida de les metadades per al paquet <camí>"
+
+#~ msgid "OK"
+#~ msgstr "D'acord"
+
+#~ msgid "Cancel"
+#~ msgstr "Cancel·la"
+
+#~ msgid "Script initialization failed"
+#~ msgstr "Ha fallat la inicialització de l'script"
+
+#~ msgid "Unknown"
+#~ msgstr "Desconegut"
+
+#~ msgid "Activate %1 Widget"
+#~ msgstr "Activa l'estri %1"
+
+#~ msgctxt "%1 is the name of the applet"
+#~ msgid "Remove this %1"
+#~ msgstr "Elimina aquest %1"
+
+#~ msgctxt "%1 is the name of the applet"
+#~ msgid "%1 Settings"
+#~ msgstr "Arranjament de %1"
+
+#~ msgid "Lock Widgets"
+#~ msgstr "Bloqueja els estris"
+
+#~ msgid "Unlock Widgets"
+#~ msgstr "Desbloqueja els estris"
+
+#~ msgid "Whether or not to create an on-disk cache for the theme."
+#~ msgstr "Si crear o no una memòria cau al disc pel tema."
+
+#~ msgid ""
+#~ "The maximum size of the on-disk Theme cache in kilobytes. Note that these "
+#~ "files are sparse files, so the maximum size may not be used. Setting a "
+#~ "larger size is therefore often quite safe."
+#~ msgstr ""
+#~ "La mida màxima de la memòria cau al disc pel tema en kilobytes. Tingueu "
+#~ "en compte que aquests fitxers són fitxers dispersos, per tant, gairebé no "
+#~ "s'utilitzarà la mida màxima. Per consegüent, es força segur definir una "
+#~ "mida gran."
+
+#~ msgctxt "misc category"
+#~ msgid "Miscellaneous"
+#~ msgstr "Miscel·lània"
+
+#~ msgctxt "%1 is the name of the applet"
+#~ msgid "%1 Settings..."
+#~ msgstr "Arranjament de %1..."
+
+#~ msgid "The %2 widget did not define which ScriptEngine to use."
+#~ msgstr "L'estri %2 no ha definit quin «ScriptEngine» utilitzar."
+
+#~ msgctxt "Package file, name of the widget"
+#~ msgid "Could not open the %1 package required for the %2 widget."
+#~ msgstr "No s'ha pogut obrir el paquet %1 requerit per l'estri %2."
+
+#~ msgctxt ""
+#~ "API or programming language the widget was written in, name of the widget"
+#~ msgid "Could not create a %1 ScriptEngine for the %2 widget."
+#~ msgstr "No s'ha pogut crear l'«ScriptEngine» %1 per a l'estri %2."
+
+#~ msgid "Alternatives..."
+#~ msgstr "Alternatives..."
+
+#~ msgid "The widget \"%1\" has been removed."
+#~ msgstr "S'ha eliminat l'estri «%1»."
+
+#~ msgid "A Panel has been removed."
+#~ msgstr "S'ha eliminat un plafó."
+
+#~ msgid "A Desktop has been removed."
+#~ msgstr "S'ha eliminat un escriptori."
+
+#~ msgid "Undo"
+#~ msgstr "Desfés"
+
+#~ msgid "Widget Settings"
+#~ msgstr "Arranjament de l'estri"
+
+#~ msgid "Remove this Widget"
+#~ msgstr "Suprimeix aquest estri"
+
+#~ msgid "Run the Associated Application"
+#~ msgstr "Executa l'aplicació associada"
+
+#~ msgid "Open with %1"
+#~ msgstr "Obre amb %1"
+
+#~ msgid "Remove this Panel"
+#~ msgstr "Elimina aquest plafó"
+
+#~ msgid "Remove this Activity"
+#~ msgstr "Elimina aquesta activitat"
+
+#~ msgid "Activity Settings"
+#~ msgstr "Arranjament de l'activitat"
+
+#~ msgid "Add Widgets..."
+#~ msgstr "Afegeix estris..."
+
+#~ msgid "Could not find requested component: %1"
+#~ msgstr "No s'ha pogut trobar el component sol·licitat: %1"
+
+#~ msgid "Could not create local service directory: %1"
+#~ msgstr "No s'ha pogut crear el directori de servei local: %1"
+
+#~ msgid ""
+#~ "Could not register package as service (this is not necessarily fatal): %1"
+#~ msgstr ""
+#~ "No s'ha pogut enregistrar el paquet com a servei (això no és dolent "
+#~ "necessàriament): %1"
+
+#~ msgid "Configuration UI pages model"
+#~ msgstr "Model de pàgines IU de configuració"
+
+#~ msgid "Configuration XML file"
+#~ msgstr "Fitxer XML de configuració"
+
+#~ msgid "Service Descriptions"
+#~ msgstr "Descripcions dels serveis"
+
+#~ msgid "Images for dialogs"
+#~ msgstr "Imatges pels diàlegs"
+
+#~ msgid "Generic dialog background"
+#~ msgstr "Fons de diàleg genèric"
+
+#~ msgid "Theme for the logout dialog"
+#~ msgstr "Tema pel diàleg de desconnexió"
+
+#~ msgid "Wallpaper packages"
+#~ msgstr "Paquets de fons d'escriptori"
+
+#~ msgid "Images for widgets"
+#~ msgstr "Imatges pels estris"
+
+#~ msgid "Background image for widgets"
+#~ msgstr "Imatge de fons pels estris"
+
+#~ msgid "Analog clock face"
+#~ msgstr "Esfera de rellotge analògic"
+
+#~ msgid "Background image for panels"
+#~ msgstr "Imatge de fons pels plafons"
+
+#~ msgid "Background for graphing widgets"
+#~ msgstr "Fons pels estris gràfics"
+
+#~ msgid "Background image for tooltips"
+#~ msgstr "Imatge de fons pels consells"
+
+#~ msgid "Opaque images for dialogs"
+#~ msgstr "Imatges opaques pels diàlegs"
+
+#~ msgid "Opaque generic dialog background"
+#~ msgstr "Fons opac pel diàleg genèric"
+
+#~ msgid "Opaque theme for the logout dialog"
+#~ msgstr "Tema opac pel diàleg de desconnexió"
+
+#~ msgid "Opaque images for widgets"
+#~ msgstr "Imatges opaques pels estris"
+
+#~ msgid "Opaque background image for panels"
+#~ msgstr "Imatge de fons opaca pels plafons"
+
+#~ msgid "Opaque background image for tooltips"
+#~ msgstr "Imatge de fons opaca pels consells"
+
+#~ msgid "Low color images for dialogs"
+#~ msgstr "Imatges de color baix pels diàlegs"
+
+#~ msgid "Low color generic dialog background"
+#~ msgstr "Fons de color baix pel diàleg genèric"
+
+#~ msgid "Low color theme for the logout dialog"
+#~ msgstr "Tema de color baix pel diàleg de desconnexió"
+
+#~ msgid "Low color background image for widgets"
+#~ msgstr "Imatge de color baix pel fons dels estris"
+
+#~ msgid "Low color analog clock face"
+#~ msgstr "Esfera de color baix pel rellotge analògic"
+
+#~ msgid "Low color background image for panels"
+#~ msgstr "Imatge de color baix pel fons dels plafons"
+
+#~ msgid "Low color background for graphing widgets"
+#~ msgstr "Fons de color baix pels estris gràfics"
+
+#~ msgid "Low color background image for tooltips"
+#~ msgstr "Imatge de color baix pel fons dels consells"
+
+#~ msgid "KColorScheme configuration file"
+#~ msgstr "Fitxer de configuració del KColorScheme"
+
+#~ msgid ""
+#~ "Sharing a widget on the network allows you to access this widget from "
+#~ "another computer as a remote control."
+#~ msgstr ""
+#~ "La compartició d'un estri en la xarxa us permet accedir a aquest estri "
+#~ "des de qualsevol altre ordinador, com si es tractés d'un control remot."
+
+#~ msgid "Share this widget on the network"
+#~ msgstr "Comparteix aquest estri per la xarxa"
+
+#~ msgid "Allow everybody to freely access this widget"
+#~ msgstr "Permet a tothom l'accés lliure a aquest estri"
+
+#~ msgctxt "Error message, tried to start an invalid service"
+#~ msgid "Invalid (null) service, can not perform any operations."
+#~ msgstr "Servei no vàlid (nul), no pot executar cap operació."
+
+#~ msgctxt "package type"
+#~ msgid "plasmoid"
+#~ msgstr "plasmoide"
+
+#~ msgctxt "package type"
+#~ msgid "package"
+#~ msgstr "paquet"
+
+#~ msgctxt "package type"
+#~ msgid "theme"
+#~ msgstr "tema"
+
+#~ msgctxt "package type"
+#~ msgid "dataengine"
+#~ msgstr "motor de dades"
+
+#~ msgctxt "package type"
+#~ msgid "runner"
+#~ msgstr "executor"
+
+#~ msgctxt "package type"
+#~ msgid "wallpaperplugin"
+#~ msgstr "connector de fons d'escriptori"
+
+#~ msgctxt "package type"
+#~ msgid "lookandfeel"
+#~ msgstr "aspecte i comportament"
+
+#~ msgctxt "package type"
+#~ msgid "shell"
+#~ msgstr "intèrpret d'ordres"
+
+#~ msgctxt "package type"
+#~ msgid "layout-template"
+#~ msgstr "plantilla de disposició"
+
+#~ msgctxt "package type"
+#~ msgid "kwineffect"
+#~ msgstr "kwineffect"
+
+#~ msgctxt "package type"
+#~ msgid "windowswitcher"
+#~ msgstr "windowswitcher"
+
+#~ msgctxt "package type"
+#~ msgid "kwinscript"
+#~ msgstr "kwinscript"
+
+#~ msgid "Could not find a suitable installer for package of type %1"
+#~ msgstr "No s'ha pogut trobar un instal·lador adequat pel paquet de tipus %1"
+
+#~ msgid "Type Argument"
+#~ msgstr "Argument de tipus"
+
+#~ msgid "DataEngine"
+#~ msgstr "Motor de dades"
+
+#~ msgid "Layout Template"
+#~ msgstr "Plantilla de disposició"
+
+#~ msgid "Look and Feel"
+#~ msgstr "Aspecte i comportament"
+
+#~ msgid "Plasmoid"
+#~ msgstr "Plasmoide"
+
+#~ msgid "Runner"
+#~ msgstr "Executor"
+
+#~ msgid "Shell"
+#~ msgstr "Intèrpret d'ordres"
+
+#~ msgid "Theme"
+#~ msgstr "Tema"
+
+#~ msgid "Wallpaper Images"
+#~ msgstr "Imatges de fons d'escriptori"
+
+#~ msgid "Animated Wallpaper"
+#~ msgstr "Fons d'escriptori animat"
+
+#~ msgid "KWin Effect"
+#~ msgstr "Efecte del KWin"
+
+#~ msgid "KWin Window Switcher"
+#~ msgstr "Commutador de finestres del KWin"
+
+#~ msgid "KWin Script"
+#~ msgstr "Script del KWin"
+
+#~ msgid "Error loading QML file: %1"
+#~ msgstr "Error en carregar el fitxer QML: %1"
+
+#~ msgid "Error loading Applet: package inexistent. %1"
+#~ msgstr "Error en carregar la miniaplicació: Paquet inexistent. %1"
+
+#~ msgid "%1 Settings"
+#~ msgstr "Arranjament de %1"
+
+#~ msgid "Default settings for theme, etc."
+#~ msgstr "Arranjament per defecte del tema, etc."
+
+#~ msgid "Color scheme to use for applications."
+#~ msgstr "Esquema de colors a usar per a les aplicacions."
+
+#~ msgid "Preview Images"
+#~ msgstr "Vista prèvia de les imatges"
+
+#~ msgid "Preview for the Login Manager"
+#~ msgstr "Vista prèvia pel gestor d'accés"
+
+#~ msgid "Preview for the Lock Screen"
+#~ msgstr "Vista prèvia per a la pantalla de bloqueig"
+
+#~ msgid "Preview for the Userswitcher"
+#~ msgstr "Vista prèvia pel commutador d'usuari"
+
+#~ msgid "Preview for the Virtual Desktop Switcher"
+#~ msgstr "Vista prèvia pel commutador d'escriptoris virtuals"
+
+#~ msgid "Preview for Splash Screen"
+#~ msgstr "Vista prèvia per a la pantalla de presentació"
+
+#~ msgid "Preview for KRunner"
+#~ msgstr "Vista prèvia pel KRunner"
+
+#~ msgid "Preview for the Window Decorations"
+#~ msgstr "Vista prèvia per a la decoració de les finestres"
+
+#~ msgid "Preview for Window Switcher"
+#~ msgstr "Vista prèvia pel commutador de finestres"
+
+#~ msgid "Login Manager"
+#~ msgstr "Gestor d'accés"
+
+#~ msgid "Main Script for Login Manager"
+#~ msgstr "Script principal pel gestor d'accés"
+
+#~ msgid "Logout Dialog"
+#~ msgstr "Diàleg de desconnexió"
+
+#~ msgid "Main Script for Logout Dialog"
+#~ msgstr "Script principal pel diàleg de desconnexió"
+
+#~ msgid "Screenlocker"
+#~ msgstr "Bloqueig de pantalla"
+
+#~ msgid "Main Script for Lock Screen"
+#~ msgstr "Script principal per a la pantalla de bloqueig"
+
+#~ msgid "UI for fast user switching"
+#~ msgstr "IU pel commutador ràpid d'usuari"
+
+#~ msgid "Main Script for User Switcher"
+#~ msgstr "Script principal pel commutador d'usuaris"
+
+#~ msgid "Virtual Desktop Switcher"
+#~ msgstr "Commutador d'escriptoris virtuals"
+
+#~ msgid "Main Script for Virtual Desktop Switcher"
+#~ msgstr "Script principal pel commutador d'escriptoris virtuals"
+
+#~ msgid "On-Screen Display Notifications"
+#~ msgstr "Notificacions mostrades a la pantalla"
+
+#~ msgid "Main Script for On-Screen Display Notifications"
+#~ msgstr "Script principal per a les notificacions mostrades a la pantalla"
+
+#~ msgid "Splash Screen"
+#~ msgstr "Pantalla de presentació"
+
+#~ msgid "Main Script for Splash Screen"
+#~ msgstr "Script principal per a la pantalla de presentació"
+
+#~ msgid "KRunner UI"
+#~ msgstr "IU del KRunner"
+
+#~ msgid "Main Script KRunner"
+#~ msgstr "Script principal del KRunner"
+
+#~ msgid "Window Decoration"
+#~ msgstr "Decoració de les finestres"
+
+#~ msgid "Main Script for Window Decoration"
+#~ msgstr "Script principal per a la decoració de les finestres"
+
+#~ msgid "Window Switcher"
+#~ msgstr "Commutador de finestres"
+
+#~ msgid "Main Script for Window Switcher"
+#~ msgstr "Script principal pel commutador de finestres"
+
+#~ msgid "Fetching file type..."
+#~ msgstr "S'està recuperant el tipus de fitxer..."
+
+#~ msgid "Widgets"
+#~ msgstr "Estris"
+
+#~ msgid "Icon"
+#~ msgstr "Icona"
+
+#~ msgid "Wallpaper"
+#~ msgstr "Fons d'escriptori"
+
+#~ msgctxt "%1 is the name of the containment"
+#~ msgid "%1 Options"
+#~ msgstr "Opcions de %1"
+
+#~ msgctxt "@title:window %1 is the name of the containment"
+#~ msgid "Remove %1"
+#~ msgstr "Suprimeix %1"
+
+#~ msgctxt "%1 is the name of the containment"
+#~ msgid "Do you really want to remove this %1?"
+#~ msgstr "Esteu segur que voleu suprimir aquest %1?"
+
+#~ msgid "Applets furniture"
+#~ msgstr "Accessoris de les miniaplicacions"
+
+#~ msgid "Explorer UI for adding widgets"
+#~ msgstr "IU de l'explorador per afegir estris"
+
+#~ msgid "User interface for the views that will show containments"
+#~ msgstr "Interfície d'usuari per a les vistes que mostraran els contenidors"
+
+#~ msgid "Default layout file"
+#~ msgstr "Fitxer de disposició per omissió"
+
+#~ msgid "Default plugins for containments, containmentActions, etc."
+#~ msgstr "Connectors per defecte pels contenidors, «containmentActions», etc."
+
+#~ msgid "Error message shown when an applet fails to load"
+#~ msgstr ""
+#~ "Missatge d'error a mostrar quan una miniaplicació falli en carregar-se"
+
+#~ msgid "QML component that shows an applet in a popup"
+#~ msgstr "Component QML que mostra una miniaplicació en una finestra emergent"
+
+#~ msgid ""
+#~ "Compact representation of an applet when collapsed in a popup, for "
+#~ "instance as an icon. Applets can override this component."
+#~ msgstr ""
+#~ "Representació compacta d'una miniaplicació quan es redueix en una "
+#~ "finestra emergent, per exemple com una icona. Les miniaplicacions poden "
+#~ "substituir aquest component."
+
+#~ msgid "QML component for the configuration dialog for applets"
+#~ msgstr "Component QML pel diàleg de configuració de les miniaplicacions"
+
+#~ msgid "QML component for the configuration dialog for containments"
+#~ msgstr "Component QML pel diàleg de configuració dels contenidors."
+
+#~ msgid "Panel configuration UI"
+#~ msgstr "IU per a la configuració del plafó"
+
+#~ msgid "QML component for choosing an alternate applet"
+#~ msgstr "Component QML per triar una miniaplicació alternativa"
+
+#~ msgid "Widgets explorer UI"
+#~ msgstr "IU per a l'explorador d'estris"
+
+#~ msgid ""
+#~ "A UI for writing, loading and running desktop scripts in the current live "
+#~ "session"
+#~ msgstr ""
+#~ "Una interfície d'usuari per escriure, carregar i executar scripts "
+#~ "d'escriptori en la sessió en viu actual"
+
+#~ msgid "Theme preview thumbnail"
+#~ msgstr "Miniatura de la vista prèvia del tema"

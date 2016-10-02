@@ -1,0 +1,490 @@
+# Translation of libkpackage5.po into Serbian.
+# Chusslove Illich <caslav.ilic@gmx.net>, 2008, 2009, 2010, 2011, 2012, 2013, 2014, 2015, 2016.
+# Dalibor Djuric <daliborddjuric@gmail.com>, 2009.
+msgid ""
+msgstr ""
+"Project-Id-Version: libkpackage5\n"
+"Report-Msgid-Bugs-To: http://bugs.kde.org\n"
+"POT-Creation-Date: 2016-08-09 07:52+0000\n"
+"PO-Revision-Date: 2016-08-14 23:47+0200\n"
+"Last-Translator: Chusslove Illich <caslav.ilic@gmx.net>\n"
+"Language-Team: Serbian <kde-i18n-sr@kde.org>\n"
+"Language: sr@latin\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=4; plural=n==1 ? 3 : n%10==1 && n%100!=11 ? 0 : n"
+"%10>=2 && n%10<=4 && (n%100<10 || n%100>=20) ? 1 : 2;\n"
+"X-Accelerator-Marker: &\n"
+"X-Text-Markup: kde4\n"
+"X-Environment: kde\n"
+
+#: kpackage/package.cpp:55
+msgid "Desktop file that describes this package."
+msgstr ".Desktop fajl koji opisuje ovaj paket."
+
+# >> @item applet category
+#: kpackage/packageloader.cpp:76
+msgid "Accessibility"
+msgstr "pristupačnost"
+
+# >> @item applet category
+#: kpackage/packageloader.cpp:77
+msgid "Application Launchers"
+msgstr "pokretači programa"
+
+# >> @item applet category
+#: kpackage/packageloader.cpp:78
+msgid "Astronomy"
+msgstr "astronomija"
+
+# >> @item applet category
+#: kpackage/packageloader.cpp:79
+msgid "Date and Time"
+msgstr "datum i vreme"
+
+# >> @item applet category
+#: kpackage/packageloader.cpp:80
+msgid "Development Tools"
+msgstr "razvojne alatke"
+
+# >> @item applet category
+#: kpackage/packageloader.cpp:81
+msgid "Education"
+msgstr "obrazovanje"
+
+# >> @item applet category
+#: kpackage/packageloader.cpp:82
+msgid "Environment and Weather"
+msgstr "priroda i vreme"
+
+# >> @item applet category
+#: kpackage/packageloader.cpp:83
+msgid "Examples"
+msgstr "primeri"
+
+# >> @item applet category
+#: kpackage/packageloader.cpp:84
+msgid "File System"
+msgstr "fajl sistem"
+
+# >> @item applet category
+#: kpackage/packageloader.cpp:85
+msgid "Fun and Games"
+msgstr "zabava i igre"
+
+# >> @item applet category
+#: kpackage/packageloader.cpp:86
+msgid "Graphics"
+msgstr "grafika"
+
+# >> @item applet category
+#: kpackage/packageloader.cpp:87
+msgid "Language"
+msgstr "jezik"
+
+# >> @item applet category
+#: kpackage/packageloader.cpp:88
+msgid "Mapping"
+msgstr "kartografija"
+
+# >> @item applet category
+#: kpackage/packageloader.cpp:89
+msgid "Miscellaneous"
+msgstr "razno"
+
+# >> @item applet category
+#: kpackage/packageloader.cpp:90
+msgid "Multimedia"
+msgstr "multimedija"
+
+# >> @item applet category
+#: kpackage/packageloader.cpp:91
+msgid "Online Services"
+msgstr "servisi na vezi"
+
+# >> @item applet category
+#: kpackage/packageloader.cpp:92
+msgid "Productivity"
+msgstr "produktivnost"
+
+# >> @item applet category
+#: kpackage/packageloader.cpp:93
+msgid "System Information"
+msgstr "podaci o sistemu"
+
+# >> @item applet category
+#: kpackage/packageloader.cpp:94
+msgid "Utilities"
+msgstr "alatke"
+
+# >> @item applet category
+#: kpackage/packageloader.cpp:95
+msgid "Windows and Tasks"
+msgstr "prozori i zadaci"
+
+#: kpackage/packageloader.cpp:364
+#, kde-format
+msgid "Could not load installer for package of type %1. Error reported was: %2"
+msgstr "Ne mogu da učitam instalater za paket tipa %1. Prijavljena greška: %2"
+
+#: kpackage/private/packagejobthread.cpp:220
+#, kde-format
+msgid "Could not create package root directory: %1"
+msgstr "Ne mogu da napravim korenu fasciklu paketa: %1"
+
+#: kpackage/private/packagejobthread.cpp:229
+#, kde-format
+msgid "No such file: %1"
+msgstr "Nema fajla: %1"
+
+#: kpackage/private/packagejobthread.cpp:259
+#, kde-format
+msgid "Could not open package file, unsupported archive format: %1 %2"
+msgstr "Ne mogu da otvorim fajl paketa, nepodržan format arhive: %1 %2"
+
+#: kpackage/private/packagejobthread.cpp:267
+#, kde-format
+msgid "Could not open package file: %1"
+msgstr "Ne mogu da otvorim fajl paketa: %1"
+
+#: kpackage/private/packagejobthread.cpp:302
+#, kde-format
+msgid "Could not open metadata file: %1"
+msgstr "Ne mogu da otvorim fajl metapodataka: %1"
+
+#: kpackage/private/packagejobthread.cpp:313
+#, kde-format
+msgid "No metadata file in package: %1"
+msgstr "Nema metapodataka u fajlu paketa: %1"
+
+#: kpackage/private/packagejobthread.cpp:323
+#, kde-format
+msgid "Package plugin name not specified: %1"
+msgstr "Ime priključka paketa nije zadato: %1"
+
+#: kpackage/private/packagejobthread.cpp:333
+#, kde-format
+msgid "Package plugin name %1 contains invalid characters"
+msgstr "Ime priključka paketa %1 sadrži loše znakove."
+
+#: kpackage/private/packagejobthread.cpp:349
+msgid ""
+"The new package has a different type from the old version already installed."
+msgstr ""
+"Novi paket je različitog tipa od prethodno instaliranog starijeg izdanja."
+
+#: kpackage/private/packagejobthread.cpp:354
+#, kde-format
+msgid "Impossible to remove the old installation of %1 located at %2"
+msgstr "Stara instalacija paketa %1 smeštena u %2 ne može da se ukloni."
+
+#: kpackage/private/packagejobthread.cpp:358
+#, kde-format
+msgid "Not installing version %1 of %2. Version %3 already installed."
+msgstr "Izdanje %1 paketa %2 neće biti instalirano. Već je instalirano %3."
+
+#: kpackage/private/packagejobthread.cpp:362
+#, kde-format
+msgid "%1 already exists"
+msgstr "%1 već postoji"
+
+#: kpackage/private/packagejobthread.cpp:378
+#, kde-format
+msgid "Could not move package to destination: %1"
+msgstr "Ne mogu da premestim paket na odredište: %1"
+
+#: kpackage/private/packagejobthread.cpp:388
+#, kde-format
+msgid "Could not copy package to destination: %1"
+msgstr "Ne mogu da kopiram paket na odredište: %1"
+
+#: kpackage/private/packagejobthread.cpp:430
+#, kde-format
+msgid "%1 does not exist"
+msgstr "%1 ne postoji"
+
+#: kpackage/private/packagejobthread.cpp:450
+#, kde-format
+msgid "Could not delete package from: %1"
+msgstr "Ne mogu da obrišem paket sa: %1"
+
+# >> @item:intext
+#: kpackage/private/packages.cpp:36 kpackage/private/packages.cpp:57
+msgid "Main Script File"
+msgstr "glavni fajl skripte"
+
+# >> @item file/directory definition
+#: kpackage/private/packages.cpp:67
+msgid "Images"
+msgstr "slike"
+
+# >> @item file/directory definition
+#: kpackage/private/packages.cpp:68
+msgid "Themed Images"
+msgstr "tematske slike"
+
+# >> @item file/directory definition
+#: kpackage/private/packages.cpp:74
+msgid "Configuration Definitions"
+msgstr "definicije postave"
+
+# >> @item file/directory definition
+#: kpackage/private/packages.cpp:79
+msgid "User Interface"
+msgstr "korisničko sučelje"
+
+# >> @item file/directory definition
+#: kpackage/private/packages.cpp:81
+msgid "Data Files"
+msgstr "podaci"
+
+# >> @item file/directory definition
+#: kpackage/private/packages.cpp:83
+msgid "Executable Scripts"
+msgstr "izvršne skripte"
+
+# >> @item file/directory definition
+#: kpackage/private/packages.cpp:88
+msgid "Translations"
+msgstr "prevodi"
+
+# >> @item file/directory definition
+#: kpackage/private/packages.cpp:95
+msgid "Main UI File"
+msgstr "glavni fajl sučelja"
+
+#: kpackagetool/kpackagetool.cpp:141
+#, kde-format
+msgid "Failed to generate a Package hash for %1"
+msgstr "Ne mogu da generišem disperziju za paket na %1."
+
+#: kpackagetool/kpackagetool.cpp:144
+#, kde-format
+msgid "SHA1 hash for Package at %1: '%2'"
+msgstr "SHA‑1 disperzija za paket na %1: „%2“"
+
+# literal-segment: wallpaper
+#: kpackagetool/kpackagetool.cpp:183
+msgctxt "package type"
+msgid "wallpaper"
+msgstr "wallpaper"
+
+#: kpackagetool/kpackagetool.cpp:233
+#, kde-format
+msgid "Listing service types: %1 in %2"
+msgstr "Nabrajam tipove servisa: %1 u %2"
+
+#: kpackagetool/kpackagetool.cpp:316
+#, kde-format
+msgid "Error: Plugin %1 is not installed."
+msgstr "Greška: Priključak %1 nije instaliran."
+
+# literal-segment: install|remove|upgrade|list
+#: kpackagetool/kpackagetool.cpp:326
+msgctxt ""
+"No option was given, this is the error message telling the user he needs at "
+"least one, do not translate install, remove, upgrade nor list"
+msgid "One of install, remove, upgrade or list is required."
+msgstr "Mora se zadati install, remove, upgrade ili list."
+
+#: kpackagetool/kpackagetool.cpp:372 kpackagetool/kpackagetool.cpp:434
+#, kde-format
+msgid "Error: Can't find plugin metadata: %1\n"
+msgstr "Greška: Ne mogu da nađem metapodatke priključka: %1\n"
+
+#: kpackagetool/kpackagetool.cpp:376
+#, kde-format
+msgid "Showing info for package: %1"
+msgstr "Podaci za paket: %1"
+
+#: kpackagetool/kpackagetool.cpp:377
+#, kde-format
+msgid "      Name : %1"
+msgstr "        Ime: %1"
+
+#: kpackagetool/kpackagetool.cpp:378
+#, kde-format
+msgid "   Comment : %1"
+msgstr "   Komentar: %1"
+
+#: kpackagetool/kpackagetool.cpp:379
+#, kde-format
+msgid "    Plugin : %1"
+msgstr "  Priključak: %1"
+
+#: kpackagetool/kpackagetool.cpp:381
+#, kde-format
+msgid "    Author : %1"
+msgstr "      Autor: %1"
+
+#: kpackagetool/kpackagetool.cpp:382
+#, kde-format
+msgid "      Path : %1"
+msgstr "     Putanja: %1"
+
+#: kpackagetool/kpackagetool.cpp:491
+msgctxt ""
+"The user entered conflicting options packageroot and global, this is the "
+"error message telling the user he can use only one"
+msgid ""
+"The packageroot and global options conflict with each other, please select "
+"only one."
+msgstr ""
+"Opcije <icode>packageroot</icode> i <icode>global</icode> isključuju jedna "
+"drugu, zadajte samo jednu od njih."
+
+# >> @title:column
+#: kpackagetool/kpackagetool.cpp:517
+msgid "Addon Name"
+msgstr "ime dodatka"
+
+# >> @title:column
+#: kpackagetool/kpackagetool.cpp:518
+msgid "Service Type"
+msgstr "tip servisa"
+
+# >> @title:column
+#: kpackagetool/kpackagetool.cpp:519
+msgid "Path"
+msgstr "putanja"
+
+#: kpackagetool/kpackagetool.cpp:562
+msgid "Package types that are installable with this tool:"
+msgstr "Tipovi paketa koje ova alatka ume da instalira:"
+
+#: kpackagetool/kpackagetool.cpp:563
+msgid "Built in:"
+msgstr "Ugrađeni:"
+
+# >?
+#: kpackagetool/kpackagetool.cpp:566
+msgid "KPackage/Generic"
+msgstr "KPackage/Generic"
+
+# >?
+#: kpackagetool/kpackagetool.cpp:567
+msgid "KPackage/GenericQML"
+msgstr "KPackage/GenericQML"
+
+#: kpackagetool/kpackagetool.cpp:575
+msgid "Provided by plugins:"
+msgstr "Iz priključaka:"
+
+#: kpackagetool/kpackagetool.cpp:595
+msgid "Provided by .desktop files:"
+msgstr "Iz .desktop fajlova:"
+
+#: kpackagetool/kpackagetool.cpp:617 kpackagetool/kpackagetool.cpp:626
+#, kde-format
+msgid "Generating %1/kpluginindex.json"
+msgstr "Generišem %1/kpluginindex.json"
+
+#: kpackagetool/kpackagetool.cpp:636
+#, kde-format
+msgid "Successfully upgraded %1"
+msgstr "Uspešno nadograđeno: %1"
+
+#: kpackagetool/kpackagetool.cpp:638
+#, kde-format
+msgid "Successfully installed %1"
+msgstr "Uspešno instalirano: %1"
+
+#: kpackagetool/kpackagetool.cpp:641
+#, kde-format
+msgid "Error: Installation of %1 failed: %2"
+msgstr "Greška: Instaliranje nije uspelo: %1 (%2)"
+
+#: kpackagetool/kpackagetool.cpp:653
+#, kde-format
+msgid "Upgrading package from file: %1"
+msgstr "Nadograđujem paket iz fajla: %1"
+
+#: kpackagetool/kpackagetool.cpp:658
+#, kde-format
+msgid "Successfully uninstalled %1"
+msgstr "Uspešno deinstalirano: %1"
+
+#: kpackagetool/kpackagetool.cpp:660
+#, kde-format
+msgid "Error: Uninstallation of %1 failed: %2"
+msgstr "Greška: Deinstaliranje nije uspelo: %1 (%2)"
+
+#: kpackagetool/main.cpp:49
+msgid "KPackage Manager"
+msgstr "Menadžer K‑paketa"
+
+#: kpackagetool/main.cpp:56
+msgctxt "Do not translate <path>"
+msgid "Generate a SHA1 hash for the package at <path>"
+msgstr "Generiši SHA‑1 disperziju za paket na datoj putanji"
+
+#: kpackagetool/main.cpp:57
+msgid "For install or remove, operates on packages installed for all users."
+msgstr ""
+"Pri instaliranju ili uklanjanju, radi nad paketima instaliranim za sve "
+"korisnike."
+
+# literal-segment: theme|wallpaper|plasmoid|[dD]ata[eE]ngine|[rR]unner|layout-template
+#: kpackagetool/main.cpp:62
+msgctxt ""
+"theme, wallpaper, etc. are keywords, but they may be translated, as both "
+"versions are recognized by the application (if translated, should be same as "
+"messages with 'package type' context below)"
+msgid ""
+"The type of package, e.g. theme, wallpaper, plasmoid, dataengine, runner, "
+"layout-template, etc."
+msgstr ""
+"Tip paketa, jedno od: plasmoid theme wallpaper dataengine runner layout-"
+"template"
+
+#: kpackagetool/main.cpp:64
+msgctxt "Do not translate <path>"
+msgid "Install the package at <path>"
+msgstr "Instaliraj paket s date putanje"
+
+#: kpackagetool/main.cpp:65
+msgctxt "Do not translate <name>"
+msgid "Show information of package <name>"
+msgstr "Podaci o zadatom paketu"
+
+#: kpackagetool/main.cpp:66
+msgctxt "Do not translate <path>"
+msgid "Upgrade the package at <path>"
+msgstr "Nadogradi paket s date putanje"
+
+#: kpackagetool/main.cpp:67
+msgid "List installed packages"
+msgstr "Nabroji instalirane pakete"
+
+#: kpackagetool/main.cpp:68
+msgid "List all known package types that can be installed"
+msgstr "Nabroji sve poznate tipove paketa koji se mogu instalirati"
+
+#: kpackagetool/main.cpp:69
+msgctxt "Do not translate <name>"
+msgid "Remove the package named <name>"
+msgstr "Ukloni zadati paket"
+
+#: kpackagetool/main.cpp:70
+msgid ""
+"Absolute path to the package root. If not supplied, then the standard data "
+"directories for this KDE session will be searched instead."
+msgstr ""
+"Apsolutna putanja do korena paketa. Ako se ne zada, traži se po standardnim "
+"fasciklama u ovoj sesiji KDE‑a."
+
+#: kpackagetool/main.cpp:71
+msgid ""
+"Recreate the plugin index. To be used in conjunction with either the option -"
+"t or -g. Recreates the index for the given type or package root. Operates in "
+"the user directory, unless -g is used"
+msgstr ""
+"Ponovo napravi indeks priključaka. Namenjeno upotrebi uz opciju -t ili -g. "
+"Ponovo pravi indeks za dati tip ili koren paketa. Radi u korisničkoj "
+"fascikli, osim ako se zada -g."
+
+#: kpackagetool/main.cpp:72
+msgctxt "Do not translate <path>"
+msgid "Outputs the metadata for the package <path>"
+msgstr "Ispiši metapodatke za paket na datoj putanji"

@@ -1,0 +1,450 @@
+# Copyright (C) YEAR This_file_is_part_of_KDE
+# This file is distributed under the same license as the PACKAGE package.
+#
+# Marek Laane <qiilaq69@gmail.com>, 2016.
+msgid ""
+msgstr ""
+"Project-Id-Version: \n"
+"Report-Msgid-Bugs-To: http://bugs.kde.org\n"
+"POT-Creation-Date: 2016-08-09 07:52+0000\n"
+"PO-Revision-Date: 2016-09-10 00:59+0300\n"
+"Last-Translator: Marek Laane <qiilaq69@gmail.com>\n"
+"Language-Team: Estonian <kde-i18n-doc@kde.org>\n"
+"Language: et\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=2; plural=n != 1;\n"
+"X-Generator: Lokalize 1.5\n"
+
+#: kpackage/package.cpp:55
+msgid "Desktop file that describes this package."
+msgstr "Paketti kirjeldav töölauafail."
+
+#: kpackage/packageloader.cpp:76
+msgid "Accessibility"
+msgstr "Hõlbustus"
+
+#: kpackage/packageloader.cpp:77
+msgid "Application Launchers"
+msgstr "Rakenduste käivitajad"
+
+#: kpackage/packageloader.cpp:78
+msgid "Astronomy"
+msgstr "Astronoomia"
+
+#: kpackage/packageloader.cpp:79
+msgid "Date and Time"
+msgstr "Kuupäev ja kellaaeg"
+
+#: kpackage/packageloader.cpp:80
+msgid "Development Tools"
+msgstr "Arendustööriistad"
+
+#: kpackage/packageloader.cpp:81
+msgid "Education"
+msgstr "Haridus"
+
+#: kpackage/packageloader.cpp:82
+msgid "Environment and Weather"
+msgstr "Keskkond ja ilm"
+
+#: kpackage/packageloader.cpp:83
+msgid "Examples"
+msgstr "Näited"
+
+#: kpackage/packageloader.cpp:84
+msgid "File System"
+msgstr "Failisüsteem"
+
+#: kpackage/packageloader.cpp:85
+msgid "Fun and Games"
+msgstr "Lõbu ja mängud"
+
+#: kpackage/packageloader.cpp:86
+msgid "Graphics"
+msgstr "Graafika"
+
+#: kpackage/packageloader.cpp:87
+msgid "Language"
+msgstr "Keel"
+
+#: kpackage/packageloader.cpp:88
+msgid "Mapping"
+msgstr "Geograafia"
+
+#: kpackage/packageloader.cpp:89
+msgid "Miscellaneous"
+msgstr "Muu"
+
+#: kpackage/packageloader.cpp:90
+msgid "Multimedia"
+msgstr "Multimeedia"
+
+#: kpackage/packageloader.cpp:91
+msgid "Online Services"
+msgstr "Võrguteenused"
+
+#: kpackage/packageloader.cpp:92
+msgid "Productivity"
+msgstr "Loometegevus"
+
+#: kpackage/packageloader.cpp:93
+msgid "System Information"
+msgstr "Süsteemi teave"
+
+#: kpackage/packageloader.cpp:94
+msgid "Utilities"
+msgstr "Tööriistad"
+
+#: kpackage/packageloader.cpp:95
+msgid "Windows and Tasks"
+msgstr "Aknad ja ülesanded"
+
+#: kpackage/packageloader.cpp:364
+#, kde-format
+msgid "Could not load installer for package of type %1. Error reported was: %2"
+msgstr "Tüübiga %1 paketi paigaldaja laadimine nurjus. Teatati veast: %2"
+
+#: kpackage/private/packagejobthread.cpp:220
+#, kde-format
+msgid "Could not create package root directory: %1"
+msgstr "Paketi juurkataloogi loomine nurjus: %1"
+
+#: kpackage/private/packagejobthread.cpp:229
+#, kde-format
+msgid "No such file: %1"
+msgstr "Sellist faili ei ole: %1"
+
+#: kpackage/private/packagejobthread.cpp:259
+#, kde-format
+msgid "Could not open package file, unsupported archive format: %1 %2"
+msgstr "Paketifaili avamine nurjus, toetamata arhiivivorming: %1 %2"
+
+#: kpackage/private/packagejobthread.cpp:267
+#, kde-format
+msgid "Could not open package file: %1"
+msgstr "Paketifaili avamine nurjus: %1"
+
+#: kpackage/private/packagejobthread.cpp:302
+#, kde-format
+msgid "Could not open metadata file: %1"
+msgstr "Metaandmete faili avamine nurjus: %1"
+
+#: kpackage/private/packagejobthread.cpp:313
+#, kde-format
+msgid "No metadata file in package: %1"
+msgstr "Paketis ei ole metaandmete faili: %1"
+
+#: kpackage/private/packagejobthread.cpp:323
+#, kde-format
+msgid "Package plugin name not specified: %1"
+msgstr "Paketi plugina nime ei ole määratud: %1"
+
+#: kpackage/private/packagejobthread.cpp:333
+#, kde-format
+msgid "Package plugin name %1 contains invalid characters"
+msgstr "Paketi plugina nimi %1 sisaldab lubamatuid märke"
+
+#: kpackage/private/packagejobthread.cpp:349
+msgid ""
+"The new package has a different type from the old version already installed."
+msgstr "Uue paketi tüüp erineb juba paigaldatud vana versiooni tüübist."
+
+#: kpackage/private/packagejobthread.cpp:354
+#, kde-format
+msgid "Impossible to remove the old installation of %1 located at %2"
+msgstr "%1 vana paigaldust asukohas %2 ei ole võimalik eemaldada"
+
+#: kpackage/private/packagejobthread.cpp:358
+#, kde-format
+msgid "Not installing version %1 of %2. Version %3 already installed."
+msgstr "%2 versiooni %1 ei paigaldata. Versioon %3 on juba paigaldatud."
+
+#: kpackage/private/packagejobthread.cpp:362
+#, kde-format
+msgid "%1 already exists"
+msgstr "%1 on juba olemas"
+
+#: kpackage/private/packagejobthread.cpp:378
+#, kde-format
+msgid "Could not move package to destination: %1"
+msgstr "Paketi liigutamine sihtkohta nurjus: %1"
+
+#: kpackage/private/packagejobthread.cpp:388
+#, kde-format
+msgid "Could not copy package to destination: %1"
+msgstr "Paketi kopeerimine sihtkohta nurjus: %1"
+
+#: kpackage/private/packagejobthread.cpp:430
+#, kde-format
+msgid "%1 does not exist"
+msgstr "%1 ei ole olemas"
+
+#: kpackage/private/packagejobthread.cpp:450
+#, kde-format
+msgid "Could not delete package from: %1"
+msgstr "Paketi kustutamine asukohast %1 nurjus"
+
+#: kpackage/private/packages.cpp:36 kpackage/private/packages.cpp:57
+msgid "Main Script File"
+msgstr "Peamine skriptifail"
+
+#: kpackage/private/packages.cpp:67
+msgid "Images"
+msgstr "Pildid"
+
+#: kpackage/private/packages.cpp:68
+msgid "Themed Images"
+msgstr "Teemaga pildid"
+
+#: kpackage/private/packages.cpp:74
+msgid "Configuration Definitions"
+msgstr "Seadistamise definitsioonid"
+
+#: kpackage/private/packages.cpp:79
+msgid "User Interface"
+msgstr "Kasutajaliides"
+
+#: kpackage/private/packages.cpp:81
+msgid "Data Files"
+msgstr "Andmefailid"
+
+#: kpackage/private/packages.cpp:83
+msgid "Executable Scripts"
+msgstr "Käivitatavad skriptid"
+
+#: kpackage/private/packages.cpp:88
+msgid "Translations"
+msgstr "Tõlked"
+
+#: kpackage/private/packages.cpp:95
+msgid "Main UI File"
+msgstr "Peamine UI-fail"
+
+#: kpackagetool/kpackagetool.cpp:141
+#, kde-format
+msgid "Failed to generate a Package hash for %1"
+msgstr "Paketi räsi genereerimine %1 jaoks nurjus"
+
+#: kpackagetool/kpackagetool.cpp:144
+#, kde-format
+msgid "SHA1 hash for Package at %1: '%2'"
+msgstr "SHA1 räsi paketile asukohas %1: '%2'"
+
+#: kpackagetool/kpackagetool.cpp:183
+msgctxt "package type"
+msgid "wallpaper"
+msgstr "taustapilt"
+
+#: kpackagetool/kpackagetool.cpp:233
+#, kde-format
+msgid "Listing service types: %1 in %2"
+msgstr "Teenusetüüpide loend: %1 asukohas %2"
+
+#: kpackagetool/kpackagetool.cpp:316
+#, kde-format
+msgid "Error: Plugin %1 is not installed."
+msgstr "Tõrge: plugin %1 ei ole paigaldatud."
+
+#: kpackagetool/kpackagetool.cpp:326
+msgctxt ""
+"No option was given, this is the error message telling the user he needs at "
+"least one, do not translate install, remove, upgrade nor list"
+msgid "One of install, remove, upgrade or list is required."
+msgstr "Nõutav on kas install, remove, upgrade või list."
+
+#: kpackagetool/kpackagetool.cpp:372 kpackagetool/kpackagetool.cpp:434
+#, kde-format
+msgid "Error: Can't find plugin metadata: %1\n"
+msgstr "Tõrge: plugina metaandmeid ei leitud: %1\n"
+
+#: kpackagetool/kpackagetool.cpp:376
+#, kde-format
+msgid "Showing info for package: %1"
+msgstr "Paketi teabe näitamine: %1"
+
+#: kpackagetool/kpackagetool.cpp:377
+#, kde-format
+msgid "      Name : %1"
+msgstr "      Nimi : %1"
+
+#: kpackagetool/kpackagetool.cpp:378
+#, kde-format
+msgid "   Comment : %1"
+msgstr "   Kommentaar : %1"
+
+#: kpackagetool/kpackagetool.cpp:379
+#, kde-format
+msgid "    Plugin : %1"
+msgstr "    Plugin : %1"
+
+#: kpackagetool/kpackagetool.cpp:381
+#, kde-format
+msgid "    Author : %1"
+msgstr "    Autor : %1"
+
+#: kpackagetool/kpackagetool.cpp:382
+#, kde-format
+msgid "      Path : %1"
+msgstr "      Asukoht : %1"
+
+#: kpackagetool/kpackagetool.cpp:491
+msgctxt ""
+"The user entered conflicting options packageroot and global, this is the "
+"error message telling the user he can use only one"
+msgid ""
+"The packageroot and global options conflict with each other, please select "
+"only one."
+msgstr ""
+"Paketi juurasukoht ja globaalsed valikud on konfliktis, palun vali neist "
+"ainult üks."
+
+#: kpackagetool/kpackagetool.cpp:517
+msgid "Addon Name"
+msgstr "Lisandi nimi"
+
+#: kpackagetool/kpackagetool.cpp:518
+msgid "Service Type"
+msgstr "Teenuse tüüp"
+
+#: kpackagetool/kpackagetool.cpp:519
+msgid "Path"
+msgstr "Asukoht"
+
+#: kpackagetool/kpackagetool.cpp:562
+msgid "Package types that are installable with this tool:"
+msgstr "Selle tööriistaga paigaldatavate pakettide tüübid:"
+
+#: kpackagetool/kpackagetool.cpp:563
+msgid "Built in:"
+msgstr "Sisseehitatud:"
+
+#: kpackagetool/kpackagetool.cpp:566
+msgid "KPackage/Generic"
+msgstr "KPackage/Üldine"
+
+#: kpackagetool/kpackagetool.cpp:567
+msgid "KPackage/GenericQML"
+msgstr "KPackage/ÜldineQML"
+
+#: kpackagetool/kpackagetool.cpp:575
+msgid "Provided by plugins:"
+msgstr "Pluginate pakutavad:"
+
+#: kpackagetool/kpackagetool.cpp:595
+msgid "Provided by .desktop files:"
+msgstr ".desktop-failide pakutavad:"
+
+#: kpackagetool/kpackagetool.cpp:617 kpackagetool/kpackagetool.cpp:626
+#, kde-format
+msgid "Generating %1/kpluginindex.json"
+msgstr "Genereeritakse %1/kpluginindex.json"
+
+#: kpackagetool/kpackagetool.cpp:636
+#, kde-format
+msgid "Successfully upgraded %1"
+msgstr "%1 edukalt uuendatud"
+
+#: kpackagetool/kpackagetool.cpp:638
+#, kde-format
+msgid "Successfully installed %1"
+msgstr "%1 edukalt paigaldatud"
+
+#: kpackagetool/kpackagetool.cpp:641
+#, kde-format
+msgid "Error: Installation of %1 failed: %2"
+msgstr "Tõrge: %1 paigaldamine nurjus: %2"
+
+#: kpackagetool/kpackagetool.cpp:653
+#, kde-format
+msgid "Upgrading package from file: %1"
+msgstr "Paketi uuendamine failist: %1"
+
+#: kpackagetool/kpackagetool.cpp:658
+#, kde-format
+msgid "Successfully uninstalled %1"
+msgstr "%1 edukalt eemaldatud"
+
+#: kpackagetool/kpackagetool.cpp:660
+#, kde-format
+msgid "Error: Uninstallation of %1 failed: %2"
+msgstr "Tõrge: %1 eemaldamine nurjus: %2"
+
+#: kpackagetool/main.cpp:49
+msgid "KPackage Manager"
+msgstr "KPackage'i haldur"
+
+#: kpackagetool/main.cpp:56
+msgctxt "Do not translate <path>"
+msgid "Generate a SHA1 hash for the package at <path>"
+msgstr "SHA1 räsi genereerimine paketile asukohas <path>"
+
+#: kpackagetool/main.cpp:57
+msgid "For install or remove, operates on packages installed for all users."
+msgstr ""
+"Paigaldamise või eemaldamise korral käsitleb pakette, mis on paigaldatud "
+"kõigi kasutajate jaoks."
+
+#: kpackagetool/main.cpp:62
+msgctxt ""
+"theme, wallpaper, etc. are keywords, but they may be translated, as both "
+"versions are recognized by the application (if translated, should be same as "
+"messages with 'package type' context below)"
+msgid ""
+"The type of package, e.g. theme, wallpaper, plasmoid, dataengine, runner, "
+"layout-template, etc."
+msgstr ""
+"Paketi tüüp, nt. teema, taustapilt, plasmoid, andmemootor, käivitaja, "
+"paigutusemall vms."
+
+#: kpackagetool/main.cpp:64
+msgctxt "Do not translate <path>"
+msgid "Install the package at <path>"
+msgstr "Paketi paigaldamine asukohas <path>"
+
+#: kpackagetool/main.cpp:65
+msgctxt "Do not translate <name>"
+msgid "Show information of package <name>"
+msgstr "Paketi <name> teabe näitamine"
+
+#: kpackagetool/main.cpp:66
+msgctxt "Do not translate <path>"
+msgid "Upgrade the package at <path>"
+msgstr "Paketi uuendamine asukohas <path>"
+
+#: kpackagetool/main.cpp:67
+msgid "List installed packages"
+msgstr "Paigaldatud pakettide loetlemine"
+
+#: kpackagetool/main.cpp:68
+msgid "List all known package types that can be installed"
+msgstr "Kõigi teadaolevate paigaldatavate paketitüüpide näitamine"
+
+#: kpackagetool/main.cpp:69
+msgctxt "Do not translate <name>"
+msgid "Remove the package named <name>"
+msgstr "Paketi <name> eemaldamine"
+
+#: kpackagetool/main.cpp:70
+msgid ""
+"Absolute path to the package root. If not supplied, then the standard data "
+"directories for this KDE session will be searched instead."
+msgstr ""
+"Pakettide juurasukoha absoluutne asukoht. Kui seda ei anta, otsitakse antud "
+"KDE seansi standardsetest andmekataloogidest."
+
+#: kpackagetool/main.cpp:71
+msgid ""
+"Recreate the plugin index. To be used in conjunction with either the option -"
+"t or -g. Recreates the index for the given type or package root. Operates in "
+"the user directory, unless -g is used"
+msgstr ""
+"Pluginate indeksi taasloomine. Kasutamiseks koos võtmega -t või -g. "
+"Taasluuakse määratud tüübi või paketi juurasukoha indeks. Töötab kasutaja "
+"kataloogis, kui ei kasutata võtit -g."
+
+#: kpackagetool/main.cpp:72
+msgctxt "Do not translate <path>"
+msgid "Outputs the metadata for the package <path>"
+msgstr "Paketi metaandmete väljund asukohas <path>"
