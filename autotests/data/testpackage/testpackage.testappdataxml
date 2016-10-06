@@ -45,6 +45,7 @@
     <name xml:lang="zh_CN">测试包</name>
     <name xml:lang="zh_TW">測試套件</name>
     <developer_name>Joe Blow &lt;jblow@kde.org&gt;</developer_name>
+    <icon type="stock">plasma</icon>
     <project_license>GPLv2+</project_license>
     <metadata_license>CC0-1.0</metadata_license>
 </component>

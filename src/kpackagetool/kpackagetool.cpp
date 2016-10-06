@@ -474,6 +474,12 @@ void PackageTool::showAppstreamInfo(const QString &pluginName)
         writer.writeTextElement("developer_name", authorsText.join(", "));
     }
 
+    if (!i.iconName().isEmpty()) {
+        writer.writeStartElement(QStringLiteral("icon"));
+        writer.writeAttribute("type", "stock");
+        writer.writeCharacters(i.iconName());
+        writer.writeEndElement();
+    }
     writer.writeTextElement("project_license", i.license());
     writer.writeTextElement("metadata_license", "CC0-1.0");
     writer.writeEndElement();
