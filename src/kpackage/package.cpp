@@ -677,6 +677,11 @@ void Package::removeDefinition(const QByteArray &key)
         d.detach();
         d->contents.remove(key);
     }
+
+    if (d->discoveries.contains(key)) {
+        d.detach();
+        d->discoveries.remove(key);
+    }
 }
 
 void Package::setRequired(const QByteArray &key, bool required)
