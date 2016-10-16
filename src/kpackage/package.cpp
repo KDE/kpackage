@@ -971,7 +971,7 @@ bool PackagePrivate::hasCycle(const KPackage::Package &package)
     return false;
 }
 
-Q_GLOBAL_STATIC(PackageDeletionNotifier, s_packageDeletionNotifier);
+Q_GLOBAL_STATIC(PackageDeletionNotifier, s_packageDeletionNotifier)
 PackageDeletionNotifier* PackageDeletionNotifier::self()
 {
     return s_packageDeletionNotifier;
