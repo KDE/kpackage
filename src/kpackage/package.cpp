@@ -63,6 +63,7 @@ Package::Package(const Package &other)
 
 Package::~Package()
 {
+    PackageDeletionNotifier::self()->packageDeleted(this);
 }
 
 Package &Package::operator=(const Package &rhs)
@@ -970,4 +971,12 @@ bool PackagePrivate::hasCycle(const KPackage::Package &package)
     return false;
 }
 
+Q_GLOBAL_STATIC(PackageDeletionNotifier, s_packageDeletionNotifier);
+PackageDeletionNotifier* PackageDeletionNotifier::self()
+{
+    return s_packageDeletionNotifier;
+}
+
 } // Namespace
+
+#include "private/moc_package_p.cpp"

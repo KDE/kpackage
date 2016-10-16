@@ -306,6 +306,34 @@ void PlasmoidPackageTest::createAndInstallPackage()
     delete p;
 }
 
+void PlasmoidPackageTest::noCrashOnAsyncInstall()
+{
+    createTestPackage(QStringLiteral("plasmoid_to_package"), QStringLiteral("1.1"));
+    const QString packagePath = m_packageRoot + '/' + "testpackage.plasmoid";
+
+    KZip creator(packagePath);
+    QVERIFY(creator.open(QIODevice::WriteOnly));
+    creator.addLocalDirectory(m_packageRoot + '/' + "plasmoid_to_package", QStringLiteral("."));
+    creator.close();
+    QDir rootDir(m_packageRoot + "/plasmoid_to_package");
+    rootDir.removeRecursively();
+
+    KJob *job;
+    //scope the package so it will get deleted before the install operation finishes
+    //package is explicitlyshared internally and designed to be used on the stack
+    //see #370718
+    {
+        KPackage::Package package(new KPackage::PackageStructure(this));
+        job = package.install(packagePath, m_packageRoot);
+    }
+    connect(job, SIGNAL(finished(KJob*)), SLOT(packageInstalled(KJob*)));
+    QSignalSpy spy(job, SIGNAL(finished(KJob*)));
+    QVERIFY(spy.wait(1000));
+
+
+    cleanupPackage(QStringLiteral("plasmoid_to_package"));
+}
+
 void PlasmoidPackageTest::createAndUpdatePackage()
 {
     //does the version number parsing work?
@@ -391,11 +419,13 @@ void PlasmoidPackageTest::cleanupPackage(const QString &packageName)
 
     QSignalSpy spy(jj, &KJob::finished);
     QVERIFY(spy.wait(1000));
+
 }
+
 
 void PlasmoidPackageTest::packageInstalled(KJob *j)
 {
-    qDebug() << "!!!!!!!!!!!!!!!!!!!! package installed" << (j->error() == KJob::NoError);
+    qDebug() << "!!!!!!!!!!!!!!!!!!!! package installed" << (j->error() == KJob::NoError) << j->errorText();
     QVERIFY(j->error() == KJob::NoError);
 }
 

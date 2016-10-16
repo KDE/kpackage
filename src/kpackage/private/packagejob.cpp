@@ -21,6 +21,8 @@
 #include "packagejobthread_p.h"
 #include "config-package.h"
 
+#include "package_p.h"
+
 #include <QDebug>
 
 namespace KPackage
@@ -39,11 +41,20 @@ PackageJob::PackageJob(Package *package, QObject *parent) :
     d = new PackageJobPrivate;
     d->thread = new PackageJobThread(this);
     d->package = package;
+
+    connect(PackageDeletionNotifier::self(), &PackageDeletionNotifier::packageDeleted, this, [this](Package *package) {
+        if (package == d->package) {
+            d->package = 0;
+        }
+    });
+
     connect(d->thread, SIGNAL(finished(bool,QString)),
             SLOT(slotFinished(bool,QString)), Qt::QueuedConnection);
     connect(d->thread, &PackageJobThread::installPathChanged, this,
             [this](const QString &installPath) {
-                d->package->setPath(installPath);
+                if (d->package) {
+                    d->package->setPath(installPath);
+                }
                 emit installPathChanged(installPath);
             }, Qt::QueuedConnection);
 }
