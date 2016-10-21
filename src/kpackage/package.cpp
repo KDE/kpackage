@@ -63,7 +63,10 @@ Package::Package(const Package &other)
 
 Package::~Package()
 {
-    PackageDeletionNotifier::self()->packageDeleted(this);
+    //guard against deletion on application shutdown
+    if (PackageDeletionNotifier::self()) {
+        PackageDeletionNotifier::self()->packageDeleted(this);
+    }
 }
 
 Package &Package::operator=(const Package &rhs)
