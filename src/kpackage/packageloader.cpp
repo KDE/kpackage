@@ -47,8 +47,7 @@ class PackageLoaderPrivate
 public:
     PackageLoaderPrivate()
         : isDefaultLoader(false),
-          packageStructurePluginDir(QStringLiteral("kpackage/packagestructure")),
-          packageRE("[^a-zA-Z0-9\\-_]")
+          packageStructurePluginDir(QStringLiteral("kpackage/packagestructure"))
     {
     }
 
@@ -59,7 +58,6 @@ public:
     QHash<QString, QPointer<PackageStructure> > structures;
     bool isDefaultLoader;
     QString packageStructurePluginDir;
-    QRegExp packageRE;
 };
 
 QSet<QString> PackageLoaderPrivate::s_customCategories;
