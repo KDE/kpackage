@@ -26,10 +26,8 @@
 
 #include <karchive.h>
 #include <QDebug>
-#include <kdesktopfile.h>
 #include <ktar.h>
 #include <kzip.h>
-#include <KConfigGroup>
 #include <KLocalizedString>
 
 #include "config-package.h"

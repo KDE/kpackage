@@ -24,11 +24,9 @@
 #include "config-package.h"
 
 #include <karchive.h>
-#include <kdesktopfile.h>
 #include <klocalizedstring.h>
 #include <ktar.h>
 #include <kzip.h>
-#include <KConfigGroup>
 
 #include <QDir>
 #include <QFile>
@@ -88,31 +86,6 @@ bool removeFolder(QString folderPath)
     return folder.removeRecursively();
 }
 
-
-QVariantMap convert(const QString &src)
-{
-    KDesktopFile df(src);
-    KConfigGroup c = df.desktopGroup();
-
-    static const QSet<QString> boolkeys = QSet<QString>()
-                                          << QStringLiteral("Hidden") << QStringLiteral("X-KDE-PluginInfo-EnabledByDefault");
-    static const QSet<QString> stringlistkeys = QSet<QString>()
-            << QStringLiteral("X-KDE-ServiceTypes") << QStringLiteral("X-KDE-PluginInfo-Depends")
-            << QStringLiteral("X-Plasma-Provides");
-
-    QVariantMap vm;
-    foreach (const QString &k, c.keyList()) {
-        if (boolkeys.contains(k)) {
-            vm[k] = c.readEntry(k, false);
-        } else if (stringlistkeys.contains(k)) {
-            vm[k] = c.readEntry(k, QStringList());
-        } else {
-            vm[k] = c.readEntry(k, QString());
-        }
-    }
-
-    return vm;
-}
 
 bool removeIndex(const QString& dir)
 {

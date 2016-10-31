@@ -35,7 +35,6 @@ PUBLIC
      #KF5::Service # For kplugininfo.h and kservice.h
      KF5::CoreAddons
 PRIVATE
-     KF5::ConfigCore
      KF5::Archive
      KF5::I18n
 )

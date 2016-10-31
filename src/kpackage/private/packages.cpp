@@ -24,8 +24,6 @@
 #include <QCoreApplication>
 #include <QFileInfo>
 
-#include <kconfiggroup.h>
-#include <kdesktopfile.h>
 #include <klocalizedstring.h>
 
 #include "kpackage/package.h"

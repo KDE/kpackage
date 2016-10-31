@@ -20,8 +20,6 @@
 
 #include "querytest.h"
 
-#include <kconfig.h>
-#include <kconfiggroup.h>
 #include <QDebug>
 #include <klocalizedstring.h>
 

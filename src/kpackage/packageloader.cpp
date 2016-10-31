@@ -25,17 +25,13 @@
 #include <QJsonArray>
 #include <QCoreApplication>
 #include <QPointer>
-
 #include <QDebug>
+
 #include <KLocalizedString>
 #include <KPluginLoader>
 #include <KPluginFactory>
-#include <KDesktopFile>
-#include <KConfigGroup>
 
 #include "config-package.h"
-
-
 
 #include "private/packages_p.h"
 #include "package.h"

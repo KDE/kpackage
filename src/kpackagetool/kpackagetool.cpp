@@ -24,7 +24,6 @@
 #include <QJsonDocument>
 #include <QJsonArray>
 #include <kshell.h>
-#include <kconfig.h>
 #include <klocalizedstring.h>
 #include <kaboutdata.h>
 #include <KPluginLoader>
@@ -593,23 +592,6 @@ void PackageToolPrivate::listTypes()
         }
 
         renderTypeTable(plugins);
-    }
-
-    QStringList desktopFiles = QStandardPaths::locateAll(QStandardPaths::DataLocation, KPACKAGE_RELATIVE_DATA_INSTALL_DIR + QStringLiteral("/packageformats/*rc"), QStandardPaths::LocateFile);
-
-    if (!desktopFiles.isEmpty()) {
-        coutput(i18n("Provided by .desktop files:"));
-        KPackage::PackageStructure structure;
-        QMap<QString, QStringList> plugins;
-        foreach (const QString &file, desktopFiles) {
-            // extract the type
-            KConfig config(file, KConfig::SimpleConfig);
-#pragma message("read config here")
-            // structure.read(&config);
-            // get the name based on the rc file name, just as KPackage::PackageStructure does
-            //const QString name = file.left(file.length() - 2);
-            //plugins.insert(name, QStringList() << structure.type() << structure.defaultPackageRoot());
-        }
     }
 }
 
