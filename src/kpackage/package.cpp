@@ -99,13 +99,17 @@ bool Package::isValid() const
         return d->valid;
     }
 
+    const QString rootPath = d->tempRoot.isEmpty() ? d->path : d->tempRoot;
+    if(rootPath.isEmpty()) {
+        return false;
+    }
+
     d->valid = true;
 
     //search for the file in all prefixes and in all possible paths for each prefix
     //even if it's a big nested loop, usually there is one prefix and one location
     //so shouldn't cause too much disk access
     QHashIterator<QByteArray, ContentStructure> it(d->contents);
-    const QString rootPath = d->tempRoot.isEmpty() ? d->path : d->tempRoot;
 
     while (it.hasNext()) {
         it.next();
@@ -128,7 +132,7 @@ bool Package::isValid() const
         }
 
         if (failed) {
-            //qWarning() << "Could not find required" << (it.value().directory ? "directory" : "file") << it.key() << "for package" << path();
+            //qWarning() << "Could not find required" << (it.value().directory ? "directory" : "file") << it.key() << "for package" << path() << "should be" << it.value().paths;
             d->valid = false;
             break;
         }
@@ -275,14 +279,13 @@ QString PackagePrivate::unpack(const QString &filePath)
         tempRoot = tempdir.path() + '/';
         source->copyTo(tempRoot);
 
-        if (!QFile::exists(tempdir.path() + "/metadata.desktop")) {
+        if (!QFile::exists(tempdir.path() + "/metadata.json") && !QFile::exists(tempdir.path() + "/metadata.desktop")) {
             // search metadata.desktop, the zip file might have the package contents in a subdirectory
             QDir unpackedPath(tempdir.path());
-            const QStringList &entries = unpackedPath.entryList(QDir::Dirs);
-            foreach (const QString &pack, entries) {
-                if ((pack != QLatin1String(".") && pack != QLatin1String("..")) &&
-                        (QFile::exists(unpackedPath.absolutePath() + '/' + pack + "/metadata.desktop"))) {
-                    tempRoot = unpackedPath.absolutePath() + '/' + pack + '/';
+            const auto entries = unpackedPath.entryInfoList(QDir::Dirs | QDir::NoDotAndDotDot);
+            foreach (const auto &pack, entries) {
+                if (QFile::exists(pack.path() + "/metadata.json") || QFile::exists(pack.path() + "/metadata.desktop")) {
+                    tempRoot = pack.path() + '/';
                 }
             }
         }
@@ -598,8 +601,10 @@ QByteArray Package::cryptographicHash(QCryptographicHash::Algorithm algorithm) c
     }
 
     QCryptographicHash hash(algorithm);
-    const QString metadataPath = d->path + "metadata.desktop";
-    if (QFile::exists(metadataPath)) {
+    const QString metadataPath = QFile::exists(d->path + "metadata.json") ? d->path + "metadata.json"
+                               : QFile::exists(d->path + "metadata.desktop") ? d->path + "metadata.desktop"
+                               : QString();
+    if (!metadataPath.isEmpty()) {
         QFile f(metadataPath);
         if (f.open(QIODevice::ReadOnly)) {
             while (!f.atEnd()) {
