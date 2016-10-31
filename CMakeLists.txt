@@ -64,16 +64,6 @@ remove_definitions(-DQT_NO_CAST_FROM_ASCII -DQT_STRICT_ITERATORS -DQT_NO_CAST_FR
 
 include(KF5PackageMacros.cmake)
 
-#########################################################################
-
-
-option(BUILD_COVERAGE "Build Package Frameworks with gcov support" OFF)
-
-if(BUILD_COVERAGE)
-    set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} -fprofile-arcs -ftest-coverage")
-    set(CMAKE_EXE_LINKER_FLAGS "${CMAKE_EXE_LINKER_FLAGS} -lgcov")
-endif()
-
 ################ create PackageConfig.cmake and install it ####################
 
 # create a Config.cmake and a ConfigVersion.cmake file and install them
