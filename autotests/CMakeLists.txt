@@ -1,12 +1,8 @@
 find_package(Qt5Test ${REQUIRED_QT_VERSION} REQUIRED NO_MODULE)
-
-
 set_package_properties(Qt5Test PROPERTIES PURPOSE "Required for tests")
+
 include(ECMMarkAsTest)
 include(ECMAddTests)
-
-find_package(KF5CoreAddons REQUIRED)
-
 
 MACRO(PLASMA_UNIT_TESTS)
        FOREACH(_testname ${ARGN})
