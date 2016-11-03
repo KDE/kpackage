@@ -188,7 +188,7 @@ void PackageTool::runMain()
 
         if (package.isValid() && package.metadata().isValid()) {
             serviceType = package.metadata().value(QStringLiteral("X-Plasma-ServiceType"));
-            if (serviceType.isEmpty()) {
+            if (serviceType.isEmpty() && !package.metadata().serviceTypes().isEmpty()) {
                 serviceType = package.metadata().serviceTypes().first();
             }
         }
