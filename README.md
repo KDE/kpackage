@@ -1,11 +1,11 @@
-# Package Framework
+# KPackage Framework
 
 Installation and loading of additional content (ex: scripts, images...) as packages
 
 ## Introduction
-The Package framework lets the user install and load packages of non binary content such as scripted extensions or graphic assets, as if they were traditional plugins.
+The KPackage framework lets the user install and load packages of non binary content such as scripted extensions or graphic assets, as if they were traditional plugins.
 
-# using KPackage
+# Using KPackage
 The frameworks consists of 3 classes: PackageStructure, PackageLoader and Package
 The central class is Package, that represents an installed package and is used to access its file, install, update or uninstall it.
 
