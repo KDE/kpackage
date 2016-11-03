@@ -33,6 +33,24 @@ namespace KPackage
 
 class PackageStructurePrivate;
 
+/**
+ * This class is used to define the filesystem structure of a package type.
+ * A PackageStructure is implemented as a dynamically loaded plugin, in the reimplementation
+ * of initPackage the allowed fines and directories in the package are set into the package,
+ * for instance:
+ *
+ * @code
+ * package->addFileDefinition("mainscript", QStringLiteral("ui/main.qml"), i18n("Main Script File"));
+ * package->setDefaultPackageRoot(QStringLiteral("plasma/wallpapers/"));
+ * package->addDirectoryDefinition("images", QStringLiteral("images"), i18n("Images"));
+ * package->addDirectoryDefinition("theme", QStringLiteral("theme"), i18n("Themed Images"));
+ * QStringList mimetypes;
+ * mimetypes << QStringLiteral("image/svg+xml") << QStringLiteral("image/png") << QStringLiteral("image/jpeg");
+ * package->setMimeTypes("images", mimetypes);
+ * @endcode
+ *
+ * @author Aaron Seigo
+ */
 class PACKAGE_EXPORT PackageStructure : public QObject
 {
     Q_OBJECT
