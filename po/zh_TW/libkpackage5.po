@@ -1,0 +1,903 @@
+# Copyright (C) YEAR This_file_is_part_of_KDE
+# This file is distributed under the same license as the PACKAGE package.
+#
+# Franklin, 2014.
+# Franklin Weng <franklin@goodhorse.idv.tw>, 2015.
+# Jeff Huang <s8321414@gmail.com>, 2016.
+msgid ""
+msgstr ""
+"Project-Id-Version: \n"
+"Report-Msgid-Bugs-To: http://bugs.kde.org\n"
+"POT-Creation-Date: 2016-11-01 07:34+0000\n"
+"PO-Revision-Date: 2016-08-08 20:29+0800\n"
+"Last-Translator: Jeff Huang <s8321414@gmail.com>\n"
+"Language-Team: Chinese <kde-i18n-doc@kde.org>\n"
+"Language: zh_TW\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=1; plural=0;\n"
+"X-Generator: Lokalize 2.0\n"
+
+#: kpackage/package.cpp:53
+msgid "Desktop file that describes this package."
+msgstr "描述此套件的桌面檔。"
+
+#: kpackage/packageloader.cpp:70
+msgid "Accessibility"
+msgstr "無障礙輔助"
+
+#: kpackage/packageloader.cpp:71
+msgid "Application Launchers"
+msgstr "應用程式啟動器"
+
+#: kpackage/packageloader.cpp:72
+msgid "Astronomy"
+msgstr "天文學"
+
+#: kpackage/packageloader.cpp:73
+msgid "Date and Time"
+msgstr "日期與時間"
+
+#: kpackage/packageloader.cpp:74
+msgid "Development Tools"
+msgstr "程式開發工具"
+
+#: kpackage/packageloader.cpp:75
+msgid "Education"
+msgstr "教育"
+
+#: kpackage/packageloader.cpp:76
+msgid "Environment and Weather"
+msgstr "環境與天氣"
+
+#: kpackage/packageloader.cpp:77
+msgid "Examples"
+msgstr "範例"
+
+#: kpackage/packageloader.cpp:78
+msgid "File System"
+msgstr "檔案系統"
+
+#: kpackage/packageloader.cpp:79
+msgid "Fun and Games"
+msgstr "娛樂與遊戲"
+
+#: kpackage/packageloader.cpp:80
+msgid "Graphics"
+msgstr "圖形"
+
+#: kpackage/packageloader.cpp:81
+msgid "Language"
+msgstr "語言"
+
+#: kpackage/packageloader.cpp:82
+msgid "Mapping"
+msgstr "地圖"
+
+#: kpackage/packageloader.cpp:83
+msgid "Miscellaneous"
+msgstr "雜項"
+
+#: kpackage/packageloader.cpp:84
+msgid "Multimedia"
+msgstr "多媒體"
+
+#: kpackage/packageloader.cpp:85
+msgid "Online Services"
+msgstr "線上服務"
+
+#: kpackage/packageloader.cpp:86
+msgid "Productivity"
+msgstr "效率"
+
+#: kpackage/packageloader.cpp:87
+msgid "System Information"
+msgstr "系統資訊"
+
+#: kpackage/packageloader.cpp:88
+msgid "Utilities"
+msgstr "實用工具"
+
+#: kpackage/packageloader.cpp:89
+msgid "Windows and Tasks"
+msgstr "視窗與工作"
+
+#: kpackage/packageloader.cpp:358
+#, kde-format
+msgid "Could not load installer for package of type %1. Error reported was: %2"
+msgstr "無法載入套件型態 %1 的安裝器。錯誤：%2"
+
+#: kpackage/private/packagejobthread.cpp:193
+#, kde-format
+msgid "Could not create package root directory: %1"
+msgstr "無法建立套件的根目錄：%1"
+
+#: kpackage/private/packagejobthread.cpp:202
+#, kde-format
+msgid "No such file: %1"
+msgstr "找不到檔案：%1"
+
+#: kpackage/private/packagejobthread.cpp:232
+#, kde-format
+msgid "Could not open package file, unsupported archive format: %1 %2"
+msgstr "無法開啟套件檔。不支援的歸檔格式：%1 %2"
+
+#: kpackage/private/packagejobthread.cpp:240
+#, kde-format
+msgid "Could not open package file: %1"
+msgstr "無法開啟套件檔：%1"
+
+#: kpackage/private/packagejobthread.cpp:275
+#, kde-format
+msgid "Could not open metadata file: %1"
+msgstr "無法開啟後設資料檔案：%1"
+
+#: kpackage/private/packagejobthread.cpp:286
+#, kde-format
+msgid "No metadata file in package: %1"
+msgstr "套件中沒有中繼資料檔：%1"
+
+#: kpackage/private/packagejobthread.cpp:296
+#, kde-format
+msgid "Package plugin name not specified: %1"
+msgstr "未指定套件外掛程式名稱：%1"
+
+#: kpackage/private/packagejobthread.cpp:306
+#, kde-format
+msgid "Package plugin name %1 contains invalid characters"
+msgstr "套件外掛程式名稱 %1 中有不合法的字元"
+
+#: kpackage/private/packagejobthread.cpp:322
+msgid ""
+"The new package has a different type from the old version already installed."
+msgstr "新套件與已安裝的舊版本套件有不同的類型。"
+
+#: kpackage/private/packagejobthread.cpp:327
+#, kde-format
+msgid "Impossible to remove the old installation of %1 located at %2"
+msgstr "無法移除 %1 位於 %2 的舊安裝"
+
+#: kpackage/private/packagejobthread.cpp:331
+#, kde-format
+msgid "Not installing version %1 of %2. Version %3 already installed."
+msgstr "未安裝 %2 的版本 %1。已安裝版本 %3。"
+
+#: kpackage/private/packagejobthread.cpp:335
+#, kde-format
+msgid "%1 already exists"
+msgstr "%1 已存在"
+
+#: kpackage/private/packagejobthread.cpp:351
+#, kde-format
+msgid "Could not move package to destination: %1"
+msgstr "無法將套件移動到目的地：%1"
+
+#: kpackage/private/packagejobthread.cpp:361
+#, kde-format
+msgid "Could not copy package to destination: %1"
+msgstr "無法將套件複製到目的地：%1"
+
+#: kpackage/private/packagejobthread.cpp:403
+#, kde-format
+msgid "%1 does not exist"
+msgstr "%1 不存在"
+
+#: kpackage/private/packagejobthread.cpp:423
+#, kde-format
+msgid "Could not delete package from: %1"
+msgstr "無法從 %1 中刪除套件"
+
+#: kpackage/private/packages.cpp:34 kpackage/private/packages.cpp:55
+msgid "Main Script File"
+msgstr "主文稿檔"
+
+#: kpackage/private/packages.cpp:65
+msgid "Images"
+msgstr "影像"
+
+#: kpackage/private/packages.cpp:66
+msgid "Themed Images"
+msgstr "主題影像"
+
+#: kpackage/private/packages.cpp:72
+msgid "Configuration Definitions"
+msgstr "設定定義"
+
+#: kpackage/private/packages.cpp:77
+msgid "User Interface"
+msgstr "使用者介面"
+
+#: kpackage/private/packages.cpp:79
+msgid "Data Files"
+msgstr "資料檔"
+
+#: kpackage/private/packages.cpp:81
+msgid "Executable Scripts"
+msgstr "執行文稿"
+
+#: kpackage/private/packages.cpp:86
+msgid "Translations"
+msgstr "翻譯"
+
+#: kpackage/private/packages.cpp:93
+msgid "Main UI File"
+msgstr "主介面檔"
+
+#: kpackagetool/kpackagetool.cpp:140
+#, kde-format
+msgid "Failed to generate a Package hash for %1"
+msgstr "產生 %1 的套件雜湊失敗"
+
+#: kpackagetool/kpackagetool.cpp:143
+#, kde-format
+msgid "SHA1 hash for Package at %1: '%2'"
+msgstr "套件於 %1 的 SHA1 雜湊：'%2'"
+
+#: kpackagetool/kpackagetool.cpp:182
+msgctxt "package type"
+msgid "wallpaper"
+msgstr "桌布"
+
+#: kpackagetool/kpackagetool.cpp:232
+#, kde-format
+msgid "Listing service types: %1 in %2"
+msgstr "列出服務型態中：%1 於 %2"
+
+#: kpackagetool/kpackagetool.cpp:315
+#, kde-format
+msgid "Error: Plugin %1 is not installed."
+msgstr "錯誤：外掛程式 %1 未安裝。"
+
+#: kpackagetool/kpackagetool.cpp:325
+msgctxt ""
+"No option was given, this is the error message telling the user he needs at "
+"least one, do not translate install, remove, upgrade nor list"
+msgid "One of install, remove, upgrade or list is required."
+msgstr "至少需要指定 install、remove、upgrade 或 list 其中一個動作。"
+
+#: kpackagetool/kpackagetool.cpp:371 kpackagetool/kpackagetool.cpp:433
+#, kde-format
+msgid "Error: Can't find plugin metadata: %1\n"
+msgstr "錯誤：找不到外掛程式中繼資料：%1\n"
+
+#: kpackagetool/kpackagetool.cpp:375
+#, kde-format
+msgid "Showing info for package: %1"
+msgstr "顯示套件資訊： %1"
+
+#: kpackagetool/kpackagetool.cpp:376
+#, kde-format
+msgid "      Name : %1"
+msgstr "      名稱 : %1"
+
+#: kpackagetool/kpackagetool.cpp:377
+#, kde-format
+msgid "   Comment : %1"
+msgstr "   註解 : %1"
+
+#: kpackagetool/kpackagetool.cpp:378
+#, kde-format
+msgid "    Plugin : %1"
+msgstr "    外掛程式 %1"
+
+#: kpackagetool/kpackagetool.cpp:380
+#, kde-format
+msgid "    Author : %1"
+msgstr "    作者 : %1"
+
+#: kpackagetool/kpackagetool.cpp:381
+#, kde-format
+msgid "      Path : %1"
+msgstr "      路徑 : %1"
+
+#: kpackagetool/kpackagetool.cpp:496
+msgctxt ""
+"The user entered conflicting options packageroot and global, this is the "
+"error message telling the user he can use only one"
+msgid ""
+"The packageroot and global options conflict with each other, please select "
+"only one."
+msgstr "套件根目錄與全域選項衝突。請選擇其中一項。"
+
+#: kpackagetool/kpackagetool.cpp:522
+msgid "Addon Name"
+msgstr "附加項目名稱"
+
+#: kpackagetool/kpackagetool.cpp:523
+msgid "Service Type"
+msgstr "服務型態"
+
+#: kpackagetool/kpackagetool.cpp:524
+msgid "Path"
+msgstr "路徑"
+
+#: kpackagetool/kpackagetool.cpp:567
+msgid "Package types that are installable with this tool:"
+msgstr "可用此工具安裝的套件型態："
+
+#: kpackagetool/kpackagetool.cpp:568
+msgid "Built in:"
+msgstr "內建："
+
+#: kpackagetool/kpackagetool.cpp:571
+msgid "KPackage/Generic"
+msgstr "KPackage/一般"
+
+#: kpackagetool/kpackagetool.cpp:572
+msgid "KPackage/GenericQML"
+msgstr "KPackage/GenericQML"
+
+#: kpackagetool/kpackagetool.cpp:580
+msgid "Provided by plugins:"
+msgstr "由外掛程式提供的："
+
+#: kpackagetool/kpackagetool.cpp:605 kpackagetool/kpackagetool.cpp:614
+#, kde-format
+msgid "Generating %1/kpluginindex.json"
+msgstr "正在產生 %1/kpluginindex.json"
+
+#: kpackagetool/kpackagetool.cpp:624
+#, kde-format
+msgid "Successfully upgraded %1"
+msgstr "已成功更新 %1"
+
+#: kpackagetool/kpackagetool.cpp:626
+#, kde-format
+msgid "Successfully installed %1"
+msgstr "已成功安裝 %1"
+
+#: kpackagetool/kpackagetool.cpp:629
+#, kde-format
+msgid "Error: Installation of %1 failed: %2"
+msgstr "錯誤：安裝 %1 失敗：%2"
+
+#: kpackagetool/kpackagetool.cpp:641
+#, kde-format
+msgid "Upgrading package from file: %1"
+msgstr "從檔案更新套件： %1"
+
+#: kpackagetool/kpackagetool.cpp:646
+#, kde-format
+msgid "Successfully uninstalled %1"
+msgstr "已成功解除安裝 %1"
+
+#: kpackagetool/kpackagetool.cpp:648
+#, kde-format
+msgid "Error: Uninstallation of %1 failed: %2"
+msgstr "錯誤：%1 解除安裝失敗：%2"
+
+#: kpackagetool/main.cpp:49
+msgid "KPackage Manager"
+msgstr "KPackage 管理器"
+
+#: kpackagetool/main.cpp:56
+msgctxt "Do not translate <path>"
+msgid "Generate a SHA1 hash for the package at <path>"
+msgstr "產生套件的 SHA1 雜湊於 <path>"
+
+#: kpackagetool/main.cpp:57
+msgid "For install or remove, operates on packages installed for all users."
+msgstr "安裝與移除的動作是針對安裝於所有使用者的套件。"
+
+#: kpackagetool/main.cpp:62
+msgctxt ""
+"theme, wallpaper, etc. are keywords, but they may be translated, as both "
+"versions are recognized by the application (if translated, should be same as "
+"messages with 'package type' context below)"
+msgid ""
+"The type of package, e.g. theme, wallpaper, plasmoid, dataengine, runner, "
+"layout-template, etc."
+msgstr "套件型態，如圖示、桌面、plasmoid、資料引擎、執行器、佈局樣本等等。"
+
+#: kpackagetool/main.cpp:64
+msgctxt "Do not translate <path>"
+msgid "Install the package at <path>"
+msgstr "將套件安裝於 <path>"
+
+#: kpackagetool/main.cpp:65
+msgctxt "Do not translate <name>"
+msgid "Show information of package <name>"
+msgstr "顯示套件 <name> 的資訊"
+
+#: kpackagetool/main.cpp:66
+msgctxt "Do not translate <path>"
+msgid "Upgrade the package at <path>"
+msgstr "將套件更新於 <path>"
+
+#: kpackagetool/main.cpp:67
+msgid "List installed packages"
+msgstr "列出已安裝的套件"
+
+#: kpackagetool/main.cpp:68
+msgid "List all known package types that can be installed"
+msgstr "列出所有可被安裝的已知套件型態"
+
+#: kpackagetool/main.cpp:69
+msgctxt "Do not translate <name>"
+msgid "Remove the package named <name>"
+msgstr "移除名為 <name> 的套件"
+
+#: kpackagetool/main.cpp:70
+msgid ""
+"Absolute path to the package root. If not supplied, then the standard data "
+"directories for this KDE session will be searched instead."
+msgstr ""
+"套件根目錄的絕對路徑。如果沒有提供的話，接著會搜尋此 KDE 作業階段的標準資料目"
+"錄。"
+
+#: kpackagetool/main.cpp:71
+msgid ""
+"Recreate the plugin index. To be used in conjunction with either the option -"
+"t or -g. Recreates the index for the given type or package root. Operates in "
+"the user directory, unless -g is used"
+msgstr ""
+"重新建立外掛程式索引。要與 -t 或 -g 選項一起用。重新建立特定型態或是套件根目"
+"錄的索引。除非指定 -g 選項，不然會在使用者目錄中進行。"
+
+#: kpackagetool/main.cpp:72
+msgctxt "Do not translate <path>"
+msgid "Outputs the metadata for the package <path>"
+msgstr "產生套件的中繼資料於 <path>"
+
+#~ msgid "Provided by .desktop files:"
+#~ msgstr "由 .desktop 檔提供的："
+
+#~ msgid "OK"
+#~ msgstr "確定"
+
+#~ msgid "Cancel"
+#~ msgstr "取消"
+
+#~ msgid "Script initialization failed"
+#~ msgstr "文稿初始化失敗"
+
+#~ msgid "Unknown"
+#~ msgstr "未知"
+
+#~ msgid "Activate %1 Widget"
+#~ msgstr "啟動 %1 元件"
+
+#~ msgctxt "%1 is the name of the applet"
+#~ msgid "Remove this %1"
+#~ msgstr "移除此 %1"
+
+#~ msgctxt "%1 is the name of the applet"
+#~ msgid "%1 Settings"
+#~ msgstr "%1 設定"
+
+#~ msgid "Lock Widgets"
+#~ msgstr "鎖定元件"
+
+#~ msgid "Unlock Widgets"
+#~ msgstr "解除鎖定元件"
+
+#~ msgid "Whether or not to create an on-disk cache for the theme."
+#~ msgstr "是否要建立一個主題的磁碟快取。"
+
+#~ msgid ""
+#~ "The maximum size of the on-disk Theme cache in kilobytes. Note that these "
+#~ "files are sparse files, so the maximum size may not be used. Setting a "
+#~ "larger size is therefore often quite safe."
+#~ msgstr ""
+#~ "磁碟中主題快取的最大大小，以 KB 為單位。注意這些檔案通常不會用到最大大小，"
+#~ "因此設大一點是安全的。"
+
+#~ msgctxt "misc category"
+#~ msgid "Miscellaneous"
+#~ msgstr "雜項"
+
+#~ msgctxt "%1 is the name of the applet"
+#~ msgid "%1 Settings..."
+#~ msgstr "%1 設定..."
+
+#~ msgid "The %2 widget did not define which ScriptEngine to use."
+#~ msgstr "%2 元件未定義使用哪個文稿引擎。"
+
+#~ msgctxt "Package file, name of the widget"
+#~ msgid "Could not open the %1 package required for the %2 widget."
+#~ msgstr "無法開啟 %2 元件所需要的套件 %1。"
+
+#~ msgctxt ""
+#~ "API or programming language the widget was written in, name of the widget"
+#~ msgid "Could not create a %1 ScriptEngine for the %2 widget."
+#~ msgstr "無法建立 %2 元件所需要的 %1 文稿引擎。"
+
+#~ msgid "Alternatives..."
+#~ msgstr "替代選擇..."
+
+#~ msgid "Widget Settings"
+#~ msgstr "元件設定"
+
+#~ msgid "Remove this Widget"
+#~ msgstr "移除此元件"
+
+#~ msgid "Run the Associated Application"
+#~ msgstr "執行相關的應用程式"
+
+#~ msgid "Open with %1"
+#~ msgstr "用 %1 開啟"
+
+#~ msgid "Remove this Panel"
+#~ msgstr "移除此面板"
+
+#~ msgid "Remove this Activity"
+#~ msgstr "移除此活動"
+
+#~ msgid "Activity Settings"
+#~ msgstr "活動設定"
+
+#~ msgid "Add Widgets..."
+#~ msgstr "新增元件..."
+
+#~ msgid "Could not find requested component: %1"
+#~ msgstr "找不到請求的組件：%1"
+
+#~ msgid "Could not create local service directory: %1"
+#~ msgstr "無法建立本地服務目錄：%1"
+
+#~ msgid ""
+#~ "Could not register package as service (this is not necessarily fatal): %1"
+#~ msgstr "無法將套件註冊為服務（這個不是重要的問題）：%1"
+
+#~ msgid "Configuration UI pages model"
+#~ msgstr "設定介面頁面模型"
+
+#~ msgid "Configuration XML file"
+#~ msgstr "設定 XML 檔"
+
+#~ msgid "Service Descriptions"
+#~ msgstr "服務描述"
+
+#~ msgid "Images for dialogs"
+#~ msgstr "對話框影像"
+
+#~ msgid "Generic dialog background"
+#~ msgstr "一般對話框主題"
+
+#~ msgid "Theme for the logout dialog"
+#~ msgstr "登出對話框主題"
+
+#~ msgid "Wallpaper packages"
+#~ msgstr "桌布套件"
+
+#~ msgid "Images for widgets"
+#~ msgstr "元件影像"
+
+#~ msgid "Background image for widgets"
+#~ msgstr "元件背景影像"
+
+#~ msgid "Analog clock face"
+#~ msgstr "類比時鐘外觀"
+
+#~ msgid "Background image for panels"
+#~ msgstr "面板背景影像"
+
+#~ msgid "Background for graphing widgets"
+#~ msgstr "背景的圖形元件"
+
+#~ msgid "Background image for tooltips"
+#~ msgstr "工具提示背景影像"
+
+#~ msgid "Opaque images for dialogs"
+#~ msgstr "對話框的不透明影像"
+
+#~ msgid "Opaque generic dialog background"
+#~ msgstr "不透明的一般對話框背景"
+
+#~ msgid "Opaque theme for the logout dialog"
+#~ msgstr "登出對話框的不透明主題"
+
+#~ msgid "Opaque images for widgets"
+#~ msgstr "元件的不透明影像"
+
+#~ msgid "Opaque background image for panels"
+#~ msgstr "面板的不透明背景影像"
+
+#~ msgid "Opaque background image for tooltips"
+#~ msgstr "工具提示的不透明背景影像"
+
+#~ msgid "Low color images for dialogs"
+#~ msgstr "對話框低彩影像"
+
+#~ msgid "Low color generic dialog background"
+#~ msgstr "一般對話框低彩背景"
+
+#~ msgid "Low color theme for the logout dialog"
+#~ msgstr "登出對話框低彩主題"
+
+#~ msgid "Low color background image for widgets"
+#~ msgstr "元件的低彩背景影像"
+
+#~ msgid "Low color analog clock face"
+#~ msgstr "類比時鐘低彩外觀"
+
+#~ msgid "Low color background image for panels"
+#~ msgstr "面板的低彩背景影像"
+
+#~ msgid "Low color background for graphing widgets"
+#~ msgstr "圖形元件的低彩背景顏色"
+
+#~ msgid "Low color background image for tooltips"
+#~ msgstr "工具提示的低彩背景影像"
+
+#~ msgid "KColorScheme configuration file"
+#~ msgstr "KColorScheme 設定檔"
+
+#~ msgid ""
+#~ "Sharing a widget on the network allows you to access this widget from "
+#~ "another computer as a remote control."
+#~ msgstr "在網路上分享元件能讓您存取另一台電腦上的此元件。"
+
+#~ msgid "Share this widget on the network"
+#~ msgstr "將此元件分享在網路上"
+
+#~ msgid "Allow everybody to freely access this widget"
+#~ msgstr "允許所有人自由存取此元件"
+
+#~ msgctxt "Error message, tried to start an invalid service"
+#~ msgid "Invalid (null) service, can not perform any operations."
+#~ msgstr "不合法的（空白的）服務，無法執行任何操作。"
+
+#~ msgctxt "package type"
+#~ msgid "plasmoid"
+#~ msgstr "元件"
+
+#~ msgctxt "package type"
+#~ msgid "package"
+#~ msgstr "套件"
+
+#~ msgctxt "package type"
+#~ msgid "theme"
+#~ msgstr "主題"
+
+#~ msgctxt "package type"
+#~ msgid "dataengine"
+#~ msgstr "資料引擎"
+
+#~ msgctxt "package type"
+#~ msgid "runner"
+#~ msgstr "執行器"
+
+#~ msgctxt "package type"
+#~ msgid "wallpaperplugin"
+#~ msgstr "桌布外掛程式"
+
+#~ msgctxt "package type"
+#~ msgid "lookandfeel"
+#~ msgstr "外觀與感覺"
+
+#~ msgctxt "package type"
+#~ msgid "shell"
+#~ msgstr "shell"
+
+#~ msgctxt "package type"
+#~ msgid "layout-template"
+#~ msgstr "佈局樣本"
+
+#~ msgctxt "package type"
+#~ msgid "kwineffect"
+#~ msgstr "kwineffect"
+
+#~ msgctxt "package type"
+#~ msgid "windowswitcher"
+#~ msgstr "windowswitcher"
+
+#~ msgctxt "package type"
+#~ msgid "kwinscript"
+#~ msgstr "kwinscript"
+
+#~ msgid "Could not find a suitable installer for package of type %1"
+#~ msgstr "找不到適合型態 %1 套件的安裝器"
+
+#~ msgid "Type Argument"
+#~ msgstr "型態參數"
+
+#~ msgid "DataEngine"
+#~ msgstr "資料引擎"
+
+#~ msgid "Layout Template"
+#~ msgstr "佈局樣本"
+
+#~ msgid "Look and Feel"
+#~ msgstr "外觀與感覺"
+
+#~ msgid "Plasmoid"
+#~ msgstr "元件"
+
+#~ msgid "Runner"
+#~ msgstr "執行器"
+
+#~ msgid "Shell"
+#~ msgstr "Shell"
+
+#~ msgid "Theme"
+#~ msgstr "主題"
+
+#~ msgid "Wallpaper Images"
+#~ msgstr "桌布影像"
+
+#~ msgid "Animated Wallpaper"
+#~ msgstr "動態桌布"
+
+#~ msgid "KWin Effect"
+#~ msgstr "KWin 效果"
+
+#~ msgid "KWin Window Switcher"
+#~ msgstr "KWin 視窗切換器"
+
+#~ msgid "KWin Script"
+#~ msgstr "KWin 文稿"
+
+#~ msgid "Error loading QML file: %1"
+#~ msgstr "載入 QML 檔發生錯誤： %1"
+
+#~ msgid "Error loading Applet: package inexistent. %1"
+#~ msgstr "載入小程式發生錯誤：套件不存在。%1"
+
+#~ msgid "%1 Settings"
+#~ msgstr "%1 設定"
+
+#~ msgid "Default settings for theme, etc."
+#~ msgstr "主題等的預設設定。"
+
+#~ msgid "Color scheme to use for applications."
+#~ msgstr "應用程式使用的色彩機制。"
+
+#~ msgid "Preview Images"
+#~ msgstr "預覽影像"
+
+#~ msgid "Preview for the Login Manager"
+#~ msgstr "登入管理員預覽"
+
+#~ msgid "Preview for the Lock Screen"
+#~ msgstr "螢幕鎖定預覽"
+
+#~ msgid "Preview for the Userswitcher"
+#~ msgstr "使用者切換器預覽"
+
+#~ msgid "Preview for the Virtual Desktop Switcher"
+#~ msgstr "虛擬桌面切換器預覽"
+
+#~ msgid "Preview for Splash Screen"
+#~ msgstr "開始畫面預覽"
+
+#~ msgid "Preview for KRunner"
+#~ msgstr "執行器預覽"
+
+#~ msgid "Preview for the Window Decorations"
+#~ msgstr "視窗裝飾預覽"
+
+#~ msgid "Preview for Window Switcher"
+#~ msgstr "視窗切換預覽"
+
+#~ msgid "Login Manager"
+#~ msgstr "登入管理員"
+
+#~ msgid "Main Script for Login Manager"
+#~ msgstr "登入管理員主文稿"
+
+#~ msgid "Logout Dialog"
+#~ msgstr "登出對話框"
+
+#~ msgid "Main Script for Logout Dialog"
+#~ msgstr "登出對話框的主文稿"
+
+#~ msgid "Screenlocker"
+#~ msgstr "螢幕鎖定器"
+
+#~ msgid "Main Script for Lock Screen"
+#~ msgstr "螢幕鎖定主文稿"
+
+#~ msgid "UI for fast user switching"
+#~ msgstr "快速使用者切換介面"
+
+#~ msgid "Main Script for User Switcher"
+#~ msgstr "使用者切換主文稿"
+
+#~ msgid "Virtual Desktop Switcher"
+#~ msgstr "虛擬桌面切換器"
+
+#~ msgid "Main Script for Virtual Desktop Switcher"
+#~ msgstr "虛擬桌面切換器主文稿"
+
+#~ msgid "On-Screen Display Notifications"
+#~ msgstr "螢幕顯示通知"
+
+#~ msgid "Main Script for On-Screen Display Notifications"
+#~ msgstr "螢幕顯示通知主文稿"
+
+#~ msgid "Splash Screen"
+#~ msgstr "啟動畫面"
+
+#~ msgid "Main Script for Splash Screen"
+#~ msgstr "啟動畫面主文稿"
+
+#~ msgid "KRunner UI"
+#~ msgstr "執行器使用者介面"
+
+#~ msgid "Main Script KRunner"
+#~ msgstr "執行器主文稿"
+
+#~ msgid "Window Decoration"
+#~ msgstr "視窗裝飾"
+
+#~ msgid "Main Script for Window Decoration"
+#~ msgstr "視窗裝飾主文稿"
+
+#~ msgid "Window Switcher"
+#~ msgstr "視窗切換器"
+
+#~ msgid "Main Script for Window Switcher"
+#~ msgstr "視窗切換器主文稿"
+
+#~ msgid "Fetching file type..."
+#~ msgstr "抓取檔案型態..."
+
+#~ msgid "Widgets"
+#~ msgstr "元件"
+
+#~ msgid "Icon"
+#~ msgstr "圖示"
+
+#~ msgid "Wallpaper"
+#~ msgstr "桌布"
+
+#~ msgctxt "%1 is the name of the containment"
+#~ msgid "%1 Options"
+#~ msgstr "%1 選項"
+
+#~ msgctxt "@title:window %1 is the name of the containment"
+#~ msgid "Remove %1"
+#~ msgstr "移除 %1"
+
+#~ msgctxt "%1 is the name of the containment"
+#~ msgid "Do you really want to remove this %1?"
+#~ msgstr "您確定要移除 %1 嗎？"
+
+#~ msgid "Applets furniture"
+#~ msgstr "小程式裝飾"
+
+#~ msgid "Explorer UI for adding widgets"
+#~ msgstr "新增元件的探索介面"
+
+#~ msgid "User interface for the views that will show containments"
+#~ msgstr "顯示 containment 內容的檢視使用者介面"
+
+#~ msgid "Default layout file"
+#~ msgstr "預設佈局檔"
+
+#~ msgid "Default plugins for containments, containmentActions, etc."
+#~ msgstr "containments, containmentActions 的預設外掛程式"
+
+#~ msgid "Error message shown when an applet fails to load"
+#~ msgstr "小程式載入失敗時的錯誤訊息"
+
+#~ msgid "QML component that shows an applet in a popup"
+#~ msgstr "在彈出式視窗顯示小程式的 QML 組件"
+
+#~ msgid ""
+#~ "Compact representation of an applet when collapsed in a popup, for "
+#~ "instance as an icon. Applets can override this component."
+#~ msgstr ""
+#~ "小程式在彈出式視窗折疊時的顯示，例如變成圖示。小程式可以自己覆寫此組件。"
+
+#~ msgid "QML component for the configuration dialog for applets"
+#~ msgstr "小程式設定對話框的 QML 組件"
+
+#~ msgid "QML component for the configuration dialog for containments"
+#~ msgstr "containments 設定對話框的 QML 組件"
+
+#~ msgid "Panel configuration UI"
+#~ msgstr "面板設定使用者介面"
+
+#~ msgid "QML component for choosing an alternate applet"
+#~ msgstr "選擇另一個小程式的 QML 組件"
+
+#~ msgid "Widgets explorer UI"
+#~ msgstr "元件探索者使用者介面"
+
+#~ msgid ""
+#~ "A UI for writing, loading and running desktop scripts in the current live "
+#~ "session"
+#~ msgstr "在目前工作階段寫入、載入與執行桌面文稿的使用者介面"
