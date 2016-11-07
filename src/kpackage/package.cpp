@@ -36,6 +36,7 @@
 #include <qmimedatabase.h>
 
 #include "packagestructure.h"
+#include "packageloader.h"
 #include "private/package_p.h"
 //#include "private/packages_p.h"
 #include "private/packagejob_p.h"
@@ -117,14 +118,10 @@ bool Package::isValid() const
 
         bool failed = true;
         foreach (const QString &path, it.value().paths) {
-            foreach (const QString &prefix, d->contentsPrefixPaths) {
-                if (QFile::exists(rootPath + prefix + path)) {
-                    failed = false;
-                    break;
-                }
-            }
+            const QString foundPath = filePath(it.key(), {});
 
-            if (!failed) {
+            if (!foundPath.isEmpty()) {
+                failed = false;
                 break;
             }
         }
@@ -524,6 +521,12 @@ void Package::setPath(const QString &path)
          // canonicalPath() does not include a trailing slash (unless it is the root dir)
         if (!d->path.endsWith(QLatin1Char('/'))) {
             d->path.append('/');
+        }
+
+        const QString fallbackPath = metadata().value(QStringLiteral("X-Plasma-RootPath"));
+        if (!fallbackPath.isEmpty()) {
+            const KPackage::Package fp = KPackage::PackageLoader::self()->loadPackage(QStringLiteral("Plasma/Applet"), fallbackPath);
+            setFallbackPackage(fp);
         }
 
         // we need to tell the structure we're changing paths ...
