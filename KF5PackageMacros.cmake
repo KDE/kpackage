@@ -37,8 +37,8 @@ function(kpackage_install_package dir component)
            PATTERN Messages.sh EXCLUDE
            PATTERN dummydata EXCLUDE)
 
-   if(NOT EXISTS ${dir}/metadata.json)
-        set(GENERATED_METADATA "${CMAKE_CURRENT_BINARY_DIR}/${dir}-metadata.json")
+   if(NOT EXISTS ${component}-metadata.json)
+        set(GENERATED_METADATA "${CMAKE_CURRENT_BINARY_DIR}/${component}-metadata.json")
         add_custom_command(OUTPUT ${GENERATED_METADATA}
                            COMMAND KF5::desktoptojson -i ${CMAKE_CURRENT_SOURCE_DIR}/${dir}/metadata.desktop -o ${GENERATED_METADATA})
         add_custom_target(${component}-metadata-json ALL DEPENDS ${GENERATED_METADATA})
