@@ -18,15 +18,20 @@ Package is the central class of the framework, and it represents a package of a 
 A Package defines a particular filesystem structure for installed addons, made up of allowed subdirectories in which content will be organized and several optional named files, if you want to mandate a particular named file in every package (for instance if your addons need a file named "main.qml" in order to be considered valid)
 A fixed structure is encouraged by the api of Package in order to encourage plugin creators to distribute packages made with a standard and expected structure, encouraging a common path installation prefix, and strongly discouraging cross references between differnt packages such as ../ relative paths and symlinks across packages.
 An example filesystem structure (that in the end, depends from the PackageStructure) may be:
+
+```
+
 (root)
-    metadata.desktop
-    contents/
-        code/
-            main.js
-        config/
-            config.xml
-        images/
-            background.png
+|-- code
+|   `-- main.js
+|-- config
+|   `-- config.xml
+|-- images
+|   `-- background.png
+`-- metadata.desktop
+
+```
+
 The special, main and always required for every packagestructure file is the "metadata" file, which describes the package with values such as name, description, pluginname etc. It is in any format accepted by KPluginMetadata, meaning at the moment either a .desktop or json files. The metadata is accessible with Package::metadata()
 All the other files are under the contents/ subdirectory: a folder under addDirectoryDefinition will be registered under contents/.
 If the developer wants that those extension package require to have a particular file or folder, he will use setRequired() on a particular key: in that case if a package misses that file or folder, isValid() will return false and all the filePath resolution won't work.
@@ -52,10 +57,13 @@ package in the filesystem only if the optional parameter packagePath has been pa
 it will be an invalid package, still usable to install and uninstall packages of this type or
 it can always load a package on the filesystem with the setPath Package method, relative to the packageroot. Upon setPath, subdirectories of the packageroot will be searched both in the global system installation and in the user home, preferring the home, such as ~/.local/share/plasma/plasmoids and /usr/share/plasma/plasmoids. If one has to iterate trough packages, creating a single Package instance then loading different ones with subsequnt calls of setPath is preferrable over creating multiple instances for performance reasons.
 Example of code loading a package:
+
+```
     KPackage::Package p = KPackageLoader::self()->loadPackage("Plasma/Applet", "org.kde.plasma.analogclock");
     if (p.isValid()) {
         qDebug() << p.filePath("mainscript");
     }
+```
 
 
 ## Note for packagers
