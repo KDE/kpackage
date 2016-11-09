@@ -116,17 +116,8 @@ bool Package::isValid() const
             continue;
         }
 
-        bool failed = true;
-        foreach (const QString &path, it.value().paths) {
-            const QString foundPath = filePath(it.key(), {});
-
-            if (!foundPath.isEmpty()) {
-                failed = false;
-                break;
-            }
-        }
-
-        if (failed) {
+        const QString foundPath = filePath(it.key(), {});
+        if (foundPath.isEmpty()) {
             //qWarning() << "Could not find required" << (it.value().directory ? "directory" : "file") << it.key() << "for package" << path() << "should be" << it.value().paths;
             d->valid = false;
             break;
