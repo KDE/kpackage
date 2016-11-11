@@ -51,7 +51,23 @@ The key parameter is one of those that has been registered by the structure befo
 Accessing a file under a directory will look like package.filePath("ui", "main.qml") while accessing a particular named file will look like package.filePath("mainscript")
 
 If as file path is passed a relative path with ".." elements in it or an absolute path, the resolution will fail as well, in order to discourage cross references (same thing will happen if the resolved file is a symlink), unless the package structure explicitly allowed it with setAllowExternalPaths()
+Here is a minimal example of a PackageStructure::initPackage.
 
+```
+void MyStructure::initPackage(KPackage::Package *package)
+{
+    package->setDefaultPackageRoot(QStringLiteral("myapp" "/packages/"));
+
+    package->addDirectoryDefinition("images", QStringLiteral("images"), i18n("Images"));
+    QStringList mimetypes;
+    mimetypes << QStringLiteral("image/svg+xml") << QStringLiteral("image/png") << QStringLiteral("image/jpeg");
+    package->setMimeTypes("images", mimetypes);
+    package->addDirectoryDefinition("code", QStringLiteral("code"), i18n("Javascript files"));
+    package->addFileDefinition("mainscript", QStringLiteral("scripts/main.js"), i18n("Main Script File"));
+    //this way, the package will not be considered valid if mainscript is not present
+    package->setRequired("mainscript", true);
+}
+```
 
 ## Package structures
 
