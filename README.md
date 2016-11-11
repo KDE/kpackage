@@ -86,6 +86,7 @@ X-KDE-Library=myapp_packagestructure_mystructure
 
 X-KDE-PluginInfo-Author=John Doe
 X-KDE-PluginInfo-Email=john@example.com
+#X-KDE-PluginInfo-Name will be used for loading, so PackageLoader::loadPackage("MyApp/MyStructure);
 X-KDE-PluginInfo-Name=MyApp/MyStructure
 X-KDE-PluginInfo-Version=1
 X-KDE-ParentApp=org.kde.myapp
