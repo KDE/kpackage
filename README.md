@@ -54,6 +54,7 @@ If as file path is passed a relative path with ".." elements in it or an absolut
 Here is a minimal example of a PackageStructure::initPackage.
 
 ```
+...
 void MyStructure::initPackage(KPackage::Package *package)
 {
     package->setDefaultPackageRoot(QStringLiteral("myapp" "/packages/"));
@@ -67,7 +68,55 @@ void MyStructure::initPackage(KPackage::Package *package)
     //this way, the package will not be considered valid if mainscript is not present
     package->setRequired("mainscript", true);
 }
+...
+
+K_EXPORT_KPACKAGE_PACKAGE_WITH_JSON(MyStructure, "myapp-packagestructure-mystructure.json")
 ```
+
+The line K_EXPORT_KPACKAGE_PACKAGE_WITH_JSON is important in order to export the PackageStructure subclass MyStructure as a standalone plugin library using the KPluginLoader architecture, in order to be loadable and recognizable by a PackageLoader instance from any process (without the need to explicitly link to a library containing the MyStructure implementation).
+
+In order to build the plugin, it is also needed a .desktop file describing the metadata for the plugin:
+
+```
+[Desktop Entry]
+Name=My package type
+Type=Service
+X-KDE-ServiceTypes=KPackage/PackageStructure
+X-KDE-Library=myapp_packagestructure_mystructure
+
+X-KDE-PluginInfo-Author=John Doe
+X-KDE-PluginInfo-Email=john@example.com
+X-KDE-PluginInfo-Name=MyApp/MyStructure
+X-KDE-PluginInfo-Version=1
+X-KDE-ParentApp=org.kde.myapp
+
+```
+
+And an own CMakeLists.txt
+
+```
+set(mystructure_SRCS
+    mystructure.cpp
+)
+
+#build the PackageStructure implementation as a standalone library
+add_library(myapp_packagestructure_mystructure MODULE ${mystructure_SRCS})
+
+target_link_libraries(myapp_packagestructure_mystructure
+   KF5::I18n
+   KF5::Package
+)
+
+#Qt plugins needs metadata in json format baked into the library
+kcoreaddons_desktop_to_json(myapp_packagestructure_mystructure myapp-packagestructure-mystructure.desktop)
+
+#install the plugin where PackageLoader looks for them
+install(TARGETS myapp_packagestructure_mystructure DESTINATION ${KDE_INSTALL_PLUGINDIR}/kpackage/packagestructure)
+
+```
+
+The c++ implementation with is cmake and desktop files are recomended to be in their own subdirectory, for separation respect to the code of the parent application.
+
 
 ## Package structures
 
