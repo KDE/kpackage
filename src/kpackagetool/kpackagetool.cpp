@@ -510,7 +510,9 @@ QString PackageTool::findPackageRoot(const QString &pluginName, const QString &p
         //qDebug() << "(set via arg) d->packageRoot is: " << d->packageRoot;
     } else if (d->parser->isSet(QStringLiteral("global"))) {
         auto const paths = QStandardPaths::locateAll(QStandardPaths::GenericDataLocation, d->packageRoot, QStandardPaths::LocateDirectory);
-        packageRoot = paths.last();
+        if (!paths.isEmpty()) {
+            packageRoot = paths.last();
+        }
     } else {
         packageRoot = QStandardPaths::writableLocation(QStandardPaths::GenericDataLocation) + QLatin1Char('/') + d->packageRoot;
     }
