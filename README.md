@@ -139,7 +139,7 @@ Upon setPath, subdirectories of the packageroot will be searched both in the glo
 Example of code loading a package:
 
 ```
-KPackage::Package p = KPackageLoader::self()->loadPackage("Plasma/Applet", "org.kde.plasma.analogclock");
+KPackage::Package p = KPackage::PackageLoader::self()->loadPackage("Plasma/Applet", "org.kde.plasma.analogclock");
 if (p.isValid()) {
     qDebug() << p.filePath("mainscript");
 }
