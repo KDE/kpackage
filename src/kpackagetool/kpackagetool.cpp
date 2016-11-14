@@ -404,31 +404,41 @@ void translateKPluginToAppstream(const QString &tagName, const QString &configFi
 
 void PackageTool::showAppstreamInfo(const QString &pluginName)
 {
-    QString type = QStringLiteral("KPackage/Generic");
-    if (!d->pluginTypes.contains(type) && d->pluginTypes.count() > 0) {
-        type = d->pluginTypes.at(0);
-    }
-    KPackage::Package pkg = KPackage::PackageLoader::self()->loadPackage(type);
-
-    pkg.setDefaultPackageRoot(d->packageRoot);
-
-    if (QFile::exists(d->packageFile)) {
-        pkg.setPath(d->packageFile);
-    } else {
-        pkg.setPath(pluginName);
-    }
-
+    KPluginMetaData i;
     KPluginMetaData packageStructureMetaData;
-    {
-        foreach(const KPluginMetaData &md, listPackageTypes()) {
-            if (md.pluginId() == type) {
-                packageStructureMetaData = md;
-                break;
+    //if the path passed is an absolute path, and a metadata file is found under it, use that metadata file to generate the appstream info.
+    // This can happen in the case an application wanting to support kpackage based extensions includes in the same project both the packagestructure plugin and the packages themselves. In that case at build time the packagestructure plugin wouldn't be installed yet
+    if (QFile::exists(pluginName + QStringLiteral("/metadata.desktop"))) {
+        i = KPluginMetaData(pluginName + QStringLiteral("/metadata.desktop"));
+    } else if (QFile::exists(pluginName + QStringLiteral("/metadata.json"))) {
+        i = KPluginMetaData(pluginName + QStringLiteral("/metadata.json"));
+    } else {
+        QString type = QStringLiteral("KPackage/Generic");
+        if (!d->pluginTypes.contains(type) && d->pluginTypes.count() > 0) {
+            type = d->pluginTypes.at(0);
+        }
+        KPackage::Package pkg = KPackage::PackageLoader::self()->loadPackage(type);
+
+        pkg.setDefaultPackageRoot(d->packageRoot);
+
+        if (QFile::exists(d->packageFile)) {
+            pkg.setPath(d->packageFile);
+        } else {
+            pkg.setPath(pluginName);
+        }
+
+        {
+            foreach(const KPluginMetaData &md, listPackageTypes()) {
+                if (md.pluginId() == type) {
+                    packageStructureMetaData = md;
+                    break;
+                }
             }
         }
+
+        i = pkg.metadata();
     }
 
-    KPluginMetaData i = pkg.metadata();
     if (!i.isValid()) {
         *cerr << i18n("Error: Can't find plugin metadata: %1\n", pluginName);
         std::exit(3);
