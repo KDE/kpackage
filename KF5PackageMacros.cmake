@@ -31,7 +31,6 @@ function(kpackage_install_package dir component)
       set(install_dir ${KPACKAGE_RELATIVE_DATA_INSTALL_DIR})
    endif()
    install(DIRECTORY ${dir}/ DESTINATION ${KDE_INSTALL_DATADIR}/${install_dir}/${root}/${component}
-           PATTERN metadata.desktop EXCLUDE
            PATTERN .svn EXCLUDE
            PATTERN CMakeLists.txt EXCLUDE
            PATTERN Messages.sh EXCLUDE
