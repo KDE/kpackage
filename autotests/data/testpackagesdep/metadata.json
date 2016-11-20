@@ -1,0 +1,16 @@
+{
+    "KPlugin": {
+        "Authors": [
+            {
+                "Email": "aleixpol@kde.org",
+                "Name": "Aleix"
+            }
+        ],
+        "Id": "org.kde.testpackagesdep",
+        "License": "GPLv2+",
+        "Name": "Test Packages with Dependencies",
+        "ServiceTypes": [ "KPackage/Generic" ]
+    },
+    "X-KPackage-Dependencies": [ "appstream://eog-light-theme", "kns://colorschemes.knsrc/1159726" ],
+    "X-Plasma-MainScript": "ui/main.qml"
+}

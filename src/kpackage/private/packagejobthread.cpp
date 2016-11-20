@@ -38,7 +38,8 @@
 #include <QDirIterator>
 #include <QJsonDocument>
 #include <qtemporarydir.h>
-
+#include <QProcess>
+#include <QUrl>
 #include <QDebug>
 
 namespace KPackage
@@ -184,6 +185,27 @@ bool PackageJobThread::install(const QString &src, const QString &dest)
     return ok;
 }
 
+static QString resolveHandler(const QString &scheme)
+{
+    const QString candidatePath = QStringLiteral(CMAKE_INSTALL_FULL_LIBEXECDIR_KF5 "/kpackagehandlers/%1handler").arg(scheme);
+    return QFile::exists(candidatePath) ? candidatePath : QString();
+}
+
+bool PackageJobThread::installDependency(const QUrl &destUrl)
+{
+    auto handler = resolveHandler(destUrl.scheme());
+    if (handler.isEmpty())
+        return false;
+
+    QProcess process;
+    process.setProgram(handler);
+    process.setArguments({ destUrl.toString() });
+    process.start();
+    process.waitForFinished();
+
+    return process.exitCode() == 0;
+}
+
 bool PackageJobThread::installPackage(const QString &src, const QString &dest, OperationType operation)
 {
     QDir root(dest);
@@ -212,7 +234,7 @@ bool PackageJobThread::installPackage(const QString &src, const QString &dest, O
         // we have a directory, so let's just install what is in there
         path = src;
         // make sure we end in a slash!
-        if (path[path.size() - 1] != '/') {
+        if (!path.endsWith('/')) {
             path.append('/');
         }
     } else {
@@ -324,7 +346,7 @@ bool PackageJobThread::installPackage(const QString &src, const QString &dest, O
             } else if (isVersionNewer(oldMeta.version(), meta.version())) {
                 const bool ok = uninstallPackage(targetName);
                 if (!ok) {
-                    d->errorMessage = i18n("Impossible to remove the old installation of %1 located at %2", pluginName, targetName);
+                    d->errorMessage = i18n("Impossible to remove the old installation of %1 located at %2. error: %3", pluginName, targetName, d->errorMessage);
                     d->errorCode = Package::JobError::OldVersionRemovalError;
                 }
             } else {
@@ -338,6 +360,18 @@ bool PackageJobThread::installPackage(const QString &src, const QString &dest, O
 
         if (d->errorCode != KJob::NoError) {
             d->installPath = targetName;
+            return false;
+        }
+    }
+
+    //install dependencies
+    const QStringList dependencies = KPluginMetaData::readStringList(meta.rawData(), QStringLiteral("X-KPackage-Dependencies"));
+    for(const QString &dep : dependencies) {
+        QUrl depUrl(dep);
+
+        if (!installDependency(depUrl)) {
+            d->errorMessage = i18n("Could not install dependency: %1", dep);
+            d->errorCode = Package::JobError::PackageCopyError;
             return false;
         }
     }

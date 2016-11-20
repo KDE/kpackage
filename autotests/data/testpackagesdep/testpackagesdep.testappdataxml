@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<component>
+    <id>org.kde.testjsonpackage</id>
+    <name>Test JSON Package</name>
+    <developer_name>Aleix &lt;aleixpol@kde.org&gt;</developer_name>
+    <project_license>GPLv2+</project_license>
+    <metadata_license>CC0-1.0</metadata_license>
+</component>
