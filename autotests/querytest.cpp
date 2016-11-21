@@ -46,16 +46,24 @@ void QueryTest::cleanupTestCase()
     m_dataDir.removeRecursively();
 }
 
-void QueryTest::install()
+void QueryTest::installAndQuery()
 {
+    // verify that no packages are installed
+    QCOMPARE(KPackage::PackageLoader::self()->listPackages(QStringLiteral("KPackage/Generic")).count(), 0);
+
+    // install some packages
     ps.install(QFINDTESTDATA("data/testpackage"));
     ps.install(QFINDTESTDATA("data/testfallbackpackage"));
     ps.install(QFINDTESTDATA("data/testjsonmetadatapackage"));
-}
-
-void QueryTest::query()
-{
     QCOMPARE(KPackage::PackageLoader::self()->listPackages(QStringLiteral("KPackage/Generic")).count(), 3);
+
+    // installing package with invalid metadata should not be possible
+    ps.install(QFINDTESTDATA("data/testinvalidmetadata"));
+    QCOMPARE(KPackage::PackageLoader::self()->listPackages(QStringLiteral("KPackage/Generic")).count(), 3);
+
+    ps.install(QFINDTESTDATA("data/testpackagesdep"));
+    QEXPECT_FAIL("", "Packages with dep would not be installed on CI, because there is no dep resolver", Continue);
+    QCOMPARE(KPackage::PackageLoader::self()->listPackages(QStringLiteral("KPackage/Generic")).count(), 4);
 }
 
 QTEST_MAIN(QueryTest)

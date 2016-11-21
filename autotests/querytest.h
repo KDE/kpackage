@@ -31,8 +31,7 @@ class QueryTest : public QObject
 private Q_SLOTS:
     void initTestCase();
     void cleanupTestCase();
-    void install();
-    void query();
+    void installAndQuery();
 
 private:
     KPackage::Package ps;

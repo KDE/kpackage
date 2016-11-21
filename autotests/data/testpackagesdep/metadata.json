@@ -11,6 +11,6 @@
         "Name": "Test Packages with Dependencies",
         "ServiceTypes": [ "KPackage/Generic" ]
     },
-    "X-KPackage-Dependencies": [ "appstream://eog-light-theme", "kns://colorschemes.knsrc/1159726" ],
+    "X-KPackage-Dependencies": [ "mock://packagedep" ],
     "X-Plasma-MainScript": "ui/main.qml"
 }
