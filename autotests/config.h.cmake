@@ -1,0 +1,1 @@
+#define KPACKAGE_DEP_RESOLVERS "${CMAKE_CURRENT_BINARY_DIR}/mockdepresolver/"

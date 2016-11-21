@@ -187,7 +187,10 @@ bool PackageJobThread::install(const QString &src, const QString &dest)
 
 static QString resolveHandler(const QString &scheme)
 {
-    const QString candidatePath = QStringLiteral(CMAKE_INSTALL_FULL_LIBEXECDIR_KF5 "/kpackagehandlers/%1handler").arg(scheme);
+    QString candidatePath = QStringLiteral(CMAKE_INSTALL_FULL_LIBEXECDIR_KF5 "/kpackagehandlers/%1handler").arg(scheme);
+    if (qEnvironmentVariableIsSet("KPACKAGE_DEP_RESOLVERS_PATH")) {
+        candidatePath = QStringLiteral("%1/%2handler").arg(qgetenv("KPACKAGE_DEP_RESOLVERS_PATH"), scheme);
+    }
     return QFile::exists(candidatePath) ? candidatePath : QString();
 }
 
@@ -200,6 +203,7 @@ bool PackageJobThread::installDependency(const QUrl &destUrl)
     QProcess process;
     process.setProgram(handler);
     process.setArguments({ destUrl.toString() });
+    process.setProcessChannelMode(QProcess::ForwardedChannels);
     process.start();
     process.waitForFinished();
 
@@ -368,7 +372,6 @@ bool PackageJobThread::installPackage(const QString &src, const QString &dest, O
     const QStringList dependencies = KPluginMetaData::readStringList(meta.rawData(), QStringLiteral("X-KPackage-Dependencies"));
     for(const QString &dep : dependencies) {
         QUrl depUrl(dep);
-
         if (!installDependency(depUrl)) {
             d->errorMessage = i18n("Could not install dependency: %1", dep);
             d->errorCode = Package::JobError::PackageCopyError;

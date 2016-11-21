@@ -2,15 +2,15 @@
     "KPlugin": {
         "Authors": [
             {
-                "Email": "aleixpol@kde.org",
-                "Name": "Aleix"
+                "Email": "bshah@kde.org",
+                "Name": "Bhushan"
             }
         ],
-        "Id": "org.kde.testpackagesdep",
+        "Id": "org.kde.testpackagesdepinvalid",
         "License": "GPLv2+",
         "Name": "Test Packages with Dependencies",
         "ServiceTypes": [ "KPackage/Generic" ]
     },
-    "X-KPackage-Dependencies": [ "mock://validdep" ],
+    "X-KPackage-Dependencies": [ "mock://invaliddep" ],
     "X-Plasma-MainScript": "ui/main.qml"
 }

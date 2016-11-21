@@ -26,11 +26,14 @@
 #include "packagestructure.h"
 #include "packageloader.h"
 
+#include "config.h"
+
 void QueryTest::initTestCase()
 {
     QStandardPaths::setTestModeEnabled(true);
     //Remove any eventual installed package globally on the system
     qputenv("XDG_DATA_DIRS", "/not/valid");
+    qputenv("KPACKAGE_DEP_RESOLVERS_PATH", KPACKAGE_DEP_RESOLVERS);
 
     m_dataDir = QDir(QStandardPaths::writableLocation(QStandardPaths::GenericDataLocation));
     m_dataDir.removeRecursively();
@@ -61,8 +64,12 @@ void QueryTest::installAndQuery()
     ps.install(QFINDTESTDATA("data/testinvalidmetadata"));
     QCOMPARE(KPackage::PackageLoader::self()->listPackages(QStringLiteral("KPackage/Generic")).count(), 3);
 
+    // package with valid dep information should be installed
     ps.install(QFINDTESTDATA("data/testpackagesdep"));
-    QEXPECT_FAIL("", "Packages with dep would not be installed on CI, because there is no dep resolver", Continue);
+    QCOMPARE(KPackage::PackageLoader::self()->listPackages(QStringLiteral("KPackage/Generic")).count(), 4);
+
+    // package with invalid dep information should not be installed
+    ps.install(QFINDTESTDATA("data/testpackagesdepinvalid"));
     QCOMPARE(KPackage::PackageLoader::self()->listPackages(QStringLiteral("KPackage/Generic")).count(), 4);
 }
 

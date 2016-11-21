@@ -4,6 +4,8 @@ set_package_properties(Qt5Test PROPERTIES PURPOSE "Required for tests")
 include(ECMMarkAsTest)
 include(ECMAddTests)
 
+configure_file(config.h.cmake ${CMAKE_CURRENT_BINARY_DIR}/config.h)
+
 MACRO(PLASMA_UNIT_TESTS)
        FOREACH(_testname ${ARGN})
                add_executable(${_testname} plasmoidstructure.cpp ${_testname}.cpp ${CMAKE_CURRENT_SOURCE_DIR}/../src/kpackage/private/packages.cpp)
@@ -31,6 +33,8 @@ function(kpackagetool5test testname)
     )
 endfunction()
 
-foreach(var "testfallbackpackage" "testpackage" "testjsonmetadatapackage" "testpackagesdep") # "customcontent" "simplecontent"
+foreach(var "testfallbackpackage" "testpackage" "testjsonmetadatapackage" "testpackagesdep" "testpackagesdepinvalid") # "customcontent" "simplecontent"
     kpackagetool5test(${var})
 endforeach()
+
+add_subdirectory(mockdepresolver)
