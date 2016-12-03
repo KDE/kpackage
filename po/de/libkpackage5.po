@@ -1,0 +1,1184 @@
+# Burkhard Lück <lueck@hube-lueck.de>, 2013, 2014, 2015, 2016.
+# Frederik Schwarzer <schwarzer@kde.org>, 2014, 2016.
+msgid ""
+msgstr ""
+"Project-Id-Version: \n"
+"Report-Msgid-Bugs-To: http://bugs.kde.org\n"
+"POT-Creation-Date: 2016-11-23 02:52+0100\n"
+"PO-Revision-Date: 2016-11-30 16:03+0100\n"
+"Last-Translator: Frederik Schwarzer <schwarzer@kde.org>\n"
+"Language-Team: German <kde-i18n-de@kde.org>\n"
+"Language: de\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=2; plural=n != 1;\n"
+"X-Generator: Lokalize 2.0\n"
+
+#: kpackage/package.cpp:54
+#, kde-format
+msgid "Desktop file that describes this package."
+msgstr "Desktop-Datei mit der Beschreibung dieses Pakets."
+
+#: kpackage/packageloader.cpp:70
+#, kde-format
+msgid "Accessibility"
+msgstr "Zugangshilfen"
+
+#: kpackage/packageloader.cpp:71
+#, kde-format
+msgid "Application Launchers"
+msgstr "Programmstarter"
+
+#: kpackage/packageloader.cpp:72
+#, kde-format
+msgid "Astronomy"
+msgstr "Astronomie"
+
+#: kpackage/packageloader.cpp:73
+#, kde-format
+msgid "Date and Time"
+msgstr "Datum und Zeit"
+
+#: kpackage/packageloader.cpp:74
+#, kde-format
+msgid "Development Tools"
+msgstr "Entwicklungswerkzeuge"
+
+#: kpackage/packageloader.cpp:75
+#, kde-format
+msgid "Education"
+msgstr "Lernprogramme"
+
+#: kpackage/packageloader.cpp:76
+#, kde-format
+msgid "Environment and Weather"
+msgstr "Wetter und Umwelt"
+
+#: kpackage/packageloader.cpp:77
+#, kde-format
+msgid "Examples"
+msgstr "Beispiele"
+
+#: kpackage/packageloader.cpp:78
+#, kde-format
+msgid "File System"
+msgstr "Dateisystem"
+
+#: kpackage/packageloader.cpp:79
+#, kde-format
+msgid "Fun and Games"
+msgstr "Spiele und Spaß"
+
+#: kpackage/packageloader.cpp:80
+#, kde-format
+msgid "Graphics"
+msgstr "Grafik"
+
+#: kpackage/packageloader.cpp:81
+#, kde-format
+msgid "Language"
+msgstr "Sprache"
+
+#: kpackage/packageloader.cpp:82
+#, kde-format
+msgid "Mapping"
+msgstr "Zuordnung"
+
+#: kpackage/packageloader.cpp:83
+#, kde-format
+msgid "Miscellaneous"
+msgstr "Verschiedenes"
+
+#: kpackage/packageloader.cpp:84
+#, kde-format
+msgid "Multimedia"
+msgstr "Multimedia"
+
+#: kpackage/packageloader.cpp:85
+#, kde-format
+msgid "Online Services"
+msgstr "Online-Dienste"
+
+#: kpackage/packageloader.cpp:86
+#, kde-format
+msgid "Productivity"
+msgstr "Produktivität"
+
+#: kpackage/packageloader.cpp:87
+#, kde-format
+msgid "System Information"
+msgstr "Systeminformationen"
+
+#: kpackage/packageloader.cpp:88
+#, kde-format
+msgid "Utilities"
+msgstr "Dienstprogramme"
+
+#: kpackage/packageloader.cpp:89
+#, kde-format
+msgid "Windows and Tasks"
+msgstr "Fenster und Prozesse"
+
+#: kpackage/packageloader.cpp:358
+#, kde-format
+msgid "Could not load installer for package of type %1. Error reported was: %2"
+msgstr ""
+"Die Installationsroutine für Pakete des Typs %1 kann nicht geladen werden. "
+"Die Fehlermeldung lautet: %2"
+
+#: kpackage/private/packagejobthread.cpp:219
+#, kde-format
+msgid "Could not create package root directory: %1"
+msgstr "Der Basisordner des Pakts kann nicht erstellt werden: %1"
+
+#: kpackage/private/packagejobthread.cpp:228
+#, kde-format
+msgid "No such file: %1"
+msgstr "Datei nicht gefunden: %1"
+
+#: kpackage/private/packagejobthread.cpp:258
+#, kde-format
+msgid "Could not open package file, unsupported archive format: %1 %2"
+msgstr ""
+"Das Paket lässt sich nicht öffnen. Nicht unterstütztes Archivformat: %1 %2"
+
+#: kpackage/private/packagejobthread.cpp:266
+#, kde-format
+msgid "Could not open package file: %1"
+msgstr "Die Paketdatei lässt sich nicht öffnen: %1"
+
+#: kpackage/private/packagejobthread.cpp:301
+#, kde-format
+msgid "Could not open metadata file: %1"
+msgstr "Die Metadatendatei lässt sich nicht öffnen: %1"
+
+#: kpackage/private/packagejobthread.cpp:312
+#, kde-format
+msgid "No metadata file in package: %1"
+msgstr "Keine Metadatendatei im Paket: %1"
+
+#: kpackage/private/packagejobthread.cpp:322
+#, kde-format
+msgid "Package plugin name not specified: %1"
+msgstr "Der Modulname des Pakets wurde nicht angegeben: %1"
+
+#: kpackage/private/packagejobthread.cpp:332
+#, kde-format
+msgid "Package plugin name %1 contains invalid characters"
+msgstr "Der Modulname %1 des Pakets enthält ungültige Zeichen"
+
+#: kpackage/private/packagejobthread.cpp:348
+#, kde-format
+msgid ""
+"The new package has a different type from the old version already installed."
+msgstr ""
+"Das neue Paket hat einen anderen Typ als die alte Version, die bereits "
+"installiert ist."
+
+#: kpackage/private/packagejobthread.cpp:353
+#, kde-format
+msgid ""
+"Impossible to remove the old installation of %1 located at %2. error: %3"
+msgstr ""
+"Es ist nicht möglich, die alte Installation von %1 aus %2 zu entfernen. "
+"Fehler: %3"
+
+#: kpackage/private/packagejobthread.cpp:357
+#, kde-format
+msgid "Not installing version %1 of %2. Version %3 already installed."
+msgstr ""
+"Version %1 von %2 wird nicht installiert. Version %3 ist bereits installiert."
+
+#: kpackage/private/packagejobthread.cpp:361
+#, kde-format
+msgid "%1 already exists"
+msgstr "%1 existiert bereits."
+
+#: kpackage/private/packagejobthread.cpp:376
+#, kde-format
+msgid "Could not install dependency: %1"
+msgstr "Die Abhängigkeit kann nicht installiert werden: %1"
+
+#: kpackage/private/packagejobthread.cpp:388
+#, kde-format
+msgid "Could not move package to destination: %1"
+msgstr "Das Paket kann nicht zum Ziel verschoben werden: %1"
+
+#: kpackage/private/packagejobthread.cpp:398
+#, kde-format
+msgid "Could not copy package to destination: %1"
+msgstr "Das Paket kann nicht zum Ziel kopiert werden: %1"
+
+#: kpackage/private/packagejobthread.cpp:440
+#, kde-format
+msgid "%1 does not exist"
+msgstr "%1 existiert nicht"
+
+#: kpackage/private/packagejobthread.cpp:460
+#, kde-format
+msgid "Could not delete package from: %1"
+msgstr "Das Paket kann nicht gelöscht werden von: %1"
+
+#: kpackage/private/packages.cpp:34 kpackage/private/packages.cpp:55
+#, kde-format
+msgid "Main Script File"
+msgstr "Haupt-Skriptdatei"
+
+#: kpackage/private/packages.cpp:65
+#, kde-format
+msgid "Images"
+msgstr "Bilder"
+
+#: kpackage/private/packages.cpp:66
+#, kde-format
+msgid "Themed Images"
+msgstr "Design-Bilder"
+
+#: kpackage/private/packages.cpp:72
+#, kde-format
+msgid "Configuration Definitions"
+msgstr "Einrichtungs-Definitionen"
+
+#: kpackage/private/packages.cpp:77
+#, kde-format
+msgid "User Interface"
+msgstr "Benutzeroberfläche"
+
+#: kpackage/private/packages.cpp:79
+#, kde-format
+msgid "Data Files"
+msgstr "Datendateien"
+
+#: kpackage/private/packages.cpp:81
+#, kde-format
+msgid "Executable Scripts"
+msgstr "Ausführbare Skripte"
+
+#: kpackage/private/packages.cpp:86
+#, kde-format
+msgid "Translations"
+msgstr "Übersetzungen"
+
+#: kpackage/private/packages.cpp:93
+#, kde-format
+msgid "Main UI File"
+msgstr "Haupt-UI-Datei"
+
+#: kpackagetool/kpackagetool.cpp:140
+#, kde-format
+msgid "Failed to generate a Package hash for %1"
+msgstr "Das Generieren des Hash-Wertes für das Paket „%1“ ist fehlgeschlagen"
+
+#: kpackagetool/kpackagetool.cpp:143
+#, kde-format
+msgid "SHA1 hash for Package at %1: '%2'"
+msgstr "SHA1-Hash für das Paket in %1: „%2“"
+
+#: kpackagetool/kpackagetool.cpp:182
+#, kde-format
+msgctxt "package type"
+msgid "wallpaper"
+msgstr "Hintergrundbild"
+
+#: kpackagetool/kpackagetool.cpp:232
+#, kde-format
+msgid "Listing service types: %1 in %2"
+msgstr "Diensttypen werden aufgelistet: %1 in %2"
+
+#: kpackagetool/kpackagetool.cpp:315
+#, kde-format
+msgid "Error: Plugin %1 is not installed."
+msgstr "Fehler: Das Modul %1 ist nicht installiert."
+
+#: kpackagetool/kpackagetool.cpp:325
+#, kde-format
+msgctxt ""
+"No option was given, this is the error message telling the user he needs at "
+"least one, do not translate install, remove, upgrade nor list"
+msgid "One of install, remove, upgrade or list is required."
+msgstr ""
+"Entweder „install“, „remove“, „upgrade“ oder „list“ muss angegeben werden."
+
+#: kpackagetool/kpackagetool.cpp:371 kpackagetool/kpackagetool.cpp:443
+#, kde-format
+msgid "Error: Can't find plugin metadata: %1\n"
+msgstr "Fehler: Metadaten des Moduls wurden nicht gefunden: %1\n"
+
+#: kpackagetool/kpackagetool.cpp:375
+#, kde-format
+msgid "Showing info for package: %1"
+msgstr "Anzeige der Informationen für Paket: %1"
+
+#: kpackagetool/kpackagetool.cpp:376
+#, kde-format
+msgid "      Name : %1"
+msgstr "      Name : %1"
+
+#: kpackagetool/kpackagetool.cpp:377
+#, kde-format
+msgid "   Comment : %1"
+msgstr "   Kommentar : %1"
+
+#: kpackagetool/kpackagetool.cpp:378
+#, kde-format
+msgid "    Plugin : %1"
+msgstr "    Modul : %1"
+
+#: kpackagetool/kpackagetool.cpp:380
+#, kde-format
+msgid "    Author : %1"
+msgstr "    Autor : %1"
+
+#: kpackagetool/kpackagetool.cpp:381
+#, kde-format
+msgid "      Path : %1"
+msgstr "      Pfad : %1"
+
+#: kpackagetool/kpackagetool.cpp:506
+#, kde-format
+msgctxt ""
+"The user entered conflicting options packageroot and global, this is the "
+"error message telling the user he can use only one"
+msgid ""
+"The packageroot and global options conflict with each other, please select "
+"only one."
+msgstr ""
+"Die Option „packageroot“ und die globalen Optionen stehen in Konflikt "
+"zueinander. Bitte benutzen Sie nur eine von beiden."
+
+#: kpackagetool/kpackagetool.cpp:534
+#, kde-format
+msgid "Addon Name"
+msgstr "Name der Erweiterung"
+
+#: kpackagetool/kpackagetool.cpp:535
+#, kde-format
+msgid "Service Type"
+msgstr "Diensttyp"
+
+#: kpackagetool/kpackagetool.cpp:536
+#, kde-format
+msgid "Path"
+msgstr "Pfad"
+
+#: kpackagetool/kpackagetool.cpp:579
+#, kde-format
+msgid "Package types that are installable with this tool:"
+msgstr "Arten von Paketen, die mit diesem Werkzeug installiert werden können:"
+
+#: kpackagetool/kpackagetool.cpp:580
+#, kde-format
+msgid "Built in:"
+msgstr "Eingebaut:"
+
+#: kpackagetool/kpackagetool.cpp:583
+#, kde-format
+msgid "KPackage/Generic"
+msgstr "KPackage/Allgemein"
+
+#: kpackagetool/kpackagetool.cpp:584
+#, kde-format
+msgid "KPackage/GenericQML"
+msgstr "KPackage/GenericQML"
+
+#: kpackagetool/kpackagetool.cpp:592
+#, kde-format
+msgid "Provided by plugins:"
+msgstr "Bereitgestellt über Module:"
+
+#: kpackagetool/kpackagetool.cpp:617 kpackagetool/kpackagetool.cpp:626
+#, kde-format
+msgid "Generating %1/kpluginindex.json"
+msgstr "%1/kpluginindex.json wird generiert"
+
+#: kpackagetool/kpackagetool.cpp:636
+#, kde-format
+msgid "Successfully upgraded %1"
+msgstr "Erfolgreich aktualisiert: %1"
+
+#: kpackagetool/kpackagetool.cpp:638
+#, kde-format
+msgid "Successfully installed %1"
+msgstr "Erfolgreich installiert: %1"
+
+#: kpackagetool/kpackagetool.cpp:641
+#, kde-format
+msgid "Error: Installation of %1 failed: %2"
+msgstr "Fehler: Installation von %1 fehlgeschlagen: %2"
+
+#: kpackagetool/kpackagetool.cpp:653
+#, kde-format
+msgid "Upgrading package from file: %1"
+msgstr "Paket wird aktualisiert von Datei: %1"
+
+#: kpackagetool/kpackagetool.cpp:658
+#, kde-format
+msgid "Successfully uninstalled %1"
+msgstr "Erfolgreich deinstalliert: %1"
+
+#: kpackagetool/kpackagetool.cpp:660
+#, kde-format
+msgid "Error: Uninstallation of %1 failed: %2"
+msgstr "Fehler: Deinstallation von %1 fehlgeschlagen: %2"
+
+#: kpackagetool/main.cpp:49
+#, kde-format
+msgid "KPackage Manager"
+msgstr "KPackage-Verwaltung"
+
+#: kpackagetool/main.cpp:56
+#, kde-format
+msgctxt "Do not translate <path>"
+msgid "Generate a SHA1 hash for the package at <path>"
+msgstr "SHA1-Hash für das Paket in <path> generieren"
+
+#: kpackagetool/main.cpp:57
+#, kde-format
+msgid "For install or remove, operates on packages installed for all users."
+msgstr ""
+"Zum Installieren oder Entfernen, beeinflusst Plasma-Pakete für alle Benutzer."
+
+#: kpackagetool/main.cpp:62
+#, kde-format
+msgctxt ""
+"theme, wallpaper, etc. are keywords, but they may be translated, as both "
+"versions are recognized by the application (if translated, should be same as "
+"messages with 'package type' context below)"
+msgid ""
+"The type of package, e.g. theme, wallpaper, plasmoid, dataengine, runner, "
+"layout-template, etc."
+msgstr ""
+"Der Pakettyp, z. B. Design, Hintergrundbild, Plasmoid, Datenquelle, Starter, "
+"Layout-Vorlage usw."
+
+#: kpackagetool/main.cpp:64
+#, kde-format
+msgctxt "Do not translate <path>"
+msgid "Install the package at <path>"
+msgstr "Paket in <path> installieren"
+
+#: kpackagetool/main.cpp:65
+#, kde-format
+msgctxt "Do not translate <name>"
+msgid "Show information of package <name>"
+msgstr "Informationen für Paket <Name> anzeigen"
+
+#: kpackagetool/main.cpp:66
+#, kde-format
+msgctxt "Do not translate <path>"
+msgid "Upgrade the package at <path>"
+msgstr "Paket in <path> aktualisieren"
+
+#: kpackagetool/main.cpp:67
+#, kde-format
+msgid "List installed packages"
+msgstr "Installierte Pakete anzeigen"
+
+#: kpackagetool/main.cpp:68
+#, kde-format
+msgid "List all known package types that can be installed"
+msgstr "Alle Arten von Paketen anzeigen, die installiert werden können"
+
+#: kpackagetool/main.cpp:69
+#, kde-format
+msgctxt "Do not translate <name>"
+msgid "Remove the package named <name>"
+msgstr "Paket namens <name> entfernen"
+
+#: kpackagetool/main.cpp:70
+#, kde-format
+msgid ""
+"Absolute path to the package root. If not supplied, then the standard data "
+"directories for this KDE session will be searched instead."
+msgstr ""
+"Absoluter Pfad zum Basisordner des Pakets. Falls nicht angegeben, werden die "
+"Standard-Datenpfade dieser KDE-Sitzung durchsucht."
+
+#: kpackagetool/main.cpp:71
+#, kde-format
+msgid ""
+"Recreate the plugin index. To be used in conjunction with either the option -"
+"t or -g. Recreates the index for the given type or package root. Operates in "
+"the user directory, unless -g is used"
+msgstr ""
+"Erstellt den Index der Module neu. Kann zusammen mit den Optionen -t oder -g "
+"verwendet werden. Erstellt den Index für den angegebenen Typ oder "
+"Basisordner des Pakets. Wird im Benutzerordner ausgeführt, wenn nicht die "
+"Option -g benutzt wird."
+
+#: kpackagetool/main.cpp:72
+#, kde-format
+msgctxt "Do not translate <path>"
+msgid "Outputs the metadata for the package <path>"
+msgstr "Ausgabe der Metadaten für das Paket in <path>"
+
+#~ msgid "Provided by .desktop files:"
+#~ msgstr "Bereitgestellt über .desktop-Dateien:"
+
+#~ msgid "OK"
+#~ msgstr "OK"
+
+#~ msgid "Cancel"
+#~ msgstr "Abbrechen"
+
+#~ msgid "Script initialization failed"
+#~ msgstr "Skript-Initialisierung fehlgeschlagen"
+
+#~ msgid "Unknown"
+#~ msgstr "Unbekannt"
+
+#~ msgid "Activate %1 Widget"
+#~ msgstr "Miniprogramm %1 aktivieren"
+
+#~ msgctxt "%1 is the name of the applet"
+#~ msgid "Remove this %1"
+#~ msgstr "„%1“ entfernen"
+
+#~ msgctxt "%1 is the name of the applet"
+#~ msgid "%1 Settings"
+#~ msgstr "%1-Einstellungen"
+
+#~ msgid "Lock Widgets"
+#~ msgstr "Miniprogramme sperren"
+
+#~ msgid "Unlock Widgets"
+#~ msgstr "Miniprogramme entsperren"
+
+#~ msgid "Whether or not to create an on-disk cache for the theme."
+#~ msgstr ""
+#~ "Ob ein Zwischenspeicher für Designs auf der Festplatte erstellt werden "
+#~ "soll."
+
+#~ msgid ""
+#~ "The maximum size of the on-disk Theme cache in kilobytes. Note that these "
+#~ "files are sparse files, so the maximum size may not be used. Setting a "
+#~ "larger size is therefore often quite safe."
+#~ msgstr ""
+#~ "Die maximale Größe des Design-Zwischenspeichers auf dem Datenträger. "
+#~ "Beachten Sie, dass diese Dateien selten verwendet werden, sodass die "
+#~ "maximale Größe wahrscheinlich nicht erreicht wird. Ein höheres Limit zu "
+#~ "setzen, ist hier daher oft eine gute Wahl."
+
+#~ msgctxt "misc category"
+#~ msgid "Miscellaneous"
+#~ msgstr "Verschiedenes"
+
+#~ msgctxt "%1 is the name of the applet"
+#~ msgid "%1 Settings..."
+#~ msgstr "Einstellungen für %1 ..."
+
+#~ msgid "The %2 widget did not define which ScriptEngine to use."
+#~ msgstr ""
+#~ "Das Bedienelement %2 definiert kein Skript-Modul, das benutzt werden soll."
+
+#~ msgctxt "Package file, name of the widget"
+#~ msgid "Could not open the %1 package required for the %2 widget."
+#~ msgstr "Das Paket %1 (nötig für %2) kann nicht geöffnet werden."
+
+#~ msgctxt ""
+#~ "API or programming language the widget was written in, name of the widget"
+#~ msgid "Could not create a %1 ScriptEngine for the %2 widget."
+#~ msgstr "Der %1-Skript-Treiber für %2 kann nicht initialisiert werden."
+
+#~ msgid "Alternatives..."
+#~ msgstr "Alternativen ..."
+
+#~ msgid "The widget \"%1\" has been removed."
+#~ msgstr "Das Miniprogramm „%1“ wurde entfernt."
+
+#~ msgid "A Panel has been removed."
+#~ msgstr "Eine Kontrollleiste wurde entfernt."
+
+#~ msgid "A Desktop has been removed."
+#~ msgstr "Eine Arbeitsfläche wurde entfernt."
+
+#~ msgid "Undo"
+#~ msgstr "Zurücknehmen"
+
+#~ msgid "Widget Settings"
+#~ msgstr "Miniprogramm-Einstellungen"
+
+#~ msgid "Remove this Widget"
+#~ msgstr "Dieses Miniprogramm entfernen"
+
+#~ msgid "Run the Associated Application"
+#~ msgstr "Die zugewiesene Anwendung starten"
+
+#~ msgid "Open with %1"
+#~ msgstr "Öffnen mit %1"
+
+#~ msgid "Remove this Panel"
+#~ msgstr "Diese Kontrollleiste entfernen"
+
+#~ msgid "Remove this Activity"
+#~ msgstr "Diese Aktivität entfernen"
+
+#~ msgid "Activity Settings"
+#~ msgstr "Aktivitäten-Einstellungen"
+
+#~ msgid "Add Widgets..."
+#~ msgstr "Miniprogramme hinzufügen ..."
+
+#~ msgid "Could not create local service directory: %1"
+#~ msgstr "Der lokale Dienstordner des Pakts kann nicht erstellt werden: %1"
+
+#~ msgid ""
+#~ "Could not register package as service (this is not necessarily fatal): %1"
+#~ msgstr ""
+#~ "Das Paket kann nicht als Dienst registriert werden. das ist nicht "
+#~ "zwangsläufig ein schwerwiegender Fehler: %1"
+
+#~ msgid "Configuration UI pages model"
+#~ msgstr "Einrichtungsmodell für Benutzeroberflächenseiten"
+
+#~ msgid "Configuration XML file"
+#~ msgstr "XML-Einrichtungsdatei"
+
+#~ msgid "Service Descriptions"
+#~ msgstr "Dienstbeschreibungen"
+
+#~ msgid "Images for dialogs"
+#~ msgstr "Bilder für Dialoge"
+
+#~ msgid "Generic dialog background"
+#~ msgstr "Allgemeiner Dialoghintergrund"
+
+#~ msgid "Theme for the logout dialog"
+#~ msgstr "Design für den Abmeldedialog"
+
+#~ msgid "Wallpaper packages"
+#~ msgstr "Hintergrundbild-Pakete"
+
+#~ msgid "Images for widgets"
+#~ msgstr "Bilder für Miniprogramme"
+
+#~ msgid "Background image for widgets"
+#~ msgstr "Hintergrundbild für Miniprogramme"
+
+#~ msgid "Analog clock face"
+#~ msgstr "Aussehen der analogen Uhr"
+
+#~ msgid "Background image for panels"
+#~ msgstr "Hintergrundbild für Kontrollleisten"
+
+#~ msgid "Background for graphing widgets"
+#~ msgstr "Hintergrund für Grafik-Bedienelemente"
+
+#~ msgid "Background image for tooltips"
+#~ msgstr "Hintergrundbild für Kurzinfos"
+
+#~ msgid "Opaque images for dialogs"
+#~ msgstr "Bilder (undurchsichtig) für Dialoge"
+
+#~ msgid "Opaque generic dialog background"
+#~ msgstr "Allgemeiner Dialoghintergrund (undurchsichtig)"
+
+#~ msgid "Opaque theme for the logout dialog"
+#~ msgstr "Design für den Abmeldedialog (undurchsichtig)"
+
+#~ msgid "Opaque images for widgets"
+#~ msgstr "Bilder (undurchsichtig) für Miniprogramme"
+
+#~ msgid "Opaque background image for panels"
+#~ msgstr "Hintergrundbild (undurchsichtig) für Kontrollleisten"
+
+#~ msgid "Opaque background image for tooltips"
+#~ msgstr "Hintergrundbild (undurchsichtig) für Kurzinfos"
+
+#~ msgid "Low color images for dialogs"
+#~ msgstr "Bilder für Dialoge (wenig Farben)"
+
+#~ msgid "Low color generic dialog background"
+#~ msgstr "Allgemeiner Dialoghintergrund (wenig Farben)"
+
+#~ msgid "Low color theme for the logout dialog"
+#~ msgstr "Design für den Abmeldedialog (wenig Farben)"
+
+#~ msgid "Low color background image for widgets"
+#~ msgstr "Hintergrundbild für Miniprogramme (wenig Farben)"
+
+#~ msgid "Low color analog clock face"
+#~ msgstr "Aussehen der analogen Uhr (wenig Farben)"
+
+#~ msgid "Low color background image for panels"
+#~ msgstr "Hintergrundbild für Kontrollleisten (wenig Farben)"
+
+#~ msgid "Low color background for graphing widgets"
+#~ msgstr "Hintergrund für Grafik-Bedienelemente (wenig Farben)"
+
+#~ msgid "Low color background image for tooltips"
+#~ msgstr "Hintergrundbild für Kurzinfos (wenig Farben)"
+
+#~ msgid "KColorScheme configuration file"
+#~ msgstr "Farben-Einrichtungsdatei"
+
+#~ msgid ""
+#~ "Sharing a widget on the network allows you to access this widget from "
+#~ "another computer as a remote control."
+#~ msgstr ""
+#~ "Das Freigeben eines Miniprogramms im Netzwerk ermöglicht Ihnen den "
+#~ "Zugriff darauf von einem anderen Rechner aus (wie mit einer "
+#~ "Fernbedienung)."
+
+#~ msgid "Share this widget on the network"
+#~ msgstr "Dieses Miniprogramm im Netzwerk freigeben"
+
+#~ msgid "Allow everybody to freely access this widget"
+#~ msgstr "Beliebigen Benutzern den Zugriff auf dieses Miniprogramm erlauben"
+
+#~ msgctxt "Error message, tried to start an invalid service"
+#~ msgid "Invalid (null) service, can not perform any operations."
+#~ msgstr "Ungültiger Dienst (null), es sind keine Operationen möglich."
+
+#~ msgctxt "package type"
+#~ msgid "plasmoid"
+#~ msgstr "Plasmoid"
+
+#~ msgctxt "package type"
+#~ msgid "package"
+#~ msgstr "Paket"
+
+#~ msgctxt "package type"
+#~ msgid "theme"
+#~ msgstr "Design"
+
+#~ msgctxt "package type"
+#~ msgid "dataengine"
+#~ msgstr "Datenquelle"
+
+#~ msgctxt "package type"
+#~ msgid "runner"
+#~ msgstr "Starter"
+
+#~ msgctxt "package type"
+#~ msgid "wallpaperplugin"
+#~ msgstr "Hintergrundbild-Modul"
+
+#~ msgctxt "package type"
+#~ msgid "lookandfeel"
+#~ msgstr "Aussehen und Handhabung"
+
+#~ msgctxt "package type"
+#~ msgid "shell"
+#~ msgstr "Shell"
+
+#~ msgctxt "package type"
+#~ msgid "layout-template"
+#~ msgstr "Layout-Vorlage"
+
+#~ msgctxt "package type"
+#~ msgid "kwineffect"
+#~ msgstr "KWin-Effekt"
+
+#~ msgctxt "package type"
+#~ msgid "windowswitcher"
+#~ msgstr "Fensterwechsler"
+
+#~ msgctxt "package type"
+#~ msgid "kwinscript"
+#~ msgstr "KWin-Skript"
+
+#~ msgid "Could not find a suitable installer for package of type %1"
+#~ msgstr ""
+#~ "Es wurde keine passende Installationsroutine für Pakete des Typs %1 "
+#~ "gefunden"
+
+#~ msgid "Type Argument"
+#~ msgstr "Typ-Argument"
+
+#~ msgid "DataEngine"
+#~ msgstr "Datenquelle"
+
+#~ msgid "Layout Template"
+#~ msgstr "Layout-Vorlage"
+
+#~ msgid "Look and Feel"
+#~ msgstr "Erscheinungsbild"
+
+#~ msgid "Plasmoid"
+#~ msgstr "Plasmoid"
+
+#~ msgid "Runner"
+#~ msgstr "Starter"
+
+#~ msgid "Shell"
+#~ msgstr "Shell"
+
+#~ msgid "Theme"
+#~ msgstr "Design"
+
+#~ msgid "Wallpaper Images"
+#~ msgstr "Hintergrundbilder"
+
+#~ msgid "Animated Wallpaper"
+#~ msgstr "Animiertes Hintergrundbild"
+
+#~ msgid "KWin Effect"
+#~ msgstr "KWin-Effekt"
+
+#~ msgid "KWin Window Switcher"
+#~ msgstr "KWin-Fensterwechsler"
+
+#~ msgid "KWin Script"
+#~ msgstr "KWin-Skript"
+
+#~ msgid "Error loading QML file: %1"
+#~ msgstr "Fehler beim Laden der QML-Datei: %1"
+
+#~ msgid "Error loading Applet: package inexistent. %1"
+#~ msgstr "Fehler beim Laden des Miniprogramms: Paket existiert nicht. %1"
+
+#~ msgid "%1 Settings"
+#~ msgstr "%1-Einstellungen"
+
+#~ msgid "Default settings for theme, etc."
+#~ msgstr "Standardeinstellungen für Designs etc."
+
+#~ msgid "Color scheme to use for applications."
+#~ msgstr "Farbschema für Anwendungen."
+
+#~ msgid "Preview Images"
+#~ msgstr "Vorschaubilder"
+
+#~ msgid "Preview for the Login Manager"
+#~ msgstr "Vorschau für die Anmeldungsverwaltung"
+
+#~ msgid "Preview for the Lock Screen"
+#~ msgstr "Vorschau für die Bildschirmsperre"
+
+#~ msgid "Preview for the Userswitcher"
+#~ msgstr "Vorschau für den Benutzerwechsel"
+
+#~ msgid "Preview for the Virtual Desktop Switcher"
+#~ msgstr "Vorschau für den virtuellen Arbeitsflächenumschalter"
+
+#~ msgid "Preview for Splash Screen"
+#~ msgstr "Vorschau für den Startbildschirm"
+
+#~ msgid "Preview for KRunner"
+#~ msgstr "Vorschau für KRunner"
+
+#~ msgid "Preview for the Window Decorations"
+#~ msgstr "Vorschau für Fensterdekorationen"
+
+#~ msgid "Preview for Window Switcher"
+#~ msgstr "Vorschau für Fensterwechsler"
+
+#~ msgid "Login Manager"
+#~ msgstr "Anmeldungsverwaltung"
+
+#~ msgid "Main Script for Login Manager"
+#~ msgstr "Haupt-Skript für den Anmeldungsverwaltung"
+
+#~ msgid "Logout Dialog"
+#~ msgstr "Abmeldungsdialog"
+
+#~ msgid "Main Script for Logout Dialog"
+#~ msgstr "Haupt-Skript für den Abmeldungsdialog"
+
+#~ msgid "Screenlocker"
+#~ msgstr "Bildschirmsperre"
+
+#~ msgid "Main Script for Lock Screen"
+#~ msgstr "Haupt-Skript für die Bildschirmsperre"
+
+#~ msgid "UI for fast user switching"
+#~ msgstr "Oberfläche für schnellen Benutzerwechsel"
+
+#~ msgid "Main Script for User Switcher"
+#~ msgstr "Haupt-Skript für den Benutzerwechsel"
+
+#~ msgid "Virtual Desktop Switcher"
+#~ msgstr "Virtueller Arbeitsflächenumschalter"
+
+#~ msgid "Main Script for Virtual Desktop Switcher"
+#~ msgstr "Haupt-Skript für den virtuellen Arbeitsflächenumschalter"
+
+#~ msgid "On-Screen Display Notifications"
+#~ msgstr "Benachrichtigungen über On-Screen-Anzeige"
+
+#~ msgid "Main Script for On-Screen Display Notifications"
+#~ msgstr "Haupt-Skript für Benachrichtigungen über On-Screen-Anzeige"
+
+#~ msgid "Splash Screen"
+#~ msgstr "Startbildschirm"
+
+#~ msgid "Main Script for Splash Screen"
+#~ msgstr "Haupt-Skript für den Startbildschirm"
+
+#~ msgid "KRunner UI"
+#~ msgstr "KRunner-Oberfläche"
+
+#~ msgid "Main Script KRunner"
+#~ msgstr "Haupt-Skript für KRunner"
+
+#~ msgid "Window Decoration"
+#~ msgstr "Fensterdekoration"
+
+#~ msgid "Main Script for Window Decoration"
+#~ msgstr "Haupt-Skript für Fensterdekoration"
+
+#~ msgid "Window Switcher"
+#~ msgstr "Fensterwechsler"
+
+#~ msgid "Main Script for Window Switcher"
+#~ msgstr "Haupt-Skript für den Fensterwechsler"
+
+#~ msgid "Fetching file type..."
+#~ msgstr "Dateityp wird bezogen ..."
+
+#~ msgid "Widgets"
+#~ msgstr "Miniprogramme"
+
+#~ msgid "Icon"
+#~ msgstr "Symbol"
+
+#~ msgid "Wallpaper"
+#~ msgstr "Hintergrundbild"
+
+#~ msgctxt "%1 is the name of the containment"
+#~ msgid "%1 Options"
+#~ msgstr "%1-Optionen"
+
+#~ msgctxt "@title:window %1 is the name of the containment"
+#~ msgid "Remove %1"
+#~ msgstr "%1 entfernen"
+
+#~ msgctxt "%1 is the name of the containment"
+#~ msgid "Do you really want to remove this %1?"
+#~ msgstr "Möchten Sie „%1“ wirklich entfernen?"
+
+#~ msgid "Applets furniture"
+#~ msgstr "Einrichtung von Miniprogrammen"
+
+#~ msgid "Explorer UI for adding widgets"
+#~ msgstr "Benutzeroberfläche für das Hinzufügen von Miniprogrammen"
+
+#~ msgid "User interface for the views that will show containments"
+#~ msgstr "Benutzeroberfläche für die Ansichten, die Container anzeigen"
+
+#~ msgid "Default layout file"
+#~ msgstr "Standard-Layoutdatei"
+
+#~ msgid "Default plugins for containments, containmentActions, etc."
+#~ msgstr "Standardmodule für Container, Container-Aktionen usw."
+
+#~ msgid "Error message shown when an applet fails to load"
+#~ msgstr "Fehlermeldung, wenn ein Miniprogramm nicht geladen werden kann"
+
+#~ msgid "QML component that shows an applet in a popup"
+#~ msgstr ""
+#~ "QML-Komponente, die ein Miniprogramm in einem Nachrichtenfenster anzeigt"
+
+#~ msgid ""
+#~ "Compact representation of an applet when collapsed in a popup, for "
+#~ "instance as an icon. Applets can override this component."
+#~ msgstr ""
+#~ "Kompakte Darstellung eines Miniprogramms, wenn es in einem "
+#~ "Nachrichtenfenster zusammengeklappt ist - zum Beispiel als Symbol. "
+#~ "Miniprogramme können diese Komponente überschreiben."
+
+#~ msgid "QML component for the configuration dialog for applets"
+#~ msgstr "QML-Komponente für den Einrichtungsdialog von Miniprogrammen"
+
+#~ msgid "QML component for the configuration dialog for containments"
+#~ msgstr "QML-Komponente für den Einrichtungsdialog von Containern"
+
+#~ msgid "Panel configuration UI"
+#~ msgstr "Benutzeroberfläche zur Einrichtung der Kontrollleiste"
+
+#~ msgid "QML component for choosing an alternate applet"
+#~ msgstr "QML-Komponente für die Auswahl eines alternativen Miniprogramms"
+
+#~ msgid "Widgets explorer UI"
+#~ msgstr "Benutzeroberfläche für die Anzeige von Miniprogrammen"
+
+#~ msgid "Theme preview thumbnail"
+#~ msgstr "Design-Vorschaubild"
+
+#~ msgid "Ok"
+#~ msgstr "OK"
+
+#~ msgid "search term"
+#~ msgstr "Suchbegriff"
+
+#~ msgid "Unnamed"
+#~ msgstr "Unbenannt"
+
+#~ msgid "Panel"
+#~ msgstr "Kontrollleiste"
+
+#~ msgid "Unknown Widget"
+#~ msgstr "Unbekanntes Miniprogramm"
+
+#~ msgid "Shortcut Settings"
+#~ msgstr "Tastenkürzel einrichten"
+
+#~ msgid "Settings"
+#~ msgstr "Einstellungen"
+
+#~ msgctxt "@title:window"
+#~ msgid "%1 Settings"
+#~ msgstr "%1-Einstellungen"
+
+#~ msgid "Keyboard Shortcut"
+#~ msgstr "Tastenkürzel"
+
+#~ msgid "Unknown ContainmentActions"
+#~ msgstr "Unbekannte Container-Aktionen"
+
+#~ msgid "Next Widget"
+#~ msgstr "Nächstes Miniprogramm"
+
+#~ msgid "Previous Widget"
+#~ msgstr "Vorheriges Miniprogramm"
+
+#~ msgid "This plugin needs to be configured"
+#~ msgstr "Dieses Modul muss eingerichtet werden"
+
+#~ msgid "Animation scripts"
+#~ msgstr "Animationsskripte"
+
+#~ msgid "This object could not be created."
+#~ msgstr "Dieses Objekt kann nicht erzeugt werden."
+
+#~ msgid ""
+#~ "This object could not be created for the following reason:<p><b>%1</b></p>"
+#~ msgstr ""
+#~ "Dieses Objekt kann aus folgendem Grund nicht erzeugt werden:<p><b>%1</b></"
+#~ "p>"
+
+#~ msgid ""
+#~ "There was an error attempting to exec the associated application with "
+#~ "this widget."
+#~ msgstr ""
+#~ "Beim Ausführen der zugehörigen Anwendung zu diesem Miniprogramme ist ein "
+#~ "Fehler aufgetreten."
+
+#~ msgctxt "Error message, access to a remote service failed."
+#~ msgid "Invalid token."
+#~ msgstr "Ungültiges Zeichen."
+
+#~ msgctxt "Error message, access to a remote service failed."
+#~ msgid "Matching password required."
+#~ msgstr "Passendes Passwort erforderlich."
+
+#~ msgctxt "Error message, access to a remote service failed."
+#~ msgid "Access denied."
+#~ msgstr "Zugriff verweigert."
+
+#~ msgid "Unknown error."
+#~ msgstr "Unbekannter Fehler."
+
+#~ msgctxt ""
+#~ "%1 is the name of a plasmoid, %2 the name of the machine that plasmoid is "
+#~ "published on"
+#~ msgid "%1 on %2"
+#~ msgstr "%1 auf %2"
+
+#~ msgid "Share"
+#~ msgstr "Freigeben"
+
+#~ msgid "Job no longer valid, operation is not enabled."
+#~ msgstr "Job nicht länger gültig, die Operation ist nicht aktiviert."
+
+#~ msgid "Job no longer valid, invalid parameters."
+#~ msgstr "Job nicht länger gültig, ungültige Parameter."
+
+#~ msgid "Timeout."
+#~ msgstr "Zeitüberschreitung."
+
+#~ msgid "Server sent an invalid plasmoid package."
+#~ msgstr "Der Server hat ein ungültiges Plasmoid-Paket übermittelt."
+
+#~ msgid "You are about to open a remote widget on your system.<br>"
+#~ msgstr ""
+#~ "Sie sind gerade dabei, ein entferntes Miniprogramm auf Ihrem Rechner zu "
+#~ "öffnen.<br>"
+
+#~ msgid "<table width=\"100%\">"
+#~ msgstr "<table width=\"100%\">"
+
+#~ msgid "<tr><td align=\"right\"><b>Name:</b></td><td>&nbsp; %1</td></tr>"
+#~ msgstr "<tr><td align=\"right\"><b>Name:</b></td><td>&nbsp; %1</td></tr>"
+
+#~ msgid ""
+#~ "<tr><td align=\"right\"><b>Description:</b></td><td>&nbsp; %1</td></tr>"
+#~ msgstr ""
+#~ "<tr><td align=\"right\"><b>Beschreibung:</b></td><td>&nbsp; %1</td></tr>"
+
+#~ msgid ""
+#~ "<tr><td align=\"right\"><b>Author:</b></td><td>&nbsp; %1 &lt;%2&gt;</td></"
+#~ "tr>"
+#~ msgstr ""
+#~ "<tr><td align=\"right\"><b>Autor:</b></td><td>&nbsp; %1 &lt;%2&gt;</td></"
+#~ "tr>"
+
+#~ msgid "<tr><td align=\"right\"><b>Server:</b></td><td>&nbsp; %1</td></tr>"
+#~ msgstr "<tr><td align=\"right\"><b>Server:</b></td><td>&nbsp; %1</td></tr>"
+
+#~ msgid "</table>"
+#~ msgstr "</table>"
+
+#~ msgid "<br><br>Are you sure you want to open this widget on your system?"
+#~ msgstr ""
+#~ "<br><br>Sind Sie sicher, dass Sie dieses Miniprogramm auf Ihrem Rechner "
+#~ "öffnen möchten?"
+
+#~ msgid "Remote Widget"
+#~ msgstr "Entferntes Miniprogramm"
+
+#~ msgid "Open Widget"
+#~ msgstr "Miniprogramm öffnen"
+
+#~ msgid "Reject Widget"
+#~ msgstr "Miniprogramm ablehnen"
+
+#~ msgctxt "A remote widget was rejected by the user."
+#~ msgid "User rejected"
+#~ msgstr "Benutzer hat abgelehnt"
+
+#~ msgid "Timeout"
+#~ msgstr "Zeitüberschreitung"
+
+#~ msgid ""
+#~ "Your system does not provide support for the 'remote widgets' feature. "
+#~ "Access Failed."
+#~ msgstr ""
+#~ "Ihr System unterstützt das Freigeben von Miniprogrammen nicht. Zugriff "
+#~ "fehlgeschlagen."
+
+#~ msgid "Allow everybody access to %1."
+#~ msgstr "Jedem den Zugriff auf %1 erlauben."
+
+#~ msgid "Deny everybody access to %1"
+#~ msgstr "Niemanden den Zugriff auf %1 erlauben."
+
+#~ msgid "Allow %1 access to all services."
+#~ msgstr "%1 den Zugriff auf alle Dienste erlauben."
+
+#~ msgid "Deny %1 access to all services."
+#~ msgstr "%1 den Zugriff auf alle Dienste verbieten."
+
+#~ msgid "Allow access to %1, by %2."
+#~ msgstr "Den Zugriff auf %1 durch %2 erlauben."
+
+#~ msgid "Deny access to %1, by %2."
+#~ msgstr "Den Zugriff auf %1 durch %2 verbieten."
+
+#~ msgid "Allow access to %1, by %2?"
+#~ msgstr "Den Zugriff auf %1 durch %2 erlauben?"
+
+#~ msgid "You have requested access to the %1 hosted at %2."
+#~ msgstr "Sie haben den Zugriff auf %1 (freigebeben auf %2) angefordert."
+
+#~ msgid "Incoming connection request"
+#~ msgstr "Eingehende Verbindungsanfrage"
+
+#~ msgid "Connect with remote widget"
+#~ msgstr "Mit freigegebenem Miniprogramm verbinden"
+
+#~ msgctxt "Package file, name of the widget"
+#~ msgid "Could not locate the %1 package required for the %2 widget."
+#~ msgstr "Das Paket %1 (nötig für %2) kann nicht gefunden werden."
