@@ -239,13 +239,21 @@ QList<KPluginMetaData> PackageLoader::listPackages(const QString &packageFormat,
             //qDebug() << "Not cached";
             // If there's no cache file, fall back to listing the directory
             const QDirIterator::IteratorFlags flags = QDirIterator::Subdirectories;
-            const QStringList nameFilters = QStringList(QStringLiteral("metadata.desktop")) << QStringLiteral("metadata.json");
+            const QStringList nameFilters = { QStringLiteral("metadata.json"), QStringLiteral("metadata.desktop") };
 
             QDirIterator it(plugindir, nameFilters, QDir::Files, flags);
+            QSet<QString> dirs;
             while (it.hasNext()) {
                 it.next();
-                const QString metadataPath = it.fileInfo().absoluteFilePath();
 
+                const QString dir = it.fileInfo().absoluteDir().path();
+
+                if (dirs.contains(dir)) {
+                    continue;
+                }
+                dirs << dir;
+
+                const QString metadataPath = it.fileInfo().absoluteFilePath();
                 const KPluginMetaData info(metadataPath);
 
                 if (!info.isValid() || uniqueIds.contains(info.pluginId())) {
