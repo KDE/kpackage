@@ -77,6 +77,7 @@ install(FILES
 
 install(FILES
    data/servicetypes/kpackage-packagestructure.desktop
+   data/servicetypes/kpackage-generic.desktop
    DESTINATION ${KDE_INSTALL_KSERVICETYPES5DIR})
 
 

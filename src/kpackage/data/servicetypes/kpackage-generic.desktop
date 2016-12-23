@@ -1,0 +1,10 @@
+[Desktop Entry]
+Type=ServiceType
+X-KDE-ServiceType=KPackage/Generic
+
+[PropertyDef::X-Plasma-RootPath]
+Type=QString
+
+[PropertyDef::X-Plasma-MainScript]
+Type=QString
+
