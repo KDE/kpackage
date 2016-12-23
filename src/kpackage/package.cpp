@@ -318,21 +318,21 @@ QString Package::filePath(const QByteArray &fileType, const QString &filename) c
     }
 
     const QString discoveryKey(fileType + filename);
-    if (d->discoveries.contains(discoveryKey)) {
-        //qDebug() << "looking for" << discoveryKey << d->discoveries.value(discoveryKey);
-        return d->discoveries[discoveryKey];
+    const auto path = d->discoveries.value(discoveryKey);
+    if (!path.isEmpty()) {
+        return path;
     }
 
     QStringList paths;
 
     if (qstrlen(fileType) != 0) {
-        //qDebug()<<d->contents.keys();
-        if (!d->contents.contains(fileType)) {
+        const auto contents = d->contents.constFind(fileType);
+        if (contents == d->contents.constEnd()) {
             //qDebug() << "package does not contain" << fileType << filename;
             return d->fallbackFilePath(fileType, filename);
         }
 
-        paths = d->contents[fileType].paths;
+        paths = contents->paths;
 
         if (paths.isEmpty()) {
             //qDebug() << "no matching path came of it, while looking for" << fileType << filename;
@@ -625,15 +625,14 @@ QByteArray Package::cryptographicHash(QCryptographicHash::Algorithm algorithm) c
 
 void Package::addDirectoryDefinition(const QByteArray &key, const QString &path, const QString &name)
 {
+    const auto contentsIt = d->contents.constFind(key);
     ContentStructure s;
 
-    if (d->contents.contains(key)) {
-        s = d->contents[key];
-        if (s.paths.contains(path) && s.directory == true
-            && s.name == name
-        ) {
+    if (contentsIt != d->contents.constEnd()) {
+        if (contentsIt->paths.contains(path) && contentsIt->directory == true && contentsIt->name == name) {
             return;
         }
+        s = *contentsIt;
     }
 
     d.detach();
@@ -650,15 +649,14 @@ void Package::addDirectoryDefinition(const QByteArray &key, const QString &path,
 
 void Package::addFileDefinition(const QByteArray &key, const QString &path, const QString &name)
 {
+    const auto contentsIt = d->contents.constFind(key);
     ContentStructure s;
 
-    if (d->contents.contains(key)) {
-        s = d->contents[key];
-        if (s.paths.contains(path) && s.directory == false
-            && s.name == name
-        ) {
+    if (contentsIt != d->contents.constEnd()) {
+        if (contentsIt->paths.contains(path) && contentsIt->directory == true && contentsIt->name == name) {
             return;
         }
+        s = *contentsIt;
     }
 
     d.detach();
