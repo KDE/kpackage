@@ -8,3 +8,5 @@ Type=QString
 [PropertyDef::X-Plasma-MainScript]
 Type=QString
 
+[PropertyDef::X-KPackage-Dependencies]
+Type=QStringList

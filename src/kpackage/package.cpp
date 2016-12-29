@@ -921,17 +921,26 @@ void PackagePrivate::updateHash(const QString &basePath, const QString &subPath,
 
 void PackagePrivate::createPackageMetadata(const QString &path)
 {
+    static QString kpackageGenericService = QStandardPaths::locate(QStandardPaths::GenericDataLocation, QStringLiteral("kservicetypes5/kpackage-generic.desktop"));
     delete metadata;
 
     const bool isDir = QFileInfo(path).isDir();
-    if (isDir && QFile::exists(path + "/metadata.desktop")) {
-        metadata = new KPluginMetaData(path + "/metadata.desktop");
-    } else if (isDir && QFile::exists(path + "/metadata.json")) {
+
+    if (isDir && QFile::exists(path + "/metadata.json")) {
         metadata = new KPluginMetaData(path + "/metadata.json");
+    } else if (isDir && QFile::exists(path + "/metadata.desktop")) {
+        Q_ASSERT(!kpackageGenericService.isEmpty());
+        auto md = KPluginMetaData::fromDesktopFile(path + "/metadata.desktop", {kpackageGenericService});
+        metadata = new KPluginMetaData(md);
     } else {
-        if (isDir)
+        if (isDir) {
             qWarning() << "No metadata file in the package, expected it at:" << path;
-        metadata = new KPluginMetaData(path);
+        } else if (path.endsWith(".desktop")) {
+            auto md = KPluginMetaData::fromDesktopFile(path, {kpackageGenericService});
+            metadata = new KPluginMetaData(md);
+        } else {
+            metadata = new KPluginMetaData(path);
+        }
     }
 }
 

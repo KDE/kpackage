@@ -40,6 +40,7 @@
 #include <qtemporarydir.h>
 #include <QProcess>
 #include <QUrl>
+#include <QStandardPaths>
 #include <QDebug>
 
 namespace KPackage
@@ -292,9 +293,10 @@ bool PackageJobThread::installPackage(const QString &src, const QString &dest, O
     KPluginMetaData meta;
     if (!entries.isEmpty()) {
         const QString metadataFilePath = entries.first().filePath();
-        if (metadataFilePath.endsWith(QLatin1String(".desktop")))
-            meta = KPluginMetaData(metadataFilePath);
-        else {
+        if (metadataFilePath.endsWith(QLatin1String(".desktop"))) {
+            static QString kpackageGenericService = QStandardPaths::locate(QStandardPaths::GenericDataLocation, QStringLiteral("kservicetypes5/kpackage-generic.desktop"));
+            meta = KPluginMetaData::fromDesktopFile(metadataFilePath, {kpackageGenericService});
+        } else {
             QFile f(metadataFilePath);
             if(!f.open(QIODevice::ReadOnly)){
                 qWarning() << "Couldn't open metadata file" << src << path;
