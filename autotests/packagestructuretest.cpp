@@ -44,7 +44,7 @@ class Wallpaper : public KPackage::PackageStructure
 {
     Q_OBJECT
 public:
-    void initPackage(KPackage::Package *package)
+    void initPackage(KPackage::Package *package) Q_DECL_OVERRIDE
     {
         package->addDirectoryDefinition("images", QStringLiteral("images/"), i18n("Images"));
 
@@ -56,7 +56,7 @@ public:
         package->addFileDefinition("screenshot", QStringLiteral("screenshot.png"), i18n("Screenshot"));
         package->setAllowExternalPaths(true);
     }
-    void pathChanged(KPackage::Package *package)
+    void pathChanged(KPackage::Package *package) Q_DECL_OVERRIDE
     {
         static bool guard = false;
 
@@ -95,11 +95,11 @@ class SimpleContent : public KPackage::PackageStructure
 {
     Q_OBJECT
 public:
-    void initPackage(KPackage::Package *package)
+    void initPackage(KPackage::Package *package) Q_DECL_OVERRIDE
     {
         package->addDirectoryDefinition("ui", QStringLiteral("ui/"), i18n("User interface"));
     }
-    void pathChanged(KPackage::Package *package)
+    void pathChanged(KPackage::Package *package) Q_DECL_OVERRIDE
     {
         if (!package->metadata().isValid()) {
             return;
