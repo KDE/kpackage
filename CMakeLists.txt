@@ -17,7 +17,7 @@ include(GenerateExportHeader)
 include(ECMGenerateHeaders)
 include(KDEInstallDirs)
 include(KDECMakeSettings)
-include(ECMPackageConfigHelpers)
+include(CMakePackageConfigHelpers)
 include(ECMSetupVersion)
 include(ECMMarkNonGuiExecutable)
 include(KDEFrameworkCompilerSettings NO_POLICY_SCOPE)
@@ -68,7 +68,7 @@ include(KF5PackageMacros.cmake)
 
 set(CMAKECONFIG_INSTALL_DIR "${KDE_INSTALL_CMAKEPACKAGEDIR}/KF5Package")
 
-ecm_configure_package_config_file(
+configure_package_config_file(
   "${CMAKE_CURRENT_SOURCE_DIR}/KF5PackageConfig.cmake.in"
   "${CMAKE_CURRENT_BINARY_DIR}/KF5PackageConfig.cmake"
   INSTALL_DESTINATION  ${CMAKECONFIG_INSTALL_DIR}
