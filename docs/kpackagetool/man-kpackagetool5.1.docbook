@@ -6,8 +6,8 @@
 <refentry lang="&language;">
 <refentryinfo>
 <title>KPackage Manager</title>
-<date>2015-07-31</date>
-<releaseinfo>Frameworks 5.13</releaseinfo>
+<date>2017-01-03</date>
+<releaseinfo>Frameworks 5.30</releaseinfo>
 <productname>KDE Frameworks</productname>
 </refentryinfo>
 
@@ -70,7 +70,8 @@ install, list, remove Plasma packages.</para>
 </varlistentry>
 <varlistentry>
 <term><option>-t, --type</option> <replaceable> type</replaceable></term>
-<listitem><para>The type of package, &eg; theme, wallpaper, plasmoid, dataengine, runner, layout-template, &etc; [plasmoid].</para></listitem>
+<listitem><para>The type of package, corresponding to the service type of the package plugin,
+&eg; KPackage/Generic, Plasma/Theme, Plasma/Wallpaper, Plasma/Applet, etc.</para></listitem>
 </varlistentry>
 <varlistentry>
 <term><option>-i, --install</option> <replaceable> path</replaceable></term>
