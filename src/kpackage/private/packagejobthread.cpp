@@ -375,7 +375,7 @@ bool PackageJobThread::installPackage(const QString &src, const QString &dest, O
     for(const QString &dep : dependencies) {
         QUrl depUrl(dep);
         if (!installDependency(depUrl)) {
-            d->errorMessage = i18n("Could not install dependency: %1", dep);
+            d->errorMessage = i18n("Could not install dependency: '%1'", dep);
             d->errorCode = Package::JobError::PackageCopyError;
             return false;
         }
