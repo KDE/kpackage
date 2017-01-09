@@ -210,10 +210,16 @@ QList<KPluginMetaData> PackageLoader::listPackages(const QString &packageFormat,
     }
 
     QSet<QString> uniqueIds;
+    QStringList paths;
+    if (QDir::isAbsolutePath(actualRoot)) {
+        paths = QStringList(actualRoot);
+    } else {
+        foreach(const QString &path, QStandardPaths::standardLocations(QStandardPaths::GenericDataLocation)) {
+            paths += path + QLatin1Char('/') + actualRoot;
+        }
+    }
 
-    //TODO: case in which defaultpackageroot is absolute
-    Q_FOREACH(auto const &datadir, QStandardPaths::standardLocations(QStandardPaths::GenericDataLocation)) {
-        const QString plugindir = datadir + '/' + actualRoot;
+    Q_FOREACH(auto const &plugindir, paths) {
         const QString &_ixfile = plugindir + QStringLiteral("kpluginindex.json");
         QFile indexFile(_ixfile);
         //qDebug() << "indexfile: " << _ixfile << indexFile.exists();
@@ -236,7 +242,7 @@ QList<KPluginMetaData> PackageLoader::listPackages(const QString &packageFormat,
             }
 
         } else {
-            //qDebug() << "Not cached";
+            //qDebug() << "Not cached" << plugindir;
             // If there's no cache file, fall back to listing the directory
             const QDirIterator::IteratorFlags flags = QDirIterator::Subdirectories;
             const QStringList nameFilters = { QStringLiteral("metadata.json"), QStringLiteral("metadata.desktop") };
@@ -260,7 +266,7 @@ QList<KPluginMetaData> PackageLoader::listPackages(const QString &packageFormat,
                     continue;
                 }
 
-                if (packageFormat.isEmpty() || info.serviceTypes().contains(packageFormat)) {
+                if (packageFormat.isEmpty() || info.serviceTypes().isEmpty() || info.serviceTypes().contains(packageFormat)) {
                     uniqueIds << info.pluginId();
                     lst << info;
                 }
