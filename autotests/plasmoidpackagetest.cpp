@@ -411,6 +411,16 @@ void PlasmoidPackageTest::createAndUpdatePackage()
     delete p;
 }
 
+void PlasmoidPackageTest::uncompressPackageWithSubFolder()
+{
+    KPackage::PackageStructure *structure = new KPackage::PackageStructure;
+    KPackage::Package package(structure);
+    package.setPath(QFINDTESTDATA("data/customcontent.tar.gz"));
+
+    //if metadata is correctly found, servicetypes should be ("SimpleContent", "CustomContent")
+    QCOMPARE(package.metadata().serviceTypes(), QStringList({"SimpleContent", "CustomContent"}));
+}
+
 void PlasmoidPackageTest::cleanupPackage(const QString &packageName)
 {
     KPackage::Package *p = new KPackage::Package(m_defaultPackageStructure);

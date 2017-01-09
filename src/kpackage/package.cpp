@@ -270,8 +270,8 @@ QString PackagePrivate::unpack(const QString &filePath)
             QDir unpackedPath(tempdir.path());
             const auto entries = unpackedPath.entryInfoList(QDir::Dirs | QDir::NoDotAndDotDot);
             foreach (const auto &pack, entries) {
-                if (QFile::exists(pack.path() + "/metadata.json") || QFile::exists(pack.path() + "/metadata.desktop")) {
-                    tempRoot = pack.path() + '/';
+                if (QFile::exists(pack.filePath() + "/metadata.json") || QFile::exists(pack.filePath() + "/metadata.desktop")) {
+                    tempRoot = pack.filePath() + '/';
                 }
             }
         }
