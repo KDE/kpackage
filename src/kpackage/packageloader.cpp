@@ -40,7 +40,7 @@
 namespace KPackage
 {
 
-static PackageLoader *s_packageTrader = 0;
+static PackageLoader *s_packageTrader = nullptr;
 
 class PackageLoaderPrivate
 {
@@ -361,7 +361,7 @@ KPackage::PackageStructure *PackageLoader::loadPackageStructure(const QString &p
         const QVariantList argsWithMetaData = QVariantList() << loader.metaData().toVariantMap();
         KPluginFactory *factory = loader.factory();
         if (factory) {
-            structure = factory->create<PackageStructure>(0, argsWithMetaData);
+            structure = factory->create<PackageStructure>(nullptr, argsWithMetaData);
             if (!structure) {
                 error = QCoreApplication::translate("", "No service matching the requirements was found");
             }

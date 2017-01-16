@@ -57,7 +57,7 @@ class PACKAGE_EXPORT PackageStructure : public QObject
 
 public:
 
-    explicit PackageStructure(QObject *parent = 0, const QVariantList &args = QVariantList());
+    explicit PackageStructure(QObject *parent = nullptr, const QVariantList &args = QVariantList());
 
     ~PackageStructure();
 

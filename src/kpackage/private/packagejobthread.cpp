@@ -243,7 +243,7 @@ bool PackageJobThread::installPackage(const QString &src, const QString &dest, O
             path.append('/');
         }
     } else {
-        KArchive *archive = 0;
+        KArchive *archive = nullptr;
         QMimeDatabase db;
         QMimeType mimetype = db.mimeTypeForFile(src);
         if (mimetype.inherits(QStringLiteral("application/zip"))) {

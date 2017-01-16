@@ -107,7 +107,7 @@ public:
      * otherwise the structure is allowed to set up the Package's initial layout
      * @since 4.6
      */
-    explicit Package(PackageStructure *structure = 0);
+    explicit Package(PackageStructure *structure = nullptr);
 
     /**
      * Copy constructor

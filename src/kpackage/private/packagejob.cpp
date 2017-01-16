@@ -44,7 +44,7 @@ PackageJob::PackageJob(Package *package, QObject *parent) :
 
     connect(PackageDeletionNotifier::self(), &PackageDeletionNotifier::packageDeleted, this, [this](Package *package) {
         if (package == d->package) {
-            d->package = 0;
+            d->package = nullptr;
         }
     });
 

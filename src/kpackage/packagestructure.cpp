@@ -27,7 +27,7 @@ namespace KPackage
 
 PackageStructure::PackageStructure(QObject *parent, const QVariantList &args)
     : QObject(parent),
-      d(0)
+      d(nullptr)
 {
     Q_UNUSED(args)
 }

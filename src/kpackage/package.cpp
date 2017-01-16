@@ -241,7 +241,7 @@ KPluginMetaData Package::metadata() const
 
 QString PackagePrivate::unpack(const QString &filePath)
 {
-    KArchive *archive = 0;
+    KArchive *archive = nullptr;
     QMimeDatabase db;
     QMimeType mimeType = db.mimeTypeForFile(filePath);
 
@@ -538,7 +538,7 @@ void Package::setPath(const QString &path)
     // .. but something did change, so we get rid of our discovery cache
     d->discoveries.clear();
     delete d->metadata;
-    d->metadata = 0;
+    d->metadata = nullptr;
 
     // uh-oh, but we didn't end up with anything valid, so we sadly reset ourselves
     // to futility.
@@ -780,7 +780,7 @@ KJob *Package::install(const QString &sourcePackage, const QString &packageRoot)
     }
 
     if (!d->structure) {
-        return 0;
+        return nullptr;
     }
     //qDebug() << "Source: " << src;
     //qDebug() << "PackageRoot: " << dest;
@@ -799,7 +799,7 @@ KJob *Package::update(const QString &sourcePackage, const QString &packageRoot)
     }
 
     if (!d->structure) {
-        return 0;
+        return nullptr;
     }
     //qDebug() << "Source: " << src;
     //qDebug() << "PackageRoot: " << dest;
@@ -811,15 +811,15 @@ KJob *Package::uninstall(const QString &packageName, const QString &packageRoot)
 {
     d->createPackageMetadata(packageRoot + '/' + packageName);
     if (!d->structure) {
-        return 0;
+        return nullptr;
     }
     return d->structure.data()->uninstall(this, packageRoot);
 }
 
 PackagePrivate::PackagePrivate()
     : QSharedData(),
-      fallbackPackage(0),
-      metadata(0),
+      fallbackPackage(nullptr),
+      metadata(nullptr),
       externalPaths(false),
       valid(false),
       checkedValid(false)
@@ -831,7 +831,7 @@ PackagePrivate::PackagePrivate(const PackagePrivate &other)
     : QSharedData()
 {
     *this = other;
-    metadata = 0;
+    metadata = nullptr;
 }
 
 PackagePrivate::~PackagePrivate()
@@ -854,14 +854,14 @@ PackagePrivate &PackagePrivate::operator=(const PackagePrivate &rhs)
     if (rhs.fallbackPackage) {
         fallbackPackage = new Package(*rhs.fallbackPackage);
     } else {
-        fallbackPackage = 0;
+        fallbackPackage = nullptr;
     }
     path = rhs.path;
     contentsPrefixPaths = rhs.contentsPrefixPaths;
     contents = rhs.contents;
     mimeTypes = rhs.mimeTypes;
     defaultPackageRoot = rhs.defaultPackageRoot;
-    metadata = 0;
+    metadata = nullptr;
     externalPaths = rhs.externalPaths;
     valid = rhs.valid;
     return *this;
