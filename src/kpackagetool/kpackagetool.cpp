@@ -383,23 +383,35 @@ void PackageTool::showPackageInfo(const QString &pluginName)
     exit(0);
 }
 
-void translateKPluginToAppstream(const QString &tagName, const QString &configField, const QJsonObject &configObject, QXmlStreamWriter& writer)
+bool translateKPluginToAppstream(const QString &tagName, const QString &configField, const QJsonObject &configObject, QXmlStreamWriter& writer, bool canEndWithDot)
 {
     const QRegularExpression rx(QStringLiteral("%1\\[(.*)\\]").arg(configField));
     const QJsonValue native = configObject.value(configField);
     if (native.isUndefined()) {
-        return;
+        return false;
     }
-    writer.writeTextElement(tagName, native.toString());
+
+    QString content = native.toString();
+    if (!canEndWithDot && content.endsWith(QLatin1Char('.'))) {
+        content.chop(1);
+    }
+    writer.writeTextElement(tagName, content);
     for (auto it = configObject.begin(), itEnd = configObject.end(); it != itEnd; ++it) {
         const auto match = rx.match(it.key());
+
         if (match.hasMatch()) {
+            QString content = it->toString();
+            if (!canEndWithDot && content.endsWith(QLatin1Char('.'))) {
+                content.chop(1);
+            }
+
             writer.writeStartElement(tagName);
             writer.writeAttribute("xml:lang", match.captured(1));
-            writer.writeCharacters(it->toString());
+            writer.writeCharacters(content);
             writer.writeEndElement();
         }
     }
+    return true;
 }
 
 void PackageTool::showAppstreamInfo(const QString &pluginName)
@@ -466,8 +478,8 @@ void PackageTool::showAppstreamInfo(const QString &pluginName)
     if (!parentApp.isEmpty()) {
         writer.writeTextElement("extends", parentApp);
     }
-    translateKPluginToAppstream("name", "Name", rootObject, writer);
-    translateKPluginToAppstream("summary", "Description", rootObject, writer);
+    translateKPluginToAppstream("name", "Name", rootObject, writer, false);
+    translateKPluginToAppstream("summary", "Description", rootObject, writer, false);
     if (!i.website().isEmpty()) {
         writer.writeStartElement("url");
         writer.writeAttribute("type", "homepage");
