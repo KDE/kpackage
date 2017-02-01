@@ -49,9 +49,12 @@ function(kpackage_install_package dir component)
    get_target_property(kpackagetool_cmd KF5::kpackagetool5 LOCATION)
    if (${component} MATCHES "^.+\\..+\\.") #we make sure there's at least 2 dots
         set(APPDATAFILE "${CMAKE_CURRENT_BINARY_DIR}/${component}.appdata.xml")
+
         execute_process(COMMAND ${kpackagetool_cmd} --appstream-metainfo ${CMAKE_CURRENT_SOURCE_DIR}/${dir} OUTPUT_FILE ${APPDATAFILE} ERROR_VARIABLE appstreamerror RESULT_VARIABLE result)
         if(appstreamerror)
-            message(WARNING "couldn't generate metainfo for ${component}: ${appstreamerror}")
+            if (NOT result EQUAL 0)
+                message(WARNING "couldn't generate metainfo for ${component}: ${appstreamerror}")
+            endif ()
         else()
             install(FILES ${APPDATAFILE} DESTINATION ${KDE_INSTALL_METAINFODIR})
         endif()

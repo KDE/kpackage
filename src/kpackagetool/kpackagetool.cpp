@@ -457,6 +457,11 @@ void PackageTool::showAppstreamInfo(const QString &pluginName)
         return;
     }
 
+    if (i.rawData().value("NoDisplay").toBool(false)) {
+        *cerr << i18n("%1 has NoDisplay enabled\n", pluginName);
+        std::exit(0);
+    }
+
     QString parentApp = i.rawData().value("X-KDE-ParentApp").toString();
     if (parentApp.isEmpty()) {
         parentApp = packageStructureMetaData.rawData().value("X-KDE-ParentApp").toString();
