@@ -296,10 +296,22 @@ bool PackagePrivate::isInsidePackageDir(const QString &canonicalPath) const
     // make sure that the base path is also canonical
     // this was not the case until 5.8, making this check fail e.g. if /home is a symlink
     // which in turn would make plasmashell not find the .qml files
-    Q_ASSERT(QDir(path).exists());
-    Q_ASSERT(path == QStringLiteral("/") || QDir(path).canonicalPath() + '/' == path);
-    if (canonicalPath.startsWith(path)) {
-        return true;
+    //installed package
+    if (tempRoot.isEmpty()) {
+        Q_ASSERT(QDir(path).exists());
+        Q_ASSERT(path == QStringLiteral("/") || QDir(path).canonicalPath() + '/' == path);
+
+        if (canonicalPath.startsWith(path)) {
+            return true;
+        }
+    //temporary compressed package
+    } else {
+        Q_ASSERT(QDir(tempRoot).exists());
+        Q_ASSERT(tempRoot == QStringLiteral("/") || QDir(tempRoot).canonicalPath() + '/' == tempRoot);
+
+        if (canonicalPath.startsWith(tempRoot)) {
+            return true;
+        }
     }
     qWarning() << "Path traversal attempt detected:" << canonicalPath << "is not inside" << path;
     return false;
@@ -347,7 +359,14 @@ QString Package::filePath(const QByteArray &fileType, const QString &filename) c
     //Nested loop, but in the medium case resolves to just one iteration
     //qDebug() << "prefixes:" << prefixes.count() << prefixes;
     foreach (const QString &contentsPrefix, d->contentsPrefixPaths) {
-        const QString prefix = fileType == "metadata" ? d->path : (d->path + contentsPrefix);
+        QString prefix;
+        //We are an installed package
+        if (d->tempRoot.isEmpty()) {
+            prefix = fileType == "metadata" ? d->path : (d->path + contentsPrefix);
+        //We are a compressed package temporarly uncompressed in /tmp
+        } else {
+            prefix = fileType == "metadata" ? d->tempRoot : (d->tempRoot + contentsPrefix);
+        }
 
         foreach (const QString &path, paths) {
             QString file = prefix + path;
