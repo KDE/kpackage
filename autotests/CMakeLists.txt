@@ -14,6 +14,7 @@ MACRO(PLASMA_UNIT_TESTS)
                                      KF5::I18n)
                add_test(plasma-${_testname} ${_testname})
                ecm_mark_as_test(${_testname})
+               ecm_mark_nongui_executable(${_testname})
        ENDFOREACH(_testname)
 ENDMACRO(PLASMA_UNIT_TESTS)
 
