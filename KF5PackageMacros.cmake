@@ -1,6 +1,6 @@
 
 find_package(ECM 1.6.0 CONFIG REQUIRED)
-include(KDEInstallDirs)
+include(${ECM_KDE_MODULE_DIR}/KDEInstallDirs.cmake)
 
 set(KPACKAGE_RELATIVE_DATA_INSTALL_DIR "kpackage")
 
