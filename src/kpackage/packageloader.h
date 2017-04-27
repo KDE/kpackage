@@ -31,7 +31,7 @@ class PackageLoaderPrivate;
 
 /**
  * This is an abstract base class which defines an interface to which the package
- * loading logiccan communicate with a parent application. The plugin loader
+ * loading logic can communicate with a parent application. The plugin loader
  * must be set before any plugins are loaded, otherwise (for safety reasons), the
  * default PackageLoader implementation will be used. The reimplemented version should
  * not do more than simply returning a loaded plugin. It should not init() it, and it should not
