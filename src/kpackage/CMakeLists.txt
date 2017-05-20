@@ -65,10 +65,14 @@ ecm_generate_headers(Package_CamelCase_HEADERS
     PREFIX KPackage
 )
 
+set(Package_HEADERS
+    ${Package_HEADERS}
+    version.h
+)
+
 install(FILES
         ${Package_HEADERS}
         ${CMAKE_CURRENT_BINARY_DIR}/kpackage/package_export.h
-        version.h
         DESTINATION ${KDE_INSTALL_INCLUDEDIR_KF5}/KPackage/kpackage COMPONENT Devel)
 
 install(FILES
@@ -83,3 +87,22 @@ install(FILES
 
 install(TARGETS KF5Package EXPORT KF5PackageTargets ${KF5_INSTALL_TARGETS_DEFAULT_ARGS})
 
+if(BUILD_QCH)
+    ecm_add_qch(
+        KF5Package_QCH
+        NAME KPackage
+        BASE_NAME KF5Package
+        VERSION ${KF5_VERSION}
+        ORG_DOMAIN org.kde
+        SOURCES # using only public headers, to cover only public API
+            ${Package_HEADERS}
+        MD_MAINPAGE "${CMAKE_SOURCE_DIR}/README.md"
+        LINK_QCHS
+            KF5CoreAddons_QCH
+        BLANK_MACROS
+            PACKAGE_EXPORT
+        TAGFILE_INSTALL_DESTINATION ${KDE_INSTALL_QTQCHDIR}
+        QCH_INSTALL_DESTINATION ${KDE_INSTALL_QTQCHDIR}
+        COMPONENT Devel
+    )
+endif()

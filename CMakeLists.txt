@@ -20,7 +20,11 @@ include(KDECMakeSettings)
 include(CMakePackageConfigHelpers)
 include(ECMSetupVersion)
 include(ECMMarkNonGuiExecutable)
+include(ECMAddQch)
 include(KDEFrameworkCompilerSettings NO_POLICY_SCOPE)
+
+option(BUILD_QCH "Build API documentation in QCH format (for e.g. Qt Assistant, Qt Creator & KDevelop)" OFF)
+add_feature_info(QCH ${BUILD_QCH} "API documentation in QCH format (for e.g. Qt Assistant, Qt Creator & KDevelop)")
 
 ecm_setup_version(PROJECT
                   VARIABLE_PREFIX PACKAGE
@@ -62,11 +66,39 @@ remove_definitions(-DQT_NO_CAST_FROM_ASCII -DQT_STRICT_ITERATORS -DQT_NO_CAST_FR
 
 include(KF5PackageMacros.cmake)
 
+# make package_version.h available
+include_directories(${CMAKE_CURRENT_BINARY_DIR})
+
+################# list the subdirectories #################
+if (KF5DocTools_FOUND)
+    add_subdirectory(docs)
+endif()
+add_definitions(-DTRANSLATION_DOMAIN=\"libkpackage5\")
+if (IS_DIRECTORY "${CMAKE_CURRENT_SOURCE_DIR}/po")
+    ki18n_install(po)
+    if (KF5DocTools_FOUND)
+        kdoctools_install(po)
+    endif()
+endif()
+
+add_subdirectory(src)
+add_subdirectory(autotests)
+
 ################ create PackageConfig.cmake and install it ####################
 
 # create a Config.cmake and a ConfigVersion.cmake file and install them
 
 set(CMAKECONFIG_INSTALL_DIR "${KDE_INSTALL_CMAKEPACKAGEDIR}/KF5Package")
+
+if (BUILD_QCH)
+    ecm_install_qch_export(
+        TARGETS KF5Package_QCH
+        FILE KF5PackageQchTargets.cmake
+        DESTINATION "${CMAKECONFIG_INSTALL_DIR}"
+        COMPONENT Devel
+    )
+    set(PACKAGE_INCLUDE_QCHTARGETS "include(\"\${CMAKE_CURRENT_LIST_DIR}/KF5PackageQchTargets.cmake\")")
+endif()
 
 configure_package_config_file(
   "${CMAKE_CURRENT_SOURCE_DIR}/KF5PackageConfig.cmake.in"
@@ -91,23 +123,5 @@ install(EXPORT KF5PackageTargets
 
 install(FILES ${CMAKE_CURRENT_BINARY_DIR}/kpackage_version.h
         DESTINATION ${KDE_INSTALL_INCLUDEDIR_KF5} COMPONENT Devel )
-
-# make package_version.h available
-include_directories(${CMAKE_CURRENT_BINARY_DIR})
-
-################# list the subdirectories #################
-if (KF5DocTools_FOUND)
-    add_subdirectory(docs)
-endif()
-add_definitions(-DTRANSLATION_DOMAIN=\"libkpackage5\")
-if (IS_DIRECTORY "${CMAKE_CURRENT_SOURCE_DIR}/po")
-    ki18n_install(po)
-    if (KF5DocTools_FOUND)
-        kdoctools_install(po)
-    endif()
-endif()
-
-add_subdirectory(src)
-add_subdirectory(autotests)
 
 feature_summary(WHAT ALL FATAL_ON_MISSING_REQUIRED_PACKAGES)

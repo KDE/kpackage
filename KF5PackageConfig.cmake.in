@@ -3,6 +3,7 @@
 # Any changes in this ".cmake" file will be overwritten by CMake, the source is the ".cmake.in" file.
 
 include("${CMAKE_CURRENT_LIST_DIR}/KF5PackageTargets.cmake")
+@PACKAGE_INCLUDE_QCHTARGETS@
 
 set(Package_INSTALL_PREFIX "@PACKAGE_CMAKE_INSTALL_PREFIX@")
 set_and_check(Package_INCLUDE_DIR    "@PACKAGE_KF5_INCLUDE_INSTALL_DIR@")
