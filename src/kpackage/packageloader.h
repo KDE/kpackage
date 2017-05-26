@@ -30,6 +30,8 @@ namespace KPackage
 class PackageLoaderPrivate;
 
 /**
+ * @class PackageLoader kpackage/packageloader.h <KPackage/PackageLoader>
+ *
  * This is an abstract base class which defines an interface to which the package
  * loading logic can communicate with a parent application. The plugin loader
  * must be set before any plugins are loaded, otherwise (for safety reasons), the

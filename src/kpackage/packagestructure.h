@@ -34,6 +34,8 @@ namespace KPackage
 class PackageStructurePrivate;
 
 /**
+ * @class PackageStructure kpackage/packagestructure.h <KPackage/PackageStructure>
+ *
  * This class is used to define the filesystem structure of a package type.
  * A PackageStructure is implemented as a dynamically loaded plugin, in the reimplementation
  * of initPackage the allowed fines and directories in the package are set into the package,
