@@ -84,20 +84,20 @@ public:
      * @since 5.17
      */
     enum JobError {
-        RootCreationError = KJob::UserDefinedError + 1, /** Cannot create package root directory */
-        PackageFileNotFoundError, /** The package file does not exist */
-        UnsupportedArchiveFormatError, /** The archive format of the package is not supported */
-        PackageOpenError, /** Can't open the package file for reading */
-        MetadataFileMissingError, /** The package doesn't have a metadata.desktop file */
-        PluginNameMissingError, /** The metadata.desktop file doesn't specify a plugin name */
-        PluginNameInvalidError, /** The plugin name contains charaters different from letters, digits, dots and underscores */
-        UpdatePackageTypeMismatchError, /** A package with this plugin name was already installed, but has a different type in the metadata.desktop file */
-        OldVersionRemovalError, /** Failed to remove the old version of the package during an upgrade */
-        NewerVersionAlreadyInstalledError, /** We tried to update, but the same version or a newer one is already installed */
-        PackageAlreadyInstalledError, /** The package is already installed and a normal install (not update) was performed */
-        PackageMoveError, /** Failure to move a package from the system temporary folder to its final destination */
-        PackageCopyError, /** Failure to copy a package folder from somewhere in the filesystem to its final destination */
-        PackageUninstallError /** Failure to uninstall a package */
+        RootCreationError = KJob::UserDefinedError + 1, /**< Cannot create package root directory */
+        PackageFileNotFoundError, /**< The package file does not exist */
+        UnsupportedArchiveFormatError, /**< The archive format of the package is not supported */
+        PackageOpenError, /**< Can't open the package file for reading */
+        MetadataFileMissingError, /**< The package doesn't have a metadata.desktop file */
+        PluginNameMissingError, /**< The metadata.desktop file doesn't specify a plugin name */
+        PluginNameInvalidError, /**< The plugin name contains charaters different from letters, digits, dots and underscores */
+        UpdatePackageTypeMismatchError, /**< A package with this plugin name was already installed, but has a different type in the metadata.desktop file */
+        OldVersionRemovalError, /**< Failed to remove the old version of the package during an upgrade */
+        NewerVersionAlreadyInstalledError, /**< We tried to update, but the same version or a newer one is already installed */
+        PackageAlreadyInstalledError, /**< The package is already installed and a normal install (not update) was performed */
+        PackageMoveError, /**< Failure to move a package from the system temporary folder to its final destination */
+        PackageCopyError, /**< Failure to copy a package folder from somewhere in the filesystem to its final destination */
+        PackageUninstallError /**< Failure to uninstall a package */
     };
 
     /**
