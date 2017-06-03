@@ -1,0 +1,503 @@
+# Lithuanian translations for trunk-kf package.
+# Copyright (C) 2015 This_file_is_part_of_KDE
+# This file is distributed under the same license as the trunk-kf package.
+# Automatically generated, 2015.
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: trunk-kf 5\n"
+"Report-Msgid-Bugs-To: http://bugs.kde.org\n"
+"POT-Creation-Date: 2017-02-03 04:08+0100\n"
+"PO-Revision-Date: 2015-07-07 11:56+0000\n"
+"Last-Translator: Automatically generated\n"
+"Language-Team: none\n"
+"Language: lt\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=4; plural=(n==1 ? 0 : n%10>=2 && (n%100<10 || n"
+"%100>=20) ? 1 : n%10==0 || (n%100>10 && n%100<20) ? 2 : 3);\n"
+
+#: kpackage/package.cpp:54
+#, kde-format
+msgid "Desktop file that describes this package."
+msgstr ""
+
+#: kpackage/packageloader.cpp:70
+#, kde-format
+msgid "Accessibility"
+msgstr ""
+
+#: kpackage/packageloader.cpp:71
+#, kde-format
+msgid "Application Launchers"
+msgstr ""
+
+#: kpackage/packageloader.cpp:72
+#, kde-format
+msgid "Astronomy"
+msgstr ""
+
+#: kpackage/packageloader.cpp:73
+#, kde-format
+msgid "Date and Time"
+msgstr ""
+
+#: kpackage/packageloader.cpp:74
+#, kde-format
+msgid "Development Tools"
+msgstr ""
+
+#: kpackage/packageloader.cpp:75
+#, kde-format
+msgid "Education"
+msgstr ""
+
+#: kpackage/packageloader.cpp:76
+#, kde-format
+msgid "Environment and Weather"
+msgstr ""
+
+#: kpackage/packageloader.cpp:77
+#, kde-format
+msgid "Examples"
+msgstr ""
+
+#: kpackage/packageloader.cpp:78
+#, kde-format
+msgid "File System"
+msgstr ""
+
+#: kpackage/packageloader.cpp:79
+#, kde-format
+msgid "Fun and Games"
+msgstr ""
+
+#: kpackage/packageloader.cpp:80
+#, kde-format
+msgid "Graphics"
+msgstr ""
+
+#: kpackage/packageloader.cpp:81
+#, kde-format
+msgid "Language"
+msgstr ""
+
+#: kpackage/packageloader.cpp:82
+#, kde-format
+msgid "Mapping"
+msgstr ""
+
+#: kpackage/packageloader.cpp:83
+#, kde-format
+msgid "Miscellaneous"
+msgstr ""
+
+#: kpackage/packageloader.cpp:84
+#, kde-format
+msgid "Multimedia"
+msgstr ""
+
+#: kpackage/packageloader.cpp:85
+#, kde-format
+msgid "Online Services"
+msgstr ""
+
+#: kpackage/packageloader.cpp:86
+#, kde-format
+msgid "Productivity"
+msgstr ""
+
+#: kpackage/packageloader.cpp:87
+#, kde-format
+msgid "System Information"
+msgstr ""
+
+#: kpackage/packageloader.cpp:88
+#, kde-format
+msgid "Utilities"
+msgstr ""
+
+#: kpackage/packageloader.cpp:89
+#, kde-format
+msgid "Windows and Tasks"
+msgstr ""
+
+#: kpackage/packageloader.cpp:372
+#, kde-format
+msgid "Could not load installer for package of type %1. Error reported was: %2"
+msgstr ""
+
+#: kpackage/private/packagejobthread.cpp:220
+#, kde-format
+msgid "Could not create package root directory: %1"
+msgstr ""
+
+#: kpackage/private/packagejobthread.cpp:229
+#, kde-format
+msgid "No such file: %1"
+msgstr ""
+
+#: kpackage/private/packagejobthread.cpp:259
+#, kde-format
+msgid "Could not open package file, unsupported archive format: %1 %2"
+msgstr ""
+
+#: kpackage/private/packagejobthread.cpp:267
+#, kde-format
+msgid "Could not open package file: %1"
+msgstr ""
+
+#: kpackage/private/packagejobthread.cpp:303
+#, kde-format
+msgid "Could not open metadata file: %1"
+msgstr ""
+
+#: kpackage/private/packagejobthread.cpp:314
+#, kde-format
+msgid "No metadata file in package: %1"
+msgstr ""
+
+#: kpackage/private/packagejobthread.cpp:324
+#, kde-format
+msgid "Package plugin name not specified: %1"
+msgstr ""
+
+#: kpackage/private/packagejobthread.cpp:334
+#, kde-format
+msgid "Package plugin name %1 contains invalid characters"
+msgstr ""
+
+#: kpackage/private/packagejobthread.cpp:350
+#, kde-format
+msgid ""
+"The new package has a different type from the old version already installed."
+msgstr ""
+
+#: kpackage/private/packagejobthread.cpp:355
+#, kde-format
+msgid ""
+"Impossible to remove the old installation of %1 located at %2. error: %3"
+msgstr ""
+
+#: kpackage/private/packagejobthread.cpp:359
+#, kde-format
+msgid "Not installing version %1 of %2. Version %3 already installed."
+msgstr ""
+
+#: kpackage/private/packagejobthread.cpp:363
+#, kde-format
+msgid "%1 already exists"
+msgstr ""
+
+#: kpackage/private/packagejobthread.cpp:378
+#, kde-format
+msgid "Could not install dependency: '%1'"
+msgstr ""
+
+#: kpackage/private/packagejobthread.cpp:390
+#, kde-format
+msgid "Could not move package to destination: %1"
+msgstr ""
+
+#: kpackage/private/packagejobthread.cpp:400
+#, kde-format
+msgid "Could not copy package to destination: %1"
+msgstr ""
+
+#: kpackage/private/packagejobthread.cpp:442
+#, kde-format
+msgid "%1 does not exist"
+msgstr ""
+
+#: kpackage/private/packagejobthread.cpp:462
+#, kde-format
+msgid "Could not delete package from: %1"
+msgstr ""
+
+#: kpackage/private/packages.cpp:34 kpackage/private/packages.cpp:55
+#, kde-format
+msgid "Main Script File"
+msgstr ""
+
+#: kpackage/private/packages.cpp:65
+#, kde-format
+msgid "Images"
+msgstr ""
+
+#: kpackage/private/packages.cpp:66
+#, kde-format
+msgid "Themed Images"
+msgstr ""
+
+#: kpackage/private/packages.cpp:72
+#, kde-format
+msgid "Configuration Definitions"
+msgstr ""
+
+#: kpackage/private/packages.cpp:77
+#, kde-format
+msgid "User Interface"
+msgstr ""
+
+#: kpackage/private/packages.cpp:79
+#, kde-format
+msgid "Data Files"
+msgstr ""
+
+#: kpackage/private/packages.cpp:81
+#, kde-format
+msgid "Executable Scripts"
+msgstr ""
+
+#: kpackage/private/packages.cpp:86
+#, kde-format
+msgid "Translations"
+msgstr ""
+
+#: kpackage/private/packages.cpp:93
+#, kde-format
+msgid "Main UI File"
+msgstr ""
+
+#: kpackagetool/kpackagetool.cpp:140
+#, kde-format
+msgid "Failed to generate a Package hash for %1"
+msgstr ""
+
+#: kpackagetool/kpackagetool.cpp:143
+#, kde-format
+msgid "SHA1 hash for Package at %1: '%2'"
+msgstr ""
+
+#: kpackagetool/kpackagetool.cpp:182
+#, kde-format
+msgctxt "package type"
+msgid "wallpaper"
+msgstr ""
+
+#: kpackagetool/kpackagetool.cpp:232
+#, kde-format
+msgid "Listing service types: %1 in %2"
+msgstr ""
+
+#: kpackagetool/kpackagetool.cpp:315
+#, kde-format
+msgid "Error: Plugin %1 is not installed."
+msgstr ""
+
+#: kpackagetool/kpackagetool.cpp:325
+#, kde-format
+msgctxt ""
+"No option was given, this is the error message telling the user he needs at "
+"least one, do not translate install, remove, upgrade nor list"
+msgid "One of install, remove, upgrade or list is required."
+msgstr ""
+
+#: kpackagetool/kpackagetool.cpp:371 kpackagetool/kpackagetool.cpp:455
+#, kde-format
+msgid "Error: Can't find plugin metadata: %1\n"
+msgstr ""
+
+#: kpackagetool/kpackagetool.cpp:375
+#, kde-format
+msgid "Showing info for package: %1"
+msgstr ""
+
+#: kpackagetool/kpackagetool.cpp:376
+#, kde-format
+msgid "      Name : %1"
+msgstr ""
+
+#: kpackagetool/kpackagetool.cpp:377
+#, kde-format
+msgid "   Comment : %1"
+msgstr ""
+
+#: kpackagetool/kpackagetool.cpp:378
+#, kde-format
+msgid "    Plugin : %1"
+msgstr ""
+
+#: kpackagetool/kpackagetool.cpp:380
+#, kde-format
+msgid "    Author : %1"
+msgstr ""
+
+#: kpackagetool/kpackagetool.cpp:381
+#, kde-format
+msgid "      Path : %1"
+msgstr ""
+
+#: kpackagetool/kpackagetool.cpp:461
+#, kde-format
+msgid "%1 has NoDisplay enabled\n"
+msgstr ""
+
+#: kpackagetool/kpackagetool.cpp:523
+#, kde-format
+msgctxt ""
+"The user entered conflicting options packageroot and global, this is the "
+"error message telling the user he can use only one"
+msgid ""
+"The packageroot and global options conflict with each other, please select "
+"only one."
+msgstr ""
+
+#: kpackagetool/kpackagetool.cpp:551
+#, kde-format
+msgid "Addon Name"
+msgstr ""
+
+#: kpackagetool/kpackagetool.cpp:552
+#, kde-format
+msgid "Service Type"
+msgstr ""
+
+#: kpackagetool/kpackagetool.cpp:553
+#, kde-format
+msgid "Path"
+msgstr ""
+
+#: kpackagetool/kpackagetool.cpp:596
+#, kde-format
+msgid "Package types that are installable with this tool:"
+msgstr ""
+
+#: kpackagetool/kpackagetool.cpp:597
+#, kde-format
+msgid "Built in:"
+msgstr ""
+
+#: kpackagetool/kpackagetool.cpp:600
+#, kde-format
+msgid "KPackage/Generic"
+msgstr ""
+
+#: kpackagetool/kpackagetool.cpp:601
+#, kde-format
+msgid "KPackage/GenericQML"
+msgstr ""
+
+#: kpackagetool/kpackagetool.cpp:609
+#, kde-format
+msgid "Provided by plugins:"
+msgstr ""
+
+#: kpackagetool/kpackagetool.cpp:634 kpackagetool/kpackagetool.cpp:643
+#, kde-format
+msgid "Generating %1/kpluginindex.json"
+msgstr ""
+
+#: kpackagetool/kpackagetool.cpp:653
+#, kde-format
+msgid "Successfully upgraded %1"
+msgstr ""
+
+#: kpackagetool/kpackagetool.cpp:655
+#, kde-format
+msgid "Successfully installed %1"
+msgstr ""
+
+#: kpackagetool/kpackagetool.cpp:658
+#, kde-format
+msgid "Error: Installation of %1 failed: %2"
+msgstr ""
+
+#: kpackagetool/kpackagetool.cpp:670
+#, kde-format
+msgid "Upgrading package from file: %1"
+msgstr ""
+
+#: kpackagetool/kpackagetool.cpp:675
+#, kde-format
+msgid "Successfully uninstalled %1"
+msgstr ""
+
+#: kpackagetool/kpackagetool.cpp:677
+#, kde-format
+msgid "Error: Uninstallation of %1 failed: %2"
+msgstr ""
+
+#: kpackagetool/main.cpp:49
+#, kde-format
+msgid "KPackage Manager"
+msgstr ""
+
+#: kpackagetool/main.cpp:56
+#, kde-format
+msgctxt "Do not translate <path>"
+msgid "Generate a SHA1 hash for the package at <path>"
+msgstr ""
+
+#: kpackagetool/main.cpp:57
+#, kde-format
+msgid "For install or remove, operates on packages installed for all users."
+msgstr ""
+
+#: kpackagetool/main.cpp:62
+#, kde-format
+msgctxt ""
+"theme, wallpaper, etc. are keywords, but they may be translated, as both "
+"versions are recognized by the application (if translated, should be same as "
+"messages with 'package type' context below)"
+msgid ""
+"The type of package, corresponding to the service type of the package "
+"plugin, e.g. KPackage/Generic, Plasma/Theme, Plasma/Wallpaper, Plasma/"
+"Applet, etc."
+msgstr ""
+
+#: kpackagetool/main.cpp:64
+#, kde-format
+msgctxt "Do not translate <path>"
+msgid "Install the package at <path>"
+msgstr ""
+
+#: kpackagetool/main.cpp:65
+#, kde-format
+msgctxt "Do not translate <name>"
+msgid "Show information of package <name>"
+msgstr ""
+
+#: kpackagetool/main.cpp:66
+#, kde-format
+msgctxt "Do not translate <path>"
+msgid "Upgrade the package at <path>"
+msgstr ""
+
+#: kpackagetool/main.cpp:67
+#, kde-format
+msgid "List installed packages"
+msgstr ""
+
+#: kpackagetool/main.cpp:68
+#, kde-format
+msgid "List all known package types that can be installed"
+msgstr ""
+
+#: kpackagetool/main.cpp:69
+#, kde-format
+msgctxt "Do not translate <name>"
+msgid "Remove the package named <name>"
+msgstr ""
+
+#: kpackagetool/main.cpp:70
+#, kde-format
+msgid ""
+"Absolute path to the package root. If not supplied, then the standard data "
+"directories for this KDE session will be searched instead."
+msgstr ""
+
+#: kpackagetool/main.cpp:71
+#, kde-format
+msgid ""
+"Recreate the plugin index. To be used in conjunction with either the option -"
+"t or -g. Recreates the index for the given type or package root. Operates in "
+"the user directory, unless -g is used"
+msgstr ""
+
+#: kpackagetool/main.cpp:72
+#, kde-format
+msgctxt "Do not translate <path>"
+msgid "Outputs the metadata for the package <path>"
+msgstr ""
