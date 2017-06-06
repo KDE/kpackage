@@ -10,6 +10,7 @@ MACRO(PLASMA_UNIT_TESTS)
        FOREACH(_testname ${ARGN})
                ecm_add_test(
                        plasmoidstructure.cpp ${_testname}.cpp ${CMAKE_CURRENT_SOURCE_DIR}/../src/kpackage/private/packages.cpp
+                       LINK_LIBRARIES Qt5::Test KF5::Package KF5::Archive KF5::CoreAddons KF5::I18n
                        TEST_NAME ${_testname}
                        NAME_PREFIX "plasma-")
        ENDFOREACH(_testname)
