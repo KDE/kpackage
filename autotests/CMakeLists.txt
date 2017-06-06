@@ -8,13 +8,10 @@ configure_file(config.h.cmake ${CMAKE_CURRENT_BINARY_DIR}/config.h)
 
 MACRO(PLASMA_UNIT_TESTS)
        FOREACH(_testname ${ARGN})
-               add_executable(${_testname} plasmoidstructure.cpp ${_testname}.cpp ${CMAKE_CURRENT_SOURCE_DIR}/../src/kpackage/private/packages.cpp)
-               target_link_libraries(${_testname} Qt5::Test
-                                     KF5::Package KF5::Archive KF5::CoreAddons
-                                     KF5::I18n)
-               add_test(plasma-${_testname} ${_testname})
-               ecm_mark_as_test(${_testname})
-               ecm_mark_nongui_executable(${_testname})
+               ecm_add_test(
+                       plasmoidstructure.cpp ${_testname}.cpp ${CMAKE_CURRENT_SOURCE_DIR}/../src/kpackage/private/packages.cpp
+                       TEST_NAME ${_testname}
+                       NAME_PREFIX "plasma-")
        ENDFOREACH(_testname)
 ENDMACRO(PLASMA_UNIT_TESTS)
 
