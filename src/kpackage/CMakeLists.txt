@@ -82,6 +82,7 @@ install(FILES
 install(FILES
    data/servicetypes/kpackage-packagestructure.desktop
    data/servicetypes/kpackage-generic.desktop
+   data/servicetypes/kpackage-genericqml.desktop
    DESTINATION ${KDE_INSTALL_KSERVICETYPES5DIR})
 
 
