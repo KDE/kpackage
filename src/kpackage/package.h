@@ -103,7 +103,7 @@ public:
     /**
      * Default constructor
      *
-     * @arg structure if a null pointer is passed in, this will creates an empty (invalid) Package;
+     * @param structure if a null pointer is passed in, this will creates an empty (invalid) Package;
      * otherwise the structure is allowed to set up the Package's initial layout
      * @since 4.6
      */

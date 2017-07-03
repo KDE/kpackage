@@ -71,7 +71,7 @@ public:
      * compatible .desktop file within the package. If not defined, it is assumed that this file
      * exists under the top level directory of the package.
      *
-     * @arg package the Package to set up. The object is empty of all definition when
+     * @param package the Package to set up. The object is empty of all definition when
      *      first passed in.
      */
     virtual void initPackage(Package *package);
