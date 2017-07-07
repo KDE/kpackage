@@ -458,7 +458,6 @@ void PackageTool::showAppstreamInfo(const QString &pluginName)
     }
 
     if (i.rawData().value("NoDisplay").toBool(false)) {
-        *cerr << i18n("%1 has NoDisplay enabled\n", pluginName);
         std::exit(0);
     }
 
