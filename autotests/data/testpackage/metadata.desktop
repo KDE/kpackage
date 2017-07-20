@@ -44,6 +44,7 @@ Name[uk]=Тестовий пакунок
 Name[x-test]=xxTest Packagexx
 Name[zh_CN]=测试包
 Name[zh_TW]=測試套件
+Comment=fancy shmancy summary
 Type=Service
 
 X-KDE-ServiceTypes=KPackage/Generic
