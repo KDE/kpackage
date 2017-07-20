@@ -98,7 +98,7 @@ X-KDE-PluginInfo-Version=pre0.1
 X-KDE-PluginInfo-Website=http://plasma.kde.org/
 X-KDE-PluginInfo-Category=System test
 X-KDE-PluginInfo-Depends=some_test_dep
-X-KDE-PluginInfo-License=GPL
+X-KDE-PluginInfo-License=GPLv2+
 X-KDE-PluginInfo-EnabledByDefault=true
 
 X-KDE-ParentApp=A Test name

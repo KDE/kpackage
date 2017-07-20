@@ -36,6 +36,6 @@
     <name xml:lang="zh_CN">测试回退包</name>
     <name xml:lang="zh_TW">測試預設套件</name>
     <developer_name>Marco Martin &lt;mart@kde.org&gt;</developer_name>
-    <project_license>GPLv2+</project_license>
+    <project_license>GPL-2.0+</project_license>
     <metadata_license>CC0-1.0</metadata_license>
 </component>

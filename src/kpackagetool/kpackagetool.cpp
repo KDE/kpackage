@@ -505,7 +505,7 @@ void PackageTool::showAppstreamInfo(const QString &pluginName)
         writer.writeCharacters(i.iconName());
         writer.writeEndElement();
     }
-    writer.writeTextElement("project_license", i.license());
+    writer.writeTextElement("project_license", KAboutLicense::byKeyword(i.license()).spdx());
     writer.writeTextElement("metadata_license", "CC0-1.0");
     writer.writeEndElement();
     writer.writeEndDocument();
