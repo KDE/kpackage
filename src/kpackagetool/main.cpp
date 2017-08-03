@@ -70,6 +70,9 @@ int main(int argc, char **argv)
     parser.addOption(QCommandLineOption(QStringList() << QStringLiteral("p") << QStringLiteral("packageroot"), i18n("Absolute path to the package root. If not supplied, then the standard data directories for this KDE session will be searched instead."), QStringLiteral("path")));
     parser.addOption(QCommandLineOption(QStringList() << QStringLiteral("generate-index"), i18n("Recreate the plugin index. To be used in conjunction with either the option -t or -g. Recreates the index for the given type or package root. Operates in the user directory, unless -g is used")));
     parser.addOption(QCommandLineOption(QStringList() << QStringLiteral("appstream-metainfo"), i18nc("Do not translate <path>", "Outputs the metadata for the package <path>"), QStringLiteral("path")));
+    parser.addOption(QCommandLineOption(QStringList() << QStringLiteral("appstream-metainfo-output"),
+                                        i18nc("Do not translate <path>", "Outputs the metadata for the package into <path>"),
+                                        QStringLiteral("path")));
 
     parser.process(app);
 

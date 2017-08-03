@@ -11,7 +11,7 @@ set(KPACKAGE_RELATIVE_DATA_INSTALL_DIR "kpackage")
 # @arg componentname The plugin name of the component, corresponding to the
 #       X-KDE-PluginInfo-Name key in metadata.desktop
 # @arg root The subdirectory to install to, default: packages
-# @arg install_dir the path where to install packages, 
+# @arg install_dir the path where to install packages,
 #       such as myapp, that would go under prefix/share/myapp:
 #       default ${KPACKAGE_RELATIVE_DATA_INSTALL_DIR}
 #
@@ -50,7 +50,10 @@ function(kpackage_install_package dir component)
    if (${component} MATCHES "^.+\\..+\\.") #we make sure there's at least 2 dots
         set(APPDATAFILE "${CMAKE_CURRENT_BINARY_DIR}/${component}.appdata.xml")
 
-        execute_process(COMMAND ${kpackagetool_cmd} --appstream-metainfo ${CMAKE_CURRENT_SOURCE_DIR}/${dir} OUTPUT_FILE ${APPDATAFILE} ERROR_VARIABLE appstreamerror RESULT_VARIABLE result)
+        execute_process(
+            COMMAND ${kpackagetool_cmd} --appstream-metainfo ${CMAKE_CURRENT_SOURCE_DIR}/${dir} --appstream-metainfo-output ${APPDATAFILE}
+            ERROR_VARIABLE appstreamerror
+            RESULT_VARIABLE result)
         if (NOT result EQUAL 0)
             message(WARNING "couldn't generate metainfo for ${component}: ${appstreamerror}")
         else()
@@ -58,7 +61,8 @@ function(kpackage_install_package dir component)
                 message(WARNING "warnings during generation of metainfo for ${component}: ${appstreamerror}")
             endif()
 
-            install(FILES ${APPDATAFILE} DESTINATION ${KDE_INSTALL_METAINFODIR})
+            # OPTIONAL because desktop files can be NoDisplay so they render no XML.
+            install(FILES ${APPDATAFILE} DESTINATION ${KDE_INSTALL_METAINFODIR} OPTIONAL)
         endif()
    else()
         message(WARNING "KPackage components should be specified in reverse domain notation. Appstream information won't be generated for ${component}.")

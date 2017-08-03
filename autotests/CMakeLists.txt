@@ -32,7 +32,7 @@ function(kpackagetool5test testname)
     )
 endfunction()
 
-foreach(var "testfallbackpackage" "testpackage" "testjsonmetadatapackage" "testpackagesdep" "testpackagesdepinvalid") # "customcontent" "simplecontent"
+foreach(var "testfallbackpackage" "testpackage" "testpackage-nodisplay" "testjsonmetadatapackage" "testpackagesdep" "testpackagesdepinvalid") # "customcontent" "simplecontent"
     kpackagetool5test(${var})
 endforeach()
 

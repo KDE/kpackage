@@ -41,6 +41,7 @@
 #include <QStandardPaths>
 #include <QStringList>
 #include <QTimer>
+#include <QUrl>
 #include <QXmlStreamWriter>
 
 #include <iostream>
@@ -457,22 +458,45 @@ void PackageTool::showAppstreamInfo(const QString &pluginName)
         return;
     }
 
-    if (i.rawData().value("NoDisplay").toBool(false)) {
-        std::exit(0);
-    }
-
     QString parentApp = i.rawData().value("X-KDE-ParentApp").toString();
     if (parentApp.isEmpty()) {
         parentApp = packageStructureMetaData.rawData().value("X-KDE-ParentApp").toString();
     }
     const QJsonObject rootObject = i.rawData()[QStringLiteral("KPlugin")].toObject();
 
+    // Be super aggressive in finding a NoDisplay property. It can be a top-level property or
+    // inside the KPlugin object, it also can be either a stringy type or a bool type. Try all
+    // possible scopes and type conversions to find NoDisplay
+    for (const auto object : { i.rawData(), rootObject }) {
+        if (object.value("NoDisplay").toBool(false) ||
+                // Standard value is unprocessed string we'll need to deal with.
+                object.value("NoDisplay").toString() == QStringLiteral("true")) {
+            std::exit(0);
+        }
+    }
+
     QXmlStreamAttributes componentAttributes;
     if (!parentApp.isEmpty()) {
         componentAttributes << QXmlStreamAttribute("type", "addon");
     }
 
-    QXmlStreamWriter writer(cout->device());
+    // Compatibility: without appstream-metainfo-output argument we print the XML output to STDOUT
+    // with the argument we'll print to the defined path.
+    // TODO: in KF6 we should switch to argument-only.
+    QIODevice *outputDevice = cout->device();
+    QScopedPointer<QFile> outputFile;
+    const auto outputPath = d->parser->value("appstream-metainfo-output");
+    if (!outputPath.isEmpty()) {
+        auto outputUrl = QUrl::fromUserInput(outputPath);
+        outputFile.reset(new QFile(outputUrl.toLocalFile()));
+        if (!outputFile->open(QFile::WriteOnly | QFile::Text)) {
+            *cerr << "Failed to open output file for writing.";
+            exit(1);
+        }
+        outputDevice = outputFile.data();
+    }
+
+    QXmlStreamWriter writer(outputDevice);
     writer.setAutoFormatting(true);
     writer.writeStartDocument();
     writer.writeStartElement("component");
