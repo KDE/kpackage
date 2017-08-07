@@ -23,6 +23,8 @@ PLASMA_UNIT_TESTS(
     querytest
 )
 
+set_tests_properties(plasma-querytest PROPERTIES RUN_SERIAL TRUE) # it wipes out ~/.qttest/share
+
 function(kpackagetool5test testname)
     add_test(NAME ${testname}-appstream COMMAND cmake -Dkpackagetool=$<TARGET_FILE:kpackagetool5>
                                                       -Dgenerated=${CMAKE_CURRENT_BINARY_DIR}/${testname}.appdata.xml
