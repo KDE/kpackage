@@ -130,10 +130,10 @@ PackageTool::~PackageTool()
 
 void PackageTool::runMain()
 {
-    KPackage::PackageStructure *structure = new KPackage::PackageStructure;
+    KPackage::PackageStructure structure;
     if (d->parser->isSet(QStringLiteral("hash"))) {
         const QString path = d->parser->value(QStringLiteral("hash"));
-        KPackage::Package package(structure);
+        KPackage::Package package(&structure);
         package.setPath(path);
         const QString hash =
             QString::fromLocal8Bit(package.cryptographicHash(QCryptographicHash::Sha1));
@@ -183,7 +183,7 @@ void PackageTool::runMain()
                                       type.compare(i18nc("package type", "wallpaper"), Qt::CaseInsensitive) == 0 ||
                                       type.compare(QLatin1String("wallpaper"), Qt::CaseInsensitive) == 0)) {
         // Check type for common plasma packages
-        KPackage::Package package(structure);
+        KPackage::Package package(&structure);
         QString serviceType;
         package.setPath(d->packageFile);
 
