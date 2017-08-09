@@ -47,6 +47,8 @@
 #include <iostream>
 #include <iomanip>
 
+#include "options.h"
+
 #include "../kpackage/config-package.h"
 //for the index creation function
 #include "../kpackage/private/packagejobthread_p.h"
@@ -131,8 +133,8 @@ PackageTool::~PackageTool()
 void PackageTool::runMain()
 {
     KPackage::PackageStructure structure;
-    if (d->parser->isSet(QStringLiteral("hash"))) {
-        const QString path = d->parser->value(QStringLiteral("hash"));
+    if (d->parser->isSet(Options::hash)) {
+        const QString path = d->parser->value(Options::hash);
         KPackage::Package package(&structure);
         package.setPath(path);
         const QString hash =
@@ -147,39 +149,39 @@ void PackageTool::runMain()
         return;
     }
 
-    if (d->parser->isSet(QStringLiteral("list-types"))) {
+    if (d->parser->isSet(Options::listTypes)) {
         d->listTypes();
         exit(0);
         return;
     }
 
-    QString type = d->parser->value(QStringLiteral("type"));
+    QString type = d->parser->value(Options::type);
     d->pluginTypes.clear();
     d->installer = Package();
 
-    if (d->parser->isSet(QStringLiteral("remove"))) {
-        d->package = d->parser->value(QStringLiteral("remove"));
-    } else if (d->parser->isSet(QStringLiteral("upgrade"))) {
-        d->package = d->parser->value(QStringLiteral("upgrade"));
-    } else if (d->parser->isSet(QStringLiteral("install"))) {
-        d->package = d->parser->value(QStringLiteral("install"));
-    } else if (d->parser->isSet(QStringLiteral("show"))) {
-        d->package = d->parser->value(QStringLiteral("show"));
-    } else if (d->parser->isSet(QStringLiteral("appstream-metainfo"))) {
-        d->package = d->parser->value(QStringLiteral("appstream-metainfo"));
+    if (d->parser->isSet(Options::remove)) {
+        d->package = d->parser->value(Options::remove);
+    } else if (d->parser->isSet(Options::upgrade)) {
+        d->package = d->parser->value(Options::upgrade);
+    } else if (d->parser->isSet(Options::install)) {
+        d->package = d->parser->value(Options::install);
+    } else if (d->parser->isSet(Options::show)) {
+        d->package = d->parser->value(Options::show);
+    } else if (d->parser->isSet(Options::appstream)) {
+        d->package = d->parser->value(Options::appstream);
     }
 
     if (!QDir::isAbsolutePath(d->package)) {
         d->packageFile = QDir(QDir::currentPath() + '/' + d->package).absolutePath();
         d->packageFile = QFileInfo(d->packageFile).canonicalFilePath();
-        if (d->parser->isSet(QStringLiteral("upgrade"))) {
+        if (d->parser->isSet(Options::upgrade)) {
             d->package = d->packageFile;
         }
     } else {
         d->packageFile = d->package;
     }
 
-    if (!d->packageFile.isEmpty() && (!d->parser->isSet(QStringLiteral("type")) ||
+    if (!d->packageFile.isEmpty() && (!d->parser->isSet(Options::type) ||
                                       type.compare(i18nc("package type", "wallpaper"), Qt::CaseInsensitive) == 0 ||
                                       type.compare(QLatin1String("wallpaper"), Qt::CaseInsensitive) == 0)) {
         // Check type for common plasma packages
@@ -218,23 +220,23 @@ void PackageTool::runMain()
         d->packageRoot = d->installer.defaultPackageRoot();
         d->pluginTypes << type;
     }
-    if (d->parser->isSet(QStringLiteral("show"))) {
+    if (d->parser->isSet(Options::show)) {
         const QString pluginName = d->package;
         showPackageInfo(pluginName);
         return;
-    } else if (d->parser->isSet(QStringLiteral("appstream-metainfo"))) {
+    } else if (d->parser->isSet(Options::appstream)) {
         const QString pluginName = d->package;
         showAppstreamInfo(pluginName);
         return;
     }
 
-    if (d->parser->isSet(QStringLiteral("list"))) {
+    if (d->parser->isSet(Options::list)) {
         d->packageRoot = findPackageRoot(d->package, d->packageRoot);
         d->coutput(i18n("Listing service types: %1 in %2", d->pluginTypes.join(QByteArray(", ")), d->packageRoot));
         listPackages(d->pluginTypes, d->packageRoot);
         exit(0);
 
-    } else if (d->parser->isSet(QStringLiteral("generate-index"))) {
+    } else if (d->parser->isSet(Options::generateIndex)) {
         recreateIndex();
         exit(0);
 
@@ -247,7 +249,7 @@ void PackageTool::runMain()
 
         d->packageRoot = findPackageRoot(d->package, d->packageRoot);
 
-        if (d->parser->isSet(QStringLiteral("remove")) || d->parser->isSet(QStringLiteral("upgrade"))) {
+        if (d->parser->isSet(Options::remove) || d->parser->isSet(Options::upgrade)) {
             QString pkgPath;
             foreach (const QString &t, d->pluginTypes) {
                 KPackage::Package pkg = KPackage::PackageLoader::self()->loadPackage(t);
@@ -264,7 +266,7 @@ void PackageTool::runMain()
                 pkgPath = d->package;
             }
 
-            if (d->parser->isSet(QStringLiteral("upgrade"))) {
+            if (d->parser->isSet(Options::upgrade)) {
                 d->installer.setPath(d->package);
             }
             QString _p = d->packageRoot;
@@ -275,7 +277,7 @@ void PackageTool::runMain()
             d->installer.setDefaultPackageRoot(d->packageRoot);
             d->installer.setPath(pkgPath);
 
-            if (!d->parser->isSet(QStringLiteral("type"))) {
+            if (!d->parser->isSet(Options::type)) {
                 foreach (const QString &st, d->installer.metadata().serviceTypes()) {
                     if (!d->pluginTypes.contains(st)) {
                         d->pluginTypes << st;
@@ -317,7 +319,7 @@ void PackageTool::runMain()
                 exit(2);
             }
         }
-        if (d->parser->isSet(QStringLiteral("install"))) {
+        if (d->parser->isSet(Options::install)) {
             KJob *installJob = d->installer.install(d->packageFile, d->packageRoot);
             connect(installJob, SIGNAL(result(KJob*)), SLOT(packageInstalled(KJob*)));
             return;
@@ -485,7 +487,7 @@ void PackageTool::showAppstreamInfo(const QString &pluginName)
     // TODO: in KF6 we should switch to argument-only.
     QIODevice *outputDevice = cout->device();
     QScopedPointer<QFile> outputFile;
-    const auto outputPath = d->parser->value("appstream-metainfo-output");
+    const auto outputPath = d->parser->value(Options::appstreamOutput);
     if (!outputPath.isEmpty()) {
         auto outputUrl = QUrl::fromUserInput(outputPath);
         outputFile.reset(new QFile(outputUrl.toLocalFile()));
@@ -542,13 +544,13 @@ QString PackageTool::findPackageRoot(const QString &pluginName, const QString &p
     Q_UNUSED(pluginName);
     Q_UNUSED(prefix);
     QString packageRoot;
-    if (d->parser->isSet(QStringLiteral("packageroot")) && d->parser->isSet(QStringLiteral("global")) && !d->parser->isSet(QStringLiteral("generate-index"))) {
+    if (d->parser->isSet(Options::packageRoot) && d->parser->isSet(Options::global) && !d->parser->isSet(Options::generateIndex)) {
         qWarning() << i18nc("The user entered conflicting options packageroot and global, this is the error message telling the user he can use only one", "The packageroot and global options conflict with each other, please select only one.");
         ::exit(7);
-    } else if (d->parser->isSet(QStringLiteral("packageroot"))) {
-        packageRoot = d->parser->value(QStringLiteral("packageroot"));
+    } else if (d->parser->isSet(Options::packageRoot)) {
+        packageRoot = d->parser->value(Options::packageRoot);
         //qDebug() << "(set via arg) d->packageRoot is: " << d->packageRoot;
-    } else if (d->parser->isSet(QStringLiteral("global"))) {
+    } else if (d->parser->isSet(Options::global)) {
         auto const paths = QStandardPaths::locateAll(QStandardPaths::GenericDataLocation, d->packageRoot, QStandardPaths::LocateDirectory);
         if (!paths.isEmpty()) {
             packageRoot = paths.last();
@@ -652,7 +654,7 @@ void PackageTool::recreateIndex()
     d->packageRoot = findPackageRoot(d->package, d->packageRoot);
 
     if (!QDir::isAbsolutePath(d->packageRoot)) {
-        if (d->parser->isSet(QStringLiteral("global"))) {
+        if (d->parser->isSet(Options::global)) {
             Q_FOREACH(auto const &p, QStandardPaths::locateAll(QStandardPaths::GenericDataLocation, d->packageRoot, QStandardPaths::LocateDirectory)) {
                 d->coutput(i18n("Generating %1/kpluginindex.json", p));
                 KPackage::indexDirectory(p, QStringLiteral("kpluginindex.json"));
@@ -672,7 +674,7 @@ void PackageTool::packageInstalled(KJob *job)
     bool success = (job->error() == KJob::NoError);
     int exitcode = 0;
     if (success) {
-        if (d->parser->isSet(QStringLiteral("upgrade"))) {
+        if (d->parser->isSet(Options::upgrade)) {
             d->coutput(i18n("Successfully upgraded %1", d->packageFile));
         } else {
             d->coutput(i18n("Successfully installed %1", d->packageFile));
@@ -689,7 +691,7 @@ void PackageTool::packageUninstalled(KJob *job)
     bool success = (job->error() == KJob::NoError);
     int exitcode = 0;
     if (success) {
-        if (d->parser->isSet(QStringLiteral("upgrade"))) {
+        if (d->parser->isSet(Options::upgrade)) {
             d->coutput(i18n("Upgrading package from file: %1", d->packageFile));
             KJob *installJob = d->installer.install(d->packageFile, d->packageRoot);
             connect(installJob, SIGNAL(result(KJob*)), SLOT(packageInstalled(KJob*)));
