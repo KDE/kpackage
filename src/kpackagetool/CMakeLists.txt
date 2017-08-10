@@ -1,8 +1,10 @@
+set(CMAKE_AUTORCC TRUE)
 add_executable(kpackagetool5
     main.cpp
     kpackagetool.cpp
     ../kpackage/private/packagejobthread.cpp
     ../kpackage/private/versionparser.cpp
+    kpackagetool.qrc
 )
 
 add_executable(KF5::kpackagetool5 ALIAS kpackagetool5)
