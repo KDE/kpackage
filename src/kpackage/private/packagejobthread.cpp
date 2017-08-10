@@ -294,8 +294,7 @@ bool PackageJobThread::installPackage(const QString &src, const QString &dest, O
     if (!entries.isEmpty()) {
         const QString metadataFilePath = entries.first().filePath();
         if (metadataFilePath.endsWith(QLatin1String(".desktop"))) {
-            static QString kpackageGenericService = QStandardPaths::locate(QStandardPaths::GenericDataLocation, QStringLiteral("kservicetypes5/kpackage-generic.desktop"));
-            meta = KPluginMetaData::fromDesktopFile(metadataFilePath, {kpackageGenericService});
+            meta = KPluginMetaData::fromDesktopFile(metadataFilePath, {QStringLiteral(":/kservicetypes5/kpackage-generic.desktop")});
         } else {
             QFile f(metadataFilePath);
             if(!f.open(QIODevice::ReadOnly)){

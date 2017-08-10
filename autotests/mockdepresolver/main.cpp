@@ -44,7 +44,7 @@ int main(int argc, char** argv)
         return 1;
     }
 
-    if (componentName == QStringLiteral("validdep")) {
+    if (componentName.startsWith(QLatin1String("validdep"))) {
         qWarning() << "asked to install valid dep, success!";
         return 0;
     }

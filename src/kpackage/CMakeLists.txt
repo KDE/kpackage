@@ -5,6 +5,7 @@
 # them, the build fails).
 set(CMAKE_AUTOMOC_RELAXED_MODE ON)
 
+set(CMAKE_AUTORCC ON)
 
 configure_file(${CMAKE_CURRENT_SOURCE_DIR}/config-package.h.cmake ${CMAKE_CURRENT_BINARY_DIR}/config-package.h)
 
@@ -22,6 +23,7 @@ set(Package_LIB_SRCS
     private/packagejobthread.cpp
     private/versionparser.cpp
     version.cpp
+    kpackage.qrc
 )
 
 
