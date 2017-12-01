@@ -114,6 +114,7 @@ public:
     void renderTypeTable(const QMap<QString, QStringList> &plugins);
     void listTypes();
     void coutput(const QString &msg);
+    void cerror(const QString &msg);
     QCommandLineParser *parser;
 };
 
@@ -334,6 +335,11 @@ void PackageTool::runMain()
 void PackageToolPrivate::coutput(const QString &msg)
 {
     *cout << msg << endl;
+}
+
+void PackageToolPrivate::cerror(const QString &msg)
+{
+    *cerr << msg << endl;
 }
 
 QStringList PackageToolPrivate::packages(const QStringList &types, const QString &path)
@@ -656,8 +662,11 @@ void PackageTool::recreateIndex()
     if (!QDir::isAbsolutePath(d->packageRoot)) {
         if (d->parser->isSet(Options::global)) {
             Q_FOREACH(auto const &p, QStandardPaths::locateAll(QStandardPaths::GenericDataLocation, d->packageRoot, QStandardPaths::LocateDirectory)) {
-                d->coutput(i18n("Generating %1/kpluginindex.json", p));
-                KPackage::indexDirectory(p, QStringLiteral("kpluginindex.json"));
+                if (KPackage::indexDirectory(p, QStringLiteral("kpluginindex.json"))) {
+                    d->coutput(i18n("Generating %1/kpluginindex.json", p));
+                } else {
+                    d->cerror(i18n("Cannot write to %1/kpluginindex.json", p));
+                }
             }
             return;
         } else {
@@ -665,8 +674,11 @@ void PackageTool::recreateIndex()
         }
     }
 
-    d->coutput(i18n("Generating %1/kpluginindex.json", d->packageRoot));
-    KPackage::indexDirectory(d->packageRoot, QStringLiteral("kpluginindex.json"));
+    if (KPackage::indexDirectory(d->packageRoot, QStringLiteral("kpluginindex.json"))) {
+        d->coutput(i18n("Generating %1/kpluginindex.json", d->packageRoot));
+    } else {
+        d->cerror(i18n("Cannot write %1/kpluginindex.json", d->packageRoot));
+    }
 }
 
 void PackageTool::packageInstalled(KJob *job)
@@ -680,7 +692,7 @@ void PackageTool::packageInstalled(KJob *job)
             d->coutput(i18n("Successfully installed %1", d->packageFile));
         }
     } else {
-        d->coutput(i18n("Error: Installation of %1 failed: %2", d->packageFile, job->errorText()));
+        d->cerror(i18n("Error: Installation of %1 failed: %2", d->packageFile, job->errorText()));
         exitcode = 4;
     }
     exit(exitcode);
@@ -699,7 +711,7 @@ void PackageTool::packageUninstalled(KJob *job)
         }
         d->coutput(i18n("Successfully uninstalled %1", d->packageFile));
     } else {
-        d->coutput(i18n("Error: Uninstallation of %1 failed: %2", d->packageFile, job->errorText()));
+        d->cerror(i18n("Error: Uninstallation of %1 failed: %2", d->packageFile, job->errorText()));
         exitcode = 7;
     }
     exit(exitcode);

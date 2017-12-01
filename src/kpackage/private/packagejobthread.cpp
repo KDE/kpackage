@@ -88,7 +88,6 @@ bool removeFolder(QString folderPath)
     return folder.removeRecursively();
 }
 
-
 bool removeIndex(const QString& dir)
 {
     bool ok = true;
