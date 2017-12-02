@@ -19,7 +19,9 @@
 
 #include "packageloader.h"
 
+#include <QElapsedTimer>
 #include <QStandardPaths>
+#include <QDateTime>
 #include <QDirIterator>
 #include <QJsonDocument>
 #include <QJsonArray>
@@ -41,6 +43,10 @@ namespace KPackage
 {
 
 static PackageLoader *s_packageTrader = nullptr;
+
+static const int s_maxCacheAge = 60;
+static QHash<QString, qint64> s_pluginCacheAge;
+static QHash<QString, QList<KPluginMetaData>> s_pluginCache;
 
 class PackageLoaderPrivate
 {
@@ -177,12 +183,31 @@ Package PackageLoader::loadPackage(const QString &packageFormat, const QString &
 
 QList<KPluginMetaData> PackageLoader::listPackages(const QString &packageFormat, const QString &packageRoot)
 {
+    QElapsedTimer tmr;
+    tmr.restart();
+    const bool useRuntimeCache = QFile::exists(QStringLiteral("/home/pine/USECACHE"));
+
+    QString cacheKey = QString(QStringLiteral("%1.%2")).arg(packageFormat, packageRoot);
+    qint64 now = QDateTime::currentSecsSinceEpoch();
+
+    if (useRuntimeCache && s_pluginCache.contains(cacheKey)) {
+        if (now - s_pluginCacheAge.value(cacheKey) > s_maxCacheAge) {
+            // cache is too old, ditch and compute
+            s_pluginCache.remove(cacheKey);
+            s_pluginCacheAge.remove(cacheKey);
+        } else {
+            qWarning() << "TMR CC Returning list from cache" << cacheKey << tmr.elapsed();
+            return s_pluginCache.value(cacheKey);
+        }
+
+    }
+
     QList<KPluginMetaData> lst;
 
     //has been a root specified?
     QString actualRoot = packageRoot;
 
-    //try to take it from the ackage structure
+    //try to take it from the package structure
     if (actualRoot.isEmpty()) {
         PackageStructure *structure = d->structures.value(packageFormat).data();
         if (!structure) {
@@ -275,6 +300,16 @@ QList<KPluginMetaData> PackageLoader::listPackages(const QString &packageFormat,
         }
     }
 
+    qDebug() << "TMR spent" << tmr.elapsed() << "in" << packageFormat << packageRoot;
+
+    if (useRuntimeCache) {
+
+        s_pluginCache.insert(cacheKey, lst);
+        s_pluginCacheAge.insert(cacheKey, now);
+        qWarning() << "TMR CC Cache populated for " << cacheKey;
+    } else {
+        qWarning() << "TMR CC Not using cache" << cacheKey;
+    }
     return lst;
 }
 
@@ -293,6 +328,8 @@ QList<KPluginMetaData> PackageLoader::findPackages(const QString &packageFormat,
 
 KPackage::PackageStructure *PackageLoader::loadPackageStructure(const QString &packageFormat)
 {
+    QElapsedTimer tmr;
+    tmr.restart();
     PackageStructure *structure = d->structures.value(packageFormat).data();
     if (!structure) {
         if (packageFormat == QStringLiteral("KPackage/Generic")) {
@@ -377,6 +414,7 @@ KPackage::PackageStructure *PackageLoader::loadPackageStructure(const QString &p
     if (structure)
         d->structures.insert(packageFormat, structure);
 
+    //qDebug() << "TMR structure spent" << tmr.elapsed() << "in" << packageFormat;
     return structure;
 }
 
