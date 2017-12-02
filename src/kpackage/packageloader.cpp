@@ -300,7 +300,7 @@ QList<KPluginMetaData> PackageLoader::listPackages(const QString &packageFormat,
         }
     }
 
-    qDebug() << "TMR spent" << tmr.elapsed() << "in" << packageFormat << packageRoot;
+    qWarning() << "TMR spent" << tmr.elapsed() << "in" << packageFormat << packageRoot;
 
     if (useRuntimeCache) {
 
