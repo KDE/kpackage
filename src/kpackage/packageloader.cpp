@@ -224,6 +224,7 @@ QList<KPluginMetaData> PackageLoader::listPackages(const QString &packageFormat,
         QFile indexFile(_ixfile);
         //qDebug() << "indexfile: " << _ixfile << indexFile.exists();
         if (indexFile.exists()) {
+            qDebug() << "kpluginindex: Using indexfile: " << _ixfile << indexFile.exists();
             indexFile.open(QIODevice::ReadOnly);
             QJsonDocument jdoc = QJsonDocument::fromBinaryData(indexFile.readAll());
             indexFile.close();
@@ -242,7 +243,7 @@ QList<KPluginMetaData> PackageLoader::listPackages(const QString &packageFormat,
             }
 
         } else {
-            //qDebug() << "Not cached" << plugindir;
+            qDebug() << "kpluginindex: Not cached" << plugindir;
             // If there's no cache file, fall back to listing the directory
             const QDirIterator::IteratorFlags flags = QDirIterator::Subdirectories;
             const QStringList nameFilters = { QStringLiteral("metadata.json"), QStringLiteral("metadata.desktop") };

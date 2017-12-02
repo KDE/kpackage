@@ -406,13 +406,8 @@ bool PackageJobThread::installPackage(const QString &src, const QString &dest, O
         tempdir.setAutoRemove(false);
     }
 
-
     indexDirectory(dest, QStringLiteral("kpluginindex.json"));
-
-
     d->installPath = targetName;
-
-    //qWarning() << "Not updating kbuildsycoca4, since that will go away. Do it yourself for now if needed.";
     return true;
 }
 

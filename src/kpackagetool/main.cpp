@@ -65,6 +65,7 @@ int main(int argc, char **argv)
                           Options::remove,
                           Options::packageRoot,
                           Options::generateIndex,
+                          Options::removeIndex,
                           Options::appstream,
                           Options::appstreamOutput
                       });
@@ -75,7 +76,7 @@ int main(int argc, char **argv)
         !parser.isSet(QStringLiteral("i")) && !parser.isSet(QStringLiteral("s")) && !parser.isSet(QStringLiteral("appstream-metainfo")) &&
         !parser.isSet(QStringLiteral("u")) && !parser.isSet(QStringLiteral("l")) &&
         !parser.isSet(QStringLiteral("list-types")) && !parser.isSet(QStringLiteral("r")) &&
-        !parser.isSet(QStringLiteral("generate-index"))) {
+        !parser.isSet(QStringLiteral("generate-index")) && !parser.isSet(QStringLiteral("remove-index"))) {
         parser.showHelp(0);
     }
     return app.exec();
