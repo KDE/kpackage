@@ -170,8 +170,8 @@ void Package::setDefaultPackageRoot(const QString &packageRoot)
 {
     d.detach();
     d->defaultPackageRoot = packageRoot;
-    if (!d->defaultPackageRoot.isEmpty() && !d->defaultPackageRoot.endsWith('/')) {
-        d->defaultPackageRoot.append('/');
+    if (!d->defaultPackageRoot.isEmpty() && !d->defaultPackageRoot.endsWith(QLatin1Char('/'))) {
+        d->defaultPackageRoot.append(QLatin1Char('/'));
     }
 }
 
@@ -262,16 +262,16 @@ QString PackagePrivate::unpack(const QString &filePath)
         const KArchiveDirectory *source = archive->directory();
         QTemporaryDir tempdir;
         tempdir.setAutoRemove(false);
-        tempRoot = tempdir.path() + '/';
+        tempRoot = tempdir.path() + QLatin1Char('/');
         source->copyTo(tempRoot);
 
-        if (!QFile::exists(tempdir.path() + "/metadata.json") && !QFile::exists(tempdir.path() + "/metadata.desktop")) {
+        if (!QFile::exists(tempdir.path() + QLatin1String("/metadata.json")) && !QFile::exists(tempdir.path() + QLatin1String("/metadata.desktop"))) {
             // search metadata.desktop, the zip file might have the package contents in a subdirectory
             QDir unpackedPath(tempdir.path());
             const auto entries = unpackedPath.entryInfoList(QDir::Dirs | QDir::NoDotAndDotDot);
             foreach (const auto &pack, entries) {
-                if (QFile::exists(pack.filePath() + "/metadata.json") || QFile::exists(pack.filePath() + "/metadata.desktop")) {
-                    tempRoot = pack.filePath() + '/';
+                if (QFile::exists(pack.filePath() + QLatin1String("/metadata.json")) || QFile::exists(pack.filePath() + QLatin1String("/metadata.desktop"))) {
+                    tempRoot = pack.filePath() + QLatin1Char('/');
                 }
             }
         }
@@ -299,7 +299,7 @@ bool PackagePrivate::isInsidePackageDir(const QString &canonicalPath) const
     //installed package
     if (tempRoot.isEmpty()) {
         Q_ASSERT(QDir(path).exists());
-        Q_ASSERT(path == QStringLiteral("/") || QDir(path).canonicalPath() + '/' == path);
+        Q_ASSERT(path == QStringLiteral("/") || QDir(path).canonicalPath() + QLatin1Char('/') == path);
 
         if (canonicalPath.startsWith(path)) {
             return true;
@@ -307,7 +307,7 @@ bool PackagePrivate::isInsidePackageDir(const QString &canonicalPath) const
     //temporary compressed package
     } else {
         Q_ASSERT(QDir(tempRoot).exists());
-        Q_ASSERT(tempRoot == QStringLiteral("/") || QDir(tempRoot).canonicalPath() + '/' == tempRoot);
+        Q_ASSERT(tempRoot == QStringLiteral("/") || QDir(tempRoot).canonicalPath() + QLatin1Char('/') == tempRoot);
 
         if (canonicalPath.startsWith(tempRoot)) {
             return true;
@@ -329,7 +329,7 @@ QString Package::filePath(const QByteArray &fileType, const QString &filename) c
         return result;
     }
 
-    const QString discoveryKey(fileType + filename);
+    const QString discoveryKey(QString::fromUtf8(fileType) + filename);
     const auto path = d->discoveries.value(discoveryKey);
     if (!path.isEmpty()) {
         return path;
@@ -337,7 +337,7 @@ QString Package::filePath(const QByteArray &fileType, const QString &filename) c
 
     QStringList paths;
 
-    if (qstrlen(fileType) != 0) {
+    if (fileType.size()) {
         const auto contents = d->contents.constFind(fileType);
         if (contents == d->contents.constEnd()) {
             //qDebug() << "package does not contain" << fileType << filename;
@@ -357,7 +357,7 @@ QString Package::filePath(const QByteArray &fileType, const QString &filename) c
     }
 
     //Nested loop, but in the medium case resolves to just one iteration
-    //qDebug() << "prefixes:" << prefixes.count() << prefixes;
+//     qDebug() << "prefixes:" << d->contentsPrefixPaths.count() << d->contentsPrefixPaths;
     foreach (const QString &contentsPrefix, d->contentsPrefixPaths) {
         QString prefix;
         //We are an installed package
@@ -372,7 +372,7 @@ QString Package::filePath(const QByteArray &fileType, const QString &filename) c
             QString file = prefix + path;
 
             if (!filename.isEmpty()) {
-                file.append("/").append(filename);
+                file = file + QLatin1Char('/') + filename;
             }
 
             QFileInfo fi(file);
@@ -492,9 +492,9 @@ void Package::setPath(const QString &path)
         QString p;
 
         if (d->defaultPackageRoot.isEmpty()) {
-            p = path % "/";
+            p = path % QLatin1Char('/');
         } else {
-            p = d->defaultPackageRoot % path % "/";
+            p = d->defaultPackageRoot % path % QLatin1Char('/');
         }
 
         if (QDir::isRelativePath(p)) {
@@ -530,7 +530,7 @@ void Package::setPath(const QString &path)
         d->path = dir.canonicalPath();
          // canonicalPath() does not include a trailing slash (unless it is the root dir)
         if (!d->path.endsWith(QLatin1Char('/'))) {
-            d->path.append('/');
+            d->path.append(QLatin1Char('/'));
         }
 
         const QString fallbackPath = metadata().value(QStringLiteral("X-Plasma-RootPath"));
@@ -590,8 +590,8 @@ void Package::setContentsPrefixPaths(const QStringList &prefixPaths)
         while (it.hasNext()) {
             it.next();
 
-            if (!it.value().endsWith('/')) {
-                it.setValue(it.value() % '/');
+            if (!it.value().endsWith(QLatin1Char('/'))) {
+                it.setValue(it.value() % QLatin1Char('/'));
             }
         }
     }
@@ -612,8 +612,8 @@ QByteArray Package::cryptographicHash(QCryptographicHash::Algorithm algorithm) c
     }
 
     QCryptographicHash hash(algorithm);
-    const QString metadataPath = QFile::exists(d->path + "metadata.json") ? d->path + "metadata.json"
-                               : QFile::exists(d->path + "metadata.desktop") ? d->path + "metadata.desktop"
+    const QString metadataPath = QFile::exists(d->path + QLatin1String("metadata.json")) ? d->path + QLatin1String("metadata.json")
+                               : QFile::exists(d->path + QLatin1String("metadata.desktop")) ? d->path + QLatin1String("metadata.desktop")
                                : QString();
     if (!metadataPath.isEmpty()) {
         QFile f(metadataPath);
@@ -696,9 +696,9 @@ void Package::removeDefinition(const QByteArray &key)
         d->contents.remove(key);
     }
 
-    if (d->discoveries.contains(key)) {
+    if (d->discoveries.contains(QString::fromLatin1(key))) {
         d.detach();
-        d->discoveries.remove(key);
+        d->discoveries.remove(QString::fromLatin1(key));
     }
 }
 
@@ -795,7 +795,7 @@ KJob *Package::install(const QString &sourcePackage, const QString &packageRoot)
 
     //use absolute paths if passed, otherwise go under share
     if (!QDir::isAbsolutePath(dest)) {
-        dest = QStandardPaths::writableLocation(QStandardPaths::GenericDataLocation) + "/" + dest;
+        dest = QStandardPaths::writableLocation(QStandardPaths::GenericDataLocation) + QLatin1Char('/') + dest;
     }
 
     if (!d->structure) {
@@ -828,7 +828,7 @@ KJob *Package::update(const QString &sourcePackage, const QString &packageRoot)
 
 KJob *Package::uninstall(const QString &packageName, const QString &packageRoot)
 {
-    d->createPackageMetadata(packageRoot + '/' + packageName);
+    d->createPackageMetadata(packageRoot + QLatin1Char('/') + packageName);
     if (!d->structure) {
         return nullptr;
     }
@@ -907,7 +907,7 @@ void PackagePrivate::updateHash(const QString &basePath, const QString &subPath,
 
         hash.addData(file.toUtf8());
 
-        QFileInfo info(dir.path() + '/' + file);
+        QFileInfo info(dir.path() + QLatin1Char('/') + file);
         if (info.isSymLink()) {
             hash.addData(info.symLinkTarget().toUtf8());
         } else {
@@ -924,7 +924,7 @@ void PackagePrivate::updateHash(const QString &basePath, const QString &subPath,
     }
 
     foreach (const QString &subDirPath, dir.entryList(QDir::Dirs | filters, sorting)) {
-        const QString relativePath = subPath + subDirPath + '/';
+        const QString relativePath = subPath + subDirPath + QLatin1Char('/');
         hash.addData(relativePath.toUtf8());
 
         QDir subDir(dir.path());
@@ -940,19 +940,19 @@ void PackagePrivate::updateHash(const QString &basePath, const QString &subPath,
 
 void PackagePrivate::createPackageMetadata(const QString &path)
 {
-    delete metadata;
 
     const bool isDir = QFileInfo(path).isDir();
 
-    if (isDir && QFile::exists(path + "/metadata.json")) {
-        metadata = new KPluginMetaData(path + "/metadata.json");
-    } else if (isDir && QFile::exists(path + "/metadata.desktop")) {
-        auto md = KPluginMetaData::fromDesktopFile(path + "/metadata.desktop", {QStringLiteral(":/kservicetypes5/kpackage-generic.desktop")});
+    delete metadata;
+    if (isDir && QFile::exists(path + QStringLiteral("/metadata.json"))) {
+        metadata = new KPluginMetaData(path + QStringLiteral("/metadata.json"));
+    } else if (isDir && QFile::exists(path + QStringLiteral("/metadata.desktop"))) {
+        auto md = KPluginMetaData::fromDesktopFile(path + QStringLiteral("/metadata.desktop"), {QStringLiteral(":/kservicetypes5/kpackage-generic.desktop")});
         metadata = new KPluginMetaData(md);
     } else {
         if (isDir) {
             qWarning() << "No metadata file in the package, expected it at:" << path;
-        } else if (path.endsWith(".desktop")) {
+        } else if (path.endsWith(QLatin1String(".desktop"))) {
             auto md = KPluginMetaData::fromDesktopFile(path, {QStringLiteral(":/kservicetypes5/kpackage-generic.desktop")});
             metadata = new KPluginMetaData(md);
         } else {

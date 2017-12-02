@@ -1,6 +1,8 @@
 find_package(Qt5Test ${REQUIRED_QT_VERSION} REQUIRED NO_MODULE)
 set_package_properties(Qt5Test PROPERTIES PURPOSE "Required for tests")
 
+remove_definitions(-DQT_NO_CAST_FROM_ASCII -DQT_STRICT_ITERATORS -DQT_NO_CAST_FROM_BYTEARRAY -DQT_NO_KEYWORDS)
+
 include(ECMMarkAsTest)
 include(ECMAddTests)
 

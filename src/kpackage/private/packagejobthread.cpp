@@ -138,7 +138,7 @@ bool indexDirectory(const QString& dir, const QString& dest)
 
     QString destfile = dest;
     if (!QDir::isAbsolutePath(dest)) {
-        destfile = dir + '/' + dest;
+        destfile = dir + QLatin1Char('/') + dest;
     }
 
     QDir().mkpath(QFileInfo(destfile).dir().absolutePath());
@@ -189,7 +189,7 @@ static QString resolveHandler(const QString &scheme)
 {
     QString candidatePath = QStringLiteral(CMAKE_INSTALL_FULL_LIBEXECDIR_KF5 "/kpackagehandlers/%1handler").arg(scheme);
     if (qEnvironmentVariableIsSet("KPACKAGE_DEP_RESOLVERS_PATH")) {
-        candidatePath = QStringLiteral("%1/%2handler").arg(qgetenv("KPACKAGE_DEP_RESOLVERS_PATH"), scheme);
+        candidatePath = QStringLiteral("%1/%2handler").arg(QString::fromUtf8(qgetenv("KPACKAGE_DEP_RESOLVERS_PATH")), scheme);
     }
     return QFile::exists(candidatePath) ? candidatePath : QString();
 }
@@ -238,8 +238,8 @@ bool PackageJobThread::installPackage(const QString &src, const QString &dest, O
         // we have a directory, so let's just install what is in there
         path = src;
         // make sure we end in a slash!
-        if (!path.endsWith('/')) {
-            path.append('/');
+        if (!path.endsWith(QLatin1Char('/'))) {
+            path.append(QLatin1Char('/'));
         }
     } else {
         KArchive *archive = nullptr;
@@ -269,7 +269,7 @@ bool PackageJobThread::installPackage(const QString &src, const QString &dest, O
         }
 
         archivedPackage = true;
-        path = tempdir.path() + '/';
+        path = tempdir.path() + QLatin1Char('/');
 
         d->installPath = path;
 
@@ -280,7 +280,7 @@ bool PackageJobThread::installPackage(const QString &src, const QString &dest, O
         if (entries.count() == 1) {
             const KArchiveEntry *entry = source->entry(entries[0]);
             if (entry->isDirectory()) {
-                path.append(entry->name()).append("/");
+                path = path + entry->name() + QLatin1Char('/');
             }
         }
 
@@ -326,7 +326,7 @@ bool PackageJobThread::installPackage(const QString &src, const QString &dest, O
 
     // Ensure that package names are safe so package uninstall can't inject
     // bad characters into the paths used for removal.
-    QRegExp validatePluginName("^[\\w-\\.]+$"); // Only allow letters, numbers, underscore and period.
+    QRegExp validatePluginName(QStringLiteral("^[\\w-\\.]+$")); // Only allow letters, numbers, underscore and period.
     if (!validatePluginName.exactMatch(pluginName)) {
         //qDebug() << "Package plugin name " << pluginName << "contains invalid characters";
         d->errorMessage = i18n("Package plugin name %1 contains invalid characters", pluginName);
@@ -335,8 +335,8 @@ bool PackageJobThread::installPackage(const QString &src, const QString &dest, O
     }
 
     QString targetName = dest;
-    if (targetName[targetName.size() - 1] != '/') {
-        targetName.append('/');
+    if (targetName[targetName.size() - 1] != QLatin1Char('/')) {
+        targetName.append(QLatin1Char('/'));
     }
     targetName.append(pluginName);
 
@@ -440,14 +440,14 @@ bool PackageJobThread::uninstallPackage(const QString &packagePath)
     QString root;
     {
         // FIXME: remove, pass in packageroot, type and pluginName separately?
-        QStringList ps = packagePath.split('/');
+        QStringList ps = packagePath.split(QLatin1Char('/'));
         int ix = ps.count() - 1;
-        if (packagePath.endsWith('/')) {
+        if (packagePath.endsWith(QLatin1Char('/'))) {
             ix = ps.count() - 2;
         }
         pkg = ps[ix];
         ps.pop_back();
-        root = ps.join('/');
+        root = ps.join(QLatin1Char('/'));
     }
 
     bool ok = removeFolder(packagePath);

@@ -174,7 +174,7 @@ void PackageTool::runMain()
     }
 
     if (!QDir::isAbsolutePath(d->package)) {
-        d->packageFile = QDir(QDir::currentPath() + '/' + d->package).absolutePath();
+        d->packageFile = QDir(QDir::currentPath() + QLatin1Char('/') + d->package).absolutePath();
         d->packageFile = QFileInfo(d->packageFile).canonicalFilePath();
         if (d->parser->isSet(Options::upgrade)) {
             d->package = d->packageFile;
@@ -234,7 +234,7 @@ void PackageTool::runMain()
 
     if (d->parser->isSet(Options::list)) {
         d->packageRoot = findPackageRoot(d->package, d->packageRoot);
-        d->coutput(i18n("Listing service types: %1 in %2", d->pluginTypes.join(QByteArray(", ")), d->packageRoot));
+        d->coutput(i18n("Listing service types: %1 in %2", d->pluginTypes.join(QStringLiteral(", ")), d->packageRoot));
         listPackages(d->pluginTypes, d->packageRoot);
         exit(0);
 
@@ -276,8 +276,8 @@ void PackageTool::runMain()
                 d->installer.setPath(d->package);
             }
             QString _p = d->packageRoot;
-            if (!_p.endsWith('/')) {
-                _p.append('/');
+            if (!_p.endsWith(QLatin1Char('/'))) {
+                _p.append(QLatin1Char('/'));
             }
             _p.append(d->package);
             d->installer.setDefaultPackageRoot(d->packageRoot);
@@ -420,7 +420,7 @@ bool translateKPluginToAppstream(const QString &tagName, const QString &configFi
             }
 
             writer.writeStartElement(tagName);
-            writer.writeAttribute("xml:lang", match.captured(1));
+            writer.writeAttribute(QStringLiteral("xml:lang"), match.captured(1));
             writer.writeCharacters(content);
             writer.writeEndElement();
         }
@@ -434,6 +434,7 @@ void PackageTool::showAppstreamInfo(const QString &pluginName)
     KPluginMetaData packageStructureMetaData;
     //if the path passed is an absolute path, and a metadata file is found under it, use that metadata file to generate the appstream info.
     // This can happen in the case an application wanting to support kpackage based extensions includes in the same project both the packagestructure plugin and the packages themselves. In that case at build time the packagestructure plugin wouldn't be installed yet
+
     if (QFile::exists(pluginName + QStringLiteral("/metadata.desktop"))) {
         i = KPluginMetaData(pluginName + QStringLiteral("/metadata.desktop"));
     } else if (QFile::exists(pluginName + QStringLiteral("/metadata.json"))) {
@@ -471,9 +472,9 @@ void PackageTool::showAppstreamInfo(const QString &pluginName)
         return;
     }
 
-    QString parentApp = i.rawData().value("X-KDE-ParentApp").toString();
+    QString parentApp = i.rawData().value(QLatin1String("X-KDE-ParentApp")).toString();
     if (parentApp.isEmpty()) {
-        parentApp = packageStructureMetaData.rawData().value("X-KDE-ParentApp").toString();
+        parentApp = packageStructureMetaData.rawData().value(QLatin1String("X-KDE-ParentApp")).toString();
     }
     const QJsonObject rootObject = i.rawData()[QStringLiteral("KPlugin")].toObject();
 
@@ -481,16 +482,16 @@ void PackageTool::showAppstreamInfo(const QString &pluginName)
     // inside the KPlugin object, it also can be either a stringy type or a bool type. Try all
     // possible scopes and type conversions to find NoDisplay
     for (const auto object : { i.rawData(), rootObject }) {
-        if (object.value("NoDisplay").toBool(false) ||
+        if (object.value(QLatin1String("NoDisplay")).toBool(false) ||
                 // Standard value is unprocessed string we'll need to deal with.
-                object.value("NoDisplay").toString() == QStringLiteral("true")) {
+                object.value(QLatin1String("NoDisplay")).toString() == QStringLiteral("true")) {
             std::exit(0);
         }
     }
 
     QXmlStreamAttributes componentAttributes;
     if (!parentApp.isEmpty()) {
-        componentAttributes << QXmlStreamAttribute("type", "addon");
+        componentAttributes << QXmlStreamAttribute(QLatin1String("type"), QLatin1String("addon"));
     }
 
     // Compatibility: without appstream-metainfo-output argument we print the XML output to STDOUT
@@ -512,18 +513,18 @@ void PackageTool::showAppstreamInfo(const QString &pluginName)
     QXmlStreamWriter writer(outputDevice);
     writer.setAutoFormatting(true);
     writer.writeStartDocument();
-    writer.writeStartElement("component");
+    writer.writeStartElement(QStringLiteral("component"));
     writer.writeAttributes(componentAttributes);
 
-    writer.writeTextElement("id", i.pluginId());
+    writer.writeTextElement(QStringLiteral("id"), i.pluginId());
     if (!parentApp.isEmpty()) {
-        writer.writeTextElement("extends", parentApp);
+        writer.writeTextElement(QStringLiteral("extends"), parentApp);
     }
-    translateKPluginToAppstream("name", "Name", rootObject, writer, false);
-    translateKPluginToAppstream("summary", "Description", rootObject, writer, false);
+    translateKPluginToAppstream(QStringLiteral("name"), QStringLiteral("Name"), rootObject, writer, false);
+    translateKPluginToAppstream(QStringLiteral("summary"), QStringLiteral("Description"), rootObject, writer, false);
     if (!i.website().isEmpty()) {
-        writer.writeStartElement("url");
-        writer.writeAttribute("type", "homepage");
+        writer.writeStartElement(QStringLiteral("url"));
+        writer.writeAttribute(QStringLiteral("type"), QStringLiteral("homepage"));
         writer.writeCharacters(i.website());
         writer.writeEndElement();
     }
@@ -533,17 +534,17 @@ void PackageTool::showAppstreamInfo(const QString &pluginName)
         for (const auto &author: authors) {
             authorsText += QStringLiteral("%1 <%2>").arg(author.name(), author.emailAddress());
         }
-        writer.writeTextElement("developer_name", authorsText.join(", "));
+        writer.writeTextElement(QStringLiteral("developer_name"), authorsText.join(QStringLiteral(", ")));
     }
 
     if (!i.iconName().isEmpty()) {
         writer.writeStartElement(QStringLiteral("icon"));
-        writer.writeAttribute("type", "stock");
+        writer.writeAttribute(QStringLiteral("type"), QStringLiteral("stock"));
         writer.writeCharacters(i.iconName());
         writer.writeEndElement();
     }
-    writer.writeTextElement("project_license", KAboutLicense::byKeyword(i.license()).spdx());
-    writer.writeTextElement("metadata_license", "CC0-1.0");
+    writer.writeTextElement(QStringLiteral("project_license"), KAboutLicense::byKeyword(i.license()).spdx());
+    writer.writeTextElement(QStringLiteral("metadata_license"), QStringLiteral("CC0-1.0"));
     writer.writeEndElement();
     writer.writeEndDocument();
 
@@ -633,8 +634,8 @@ void PackageToolPrivate::listTypes()
     coutput(i18n("Built in:"));
 
     QMap<QString, QStringList> builtIns;
-    builtIns.insert(i18n("KPackage/Generic"), QStringList() << QStringLiteral("KPackage/Generic") << KPACKAGE_RELATIVE_DATA_INSTALL_DIR "/packages/");
-    builtIns.insert(i18n("KPackage/GenericQML"), QStringList() << QStringLiteral("KPackage/GenericQML") << KPACKAGE_RELATIVE_DATA_INSTALL_DIR "/packagesqml/");
+    builtIns.insert(i18n("KPackage/Generic"), QStringList() << QStringLiteral("KPackage/Generic") << QStringLiteral(KPACKAGE_RELATIVE_DATA_INSTALL_DIR "/packages/"));
+    builtIns.insert(i18n("KPackage/GenericQML"), QStringList() << QStringLiteral("KPackage/GenericQML") << QStringLiteral(KPACKAGE_RELATIVE_DATA_INSTALL_DIR "/packagesqml/"));
 
     renderTypeTable(builtIns);
 
@@ -667,7 +668,7 @@ void PackageTool::recreateIndex()
                 // Caching is limited to plasma, otherwise all of /usr/share/ may be indexed, taking forever without much gain
                 QString proot = QStringLiteral("/plasma");
                 if (!d->packageRoot.isEmpty()) {
-                    proot = QString("/%1").arg(d->packageRoot);
+                    proot = QStringLiteral("/%1").arg(d->packageRoot);
                 }
                 QDirIterator it(p + proot, QDir::Dirs | QDir::Writable);
                 while (it.hasNext()) {

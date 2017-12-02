@@ -47,7 +47,7 @@ int main(int argc, char **argv)
     KPackage::PackageTool app(argc, argv, &parser);
 
     const QString description = i18n("KPackage Manager");
-    const char version[] = "2.0";
+    const auto version = QStringLiteral("2.0");
 
     app.setApplicationVersion(version);
     parser.addVersionOption();

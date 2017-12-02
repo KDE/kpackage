@@ -31,8 +31,8 @@ bool isVersionNewer(const QString &version1, const QString &version2)
         return false;
     }
 
-    const QVector<QString> versionChunks = QVector<QString>::fromList(version2.split('.'));
-    const QVector<QString> oldVersionChunks = QVector<QString>::fromList(version1.split('.'));
+    const auto versionChunks = QVector<QString>::fromList(version2.split(QLatin1Char('.')));
+    const auto oldVersionChunks = QVector<QString>::fromList(version1.split(QLatin1Char('.')));
     const int length = qMin(versionChunks.size(), oldVersionChunks.size());
 
     for (int i = 0; i < length; ++i) {
