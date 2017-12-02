@@ -26,7 +26,7 @@ int main(int argc, char** argv)
     QCoreApplication app(argc, argv);
     Q_ASSERT(app.arguments().count() == 2);
 
-    const QUrl url(app.arguments().last());
+    const QUrl url(app.arguments().constLast());
     Q_ASSERT(url.isValid());
     Q_ASSERT(url.scheme() == QLatin1String("mock"));
 
