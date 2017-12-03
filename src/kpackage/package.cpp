@@ -552,7 +552,7 @@ void Package::setPath(const QString &path)
 
         if (p.endsWith(QStringLiteral(".rcc"))) {
             QResource::registerResource(p);
-            dir = QDir(QStringLiteral(":/plasma/plasmoids/org.kde.plasma.analogclock"));
+            dir = QDir(QStringLiteral(":")+defaultPackageRoot()+path);
         }
 
         Q_ASSERT(QFile::exists(dir.canonicalPath()));

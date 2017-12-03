@@ -34,7 +34,7 @@ function(kpackage_install_package dir component)
       set(install_dir ${KPACKAGE_RELATIVE_DATA_INSTALL_DIR})
    endif()
 
-   if (NOT KPACKAGE_INSTALL_RCC)
+   if (NOT ${KPACKAGE_INSTALL_RCC})
         install(DIRECTORY ${dir}/ DESTINATION ${KDE_INSTALL_DATADIR}/${install_dir}/${root}/${component}
                 PATTERN .svn EXCLUDE
                 PATTERN *.qmlc EXCLUDE
@@ -49,7 +49,9 @@ function(kpackage_install_package dir component)
         add_custom_command(OUTPUT ${GENERATED_METADATA}
                            COMMAND KF5::desktoptojson -i ${CMAKE_CURRENT_SOURCE_DIR}/${dir}/metadata.desktop -o ${GENERATED_METADATA})
         add_custom_target(${component}-${root}-metadata-json ALL DEPENDS ${GENERATED_METADATA})
-        install(FILES ${GENERATED_METADATA} DESTINATION ${KDE_INSTALL_DATADIR}/${install_dir}/${root}/${component} RENAME metadata.json)
+        if (NOT ${KPACKAGE_INSTALL_RCC})
+            install(FILES ${GENERATED_METADATA} DESTINATION ${KDE_INSTALL_DATADIR}/${install_dir}/${root}/${component} RENAME metadata.json)
+        endif()
         set(metadatajson ${GENERATED_METADATA})
    endif()
 
@@ -87,13 +89,13 @@ function(kpackage_install_package dir component)
    endif()
 
    if(KPACKAGE_INSTALL_RCC)
-        set(kpkgqrc "${CMAKE_CURRENT_BINARY_DIR}/${component}-${root}.qrc")
-        set(kpkgrcc "${CMAKE_CURRENT_BINARY_DIR}/${component}-${root}.rcc")
+        set(kpkgqrc "${CMAKE_CURRENT_BINARY_DIR}/${component}.qrc")
+        set(kpkgrcc "${CMAKE_CURRENT_BINARY_DIR}/${component}.rcc")
         add_custom_command(OUTPUT ${kpkgqrc} ${kpkgrcc}
                             DEPENDS ${metadatajson}
                             WORKING_DIRECTORY ${CMAKE_CURRENT_SOURCE_DIR}/${dir}
                             COMMAND cmake "-Dmetadatajson=${metadatajson}" -Droot=${root} -Dinstall_dir=${install_dir} -DBINARYDIR=${CMAKE_CURRENT_BINARY_DIR} -DDIRECTORY="${CMAKE_CURRENT_SOURCE_DIR}/${dir}" -DOUTPUTFILE=${kpkgqrc} -DCOMPONENT=${component} -P ${kpackagedir}/qrc.cmake
-                            COMMAND Qt5::rcc ${kpkgqrc} -o ${kpkgrcc}
+                            COMMAND Qt5::rcc ${kpkgqrc} --binary -o ${kpkgrcc}
         )
         add_custom_target(${component}-${root}-qrc ALL DEPENDS ${kpkgqrc})
         install(FILES ${kpkgrcc} DESTINATION ${KDE_INSTALL_DATADIR}/${install_dir}/${root})
