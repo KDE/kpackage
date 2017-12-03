@@ -23,6 +23,7 @@
 #include "package.h"
 
 #include <qtemporarydir.h>
+#include <QResource>
 
 #include <karchive.h>
 #include <QDebug>
@@ -212,6 +213,7 @@ KPluginMetaData Package::metadata() const
     //qDebug() << "metadata: " << d->path << filePath("metadata");
     if (!d->metadata && !d->path.isEmpty()) {
         const QString metadataPath = filePath("metadata");
+
         if (!metadataPath.isEmpty()) {
             d->createPackageMetadata(metadataPath);
         } else {
@@ -398,6 +400,17 @@ QString Package::filePath(const QByteArray &fileType, const QString &filename) c
     return d->fallbackFilePath(fileType, filename);
 }
 
+QUrl Package::fileUrl(const QByteArray &fileType, const QString &filename) const
+{
+    QString path = filePath(fileType, filename);
+    //consytruct a qrc:/ url or a file:/ url, the only two protocols supported
+    if (path.startsWith(QStringLiteral(":"))) {
+        return QUrl(QStringLiteral("qrc") + path);
+    } else {
+        return QUrl::fromLocalFile(path);
+    }
+}
+
 QStringList Package::entryList(const QByteArray &key) const
 {
     if (!d->valid) {
@@ -498,11 +511,16 @@ void Package::setPath(const QString &path)
         }
 
         if (QDir::isRelativePath(p)) {
-            paths << QStandardPaths::locateAll(QStandardPaths::GenericDataLocation, p, QStandardPaths::LocateDirectory);
+            //FIXME: can searching of the qrc be better?
+            paths << QStandardPaths::locateAll(QStandardPaths::GenericDataLocation, p, QStandardPaths::LocateDirectory) << QStandardPaths::locateAll(QStandardPaths::GenericDataLocation, d->defaultPackageRoot % path %".rcc", QStandardPaths::LocateFile);
         } else {
             const QDir dir(p);
+            //it's a folder
             if (QFile::exists(dir.canonicalPath())) {
                 paths << p;
+            //it's an rcc
+            } else if (QFile::exists(p + QStringLiteral(".rcc"))) {
+                paths << p + QStringLiteral(".rcc");
             }
         }
 
@@ -511,13 +529,19 @@ void Package::setPath(const QString &path)
         const QDir dir(path);
         if (QFile::exists(dir.canonicalPath())) {
             paths << path;
+        //it's an rcc
+        } else if (QFile::exists(path + QStringLiteral(".rcc"))) {
+            paths << path + QStringLiteral(".rcc");
         }
     }
 
     QFileInfo fileInfo(path);
-    if (fileInfo.isFile() && d->tempRoot.isEmpty()) {
-        d->path = fileInfo.canonicalFilePath();
-        d->tempRoot = d->unpack(path);
+    //case it's an archive
+    if (fileInfo.isFile()) {
+        if(d->tempRoot.isEmpty()) {
+            d->path = fileInfo.canonicalFilePath();
+            d->tempRoot = d->unpack(path);
+        }
     }
 
     // now we search each path found, caching our previous path to know if
@@ -526,6 +550,12 @@ void Package::setPath(const QString &path)
     foreach (const QString &p, paths) {
         d->checkedValid = false;
         QDir dir(p);
+
+        if (p.endsWith(QStringLiteral(".rcc"))) {
+            QResource::registerResource(p);
+            dir = QDir(QStringLiteral(":/plasma/plasmoids/org.kde.plasma.analogclock"));
+        }
+
         Q_ASSERT(QFile::exists(dir.canonicalPath()));
         d->path = dir.canonicalPath();
          // canonicalPath() does not include a trailing slash (unless it is the root dir)
