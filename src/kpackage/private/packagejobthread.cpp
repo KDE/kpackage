@@ -146,7 +146,7 @@ bool indexDirectory(const QString& dir, const QString& dest)
 
     QDir().mkpath(QFileInfo(destfile).dir().absolutePath());
     //QFile file(destfile);
-    KCompressionDevice file(destfile, KCompressionDevice::None);
+    KCompressionDevice file(destfile, KCompressionDevice::BZip2);
     if (!file.open(QIODevice::WriteOnly)) {
         qWarning() << "Failed to open " << destfile;
         return false;

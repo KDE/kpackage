@@ -248,7 +248,7 @@ QList<KPluginMetaData> PackageLoader::listPackages(const QString &packageFormat,
     Q_FOREACH(auto const &plugindir, paths) {
         const QString &_ixfile = plugindir + QStringLiteral("kpluginindex.json");
 //         QFile indexFile(_ixfile);
-        KCompressionDevice indexFile(_ixfile, KCompressionDevice::None);
+        KCompressionDevice indexFile(_ixfile, KCompressionDevice::BZip2);
         if (QFile::exists(_ixfile)) {
             qDebug() << "kpluginindex: Using indexfile: " << _ixfile;
             indexFile.open(QIODevice::ReadOnly);
