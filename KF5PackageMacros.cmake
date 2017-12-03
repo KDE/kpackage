@@ -21,6 +21,9 @@ set(KPACKAGE_RELATIVE_DATA_INSTALL_DIR "kpackage")
 # kpackage_install_package(declarativetoolbox org.kde.toolbox) # installs a generic package
 #
 
+option(KPACKAGE_INSTALL_RCC "Install RCC representations of KPackage" ON)
+
+set(kpackagedir ${CMAKE_CURRENT_LIST_DIR})
 function(kpackage_install_package dir component)
    set(root ${ARGV2})
    set(install_dir ${ARGV3})
@@ -30,19 +33,24 @@ function(kpackage_install_package dir component)
    if(NOT install_dir)
       set(install_dir ${KPACKAGE_RELATIVE_DATA_INSTALL_DIR})
    endif()
-   install(DIRECTORY ${dir}/ DESTINATION ${KDE_INSTALL_DATADIR}/${install_dir}/${root}/${component}
-           PATTERN .svn EXCLUDE
-           PATTERN *.qmlc EXCLUDE
-           PATTERN CMakeLists.txt EXCLUDE
-           PATTERN Messages.sh EXCLUDE
-           PATTERN dummydata EXCLUDE)
 
+   if (NOT KPACKAGE_INSTALL_RCC)
+        install(DIRECTORY ${dir}/ DESTINATION ${KDE_INSTALL_DATADIR}/${install_dir}/${root}/${component}
+                PATTERN .svn EXCLUDE
+                PATTERN *.qmlc EXCLUDE
+                PATTERN CMakeLists.txt EXCLUDE
+                PATTERN Messages.sh EXCLUDE
+                PATTERN dummydata EXCLUDE)
+   endif()
+
+   set(metadatajson)
    if(NOT EXISTS ${component}-${root}-metadata.json AND EXISTS ${CMAKE_CURRENT_SOURCE_DIR}/${dir}/metadata.desktop)
         set(GENERATED_METADATA "${CMAKE_CURRENT_BINARY_DIR}/${component}-${root}-metadata.json")
         add_custom_command(OUTPUT ${GENERATED_METADATA}
                            COMMAND KF5::desktoptojson -i ${CMAKE_CURRENT_SOURCE_DIR}/${dir}/metadata.desktop -o ${GENERATED_METADATA})
         add_custom_target(${component}-${root}-metadata-json ALL DEPENDS ${GENERATED_METADATA})
         install(FILES ${GENERATED_METADATA} DESTINATION ${KDE_INSTALL_DATADIR}/${install_dir}/${root}/${component} RENAME metadata.json)
+        set(metadatajson ${GENERATED_METADATA})
    endif()
 
 
@@ -77,7 +85,17 @@ function(kpackage_install_package dir component)
         set_directory_properties(PROPERTIES kpackageindex "${regenerateindex}")
         file(WRITE ${CMAKE_CURRENT_BINARY_DIR}/regenerateindex.sh ${regenerateindex})
    endif()
+
+   if(KPACKAGE_INSTALL_RCC)
+        set(kpkgqrc "${CMAKE_CURRENT_BINARY_DIR}/${component}-${root}.qrc")
+        set(kpkgrcc "${CMAKE_CURRENT_BINARY_DIR}/${component}-${root}.rcc")
+        add_custom_command(OUTPUT ${kpkgqrc} ${kpkgrcc}
+                            DEPENDS ${metadatajson}
+                            WORKING_DIRECTORY ${CMAKE_CURRENT_SOURCE_DIR}/${dir}
+                            COMMAND cmake "-Dmetadatajson=${metadatajson}" -Droot=${root} -Dinstall_dir=${install_dir} -DBINARYDIR=${CMAKE_CURRENT_BINARY_DIR} -DDIRECTORY="${CMAKE_CURRENT_SOURCE_DIR}/${dir}" -DOUTPUTFILE=${kpkgqrc} -DCOMPONENT=${component} -P ${kpackagedir}/qrc.cmake
+                            COMMAND Qt5::rcc ${kpkgqrc} -o ${kpkgrcc}
+        )
+        add_custom_target(${component}-${root}-qrc ALL DEPENDS ${kpkgqrc})
+        install(FILES ${kpkgrcc} DESTINATION ${KDE_INSTALL_DATADIR}/${install_dir}/${root})
+   endif()
 endfunction()
-
-
-

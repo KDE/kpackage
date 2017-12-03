@@ -106,6 +106,7 @@ configure_package_config_file(
 )
 
 install(FILES
+  qrc.cmake
   "${CMAKE_CURRENT_BINARY_DIR}/KF5PackageConfig.cmake"
   "${CMAKE_CURRENT_BINARY_DIR}/KF5PackageConfigVersion.cmake"
   "${CMAKE_CURRENT_SOURCE_DIR}/KF5PackageMacros.cmake"
