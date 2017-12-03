@@ -163,7 +163,21 @@ public:
      **/
     QString filePath(const QByteArray &key, const QString &filename = QString()) const;
 
+    /**
+     * Get the url to a given file based on the key and an optional filename, is the file:// or qrc:// format
+     * Example: finding the main script in a scripting package:
+     *      filePath("mainscript")
+     *
+     * Example: finding a specific image in the images directory:
+     *      filePath("images", "myimage.png")
+     *
+     * @param key the key of the file type to look for,
+     * @param filename optional name of the file to locate within the package
+     * @return path to the file on disk. QString() if not found.
+     * @since 5.41
+     **/
     QUrl fileUrl(const QByteArray &key, const QString &filename = QString()) const;
+
     /**
      * Get the list of files of a given type.
      *

@@ -536,12 +536,11 @@ void Package::setPath(const QString &path)
     }
 
     QFileInfo fileInfo(path);
-    //case it's an archive
-    if (fileInfo.isFile()) {
-        if(d->tempRoot.isEmpty()) {
-            d->path = fileInfo.canonicalFilePath();
-            d->tempRoot = d->unpack(path);
-        }
+    //not managing rcc here as this branch is hit only when an absolute path to an archive is provided
+    //TODO: what happens when the rcc extension is added to the path?
+    if (fileInfo.isFile() && d->tempRoot.isEmpty()) {
+        d->path = fileInfo.canonicalFilePath();
+        d->tempRoot = d->unpack(path);
     }
 
     // now we search each path found, caching our previous path to know if
