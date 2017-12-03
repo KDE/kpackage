@@ -23,6 +23,7 @@
 #include <QtCore/QStringList>
 #include <QtCore/QMetaType>
 #include <QCryptographicHash>
+#include <QUrl>
 
 #include <kpluginmetadata.h>
 
@@ -162,6 +163,7 @@ public:
      **/
     QString filePath(const QByteArray &key, const QString &filename = QString()) const;
 
+    QUrl fileUrl(const QByteArray &key, const QString &filename = QString()) const;
     /**
      * Get the list of files of a given type.
      *
