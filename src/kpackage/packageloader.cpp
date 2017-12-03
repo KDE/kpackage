@@ -29,6 +29,7 @@
 #include <QPointer>
 #include <QDebug>
 
+#include <KCompressionDevice>
 #include <KLocalizedString>
 #include <KPluginLoader>
 #include <KPluginFactory>
@@ -246,10 +247,10 @@ QList<KPluginMetaData> PackageLoader::listPackages(const QString &packageFormat,
 
     Q_FOREACH(auto const &plugindir, paths) {
         const QString &_ixfile = plugindir + QStringLiteral("kpluginindex.json");
-        QFile indexFile(_ixfile);
-        //qDebug() << "indexfile: " << _ixfile << indexFile.exists();
-        if (indexFile.exists()) {
-            qDebug() << "kpluginindex: Using indexfile: " << _ixfile << indexFile.exists();
+//         QFile indexFile(_ixfile);
+        KCompressionDevice indexFile(_ixfile, KCompressionDevice::None);
+        if (QFile::exists(_ixfile)) {
+            qDebug() << "kpluginindex: Using indexfile: " << _ixfile;
             indexFile.open(QIODevice::ReadOnly);
             QJsonDocument jdoc = QJsonDocument::fromBinaryData(indexFile.readAll());
             indexFile.close();
@@ -362,8 +363,9 @@ KPackage::PackageStructure *PackageLoader::loadPackageStructure(const QString &p
 
     Q_FOREACH (const QString &plugindir, libraryPaths) {
         const QString &_ixfile = plugindir + QStringLiteral("kpluginindex.json");
-        QFile indexFile(_ixfile);
-        if (indexFile.exists()) {
+//         QFile indexFile(_ixfile);
+        KCompressionDevice indexFile(_ixfile, KCompressionDevice::BZip2);
+        if (QFile::exists(_ixfile)) {
             indexFile.open(QIODevice::ReadOnly);
             QJsonDocument jdoc = QJsonDocument::fromBinaryData(indexFile.readAll());
             indexFile.close();

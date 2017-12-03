@@ -28,6 +28,9 @@
 #include <ktar.h>
 #include <kzip.h>
 
+
+#include <kcompressiondevice.h>
+
 #include <QDir>
 #include <QFile>
 #include <QIODevice>
@@ -142,7 +145,8 @@ bool indexDirectory(const QString& dir, const QString& dest)
     }
 
     QDir().mkpath(QFileInfo(destfile).dir().absolutePath());
-    QFile file(destfile);
+    //QFile file(destfile);
+    KCompressionDevice file(destfile, KCompressionDevice::None);
     if (!file.open(QIODevice::WriteOnly)) {
         qWarning() << "Failed to open " << destfile;
         return false;

@@ -666,18 +666,21 @@ void PackageTool::recreateIndex()
         if (d->parser->isSet(Options::global)) {
             Q_FOREACH(auto const &p, QStandardPaths::locateAll(QStandardPaths::GenericDataLocation, d->packageRoot, QStandardPaths::LocateDirectory)) {
                 // Caching is limited to plasma, otherwise all of /usr/share/ may be indexed, taking forever without much gain
-                QString proot = QStringLiteral("/plasma");
-                if (!d->packageRoot.isEmpty()) {
-                    proot = QStringLiteral("/%1").arg(d->packageRoot);
-                }
-                QDirIterator it(p + proot, QDir::Dirs | QDir::Writable);
-                while (it.hasNext()) {
-                    it.next();
-                    const QString packagedir = it.fileInfo().absoluteFilePath();
-                    if (KPackage::indexDirectory(packagedir, QStringLiteral("kpluginindex.json"))) {
-                        d->coutput(i18n("Generating %1/kpluginindex.json", packagedir));
-                    } else {
-                        d->cerror(i18n("Didn't write %1/kpluginindex.json", packagedir));
+                QStringList proots = QStringList({QStringLiteral("/plasma"), QStringLiteral("/kwin")});
+                for (const auto &_proot: proots) {
+                    QString proot = _proot;
+                    if (!d->packageRoot.isEmpty()) {
+                        proot = QStringLiteral("/%1").arg(d->packageRoot);
+                    }
+                    QDirIterator it(p + proot, QDir::Dirs | QDir::Writable);
+                    while (it.hasNext()) {
+                        it.next();
+                        const QString packagedir = it.fileInfo().absoluteFilePath();
+                        if (KPackage::indexDirectory(packagedir, QStringLiteral("kpluginindex.json"))) {
+                            d->coutput(i18n("Generating %1/kpluginindex.json", packagedir));
+                        } else {
+                            d->cerror(i18n("Didn't write %1/kpluginindex.json", packagedir));
+                        }
                     }
                 }
             }
