@@ -512,7 +512,7 @@ void Package::setPath(const QString &path)
 
         if (QDir::isRelativePath(p)) {
             //FIXME: can searching of the qrc be better?
-            paths << QStandardPaths::locateAll(QStandardPaths::GenericDataLocation, p, QStandardPaths::LocateDirectory) << QStandardPaths::locateAll(QStandardPaths::GenericDataLocation, d->defaultPackageRoot % path %".rcc", QStandardPaths::LocateFile);
+            paths << QStandardPaths::locateAll(QStandardPaths::GenericDataLocation, p, QStandardPaths::LocateDirectory) << QStandardPaths::locateAll(QStandardPaths::GenericDataLocation, d->defaultPackageRoot % path % QStringLiteral(".rcc"), QStandardPaths::LocateFile);
         } else {
             const QDir dir(p);
             //it's a folder
