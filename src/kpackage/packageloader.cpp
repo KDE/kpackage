@@ -45,9 +45,6 @@ namespace KPackage
 
 static PackageLoader *s_packageTrader = nullptr;
 
-static const int s_maxCacheAge = 60;
-static QHash<QString, qint64> s_pluginCacheAge;
-static QHash<QString, QList<KPluginMetaData>> s_pluginCache;
 
 class PackageLoaderPrivate
 {
@@ -65,6 +62,9 @@ public:
     QHash<QString, QPointer<PackageStructure> > structures;
     bool isDefaultLoader;
     QString packageStructurePluginDir;
+    int maxCacheAge = 60;
+    QHash<QString, qint64> pluginCacheAge;
+    QHash<QString, QList<KPluginMetaData>> pluginCache;
 };
 
 QSet<QString> PackageLoaderPrivate::s_customCategories;
@@ -191,14 +191,14 @@ QList<KPluginMetaData> PackageLoader::listPackages(const QString &packageFormat,
     QString cacheKey = QString(QStringLiteral("%1.%2")).arg(packageFormat, packageRoot);
     qint64 now = QDateTime::currentSecsSinceEpoch();
 
-    if (useRuntimeCache && s_pluginCache.contains(cacheKey)) {
-        if (now - s_pluginCacheAge.value(cacheKey) > s_maxCacheAge) {
+    if (useRuntimeCache && d->pluginCache.contains(cacheKey)) {
+        if (now - d->pluginCacheAge.value(cacheKey) > d->maxCacheAge) {
             // cache is too old, ditch and compute
-            s_pluginCache.remove(cacheKey);
-            s_pluginCacheAge.remove(cacheKey);
+            d->pluginCache.remove(cacheKey);
+            d->pluginCacheAge.remove(cacheKey);
         } else {
             qWarning() << "TMR CC Returning list from cache" << cacheKey << tmr.elapsed();
-            return s_pluginCache.value(cacheKey);
+            return d->pluginCache.value(cacheKey);
         }
 
     }
@@ -298,8 +298,8 @@ QList<KPluginMetaData> PackageLoader::listPackages(const QString &packageFormat,
     }
 
     if (useRuntimeCache) {
-        s_pluginCache.insert(cacheKey, lst);
-        s_pluginCacheAge.insert(cacheKey, now);
+        d->pluginCache.insert(cacheKey, lst);
+        d->pluginCacheAge.insert(cacheKey, now);
     }
     return lst;
 }
