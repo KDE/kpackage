@@ -93,7 +93,7 @@ function(kpackage_install_package dir component)
                             DEPENDS ${metadatajson}
                             WORKING_DIRECTORY ${CMAKE_CURRENT_SOURCE_DIR}/${dir}
                             COMMAND cmake "-Dmetadatajson=${metadatajson}" -Droot=${root} -Dinstall_dir=${install_dir} -DBINARYDIR=${CMAKE_CURRENT_BINARY_DIR} -DDIRECTORY="${CMAKE_CURRENT_SOURCE_DIR}/${dir}" -DOUTPUTFILE=${kpkgqrc} -DCOMPONENT=${component} -P ${kpackagedir}/qrc.cmake
-                            COMMAND Qt5::rcc ${kpkgqrc} --binary -o ${kpkgrcc}
+                            COMMAND Qt5::rcc ${kpkgqrc} --binary -compress 9 -threshold 0 -o ${kpkgrcc}
         )
         add_custom_target(${component}-${root}-qrc ALL DEPENDS ${kpkgqrc})
         install(FILES ${kpkgrcc} DESTINATION ${KDE_INSTALL_DATADIR}/${install_dir}/${root}/${component}/ RENAME contents.rcc)
