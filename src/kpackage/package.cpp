@@ -26,6 +26,7 @@
 
 #include <karchive.h>
 #include <QDebug>
+#include <QUrl>
 #include <ktar.h>
 #include <kzip.h>
 #include <KLocalizedString>
@@ -396,6 +397,11 @@ QString Package::filePath(const QByteArray &fileType, const QString &filename) c
 
     //qDebug() << fileType << filename << "does not exist in" << prefixes << "at root" << d->path;
     return d->fallbackFilePath(fileType, filename);
+}
+
+QUrl Package::fileUrl(const QByteArray &fileType, const QString &filename) const
+{
+    return QUrl::fromLocalFile(filePath(fileType, filename));
 }
 
 QStringList Package::entryList(const QByteArray &key) const
