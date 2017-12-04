@@ -27,6 +27,7 @@
 
 #include <karchive.h>
 #include <QDebug>
+#include <QUrl>
 #include <ktar.h>
 #include <kzip.h>
 #include <KLocalizedString>
