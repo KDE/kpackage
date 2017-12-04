@@ -19,7 +19,6 @@
 
 #include "packageloader.h"
 
-#include <QElapsedTimer>
 #include <QStandardPaths>
 #include <QDateTime>
 #include <QDirIterator>
@@ -64,7 +63,13 @@ public:
     QHash<QString, QPointer<PackageStructure> > structures;
     bool isDefaultLoader;
     QString packageStructurePluginDir;
-    int maxCacheAge = 60;
+    // We only use this cache during start of the process to speed up many consecutive calls
+    // After that, we're too afraid to produce race conditions and it's not that time-critical anyway
+    // the 20 seconds here means that the cache is only used within 20sec during startup, after that,
+    // complexity goes up and we'd have to update the cache in order to avoid subtle bugs
+    // just not using the cache is way easier then, since it doesn't make *that* much of a difference,
+    // anyway
+    int maxCacheAge = 20;
     qint64 pluginCacheAge = 0;
     QHash<QString, QList<KPluginMetaData>> pluginCache;
 };
@@ -188,8 +193,6 @@ QList<KPluginMetaData> PackageLoader::listPackages(const QString &packageFormat,
 {
     const qint64 now = QDateTime::currentSecsSinceEpoch();
     bool useRuntimeCache = true;
-    // We only use this cache during start of the process to speed up many consecutive calls
-    // After that, we're too afraid to produce race conditions and it's not that time-critical anyway
     if (now - d->pluginCacheAge > d->maxCacheAge && d->pluginCacheAge != 0) {
         // cache is old and we're not within a few seconds of startup anymore
         useRuntimeCache = false;
@@ -316,8 +319,6 @@ QList<KPluginMetaData> PackageLoader::findPackages(const QString &packageFormat,
 
 KPackage::PackageStructure *PackageLoader::loadPackageStructure(const QString &packageFormat)
 {
-    QElapsedTimer tmr;
-    tmr.restart();
     PackageStructure *structure = d->structures.value(packageFormat).data();
     if (!structure) {
         if (packageFormat == QStringLiteral("KPackage/Generic")) {
