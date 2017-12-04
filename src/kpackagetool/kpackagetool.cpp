@@ -666,13 +666,13 @@ void PackageTool::recreateIndex()
         if (d->parser->isSet(Options::global)) {
             Q_FOREACH(auto const &p, QStandardPaths::locateAll(QStandardPaths::GenericDataLocation, d->packageRoot, QStandardPaths::LocateDirectory)) {
                 // Caching is limited to plasma, otherwise all of /usr/share/ may be indexed, taking forever without much gain
-                QStringList proots = QStringList({QStringLiteral("/plasma"), QStringLiteral("/kwin")});
+                QStringList proots = QStringList({QStringLiteral("plasma"), QStringLiteral("kwin")});
                 for (const auto &_proot: proots) {
                     QString proot = _proot;
                     if (!d->packageRoot.isEmpty()) {
                         proot = QStringLiteral("/%1").arg(d->packageRoot);
                     }
-                    QDirIterator it(p + proot, QDir::Dirs | QDir::Writable);
+                    QDirIterator it(p + proot, QDir::Dirs | QDir::Writable | QDir::NoDotAndDotDot);
                     while (it.hasNext()) {
                         it.next();
                         const QString packagedir = it.fileInfo().absoluteFilePath();
@@ -704,7 +704,7 @@ void PackageTool::removeIndex()
     if (!QDir::isAbsolutePath(d->packageRoot)) {
         if (d->parser->isSet(Options::global)) {
             Q_FOREACH(auto const &p, QStandardPaths::locateAll(QStandardPaths::GenericDataLocation, d->packageRoot, QStandardPaths::LocateDirectory)) {
-                QDirIterator it(p, QStringList(s_kpluginindex), QDir::Files | QDir::Writable, QDirIterator::Subdirectories);
+                QDirIterator it(p, QStringList(s_kpluginindex), QDir::Files | QDir::Writable | QDir::NoDotAndDotDot, QDirIterator::Subdirectories);
                 qDebug() << "IX index remove" << p;
                 while (it.hasNext()) {
                     it.next();
