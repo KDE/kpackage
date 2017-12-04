@@ -512,15 +512,11 @@ void Package::setPath(const QString &path)
 
         if (QDir::isRelativePath(p)) {
             //FIXME: can searching of the qrc be better?
-            paths << QStandardPaths::locateAll(QStandardPaths::GenericDataLocation, p, QStandardPaths::LocateDirectory) << QStandardPaths::locateAll(QStandardPaths::GenericDataLocation, d->defaultPackageRoot % path % QStringLiteral(".rcc"), QStandardPaths::LocateFile);
+            paths << QStandardPaths::locateAll(QStandardPaths::GenericDataLocation, p, QStandardPaths::LocateDirectory);
         } else {
             const QDir dir(p);
-            //it's a folder
             if (QFile::exists(dir.canonicalPath())) {
                 paths << p;
-            //it's an rcc
-            } else if (QFile::exists(p + QStringLiteral(".rcc"))) {
-                paths << p + QStringLiteral(".rcc");
             }
         }
 
@@ -529,15 +525,10 @@ void Package::setPath(const QString &path)
         const QDir dir(path);
         if (QFile::exists(dir.canonicalPath())) {
             paths << path;
-        //it's an rcc
-        } else if (QFile::exists(path + QStringLiteral(".rcc"))) {
-            paths << path + QStringLiteral(".rcc");
         }
     }
 
     QFileInfo fileInfo(path);
-    //not managing rcc here as this branch is hit only when an absolute path to an archive is provided
-    //TODO: what happens when the rcc extension is added to the path?
     if (fileInfo.isFile() && d->tempRoot.isEmpty()) {
         d->path = fileInfo.canonicalFilePath();
         d->tempRoot = d->unpack(path);
@@ -550,12 +541,14 @@ void Package::setPath(const QString &path)
         d->checkedValid = false;
         QDir dir(p);
 
-        if (p.endsWith(QStringLiteral(".rcc"))) {
-            QResource::registerResource(p);
+        Q_ASSERT(QFile::exists(dir.canonicalPath()));
+
+        //if it has a contents.rcc, give priority to it
+        if (dir.exists(QStringLiteral("contents.rcc"))) {
+            QResource::registerResource(dir.absoluteFilePath(QStringLiteral("contents.rcc")));
             dir = QDir(QStringLiteral(":")+defaultPackageRoot()+path);
         }
 
-        Q_ASSERT(QFile::exists(dir.canonicalPath()));
         d->path = dir.canonicalPath();
          // canonicalPath() does not include a trailing slash (unless it is the root dir)
         if (!d->path.endsWith(QLatin1Char('/'))) {

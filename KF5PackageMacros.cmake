@@ -49,9 +49,7 @@ function(kpackage_install_package dir component)
         add_custom_command(OUTPUT ${GENERATED_METADATA}
                            COMMAND KF5::desktoptojson -i ${CMAKE_CURRENT_SOURCE_DIR}/${dir}/metadata.desktop -o ${GENERATED_METADATA})
         add_custom_target(${component}-${root}-metadata-json ALL DEPENDS ${GENERATED_METADATA})
-        if (NOT ${KPACKAGE_INSTALL_RCC})
-            install(FILES ${GENERATED_METADATA} DESTINATION ${KDE_INSTALL_DATADIR}/${install_dir}/${root}/${component} RENAME metadata.json)
-        endif()
+        install(FILES ${GENERATED_METADATA} DESTINATION ${KDE_INSTALL_DATADIR}/${install_dir}/${root}/${component} RENAME metadata.json)
         set(metadatajson ${GENERATED_METADATA})
    endif()
 
@@ -98,6 +96,6 @@ function(kpackage_install_package dir component)
                             COMMAND Qt5::rcc ${kpkgqrc} --binary -o ${kpkgrcc}
         )
         add_custom_target(${component}-${root}-qrc ALL DEPENDS ${kpkgqrc})
-        install(FILES ${kpkgrcc} DESTINATION ${KDE_INSTALL_DATADIR}/${install_dir}/${root})
+        install(FILES ${kpkgrcc} DESTINATION ${KDE_INSTALL_DATADIR}/${install_dir}/${root}/${component}/ RENAME contents.rcc)
    endif()
 endfunction()
