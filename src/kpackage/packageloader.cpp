@@ -247,7 +247,6 @@ QList<KPluginMetaData> PackageLoader::listPackages(const QString &packageFormat,
 
     Q_FOREACH(auto const &plugindir, paths) {
         const QString &_ixfile = plugindir + QStringLiteral("kpluginindex.json");
-//         QFile indexFile(_ixfile);
         KCompressionDevice indexFile(_ixfile, KCompressionDevice::BZip2);
         if (QFile::exists(_ixfile)) {
             qDebug() << "kpluginindex: Using indexfile: " << _ixfile;
@@ -255,9 +254,7 @@ QList<KPluginMetaData> PackageLoader::listPackages(const QString &packageFormat,
             QJsonDocument jdoc = QJsonDocument::fromBinaryData(indexFile.readAll());
             indexFile.close();
 
-
             QJsonArray plugins = jdoc.array();
-
             for (QJsonArray::const_iterator iter = plugins.constBegin(); iter != plugins.constEnd(); ++iter) {
                 const QJsonObject &obj = QJsonValue(*iter).toObject();
                 const QString &pluginFileName = obj.value(QStringLiteral("FileName")).toString();
@@ -267,7 +264,6 @@ QList<KPluginMetaData> PackageLoader::listPackages(const QString &packageFormat,
                     lst << m;
                 }
             }
-
         } else {
             qDebug() << "kpluginindex: Not cached" << plugindir;
             // If there's no cache file, fall back to listing the directory
@@ -301,15 +297,9 @@ QList<KPluginMetaData> PackageLoader::listPackages(const QString &packageFormat,
         }
     }
 
-    qWarning() << "TMR spent" << tmr.elapsed() << "in" << packageFormat << packageRoot;
-
     if (useRuntimeCache) {
-
         s_pluginCache.insert(cacheKey, lst);
         s_pluginCacheAge.insert(cacheKey, now);
-        qWarning() << "TMR CC Cache populated for " << cacheKey;
-    } else {
-        qWarning() << "TMR CC Not using cache" << cacheKey;
     }
     return lst;
 }
@@ -317,13 +307,11 @@ QList<KPluginMetaData> PackageLoader::listPackages(const QString &packageFormat,
 QList<KPluginMetaData> PackageLoader::findPackages(const QString &packageFormat, const QString &packageRoot, std::function<bool(const KPluginMetaData &)> filter)
 {
     QList<KPluginMetaData> lst;
-
     Q_FOREACH(auto const &plugin, listPackages(packageFormat, packageRoot)) {
         if (!filter || filter(plugin)) {
             lst << plugin;
         }
     }
-
     return lst;
 }
 
@@ -358,21 +346,16 @@ KPackage::PackageStructure *PackageLoader::loadPackageStructure(const QString &p
         libraryPaths << d;
     }
 
-
     QString pluginFileName;
 
     Q_FOREACH (const QString &plugindir, libraryPaths) {
         const QString &_ixfile = plugindir + QStringLiteral("kpluginindex.json");
-//         QFile indexFile(_ixfile);
         KCompressionDevice indexFile(_ixfile, KCompressionDevice::BZip2);
         if (QFile::exists(_ixfile)) {
             indexFile.open(QIODevice::ReadOnly);
             QJsonDocument jdoc = QJsonDocument::fromBinaryData(indexFile.readAll());
             indexFile.close();
-
-
             QJsonArray plugins = jdoc.array();
-
             for (QJsonArray::const_iterator iter = plugins.constBegin(); iter != plugins.constEnd(); ++iter) {
                 const QJsonObject &obj = QJsonValue(*iter).toObject();
                 const QString &candidate = obj.value(QStringLiteral("FileName")).toString();
