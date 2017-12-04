@@ -39,6 +39,7 @@
 #include "private/packages_p.h"
 #include "package.h"
 #include "packagestructure.h"
+#include "private/packagejobthread_p.h"
 
 namespace KPackage
 {
@@ -246,7 +247,7 @@ QList<KPluginMetaData> PackageLoader::listPackages(const QString &packageFormat,
     }
 
     Q_FOREACH(auto const &plugindir, paths) {
-        const QString &_ixfile = plugindir + QStringLiteral("kpluginindex.json");
+        const QString &_ixfile = plugindir + s_kpluginindex;
         KCompressionDevice indexFile(_ixfile, KCompressionDevice::BZip2);
         if (QFile::exists(_ixfile)) {
             qDebug() << "kpluginindex: Using indexfile: " << _ixfile;
@@ -349,7 +350,7 @@ KPackage::PackageStructure *PackageLoader::loadPackageStructure(const QString &p
     QString pluginFileName;
 
     Q_FOREACH (const QString &plugindir, libraryPaths) {
-        const QString &_ixfile = plugindir + QStringLiteral("kpluginindex.json");
+        const QString &_ixfile = plugindir + s_kpluginindex;
         KCompressionDevice indexFile(_ixfile, KCompressionDevice::BZip2);
         if (QFile::exists(_ixfile)) {
             indexFile.open(QIODevice::ReadOnly);

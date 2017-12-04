@@ -57,8 +57,6 @@
 Q_GLOBAL_STATIC_WITH_ARGS(QTextStream, cout, (stdout))
 Q_GLOBAL_STATIC_WITH_ARGS(QTextStream, cerr, (stderr))
 
-const static auto s_kpluginindex = QStringLiteral("kpluginindex.json");
-
 static QVector<KPluginMetaData> listPackageTypes()
 {
     QStringList libraryPaths;
