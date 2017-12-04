@@ -131,6 +131,7 @@ protected:
     virtual ~PackageLoader();
 
 private:
+    void addCachedPath(const QString &cachedPath);
     PackageLoaderPrivate *const d;
     Q_DISABLE_COPY(PackageLoader)
 };

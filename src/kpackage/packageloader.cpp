@@ -60,11 +60,12 @@ public:
     static QString parentAppConstraint(const QString &parentApp = QString());
 
     static QSet<QString> s_customCategories;
+
     QHash<QString, QPointer<PackageStructure> > structures;
     bool isDefaultLoader;
     QString packageStructurePluginDir;
     int maxCacheAge = 60;
-    QHash<QString, qint64> pluginCacheAge;
+    qint64 pluginCacheAge = 0;
     QHash<QString, QList<KPluginMetaData>> pluginCache;
 };
 
@@ -185,23 +186,21 @@ Package PackageLoader::loadPackage(const QString &packageFormat, const QString &
 
 QList<KPluginMetaData> PackageLoader::listPackages(const QString &packageFormat, const QString &packageRoot)
 {
-    QElapsedTimer tmr;
-    tmr.restart();
-    const bool useRuntimeCache = QFile::exists(QStringLiteral("/home/pine/USECACHE"));
-
+    const qint64 now = QDateTime::currentSecsSinceEpoch();
+    bool useRuntimeCache = true;
+    // We only use this cache during start of the process to speed up many consecutive calls
+    // After that, we're too afraid to produce race conditions and it's not that time-critical anyway
+    if (now - d->pluginCacheAge > d->maxCacheAge && d->pluginCacheAge != 0) {
+        // cache is old and we're not within a few seconds of startup anymore
+        useRuntimeCache = false;
+        d->pluginCache.clear();
+    }
     QString cacheKey = QString(QStringLiteral("%1.%2")).arg(packageFormat, packageRoot);
-    qint64 now = QDateTime::currentSecsSinceEpoch();
-
     if (useRuntimeCache && d->pluginCache.contains(cacheKey)) {
-        if (now - d->pluginCacheAge.value(cacheKey) > d->maxCacheAge) {
-            // cache is too old, ditch and compute
-            d->pluginCache.remove(cacheKey);
-            d->pluginCacheAge.remove(cacheKey);
-        } else {
-            qWarning() << "TMR CC Returning list from cache" << cacheKey << tmr.elapsed();
-            return d->pluginCache.value(cacheKey);
-        }
-
+        return d->pluginCache.value(cacheKey);
+    }
+    if (d->pluginCacheAge == 0) {
+        d->pluginCacheAge = now;
     }
 
     QList<KPluginMetaData> lst;
@@ -300,7 +299,6 @@ QList<KPluginMetaData> PackageLoader::listPackages(const QString &packageFormat,
 
     if (useRuntimeCache) {
         d->pluginCache.insert(cacheKey, lst);
-        d->pluginCacheAge.insert(cacheKey, now);
     }
     return lst;
 }
@@ -397,10 +395,10 @@ KPackage::PackageStructure *PackageLoader::loadPackageStructure(const QString &p
                             packageFormat, error);
     }
 
-    if (structure)
+    if (structure) {
         d->structures.insert(packageFormat, structure);
+    }
 
-    //qDebug() << "TMR structure spent" << tmr.elapsed() << "in" << packageFormat;
     return structure;
 }
 
