@@ -64,7 +64,7 @@ Package::~Package()
 {
     //guard against deletion on application shutdown
     if (PackageDeletionNotifier::self()) {
-        PackageDeletionNotifier::self()->packageDeleted(this);
+        Q_EMIT PackageDeletionNotifier::self()->packageDeleted(this);
     }
 }
 
@@ -291,7 +291,7 @@ bool PackagePrivate::isInsidePackageDir(const QString &canonicalPath) const
     // path traversal using symlinks or "../" path segments
 
     // make sure we got passed a valid path
-    Q_ASSERT(QFileInfo(canonicalPath).exists());
+    Q_ASSERT(QFileInfo::exists(canonicalPath));
     Q_ASSERT(QFileInfo(canonicalPath).canonicalFilePath() == canonicalPath);
     // make sure that the base path is also canonical
     // this was not the case until 5.8, making this check fail e.g. if /home is a symlink

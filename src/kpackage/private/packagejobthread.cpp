@@ -117,7 +117,6 @@ Q_GLOBAL_STATIC_WITH_ARGS(QStringList, metaDataFiles, (QStringList(QLatin1String
 bool indexDirectory(const QString& dir, const QString& dest)
 {
     QVariantMap vm;
-    QVariantMap pluginsVm;
     vm[QStringLiteral("Version")] = QStringLiteral("1.0");
     vm[QStringLiteral("Timestamp")] = QDateTime::currentMSecsSinceEpoch();
 
