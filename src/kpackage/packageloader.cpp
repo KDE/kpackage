@@ -20,6 +20,7 @@
 #include "packageloader.h"
 
 #include <QStandardPaths>
+#include <QDateTime>
 #include <QDirIterator>
 #include <QJsonDocument>
 #include <QJsonArray>
@@ -27,6 +28,7 @@
 #include <QPointer>
 #include <QDebug>
 
+#include <KCompressionDevice>
 #include <KLocalizedString>
 #include <KPluginLoader>
 #include <KPluginFactory>
@@ -36,11 +38,13 @@
 #include "private/packages_p.h"
 #include "package.h"
 #include "packagestructure.h"
+#include "private/packagejobthread_p.h"
 
 namespace KPackage
 {
 
 static PackageLoader *s_packageTrader = nullptr;
+
 
 class PackageLoaderPrivate
 {
@@ -55,9 +59,19 @@ public:
     static QString parentAppConstraint(const QString &parentApp = QString());
 
     static QSet<QString> s_customCategories;
+
     QHash<QString, QPointer<PackageStructure> > structures;
     bool isDefaultLoader;
     QString packageStructurePluginDir;
+    // We only use this cache during start of the process to speed up many consecutive calls
+    // After that, we're too afraid to produce race conditions and it's not that time-critical anyway
+    // the 20 seconds here means that the cache is only used within 20sec during startup, after that,
+    // complexity goes up and we'd have to update the cache in order to avoid subtle bugs
+    // just not using the cache is way easier then, since it doesn't make *that* much of a difference,
+    // anyway
+    int maxCacheAge = 20;
+    qint64 pluginCacheAge = 0;
+    QHash<QString, QList<KPluginMetaData>> pluginCache;
 };
 
 QSet<QString> PackageLoaderPrivate::s_customCategories;
@@ -177,12 +191,27 @@ Package PackageLoader::loadPackage(const QString &packageFormat, const QString &
 
 QList<KPluginMetaData> PackageLoader::listPackages(const QString &packageFormat, const QString &packageRoot)
 {
+    const qint64 now = QDateTime::currentSecsSinceEpoch();
+    bool useRuntimeCache = true;
+    if (now - d->pluginCacheAge > d->maxCacheAge && d->pluginCacheAge != 0) {
+        // cache is old and we're not within a few seconds of startup anymore
+        useRuntimeCache = false;
+        d->pluginCache.clear();
+    }
+    QString cacheKey = QString(QStringLiteral("%1.%2")).arg(packageFormat, packageRoot);
+    if (useRuntimeCache && d->pluginCache.contains(cacheKey)) {
+        return d->pluginCache.value(cacheKey);
+    }
+    if (d->pluginCacheAge == 0) {
+        d->pluginCacheAge = now;
+    }
+
     QList<KPluginMetaData> lst;
 
     //has been a root specified?
     QString actualRoot = packageRoot;
 
-    //try to take it from the ackage structure
+    //try to take it from the package structure
     if (actualRoot.isEmpty()) {
         PackageStructure *structure = d->structures.value(packageFormat).data();
         if (!structure) {
@@ -220,18 +249,15 @@ QList<KPluginMetaData> PackageLoader::listPackages(const QString &packageFormat,
     }
 
     Q_FOREACH(auto const &plugindir, paths) {
-        const QString &_ixfile = plugindir + QStringLiteral("kpluginindex.json");
-        QFile indexFile(_ixfile);
-        //qDebug() << "indexfile: " << _ixfile << indexFile.exists();
-        if (indexFile.exists()) {
-            qDebug() << "kpluginindex: Using indexfile: " << _ixfile << indexFile.exists();
+        const QString &_ixfile = plugindir + s_kpluginindex;
+        KCompressionDevice indexFile(_ixfile, KCompressionDevice::BZip2);
+        if (QFile::exists(_ixfile)) {
+            qDebug() << "kpluginindex: Using indexfile: " << _ixfile;
             indexFile.open(QIODevice::ReadOnly);
             QJsonDocument jdoc = QJsonDocument::fromBinaryData(indexFile.readAll());
             indexFile.close();
 
-
             QJsonArray plugins = jdoc.array();
-
             for (QJsonArray::const_iterator iter = plugins.constBegin(); iter != plugins.constEnd(); ++iter) {
                 const QJsonObject &obj = QJsonValue(*iter).toObject();
                 const QString &pluginFileName = obj.value(QStringLiteral("FileName")).toString();
@@ -241,7 +267,6 @@ QList<KPluginMetaData> PackageLoader::listPackages(const QString &packageFormat,
                     lst << m;
                 }
             }
-
         } else {
             qDebug() << "kpluginindex: Not cached" << plugindir;
             // If there's no cache file, fall back to listing the directory
@@ -275,19 +300,20 @@ QList<KPluginMetaData> PackageLoader::listPackages(const QString &packageFormat,
         }
     }
 
+    if (useRuntimeCache) {
+        d->pluginCache.insert(cacheKey, lst);
+    }
     return lst;
 }
 
 QList<KPluginMetaData> PackageLoader::findPackages(const QString &packageFormat, const QString &packageRoot, std::function<bool(const KPluginMetaData &)> filter)
 {
     QList<KPluginMetaData> lst;
-
     Q_FOREACH(auto const &plugin, listPackages(packageFormat, packageRoot)) {
         if (!filter || filter(plugin)) {
             lst << plugin;
         }
     }
-
     return lst;
 }
 
@@ -320,20 +346,16 @@ KPackage::PackageStructure *PackageLoader::loadPackageStructure(const QString &p
         libraryPaths << d;
     }
 
-
     QString pluginFileName;
 
     Q_FOREACH (const QString &plugindir, libraryPaths) {
-        const QString &_ixfile = plugindir + QStringLiteral("kpluginindex.json");
-        QFile indexFile(_ixfile);
-        if (indexFile.exists()) {
+        const QString &_ixfile = plugindir + s_kpluginindex;
+        KCompressionDevice indexFile(_ixfile, KCompressionDevice::BZip2);
+        if (QFile::exists(_ixfile)) {
             indexFile.open(QIODevice::ReadOnly);
             QJsonDocument jdoc = QJsonDocument::fromBinaryData(indexFile.readAll());
             indexFile.close();
-
-
             QJsonArray plugins = jdoc.array();
-
             for (QJsonArray::const_iterator iter = plugins.constBegin(); iter != plugins.constEnd(); ++iter) {
                 const QJsonObject &obj = QJsonValue(*iter).toObject();
                 const QString &candidate = obj.value(QStringLiteral("FileName")).toString();
@@ -374,8 +396,9 @@ KPackage::PackageStructure *PackageLoader::loadPackageStructure(const QString &p
                             packageFormat, error);
     }
 
-    if (structure)
+    if (structure) {
         d->structures.insert(packageFormat, structure);
+    }
 
     return structure;
 }

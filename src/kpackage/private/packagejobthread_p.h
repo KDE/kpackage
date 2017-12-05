@@ -25,6 +25,8 @@
 #include "package.h"
 #include <QThread>
 
+const static auto s_kpluginindex = QStringLiteral("kpluginindex.json");
+
 namespace KPackage
 {
 

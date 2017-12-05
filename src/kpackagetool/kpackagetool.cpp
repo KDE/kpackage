@@ -73,7 +73,7 @@ static QVector<KPluginMetaData> listPackageTypes()
 
     QVector<KPluginMetaData> offers;
     Q_FOREACH (const QString &plugindir, libraryPaths) {
-        const QString &_ixfile = plugindir + QStringLiteral("kpluginindex.json");
+        const QString &_ixfile = plugindir + s_kpluginindex;
         QFile indexFile(_ixfile);
         if (indexFile.exists()) {
             indexFile.open(QIODevice::ReadOnly);
@@ -635,7 +635,7 @@ void PackageToolPrivate::listTypes()
 
     QMap<QString, QStringList> builtIns;
     builtIns.insert(i18n("KPackage/Generic"), QStringList() << QStringLiteral("KPackage/Generic") << QStringLiteral(KPACKAGE_RELATIVE_DATA_INSTALL_DIR "/packages/"));
-    builtIns.insert(i18n("KPackage/GenericQML"), QStringList() << QStringLiteral("KPackage/GenericQML") << QStringLiteral(KPACKAGE_RELATIVE_DATA_INSTALL_DIR "/packagesqml/"));
+    builtIns.insert(i18n("KPackage/GenericQML"), QStringList() << QStringLiteral("KPackage/GenericQML") << QStringLiteral(KPACKAGE_RELATIVE_DATA_INSTALL_DIR "/genericqml/"));
 
     renderTypeTable(builtIns);
 
@@ -664,20 +664,31 @@ void PackageTool::recreateIndex()
 
     if (!QDir::isAbsolutePath(d->packageRoot)) {
         if (d->parser->isSet(Options::global)) {
-            Q_FOREACH(auto const &p, QStandardPaths::locateAll(QStandardPaths::GenericDataLocation, d->packageRoot, QStandardPaths::LocateDirectory)) {
-                // Caching is limited to plasma, otherwise all of /usr/share/ may be indexed, taking forever without much gain
-                QString proot = QStringLiteral("/plasma");
-                if (!d->packageRoot.isEmpty()) {
-                    proot = QStringLiteral("/%1").arg(d->packageRoot);
+
+            // Find package roots
+            QStringList packageRoots;
+            const QVector<KPluginMetaData> offers = listPackageTypes();
+            if (!offers.isEmpty()) {
+                foreach (const KPluginMetaData &info, offers) {
+                    KPackage::Package pkg = KPackage::PackageLoader::self()->loadPackage(info.pluginId());
+                    const auto proot = pkg.defaultPackageRoot();
+                    if (!proot.isEmpty()) {
+                        packageRoots << pkg.defaultPackageRoot();
+                    }
                 }
-                QDirIterator it(p + proot, QDir::Dirs | QDir::Writable);
-                while (it.hasNext()) {
-                    it.next();
-                    const QString packagedir = it.fileInfo().absoluteFilePath();
-                    if (KPackage::indexDirectory(packagedir, QStringLiteral("kpluginindex.json"))) {
-                        d->coutput(i18n("Generating %1/kpluginindex.json", packagedir));
+            }
+
+            Q_FOREACH(auto const &p, QStandardPaths::locateAll(QStandardPaths::GenericDataLocation, d->packageRoot, QStandardPaths::LocateDirectory)) {
+                for (const auto &_proot: packageRoots) {
+                    QFileInfo packageDirInfo(QStringLiteral("%1%2").arg(p, _proot));
+                    if (!packageDirInfo.isWritable()) {
+                        continue;
+                    }
+                    const QString packagedir = packageDirInfo.absoluteFilePath();
+                    if (KPackage::indexDirectory(packagedir, s_kpluginindex)) {
+                        d->coutput(i18n("Generating %1%2", packagedir, s_kpluginindex));
                     } else {
-                        d->cerror(i18n("Didn't write %1/kpluginindex.json", packagedir));
+                        d->cerror(i18n("Didn't write %1%2", packagedir, s_kpluginindex));
                     }
                 }
             }
@@ -687,10 +698,10 @@ void PackageTool::recreateIndex()
         }
     }
 
-    if (KPackage::indexDirectory(d->packageRoot, QStringLiteral("kpluginindex.json"))) {
-        d->coutput(i18n("Generating %1/kpluginindex.json", d->packageRoot));
+    if (KPackage::indexDirectory(d->packageRoot, s_kpluginindex)) {
+        d->coutput(i18n("Generating %1/%2", d->packageRoot, s_kpluginindex));
     } else {
-        d->cerror(i18n("Cannot write %1/kpluginindex.json", d->packageRoot));
+        d->cerror(i18n("Cannot write %1/%2", d->packageRoot, s_kpluginindex));
     }
 }
 
@@ -701,7 +712,7 @@ void PackageTool::removeIndex()
     if (!QDir::isAbsolutePath(d->packageRoot)) {
         if (d->parser->isSet(Options::global)) {
             Q_FOREACH(auto const &p, QStandardPaths::locateAll(QStandardPaths::GenericDataLocation, d->packageRoot, QStandardPaths::LocateDirectory)) {
-                QDirIterator it(p, QStringList(QLatin1String("kpluginindex.json")), QDir::Files | QDir::Writable, QDirIterator::Subdirectories);
+                QDirIterator it(p, QStringList(s_kpluginindex), QDir::Files | QDir::Writable | QDir::NoDotAndDotDot, QDirIterator::Subdirectories);
                 qDebug() << "IX index remove" << p;
                 while (it.hasNext()) {
                     it.next();
@@ -719,7 +730,7 @@ void PackageTool::removeIndex()
             d->packageRoot = QStandardPaths::writableLocation(QStandardPaths::GenericDataLocation) + QLatin1Char('/') + d->packageRoot;
         }
     }
-    QFile file(d->packageRoot + QStringLiteral("kpluginindex.json"));
+    QFile file(d->packageRoot + s_kpluginindex);
     if (file.exists()) {
         if (!file.remove()) {
             d->cerror(i18n("Could not remove index file %1", file.fileName()));
