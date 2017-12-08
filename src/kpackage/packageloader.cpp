@@ -191,7 +191,8 @@ Package PackageLoader::loadPackage(const QString &packageFormat, const QString &
 
 QList<KPluginMetaData> PackageLoader::listPackages(const QString &packageFormat, const QString &packageRoot)
 {
-    const qint64 now = QDateTime::currentSecsSinceEpoch();
+    // Note: Use QDateTime::currentSecsSinceEpoch() once we can depend on Qt 5.8
+    const qint64 now = qRound64(QDateTime::currentMSecsSinceEpoch() / 1000.0);
     bool useRuntimeCache = true;
     if (now - d->pluginCacheAge > d->maxCacheAge && d->pluginCacheAge != 0) {
         // cache is old and we're not within a few seconds of startup anymore
