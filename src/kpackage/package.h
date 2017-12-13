@@ -23,6 +23,7 @@
 #include <QtCore/QStringList>
 #include <QtCore/QMetaType>
 #include <QCryptographicHash>
+#include <QUrl>
 
 #include <kpluginmetadata.h>
 

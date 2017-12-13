@@ -1,0 +1,24 @@
+{
+    "KPlugin": {
+        "Authors": [
+            {
+                "Email": "jblow@kde.org",
+                "Name": "Joe Blow"
+            }
+        ],
+        "Category": "",
+        "Description": "fancy shmancy summary",
+        "Icon": "plasma",
+        "Id": "org.kde.testpackagercc",
+        "License": "GPLv2+",
+        "Name": "Test QResource Package",
+        "ServiceTypes": [
+            "KPackage/Generic"
+        ],
+        "Version": "",
+        "Website": ""
+    },
+    "Keywords": "",
+    "X-KDE-ParentApp": "",
+    "X-Plasma-MainScript": "ui/main.qml"
+}

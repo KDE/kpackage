@@ -23,6 +23,7 @@
 #include "package.h"
 
 #include <qtemporarydir.h>
+#include <QResource>
 
 #include <karchive.h>
 #include "kpackage_debug.h"
@@ -213,6 +214,7 @@ KPluginMetaData Package::metadata() const
     //qCDebug(KPACKAGE_LOG) << "metadata: " << d->path << filePath("metadata");
     if (!d->metadata && !d->path.isEmpty()) {
         const QString metadataPath = filePath("metadata");
+
         if (!metadataPath.isEmpty()) {
             d->createPackageMetadata(metadataPath);
         } else {
@@ -401,7 +403,13 @@ QString Package::filePath(const QByteArray &fileType, const QString &filename) c
 
 QUrl Package::fileUrl(const QByteArray &fileType, const QString &filename) const
 {
-    return QUrl::fromLocalFile(filePath(fileType, filename));
+    QString path = filePath(fileType, filename);
+    //construct a qrc:/ url or a file:/ url, the only two protocols supported
+    if (path.startsWith(QStringLiteral(":"))) {
+        return QUrl(QStringLiteral("qrc") + path);
+    } else {
+        return QUrl::fromLocalFile(path);
+    }
 }
 
 QStringList Package::entryList(const QByteArray &key) const
@@ -504,6 +512,7 @@ void Package::setPath(const QString &path)
         }
 
         if (QDir::isRelativePath(p)) {
+            //FIXME: can searching of the qrc be better?
             paths << QStandardPaths::locateAll(QStandardPaths::GenericDataLocation, p, QStandardPaths::LocateDirectory);
         } else {
             const QDir dir(p);
@@ -532,7 +541,16 @@ void Package::setPath(const QString &path)
     foreach (const QString &p, paths) {
         d->checkedValid = false;
         QDir dir(p);
+
         Q_ASSERT(QFile::exists(dir.canonicalPath()));
+
+        //if it has a contents.rcc, give priority to it
+        if (dir.exists(QStringLiteral("contents.rcc"))) {
+            d->rccPath = dir.absoluteFilePath(QStringLiteral("contents.rcc"));
+            QResource::registerResource(d->rccPath);
+            dir = QDir(QStringLiteral(":/") + defaultPackageRoot() + path);
+        }
+
         d->path = dir.canonicalPath();
          // canonicalPath() does not include a trailing slash (unless it is the root dir)
         if (!d->path.endsWith(QLatin1Char('/'))) {
@@ -861,6 +879,13 @@ PackagePrivate::PackagePrivate(const PackagePrivate &other)
 
 PackagePrivate::~PackagePrivate()
 {
+    if (!rccPath.isEmpty()) {
+        //qresource register/unregisterpath is refcounted if we call it two times
+        //on the same path, the resource will actually be unregistered only when
+        //unregister is called 2 times
+        QResource::unregisterResource(rccPath);
+    }
+
     if (!tempRoot.isEmpty()) {
         QDir dir(tempRoot);
         dir.removeRecursively();

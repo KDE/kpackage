@@ -101,6 +101,7 @@ public:
     Package *fallbackPackage;
     QStringList mimeTypes;
     KPluginMetaData *metadata;
+    QString rccPath;
     bool externalPaths : 1;
     bool valid : 1;
     bool checkedValid : 1;

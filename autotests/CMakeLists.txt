@@ -22,6 +22,7 @@ PLASMA_UNIT_TESTS(
     fallbackpackagetest
     packagestructuretest
     plasmoidpackagetest
+    rccpackagetest
     querytest
 )
 
@@ -40,5 +41,14 @@ endfunction()
 foreach(var "testfallbackpackage" "testpackage" "testpackage-nodisplay" "testjsonmetadatapackage" "testpackagesdep" "testpackagesdepinvalid") # "customcontent" "simplecontent"
     kpackagetool5test(${var})
 endforeach()
+
+set(kpkgqrc "${CMAKE_CURRENT_SOURCE_DIR}/data/testpackage-rcc/resources.qrc")
+set(kpkgrcc "${CMAKE_CURRENT_BINARY_DIR}/testpackage-rcc/contents.rcc")
+install(FILES "${CMAKE_CURRENT_SOURCE_DIR}/data/testpackage-rcc/metadata.json" DESTINATION ${CMAKE_CURRENT_BINARY_DIR}/testpackage-rcc)
+add_custom_command(OUTPUT ${kpkgrcc}
+                    WORKING_DIRECTORY ${CMAKE_CURRENT_SOURCE_DIR}
+        COMMAND Qt5::rcc ${kpkgqrc} --binary -o ${kpkgrcc})
+add_custom_target(testpackage-rcc ALL DEPENDS ${kpkgrcc})
+
 
 add_subdirectory(mockdepresolver)

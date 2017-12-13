@@ -1,0 +1,8 @@
+<!DOCTYPE RCC><RCC version='1.0'>
+<qresource prefix='/plasma/plasmoids/testpackage-rcc/'>
+  <file alias='metadata.json'>./metadata.json</file>
+  <file alias='contents/ui/main.qml'>./contents/ui/main.qml</file>
+  <file alias='contents/ui/otherfile.qml'>./contents/ui/otherfile.qml</file>
+  <file alias='contents/images/empty.png'>./contents/images/empty.png</file>
+</qresource>
+</RCC>
