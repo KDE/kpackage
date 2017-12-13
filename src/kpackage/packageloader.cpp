@@ -26,7 +26,7 @@
 #include <QJsonArray>
 #include <QCoreApplication>
 #include <QPointer>
-#include <QDebug>
+#include "kpackage_debug.h"
 
 #include <KCompressionDevice>
 #include <KLocalizedString>
@@ -138,7 +138,7 @@ void PackageLoader::setPackageLoader(PackageLoader *loader)
         s_packageTrader = loader;
     } else {
 #ifndef NDEBUG
-        // qDebug() << "Cannot set packageTrader, already set!" << s_packageTrader;
+        // qCDebug(KPACKAGE_LOG) << "Cannot set packageTrader, already set!" << s_packageTrader;
 #endif
     }
 }
@@ -183,7 +183,7 @@ Package PackageLoader::loadPackage(const QString &packageFormat, const QString &
     }
 
 #ifndef NDEBUG
-        // qDebug() << "Couldn't load Package for" << packageFormat << "! reason given: " << error;
+        // qCDebug(KPACKAGE_LOG) << "Couldn't load Package for" << packageFormat << "! reason given: " << error;
 #endif
 
     return Package();
@@ -253,7 +253,7 @@ QList<KPluginMetaData> PackageLoader::listPackages(const QString &packageFormat,
         const QString &_ixfile = plugindir + s_kpluginindex;
         KCompressionDevice indexFile(_ixfile, KCompressionDevice::BZip2);
         if (QFile::exists(_ixfile)) {
-            qDebug() << "kpluginindex: Using indexfile: " << _ixfile;
+            qCDebug(KPACKAGE_LOG) << "kpluginindex: Using indexfile: " << _ixfile;
             indexFile.open(QIODevice::ReadOnly);
             QJsonDocument jdoc = QJsonDocument::fromBinaryData(indexFile.readAll());
             indexFile.close();
@@ -269,7 +269,7 @@ QList<KPluginMetaData> PackageLoader::listPackages(const QString &packageFormat,
                 }
             }
         } else {
-            qDebug() << "kpluginindex: Not cached" << plugindir;
+            qCDebug(KPACKAGE_LOG) << "kpluginindex: Not cached" << plugindir;
             // If there's no cache file, fall back to listing the directory
             const QDirIterator::IteratorFlags flags = QDirIterator::Subdirectories;
             const QStringList nameFilters = { QStringLiteral("metadata.json"), QStringLiteral("metadata.desktop") };
@@ -393,7 +393,7 @@ KPackage::PackageStructure *PackageLoader::loadPackageStructure(const QString &p
     }
 
     if (structure && !error.isEmpty()) {
-        qWarning() << i18n("Could not load installer for package of type %1. Error reported was: %2",
+        qCWarning(KPACKAGE_LOG) << i18n("Could not load installer for package of type %1. Error reported was: %2",
                             packageFormat, error);
     }
 

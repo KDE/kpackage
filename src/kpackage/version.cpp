@@ -19,7 +19,7 @@
 
 #include <kpackage/version.h>
 
-#include <QDebug>
+#include "kpackage_debug.h"
 
 namespace KPackage
 {
@@ -53,7 +53,7 @@ bool isPluginVersionCompatible(unsigned int version)
 {
     if (version == quint32(-1)) {
         // unversioned, just let it through
-        qWarning() << "unversioned plugin detected, may result in instability";
+        qCWarning(KPACKAGE_LOG) << "unversioned plugin detected, may result in instability";
         return true;
     }
 
@@ -63,7 +63,7 @@ bool isPluginVersionCompatible(unsigned int version)
 
     if (version < minVersion || version > maxVersion) {
 #ifndef NDEBUG
-        // qDebug() << "plugin is compiled against incompatible KPackage version  " << version
+        // qCDebug(KPACKAGE_LOG) << "plugin is compiled against incompatible KPackage version  " << version
         //         << "This build is compatible with" << PACKAGE_VERSION_MAJOR << ".0.0 (" << minVersion
         //         << ") to" << PACKAGE_VERSION_STRING << "(" << maxVersion << ")";
 #endif

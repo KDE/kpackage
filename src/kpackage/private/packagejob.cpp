@@ -23,7 +23,7 @@
 
 #include "package_p.h"
 
-#include <QDebug>
+#include "kpackage_debug.h"
 
 namespace KPackage
 {

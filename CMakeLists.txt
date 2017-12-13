@@ -21,6 +21,7 @@ include(CMakePackageConfigHelpers)
 include(ECMSetupVersion)
 include(ECMMarkNonGuiExecutable)
 include(ECMAddQch)
+include(ECMQtDeclareLoggingCategory)
 include(KDEFrameworkCompilerSettings NO_POLICY_SCOPE)
 
 option(BUILD_QCH "Build API documentation in QCH format (for e.g. Qt Assistant, Qt Creator & KDevelop)" OFF)
@@ -121,5 +122,7 @@ install(EXPORT KF5PackageTargets
 
 install(FILES ${CMAKE_CURRENT_BINARY_DIR}/kpackage_version.h
         DESTINATION ${KDE_INSTALL_INCLUDEDIR_KF5} COMPONENT Devel )
+
+install( FILES kpackage.categories DESTINATION ${KDE_INSTALL_CONFDIR} )
 
 feature_summary(WHAT ALL FATAL_ON_MISSING_REQUIRED_PACKAGES)
