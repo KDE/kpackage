@@ -18,6 +18,7 @@
  */
 
 #include "packageloader.h"
+#include "private/packageloader_p.h"
 
 #include <QStandardPaths>
 #include <QDateTime>
@@ -45,34 +46,6 @@ namespace KPackage
 
 static PackageLoader *s_packageTrader = nullptr;
 
-
-class PackageLoaderPrivate
-{
-public:
-    PackageLoaderPrivate()
-        : isDefaultLoader(false),
-          packageStructurePluginDir(QStringLiteral("kpackage/packagestructure"))
-    {
-    }
-
-    static QSet<QString> knownCategories();
-    static QString parentAppConstraint(const QString &parentApp = QString());
-
-    static QSet<QString> s_customCategories;
-
-    QHash<QString, QPointer<PackageStructure> > structures;
-    bool isDefaultLoader;
-    QString packageStructurePluginDir;
-    // We only use this cache during start of the process to speed up many consecutive calls
-    // After that, we're too afraid to produce race conditions and it's not that time-critical anyway
-    // the 20 seconds here means that the cache is only used within 20sec during startup, after that,
-    // complexity goes up and we'd have to update the cache in order to avoid subtle bugs
-    // just not using the cache is way easier then, since it doesn't make *that* much of a difference,
-    // anyway
-    int maxCacheAge = 20;
-    qint64 pluginCacheAge = 0;
-    QHash<QString, QList<KPluginMetaData>> pluginCache;
-};
 
 QSet<QString> PackageLoaderPrivate::s_customCategories;
 

@@ -42,6 +42,7 @@
 #include "private/package_p.h"
 //#include "private/packages_p.h"
 #include "private/packagejob_p.h"
+#include "private/packageloader_p.h"
 
 namespace KPackage
 {
@@ -816,6 +817,7 @@ KJob *Package::install(const QString &sourcePackage, const QString &packageRoot)
 {
     const QString src = sourcePackage;
     QString dest = packageRoot.isEmpty() ? defaultPackageRoot() : packageRoot;
+    KPackage::PackageLoader::self()->d->maxCacheAge = -1;
 
     //use absolute paths if passed, otherwise go under share
     if (!QDir::isAbsolutePath(dest)) {
@@ -835,6 +837,7 @@ KJob *Package::update(const QString &sourcePackage, const QString &packageRoot)
 {
     const QString src = sourcePackage;
     QString dest = packageRoot.isEmpty() ? defaultPackageRoot() : packageRoot;
+     KPackage::PackageLoader::self()->d->maxCacheAge = -1;
 
     //use absolute paths if passed, otherwise go under share
     if (!QDir::isAbsolutePath(dest)) {
@@ -852,6 +855,7 @@ KJob *Package::update(const QString &sourcePackage, const QString &packageRoot)
 
 KJob *Package::uninstall(const QString &packageName, const QString &packageRoot)
 {
+     KPackage::PackageLoader::self()->d->maxCacheAge = -1;
     d->createPackageMetadata(packageRoot + QLatin1Char('/') + packageName);
     if (!d->structure) {
         return nullptr;

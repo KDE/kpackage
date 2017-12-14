@@ -131,6 +131,7 @@ protected:
     virtual ~PackageLoader();
 
 private:
+    friend class Package;
     PackageLoaderPrivate *const d;
     Q_DISABLE_COPY(PackageLoader)
 };
