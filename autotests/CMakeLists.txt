@@ -42,10 +42,10 @@ foreach(var "testfallbackpackage" "testpackage" "testpackage-nodisplay" "testjso
     kpackagetool5test(${var})
 endforeach()
 
+file(MAKE_DIRECTORY "${CMAKE_CURRENT_BINARY_DIR}/testpackage-rcc")
 set(kpkgqrc "${CMAKE_CURRENT_SOURCE_DIR}/data/testpackage-rcc/resources.qrc")
 set(kpkgrcc "${CMAKE_CURRENT_BINARY_DIR}/testpackage-rcc/contents.rcc")
-file(MAKE_DIRECTORY "${CMAKE_CURRENT_BINARY_DIR}/testpackage-rcc")
-install(FILES "${CMAKE_CURRENT_SOURCE_DIR}/data/testpackage-rcc/metadata.json" DESTINATION ${CMAKE_CURRENT_BINARY_DIR}/testpackage-rcc)
+configure_file("${CMAKE_CURRENT_SOURCE_DIR}/data/testpackage-rcc/metadata.json"  ${CMAKE_CURRENT_BINARY_DIR}/testpackage-rcc COPYONLY)
 add_custom_command(OUTPUT ${kpkgrcc}
                     WORKING_DIRECTORY ${CMAKE_CURRENT_SOURCE_DIR}
         COMMAND Qt5::rcc ${kpkgqrc} --binary -o ${kpkgrcc})
