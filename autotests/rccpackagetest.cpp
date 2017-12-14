@@ -41,11 +41,11 @@ void RccPackageTest::initTestCase()
     QVERIFY(dir.exists(destination));
 
     //verify the source files exist
-    QVERIFY(QFile::exists(QStringLiteral("./autotests/testpackage-rcc/metadata.json")));
-    QVERIFY(QFile::exists(QStringLiteral("./autotests/testpackage-rcc/contents.rcc")));
+    QVERIFY(QFile::exists(QStringLiteral("../autotests/testpackage-rcc/metadata.json")));
+    QVERIFY(QFile::exists(QStringLiteral("../autotests/testpackage-rcc/contents.rcc")));
 
-    QFile::copy(QStringLiteral("./autotests/testpackage-rcc/metadata.json"), destination + QStringLiteral("metadata.json"));
-    QFile::copy(QStringLiteral("./autotests/testpackage-rcc/contents.rcc"), destination + QStringLiteral("contents.rcc"));
+    QFile::copy(QStringLiteral("../autotests/testpackage-rcc/metadata.json"), destination + QStringLiteral("metadata.json"));
+    QFile::copy(QStringLiteral("../autotests/testpackage-rcc/contents.rcc"), destination + QStringLiteral("contents.rcc"));
 
     //verify they have been copied correctly
     QVERIFY(QFile::exists(destination + QStringLiteral("metadata.json")));
