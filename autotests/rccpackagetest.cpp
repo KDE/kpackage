@@ -83,8 +83,8 @@ void RccPackageTest::accessFiles()
 
 void RccPackageTest::validate()
 {
-    QCOMPARE(m_pkg->cryptographicHash(QCryptographicHash::Sha1), QStringLiteral("ed0959c062b7ef7eaab5243e83e2f9afe5b3b15f"));
-    QCOMPARE(m_pkg2->cryptographicHash(QCryptographicHash::Sha1), QStringLiteral("ed0959c062b7ef7eaab5243e83e2f9afe5b3b15f"));
+    QCOMPARE(m_pkg->cryptographicHash(QCryptographicHash::Sha1), QByteArrayLiteral("ed0959c062b7ef7eaab5243e83e2f9afe5b3b15f"));
+    QCOMPARE(m_pkg2->cryptographicHash(QCryptographicHash::Sha1), QByteArrayLiteral("ed0959c062b7ef7eaab5243e83e2f9afe5b3b15f"));
 }
 
 void RccPackageTest::testResourceRefCount()
