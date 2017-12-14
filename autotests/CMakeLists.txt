@@ -44,6 +44,7 @@ endforeach()
 
 set(kpkgqrc "${CMAKE_CURRENT_SOURCE_DIR}/data/testpackage-rcc/resources.qrc")
 set(kpkgrcc "${CMAKE_CURRENT_BINARY_DIR}/testpackage-rcc/contents.rcc")
+file(MAKE_DIRECTORY "${CMAKE_CURRENT_BINARY_DIR}/testpackage-rcc")
 install(FILES "${CMAKE_CURRENT_SOURCE_DIR}/data/testpackage-rcc/metadata.json" DESTINATION ${CMAKE_CURRENT_BINARY_DIR}/testpackage-rcc)
 add_custom_command(OUTPUT ${kpkgrcc}
                     WORKING_DIRECTORY ${CMAKE_CURRENT_SOURCE_DIR}
