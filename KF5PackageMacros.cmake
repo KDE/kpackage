@@ -23,7 +23,7 @@ set(KPACKAGE_RELATIVE_DATA_INSTALL_DIR "kpackage")
 
 set(kpackagedir ${CMAKE_CURRENT_LIST_DIR})
 function(kpackage_install_package dir component)
-   message(AUTHOR_WARNING "Deprecated: use kpackage_install_bundle_package")
+   message(AUTHOR_WARNING "Deprecated: use kpackage_install_bundled_package")
    set(root ${ARGV2})
    set(install_dir ${ARGV3})
    if(NOT root)
