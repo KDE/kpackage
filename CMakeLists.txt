@@ -57,11 +57,24 @@ set_package_properties(KF5DocTools PROPERTIES DESCRIPTION "Tools to generate doc
 
 #########################################################################
 
-set(KPackage_AUTOMOC_MACRO_NAMES "K_EXPORT_KPACKAGE_PACKAGE_WITH_JSON")
+# TODO: create ECM macro for automoc & json things
+set(KPackage_AUTOMOC_MACRO_NAMES_WITH_JSON_ARG2 "K_EXPORT_KPACKAGE_PACKAGE_WITH_JSON")
+set(KPackage_AUTOMOC_MACRO_NAMES
+    ${KPackage_AUTOMOC_MACRO_NAMES_WITH_JSON_ARG2}
+)
 if(NOT CMAKE_VERSION VERSION_LESS "3.10.0")
     # CMake 3.9+ warns about automoc on files without Q_OBJECT, and doesn't know about other macros.
     # 3.10+ lets us provide more macro names that require automoc.
     list(APPEND CMAKE_AUTOMOC_MACRO_NAMES ${KPackage_AUTOMOC_MACRO_NAMES})
+endif()
+if(NOT CMAKE_VERSION VERSION_LESS "3.9.0")
+    foreach(macro_name  ${KPackage_AUTOMOC_MACRO_NAMES_WITH_JSON_ARG2})
+        # tell automoc how to find names of plugin metadata files
+        list(APPEND CMAKE_AUTOMOC_DEPEND_FILTERS
+            "${macro_name}"
+            "[\n^][ \t]*${macro_name}[ \t\n]*\\([^,]*,[ \t\n]*\"([^\"]+)\""
+        )
+    endforeach()
 endif()
 
 add_definitions(-DQT_DISABLE_DEPRECATED_BEFORE=0)
