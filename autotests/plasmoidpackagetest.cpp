@@ -274,7 +274,7 @@ void PlasmoidPackageTest::createAndInstallPackage()
     QDir rootDir(m_packageRoot + "/plasmoid_to_package");
     rootDir.removeRecursively();
 
-    QVERIFY(QFile::exists(packagePath));
+    QVERIFY2(QFile::exists(packagePath), qPrintable(packagePath));
 
     KZip package(packagePath);
     QVERIFY(package.open(QIODevice::ReadOnly));
