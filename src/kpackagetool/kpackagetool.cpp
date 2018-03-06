@@ -528,6 +528,14 @@ void PackageTool::showAppstreamInfo(const QString &pluginName)
         writer.writeCharacters(i.website());
         writer.writeEndElement();
     }
+
+    if (i.pluginId().startsWith(QLatin1String("org.kde."))) {
+        writer.writeStartElement(QStringLiteral("url"));
+        writer.writeAttribute(QStringLiteral("type"), QStringLiteral("donation"));
+        writer.writeCharacters(QStringLiteral("https://www.kde.org/donate.php?app=%1").arg(i.pluginId()));
+        writer.writeEndElement();
+    }
+
     const auto authors = i.authors();
     if (!authors.isEmpty()) {
         QStringList authorsText;
