@@ -21,7 +21,7 @@
 #ifndef RCCPACKAGETEST_H
 #define RCCPACKAGETEST_H
 
-#include <QtTest/QtTest>
+#include <QtTest>
 
 #include "kpackage/package.h"
 

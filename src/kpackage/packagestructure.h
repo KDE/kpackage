@@ -20,7 +20,7 @@
 #ifndef KPACKAGE_PACKAGESTRUCTURE_H
 #define KPACKAGE_PACKAGESTRUCTURE_H
 
-#include <QtCore/QStringList>
+#include <QStringList>
 
 #include <KPluginFactory>
 

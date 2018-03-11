@@ -20,8 +20,8 @@
 #ifndef KPACKAGE_PACKAGE_H
 #define KPACKAGE_PACKAGE_H
 
-#include <QtCore/QStringList>
-#include <QtCore/QMetaType>
+#include <QStringList>
+#include <QMetaType>
 #include <QCryptographicHash>
 #include <QUrl>
 
