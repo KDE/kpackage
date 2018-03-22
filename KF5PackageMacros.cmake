@@ -147,21 +147,17 @@ function(kpackage_install_bundled_package dir component)
     set(kpkgqrc "${CMAKE_CURRENT_BINARY_DIR}/${component}.qrc")
     set(kpkgrcc "${CMAKE_CURRENT_BINARY_DIR}/${component}.rcc")
 
-    set_property(SOURCE ${kpkgrcc}clean PROPERTY SYMBOLIC 1)
-
-    #this is needed to make sure at every build the rcc is regenerated
-    add_custom_target(${component}-${root}-clean-qrc ALL
-                       COMMAND rm ${kpkgrcc}
-                       DEPENDS ${kpkgrcc})
-
-    add_custom_command(OUTPUT ${kpkgqrc} ${kpkgrcc}
-                        DEPENDS ${metadatajson}
-                        WORKING_DIRECTORY ${CMAKE_CURRENT_SOURCE_DIR}/${dir}
-                        COMMAND cmake "-Dmetadatajson=${metadatajson}" -Droot=${root} -Dinstall_dir=${install_dir} -DBINARYDIR=${CMAKE_CURRENT_BINARY_DIR} -DDIRECTORY="${CMAKE_CURRENT_SOURCE_DIR}/${dir}" -DOUTPUTFILE=${kpkgqrc} -DCOMPONENT=${component} -P ${kpackagedir}/qrc.cmake
-                        COMMAND Qt5::rcc ${kpkgqrc} --binary -o ${kpkgrcc}
-    )
-    add_custom_target(${component}-${root}-qrc ALL DEPENDS ${kpkgrcc} ${kpkgqrc} ${component}-${root}-clean-qrc)
-
-    install(FILES ${kpkgrcc} DESTINATION ${KDE_INSTALL_DATADIR}/${install_dir}/${root}/${component}/ RENAME contents.rcc)
+    install(CODE "
+        set(metadatajson ${metadatajson})
+        set(root ${root})
+        set(install_dir ${install_dir})
+        set(BINARYDIR ${CMAKE_CURRENT_BINARY_DIR})
+        set(DIRECTORY \"${CMAKE_CURRENT_SOURCE_DIR}/${dir}\")
+        set(OUTPUTFILE ${kpkgqrc})
+        set(COMPONENT ${component})
+        include(${kpackagedir}/qrc.cmake)
+        message(STATUS \"Generating: ${KDE_INSTALL_FULL_DATADIR}/${install_dir}/${root}/${component}/contents.rcc\")
+        execute_process(COMMAND $<TARGET_FILE:Qt5::rcc> ${kpkgqrc} --binary -o ${KDE_INSTALL_FULL_DATADIR}/${install_dir}/${root}/${component}/contents.rcc)
+    ")
 
 endfunction()
