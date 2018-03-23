@@ -145,19 +145,21 @@ function(kpackage_install_bundled_package dir component)
 
      
     set(kpkgqrc "${CMAKE_CURRENT_BINARY_DIR}/${component}.qrc")
-    set(kpkgrcc "${CMAKE_CURRENT_BINARY_DIR}/${component}.rcc")
-
+    find_program(KPACKAGE_RCC rcc DOC "rcc binary for generating kpackage contents.rcc files")
     install(CODE "
         set(metadatajson ${metadatajson})
         set(root ${root})
         set(install_dir ${install_dir})
         set(BINARYDIR ${CMAKE_CURRENT_BINARY_DIR})
         set(DIRECTORY \"${CMAKE_CURRENT_SOURCE_DIR}/${dir}\")
-        set(OUTPUTFILE ${kpkgqrc})
+        set(OUTPUTFILE \"${kpkgqrc}\")
         set(COMPONENT ${component})
         include(${kpackagedir}/qrc.cmake)
         message(STATUS \"Generating: ${KDE_INSTALL_FULL_DATADIR}/${install_dir}/${root}/${component}/contents.rcc\")
-        execute_process(COMMAND $<TARGET_FILE:Qt5::rcc> ${kpkgqrc} --binary -o ${KDE_INSTALL_FULL_DATADIR}/${install_dir}/${root}/${component}/contents.rcc)
+        execute_process(COMMAND ${KPACKAGE_RCC} ${kpkgqrc} --binary -o ${KDE_INSTALL_FULL_DATADIR}/${install_dir}/${root}/${component}/contents.rcc ERROR_VARIABLE errors RESULT_VARIABLE code)
+        if (code)
+            message(FATAL_ERROR \"failed to generating rcc \${code}: \${errors}\")
+        endif()
     ")
 
 endfunction()
