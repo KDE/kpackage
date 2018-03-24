@@ -146,20 +146,21 @@ function(kpackage_install_bundled_package dir component)
      
     set(kpkgqrc "${CMAKE_CURRENT_BINARY_DIR}/${component}.qrc")
     find_program(KPACKAGE_RCC rcc DOC "rcc binary for generating kpackage contents.rcc files")
-    install(CODE "
-        set(metadatajson ${metadatajson})
-        set(root ${root})
-        set(install_dir ${install_dir})
-        set(BINARYDIR ${CMAKE_CURRENT_BINARY_DIR})
-        set(DIRECTORY \"${CMAKE_CURRENT_SOURCE_DIR}/${dir}\")
-        set(OUTPUTFILE \"${kpkgqrc}\")
-        set(component ${component})
-        include(${kpackagedir}/qrc.cmake)
-        message(STATUS \"Generating: ${KDE_INSTALL_FULL_DATADIR}/${install_dir}/${root}/${component}/contents.rcc\")
-        execute_process(COMMAND ${KPACKAGE_RCC} ${kpkgqrc} --binary -o ${KDE_INSTALL_FULL_DATADIR}/${install_dir}/${root}/${component}/contents.rcc ERROR_VARIABLE errors RESULT_VARIABLE code)
-        if (code)
-            message(FATAL_ERROR \"failed to generating rcc \${code}: \${errors}\")
-        endif()
-    ")
+    set(metadatajson ${metadatajson})
+    set(root ${root})
+    set(install_dir ${install_dir})
+    set(BINARYDIR ${CMAKE_CURRENT_BINARY_DIR})
+    set(DIRECTORY "${CMAKE_CURRENT_SOURCE_DIR}/${dir}")
+    set(OUTPUTFILE "${kpkgqrc}")
+    set(component ${component})
+    include(${kpackagedir}/qrc.cmake)
+    set(GENERATED_RCC_CONTENTS "${CMAKE_CURRENT_BINARY_DIR}/${component}-contents.rcc")
+    # add_custom_target depends on ALL target so qrc is run everytime
+    # it doesn't have OUTPUT property so it's considered out-of-date every build
+    add_custom_target(${component}-${root}-contents-rcc ALL
+                      COMMENT "Generating ${component}-contents.rcc"
+                      COMMAND ${KPACKAGE_RCC} ${kpkgqrc} --binary -o ${GENERATED_RCC_CONTENTS}
+                      DEPENDS ${GENERATED_RCC_CONTENTS} ${component}-${root}-metadata-json ${kpkgqrc})
+    install(FILES ${GENERATED_RCC_CONTENTS} DESTINATION ${KDE_INSTALL_FULL_DATADIR}/${install_dir}/${root}/${component}/ RENAME contents.rcc)
 
 endfunction()
