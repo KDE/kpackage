@@ -148,19 +148,19 @@ function(kpackage_install_bundled_package dir component)
     find_program(KPACKAGE_RCC rcc DOC "rcc binary for generating kpackage contents.rcc files")
     set(metadatajson ${metadatajson})
     set(root ${root})
-    set(install_dir ${install_dir})
     set(BINARYDIR ${CMAKE_CURRENT_BINARY_DIR})
     set(DIRECTORY "${CMAKE_CURRENT_SOURCE_DIR}/${dir}")
     set(OUTPUTFILE "${kpkgqrc}")
-    set(component ${component})
-    include(${kpackagedir}/qrc.cmake)
+    add_custom_target(${component}-${root}-qrc ALL
+                      COMMAND ${CMAKE_COMMAND} -DINSTALL_DIR=${install_dir} -DROOT=${root} -DCOMPONENT=${component} -DDIRECTORY=${DIRECTORY} -D OUTPUTFILE=${OUTPUTFILE} -P ${kpackagedir}/qrc.cmake
+                      DEPENDS ${component}-${root}-metadata-json)
     set(GENERATED_RCC_CONTENTS "${CMAKE_CURRENT_BINARY_DIR}/${component}-contents.rcc")
     # add_custom_target depends on ALL target so qrc is run everytime
     # it doesn't have OUTPUT property so it's considered out-of-date every build
     add_custom_target(${component}-${root}-contents-rcc ALL
                       COMMENT "Generating ${component}-contents.rcc"
                       COMMAND ${KPACKAGE_RCC} ${kpkgqrc} --binary -o ${GENERATED_RCC_CONTENTS}
-                      DEPENDS ${component}-${root}-metadata-json ${kpkgqrc})
+                      DEPENDS ${component}-${root}-metadata-json ${component}-${root}-qrc)
     install(FILES ${GENERATED_RCC_CONTENTS} DESTINATION ${KDE_INSTALL_FULL_DATADIR}/${install_dir}/${root}/${component}/ RENAME contents.rcc)
 
 endfunction()

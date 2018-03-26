@@ -1,5 +1,5 @@
 set(OUTPUT "<!DOCTYPE RCC><RCC version='1.0'>\n
-<qresource prefix='/${install_dir}/${root}/${component}/'>
+<qresource prefix='/${INSTALL_DIR}/${ROOT}/${COMPONENT}/'>
 ")
 
 file(GLOB_RECURSE files LIST_DIRECTORIES FALSE RELATIVE ${DIRECTORY} ${DIRECTORY}/*)
