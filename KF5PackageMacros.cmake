@@ -160,7 +160,7 @@ function(kpackage_install_bundled_package dir component)
     add_custom_target(${component}-${root}-contents-rcc ALL
                       COMMENT "Generating ${component}-contents.rcc"
                       COMMAND ${KPACKAGE_RCC} ${kpkgqrc} --binary -o ${GENERATED_RCC_CONTENTS}
-                      DEPENDS ${GENERATED_RCC_CONTENTS} ${component}-${root}-metadata-json ${kpkgqrc})
+                      DEPENDS ${component}-${root}-metadata-json ${kpkgqrc})
     install(FILES ${GENERATED_RCC_CONTENTS} DESTINATION ${KDE_INSTALL_FULL_DATADIR}/${install_dir}/${root}/${component}/ RENAME contents.rcc)
 
 endfunction()
