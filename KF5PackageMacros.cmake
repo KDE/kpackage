@@ -1,6 +1,7 @@
 
 find_package(ECM 1.6.0 CONFIG REQUIRED)
 include(${ECM_KDE_MODULE_DIR}/KDEInstallDirs.cmake)
+include("${ECM_MODULE_DIR}/ECMQueryQmake.cmake")
 
 set(KPACKAGE_RELATIVE_DATA_INSTALL_DIR "kpackage")
 
@@ -143,9 +144,10 @@ function(kpackage_install_bundled_package dir component)
             file(WRITE ${CMAKE_CURRENT_BINARY_DIR}/regenerateindex.sh ${regenerateindex})
     endif()
 
-     
+
     set(kpkgqrc "${CMAKE_CURRENT_BINARY_DIR}/${component}.qrc")
-    find_program(KPACKAGE_RCC rcc DOC "rcc binary for generating kpackage contents.rcc files")
+    query_qmake(qt_binaries_dir QT_INSTALL_BINS)
+    find_program(KPACKAGE_RCC NAMES rcc HINTS ${qt_binaries_dir} DOC "rcc binary for generating kpackage contents.rcc files")
     set(metadatajson ${metadatajson})
     set(component ${component})
     set(root ${root})
