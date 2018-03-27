@@ -147,7 +147,7 @@ function(kpackage_install_bundled_package dir component)
 
     set(kpkgqrc "${CMAKE_CURRENT_BINARY_DIR}/${component}.qrc")
     query_qmake(qt_binaries_dir QT_INSTALL_BINS)
-    find_program(KPACKAGE_RCC NAMES rcc HINTS ${qt_binaries_dir} DOC "rcc binary for generating kpackage contents.rcc files")
+    find_program(KPACKAGE_RCC NAMES rcc HINTS ${qt_binaries_dir} DOC "rcc binary for generating kpackage contents.rcc files" NO_DEFAULT_PATH)
     set(metadatajson ${metadatajson})
     set(component ${component})
     set(root ${root})
