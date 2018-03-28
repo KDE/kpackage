@@ -159,7 +159,7 @@ function(kpackage_install_bundled_package dir component)
     # it doesn't have OUTPUT property so it's considered out-of-date every build
     add_custom_target(${component}-${root}-contents-rcc ALL
                       COMMENT "Generating ${component}-contents.rcc"
-                      COMMAND Qt5::rcc ${kpkgqrc} --binary -o ${GENERATED_RCC_CONTENTS}
+                      COMMAND Qt5::rcc "${kpkgqrc}" --binary -o "${GENERATED_RCC_CONTENTS}"
                       DEPENDS ${component}-${root}-metadata-json ${component}-${root}-qrc)
     install(FILES ${GENERATED_RCC_CONTENTS} DESTINATION ${KDE_INSTALL_FULL_DATADIR}/${install_dir}/${root}/${component}/ RENAME contents.rcc)
 
