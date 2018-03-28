@@ -1,7 +1,6 @@
 
 find_package(ECM 1.6.0 CONFIG REQUIRED)
 include(${ECM_KDE_MODULE_DIR}/KDEInstallDirs.cmake)
-include("${ECM_MODULE_DIR}/ECMQueryQmake.cmake")
 
 set(KPACKAGE_RELATIVE_DATA_INSTALL_DIR "kpackage")
 
@@ -146,8 +145,6 @@ function(kpackage_install_bundled_package dir component)
 
 
     set(kpkgqrc "${CMAKE_CURRENT_BINARY_DIR}/${component}.qrc")
-    query_qmake(qt_binaries_dir QT_INSTALL_BINS)
-    find_program(KPACKAGE_RCC NAMES rcc HINTS ${qt_binaries_dir} DOC "rcc binary for generating kpackage contents.rcc files" NO_DEFAULT_PATH)
     set(metadatajson ${metadatajson})
     set(component ${component})
     set(root ${root})
@@ -162,7 +159,7 @@ function(kpackage_install_bundled_package dir component)
     # it doesn't have OUTPUT property so it's considered out-of-date every build
     add_custom_target(${component}-${root}-contents-rcc ALL
                       COMMENT "Generating ${component}-contents.rcc"
-                      COMMAND ${KPACKAGE_RCC} ${kpkgqrc} --binary -o ${GENERATED_RCC_CONTENTS}
+                      COMMAND Qt5::rcc ${kpkgqrc} --binary -o ${GENERATED_RCC_CONTENTS}
                       DEPENDS ${component}-${root}-metadata-json ${component}-${root}-qrc)
     install(FILES ${GENERATED_RCC_CONTENTS} DESTINATION ${KDE_INSTALL_FULL_DATADIR}/${install_dir}/${root}/${component}/ RENAME contents.rcc)
 
