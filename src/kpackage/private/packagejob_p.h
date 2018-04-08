@@ -34,7 +34,7 @@ class PackageJob : public KJob
 
 public:
     PackageJob(Package *package, QObject *parent = nullptr);
-    ~PackageJob();
+    ~PackageJob() override;
 
     void start() Q_DECL_OVERRIDE;
 
