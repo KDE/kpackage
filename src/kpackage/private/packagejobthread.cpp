@@ -466,7 +466,7 @@ bool PackageJobThread::uninstallPackage(const QString &packagePath)
 
 Package::JobError PackageJobThread::errorCode() const
 {
-    return (Package::JobError)d->errorCode;
+    return static_cast<Package::JobError>(d->errorCode);
 }
 
 } // namespace KPackage
