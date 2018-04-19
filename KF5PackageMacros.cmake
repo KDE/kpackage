@@ -161,6 +161,6 @@ function(kpackage_install_bundled_package dir component)
                       COMMENT "Generating ${component}-contents.rcc"
                       COMMAND Qt5::rcc "${kpkgqrc}" --binary -o "${GENERATED_RCC_CONTENTS}"
                       DEPENDS ${component}-${root}-metadata-json ${component}-${root}-qrc)
-    install(FILES ${GENERATED_RCC_CONTENTS} DESTINATION ${KDE_INSTALL_FULL_DATADIR}/${install_dir}/${root}/${component}/ RENAME contents.rcc)
+    install(FILES ${GENERATED_RCC_CONTENTS} DESTINATION ${KDE_INSTALL_DATADIR}/${install_dir}/${root}/${component}/ RENAME contents.rcc)
 
 endfunction()
