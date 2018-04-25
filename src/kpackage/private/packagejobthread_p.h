@@ -49,7 +49,7 @@ public:
         Update
     };
 
-    PackageJobThread(QObject *parent = nullptr);
+    explicit PackageJobThread(QObject *parent = nullptr);
     virtual ~PackageJobThread();
 
     bool install(const QString &src, const QString &dest);
