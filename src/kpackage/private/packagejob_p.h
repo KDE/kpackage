@@ -36,7 +36,7 @@ public:
     PackageJob(Package *package, QObject *parent = nullptr);
     ~PackageJob() override;
 
-    void start() Q_DECL_OVERRIDE;
+    void start() override;
 
     void install(const QString &src, const QString &dest);
     void update(const QString &src, const QString &dest);

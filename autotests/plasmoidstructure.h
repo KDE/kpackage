@@ -30,7 +30,7 @@ class PlasmoidPackage : public GenericPackage
 {
     Q_OBJECT
 public:
-    void initPackage(Package *package) Q_DECL_OVERRIDE;
+    void initPackage(Package *package) override;
 };
 
 } // namespace KPackage

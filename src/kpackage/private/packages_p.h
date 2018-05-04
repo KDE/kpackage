@@ -26,25 +26,25 @@ class ChangeableMainScriptPackage : public KPackage::PackageStructure
 {
     Q_OBJECT
 public:
-    void initPackage(KPackage::Package *package) Q_DECL_OVERRIDE;
+    void initPackage(KPackage::Package *package) override;
 
 protected:
     virtual QString mainScriptConfigKey() const;
-    void pathChanged(KPackage::Package *package) Q_DECL_OVERRIDE;
+    void pathChanged(KPackage::Package *package) override;
 };
 
 class GenericPackage : public ChangeableMainScriptPackage
 {
     Q_OBJECT
 public:
-    void initPackage(KPackage::Package *package) Q_DECL_OVERRIDE;
+    void initPackage(KPackage::Package *package) override;
 };
 
 class GenericQMLPackage : public GenericPackage
 {
     Q_OBJECT
 public:
-    void initPackage(KPackage::Package *package) Q_DECL_OVERRIDE;
+    void initPackage(KPackage::Package *package) override;
 };
 
 #endif // LIBS_KPACKAGE_PACKAGES_P_H
