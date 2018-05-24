@@ -549,7 +549,9 @@ void Package::setPath(const QString &path)
         if (dir.exists(QStringLiteral("contents.rcc"))) {
             d->rccPath = dir.absoluteFilePath(QStringLiteral("contents.rcc"));
             QResource::registerResource(d->rccPath);
-            dir = QDir(QStringLiteral(":/") + defaultPackageRoot() + path);
+
+            //we need just the plugin name here, never the absolute path
+            dir = QDir(QStringLiteral(":/") + defaultPackageRoot() + path.midRef(path.lastIndexOf(QLatin1Char('/'))));
         }
 
         d->path = dir.canonicalPath();
