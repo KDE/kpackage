@@ -44,10 +44,12 @@ function(kpackage_install_package dir component)
             PATTERN dummydata EXCLUDE)
 
    set(metadatajson)
-   if(NOT EXISTS ${component}-${root}-metadata.json AND EXISTS ${CMAKE_CURRENT_SOURCE_DIR}/${dir}/metadata.desktop)
+   set(ORIGINAL_METADATA "${CMAKE_CURRENT_SOURCE_DIR}/${dir}/metadata.desktop")
+   if(NOT EXISTS ${component}-${root}-metadata.json AND EXISTS ${ORIGINAL_METADATA})
         set(GENERATED_METADATA "${CMAKE_CURRENT_BINARY_DIR}/${component}-${root}-metadata.json")
         add_custom_command(OUTPUT ${GENERATED_METADATA}
-                           COMMAND KF5::desktoptojson -i ${CMAKE_CURRENT_SOURCE_DIR}/${dir}/metadata.desktop -o ${GENERATED_METADATA})
+                           DEPENDS ${ORIGINAL_METADATA}
+                           COMMAND KF5::desktoptojson -i ${ORIGINAL_METADATA} -o ${GENERATED_METADATA})
         add_custom_target(${component}-${root}-metadata-json ALL DEPENDS ${GENERATED_METADATA})
         install(FILES ${GENERATED_METADATA} DESTINATION ${KDE_INSTALL_DATADIR}/${install_dir}/${root}/${component} RENAME metadata.json)
         set(metadatajson ${GENERATED_METADATA})
@@ -101,10 +103,12 @@ function(kpackage_install_bundled_package dir component)
     endif()
 
     set(metadatajson)
-    if(NOT EXISTS ${component}-${root}-metadata.json AND EXISTS ${CMAKE_CURRENT_SOURCE_DIR}/${dir}/metadata.desktop)
+    set(ORIGINAL_METADATA "${CMAKE_CURRENT_SOURCE_DIR}/${dir}/metadata.desktop")
+    if(NOT EXISTS ${component}-${root}-metadata.json AND EXISTS ${ORIGINAL_METADATA})
             set(GENERATED_METADATA "${CMAKE_CURRENT_BINARY_DIR}/${component}-${root}-metadata.json")
             add_custom_command(OUTPUT ${GENERATED_METADATA}
-                            COMMAND KF5::desktoptojson -i ${CMAKE_CURRENT_SOURCE_DIR}/${dir}/metadata.desktop -o ${GENERATED_METADATA})
+                            DEPENDS ${ORIGINAL_METADATA}
+                            COMMAND KF5::desktoptojson -i ${ORIGINAL_METADATA} -o ${GENERATED_METADATA})
             add_custom_target(${component}-${root}-metadata-json ALL DEPENDS ${GENERATED_METADATA})
             install(FILES ${GENERATED_METADATA} DESTINATION ${KDE_INSTALL_DATADIR}/${install_dir}/${root}/${component} RENAME metadata.json)
             set(metadatajson ${GENERATED_METADATA})
