@@ -299,7 +299,7 @@ void PlasmoidPackageTest::createAndInstallPackage()
     QVERIFY(spy.wait(1000));
 
     //is the package instance usable (ie proper path) after the install job has been completed?
-    QCOMPARE(p->path(), QDir(m_packageRoot % "/plasmoid_to_package").canonicalPath() + QLatin1Char('/'));
+    QCOMPARE(p->path(), QString(QDir(m_packageRoot % "/plasmoid_to_package").canonicalPath() + QLatin1Char('/')));
     cleanupPackage(QStringLiteral("plasmoid_to_package"));
 
     //QVERIFY(p->isValid());
