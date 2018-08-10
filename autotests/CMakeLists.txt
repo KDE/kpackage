@@ -27,6 +27,7 @@ PLASMA_UNIT_TESTS(
 )
 
 set_tests_properties(plasma-querytest PROPERTIES RUN_SERIAL TRUE) # it wipes out ~/.qttest/share
+set_tests_properties(plasma-plasmoidpackagetest PROPERTIES RUN_SERIAL TRUE)
 
 function(kpackagetool5test testname)
     add_test(NAME ${testname}-appstream COMMAND cmake -Dkpackagetool=$<TARGET_FILE:kpackagetool5>
