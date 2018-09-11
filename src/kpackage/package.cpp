@@ -367,7 +367,7 @@ QString Package::filePath(const QByteArray &fileType, const QString &filename) c
         //We are an installed package
         if (d->tempRoot.isEmpty()) {
             prefix = fileType == "metadata" ? d->path : (d->path + contentsPrefix);
-        //We are a compressed package temporarly uncompressed in /tmp
+        //We are a compressed package temporarily uncompressed in /tmp
         } else {
             prefix = fileType == "metadata" ? d->tempRoot : (d->tempRoot + contentsPrefix);
         }

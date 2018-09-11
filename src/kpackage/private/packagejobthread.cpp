@@ -347,7 +347,7 @@ bool PackageJobThread::installPackage(const QString &src, const QString &dest, O
             KPluginMetaData oldMeta(targetName + QLatin1String("/metadata.desktop"));
 
             if (oldMeta.serviceTypes() != meta.serviceTypes()) {
-                d->errorMessage = i18n("The new package has a different type from the old version already installed.", meta.version(), meta.pluginId(), oldMeta.version());
+                d->errorMessage = i18n("The new package has a different type from the old version already installed.");
                 d->errorCode = Package::JobError::UpdatePackageTypeMismatchError;
             } else if (isVersionNewer(oldMeta.version(), meta.version())) {
                 const bool ok = uninstallPackage(targetName);

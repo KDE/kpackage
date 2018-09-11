@@ -159,7 +159,7 @@ function(kpackage_install_bundled_package dir component)
                       COMMAND ${CMAKE_COMMAND} -DINSTALL_DIR=${install_dir} -DROOT=${root} -DCOMPONENT=${component} -DDIRECTORY=${DIRECTORY} -D OUTPUTFILE=${OUTPUTFILE} -P ${kpackagedir}/qrc.cmake
                       DEPENDS ${component}-${root}-metadata-json)
     set(GENERATED_RCC_CONTENTS "${CMAKE_CURRENT_BINARY_DIR}/${component}-contents.rcc")
-    # add_custom_target depends on ALL target so qrc is run everytime
+    # add_custom_target depends on ALL target so qrc is run every time
     # it doesn't have OUTPUT property so it's considered out-of-date every build
     add_custom_target(${component}-${root}-contents-rcc ALL
                       COMMENT "Generating ${component}-contents.rcc"

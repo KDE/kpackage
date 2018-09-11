@@ -35,11 +35,11 @@ namespace KPackage
 //leaving the PackageJob with a dangling pointer
 //we need some way to invalidate the Package* pointer if it gets deleted
 
-//we can't just take a copy in the packagejob as we need to detatch and update the *original* KPackage object
+//we can't just take a copy in the packagejob as we need to detach and update the *original* KPackage object
 //without changing anything else which happened to share the same KPackage::d
 
 //TODO KF6 - make KPackage::install()'s KJob return a new Package copy rather than modify
-//an existing opbject.
+//an existing object.
 class PackageDeletionNotifier : public QObject
 {
 Q_OBJECT

@@ -51,7 +51,7 @@ QSet<QString> PackageLoaderPrivate::s_customCategories;
 
 QSet<QString> PackageLoaderPrivate::knownCategories()
 {
-    // this is to trick the tranlsation tools into making the correct
+    // this is to trick the translation tools into making the correct
     // strings for translation
     QSet<QString> categories = s_customCategories;
     categories << QStringLiteral(I18N_NOOP("Accessibility")).toLower()

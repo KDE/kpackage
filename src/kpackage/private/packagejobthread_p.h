@@ -65,7 +65,7 @@ Q_SIGNALS:
     void installPathChanged(const QString &installPath);
 
 private:
-    //OperationType says wether we want to install, update or any
+    //OperationType says whether we want to install, update or any
     //new similar operation it will be expanded
     bool installDependency(const QUrl &src);
     bool installPackage(const QString &src, const QString &dest, OperationType operation);
