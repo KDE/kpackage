@@ -26,7 +26,7 @@
 #include <QString>
 #include <QSharedData>
 #include <QPointer>
-
+#include <QHash>
 namespace KPackage
 {
 

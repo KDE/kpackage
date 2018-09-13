@@ -30,7 +30,7 @@
 
 void RccPackageTest::initTestCase()
 {
-    QStandardPaths::enableTestMode(true);
+    QStandardPaths::setTestModeEnabled(true);
 
     QString destination = QStandardPaths::writableLocation(QStandardPaths::GenericDataLocation) + QStringLiteral("/plasma/plasmoids/testpackage-rcc/");
     QDir dir;
