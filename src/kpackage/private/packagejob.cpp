@@ -89,7 +89,7 @@ void PackageJob::install(const QString &src, const QString &dest)
         if (ok) {
             const QString pluginId = d->package->metadata().pluginId();
             const QStringList serviceTypes = d->package->metadata().serviceTypes();
-            for (auto packageType: serviceTypes) {
+            for (auto& packageType: serviceTypes) {
                 auto msg = QDBusMessage::createSignal(QStringLiteral("/KPackage/") + packageType, QStringLiteral("org.kde.plasma.kpackage"), QStringLiteral("packageInstalled"));
                 msg.setArguments({pluginId});
                 QDBusConnection::sessionBus().send(msg);
@@ -115,7 +115,7 @@ void PackageJob::uninstall(const QString &installationPath)
     const QStringList serviceTypes = d->package->metadata().serviceTypes();
     connect(d->thread, &PackageJobThread::finished, this, [=](bool ok, const QString &error) {
         if (ok) {
-            for (auto packageType: serviceTypes) {
+            for (auto& packageType: serviceTypes) {
                 auto msg = QDBusMessage::createSignal(QStringLiteral("/KPackage/") + packageType, QStringLiteral("org.kde.plasma.kpackage"), QStringLiteral("packageUninstalled"));
                 msg.setArguments({pluginId});
                 QDBusConnection::sessionBus().send(msg);

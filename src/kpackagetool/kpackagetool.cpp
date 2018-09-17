@@ -481,7 +481,7 @@ void PackageTool::showAppstreamInfo(const QString &pluginName)
     // Be super aggressive in finding a NoDisplay property. It can be a top-level property or
     // inside the KPlugin object, it also can be either a stringy type or a bool type. Try all
     // possible scopes and type conversions to find NoDisplay
-    for (const auto object : { i.rawData(), rootObject }) {
+    for (const auto& object : { i.rawData(), rootObject }) {
         if (object.value(QLatin1String("NoDisplay")).toBool(false) ||
                 // Standard value is unprocessed string we'll need to deal with.
                 object.value(QLatin1String("NoDisplay")).toString() == QStringLiteral("true")) {
@@ -687,7 +687,7 @@ void PackageTool::recreateIndex()
             }
 
             Q_FOREACH(auto const &p, QStandardPaths::locateAll(QStandardPaths::GenericDataLocation, d->packageRoot, QStandardPaths::LocateDirectory)) {
-                for (const auto &_proot: packageRoots) {
+                for (const auto &_proot: qAsConst(packageRoots)) {
                     QFileInfo packageDirInfo(QStringLiteral("%1%2").arg(p, _proot));
                     if (!packageDirInfo.isWritable()) {
                         continue;
