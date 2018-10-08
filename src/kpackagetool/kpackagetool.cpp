@@ -539,6 +539,7 @@ void PackageTool::showAppstreamInfo(const QString &pluginName)
     const auto authors = i.authors();
     if (!authors.isEmpty()) {
         QStringList authorsText;
+        authorsText.reserve(authors.size());
         for (const auto &author: authors) {
             authorsText += QStringLiteral("%1 <%2>").arg(author.name(), author.emailAddress());
         }
