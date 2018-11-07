@@ -84,11 +84,11 @@ void PackageJob::start()
 
 void PackageJob::install(const QString &src, const QString &dest)
 {
-
+    const QString pluginId = d->package->metadata().pluginId();
+    const QStringList serviceTypes = d->package->metadata().serviceTypes();
+    //d-package can become dangling during the job if deleted externally
     connect(d->thread, &PackageJobThread::finished, this, [=](bool ok, const QString &error) {
         if (ok) {
-            const QString pluginId = d->package->metadata().pluginId();
-            const QStringList serviceTypes = d->package->metadata().serviceTypes();
             for (auto& packageType: serviceTypes) {
                 auto msg = QDBusMessage::createSignal(QStringLiteral("/KPackage/") + packageType, QStringLiteral("org.kde.plasma.kpackage"), QStringLiteral("packageInstalled"));
                 msg.setArguments({pluginId});
