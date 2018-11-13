@@ -510,6 +510,11 @@ void PackageTool::showAppstreamInfo(const QString &pluginName)
         outputDevice = outputFile.data();
     }
 
+    if (!rootObject.contains(QStringLiteral("Description"))) {
+        *cerr << "Error: description missing, will result in broken appdata field as <sumary/> is mandatory.";
+        std::exit(10);
+    }
+
     QXmlStreamWriter writer(outputDevice);
     writer.setAutoFormatting(true);
     writer.writeStartDocument();
