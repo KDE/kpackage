@@ -511,7 +511,7 @@ void PackageTool::showAppstreamInfo(const QString &pluginName)
     }
 
     if (!rootObject.contains(QStringLiteral("Description"))) {
-        *cerr << "Error: description missing, will result in broken appdata field as <sumary/> is mandatory.";
+        *cerr << "Error: description missing, will result in broken appdata field as <sumary/> is mandatory at " << QFileInfo(i.metaDataFileName()).absoluteFilePath();
         std::exit(10);
     }
 

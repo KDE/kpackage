@@ -9,7 +9,8 @@
         "Id": "org.kde.testpackagesdepinvalid",
         "License": "GPLv2+",
         "Name": "Test Packages with Dependencies",
-        "ServiceTypes": [ "KPackage/Generic" ]
+        "ServiceTypes": [ "KPackage/Generic" ],
+        "Description": "test description"
     },
     "X-KPackage-Dependencies": [ "mock://invaliddep" ],
     "X-Plasma-MainScript": "ui/main.qml"

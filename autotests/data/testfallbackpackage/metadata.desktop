@@ -35,6 +35,7 @@ Name[uk]=Тестовий резервний пакунок
 Name[x-test]=xxTest Fallback Packagexx
 Name[zh_CN]=测试回退包
 Name[zh_TW]=測試預設套件
+Comment=test description
 Type=Service
 
 X-KDE-ServiceTypes=KPackage/Generic

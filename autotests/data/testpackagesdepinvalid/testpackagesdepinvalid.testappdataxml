@@ -2,6 +2,7 @@
 <component>
     <id>org.kde.testpackagesdepinvalid</id>
     <name>Test Packages with Dependencies</name>
+    <summary>test description</summary>
     <url type="donation">https://www.kde.org/donate.php?app=org.kde.testpackagesdepinvalid</url>
     <developer_name>Bhushan &lt;bshah@kde.org&gt;</developer_name>
     <project_license>GPL-2.0+</project_license>
