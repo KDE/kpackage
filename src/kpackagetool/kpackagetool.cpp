@@ -367,7 +367,7 @@ QStringList PackageToolPrivate::packages(const QStringList &types, const QString
 void PackageTool::showPackageInfo(const QString &pluginName)
 {
     QString type = QStringLiteral("KPackage/Generic");
-    if (!d->pluginTypes.contains(type) && d->pluginTypes.count() > 0) {
+    if (!d->pluginTypes.contains(type) && !d->pluginTypes.isEmpty()) {
         type = d->pluginTypes.at(0);
     }
     KPackage::Package pkg = KPackage::PackageLoader::self()->loadPackage(type);
@@ -441,7 +441,7 @@ void PackageTool::showAppstreamInfo(const QString &pluginName)
         i = KPluginMetaData(pluginName + QStringLiteral("/metadata.json"));
     } else {
         QString type = QStringLiteral("KPackage/Generic");
-        if (!d->pluginTypes.contains(type) && d->pluginTypes.count() > 0) {
+        if (!d->pluginTypes.contains(type) && !d->pluginTypes.isEmpty()) {
             type = d->pluginTypes.at(0);
         }
         KPackage::Package pkg = KPackage::PackageLoader::self()->loadPackage(type);

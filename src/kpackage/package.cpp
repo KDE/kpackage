@@ -341,7 +341,7 @@ QString Package::filePath(const QByteArray &fileType, const QString &filename) c
 
     QStringList paths;
 
-    if (fileType.size()) {
+    if (!fileType.isEmpty()) {
         const auto contents = d->contents.constFind(fileType);
         if (contents == d->contents.constEnd()) {
             //qCDebug(KPACKAGE_LOG) << "package does not contain" << fileType << filename;
