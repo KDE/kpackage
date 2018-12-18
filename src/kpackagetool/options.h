@@ -56,13 +56,13 @@ namespace Options
     };
     static QCommandLineOption generateIndex {
         QStringLiteral("generate-index"),
-        i18n("Recreate the plugin index. To be used in: conjunction with either the option -t or"
+        i18n("Recreate the plugin index. To be used in conjunction with either the option -t or"
              " -g. Recreates the index for the given type or package root. Operates in the user"
              " directory, unless -g is used")
     };
     static QCommandLineOption removeIndex {
         QStringLiteral("remove-index"),
-        i18n("Remove the plugin index. To be used in: conjunction with either the option -t or"
+        i18n("Remove the plugin index. To be used in conjunction with either the option -t or"
              " -g. Recreates the index for the given type or package root. Operates in the user"
              " directory, unless -g is used")
     };
