@@ -54,20 +54,20 @@ int main(int argc, char **argv)
     parser.addHelpOption();
     parser.setApplicationDescription(description);
     parser.addOptions({
-                          Options::hash,
-                          Options::global,
-                          Options::type,
-                          Options::install,
-                          Options::show,
-                          Options::upgrade,
-                          Options::list,
-                          Options::listTypes,
-                          Options::remove,
-                          Options::packageRoot,
-                          Options::generateIndex,
-                          Options::removeIndex,
-                          Options::appstream,
-                          Options::appstreamOutput
+                          Options::hash(),
+                          Options::global(),
+                          Options::type(),
+                          Options::install(),
+                          Options::show(),
+                          Options::upgrade(),
+                          Options::list(),
+                          Options::listTypes(),
+                          Options::remove(),
+                          Options::packageRoot(),
+                          Options::generateIndex(),
+                          Options::removeIndex(),
+                          Options::appstream(),
+                          Options::appstreamOutput()
                       });
     parser.process(app);
 
