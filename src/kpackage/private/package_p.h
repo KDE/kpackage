@@ -67,7 +67,6 @@ public:
         required = other.required;
     }
 
-    QString found;
     QStringList paths;
     QString name;
     QStringList mimeTypes;
