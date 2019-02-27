@@ -23,10 +23,6 @@ set(KPACKAGE_RELATIVE_DATA_INSTALL_DIR "kpackage")
 
 set(kpackagedir ${CMAKE_CURRENT_LIST_DIR})
 function(kpackage_install_package dir component)
-   # allow plasma_install_package to disable the warning until it is ported away from this
-   if (NOT ARGV4 STREQUAL NO_DEPRECATED_WARNING)
-      message(AUTHOR_WARNING "Deprecated: use kpackage_install_bundled_package")
-   endif()
    set(root ${ARGV2})
    set(install_dir ${ARGV3})
    if(NOT root)
