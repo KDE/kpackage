@@ -86,8 +86,12 @@ function(kpackage_install_package dir component)
 
 endfunction()
 
-#use this version instead: it compresses the contents directory
-#into a binary rcc file
+# See kpackage_install_package documentation above.
+# This function bundles the package into a Qt rcc file instead of installing
+# the individual files. Great care must be taken that the way package files are
+# accessed is actually rcc-compatible (e.g. package.fileUrl must be used and
+# manually constructed paths shouldn't treat the resources as file:// URLs
+# either).
 function(kpackage_install_bundled_package dir component)
     set(root ${ARGV2})
     set(install_dir ${ARGV3})
