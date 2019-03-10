@@ -123,6 +123,11 @@ install(EXPORT KF5PackageTargets
         FILE KF5PackageTargets.cmake
         NAMESPACE KF5::
         COMPONENT Devel)
+install(EXPORT KF5PackageToolsTargets
+        DESTINATION "${CMAKECONFIG_INSTALL_DIR}"
+        FILE KF5PackageToolsTargets.cmake
+        NAMESPACE KF5::
+        COMPONENT Devel)
 
 install(FILES ${CMAKE_CURRENT_BINARY_DIR}/kpackage_version.h
         DESTINATION ${KDE_INSTALL_INCLUDEDIR_KF5} COMPONENT Devel )
