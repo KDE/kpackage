@@ -63,7 +63,8 @@ static QVector<KPluginMetaData> listPackageTypes()
 
     const QString subDirectory = QStringLiteral("kpackage/packagestructure");
 
-    Q_FOREACH (const QString &dir, QCoreApplication::libraryPaths()) {
+    const auto lstPath = QCoreApplication::libraryPaths();
+    for (const QString &dir : lstPath) {
         QString d = dir + QDir::separator() + subDirectory;
         if (!d.endsWith(QDir::separator())) {
             d += QDir::separator();
@@ -72,7 +73,7 @@ static QVector<KPluginMetaData> listPackageTypes()
     }
 
     QVector<KPluginMetaData> offers;
-    Q_FOREACH (const QString &plugindir, libraryPaths) {
+    for (const QString &plugindir : qAsConst(libraryPaths)) {
         const QString &_ixfile = plugindir + s_kpluginindex;
         QFile indexFile(_ixfile);
         if (indexFile.exists()) {
@@ -257,7 +258,7 @@ void PackageTool::runMain()
 
         if (d->parser->isSet(Options::remove()) || d->parser->isSet(Options::upgrade())) {
             QString pkgPath;
-            foreach (const QString &t, d->pluginTypes) {
+            for (const QString &t : qAsConst(d->pluginTypes)) {
                 KPackage::Package pkg = KPackage::PackageLoader::self()->loadPackage(t);
                 pkg.setPath(d->package);
                 if (pkg.isValid()) {
@@ -284,7 +285,8 @@ void PackageTool::runMain()
             d->installer.setPath(pkgPath);
 
             if (!d->parser->isSet(Options::type())) {
-                foreach (const QString &st, d->installer.metadata().serviceTypes()) {
+                const auto lst = d->installer.metadata().serviceTypes();
+                for (const QString &st : lst) {
                     if (!d->pluginTypes.contains(st)) {
                         d->pluginTypes << st;
                     }
@@ -351,9 +353,9 @@ QStringList PackageToolPrivate::packages(const QStringList &types, const QString
 {
     QStringList result;
 
-    foreach (const QString &type, types) {
+    for (const QString &type : types) {
         const QList<KPluginMetaData> services = KPackage::PackageLoader::self()->listPackages(type, path);
-        foreach (const KPluginMetaData &service, services) {
+        for (const KPluginMetaData &service : services) {
             const QString _plugin = service.pluginId();
             if (!result.contains(_plugin)) {
                 result << _plugin;
@@ -455,7 +457,8 @@ void PackageTool::showAppstreamInfo(const QString &pluginName)
         }
 
         {
-            foreach(const KPluginMetaData &md, listPackageTypes()) {
+            const auto lst = listPackageTypes();
+            for (const KPluginMetaData &md : lst) {
                 if (md.pluginId() == type) {
                     packageStructureMetaData = md;
                     break;
@@ -591,7 +594,7 @@ void PackageTool::listPackages(const QStringList &types, const QString &path)
 {
     QStringList list = d->packages(types, path);
     list.sort();
-    foreach (const QString &package, list) {
+    for (const QString &package : qAsConst(list)) {
         d->coutput(package);
     }
     exit(0);
@@ -660,7 +663,7 @@ void PackageToolPrivate::listTypes()
         coutput(i18n("Provided by plugins:"));
 
         QMap<QString, QStringList> plugins;
-        foreach (const KPluginMetaData &info, offers) {
+        for (const KPluginMetaData &info : offers) {
             KPackage::Package pkg = KPackage::PackageLoader::self()->loadPackage(info.pluginId());
             QString name = info.name();
             QString plugin = info.pluginId();
@@ -683,7 +686,7 @@ void PackageTool::recreateIndex()
             QStringList packageRoots;
             const QVector<KPluginMetaData> offers = listPackageTypes();
             if (!offers.isEmpty()) {
-                foreach (const KPluginMetaData &info, offers) {
+                for (const KPluginMetaData &info : offers) {
                     KPackage::Package pkg = KPackage::PackageLoader::self()->loadPackage(info.pluginId());
                     const auto proot = pkg.defaultPackageRoot();
                     if (!proot.isEmpty()) {
@@ -691,8 +694,8 @@ void PackageTool::recreateIndex()
                     }
                 }
             }
-
-            Q_FOREACH(auto const &p, QStandardPaths::locateAll(QStandardPaths::GenericDataLocation, d->packageRoot, QStandardPaths::LocateDirectory)) {
+            const auto lstPath = QStandardPaths::locateAll(QStandardPaths::GenericDataLocation, d->packageRoot, QStandardPaths::LocateDirectory);
+            for (auto const &p : lstPath) {
                 for (const auto &_proot: qAsConst(packageRoots)) {
                     QFileInfo packageDirInfo(QStringLiteral("%1%2").arg(p, _proot));
                     if (!packageDirInfo.isWritable()) {
@@ -725,7 +728,8 @@ void PackageTool::removeIndex()
 
     if (!QDir::isAbsolutePath(d->packageRoot)) {
         if (d->parser->isSet(Options::global())) {
-            Q_FOREACH(auto const &p, QStandardPaths::locateAll(QStandardPaths::GenericDataLocation, d->packageRoot, QStandardPaths::LocateDirectory)) {
+            const auto lstEntries = QStandardPaths::locateAll(QStandardPaths::GenericDataLocation, d->packageRoot, QStandardPaths::LocateDirectory);
+            for (auto const &p : lstEntries) {
                 QDirIterator it(p, QStringList(s_kpluginindex), QDir::Files | QDir::Writable | QDir::NoDotAndDotDot, QDirIterator::Subdirectories);
                 qDebug() << "IX index remove" << p;
                 while (it.hasNext()) {

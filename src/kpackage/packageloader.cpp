@@ -99,7 +99,7 @@ PackageLoader::PackageLoader()
 
 PackageLoader::~PackageLoader()
 {
-    foreach (auto wp, d->structures) {
+    for (auto wp : qAsConst(d->structures)) {
         delete wp.data();
     }
     delete d;
@@ -217,12 +217,13 @@ QList<KPluginMetaData> PackageLoader::listPackages(const QString &packageFormat,
     if (QDir::isAbsolutePath(actualRoot)) {
         paths = QStringList(actualRoot);
     } else {
-        foreach(const QString &path, QStandardPaths::standardLocations(QStandardPaths::GenericDataLocation)) {
+        const auto listPath = QStandardPaths::standardLocations(QStandardPaths::GenericDataLocation);
+        for (const QString &path : listPath) {
             paths += path + QLatin1Char('/') + actualRoot;
         }
     }
 
-    Q_FOREACH(auto const &plugindir, paths) {
+    for (auto const &plugindir : qAsConst(paths)) {
         const QString &_ixfile = plugindir + s_kpluginindex;
         KCompressionDevice indexFile(_ixfile, KCompressionDevice::BZip2);
         if (QFile::exists(_ixfile)) {
@@ -283,7 +284,8 @@ QList<KPluginMetaData> PackageLoader::listPackages(const QString &packageFormat,
 QList<KPluginMetaData> PackageLoader::findPackages(const QString &packageFormat, const QString &packageRoot, std::function<bool(const KPluginMetaData &)> filter)
 {
     QList<KPluginMetaData> lst;
-    Q_FOREACH(auto const &plugin, listPackages(packageFormat, packageRoot)) {
+    const auto lstPlugins = listPackages(packageFormat, packageRoot);
+    for (auto const &plugin : lstPlugins) {
         if (!filter || filter(plugin)) {
             lst << plugin;
         }
@@ -311,8 +313,9 @@ KPackage::PackageStructure *PackageLoader::loadPackageStructure(const QString &p
     QStringList libraryPaths;
 
     const QString subDirectory = QStringLiteral("kpackage/packagestructure");
+    const auto lstPaths = QCoreApplication::libraryPaths();
 
-    Q_FOREACH (const QString &dir, QCoreApplication::libraryPaths()) {
+    for (const QString &dir : lstPaths) {
         QString d = dir + QDir::separator() + subDirectory;
         if (!d.endsWith(QDir::separator())) {
             d += QDir::separator();
@@ -322,7 +325,7 @@ KPackage::PackageStructure *PackageLoader::loadPackageStructure(const QString &p
 
     QString pluginFileName;
 
-    Q_FOREACH (const QString &plugindir, libraryPaths) {
+    for (const QString &plugindir : qAsConst(libraryPaths)) {
         const QString &_ixfile = plugindir + s_kpluginindex;
         KCompressionDevice indexFile(_ixfile, KCompressionDevice::BZip2);
         if (QFile::exists(_ixfile)) {

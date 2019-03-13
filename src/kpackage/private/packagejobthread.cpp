@@ -64,7 +64,8 @@ bool copyFolder(QString sourcePath, QString targetPath)
         target = QDir(targetPath);
     }
 
-    foreach (const QString &fileName, source.entryList(QDir::Files)) {
+    const auto lstEntries = source.entryList(QDir::Files);
+    for (const QString &fileName : lstEntries) {
         QString sourceFilePath = sourcePath + QDir::separator() + fileName;
         QString targetFilePath = targetPath + QDir::separator() + fileName;
 
@@ -72,8 +73,8 @@ bool copyFolder(QString sourcePath, QString targetPath)
             return false;
         }
     }
-
-    foreach (const QString &subFolderName, source.entryList(QDir::AllDirs | QDir::NoDotAndDotDot)) {
+    const auto lstEntries2 = source.entryList(QDir::AllDirs | QDir::NoDotAndDotDot);
+    for (const QString &subFolderName : lstEntries2) {
         QString sourceSubFolderPath = sourcePath + QDir::separator() + subFolderName;
         QString targetSubFolderPath = targetPath + QDir::separator() + subFolderName;
 

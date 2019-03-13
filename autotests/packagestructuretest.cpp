@@ -252,13 +252,13 @@ void PackageStructureTest::directories()
     QList<QByteArray> dirs;
     dirs << "config" << "data" << "images" << "theme" << "scripts" << "translations" << "ui";
 
-    QList<QByteArray> psDirs = ps.directories();
+    const QList<QByteArray> psDirs = ps.directories();
 
     QCOMPARE(dirs.count(), psDirs.count());
 
-    foreach (const char *dir, psDirs) {
+    for (const char *dir : psDirs) {
         bool found = false;
-        foreach (const char *check, dirs) {
+        for (const char *check : qAsConst(dirs)) {
             if (qstrcmp(dir, check)) {
                 found = true;
                 break;
@@ -267,9 +267,9 @@ void PackageStructureTest::directories()
         QVERIFY(found);
     }
 
-    foreach (const char *dir, dirs) {
+    for (const char *dir : qAsConst(dirs)) {
         bool found = false;
-        foreach (const char *check, psDirs) {
+        for (const char *check : psDirs) {
             if (qstrcmp(dir, check)) {
                 found = true;
                 break;
@@ -290,14 +290,14 @@ void PackageStructureTest::files()
     QList<QByteArray> files;
     files << "mainconfigui" << "mainconfigxml" << "mainscript";
 
-    QList<QByteArray> psFiles = ps.files();
+    const QList<QByteArray> psFiles = ps.files();
 
     //for (int i = 0; i < psFiles.count(); ++i) {
     //    qDebug() << psFiles[i];
     //}
-    foreach (const char *file, psFiles) {
+    for (const char *file : psFiles) {
         bool found = false;
-        foreach (const char *check, files) {
+        for (const char *check : qAsConst(files)) {
             if (qstrcmp(file, check)) {
                 found = true;
                 break;

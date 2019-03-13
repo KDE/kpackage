@@ -273,7 +273,7 @@ QString PackagePrivate::unpack(const QString &filePath)
             // search metadata.desktop, the zip file might have the package contents in a subdirectory
             QDir unpackedPath(tempdir.path());
             const auto entries = unpackedPath.entryInfoList(QDir::Dirs | QDir::NoDotAndDotDot);
-            foreach (const auto &pack, entries) {
+            for (const auto &pack : entries) {
                 if (QFile::exists(pack.filePath() + QLatin1String("/metadata.json")) || QFile::exists(pack.filePath() + QLatin1String("/metadata.desktop"))) {
                     tempRoot = pack.filePath() + QLatin1Char('/');
                 }
@@ -362,7 +362,7 @@ QString Package::filePath(const QByteArray &fileType, const QString &filename) c
 
     //Nested loop, but in the medium case resolves to just one iteration
 //     qCDebug(KPACKAGE_LOG) << "prefixes:" << d->contentsPrefixPaths.count() << d->contentsPrefixPaths;
-    foreach (const QString &contentsPrefix, d->contentsPrefixPaths) {
+    for (const QString &contentsPrefix : qAsConst(d->contentsPrefixPaths)) {
         QString prefix;
         //We are an installed package
         if (d->tempRoot.isEmpty()) {
@@ -372,7 +372,7 @@ QString Package::filePath(const QByteArray &fileType, const QString &filename) c
             prefix = fileType == "metadata" ? d->tempRoot : (d->tempRoot + contentsPrefix);
         }
 
-        foreach (const QString &path, paths) {
+        for (const QString &path : qAsConst(paths)) {
             QString file = prefix + path;
 
             if (!filename.isEmpty()) {
@@ -427,9 +427,9 @@ QStringList Package::entryList(const QByteArray &key) const
 
     //qCDebug(KPACKAGE_LOG) << "going to list" << key;
     QStringList list;
-    foreach (const QString &prefix, d->contentsPrefixPaths) {
+    for (const QString &prefix : qAsConst(d->contentsPrefixPaths)) {
         //qCDebug(KPACKAGE_LOG) << "     looking in" << prefix;
-        foreach (const QString &path, it.value().paths) {
+        for (const QString &path : qAsConst(it.value().paths)) {
             //qCDebug(KPACKAGE_LOG) << "         looking in" << path;
             if (it.value().directory) {
                 //qCDebug(KPACKAGE_LOG) << "it's a directory, so trying out" << d->path + prefix + path;
@@ -539,7 +539,7 @@ void Package::setPath(const QString &path)
     // now we search each path found, caching our previous path to know if
     // anything actually really changed
     const QString previousPath = d->path;
-    foreach (const QString &p, paths) {
+    for (const QString &p : qAsConst(paths)) {
         d->checkedValid = false;
         QDir dir(p);
 
@@ -655,7 +655,7 @@ QByteArray Package::cryptographicHash(QCryptographicHash::Algorithm algorithm) c
         qCWarning(KPACKAGE_LOG) << "no metadata at" << metadataPath;
     }
 
-    foreach (const QString &prefix, d->contentsPrefixPaths) {
+    for (const QString &prefix : qAsConst(d->contentsPrefixPaths)) {
         const QString basePath = d->path + prefix;
         QDir dir(basePath);
 
@@ -937,7 +937,8 @@ void PackagePrivate::updateHash(const QString &basePath, const QString &subPath,
 
     const QDir::SortFlags sorting = QDir::Name | QDir::IgnoreCase;
     const QDir::Filters filters = QDir::Hidden | QDir::System | QDir::NoDotAndDotDot;
-    foreach (const QString &file, dir.entryList(QDir::Files | filters, sorting)) {
+    const auto lstEntries = dir.entryList(QDir::Files | filters, sorting);
+    for (const QString &file : lstEntries) {
         if (!subPath.isEmpty()) {
             hash.addData(subPath.toUtf8());
         }
@@ -960,7 +961,8 @@ void PackagePrivate::updateHash(const QString &basePath, const QString &subPath,
         }
     }
 
-    foreach (const QString &subDirPath, dir.entryList(QDir::Dirs | filters, sorting)) {
+    const auto lstEntries2 = dir.entryList(QDir::Dirs | filters, sorting);
+    for (const QString &subDirPath : lstEntries2) {
         const QString relativePath = subPath + subDirPath + QLatin1Char('/');
         hash.addData(relativePath.toUtf8());
 
