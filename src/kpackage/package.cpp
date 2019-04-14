@@ -429,7 +429,8 @@ QStringList Package::entryList(const QByteArray &key) const
     QStringList list;
     for (const QString &prefix : qAsConst(d->contentsPrefixPaths)) {
         //qCDebug(KPACKAGE_LOG) << "     looking in" << prefix;
-        for (const QString &path : qAsConst(it.value().paths)) {
+        const QStringList paths = it.value().paths;
+        for (const QString &path : paths) {
             //qCDebug(KPACKAGE_LOG) << "         looking in" << path;
             if (it.value().directory) {
                 //qCDebug(KPACKAGE_LOG) << "it's a directory, so trying out" << d->path + prefix + path;
