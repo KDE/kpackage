@@ -435,14 +435,12 @@ void PlasmoidPackageTest::cleanupPackage(const QString &packageName)
 
 void PlasmoidPackageTest::packageInstalled(KJob *j)
 {
-    qDebug() << "!!!!!!!!!!!!!!!!!!!! package installed" << (j->error() == KJob::NoError) << j->errorText();
-    QVERIFY(j->error() == KJob::NoError);
+    QVERIFY2(j->error() == KJob::NoError, qPrintable(j->errorText()));
 }
 
 void PlasmoidPackageTest::packageUninstalled(KJob *j)
 {
-    qDebug() << "!!!!!!!!!!!!!!!!!!!!! package uninstalled";
-    QVERIFY(j->error() == KJob::NoError);
+    QVERIFY2(j->error() == KJob::NoError, qPrintable(j->errorText()));
 }
 
 QTEST_MAIN(PlasmoidPackageTest)
