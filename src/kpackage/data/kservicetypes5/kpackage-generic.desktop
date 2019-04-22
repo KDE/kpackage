@@ -2,6 +2,9 @@
 Type=ServiceType
 X-KDE-ServiceType=KPackage/Generic
 
+[PropertyDef::X-KDE-ParentApp]
+Type=QString
+
 [PropertyDef::X-Plasma-RootPath]
 Type=QString
 
@@ -9,4 +12,7 @@ Type=QString
 Type=QString
 
 [PropertyDef::X-KPackage-Dependencies]
+Type=QStringList
+
+[PropertyDef::Keywords]
 Type=QStringList
