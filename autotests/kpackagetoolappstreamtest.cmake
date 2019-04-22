@@ -4,7 +4,7 @@ if(NOT ${generated_name} STREQUAL "testpackage.appdata.xml")
     message(STATUS "cd ${input} ; ${kpackagetool} --appstream-metainfo . --appstream-metainfo-output ${generated}")
     execute_process(COMMAND ${kpackagetool} --appstream-metainfo . --appstream-metainfo-output "${generated}"
         WORKING_DIRECTORY ${input}
-        ERROR_VARIABLE error)
+        ERROR_VARIABLE std_error_output)
 else()
     message(STATUS "cd ${input} ; ${kpackagetool} --appstream-metainfo .")
     # Make sure that without output argument we get the output on STDOUT.
@@ -12,11 +12,11 @@ else()
     execute_process(COMMAND ${kpackagetool} --appstream-metainfo .
         WORKING_DIRECTORY ${input}
         OUTPUT_FILE "${generated}"
-        ERROR_VARIABLE error)
+        ERROR_VARIABLE std_error_output)
 endif()
 
-if (error)
-    message(FATAL_ERROR "couldn't generate metadata: ${error}")
+if (std_error_output)
+    message(STATUS "${std_error_output}")
 endif()
 
 # We'll want no generated output file at all on NoDisplay. For other tests we'll want to compare
