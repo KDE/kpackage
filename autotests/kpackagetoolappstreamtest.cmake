@@ -1,10 +1,12 @@
 get_filename_component(generated_name ${generated} NAME)
 
 if(NOT ${generated_name} STREQUAL "testpackage.appdata.xml")
+    message(STATUS "cd ${input} ; ${kpackagetool} --appstream-metainfo . --appstream-metainfo-output ${generated}")
     execute_process(COMMAND ${kpackagetool} --appstream-metainfo . --appstream-metainfo-output "${generated}"
         WORKING_DIRECTORY ${input}
         ERROR_VARIABLE error)
 else()
+    message(STATUS "cd ${input} ; ${kpackagetool} --appstream-metainfo .")
     # Make sure that without output argument we get the output on STDOUT.
     # This only runs on the testpackage test.
     execute_process(COMMAND ${kpackagetool} --appstream-metainfo .
