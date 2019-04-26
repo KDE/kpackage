@@ -125,7 +125,7 @@ PackageTool::PackageTool(int &argc, char **argv, QCommandLineParser *parser) :
 {
     d = new PackageToolPrivate;
     d->parser = parser;
-    QTimer::singleShot(0, this, SLOT(runMain()));
+    QTimer::singleShot(0, this, &PackageTool::runMain);
 }
 
 PackageTool::~PackageTool()
@@ -433,7 +433,6 @@ bool translateKPluginToAppstream(const QString &tagName, const QString &configFi
 void PackageTool::showAppstreamInfo(const QString &pluginName)
 {
     KPluginMetaData i;
-    KPluginMetaData packageStructureMetaData;
     //if the path passed is an absolute path, and a metadata file is found under it, use that metadata file to generate the appstream info.
     // This can happen in the case an application wanting to support kpackage based extensions includes in the same project both the packagestructure plugin and the packages themselves. In that case at build time the packagestructure plugin wouldn't be installed yet
 
@@ -456,17 +455,26 @@ void PackageTool::showAppstreamInfo(const QString &pluginName)
             pkg.setPath(pluginName);
         }
 
-        {
-            const auto lst = listPackageTypes();
-            for (const KPluginMetaData &md : lst) {
-                if (md.pluginId() == type) {
-                    packageStructureMetaData = md;
-                    break;
-                }
-            }
+        i = pkg.metadata();
+    }
+
+    KPluginMetaData packageStructureMetaData;
+    {
+        const auto lst = listPackageTypes();
+
+        QString type;
+        if (!i.serviceTypes().isEmpty()) {
+            type = i.serviceTypes().constFirst();
+        } else {
+            type = QStringLiteral("KPackage/Generic");
         }
 
-        i = pkg.metadata();
+        for (const KPluginMetaData &md : lst) {
+            if (md.pluginId() == type) {
+                packageStructureMetaData = md;
+                break;
+            }
+        }
     }
 
     if (!i.isValid()) {
