@@ -133,6 +133,6 @@ install(EXPORT KF5PackageToolsTargets
 install(FILES ${CMAKE_CURRENT_BINARY_DIR}/kpackage_version.h
         DESTINATION ${KDE_INSTALL_INCLUDEDIR_KF5} COMPONENT Devel )
 
-install( FILES kpackage.categories DESTINATION ${KDE_INSTALL_CONFDIR} )
+install(FILES kpackage.categories  DESTINATION  ${KDE_INSTALL_LOGGINGCATEGORIESDIR})
 
 feature_summary(WHAT ALL FATAL_ON_MISSING_REQUIRED_PACKAGES)
