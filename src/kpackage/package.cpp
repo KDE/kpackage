@@ -376,7 +376,7 @@ QString Package::filePath(const QByteArray &fileType, const QString &filename) c
             QString file = prefix + path;
 
             if (!filename.isEmpty()) {
-                file = file + QLatin1Char('/') + filename;
+                file.append(QLatin1Char('/') + filename);
             }
 
             QFileInfo fi(file);

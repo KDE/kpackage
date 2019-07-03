@@ -172,9 +172,11 @@ QList<KPluginMetaData> PackageLoader::listPackages(const QString &packageFormat,
         useRuntimeCache = false;
         d->pluginCache.clear();
     }
-    QString cacheKey = QString(QStringLiteral("%1.%2")).arg(packageFormat, packageRoot);
-    if (useRuntimeCache && d->pluginCache.contains(cacheKey)) {
-        return d->pluginCache.value(cacheKey);
+    if (useRuntimeCache) {
+        auto it = d->pluginCache.constFind(QStringLiteral("%1.%2").arg(packageFormat, packageRoot));
+        if (it != d->pluginCache.constEnd()) {
+            return *it;
+        }
     }
     if (d->pluginCacheAge == 0) {
         d->pluginCacheAge = now;
