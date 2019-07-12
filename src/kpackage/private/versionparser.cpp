@@ -21,6 +21,8 @@
 
 #include "package.h"
 
+#include <QVector>
+
 
 namespace KPackage
 {
