@@ -229,8 +229,8 @@ QList<KPluginMetaData> PackageLoader::listPackages(const QString &packageFormat,
 
     for (auto const &plugindir : qAsConst(paths)) {
         const QString &_ixfile = plugindir + s_kpluginindex;
-        KCompressionDevice indexFile(_ixfile, KCompressionDevice::BZip2);
         if (QFile::exists(_ixfile)) {
+            KCompressionDevice indexFile(_ixfile, KCompressionDevice::BZip2);
             qCDebug(KPACKAGE_LOG) << "kpluginindex: Using indexfile: " << _ixfile;
             indexFile.open(QIODevice::ReadOnly);
             QJsonDocument jdoc = QJsonDocument::fromBinaryData(indexFile.readAll());
