@@ -54,7 +54,9 @@ Package::Package(PackageStructure *structure)
 
     if (d->structure) {
         d->structure.data()->initPackage(this);
-        addFileDefinition("metadata", QStringLiteral("metadata.desktop"), i18n("Desktop file that describes this package."));
+        auto desc = i18n("Desktop file that describes this package.");
+        addFileDefinition("metadata", QStringLiteral("metadata.json"), desc);
+        addFileDefinition("metadata", QStringLiteral("metadata.desktop"), desc);
     }
 }
 
