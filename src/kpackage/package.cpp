@@ -47,12 +47,6 @@
 namespace KPackage
 {
 
-static bool isMetadata(const QByteArray& name)
-{
-    static QSet<QByteArray> blacklist = {"metadata", "metadatajson"};
-    return blacklist.contains(name);
-}
-
 Package::Package(PackageStructure *structure)
     : d(new PackagePrivate())
 {
@@ -61,7 +55,6 @@ Package::Package(PackageStructure *structure)
     if (d->structure) {
         d->structure.data()->initPackage(this);
         addFileDefinition("metadata", QStringLiteral("metadata.desktop"), i18n("Desktop file that describes this package."));
-        addFileDefinition("metadatajson", QStringLiteral("metadata.json"), i18n("JSON file that describes this package."));
     }
 }
 
@@ -221,13 +214,10 @@ KPluginMetaData Package::metadata() const
 {
     //qCDebug(KPACKAGE_LOG) << "metadata: " << d->path << filePath("metadata");
     if (!d->metadata && !d->path.isEmpty()) {
-        const QString metadataJsonPath = filePath("metadatajson");
-        const QString metadataDesktopPath = filePath("metadata");
+        const QString metadataPath = filePath("metadata");
 
-        if (!metadataJsonPath.isEmpty()) {
-            d->createPackageMetadata(metadataJsonPath);
-        } else if (!metadataDesktopPath.isEmpty()) {
-            d->createPackageMetadata(metadataDesktopPath);
+        if (!metadataPath.isEmpty()) {
+            d->createPackageMetadata(metadataPath);
         } else {
             // d->path might still be a file, if its path has a trailing /,
             // the fileInfo lookup will fail, so remove it.
@@ -376,10 +366,10 @@ QString Package::filePath(const QByteArray &fileType, const QString &filename) c
         QString prefix;
         //We are an installed package
         if (d->tempRoot.isEmpty()) {
-            prefix = isMetadata(fileType) ? d->path : (d->path + contentsPrefix);
+            prefix = fileType == "metadata" ? d->path : (d->path + contentsPrefix);
         //We are a compressed package temporarily uncompressed in /tmp
         } else {
-            prefix = isMetadata(fileType) ? d->tempRoot : (d->tempRoot + contentsPrefix);
+            prefix = fileType == "metadata" ? d->tempRoot : (d->tempRoot + contentsPrefix);
         }
 
         for (const QString &path : qAsConst(paths)) {
@@ -1014,7 +1004,7 @@ void PackagePrivate::createPackageMetadata(const QString &path)
 QString PackagePrivate::fallbackFilePath(const QByteArray &key, const QString &filename) const
 {
     //don't fallback if the package isn't valid and never fallback the metadata file
-    if (!isMetadata(key) && fallbackPackage && fallbackPackage->isValid()) {
+    if (qstrcmp(key, "metadata") != 0 && fallbackPackage && fallbackPackage->isValid()) {
         return fallbackPackage->filePath(key, filename);
     } else {
         return QString();
