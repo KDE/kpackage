@@ -26,7 +26,6 @@
 #include <QJsonDocument>
 #include <QJsonArray>
 #include <QCoreApplication>
-#include <QPointer>
 #include "kpackage_debug.h"
 
 #include <KCompressionDevice>

@@ -21,8 +21,6 @@
 
 #include <math.h>
 
-#include <QCoreApplication>
-#include <QFileInfo>
 
 #include <klocalizedstring.h>
 
