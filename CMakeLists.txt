@@ -12,17 +12,17 @@ feature_summary(WHAT REQUIRED_PACKAGES_NOT_FOUND FATAL_ON_MISSING_REQUIRED_PACKA
 
 set(CMAKE_MODULE_PATH ${ECM_MODULE_PATH})
 
+include(KDEInstallDirs)
+include(KDECMakeSettings)
+include(KDEFrameworkCompilerSettings NO_POLICY_SCOPE)
 
 include(GenerateExportHeader)
 include(ECMGenerateHeaders)
-include(KDEInstallDirs)
-include(KDECMakeSettings)
 include(CMakePackageConfigHelpers)
 include(ECMSetupVersion)
 include(ECMMarkNonGuiExecutable)
 include(ECMAddQch)
 include(ECMQtDeclareLoggingCategory)
-include(KDEFrameworkCompilerSettings NO_POLICY_SCOPE)
 include(ECMSetupQtPluginMacroNames)
 
 option(BUILD_QCH "Build API documentation in QCH format (for e.g. Qt Assistant, Qt Creator & KDevelop)" OFF)
