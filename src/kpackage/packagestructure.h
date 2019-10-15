@@ -53,7 +53,7 @@ class PackageStructurePrivate;
  *
  * @author Aaron Seigo
  */
-class PACKAGE_EXPORT PackageStructure : public QObject
+class KPACKAGE_EXPORT PackageStructure : public QObject
 {
     Q_OBJECT
 

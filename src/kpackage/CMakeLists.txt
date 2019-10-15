@@ -32,6 +32,15 @@ ecm_qt_declare_logging_category(Package_LIB_SRCS HEADER kpackage_debug.h IDENTIF
 
 add_library(KF5Package ${Package_LIB_SRCS})
 add_library(KF5::Package ALIAS KF5Package)
+ecm_generate_export_header(KF5Package
+    EXPORT_FILE_NAME kpackage/package_export.h
+    BASE_NAME KPackage
+    # GROUP_BASE_NAME KF <- enable once all of KF modules use ecm_generate_export_header
+    VERSION ${KF5_VERSION}
+    DEPRECATED_BASE_VERSION 0
+    DEPRECATION_VERSIONS 5.21
+    EXCLUDE_DEPRECATED_BEFORE_AND_AT ${EXCLUDE_DEPRECATED_BEFORE_AND_AT}
+)
 
 target_link_libraries(KF5Package
 PUBLIC
@@ -57,9 +66,6 @@ set_target_properties(KF5Package PROPERTIES
                       )
 
 ########### install files ###############
-generate_export_header(KF5Package
-    BASE_NAME Package
-    EXPORT_FILE_NAME kpackage/package_export.h)
 ecm_generate_headers(Package_CamelCase_HEADERS
     HEADER_NAMES
         Package
@@ -105,7 +111,7 @@ if(BUILD_QCH)
         LINK_QCHS
             KF5CoreAddons_QCH
         BLANK_MACROS
-            PACKAGE_EXPORT
+            KPACKAGE_EXPORT
         TAGFILE_INSTALL_DESTINATION ${KDE_INSTALL_QTQCHDIR}
         QCH_INSTALL_DESTINATION ${KDE_INSTALL_QTQCHDIR}
         COMPONENT Devel

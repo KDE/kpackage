@@ -77,7 +77,7 @@ namespace KPackage
 class PackagePrivate;
 class PackageStructure;
 
-class PACKAGE_EXPORT Package
+class KPACKAGE_EXPORT Package
 {
 public:
     /**
@@ -225,13 +225,14 @@ public:
       */
     KPluginMetaData metadata() const;
 
+#if KPACKAGE_ENABLE_DEPRECATED_SINCE(5, 21)
     /**
      * @return a SHA1 hash digest of the contents of the package in hexadecimal form
      * @since 4.4
      * @deprecated Since 5.21 use cryptographicHash
      */
-#ifndef PACKAGE_NO_DEPRECATED
-    PACKAGE_DEPRECATED QString contentsHash() const;
+    KPACKAGE_DEPRECATED_VERSION(5, 21, "Use Package::cryptographicHash(QCryptographicHash::Algorithm)")
+    QString contentsHash() const;
 #endif
 
     /**

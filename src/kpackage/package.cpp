@@ -627,7 +627,7 @@ void Package::setContentsPrefixPaths(const QStringList &prefixPaths)
     }
 }
 
-#ifndef PACKAGE_NO_DEPRECATED
+#if KPACKAGE_BUILD_DEPRECATED_SINCE(5, 21)
 QString Package::contentsHash() const
 {
     return QString::fromLocal8Bit(cryptographicHash(QCryptographicHash::Sha1));

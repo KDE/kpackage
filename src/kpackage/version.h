@@ -42,32 +42,32 @@ namespace KPackage
 /**
  * The runtime version of libkpackage
  */
-PACKAGE_EXPORT unsigned int version();
+KPACKAGE_EXPORT unsigned int version();
 
 /**
  * The runtime major version of libkpackage
  */
-PACKAGE_EXPORT unsigned int versionMajor();
+KPACKAGE_EXPORT unsigned int versionMajor();
 
 /**
  * The runtime major version of libkpackage
  */
-PACKAGE_EXPORT unsigned int versionMinor();
+KPACKAGE_EXPORT unsigned int versionMinor();
 
 /**
  * The runtime major version of libkpackage
  */
-PACKAGE_EXPORT unsigned int versionRelease();
+KPACKAGE_EXPORT unsigned int versionRelease();
 
 /**
  * The runtime version string of libkpackage
  */
-PACKAGE_EXPORT const char *versionString();
+KPACKAGE_EXPORT const char *versionString();
 
 /**
  * Verifies that a plugin is compatible with plasma
  */
-PACKAGE_EXPORT bool isPluginVersionCompatible(unsigned int version);
+KPACKAGE_EXPORT bool isPluginVersionCompatible(unsigned int version);
 
 } // Plasma namespace
 

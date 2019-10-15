@@ -41,7 +41,7 @@ class PackageLoaderPrivate;
  *
  * @author Ryan Rix <ry@n.rix.si>
  **/
-class PACKAGE_EXPORT PackageLoader
+class KPACKAGE_EXPORT PackageLoader
 {
 public:
     /**

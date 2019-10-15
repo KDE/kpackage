@@ -186,11 +186,9 @@ void PlasmoidPackageTest::isValid()
     p = new KPackage::Package(m_defaultPackage);
     p->setPath(m_packageRoot + '/' + m_package);
     QVERIFY(p->isValid());
-    // Ignore deprecation warning, we are actually testing this here.
-#pragma GCC diagnostic push
-#pragma GCC diagnostic ignored "-Wdeprecated-declarations"
+#if KPACKAGE_ENABLE_DEPRECATED_SINCE(5, 21)
     QCOMPARE(p->contentsHash(), QStringLiteral("a41160c6a763ea505c95bee12a7fc87952a61cf1"));
-#pragma GCC diagnostic pop
+#endif
     QCOMPARE(p->cryptographicHash(QCryptographicHash::Sha1), QByteArrayLiteral("a41160c6a763ea505c95bee12a7fc87952a61cf1"));
     delete p;
 }
