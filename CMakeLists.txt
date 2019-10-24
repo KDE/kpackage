@@ -67,6 +67,7 @@ ecm_setup_qtplugin_macro_names(
         PACKAGE_SETUP_AUTOMOC_VARIABLES
 )
 add_definitions(-DQT_DISABLE_DEPRECATED_BEFORE=0x050d00)
+add_definitions(-DQT_DEPRECATED_WARNINGS_SINCE=0x060000)
 include(KF5PackageMacros.cmake)
 
 # make package_version.h available
