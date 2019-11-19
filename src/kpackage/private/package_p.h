@@ -27,8 +27,6 @@
 #include <QSharedData>
 #include <QPointer>
 #include <QHash>
-#include <QFileSelector>
-
 namespace KPackage
 {
 
@@ -93,7 +91,6 @@ public:
     bool isInsidePackageDir(const QString& canonicalPath) const;
 
     QPointer<PackageStructure> structure;
-    QFileSelector *fileSelector;
     QString path;
     QString tempRoot;
     QStringList contentsPrefixPaths;
