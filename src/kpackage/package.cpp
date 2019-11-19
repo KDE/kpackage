@@ -385,6 +385,7 @@ QString Package::filePath(const QByteArray &fileType, const QString &filename) c
             if (fi.exists()) {
                 if (d->externalPaths) {
                     //qCDebug(KPACKAGE_LOG) << "found" << file;
+                    file = d->fileSelector->select(file);
                     d->discoveries.insert(discoveryKey, file);
                     return file;
                 }
@@ -393,6 +394,7 @@ QString Package::filePath(const QByteArray &fileType, const QString &filename) c
                 // due to symlink or ../ games
                 if (d->isInsidePackageDir(fi.canonicalFilePath())) {
                     //qCDebug(KPACKAGE_LOG) << "found" << file;
+                    file = d->fileSelector->select(file);
                     d->discoveries.insert(discoveryKey, file);
                     return file;
                 }
@@ -871,6 +873,7 @@ KJob *Package::uninstall(const QString &packageName, const QString &packageRoot)
 PackagePrivate::PackagePrivate()
     : QSharedData(),
       fallbackPackage(nullptr),
+      fileSelector(new QFileSelector),
       metadata(nullptr),
       externalPaths(false),
       valid(false),
@@ -880,7 +883,8 @@ PackagePrivate::PackagePrivate()
 }
 
 PackagePrivate::PackagePrivate(const PackagePrivate &other)
-    : QSharedData()
+    : QSharedData(),
+      fileSelector(new QFileSelector)
 {
     *this = other;
     metadata = nullptr;
@@ -901,6 +905,7 @@ PackagePrivate::~PackagePrivate()
     }
     delete metadata;
     delete fallbackPackage;
+    delete fileSelector;
 }
 
 PackagePrivate &PackagePrivate::operator=(const PackagePrivate &rhs)
