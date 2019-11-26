@@ -44,7 +44,6 @@ ecm_generate_export_header(KF5Package
 
 target_link_libraries(KF5Package
 PUBLIC
-     #KF5::Service # For kplugininfo.h and kservice.h
      KF5::CoreAddons
 PRIVATE
      Qt5::DBus
