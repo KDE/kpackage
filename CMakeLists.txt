@@ -36,13 +36,6 @@ ecm_setup_version(PROJECT
                   PACKAGE_VERSION_FILE "${CMAKE_CURRENT_BINARY_DIR}/KF5PackageConfigVersion.cmake"
                   SOVERSION 5)
 
-################# Enable C++0x (still too early for -std=c++11) features for clang and gcc #################
-
-if(UNIX)
-   #set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} -Wall -std=c++0x")
-   add_definitions("-Wall -std=c++0x")
-endif()
-
 ################# now find all used packages #################
 
 set (REQUIRED_QT_VERSION 5.11.0)
