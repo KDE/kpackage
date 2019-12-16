@@ -22,6 +22,7 @@
 
 
 #include <QDebug>
+#include <QStandardPaths>
 
 #include <klocalizedstring.h>
 #include "packagestructure.h"

@@ -19,7 +19,7 @@
 
 #ifndef PACKAGETEST_H
 
-#include <QtTest>
+#include <QTest>
 
 #include "kpackage/package.h"
 #include "kpackage/packagestructure.h"

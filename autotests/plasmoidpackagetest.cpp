@@ -26,6 +26,7 @@
 #include <kzip.h>
 #include <kjob.h>
 #include <QStandardPaths>
+#include <QSignalSpy>
 
 #include <QDebug>
 
