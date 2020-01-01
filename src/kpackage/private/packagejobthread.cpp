@@ -36,7 +36,7 @@
 #include <QIODevice>
 #include <QMimeType>
 #include <QMimeDatabase>
-#include <QRegExp>
+#include <QRegularExpression>
 #include <QJsonArray>
 #include <QDirIterator>
 #include <QJsonDocument>
@@ -329,8 +329,8 @@ bool PackageJobThread::installPackage(const QString &src, const QString &dest, O
 
     // Ensure that package names are safe so package uninstall can't inject
     // bad characters into the paths used for removal.
-    QRegExp validatePluginName(QStringLiteral("^[\\w-\\.]+$")); // Only allow letters, numbers, underscore and period.
-    if (!validatePluginName.exactMatch(pluginName)) {
+    const QRegularExpression validatePluginName(QStringLiteral("^[\\w\\-\\.]+$")); // Only allow letters, numbers, underscore and period.
+    if (!validatePluginName.match(pluginName).hasMatch()) {
         //qCDebug(KPACKAGE_LOG) << "Package plugin name " << pluginName << "contains invalid characters";
         d->errorMessage = i18n("Package plugin name %1 contains invalid characters", pluginName);
         d->errorCode = Package::JobError::PluginNameInvalidError;
