@@ -341,12 +341,14 @@ void PackageTool::runMain()
 
 void PackageToolPrivate::coutput(const QString &msg)
 {
-    *cout << msg << endl;
+    *cout << msg << '\n';
+    (*cout).flush();
 }
 
 void PackageToolPrivate::cerror(const QString &msg)
 {
-    *cerr << msg << endl;
+    *cerr << msg << '\n';
+    (*cerr).flush();
 }
 
 QStringList PackageToolPrivate::packages(const QStringList &types, const QString &path)
