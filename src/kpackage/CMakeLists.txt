@@ -26,7 +26,13 @@ set(Package_LIB_SRCS
     kpackage.qrc
 )
 
-ecm_qt_declare_logging_category(Package_LIB_SRCS HEADER kpackage_debug.h IDENTIFIER KPACKAGE_LOG CATEGORY_NAME kf5.kpackage)
+ecm_qt_declare_logging_category(Package_LIB_SRCS
+    HEADER kpackage_debug.h
+    IDENTIFIER KPACKAGE_LOG
+    CATEGORY_NAME kf5.kpackage
+    DESCRIPTION "kpackage (lib)"
+    EXPORT KPACKAGE
+)
 
 
 
