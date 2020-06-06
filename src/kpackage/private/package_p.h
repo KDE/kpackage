@@ -67,6 +67,8 @@ public:
         required = other.required;
     }
 
+    ContentStructure& operator=(const ContentStructure &) = default;
+
     QStringList paths;
     QString name;
     QStringList mimeTypes;
