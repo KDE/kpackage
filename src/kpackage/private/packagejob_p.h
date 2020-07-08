@@ -7,7 +7,7 @@
 #ifndef KPACKAGE_PACKAGEJOB_P_H
 #define KPACKAGE_PACKAGEJOB_P_H
 
-#include "kjob.h"
+#include <KJob>
 
 namespace KPackage
 {

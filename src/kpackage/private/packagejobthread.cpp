@@ -10,9 +10,9 @@
 #include "package.h"
 #include "config-package.h"
 
-#include <karchive.h>
-#include <klocalizedstring.h>
-#include <ktar.h>
+#include <KArchive>
+#include <KLocalizedString>
+#include <KTar>
 #include <kzip.h>
 
 

@@ -10,17 +10,17 @@
 #include <QDebug>
 #include <QJsonDocument>
 #include <QJsonArray>
-#include <kshell.h>
-#include <klocalizedstring.h>
-#include <kaboutdata.h>
+#include <KShell>
+#include <KLocalizedString>
+#include <KAboutData>
 #include <KPluginLoader>
 
 #include <kpackage/packagestructure.h>
 #include <kpackage/package.h>
 #include <kpackage/packageloader.h>
-#include <kjob.h>
+#include <KJob>
 
-#include <qcommandlineparser.h>
+#include <QCommandLineParser>
 #include <QDir>
 #include <QDirIterator>
 #include <QFileInfo>

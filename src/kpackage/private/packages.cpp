@@ -9,7 +9,7 @@
 #include <math.h>
 
 
-#include <klocalizedstring.h>
+#include <KLocalizedString>
 
 #include "kpackage/package.h"
 

@@ -7,7 +7,7 @@
 #include "plasmoidstructure.h"
 
 #include <QVariant>
-#include <klocalizedstring.h>
+#include <KLocalizedString>
 #include "package.h"
 #include "config-package.h"
 

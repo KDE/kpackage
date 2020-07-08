@@ -12,17 +12,17 @@
 #include <qtemporarydir.h>
 #include <QResource>
 
-#include <karchive.h>
+#include <KArchive>
 #include "kpackage_debug.h"
 #include <QUrl>
-#include <ktar.h>
+#include <KTar>
 #include <kzip.h>
 #include <KLocalizedString>
 
 #include "config-package.h"
 
-#include <qstandardpaths.h>
-#include <qmimedatabase.h>
+#include <QStandardPaths>
+#include <QMimeDatabase>
 
 #include "packagestructure.h"
 #include "packageloader.h"

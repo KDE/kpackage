@@ -10,7 +10,7 @@
 
 #include <QDebug>
 
-#include <klocalizedstring.h>
+#include <KLocalizedString>
 #include "packagestructure.h"
 #include "packageloader.h"
 

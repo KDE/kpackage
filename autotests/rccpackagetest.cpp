@@ -11,7 +11,7 @@
 #include <QDebug>
 #include <QStandardPaths>
 
-#include <klocalizedstring.h>
+#include <KLocalizedString>
 #include "packagestructure.h"
 #include "plasmoidstructure.h"
 #include "packageloader.h"

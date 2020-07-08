@@ -22,8 +22,8 @@
 
 */
 
-#include <klocalizedstring.h>
-#include <qcommandlineparser.h>
+#include <KLocalizedString>
+#include <QCommandLineParser>
 
 #include "kpackagetool.h"
 #include "options.h"

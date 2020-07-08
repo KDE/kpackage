@@ -8,7 +8,7 @@
 #ifndef KPACKAGE_PACKAGEJOBTHREAD_P_H
 #define KPACKAGE_PACKAGEJOBTHREAD_P_H
 
-#include "kjob.h"
+#include <KJob>
 #include "package.h"
 #include <QThread>
 

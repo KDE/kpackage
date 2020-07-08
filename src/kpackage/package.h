@@ -12,11 +12,11 @@
 #include <QCryptographicHash>
 #include <QUrl>
 
-#include <kpluginmetadata.h>
+#include <KPluginMetaData>
 
 #include <kpackage/package_export.h>
 
-#include <kjob.h>
+#include <KJob>
 
 namespace KPackage
 {
