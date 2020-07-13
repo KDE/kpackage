@@ -1,6 +1,10 @@
 set(CMAKE_AUTORCC TRUE)
 set(kpackagetool5_debug_SRCS)
-ecm_qt_declare_logging_category(kpackagetool5_debug_SRCS HEADER kpackage_debug.h IDENTIFIER KPACKAGE_LOG CATEGORY_NAME kf5.kpackage)
+ecm_qt_declare_logging_category(kpackagetool5_debug_SRCS
+    HEADER kpackage_debug.h
+    IDENTIFIER KPACKAGE_LOG
+    CATEGORY_NAME kf.package
+)
 add_executable(kpackagetool5
     main.cpp
     kpackagetool.cpp

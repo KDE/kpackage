@@ -29,7 +29,8 @@ set(Package_LIB_SRCS
 ecm_qt_declare_logging_category(Package_LIB_SRCS
     HEADER kpackage_debug.h
     IDENTIFIER KPACKAGE_LOG
-    CATEGORY_NAME kf5.kpackage
+    CATEGORY_NAME kf.package
+    OLD_CATEGORY_NAMES kf5.kpackage
     DESCRIPTION "kpackage (lib)"
     EXPORT KPACKAGE
 )
