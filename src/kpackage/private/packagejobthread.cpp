@@ -422,14 +422,14 @@ bool PackageJobThread::uninstall(const QString &packagePath)
 bool PackageJobThread::uninstallPackage(const QString &packagePath)
 {
     if (!QFile::exists(packagePath)) {
-        d->errorMessage = i18n("%1 does not exist", packagePath);
+        d->errorMessage = packagePath.isEmpty() ?  i18n("package path was deleted manually") : i18n("%1 does not exist", packagePath);
         d->errorCode = Package::JobError::PackageFileNotFoundError;
         return false;
     }
     QString pkg;
     QString root;
     {
-        // FIXME: remove, pass in packageroot, type and pluginName separately?
+        // TODO KF6 remove, pass in packageroot, type and pluginName separately?
         QStringList ps = packagePath.split(QLatin1Char('/'));
         int ix = ps.count() - 1;
         if (packagePath.endsWith(QLatin1Char('/'))) {

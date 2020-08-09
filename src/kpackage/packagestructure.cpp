@@ -50,7 +50,15 @@ KJob *PackageStructure::update(Package *package, const QString &archivePath, con
 KJob *PackageStructure::uninstall(Package *package, const QString &packageRoot)
 {
     PackageJob *j = new PackageJob(package);
-    j->uninstall(packageRoot + QLatin1Char('/') + package->metadata().pluginId());
+    const QString pluginID = package->metadata().pluginId();
+    QString uninstallPath;
+    // We handle the empty path when uninstalling the package
+    // If the dir already got deleted the pluginId is an empty string, without this
+    // check we would delete the package root, BUG: 410682
+    if (!pluginID.isEmpty()) {
+        uninstallPath = packageRoot + QLatin1Char('/') + pluginID;
+    }
+    j->uninstall(uninstallPath);
     return j;
 }
 
