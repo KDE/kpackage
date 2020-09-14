@@ -104,7 +104,7 @@ public:
     void listTypes();
     void coutput(const QString &msg);
     void cerror(const QString &msg);
-    QCommandLineParser *parser;
+    QCommandLineParser *parser = nullptr;
 };
 
 PackageTool::PackageTool(int &argc, char **argv, QCommandLineParser *parser) :

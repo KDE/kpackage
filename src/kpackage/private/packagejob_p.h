@@ -39,7 +39,7 @@ private Q_SLOTS:
     void slotFinished(bool ok, const QString &err);
 
 private:
-    PackageJobPrivate *d;
+    PackageJobPrivate *const d;
 };
 
 }

@@ -20,15 +20,15 @@ namespace KPackage
 class PackageJobPrivate
 {
 public:
-    PackageJobThread *thread;
-    Package *package;
+    PackageJobThread *thread = nullptr;
+    Package *package = nullptr;
     QString installPath;
 };
 
 PackageJob::PackageJob(Package *package, QObject *parent) :
     KJob(parent)
+  , d(new PackageJobPrivate)
 {
-    d = new PackageJobPrivate;
     d->thread = new PackageJobThread(this);
     d->package = package;
 
