@@ -1,7 +1,7 @@
 /*
     SPDX-FileCopyrightText: 2009 Rob Scheepmaker <r.scheepmaker@student.utwente.nl>
 
-    SPDX-License-Identifier: LGPL-2.0-only
+    SPDX-License-Identifier: LGPL-2.0-or-later
 */
 
 #ifndef KPACKAGE_PACKAGE_P_H
