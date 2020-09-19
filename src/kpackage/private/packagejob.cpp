@@ -71,46 +71,39 @@ void PackageJob::start()
 
 void PackageJob::install(const QString &src, const QString &dest)
 {
-    const QString pluginId = d->package->metadata().pluginId();
-    const QStringList serviceTypes = d->package->metadata().serviceTypes();
-    //d-package can become dangling during the job if deleted externally
-    connect(d->thread, &PackageJobThread::finished, this, [=](bool ok, const QString &error) {
-        if (ok) {
-            for (auto& packageType: serviceTypes) {
-                auto msg = QDBusMessage::createSignal(QStringLiteral("/KPackage/") + packageType, QStringLiteral("org.kde.plasma.kpackage"), QStringLiteral("packageInstalled"));
-                msg.setArguments({pluginId});
-                QDBusConnection::sessionBus().send(msg);
-            }
-        }
-        slotFinished(ok, error);
-    }, Qt::QueuedConnection);
+    setupNotificationsOnJobFinished(QStringLiteral("packageInstalled"));
     d->thread->install(src, dest);
 }
 
 void PackageJob::update(const QString &src, const QString &dest)
 {
-    connect(d->thread, &PackageJobThread::finished, this, [=](bool ok, const QString &error) {
-        slotFinished(ok, error);
-    }, Qt::QueuedConnection);
+    setupNotificationsOnJobFinished(QStringLiteral("packageUpdated"));
     d->thread->update(src, dest);
 }
 
 void PackageJob::uninstall(const QString &installationPath)
 {
+    setupNotificationsOnJobFinished(QStringLiteral("packageUninstalled"));
+    d->thread->uninstall(installationPath);
+}
+
+void PackageJob::setupNotificationsOnJobFinished(const QString &messageName)
+{
     //capture first as uninstalling wipes d->package
+    //or d-package can become dangling during the job if deleted externally
     const QString pluginId = d->package->metadata().pluginId();
     const QStringList serviceTypes = d->package->metadata().serviceTypes();
+
     connect(d->thread, &PackageJobThread::finished, this, [=](bool ok, const QString &error) {
         if (ok) {
             for (auto& packageType: serviceTypes) {
-                auto msg = QDBusMessage::createSignal(QStringLiteral("/KPackage/") + packageType, QStringLiteral("org.kde.plasma.kpackage"), QStringLiteral("packageUninstalled"));
+                auto msg = QDBusMessage::createSignal(QStringLiteral("/KPackage/") + packageType, QStringLiteral("org.kde.plasma.kpackage"), messageName);
                 msg.setArguments({pluginId});
                 QDBusConnection::sessionBus().send(msg);
             }
         }
         slotFinished(ok, error);
     }, Qt::QueuedConnection);
-    d->thread->uninstall(installationPath);
 }
 
 } // namespace KPackage

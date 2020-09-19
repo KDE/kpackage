@@ -807,7 +807,12 @@ QList<QByteArray> Package::requiredFiles() const
 
 KJob *Package::install(const QString &sourcePackage, const QString &packageRoot)
 {
+    if (!d->structure) {
+        return nullptr;
+    }
+
     const QString src = sourcePackage;
+    setPath(src);
     QString dest = packageRoot.isEmpty() ? defaultPackageRoot() : packageRoot;
     KPackage::PackageLoader::self()->d->maxCacheAge = -1;
 
@@ -816,9 +821,6 @@ KJob *Package::install(const QString &sourcePackage, const QString &packageRoot)
         dest = QStandardPaths::writableLocation(QStandardPaths::GenericDataLocation) + QLatin1Char('/') + dest;
     }
 
-    if (!d->structure) {
-        return nullptr;
-    }
     //qCDebug(KPACKAGE_LOG) << "Source: " << src;
     //qCDebug(KPACKAGE_LOG) << "PackageRoot: " << dest;
     KJob *j = d->structure.data()->install(this, src, dest);
@@ -827,18 +829,20 @@ KJob *Package::install(const QString &sourcePackage, const QString &packageRoot)
 
 KJob *Package::update(const QString &sourcePackage, const QString &packageRoot)
 {
+    if (!d->structure) {
+        return nullptr;
+    }
+
     const QString src = sourcePackage;
+    setPath(src);
     QString dest = packageRoot.isEmpty() ? defaultPackageRoot() : packageRoot;
-     KPackage::PackageLoader::self()->d->maxCacheAge = -1;
+    KPackage::PackageLoader::self()->d->maxCacheAge = -1;
 
     //use absolute paths if passed, otherwise go under share
     if (!QDir::isAbsolutePath(dest)) {
         dest = QStandardPaths::writableLocation(QStandardPaths::GenericDataLocation) + QLatin1Char('/') + dest;
     }
 
-    if (!d->structure) {
-        return nullptr;
-    }
     //qCDebug(KPACKAGE_LOG) << "Source: " << src;
     //qCDebug(KPACKAGE_LOG) << "PackageRoot: " << dest;
     KJob *j = d->structure.data()->update(this, src, dest);
@@ -847,7 +851,7 @@ KJob *Package::update(const QString &sourcePackage, const QString &packageRoot)
 
 KJob *Package::uninstall(const QString &packageName, const QString &packageRoot)
 {
-     KPackage::PackageLoader::self()->d->maxCacheAge = -1;
+    KPackage::PackageLoader::self()->d->maxCacheAge = -1;
     d->createPackageMetadata(packageRoot + QLatin1Char('/') + packageName);
     if (!d->structure) {
         return nullptr;

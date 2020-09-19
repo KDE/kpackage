@@ -32,13 +32,12 @@ public:
 Q_SIGNALS:
     void installPathChanged(const QString &path);
 
-//     Q_SIGNALS:
-//         void finished(bool success);
-
 private Q_SLOTS:
     void slotFinished(bool ok, const QString &err);
 
 private:
+    void setupNotificationsOnJobFinished(const QString &messageName);
+
     PackageJobPrivate *const d;
 };
 
