@@ -18,7 +18,7 @@
 
 <refnamediv>
 <refname><command>kpackagetool5</command></refname>
-<refpurpose>Install, list, remove Plasma packages</refpurpose>
+<refpurpose>Install, list, remove &plasma; packages</refpurpose>
 </refnamediv>
 
 <refsynopsisdiv>
@@ -44,7 +44,7 @@
 <refsect1>
 <title>Description</title>
 <para><command>kpackagetool5</command> is a command line tool to
-install, list, remove Plasma packages.</para>
+install, list, remove &plasma; packages.</para>
 
 </refsect1>
 
@@ -71,7 +71,7 @@ install, list, remove Plasma packages.</para>
 <varlistentry>
 <term><option>-t, --type</option> <replaceable> type</replaceable></term>
 <listitem><para>The type of package, corresponding to the service type of the package plugin,
-&eg; KPackage/Generic, Plasma/Theme, Plasma/Wallpaper, Plasma/Applet, etc.</para></listitem>
+&eg; KPackage/Generic, Plasma/Theme, Plasma/Wallpaper, Plasma/Applet, &etc;</para></listitem>
 </varlistentry>
 <varlistentry>
 <term><option>-i, --install</option> <replaceable> path</replaceable></term>
@@ -107,7 +107,7 @@ directories for this &plasma; session will be searched instead.</para></listitem
 <listitem><para>Recreate the plugin index. To be used in conjunction with either 
 the option <option>-t</option> or <option>-g</option>. Recreates the index for the 
 given type or package root. Operates in the user directory, unless 
-<option>-g</option> is used</para></listitem>
+<option>-g</option> is used.</para></listitem>
 </varlistentry>
 
 </variablelist>
@@ -119,7 +119,7 @@ given type or package root. Operates in the user directory, unless
 
 <para>More detailed user documentation is available from <ulink
 url="help:/plasma-desktop">help:/plasma-desktop</ulink>
-(either enter this <acronym>URL</acronym> into &konqueror;, or run
+(either enter this &URL; into &konqueror;, or run
 <userinput><command>khelpcenter</command>
 <parameter>help:/plasma-desktop</parameter></userinput>).</para>
 
