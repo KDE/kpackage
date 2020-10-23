@@ -14,7 +14,6 @@
 
 #include <KArchive>
 #include "kpackage_debug.h"
-#include <QUrl>
 #include <KTar>
 #include <kzip.h>
 #include <KLocalizedString>
