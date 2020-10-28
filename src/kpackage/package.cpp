@@ -983,7 +983,7 @@ void PackagePrivate::createPackageMetadata(const QString &path)
         metadata = new KPluginMetaData(md);
     } else {
         if (isDir) {
-            qCWarning(KPACKAGE_LOG) << "No metadata file in the package, expected it at:" << path;
+            qCDebug(KPACKAGE_LOG) << "No metadata file in the package, expected it at:" << path;
         } else if (path.endsWith(QLatin1String(".desktop"))) {
             auto md = KPluginMetaData::fromDesktopFile(path, {QStringLiteral(":/kservicetypes5/kpackage-generic.desktop")});
             metadata = new KPluginMetaData(md);
