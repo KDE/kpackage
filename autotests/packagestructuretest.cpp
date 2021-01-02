@@ -310,7 +310,7 @@ void PackageStructureTest::requiredFiles()
 void PackageStructureTest::path()
 {
     QCOMPARE(ps.filePath("images"), QDir(m_packagePath + QLatin1String("/contents/images")).canonicalPath());
-    QCOMPARE(ps.filePath("theme"), QDir(m_packagePath + QLatin1String("/contents/theme")).canonicalPath());
+    QCOMPARE(ps.filePath("theme"), QString());
     QCOMPARE(ps.filePath("mainscript"), QFileInfo(m_packagePath + QLatin1String("/contents/ui/main.qml")).canonicalFilePath());
 }
 
