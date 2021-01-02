@@ -58,7 +58,7 @@ void PlasmoidPackageTest::createTestPackage(const QString &packageName, const QS
     // Create the metadata.desktop file
     QFile file(m_packageRoot + "/" + packageName + "/metadata.desktop");
 
-    QVERIFY(file.open(QIODevice::WriteOnly | QIODevice::Text));
+    QVERIFY(file.open(QIODevice::WriteOnly));
 
     QTextStream out(&file);
     out << "[Desktop Entry]\n";
@@ -75,7 +75,7 @@ void PlasmoidPackageTest::createTestPackage(const QString &packageName, const QS
 
     // Create the main file.
     file.setFileName(m_packageRoot + "/" + packageName + "/contents/ui/main.qml");
-    QVERIFY(file.open(QIODevice::WriteOnly | QIODevice::Text));
+    QVERIFY(file.open(QIODevice::WriteOnly));
 
     out << "THIS IS A PLASMOID SCRIPT.....";
     file.flush();
@@ -89,7 +89,7 @@ void PlasmoidPackageTest::createTestPackage(const QString &packageName, const QS
     QVERIFY(QDir().mkpath(m_packageRoot + "/" + packageName + "/contents/images"));
     file.setFileName(m_packageRoot + "/" + packageName + "/contents/images/image-1.svg");
 
-    QVERIFY(file.open(QIODevice::WriteOnly | QIODevice::Text));
+    QVERIFY(file.open(QIODevice::WriteOnly));
 
     out << "<svg>This is a test image</svg>";
     file.flush();
@@ -97,7 +97,7 @@ void PlasmoidPackageTest::createTestPackage(const QString &packageName, const QS
 
     file.setFileName(m_packageRoot + "/" + packageName + "/contents/images/image-2.svg");
 
-    QVERIFY(file.open(QIODevice::WriteOnly | QIODevice::Text));
+    QVERIFY(file.open(QIODevice::WriteOnly));
 
     out.setDevice(&file);
     out << "<svg>This is another test image</svg>";
@@ -109,7 +109,7 @@ void PlasmoidPackageTest::createTestPackage(const QString &packageName, const QS
 
     // Create 2 js files
     file.setFileName(m_packageRoot + "/" + packageName + "/contents/code/script.js");
-    QVERIFY(file.open(QIODevice::WriteOnly | QIODevice::Text));
+    QVERIFY(file.open(QIODevice::WriteOnly));
 
     out << "THIS IS A SCRIPT.....";
     file.flush();
@@ -141,7 +141,7 @@ void PlasmoidPackageTest::isValid()
 
     // Create the metadata.desktop file.
     QFile file(m_packageRoot + "/" + m_package + "/metadata.desktop");
-    QVERIFY(file.open(QIODevice::WriteOnly | QIODevice::Text));
+    QVERIFY(file.open(QIODevice::WriteOnly));
 
     QTextStream out(&file);
     out << "[Desktop Entry]\n";
@@ -161,7 +161,7 @@ void PlasmoidPackageTest::isValid()
 
     // Create the main file.
     file.setFileName(m_packageRoot + "/" + m_package + "/contents/ui/main.qml");
-    QVERIFY(file.open(QIODevice::WriteOnly | QIODevice::Text));
+    QVERIFY(file.open(QIODevice::WriteOnly));
 
     out.setDevice(&file);
     out << "THIS IS A PLASMOID SCRIPT.....\n";
@@ -194,7 +194,7 @@ void PlasmoidPackageTest::filePath()
 
     QVERIFY(QDir().mkpath(m_packageRoot + "/" + m_package + "/contents/ui/main.qml"));
     QFile file(m_packageRoot + "/" + m_package + "/contents/ui/main.qml");
-    QVERIFY(file.open(QIODevice::WriteOnly | QIODevice::Text));
+    QVERIFY(file.open(QIODevice::WriteOnly));
 
     QTextStream out(&file);
     out << "THIS IS A PLASMOID SCRIPT.....";

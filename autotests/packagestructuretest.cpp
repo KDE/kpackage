@@ -225,7 +225,9 @@ void PackageStructureTest::emptyContentsPrefix()
     NoPrefixes package;
     QString path(package.filePath("bin", QStringLiteral("ls")));
     //qDebug() << path;
-    QCOMPARE(path, QStringLiteral("/bin/ls"));
+    if (QFileInfo::exists(QStringLiteral("/bin/ls"))) { // not Windows
+        QCOMPARE(path, QStringLiteral("/bin/ls"));
+    }
 }
 
 void PackageStructureTest::multiplePaths()
