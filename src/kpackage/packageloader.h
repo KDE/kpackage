@@ -71,8 +71,11 @@ public:
     /**
      * Loads a PackageStructure for a given format. The structure can then be used as
      * paramenter for a Package instance constructor
+     *
+     * @note The returned pointer is managed by KPackage, and should never be deleted
+     *
      * @param packageFormat the package format, such as "KPackage/GenericQML"
-     * @return the structure instance
+     * @return the structure instance (ownership retained by KPackage)
      */
     KPackage::PackageStructure *loadPackageStructure(const QString &packageFormat);
 
