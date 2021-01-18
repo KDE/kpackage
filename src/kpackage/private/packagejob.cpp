@@ -43,7 +43,7 @@ PackageJob::PackageJob(Package *package, QObject *parent) :
                 if (d->package) {
                     d->package->setPath(installPath);
                 }
-                emit installPathChanged(installPath);
+                Q_EMIT installPathChanged(installPath);
             }, Qt::QueuedConnection);
 }
 
