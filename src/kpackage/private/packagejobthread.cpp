@@ -177,7 +177,7 @@ bool PackageJobThread::install(const QString &src, const QString &dest)
 
 static QString resolveHandler(const QString &scheme)
 {
-    QString candidatePath = QStringLiteral(CMAKE_INSTALL_FULL_LIBEXECDIR_KF5 "/kpackagehandlers/%1handler").arg(scheme);
+    QString candidatePath = QStringLiteral(KDE_INSTALL_FULL_LIBEXECDIR_KF5 "/kpackagehandlers/%1handler").arg(scheme);
     if (qEnvironmentVariableIsSet("KPACKAGE_DEP_RESOLVERS_PATH")) {
         candidatePath = QStringLiteral("%1/%2handler").arg(QString::fromUtf8(qgetenv("KPACKAGE_DEP_RESOLVERS_PATH")), scheme);
     }
