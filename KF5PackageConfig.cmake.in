@@ -18,7 +18,7 @@ set_and_check(Package_INCLUDE_DIR    "@PACKAGE_KDE_INSTALL_INCLUDEDIR_KF5@")
 set(Package_LIBRARIES KF5::Package)
 
 include(CMakeFindDependencyMacro)
-find_dependency(KF5CoreAddons "@KF5_DEP_VERSION@")
+find_dependency(KF5CoreAddons "@KF_DEP_VERSION@")
 
 @PACKAGE_SETUP_AUTOMOC_VARIABLES@
 

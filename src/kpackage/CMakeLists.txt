@@ -43,7 +43,7 @@ ecm_generate_export_header(KF5Package
     EXPORT_FILE_NAME kpackage/package_export.h
     BASE_NAME KPackage
     GROUP_BASE_NAME KF
-    VERSION ${KF5_VERSION}
+    VERSION ${KF_VERSION}
     DEPRECATED_BASE_VERSION 0
     DEPRECATION_VERSIONS 5.21
     EXCLUDE_DEPRECATED_BEFORE_AND_AT ${EXCLUDE_DEPRECATED_BEFORE_AND_AT}
@@ -109,7 +109,7 @@ if(BUILD_QCH)
         KF5Package_QCH
         NAME KPackage
         BASE_NAME KF5Package
-        VERSION ${KF5_VERSION}
+        VERSION ${KF_VERSION}
         ORG_DOMAIN org.kde
         SOURCES # using only public headers, to cover only public API
             ${Package_HEADERS}
