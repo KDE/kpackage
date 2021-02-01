@@ -13,6 +13,7 @@
 #include <QJsonDocument>
 #include <QJsonArray>
 #include <QCoreApplication>
+#include <QVector>
 #include "kpackage_debug.h"
 
 #include <KCompressionDevice>

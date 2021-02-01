@@ -30,6 +30,7 @@
 #include <QStringList>
 #include <QTimer>
 #include <QUrl>
+#include <QVector>
 #include <QXmlStreamWriter>
 
 #include <iostream>
