@@ -237,10 +237,10 @@ bool PackageJobThread::installPackage(const QString &src, const QString &dest, O
         QMimeType mimetype = db.mimeTypeForFile(src);
         if (mimetype.inherits(QStringLiteral("application/zip"))) {
             archive = new KZip(src);
-        } else if (mimetype.inherits(QStringLiteral("application/x-compressed-tar")) ||
-                   mimetype.inherits(QStringLiteral("application/x-tar")) ||
-                   mimetype.inherits(QStringLiteral("application/x-bzip-compressed-tar")) ||
-                   mimetype.inherits(QStringLiteral("application/x-xz")) ||
+        } else if (mimetype.inherits(QStringLiteral("application/x-compressed-tar")) || //
+                   mimetype.inherits(QStringLiteral("application/x-tar")) || //
+                   mimetype.inherits(QStringLiteral("application/x-bzip-compressed-tar")) || //
+                   mimetype.inherits(QStringLiteral("application/x-xz")) || //
                    mimetype.inherits(QStringLiteral("application/x-lzma"))) {
             archive = new KTar(src);
         } else {

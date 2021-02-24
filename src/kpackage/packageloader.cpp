@@ -41,6 +41,7 @@ QSet<QString> PackageLoaderPrivate::knownCategories()
     // this is to trick the translation tools into making the correct
     // strings for translation
     QSet<QString> categories = s_customCategories;
+    // clang-format off
     categories << QStringLiteral(I18N_NOOP("Accessibility")).toLower()
                << QStringLiteral(I18N_NOOP("Application Launchers")).toLower()
                << QStringLiteral(I18N_NOOP("Astronomy")).toLower()
@@ -61,6 +62,7 @@ QSet<QString> PackageLoaderPrivate::knownCategories()
                << QStringLiteral(I18N_NOOP("System Information")).toLower()
                << QStringLiteral(I18N_NOOP("Utilities")).toLower()
                << QStringLiteral(I18N_NOOP("Windows and Tasks")).toLower();
+    // clang-format on
     return categories;
 }
 

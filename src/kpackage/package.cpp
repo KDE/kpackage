@@ -239,11 +239,11 @@ QString PackagePrivate::unpack(const QString &filePath)
 
     if (mimeType.inherits(QStringLiteral("application/zip"))) {
         archive = new KZip(filePath);
-    } else if (mimeType.inherits(QStringLiteral("application/x-compressed-tar")) ||
-               mimeType.inherits(QStringLiteral("application/x-gzip")) ||
-               mimeType.inherits(QStringLiteral("application/x-tar")) ||
-               mimeType.inherits(QStringLiteral("application/x-bzip-compressed-tar")) ||
-               mimeType.inherits(QStringLiteral("application/x-xz")) ||
+    } else if (mimeType.inherits(QStringLiteral("application/x-compressed-tar")) || //
+               mimeType.inherits(QStringLiteral("application/x-gzip")) || //
+               mimeType.inherits(QStringLiteral("application/x-tar")) || //
+               mimeType.inherits(QStringLiteral("application/x-bzip-compressed-tar")) || //
+               mimeType.inherits(QStringLiteral("application/x-xz")) || //
                mimeType.inherits(QStringLiteral("application/x-lzma"))) {
         archive = new KTar(filePath);
     } else {

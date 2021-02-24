@@ -94,7 +94,7 @@ void PackageJob::setupNotificationsOnJobFinished(const QString &messageName)
     const QString pluginId = d->package->metadata().pluginId();
     const QStringList serviceTypes = d->package->metadata().serviceTypes();
 
-    connect(d->thread, &PackageJobThread::finished, this, [=](bool ok, const QString &error) {
+    auto onJobFinished = [=](bool ok, const QString &error) {
         if (ok) {
             for (auto& packageType: serviceTypes) {
                 auto msg = QDBusMessage::createSignal(QStringLiteral("/KPackage/") + packageType, QStringLiteral("org.kde.plasma.kpackage"), messageName);
@@ -103,7 +103,8 @@ void PackageJob::setupNotificationsOnJobFinished(const QString &messageName)
             }
         }
         slotFinished(ok, error);
-    }, Qt::QueuedConnection);
+    };
+    connect(d->thread, &PackageJobThread::finished, this, onJobFinished, Qt::QueuedConnection);
 }
 
 } // namespace KPackage

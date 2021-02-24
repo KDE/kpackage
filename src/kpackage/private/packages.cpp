@@ -45,7 +45,7 @@ void GenericPackage::initPackage(KPackage::Package *package)
 {
     ChangeableMainScriptPackage::initPackage(package);
 
-    package->setDefaultPackageRoot(QStringLiteral("kpackage" "/generic/"));
+    package->setDefaultPackageRoot(QStringLiteral("kpackage/generic/"));
 
     package->addDirectoryDefinition("images", QStringLiteral("images"), i18n("Images"));
     package->addDirectoryDefinition("theme", QStringLiteral("theme"), i18n("Themed Images"));
