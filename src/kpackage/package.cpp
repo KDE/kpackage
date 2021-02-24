@@ -9,22 +9,22 @@
 
 #include "package.h"
 
-#include <qtemporarydir.h>
 #include <QResource>
+#include <qtemporarydir.h>
 
-#include <KArchive>
 #include "kpackage_debug.h"
+#include <KArchive>
+#include <KLocalizedString>
 #include <KTar>
 #include <kzip.h>
-#include <KLocalizedString>
 
 #include "config-package.h"
 
-#include <QStandardPaths>
 #include <QMimeDatabase>
+#include <QStandardPaths>
 
-#include "packagestructure.h"
 #include "packageloader.h"
+#include "packagestructure.h"
 #include "private/package_p.h"
 //#include "private/packages_p.h"
 #include "private/packagejob_p.h"
@@ -32,7 +32,6 @@
 
 namespace KPackage
 {
-
 Package::Package(PackageStructure *structure)
     : d(new PackagePrivate())
 {
@@ -53,7 +52,7 @@ Package::Package(const Package &other)
 
 Package::~Package()
 {
-    //guard against deletion on application shutdown
+    // guard against deletion on application shutdown
     if (PackageDeletionNotifier::self()) {
         Q_EMIT PackageDeletionNotifier::self()->packageDeleted(this);
     }
@@ -79,8 +78,8 @@ bool Package::isValid() const
         return false;
     }
 
-    //Minimal packages with no metadata *are* supposed to be possible
-    //so if !metadata().isValid() go ahead
+    // Minimal packages with no metadata *are* supposed to be possible
+    // so if !metadata().isValid() go ahead
     if (metadata().isValid() && metadata().value(QStringLiteral("isHidden"), QStringLiteral("false")) == QLatin1String("true")) {
         return false;
     }
@@ -90,15 +89,15 @@ bool Package::isValid() const
     }
 
     const QString rootPath = d->tempRoot.isEmpty() ? d->path : d->tempRoot;
-    if(rootPath.isEmpty()) {
+    if (rootPath.isEmpty()) {
         return false;
     }
 
     d->valid = true;
 
-    //search for the file in all prefixes and in all possible paths for each prefix
-    //even if it's a big nested loop, usually there is one prefix and one location
-    //so shouldn't cause too much disk access
+    // search for the file in all prefixes and in all possible paths for each prefix
+    // even if it's a big nested loop, usually there is one prefix and one location
+    // so shouldn't cause too much disk access
     QHashIterator<QByteArray, ContentStructure> it(d->contents);
 
     while (it.hasNext()) {
@@ -109,7 +108,8 @@ bool Package::isValid() const
 
         const QString foundPath = filePath(it.key(), {});
         if (foundPath.isEmpty()) {
-            //qCWarning(KPACKAGE_LOG) << "Could not find required" << (it.value().directory ? "directory" : "file") << it.key() << "for package" << path() << "should be" << it.value().paths;
+            // qCWarning(KPACKAGE_LOG) << "Could not find required" << (it.value().directory ? "directory" : "file") << it.key() << "for package" << path() <<
+            // "should be" << it.value().paths;
             d->valid = false;
             break;
         }
@@ -169,9 +169,8 @@ void Package::setDefaultPackageRoot(const QString &packageRoot)
 void Package::setFallbackPackage(const KPackage::Package &package)
 {
     if ((d->fallbackPackage && d->fallbackPackage->path() == package.path() && d->fallbackPackage->metadata() == package.metadata()) ||
-        //can't be fallback of itself
-        (package.path() == path() && package.metadata() == metadata()) ||
-        d->hasCycle(package)) {
+        // can't be fallback of itself
+        (package.path() == path() && package.metadata() == metadata()) || d->hasCycle(package)) {
         return;
     }
 
@@ -200,7 +199,7 @@ void Package::setAllowExternalPaths(bool allow)
 
 KPluginMetaData Package::metadata() const
 {
-    //qCDebug(KPACKAGE_LOG) << "metadata: " << d->path << filePath("metadata");
+    // qCDebug(KPACKAGE_LOG) << "metadata: " << d->path << filePath("metadata");
     if (!d->metadata && !d->path.isEmpty()) {
         const QString metadataPath = filePath("metadata");
 
@@ -247,7 +246,7 @@ QString PackagePrivate::unpack(const QString &filePath)
                mimeType.inherits(QStringLiteral("application/x-lzma"))) {
         archive = new KTar(filePath);
     } else {
-        //qCWarning(KPACKAGE_LOG) << "Could not open package file, unsupported archive format:" << filePath << mimeType.name();
+        // qCWarning(KPACKAGE_LOG) << "Could not open package file, unsupported archive format:" << filePath << mimeType.name();
     }
     QString tempRoot;
     if (archive && archive->open(QIODevice::ReadOnly)) {
@@ -270,7 +269,7 @@ QString PackagePrivate::unpack(const QString &filePath)
 
         createPackageMetadata(tempRoot);
     } else {
-        //qCWarning(KPACKAGE_LOG) << "Could not open package file:" << path;
+        // qCWarning(KPACKAGE_LOG) << "Could not open package file:" << path;
     }
 
     delete archive;
@@ -288,7 +287,7 @@ bool PackagePrivate::isInsidePackageDir(const QString &canonicalPath) const
     // make sure that the base path is also canonical
     // this was not the case until 5.8, making this check fail e.g. if /home is a symlink
     // which in turn would make plasmashell not find the .qml files
-    //installed package
+    // installed package
     if (tempRoot.isEmpty()) {
         Q_ASSERT(QDir(path).exists());
         Q_ASSERT(path == QStringLiteral("/") || QDir(path).canonicalPath() + QLatin1Char('/') == path);
@@ -296,7 +295,7 @@ bool PackagePrivate::isInsidePackageDir(const QString &canonicalPath) const
         if (canonicalPath.startsWith(path)) {
             return true;
         }
-    //temporary compressed package
+        // temporary compressed package
     } else {
         Q_ASSERT(QDir(tempRoot).exists());
         Q_ASSERT(tempRoot == QStringLiteral("/") || QDir(tempRoot).canonicalPath() + QLatin1Char('/') == tempRoot);
@@ -308,7 +307,6 @@ bool PackagePrivate::isInsidePackageDir(const QString &canonicalPath) const
     qCWarning(KPACKAGE_LOG) << "Path traversal attempt detected:" << canonicalPath << "is not inside" << path;
     return false;
 }
-
 
 QString Package::filePath(const QByteArray &fileType, const QString &filename) const
 {
@@ -332,30 +330,30 @@ QString Package::filePath(const QByteArray &fileType, const QString &filename) c
     if (!fileType.isEmpty()) {
         const auto contents = d->contents.constFind(fileType);
         if (contents == d->contents.constEnd()) {
-            //qCDebug(KPACKAGE_LOG) << "package does not contain" << fileType << filename;
+            // qCDebug(KPACKAGE_LOG) << "package does not contain" << fileType << filename;
             return d->fallbackFilePath(fileType, filename);
         }
 
         paths = contents->paths;
 
         if (paths.isEmpty()) {
-            //qCDebug(KPACKAGE_LOG) << "no matching path came of it, while looking for" << fileType << filename;
+            // qCDebug(KPACKAGE_LOG) << "no matching path came of it, while looking for" << fileType << filename;
             d->discoveries.insert(discoveryKey, QString());
             return d->fallbackFilePath(fileType, filename);
         }
     } else {
-        //when filetype is empty paths is always empty, so try with an empty string
+        // when filetype is empty paths is always empty, so try with an empty string
         paths << QString();
     }
 
-    //Nested loop, but in the medium case resolves to just one iteration
-//     qCDebug(KPACKAGE_LOG) << "prefixes:" << d->contentsPrefixPaths.count() << d->contentsPrefixPaths;
+    // Nested loop, but in the medium case resolves to just one iteration
+    //     qCDebug(KPACKAGE_LOG) << "prefixes:" << d->contentsPrefixPaths.count() << d->contentsPrefixPaths;
     for (const QString &contentsPrefix : qAsConst(d->contentsPrefixPaths)) {
         QString prefix;
-        //We are an installed package
+        // We are an installed package
         if (d->tempRoot.isEmpty()) {
             prefix = fileType == "metadata" ? d->path : (d->path + contentsPrefix);
-        //We are a compressed package temporarily uncompressed in /tmp
+            // We are a compressed package temporarily uncompressed in /tmp
         } else {
             prefix = fileType == "metadata" ? d->tempRoot : (d->tempRoot + contentsPrefix);
         }
@@ -370,7 +368,7 @@ QString Package::filePath(const QByteArray &fileType, const QString &filename) c
             QFileInfo fi(file);
             if (fi.exists()) {
                 if (d->externalPaths) {
-                    //qCDebug(KPACKAGE_LOG) << "found" << file;
+                    // qCDebug(KPACKAGE_LOG) << "found" << file;
                     d->discoveries.insert(discoveryKey, file);
                     return file;
                 }
@@ -378,7 +376,7 @@ QString Package::filePath(const QByteArray &fileType, const QString &filename) c
                 // ensure that we don't return files outside of our base path
                 // due to symlink or ../ games
                 if (d->isInsidePackageDir(fi.canonicalFilePath())) {
-                    //qCDebug(KPACKAGE_LOG) << "found" << file;
+                    // qCDebug(KPACKAGE_LOG) << "found" << file;
                     d->discoveries.insert(discoveryKey, file);
                     return file;
                 }
@@ -386,14 +384,14 @@ QString Package::filePath(const QByteArray &fileType, const QString &filename) c
         }
     }
 
-    //qCDebug(KPACKAGE_LOG) << fileType << filename << "does not exist in" << prefixes << "at root" << d->path;
+    // qCDebug(KPACKAGE_LOG) << fileType << filename << "does not exist in" << prefixes << "at root" << d->path;
     return d->fallbackFilePath(fileType, filename);
 }
 
 QUrl Package::fileUrl(const QByteArray &fileType, const QString &filename) const
 {
     QString path = filePath(fileType, filename);
-    //construct a qrc:/ url or a file:/ url, the only two protocols supported
+    // construct a qrc:/ url or a file:/ url, the only two protocols supported
     if (path.startsWith(QStringLiteral(":"))) {
         return QUrl(QStringLiteral("qrc") + path);
     } else {
@@ -409,19 +407,19 @@ QStringList Package::entryList(const QByteArray &key) const
 
     QHash<QByteArray, ContentStructure>::const_iterator it = d->contents.constFind(key);
     if (it == d->contents.constEnd()) {
-        //qCDebug(KPACKAGE_LOG) << "couldn't find" << key;
+        // qCDebug(KPACKAGE_LOG) << "couldn't find" << key;
         return QStringList();
     }
 
-    //qCDebug(KPACKAGE_LOG) << "going to list" << key;
+    // qCDebug(KPACKAGE_LOG) << "going to list" << key;
     QStringList list;
     for (const QString &prefix : qAsConst(d->contentsPrefixPaths)) {
-        //qCDebug(KPACKAGE_LOG) << "     looking in" << prefix;
+        // qCDebug(KPACKAGE_LOG) << "     looking in" << prefix;
         const QStringList paths = it.value().paths;
         for (const QString &path : paths) {
-            //qCDebug(KPACKAGE_LOG) << "         looking in" << path;
+            // qCDebug(KPACKAGE_LOG) << "         looking in" << path;
             if (it.value().directory) {
-                //qCDebug(KPACKAGE_LOG) << "it's a directory, so trying out" << d->path + prefix + path;
+                // qCDebug(KPACKAGE_LOG) << "it's a directory, so trying out" << d->path + prefix + path;
                 QDir dir(d->path + prefix + path);
 
                 if (d->externalPaths) {
@@ -436,7 +434,7 @@ QStringList Package::entryList(const QByteArray &key) const
                 }
             } else {
                 const QString fullPath = d->path + prefix + path;
-                //qCDebug(KPACKAGE_LOG) << "it's a file at" << fullPath << QFile::exists(fullPath);
+                // qCDebug(KPACKAGE_LOG) << "it's a file at" << fullPath << QFile::exists(fullPath);
                 if (!QFile::exists(fullPath)) {
                     continue;
                 }
@@ -447,7 +445,7 @@ QStringList Package::entryList(const QByteArray &key) const
                     QDir dir(fullPath);
                     QString canonicalized = dir.canonicalPath() + QDir::separator();
 
-                    //qCDebug(KPACKAGE_LOG) << "testing that" << canonicalized << "is in" << d->path;
+                    // qCDebug(KPACKAGE_LOG) << "testing that" << canonicalized << "is in" << d->path;
                     if (canonicalized.startsWith(d->path)) {
                         list += fullPath;
                     }
@@ -502,7 +500,7 @@ void Package::setPath(const QString &path)
         }
 
         if (QDir::isRelativePath(p)) {
-            //FIXME: can searching of the qrc be better?
+            // FIXME: can searching of the qrc be better?
             paths << QStandardPaths::locateAll(QStandardPaths::GenericDataLocation, p, QStandardPaths::LocateDirectory);
         } else {
             const QDir dir(p);
@@ -511,7 +509,7 @@ void Package::setPath(const QString &path)
             }
         }
 
-        //qCDebug(KPACKAGE_LOG) << "paths:" << p << paths << d->defaultPackageRoot;
+        // qCDebug(KPACKAGE_LOG) << "paths:" << p << paths << d->defaultPackageRoot;
     } else {
         const QDir dir(path);
         if (QFile::exists(dir.canonicalPath())) {
@@ -534,17 +532,17 @@ void Package::setPath(const QString &path)
 
         Q_ASSERT(QFile::exists(dir.canonicalPath()));
 
-        //if it has a contents.rcc, give priority to it
+        // if it has a contents.rcc, give priority to it
         if (dir.exists(QStringLiteral("contents.rcc"))) {
             d->rccPath = dir.absoluteFilePath(QStringLiteral("contents.rcc"));
             QResource::registerResource(d->rccPath);
 
-            //we need just the plugin name here, never the absolute path
+            // we need just the plugin name here, never the absolute path
             dir = QDir(QStringLiteral(":/") + defaultPackageRoot() + path.midRef(path.lastIndexOf(QLatin1Char('/'))));
         }
 
         d->path = dir.canonicalPath();
-         // canonicalPath() does not include a trailing slash (unless it is the root dir)
+        // canonicalPath() does not include a trailing slash (unless it is the root dir)
         if (!d->path.endsWith(QLatin1Char('/'))) {
             d->path.append(QLatin1Char('/'));
         }
@@ -562,7 +560,6 @@ void Package::setPath(const QString &path)
             break;
         }
     }
-
 
     // if nothing did change, then we go back to the old dptr
     if (d->path == previousPath) {
@@ -628,9 +625,9 @@ QByteArray Package::cryptographicHash(QCryptographicHash::Algorithm algorithm) c
     }
 
     QCryptographicHash hash(algorithm);
-    const QString metadataPath = QFile::exists(d->path + QLatin1String("metadata.json")) ? d->path + QLatin1String("metadata.json")
-                               : QFile::exists(d->path + QLatin1String("metadata.desktop")) ? d->path + QLatin1String("metadata.desktop")
-                               : QString();
+    const QString metadataPath = QFile::exists(d->path + QLatin1String("metadata.json"))
+        ? d->path + QLatin1String("metadata.json")
+        : QFile::exists(d->path + QLatin1String("metadata.desktop")) ? d->path + QLatin1String("metadata.desktop") : QString();
     if (!metadataPath.isEmpty()) {
         QFile f(metadataPath);
         if (f.open(QIODevice::ReadOnly)) {
@@ -768,8 +765,7 @@ QList<QByteArray> Package::requiredDirectories() const
     QList<QByteArray> dirs;
     QHash<QByteArray, ContentStructure>::const_iterator it = d->contents.constBegin();
     while (it != d->contents.constEnd()) {
-        if (it.value().directory &&
-                it.value().required) {
+        if (it.value().directory && it.value().required) {
             dirs << it.key();
         }
         ++it;
@@ -815,13 +811,13 @@ KJob *Package::install(const QString &sourcePackage, const QString &packageRoot)
     QString dest = packageRoot.isEmpty() ? defaultPackageRoot() : packageRoot;
     KPackage::PackageLoader::self()->d->maxCacheAge = -1;
 
-    //use absolute paths if passed, otherwise go under share
+    // use absolute paths if passed, otherwise go under share
     if (!QDir::isAbsolutePath(dest)) {
         dest = QStandardPaths::writableLocation(QStandardPaths::GenericDataLocation) + QLatin1Char('/') + dest;
     }
 
-    //qCDebug(KPACKAGE_LOG) << "Source: " << src;
-    //qCDebug(KPACKAGE_LOG) << "PackageRoot: " << dest;
+    // qCDebug(KPACKAGE_LOG) << "Source: " << src;
+    // qCDebug(KPACKAGE_LOG) << "PackageRoot: " << dest;
     KJob *j = d->structure.data()->install(this, src, dest);
     return j;
 }
@@ -837,13 +833,13 @@ KJob *Package::update(const QString &sourcePackage, const QString &packageRoot)
     QString dest = packageRoot.isEmpty() ? defaultPackageRoot() : packageRoot;
     KPackage::PackageLoader::self()->d->maxCacheAge = -1;
 
-    //use absolute paths if passed, otherwise go under share
+    // use absolute paths if passed, otherwise go under share
     if (!QDir::isAbsolutePath(dest)) {
         dest = QStandardPaths::writableLocation(QStandardPaths::GenericDataLocation) + QLatin1Char('/') + dest;
     }
 
-    //qCDebug(KPACKAGE_LOG) << "Source: " << src;
-    //qCDebug(KPACKAGE_LOG) << "PackageRoot: " << dest;
+    // qCDebug(KPACKAGE_LOG) << "Source: " << src;
+    // qCDebug(KPACKAGE_LOG) << "PackageRoot: " << dest;
     KJob *j = d->structure.data()->update(this, src, dest);
     return j;
 }
@@ -859,12 +855,12 @@ KJob *Package::uninstall(const QString &packageName, const QString &packageRoot)
 }
 
 PackagePrivate::PackagePrivate()
-    : QSharedData(),
-      fallbackPackage(nullptr),
-      metadata(nullptr),
-      externalPaths(false),
-      valid(false),
-      checkedValid(false)
+    : QSharedData()
+    , fallbackPackage(nullptr)
+    , metadata(nullptr)
+    , externalPaths(false)
+    , valid(false)
+    , checkedValid(false)
 {
     contentsPrefixPaths << QStringLiteral("contents/");
 }
@@ -879,9 +875,9 @@ PackagePrivate::PackagePrivate(const PackagePrivate &other)
 PackagePrivate::~PackagePrivate()
 {
     if (!rccPath.isEmpty()) {
-        //qresource register/unregisterpath is refcounted if we call it two times
-        //on the same path, the resource will actually be unregistered only when
-        //unregister is called 2 times
+        // qresource register/unregisterpath is refcounted if we call it two times
+        // on the same path, the resource will actually be unregistered only when
+        // unregister is called 2 times
         QResource::unregisterResource(rccPath);
     }
 
@@ -949,7 +945,7 @@ void PackagePrivate::updateHash(const QString &basePath, const QString &subPath,
                 }
             } else {
                 qCWarning(KPACKAGE_LOG) << "could not add" << f.fileName() << "to the hash; file could not be opened for reading. "
-                           << "permissions fail?" << info.permissions() << info.isFile();
+                                        << "permissions fail?" << info.permissions() << info.isFile();
             }
         }
     }
@@ -972,7 +968,6 @@ void PackagePrivate::updateHash(const QString &basePath, const QString &subPath,
 
 void PackagePrivate::createPackageMetadata(const QString &path)
 {
-
     const bool isDir = QFileInfo(path).isDir();
 
     delete metadata;
@@ -995,7 +990,7 @@ void PackagePrivate::createPackageMetadata(const QString &path)
 
 QString PackagePrivate::fallbackFilePath(const QByteArray &key, const QString &filename) const
 {
-    //don't fallback if the package isn't valid and never fallback the metadata file
+    // don't fallback if the package isn't valid and never fallback the metadata file
     if (qstrcmp(key, "metadata") != 0 && fallbackPackage && fallbackPackage->isValid()) {
         return fallbackPackage->filePath(key, filename);
     } else {
@@ -1009,15 +1004,16 @@ bool PackagePrivate::hasCycle(const KPackage::Package &package)
         return false;
     }
 
-    //This is the Floyd cycle detection algorithm
-    //http://en.wikipedia.org/wiki/Cycle_detection#Tortoise_and_hare
+    // This is the Floyd cycle detection algorithm
+    // http://en.wikipedia.org/wiki/Cycle_detection#Tortoise_and_hare
     KPackage::Package *slowPackage = const_cast<KPackage::Package *>(&package);
     KPackage::Package *fastPackage = const_cast<KPackage::Package *>(&package);
 
     while (fastPackage && fastPackage->d->fallbackPackage) {
-        //consider two packages the same if they have the same metadata
-        if ((fastPackage->d->fallbackPackage->metadata().isValid() && fastPackage->d->fallbackPackage->metadata() == slowPackage->metadata()) ||
-            (fastPackage->d->fallbackPackage->d->fallbackPackage && fastPackage->d->fallbackPackage->d->fallbackPackage->metadata().isValid() && fastPackage->d->fallbackPackage->d->fallbackPackage->metadata() == slowPackage->metadata())) {
+        // consider two packages the same if they have the same metadata
+        if ((fastPackage->d->fallbackPackage->metadata().isValid() && fastPackage->d->fallbackPackage->metadata() == slowPackage->metadata())
+            || (fastPackage->d->fallbackPackage->d->fallbackPackage && fastPackage->d->fallbackPackage->d->fallbackPackage->metadata().isValid()
+                && fastPackage->d->fallbackPackage->d->fallbackPackage->metadata() == slowPackage->metadata())) {
             qCWarning(KPACKAGE_LOG) << "Warning: the fallback chain of " << package.metadata().pluginId() << "contains a cyclical dependency.";
             return true;
         }
@@ -1028,7 +1024,7 @@ bool PackagePrivate::hasCycle(const KPackage::Package &package)
 }
 
 Q_GLOBAL_STATIC(PackageDeletionNotifier, s_packageDeletionNotifier)
-PackageDeletionNotifier* PackageDeletionNotifier::self()
+PackageDeletionNotifier *PackageDeletionNotifier::self()
 {
     return s_packageDeletionNotifier;
 }

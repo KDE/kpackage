@@ -4,9 +4,9 @@
     SPDX-License-Identifier: LGPL-2.0-or-later
 */
 
+#include "config-package.h"
 #include "packagejob_p.h"
 #include "packagejobthread_p.h"
-#include "config-package.h"
 
 #include "package_p.h"
 
@@ -25,9 +25,9 @@ public:
     QString installPath;
 };
 
-PackageJob::PackageJob(Package *package, QObject *parent) :
-    KJob(parent)
-  , d(new PackageJobPrivate)
+PackageJob::PackageJob(Package *package, QObject *parent)
+    : KJob(parent)
+    , d(new PackageJobPrivate)
 {
     d->thread = new PackageJobThread(this);
     d->package = package;
@@ -38,13 +38,17 @@ PackageJob::PackageJob(Package *package, QObject *parent) :
         }
     });
 
-    connect(d->thread, &PackageJobThread::installPathChanged, this,
-            [this](const QString &installPath) {
-                if (d->package) {
-                    d->package->setPath(installPath);
-                }
-                Q_EMIT installPathChanged(installPath);
-            }, Qt::QueuedConnection);
+    connect(
+        d->thread,
+        &PackageJobThread::installPathChanged,
+        this,
+        [this](const QString &installPath) {
+            if (d->package) {
+                d->package->setPath(installPath);
+            }
+            Q_EMIT installPathChanged(installPath);
+        },
+        Qt::QueuedConnection);
 }
 
 PackageJob::~PackageJob()
@@ -89,14 +93,14 @@ void PackageJob::uninstall(const QString &installationPath)
 
 void PackageJob::setupNotificationsOnJobFinished(const QString &messageName)
 {
-    //capture first as uninstalling wipes d->package
-    //or d-package can become dangling during the job if deleted externally
+    // capture first as uninstalling wipes d->package
+    // or d-package can become dangling during the job if deleted externally
     const QString pluginId = d->package->metadata().pluginId();
     const QStringList serviceTypes = d->package->metadata().serviceTypes();
 
     auto onJobFinished = [=](bool ok, const QString &error) {
         if (ok) {
-            for (auto& packageType: serviceTypes) {
+            for (auto &packageType : serviceTypes) {
                 auto msg = QDBusMessage::createSignal(QStringLiteral("/KPackage/") + packageType, QStringLiteral("org.kde.plasma.kpackage"), messageName);
                 msg.setArguments({pluginId});
                 QDBusConnection::sessionBus().send(msg);

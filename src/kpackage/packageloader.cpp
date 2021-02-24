@@ -7,32 +7,30 @@
 #include "packageloader.h"
 #include "private/packageloader_p.h"
 
-#include <QStandardPaths>
+#include "kpackage_debug.h"
+#include <QCoreApplication>
 #include <QDateTime>
 #include <QDirIterator>
-#include <QJsonDocument>
 #include <QJsonArray>
-#include <QCoreApplication>
+#include <QJsonDocument>
+#include <QStandardPaths>
 #include <QVector>
-#include "kpackage_debug.h"
 
 #include <KCompressionDevice>
 #include <KLocalizedString>
-#include <KPluginLoader>
 #include <KPluginFactory>
+#include <KPluginLoader>
 
 #include "config-package.h"
 
-#include "private/packages_p.h"
 #include "package.h"
 #include "packagestructure.h"
 #include "private/packagejobthread_p.h"
+#include "private/packages_p.h"
 
 namespace KPackage
 {
-
 static PackageLoader *s_packageTrader = nullptr;
-
 
 QSet<QString> PackageLoaderPrivate::s_customCategories;
 
@@ -74,8 +72,7 @@ QString PackageLoaderPrivate::parentAppConstraint(const QString &parentApp)
             return QString();
         }
 
-        return QStringLiteral("((not exist [X-KDE-ParentApp] or [X-KDE-ParentApp] == '') or [X-KDE-ParentApp] == '%1')")
-               .arg(app->applicationName());
+        return QStringLiteral("((not exist [X-KDE-ParentApp] or [X-KDE-ParentApp] == '') or [X-KDE-ParentApp] == '%1')").arg(app->applicationName());
     }
 
     return QStringLiteral("[X-KDE-ParentApp] == '%1'").arg(parentApp);
@@ -145,7 +142,7 @@ Package PackageLoader::loadPackage(const QString &packageFormat, const QString &
     }
 
 #ifndef NDEBUG
-        // qCDebug(KPACKAGE_LOG) << "Couldn't load Package for" << packageFormat << "! reason given: " << error;
+    // qCDebug(KPACKAGE_LOG) << "Couldn't load Package for" << packageFormat << "! reason given: " << error;
 #endif
 
     return Package();
@@ -175,10 +172,10 @@ QList<KPluginMetaData> PackageLoader::listPackages(const QString &packageFormat,
 
     QList<KPluginMetaData> lst;
 
-    //has been a root specified?
+    // has been a root specified?
     QString actualRoot = packageRoot;
 
-    //try to take it from the package structure
+    // try to take it from the package structure
     if (actualRoot.isEmpty()) {
         PackageStructure *structure = d->structures.value(packageFormat).data();
         if (!structure) {
@@ -197,7 +194,6 @@ QList<KPluginMetaData> PackageLoader::listPackages(const QString &packageFormat,
             d->structures.insert(packageFormat, structure);
             Package p(structure);
             actualRoot = p.defaultPackageRoot();
-
         }
     }
 
@@ -239,7 +235,7 @@ QList<KPluginMetaData> PackageLoader::listPackages(const QString &packageFormat,
             qCDebug(KPACKAGE_LOG) << "kpluginindex: Not cached" << plugindir;
             // If there's no cache file, fall back to listing the directory
             const QDirIterator::IteratorFlags flags = QDirIterator::Subdirectories;
-            const QStringList nameFilters = { QStringLiteral("metadata.json"), QStringLiteral("metadata.desktop") };
+            const QStringList nameFilters = {QStringLiteral("metadata.json"), QStringLiteral("metadata.desktop")};
 
             QDirIterator it(plugindir, nameFilters, QDir::Files, flags);
             QSet<QString> dirs;
@@ -274,7 +270,8 @@ QList<KPluginMetaData> PackageLoader::listPackages(const QString &packageFormat,
     return lst;
 }
 
-QList<KPluginMetaData> PackageLoader::findPackages(const QString &packageFormat, const QString &packageRoot, std::function<bool(const KPluginMetaData &)> filter)
+QList<KPluginMetaData>
+PackageLoader::findPackages(const QString &packageFormat, const QString &packageRoot, std::function<bool(const KPluginMetaData &)> filter)
 {
     QList<KPluginMetaData> lst;
     const auto lstPlugins = listPackages(packageFormat, packageRoot);
@@ -362,8 +359,7 @@ KPackage::PackageStructure *PackageLoader::loadPackageStructure(const QString &p
     }
 
     if (structure && !error.isEmpty()) {
-        qCWarning(KPACKAGE_LOG) << i18n("Could not load installer for package of type %1. Error reported was: %2",
-                            packageFormat, error);
+        qCWarning(KPACKAGE_LOG) << i18n("Could not load installer for package of type %1. Error reported was: %2", packageFormat, error);
     }
 
     if (structure) {
@@ -385,4 +381,3 @@ Package PackageLoader::internalLoadPackage(const QString &name)
 }
 
 } // KPackage Namespace
-

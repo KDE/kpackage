@@ -6,15 +6,14 @@
 
 #include "packagestructure.h"
 #include "kpackage_debug.h"
-#include <private/packagejob_p.h>
 #include "private/package_p.h"
+#include <private/packagejob_p.h>
 
 namespace KPackage
 {
-
 PackageStructure::PackageStructure(QObject *parent, const QVariantList &args)
-    : QObject(parent),
-      d(nullptr)
+    : QObject(parent)
+    , d(nullptr)
 {
     Q_UNUSED(args)
 }

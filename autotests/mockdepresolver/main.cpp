@@ -8,7 +8,7 @@
 #include <QDebug>
 #include <QUrl>
 
-int main(int argc, char** argv)
+int main(int argc, char **argv)
 {
     QCoreApplication app(argc, argv);
     Q_ASSERT(app.arguments().count() == 2);
@@ -20,11 +20,11 @@ int main(int argc, char** argv)
     // This is very basic dep resolver used for mocking in tests
     // if asked to install invalidapp, will fail
     // if asked to install validdep, will pass
-	const QString componentName = url.host();
-	if (componentName.isEmpty()) {
-		qWarning() << "wrongly formatted URI" << url;
+    const QString componentName = url.host();
+    if (componentName.isEmpty()) {
+        qWarning() << "wrongly formatted URI" << url;
         return 1;
-	}
+    }
 
     if (componentName == QStringLiteral("invaliddep")) {
         qWarning() << "package asked to install invalid dep, bailing out";
@@ -38,6 +38,4 @@ int main(int argc, char** argv)
 
     qWarning() << "Assuming provided package is not available";
     return 1;
-
 }
-

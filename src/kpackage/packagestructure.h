@@ -11,13 +11,12 @@
 
 #include <KPluginFactory>
 
-#include <kpackage/package_export.h>
 #include <kpackage/package.h>
+#include <kpackage/package_export.h>
 #include <kpackage/version.h>
 
 namespace KPackage
 {
-
 class PackageStructurePrivate;
 
 /**
@@ -45,7 +44,6 @@ class KPACKAGE_EXPORT PackageStructure : public QObject
     Q_OBJECT
 
 public:
-
     explicit PackageStructure(QObject *parent = nullptr, const QVariantList &args = QVariantList());
 
     ~PackageStructure();
@@ -119,8 +117,8 @@ private:
  * Register a Package class when it is contained in a loadable module
  */
 
-#define K_EXPORT_KPACKAGE_PACKAGE_WITH_JSON(classname, jsonFile) \
-    K_PLUGIN_FACTORY_WITH_JSON(factory, jsonFile, registerPlugin<classname>();) \
+#define K_EXPORT_KPACKAGE_PACKAGE_WITH_JSON(classname, jsonFile)                                                                                               \
+    K_PLUGIN_FACTORY_WITH_JSON(factory, jsonFile, registerPlugin<classname>();)                                                                                \
     K_EXPORT_PLUGIN_VERSION(PACKAGE_VERSION)
 
 #endif

@@ -23,7 +23,6 @@ private Q_SLOTS:
     void validate();
     void testResourceRefCount();
 
-
 private:
     KPackage::Package *m_pkg;
     KPackage::Package *m_pkg2;
@@ -31,4 +30,3 @@ private:
 };
 
 #endif
-

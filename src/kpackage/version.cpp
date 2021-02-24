@@ -1,6 +1,6 @@
 /*
     SPDX-FileCopyrightText: 2008 Aaron Seigo <aseigo@kde.org>
- 
+
     SPDX-License-Identifier: LGPL-2.0-or-later
 */
 
@@ -10,7 +10,6 @@
 
 namespace KPackage
 {
-
 unsigned int version()
 {
     return PACKAGE_VERSION;
@@ -61,4 +60,3 @@ bool isPluginVersionCompatible(unsigned int version)
 }
 
 } // namespace
-

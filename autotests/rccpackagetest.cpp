@@ -7,14 +7,13 @@
 
 #include "rccpackagetest.h"
 
-
 #include <QDebug>
 #include <QStandardPaths>
 
-#include <KLocalizedString>
+#include "packageloader.h"
 #include "packagestructure.h"
 #include "plasmoidstructure.h"
-#include "packageloader.h"
+#include <KLocalizedString>
 
 void RccPackageTest::initTestCase()
 {
@@ -28,21 +27,21 @@ void RccPackageTest::initTestCase()
     dir.mkpath(destination);
     QVERIFY(dir.exists(destination));
 
-    //verify the source files exist
+    // verify the source files exist
     QVERIFY(QFile::exists(QStringLiteral("../autotests/testpackage-rcc/metadata.json")));
     QVERIFY(QFile::exists(QStringLiteral("../autotests/testpackage-rcc/contents.rcc")));
 
     QFile::copy(QStringLiteral("../autotests/testpackage-rcc/metadata.json"), destination + QStringLiteral("metadata.json"));
     QFile::copy(QStringLiteral("../autotests/testpackage-rcc/contents.rcc"), destination + QStringLiteral("contents.rcc"));
 
-    //verify they have been copied correctly
+    // verify they have been copied correctly
     QVERIFY(QFile::exists(destination + QStringLiteral("metadata.json")));
     QVERIFY(QFile::exists(destination + QStringLiteral("contents.rcc")));
 
     m_packagePath = "testpackage-rcc";
     m_pkg = new KPackage::Package(new KPackage::PlasmoidPackage);
     m_pkg->setPath(m_packagePath);
-    //Two package instances with the same resource
+    // Two package instances with the same resource
     m_pkg2 = new KPackage::Package(new KPackage::PlasmoidPackage);
     m_pkg2->setPath(m_packagePath);
 }
@@ -59,7 +58,7 @@ void RccPackageTest::accessFiles()
     QVERIFY(m_pkg->hasValidStructure());
     QVERIFY(m_pkg->hasValidStructure());
 
-    //check for existence of all files
+    // check for existence of all files
     QVERIFY(!m_pkg->filePath("ui", QStringLiteral("main.qml")).isEmpty());
     QVERIFY(!m_pkg->filePath("ui", QStringLiteral("otherfile.qml")).isEmpty());
     QVERIFY(!m_pkg->filePath("images", QStringLiteral("empty.png")).isEmpty());
@@ -86,11 +85,10 @@ void RccPackageTest::testResourceRefCount()
     QVERIFY(m_pkg2->isValid());
     QVERIFY(QFile::exists(QStringLiteral(":/plasma/plasmoids/testpackage-rcc/contents/ui/main.qml")));
 
-    //no reference from this package anymore
+    // no reference from this package anymore
     delete m_pkg2;
     m_pkg2 = nullptr;
     QVERIFY(!QFile::exists(QStringLiteral(":/plasma/plasmoids/testpackage-rcc/contents/ui/main.qml")));
 }
 
 QTEST_MAIN(RccPackageTest)
-

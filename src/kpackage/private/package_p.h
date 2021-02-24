@@ -11,28 +11,27 @@
 
 #include <QCryptographicHash>
 #include <QDir>
-#include <QString>
-#include <QSharedData>
-#include <QPointer>
 #include <QHash>
+#include <QPointer>
+#include <QSharedData>
+#include <QString>
 namespace KPackage
 {
+// KPackage is is normally used on the stack, explicitly shared and isn't a QObject
+// however PackageJob is given a pointer, which could be deleted at any moment
+// leaving the PackageJob with a dangling pointer
+// we need some way to invalidate the Package* pointer if it gets deleted
 
-//KPackage is is normally used on the stack, explicitly shared and isn't a QObject
-//however PackageJob is given a pointer, which could be deleted at any moment
-//leaving the PackageJob with a dangling pointer
-//we need some way to invalidate the Package* pointer if it gets deleted
+// we can't just take a copy in the packagejob as we need to detach and update the *original* KPackage object
+// without changing anything else which happened to share the same KPackage::d
 
-//we can't just take a copy in the packagejob as we need to detach and update the *original* KPackage object
-//without changing anything else which happened to share the same KPackage::d
-
-//TODO KF6 - make KPackage::install()'s KJob return a new Package copy rather than modify
-//an existing object.
+// TODO KF6 - make KPackage::install()'s KJob return a new Package copy rather than modify
+// an existing object.
 class PackageDeletionNotifier : public QObject
 {
-Q_OBJECT
+    Q_OBJECT
 public:
-    static PackageDeletionNotifier* self();
+    static PackageDeletionNotifier *self();
 Q_SIGNALS:
     void packageDeleted(Package *package);
 };
@@ -41,8 +40,8 @@ class ContentStructure
 {
 public:
     ContentStructure()
-        : directory(false),
-          required(false)
+        : directory(false)
+        , required(false)
     {
     }
 
@@ -55,7 +54,7 @@ public:
         required = other.required;
     }
 
-    ContentStructure& operator=(const ContentStructure &) = default;
+    ContentStructure &operator=(const ContentStructure &) = default;
 
     QStringList paths;
     QString name;
@@ -78,7 +77,7 @@ public:
     void updateHash(const QString &basePath, const QString &subPath, const QDir &dir, QCryptographicHash &hash);
     QString fallbackFilePath(const QByteArray &key, const QString &filename = QString()) const;
     bool hasCycle(const KPackage::Package &package);
-    bool isInsidePackageDir(const QString& canonicalPath) const;
+    bool isInsidePackageDir(const QString &canonicalPath) const;
 
     QPointer<PackageStructure> structure;
     QString path;
@@ -99,4 +98,3 @@ public:
 }
 
 #endif
-

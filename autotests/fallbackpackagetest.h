@@ -21,7 +21,6 @@ private Q_SLOTS:
     void afterFallback();
     void cycle();
 
-
 private:
     KPackage::Package m_pkg;
     KPackage::Package m_fallbackPkg;
@@ -30,4 +29,3 @@ private:
 };
 
 #endif
-

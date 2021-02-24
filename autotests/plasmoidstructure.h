@@ -7,12 +7,11 @@
 #ifndef PLASMOIDSTRUCTURE_P_H
 #define PLASMOIDSTRUCTURE_P_H
 
-#include "kpackage/packagestructure.h"
 #include "../src/kpackage/private/packages_p.h"
+#include "kpackage/packagestructure.h"
 
 namespace KPackage
 {
-
 class PlasmoidPackage : public GenericPackage
 {
     Q_OBJECT

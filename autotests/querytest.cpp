@@ -7,19 +7,19 @@
 
 #include "querytest.h"
 
+#include <KLocalizedString>
 #include <QDebug>
 #include <QStandardPaths>
-#include <KLocalizedString>
 
-#include "packagestructure.h"
 #include "packageloader.h"
+#include "packagestructure.h"
 
 #include "config.h"
 
 void QueryTest::initTestCase()
 {
     QStandardPaths::setTestModeEnabled(true);
-    //Remove any eventual installed package globally on the system
+    // Remove any eventual installed package globally on the system
     qputenv("XDG_DATA_DIRS", "/not/valid");
     qputenv("KPACKAGE_DEP_RESOLVERS_PATH", KPACKAGE_DEP_RESOLVERS);
 
@@ -65,4 +65,3 @@ void QueryTest::installAndQuery()
 }
 
 QTEST_MAIN(QueryTest)
-

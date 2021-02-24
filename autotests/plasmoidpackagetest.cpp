@@ -8,18 +8,17 @@
 #include "../src/kpackage/config-package.h"
 #include "../src/kpackage/private/versionparser.cpp"
 
+#include <KJob>
 #include <QDir>
 #include <QFile>
-#include <kzip.h>
-#include <KJob>
-#include <QStandardPaths>
 #include <QSignalSpy>
+#include <QStandardPaths>
+#include <kzip.h>
 
 #include <QDebug>
 
 #include "packageloader.h"
 #include "plasmoidstructure.h"
-
 
 void PlasmoidPackageTest::initTestCase()
 {
@@ -39,7 +38,7 @@ void PlasmoidPackageTest::cleanup()
 {
     qDebug() << "cleaning up";
     // Clean things up.
-   QDir(m_packageRoot).removeRecursively();
+    QDir(m_packageRoot).removeRecursively();
 }
 
 void PlasmoidPackageTest::createTestPackage(const QString &packageName, const QString &version)
@@ -265,7 +264,7 @@ void PlasmoidPackageTest::createAndInstallPackage()
     KZip package(packagePath);
     QVERIFY(package.open(QIODevice::ReadOnly));
     const KArchiveDirectory *dir = package.directory();
-    QVERIFY(dir);//
+    QVERIFY(dir); //
     QVERIFY(dir->entry(QStringLiteral("metadata.desktop")));
     const KArchiveEntry *contentsEntry = dir->entry(QStringLiteral("contents"));
     QVERIFY(contentsEntry);
@@ -277,8 +276,8 @@ void PlasmoidPackageTest::createAndInstallPackage()
     m_defaultPackageStructure = new KPackage::PackageStructure(this);
     KPackage::Package *p = new KPackage::Package(m_defaultPackageStructure);
     qDebug() << "Installing " << packagePath;
-    //const QString packageRoot = "plasma/plasmoids/";
-    //const QString servicePrefix = "plasma-applet-";
+    // const QString packageRoot = "plasma/plasmoids/";
+    // const QString servicePrefix = "plasma-applet-";
     KJob *job = p->install(packagePath, m_packageRoot);
     // clang-format off
     connect(job, SIGNAL(finished(KJob*)), SLOT(packageInstalled(KJob*)));
@@ -286,11 +285,11 @@ void PlasmoidPackageTest::createAndInstallPackage()
     // clang-format on
     QVERIFY(spy.wait(1000));
 
-    //is the package instance usable (ie proper path) after the install job has been completed?
+    // is the package instance usable (ie proper path) after the install job has been completed?
     QCOMPARE(p->path(), QString(QDir(m_packageRoot % "/plasmoid_to_package").canonicalPath() + QLatin1Char('/')));
     cleanupPackage(QStringLiteral("plasmoid_to_package"));
 
-    //QVERIFY(p->isValid());
+    // QVERIFY(p->isValid());
     delete p;
 }
 
@@ -307,9 +306,9 @@ void PlasmoidPackageTest::noCrashOnAsyncInstall()
     rootDir.removeRecursively();
 
     KJob *job;
-    //scope the package so it will get deleted before the install operation finishes
-    //package is explicitlyshared internally and designed to be used on the stack
-    //see #370718
+    // scope the package so it will get deleted before the install operation finishes
+    // package is explicitlyshared internally and designed to be used on the stack
+    // see #370718
     {
         KPackage::Package package(new KPackage::PackageStructure(this));
         job = package.install(packagePath, m_packageRoot);
@@ -320,13 +319,12 @@ void PlasmoidPackageTest::noCrashOnAsyncInstall()
     // clang-format on
     QVERIFY(spy.wait(1000));
 
-
     cleanupPackage(QStringLiteral("plasmoid_to_package"));
 }
 
 void PlasmoidPackageTest::createAndUpdatePackage()
 {
-    //does the version number parsing work?
+    // does the version number parsing work?
     QVERIFY(KPackage::isVersionNewer(QStringLiteral("1.1"), QStringLiteral("1.1.1")));
     QVERIFY(!KPackage::isVersionNewer(QStringLiteral("1.1.1"), QStringLiteral("1.1")));
     QVERIFY(KPackage::isVersionNewer(QStringLiteral("1.1.1"), QStringLiteral("1.1.2")));
@@ -351,7 +349,7 @@ void PlasmoidPackageTest::createAndUpdatePackage()
     KZip package(packagePath);
     QVERIFY(package.open(QIODevice::ReadOnly));
     const KArchiveDirectory *dir = package.directory();
-    QVERIFY(dir);//
+    QVERIFY(dir); //
     QVERIFY(dir->entry(QStringLiteral("metadata.desktop")));
     const KArchiveEntry *contentsEntry = dir->entry(QStringLiteral("contents"));
     QVERIFY(contentsEntry);
@@ -363,8 +361,8 @@ void PlasmoidPackageTest::createAndUpdatePackage()
     m_defaultPackageStructure = new KPackage::PackageStructure(this);
     KPackage::Package *p = new KPackage::Package(m_defaultPackageStructure);
     qDebug() << "Installing " << packagePath;
-    //const QString packageRoot = "plasma/plasmoids/";
-    //const QString servicePrefix = "plasma-applet-";
+    // const QString packageRoot = "plasma/plasmoids/";
+    // const QString servicePrefix = "plasma-applet-";
 
     // clang-format off
     KJob *job = p->update(packagePath, m_packageRoot);
@@ -399,7 +397,7 @@ void PlasmoidPackageTest::createAndUpdatePackage()
 
     cleanupPackage(QStringLiteral("plasmoid_to_package"));
 
-    //QVERIFY(p->isValid());
+    // QVERIFY(p->isValid());
     delete p;
 }
 
@@ -409,7 +407,7 @@ void PlasmoidPackageTest::uncompressPackageWithSubFolder()
     KPackage::Package package(structure);
     package.setPath(QFINDTESTDATA("data/customcontent.tar.gz"));
 
-    //if metadata is correctly found, servicetypes should be ("SimpleContent", "CustomContent")
+    // if metadata is correctly found, servicetypes should be ("SimpleContent", "CustomContent")
     QCOMPARE(package.metadata().serviceTypes(), QStringList({"SimpleContent", "CustomContent"}));
 }
 
@@ -417,13 +415,11 @@ void PlasmoidPackageTest::cleanupPackage(const QString &packageName)
 {
     KPackage::Package *p = new KPackage::Package(m_defaultPackageStructure);
     KJob *jj = p->uninstall(packageName, m_packageRoot);
-    connect(jj, SIGNAL(finished(KJob*)), SLOT(packageUninstalled(KJob*)));
+    connect(jj, SIGNAL(finished(KJob *)), SLOT(packageUninstalled(KJob *)));
 
     QSignalSpy spy(jj, &KJob::finished);
     QVERIFY(spy.wait(1000));
-
 }
-
 
 void PlasmoidPackageTest::packageInstalled(KJob *j)
 {

@@ -6,14 +6,13 @@
 
 #include "plasmoidstructure.h"
 
-#include <QVariant>
-#include <KLocalizedString>
-#include "package.h"
 #include "config-package.h"
+#include "package.h"
+#include <KLocalizedString>
+#include <QVariant>
 
 namespace KPackage
 {
-
 void PlasmoidPackage::initPackage(Package *package)
 {
     GenericPackage::initPackage(package);
@@ -24,6 +23,4 @@ void PlasmoidPackage::initPackage(Package *package)
     package->addFileDefinition("mainconfigxml", QStringLiteral("config/main.xml"), i18n("Configuration XML file"));
 }
 
-
 } // namespace KPackage
-

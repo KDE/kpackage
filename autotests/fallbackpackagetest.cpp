@@ -7,12 +7,11 @@
 
 #include "fallbackpackagetest.h"
 
-
 #include <QDebug>
 
-#include <KLocalizedString>
-#include "packagestructure.h"
 #include "packageloader.h"
+#include "packagestructure.h"
+#include <KLocalizedString>
 
 void FallbackPackageTest::initTestCase()
 {
@@ -32,7 +31,7 @@ void FallbackPackageTest::beforeFallback()
     QVERIFY(m_fallbackPkg.hasValidStructure());
     QVERIFY(m_pkg.hasValidStructure());
 
-    //m_fallbackPkg should have otherfile.qml, m_pkg shouldn't
+    // m_fallbackPkg should have otherfile.qml, m_pkg shouldn't
     QVERIFY(!m_fallbackPkg.filePath("ui", QStringLiteral("otherfile.qml")).isEmpty());
     QVERIFY(m_pkg.filePath("ui", QStringLiteral("otherfile.qml")).isEmpty());
 }
@@ -41,7 +40,7 @@ void FallbackPackageTest::afterFallback()
 {
     m_pkg.setFallbackPackage(m_fallbackPkg);
 
-    //after setting the fallback, m_pkg should resolve the exact same file as m_fallbackPkg
+    // after setting the fallback, m_pkg should resolve the exact same file as m_fallbackPkg
     // for otherfile.qml
     QVERIFY(!m_pkg.filePath("ui", QStringLiteral("otherfile.qml")).isEmpty());
     QCOMPARE(m_fallbackPkg.filePath("ui", QStringLiteral("otherfile.qml")), m_pkg.filePath("ui", QStringLiteral("otherfile.qml")));
@@ -53,9 +52,8 @@ void FallbackPackageTest::cycle()
     m_fallbackPkg.setFallbackPackage(m_pkg);
     m_pkg.setFallbackPackage(m_fallbackPkg);
 
-    //The cycle should have been detected and filePath should take a not infinite time
+    // The cycle should have been detected and filePath should take a not infinite time
     QTRY_COMPARE_WITH_TIMEOUT(m_fallbackPkg.filePath("ui", QStringLiteral("otherfile.qml")), m_pkg.filePath("ui", QStringLiteral("otherfile.qml")), 1000);
 }
 
 QTEST_MAIN(FallbackPackageTest)
-

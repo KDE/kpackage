@@ -12,13 +12,12 @@
 
 namespace KPackage
 {
-
 class PackageLoaderPrivate
 {
 public:
     PackageLoaderPrivate()
-        : isDefaultLoader(false),
-          packageStructurePluginDir(QStringLiteral("kpackage/packagestructure"))
+        : isDefaultLoader(false)
+        , packageStructurePluginDir(QStringLiteral("kpackage/packagestructure"))
     {
     }
 
@@ -27,7 +26,7 @@ public:
 
     static QSet<QString> s_customCategories;
 
-    QHash<QString, QPointer<PackageStructure> > structures;
+    QHash<QString, QPointer<PackageStructure>> structures;
     bool isDefaultLoader;
     QString packageStructurePluginDir;
     // We only use this cache during start of the process to speed up many consecutive calls
@@ -44,4 +43,3 @@ public:
 }
 
 #endif
-

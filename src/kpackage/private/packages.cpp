@@ -8,11 +8,9 @@
 
 #include <math.h>
 
-
 #include <KLocalizedString>
 
 #include "kpackage/package.h"
-
 
 void ChangeableMainScriptPackage::initPackage(KPackage::Package *package)
 {
@@ -77,6 +75,7 @@ void GenericQMLPackage::initPackage(KPackage::Package *package)
 
     package->addFileDefinition("mainscript", QStringLiteral("ui/main.qml"), i18n("Main UI File"));
     package->setRequired("mainscript", true);
-    package->setDefaultPackageRoot(QStringLiteral("kpackage" "/genericqml/"));
+    package->setDefaultPackageRoot(
+        QStringLiteral("kpackage"
+                       "/genericqml/"));
 }
-

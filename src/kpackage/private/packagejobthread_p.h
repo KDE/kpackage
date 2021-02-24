@@ -8,23 +8,21 @@
 #ifndef KPACKAGE_PACKAGEJOBTHREAD_P_H
 #define KPACKAGE_PACKAGEJOBTHREAD_P_H
 
-#include <KJob>
 #include "package.h"
+#include <KJob>
 #include <QThread>
 
 const static auto s_kpluginindex = QStringLiteral("kpluginindex.json");
 
 namespace KPackage
 {
-
 class PackageJobThreadPrivate;
 
-bool indexDirectory(const QString& dir, const QString& dest);
+bool indexDirectory(const QString &dir, const QString &dest);
 
-//true if version2 is more recent than version1
-//TODO: replace with QVersionNumber when we will be able to depend from Qt 5.6
+// true if version2 is more recent than version1
+// TODO: replace with QVersionNumber when we will be able to depend from Qt 5.6
 bool isVersionNewer(const QString &version1, const QString &version2);
-
 
 class PackageJobThread : public QThread
 {
@@ -52,8 +50,8 @@ Q_SIGNALS:
     void installPathChanged(const QString &installPath);
 
 private:
-    //OperationType says whether we want to install, update or any
-    //new similar operation it will be expanded
+    // OperationType says whether we want to install, update or any
+    // new similar operation it will be expanded
     bool installDependency(const QUrl &src);
     bool installPackage(const QString &src, const QString &dest, OperationType operation);
     bool uninstallPackage(const QString &packagePath);

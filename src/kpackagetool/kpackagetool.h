@@ -15,7 +15,6 @@ class KJob;
 
 namespace KPackage
 {
-
 class PackageToolPrivate;
 
 class PackageTool : public QCoreApplication

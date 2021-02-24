@@ -7,35 +7,33 @@
 
 #include "private/packagejobthread_p.h"
 
-#include "package.h"
 #include "config-package.h"
+#include "package.h"
 
 #include <KArchive>
 #include <KLocalizedString>
 #include <KTar>
 #include <kzip.h>
 
-
 #include <KCompressionDevice>
 
+#include "kpackage_debug.h"
 #include <QDir>
+#include <QDirIterator>
 #include <QFile>
 #include <QIODevice>
-#include <QMimeType>
-#include <QMimeDatabase>
-#include <QRegularExpression>
 #include <QJsonArray>
-#include <QDirIterator>
 #include <QJsonDocument>
-#include <qtemporarydir.h>
+#include <QMimeDatabase>
+#include <QMimeType>
 #include <QProcess>
-#include <QUrl>
+#include <QRegularExpression>
 #include <QStandardPaths>
-#include "kpackage_debug.h"
+#include <QUrl>
+#include <qtemporarydir.h>
 
 namespace KPackage
 {
-
 bool copyFolder(QString sourcePath, QString targetPath)
 {
     QDir source(sourcePath);
@@ -79,7 +77,7 @@ bool removeFolder(QString folderPath)
     return folder.removeRecursively();
 }
 
-bool removeIndex(const QString& dir)
+bool removeIndex(const QString &dir)
 {
     bool ok = true;
     QFileInfo fileInfo(dir, QStringLiteral("kpluginindex.json"));
@@ -102,7 +100,7 @@ bool removeIndex(const QString& dir)
 
 Q_GLOBAL_STATIC_WITH_ARGS(QStringList, metaDataFiles, (QStringList(QLatin1String("metadata.desktop")) << QLatin1String("metadata.json")))
 
-bool indexDirectory(const QString& dir, const QString& dest)
+bool indexDirectory(const QString &dir, const QString &dest)
 {
     QVariantMap vm;
     vm[QStringLiteral("Version")] = QStringLiteral("1.0");
@@ -140,7 +138,7 @@ bool indexDirectory(const QString& dir, const QString& dest)
 
     QJsonDocument jdoc;
     jdoc.setArray(plugins);
-//     file.write(jdoc.toJson());
+    //     file.write(jdoc.toJson());
     file.write(jdoc.toBinaryData());
     qCWarning(KPACKAGE_LOG) << "Generated " << destfile << " (" << plugins.count() << " plugins)";
 
@@ -155,8 +153,8 @@ public:
     int errorCode;
 };
 
-PackageJobThread::PackageJobThread(QObject *parent) :
-    QThread(parent)
+PackageJobThread::PackageJobThread(QObject *parent)
+    : QThread(parent)
 {
     d = new PackageJobThreadPrivate;
     d->errorCode = KJob::NoError;
@@ -192,7 +190,7 @@ bool PackageJobThread::installDependency(const QUrl &destUrl)
 
     QProcess process;
     process.setProgram(handler);
-    process.setArguments({ destUrl.toString() });
+    process.setArguments({destUrl.toString()});
     process.setProcessChannelMode(QProcess::ForwardedChannels);
     process.start();
     process.waitForFinished();
@@ -208,7 +206,7 @@ bool PackageJobThread::installPackage(const QString &src, const QString &dest, O
         if (!root.exists()) {
             d->errorMessage = i18n("Could not create package root directory: %1", dest);
             d->errorCode = Package::JobError::RootCreationError;
-            //qCWarning(KPACKAGE_LOG) << "Could not create package root directory: " << dest;
+            // qCWarning(KPACKAGE_LOG) << "Could not create package root directory: " << dest;
             return false;
         }
     }
@@ -244,14 +242,14 @@ bool PackageJobThread::installPackage(const QString &src, const QString &dest, O
                    mimetype.inherits(QStringLiteral("application/x-lzma"))) {
             archive = new KTar(src);
         } else {
-            //qCWarning(KPACKAGE_LOG) << "Could not open package file, unsupported archive format:" << src << mimetype.name();
+            // qCWarning(KPACKAGE_LOG) << "Could not open package file, unsupported archive format:" << src << mimetype.name();
             d->errorMessage = i18n("Could not open package file, unsupported archive format: %1 %2", src, mimetype.name());
             d->errorCode = Package::JobError::UnsupportedArchiveFormatError;
             return false;
         }
 
         if (!archive->open(QIODevice::ReadOnly)) {
-            //qCWarning(KPACKAGE_LOG) << "Could not open package file:" << src;
+            // qCWarning(KPACKAGE_LOG) << "Could not open package file:" << src;
             delete archive;
             d->errorMessage = i18n("Could not open package file: %1", src);
             d->errorCode = Package::JobError::PackageOpenError;
@@ -286,7 +284,7 @@ bool PackageJobThread::installPackage(const QString &src, const QString &dest, O
             meta = KPluginMetaData::fromDesktopFile(metadataFilePath, {QStringLiteral(":/kservicetypes5/kpackage-generic.desktop")});
         } else {
             QFile f(metadataFilePath);
-            if(!f.open(QIODevice::ReadOnly)){
+            if (!f.open(QIODevice::ReadOnly)) {
                 qCWarning(KPACKAGE_LOG) << "Couldn't open metadata file" << src << path;
                 d->errorMessage = i18n("Could not open metadata file: %1", src);
                 d->errorCode = Package::JobError::MetadataFileMissingError;
@@ -304,11 +302,10 @@ bool PackageJobThread::installPackage(const QString &src, const QString &dest, O
         return false;
     }
 
-
     QString pluginName = meta.pluginId();
     qCDebug(KPACKAGE_LOG) << "pluginname: " << meta.pluginId();
     if (pluginName.isEmpty()) {
-        //qCWarning(KPACKAGE_LOG) << "Package plugin name not specified";
+        // qCWarning(KPACKAGE_LOG) << "Package plugin name not specified";
         d->errorMessage = i18n("Package plugin name not specified: %1", src);
         d->errorCode = Package::JobError::PluginNameMissingError;
         return false;
@@ -318,7 +315,7 @@ bool PackageJobThread::installPackage(const QString &src, const QString &dest, O
     // bad characters into the paths used for removal.
     const QRegularExpression validatePluginName(QStringLiteral("^[\\w\\-\\.]+$")); // Only allow letters, numbers, underscore and period.
     if (!validatePluginName.match(pluginName).hasMatch()) {
-        //qCDebug(KPACKAGE_LOG) << "Package plugin name " << pluginName << "contains invalid characters";
+        // qCDebug(KPACKAGE_LOG) << "Package plugin name " << pluginName << "contains invalid characters";
         d->errorMessage = i18n("Package plugin name %1 contains invalid characters", pluginName);
         d->errorCode = Package::JobError::PluginNameInvalidError;
         return false;
@@ -358,9 +355,9 @@ bool PackageJobThread::installPackage(const QString &src, const QString &dest, O
         }
     }
 
-    //install dependencies
+    // install dependencies
     const QStringList dependencies = KPluginMetaData::readStringList(meta.rawData(), QStringLiteral("X-KPackage-Dependencies"));
-    for(const QString &dep : dependencies) {
+    for (const QString &dep : dependencies) {
         QUrl depUrl(dep);
         if (!installDependency(depUrl)) {
             d->errorMessage = i18n("Could not install dependency: '%1'", dep);
@@ -374,7 +371,7 @@ bool PackageJobThread::installPackage(const QString &src, const QString &dest, O
         const bool ok = copyFolder(path, targetName);
         removeFolder(path);
         if (!ok) {
-            //qCWarning(KPACKAGE_LOG) << "Could not move package to destination:" << targetName;
+            // qCWarning(KPACKAGE_LOG) << "Could not move package to destination:" << targetName;
             d->errorMessage = i18n("Could not move package to destination: %1", targetName);
             d->errorCode = Package::JobError::PackageMoveError;
             return false;
@@ -384,7 +381,7 @@ bool PackageJobThread::installPackage(const QString &src, const QString &dest, O
         // than move them
         const bool ok = copyFolder(path, targetName);
         if (!ok) {
-            //qCWarning(KPACKAGE_LOG) << "Could not copy package to destination:" << targetName;
+            // qCWarning(KPACKAGE_LOG) << "Could not copy package to destination:" << targetName;
             d->errorMessage = i18n("Could not copy package to destination: %1", targetName);
             d->errorCode = Package::JobError::PackageCopyError;
             return false;
@@ -412,9 +409,9 @@ bool PackageJobThread::update(const QString &src, const QString &dest)
 bool PackageJobThread::uninstall(const QString &packagePath)
 {
     bool ok = uninstallPackage(packagePath);
-    //qCDebug(KPACKAGE_LOG) << "emit installPathChanged " << d->installPath;
+    // qCDebug(KPACKAGE_LOG) << "emit installPathChanged " << d->installPath;
     Q_EMIT installPathChanged(QString());
-    //qCDebug(KPACKAGE_LOG) << "Thread: installFinished" << ok;
+    // qCDebug(KPACKAGE_LOG) << "Thread: installFinished" << ok;
     Q_EMIT finished(ok, d->errorMessage);
     return ok;
 }
@@ -422,7 +419,7 @@ bool PackageJobThread::uninstall(const QString &packagePath)
 bool PackageJobThread::uninstallPackage(const QString &packagePath)
 {
     if (!QFile::exists(packagePath)) {
-        d->errorMessage = packagePath.isEmpty() ?  i18n("package path was deleted manually") : i18n("%1 does not exist", packagePath);
+        d->errorMessage = packagePath.isEmpty() ? i18n("package path was deleted manually") : i18n("%1 does not exist", packagePath);
         d->errorCode = Package::JobError::PackageFileNotFoundError;
         return false;
     }
@@ -460,4 +457,3 @@ Package::JobError PackageJobThread::errorCode() const
 } // namespace KPackage
 
 #include "moc_packagejobthread_p.cpp"
-

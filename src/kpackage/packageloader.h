@@ -13,7 +13,6 @@
 
 namespace KPackage
 {
-
 class PackageLoaderPrivate;
 
 /**
@@ -45,7 +44,7 @@ public:
 
     /**
      * List all available packages of a certain type
-     * 
+     *
      * @param packageFormat the format of the packages to list
      * @param packageRoot the root folder where the packages are installed.
      *          If not specified the default from the packageformat will be taken.
@@ -66,7 +65,9 @@ public:
      * @return metadata for all the matching packages
      * @since 5.10
      */
-    QList<KPluginMetaData> findPackages(const QString &packageFormat, const QString &packageRoot = QString(), std::function<bool(const KPluginMetaData &)> filter = std::function<bool(const KPluginMetaData &)>());
+    QList<KPluginMetaData> findPackages(const QString &packageFormat,
+                                        const QString &packageRoot = QString(),
+                                        std::function<bool(const KPluginMetaData &)> filter = std::function<bool(const KPluginMetaData &)>());
 
     /**
      * Loads a PackageStructure for a given format. The structure can then be used as
@@ -102,11 +103,10 @@ public:
     static PackageLoader *self();
 
 protected:
-
     /**
      * A re-implementable method that allows subclasses to override
      * the default behaviour of loadPackage. If the service requested is not recognized,
-     * then the implementation should return an empty and invalid Package(). 
+     * then the implementation should return an empty and invalid Package().
      * This method is called
      * by loadPackage prior to attempting to load a Package using the standard
      * plugin mechanisms.

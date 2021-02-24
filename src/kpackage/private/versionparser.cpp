@@ -10,10 +10,8 @@
 
 #include <QVector>
 
-
 namespace KPackage
 {
-
 bool isVersionNewer(const QString &version1, const QString &version2)
 {
     if (version1 == version2) {
@@ -34,5 +32,3 @@ bool isVersionNewer(const QString &version1, const QString &version2)
 }
 
 } // namespace KPackage
-
-

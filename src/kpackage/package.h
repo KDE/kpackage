@@ -7,9 +7,9 @@
 #ifndef KPACKAGE_PACKAGE_H
 #define KPACKAGE_PACKAGE_H
 
-#include <QStringList>
-#include <QMetaType>
 #include <QCryptographicHash>
+#include <QMetaType>
+#include <QStringList>
 #include <QUrl>
 
 #include <KPluginMetaData>
@@ -20,7 +20,6 @@
 
 namespace KPackage
 {
-
 /**
  * @class Package kpackage/package.h <KPackage/Package>
  *
@@ -59,7 +58,7 @@ namespace KPackage
  *      virtual install and uninstall methods
  *    * subclasses can be compiled as plugins for easy re-use
  **/
-//TODO: write documentation on USING a package
+// TODO: write documentation on USING a package
 
 class PackagePrivate;
 class PackageStructure;
@@ -208,8 +207,8 @@ public:
     bool allowExternalPaths() const;
 
     /**
-      * @return the package metadata object.
-      */
+     * @return the package metadata object.
+     */
     KPluginMetaData metadata() const;
 
 #if KPACKAGE_ENABLE_DEPRECATED_SINCE(5, 21)
@@ -391,4 +390,3 @@ private:
 
 Q_DECLARE_METATYPE(KPackage::Package)
 #endif
-

@@ -7,11 +7,11 @@
 
 #include "packagestructuretest.h"
 
-#include <QDebug>
 #include <KLocalizedString>
+#include <QDebug>
 
-#include "packagestructure.h"
 #include "packageloader.h"
+#include "packagestructure.h"
 
 class NoPrefixes : public KPackage::Package
 {
@@ -92,7 +92,9 @@ public:
             return;
         }
         if (package->metadata().serviceTypes().contains(QStringLiteral("CustomContent"))) {
-            package->addFileDefinition("customcontentfile", QStringLiteral("customcontent/CustomContentFile.qml"), i18n("Custom file only for packages that contain CustomContent in their servicetypes"));
+            package->addFileDefinition("customcontentfile",
+                                       QStringLiteral("customcontent/CustomContentFile.qml"),
+                                       i18n("Custom file only for packages that contain CustomContent in their servicetypes"));
         } else {
             package->removeDefinition("customcontentfile");
         }
@@ -211,7 +213,6 @@ void PackageStructureTest::mutateAfterCopy()
     QCOMPARE(ps.mimeTypes("images"), imageMimeTypes);
     QCOMPARE(copy.mimeTypes("images"), copyMimeTypes);
 
-
     copy = ps;
     QStringList copyDefaultMimeTypes = defaultMimeTypes;
     copyDefaultMimeTypes << QStringLiteral("rubbish");
@@ -224,7 +225,7 @@ void PackageStructureTest::emptyContentsPrefix()
 {
     NoPrefixes package;
     QString path(package.filePath("bin", QStringLiteral("ls")));
-    //qDebug() << path;
+    // qDebug() << path;
     if (QFileInfo::exists(QStringLiteral("/bin/ls"))) { // not Windows
         QCOMPARE(path, QStringLiteral("/bin/ls"));
     }
@@ -239,7 +240,13 @@ void PackageStructureTest::multiplePaths()
 void PackageStructureTest::directories()
 {
     QList<QByteArray> dirs;
-    dirs << "config" << "data" << "images" << "theme" << "scripts" << "translations" << "ui";
+    dirs << "config"
+         << "data"
+         << "images"
+         << "theme"
+         << "scripts"
+         << "translations"
+         << "ui";
 
     const QList<QByteArray> psDirs = ps.directories();
 
@@ -277,11 +284,13 @@ void PackageStructureTest::requiredDirectories()
 void PackageStructureTest::files()
 {
     QList<QByteArray> files;
-    files << "mainconfigui" << "mainconfigxml" << "mainscript";
+    files << "mainconfigui"
+          << "mainconfigxml"
+          << "mainscript";
 
     const QList<QByteArray> psFiles = ps.files();
 
-    //for (int i = 0; i < psFiles.count(); ++i) {
+    // for (int i = 0; i < psFiles.count(); ++i) {
     //    qDebug() << psFiles[i];
     //}
     for (const char *file : psFiles) {

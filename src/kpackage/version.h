@@ -12,20 +12,19 @@
 #include <kpackage/package_export.h>
 #include <kpackage_version.h>
 
-#define PACKAGE_MAKE_VERSION(a,b,c) (((a) << 16) | ((b) << 8) | (c))
+#define PACKAGE_MAKE_VERSION(a, b, c) (((a) << 16) | ((b) << 8) | (c))
 
 /**
  * Compile-time macro for checking the kpackage version. Not useful for
  * detecting the version of kpackage at runtime.
  */
-#define PACKAGE_IS_VERSION(a,b,c) (PACKAGE_VERSION >= PACKAGE_MAKE_VERSION(a,b,c))
+#define PACKAGE_IS_VERSION(a, b, c) (PACKAGE_VERSION >= PACKAGE_MAKE_VERSION(a, b, c))
 
 /**
  * Namespace for everything in kpackage
  */
 namespace KPackage
 {
-
 /**
  * The runtime version of libkpackage
  */

@@ -40,32 +40,28 @@ int main(int argc, char **argv)
     parser.addVersionOption();
     parser.addHelpOption();
     parser.setApplicationDescription(description);
-    parser.addOptions({
-                          Options::hash(),
-                          Options::global(),
-                          Options::type(),
-                          Options::install(),
-                          Options::show(),
-                          Options::upgrade(),
-                          Options::list(),
-                          Options::listTypes(),
-                          Options::remove(),
-                          Options::packageRoot(),
-                          Options::generateIndex(),
-                          Options::removeIndex(),
-                          Options::appstream(),
-                          Options::appstreamOutput()
-                      });
+    parser.addOptions({Options::hash(),
+                       Options::global(),
+                       Options::type(),
+                       Options::install(),
+                       Options::show(),
+                       Options::upgrade(),
+                       Options::list(),
+                       Options::listTypes(),
+                       Options::remove(),
+                       Options::packageRoot(),
+                       Options::generateIndex(),
+                       Options::removeIndex(),
+                       Options::appstream(),
+                       Options::appstreamOutput()});
     parser.process(app);
 
-    //at least one operation should be specified
-    if (!parser.isSet(QStringLiteral("hash")) && !parser.isSet(QStringLiteral("g")) &&
-        !parser.isSet(QStringLiteral("i")) && !parser.isSet(QStringLiteral("s")) && !parser.isSet(QStringLiteral("appstream-metainfo")) &&
-        !parser.isSet(QStringLiteral("u")) && !parser.isSet(QStringLiteral("l")) &&
-        !parser.isSet(QStringLiteral("list-types")) && !parser.isSet(QStringLiteral("r")) &&
-        !parser.isSet(QStringLiteral("generate-index")) && !parser.isSet(QStringLiteral("remove-index"))) {
+    // at least one operation should be specified
+    if (!parser.isSet(QStringLiteral("hash")) && !parser.isSet(QStringLiteral("g")) && !parser.isSet(QStringLiteral("i")) && !parser.isSet(QStringLiteral("s"))
+        && !parser.isSet(QStringLiteral("appstream-metainfo")) && !parser.isSet(QStringLiteral("u")) && !parser.isSet(QStringLiteral("l"))
+        && !parser.isSet(QStringLiteral("list-types")) && !parser.isSet(QStringLiteral("r")) && !parser.isSet(QStringLiteral("generate-index"))
+        && !parser.isSet(QStringLiteral("remove-index"))) {
         parser.showHelp(0);
     }
     return app.exec();
 }
-

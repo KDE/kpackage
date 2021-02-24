@@ -11,7 +11,6 @@
 
 namespace KPackage
 {
-
 class PackageJobPrivate;
 class Package;
 

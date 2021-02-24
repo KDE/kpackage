@@ -7,18 +7,18 @@
 
 #include "kpackagetool.h"
 
-#include <QDebug>
-#include <QJsonDocument>
-#include <QJsonArray>
-#include <KShell>
-#include <KLocalizedString>
 #include <KAboutData>
+#include <KLocalizedString>
 #include <KPluginLoader>
+#include <KShell>
+#include <QDebug>
+#include <QJsonArray>
+#include <QJsonDocument>
 
-#include <kpackage/packagestructure.h>
+#include <KJob>
 #include <kpackage/package.h>
 #include <kpackage/packageloader.h>
-#include <KJob>
+#include <kpackage/packagestructure.h>
 
 #include <QCommandLineParser>
 #include <QDir>
@@ -33,13 +33,13 @@
 #include <QVector>
 #include <QXmlStreamWriter>
 
-#include <iostream>
 #include <iomanip>
+#include <iostream>
 
 #include "options.h"
 
 #include "../kpackage/config-package.h"
-//for the index creation function
+// for the index creation function
 #include "../kpackage/private/packagejobthread_p.h"
 
 Q_GLOBAL_STATIC_WITH_ARGS(QTextStream, cout, (stdout))
@@ -108,8 +108,8 @@ public:
     QCommandLineParser *parser = nullptr;
 };
 
-PackageTool::PackageTool(int &argc, char **argv, QCommandLineParser *parser) :
-    QCoreApplication(argc, argv)
+PackageTool::PackageTool(int &argc, char **argv, QCommandLineParser *parser)
+    : QCoreApplication(argc, argv)
 {
     d = new PackageToolPrivate;
     d->parser = parser;
@@ -128,8 +128,7 @@ void PackageTool::runMain()
         const QString path = d->parser->value(Options::hash());
         KPackage::Package package(&structure);
         package.setPath(path);
-        const QString hash =
-            QString::fromLocal8Bit(package.cryptographicHash(QCryptographicHash::Sha1));
+        const QString hash = QString::fromLocal8Bit(package.cryptographicHash(QCryptographicHash::Sha1));
         if (hash.isEmpty()) {
             d->coutput(i18n("Failed to generate a Package hash for %1", path));
             exit(9);
@@ -172,9 +171,9 @@ void PackageTool::runMain()
         d->packageFile = d->package;
     }
 
-    if (!d->packageFile.isEmpty() && (!d->parser->isSet(Options::type()) ||
-                                      type.compare(i18nc("package type", "wallpaper"), Qt::CaseInsensitive) == 0 ||
-                                      type.compare(QLatin1String("wallpaper"), Qt::CaseInsensitive) == 0)) {
+    if (!d->packageFile.isEmpty()
+        && (!d->parser->isSet(Options::type()) || type.compare(i18nc("package type", "wallpaper"), Qt::CaseInsensitive) == 0
+            || type.compare(QLatin1String("wallpaper"), Qt::CaseInsensitive) == 0)) {
         // Check type for common plasma packages
         KPackage::Package package(&structure);
         QString serviceType;
@@ -192,7 +191,7 @@ void PackageTool::runMain()
                 type = QStringLiteral("KPackage/Generic");
             } else {
                 type = serviceType;
-                //qDebug() << "fallthrough type is" << serviceType;
+                // qDebug() << "fallthrough type is" << serviceType;
             }
         }
     }
@@ -238,7 +237,6 @@ void PackageTool::runMain()
     } else {
         // install, remove or upgrade
         if (!d->installer.isValid()) {
-
             d->installer = KPackage::Package(new KPackage::PackageStructure());
         }
 
@@ -325,7 +323,9 @@ void PackageTool::runMain()
             return;
         }
         if (d->package.isEmpty()) {
-            qWarning() << i18nc("No option was given, this is the error message telling the user he needs at least one, do not translate install, remove, upgrade nor list", "One of install, remove, upgrade or list is required.");
+            qWarning() << i18nc(
+                "No option was given, this is the error message telling the user he needs at least one, do not translate install, remove, upgrade nor list",
+                "One of install, remove, upgrade or list is required.");
             exit(6);
         }
     }
@@ -393,7 +393,11 @@ void PackageTool::showPackageInfo(const QString &pluginName)
     exit(0);
 }
 
-bool translateKPluginToAppstream(const QString &tagName, const QString &configField, const QJsonObject &configObject, QXmlStreamWriter& writer, bool canEndWithDot)
+bool translateKPluginToAppstream(const QString &tagName,
+                                 const QString &configField,
+                                 const QJsonObject &configObject,
+                                 QXmlStreamWriter &writer,
+                                 bool canEndWithDot)
 {
     const QRegularExpression rx(QStringLiteral("%1\\[(.*)\\]").arg(configField));
     const QJsonValue native = configObject.value(configField);
@@ -427,8 +431,9 @@ bool translateKPluginToAppstream(const QString &tagName, const QString &configFi
 void PackageTool::showAppstreamInfo(const QString &pluginName)
 {
     KPluginMetaData i;
-    //if the path passed is an absolute path, and a metadata file is found under it, use that metadata file to generate the appstream info.
-    // This can happen in the case an application wanting to support kpackage based extensions includes in the same project both the packagestructure plugin and the packages themselves. In that case at build time the packagestructure plugin wouldn't be installed yet
+    // if the path passed is an absolute path, and a metadata file is found under it, use that metadata file to generate the appstream info.
+    // This can happen in the case an application wanting to support kpackage based extensions includes in the same project both the packagestructure plugin and
+    // the packages themselves. In that case at build time the packagestructure plugin wouldn't be installed yet
 
     if (QFile::exists(pluginName + QStringLiteral("/metadata.desktop"))) {
         i = KPluginMetaData::fromDesktopFile(pluginName + QStringLiteral("/metadata.desktop"), {QStringLiteral(":/kservicetypes5/kpackage-generic.desktop")});
@@ -486,10 +491,10 @@ void PackageTool::showAppstreamInfo(const QString &pluginName)
     // Be super aggressive in finding a NoDisplay property. It can be a top-level property or
     // inside the KPlugin object, it also can be either a stringy type or a bool type. Try all
     // possible scopes and type conversions to find NoDisplay
-    for (const auto& object : { i.rawData(), rootObject }) {
+    for (const auto &object : {i.rawData(), rootObject}) {
         if (object.value(QLatin1String("NoDisplay")).toBool(false) ||
-                // Standard value is unprocessed string we'll need to deal with.
-                object.value(QLatin1String("NoDisplay")).toString() == QStringLiteral("true")) {
+            // Standard value is unprocessed string we'll need to deal with.
+            object.value(QLatin1String("NoDisplay")).toString() == QStringLiteral("true")) {
             std::exit(0);
         }
     }
@@ -516,7 +521,8 @@ void PackageTool::showAppstreamInfo(const QString &pluginName)
     }
 
     if (!rootObject.contains(QStringLiteral("Description"))) {
-        *cerr << "Error: description missing, will result in broken appdata field as <sumary/> is mandatory at " << QFileInfo(i.metaDataFileName()).absoluteFilePath();
+        *cerr << "Error: description missing, will result in broken appdata field as <sumary/> is mandatory at "
+              << QFileInfo(i.metaDataFileName()).absoluteFilePath();
         std::exit(10);
     }
 
@@ -550,7 +556,7 @@ void PackageTool::showAppstreamInfo(const QString &pluginName)
     if (!authors.isEmpty()) {
         QStringList authorsText;
         authorsText.reserve(authors.size());
-        for (const auto &author: authors) {
+        for (const auto &author : authors) {
             authorsText += QStringLiteral("%1 <%2>").arg(author.name(), author.emailAddress());
         }
         writer.writeTextElement(QStringLiteral("developer_name"), authorsText.join(QStringLiteral(", ")));
@@ -576,11 +582,12 @@ QString PackageTool::findPackageRoot(const QString &pluginName, const QString &p
     Q_UNUSED(prefix);
     QString packageRoot;
     if (d->parser->isSet(Options::packageRoot()) && d->parser->isSet(Options::global()) && !d->parser->isSet(Options::generateIndex())) {
-        qWarning() << i18nc("The user entered conflicting options packageroot and global, this is the error message telling the user he can use only one", "The packageroot and global options conflict with each other, please select only one.");
+        qWarning() << i18nc("The user entered conflicting options packageroot and global, this is the error message telling the user he can use only one",
+                            "The packageroot and global options conflict with each other, please select only one.");
         ::exit(7);
     } else if (d->parser->isSet(Options::packageRoot())) {
         packageRoot = d->parser->value(Options::packageRoot());
-        //qDebug() << "(set via arg) d->packageRoot is: " << d->packageRoot;
+        // qDebug() << "(set via arg) d->packageRoot is: " << d->packageRoot;
     } else if (d->parser->isSet(Options::global())) {
         auto const paths = QStandardPaths::locateAll(QStandardPaths::GenericDataLocation, d->packageRoot, QStandardPaths::LocateDirectory);
         if (!paths.isEmpty()) {
@@ -625,16 +632,12 @@ void PackageToolPrivate::renderTypeTable(const QMap<QString, QStringList> &plugi
         if (pluginIt.value()[1].length() > pathWidth) {
             pathWidth = pluginIt.value()[1].length();
         }
-
     }
 
-    std::cout << nameHeader.toLocal8Bit().constData() << std::setw(nameWidth - nameHeader.length() + 2) << ' '
-              << pluginHeader.toLocal8Bit().constData() << std::setw(pluginWidth - pluginHeader.length() + 2) << ' '
-              << pathHeader.toLocal8Bit().constData() << std::setw(pathWidth - pathHeader.length() + 2) << ' '
-              << std::endl;
-    std::cout << std::setfill('-') << std::setw(nameWidth) << '-' << "  "
-              << std::setw(pluginWidth) << '-' << "  "
-              << std::setw(pathWidth) << '-' << "  "
+    std::cout << nameHeader.toLocal8Bit().constData() << std::setw(nameWidth - nameHeader.length() + 2) << ' ' << pluginHeader.toLocal8Bit().constData()
+              << std::setw(pluginWidth - pluginHeader.length() + 2) << ' ' << pathHeader.toLocal8Bit().constData()
+              << std::setw(pathWidth - pathHeader.length() + 2) << ' ' << std::endl;
+    std::cout << std::setfill('-') << std::setw(nameWidth) << '-' << "  " << std::setw(pluginWidth) << '-' << "  " << std::setw(pathWidth) << '-' << "  "
               << std::endl;
     std::cout << std::setfill(' ');
 
@@ -653,8 +656,10 @@ void PackageToolPrivate::listTypes()
     coutput(i18n("Built in:"));
 
     QMap<QString, QStringList> builtIns;
-    builtIns.insert(i18n("KPackage/Generic"), QStringList() << QStringLiteral("KPackage/Generic") << QStringLiteral(KPACKAGE_RELATIVE_DATA_INSTALL_DIR "/packages/"));
-    builtIns.insert(i18n("KPackage/GenericQML"), QStringList() << QStringLiteral("KPackage/GenericQML") << QStringLiteral(KPACKAGE_RELATIVE_DATA_INSTALL_DIR "/genericqml/"));
+    builtIns.insert(i18n("KPackage/Generic"),
+                    QStringList() << QStringLiteral("KPackage/Generic") << QStringLiteral(KPACKAGE_RELATIVE_DATA_INSTALL_DIR "/packages/"));
+    builtIns.insert(i18n("KPackage/GenericQML"),
+                    QStringList() << QStringLiteral("KPackage/GenericQML") << QStringLiteral(KPACKAGE_RELATIVE_DATA_INSTALL_DIR "/genericqml/"));
 
     renderTypeTable(builtIns);
 
@@ -683,7 +688,6 @@ void PackageTool::recreateIndex()
 
     if (!QDir::isAbsolutePath(d->packageRoot)) {
         if (d->parser->isSet(Options::global())) {
-
             // Find package roots
             QStringList packageRoots;
             const QVector<KPluginMetaData> offers = listPackageTypes();
@@ -698,7 +702,7 @@ void PackageTool::recreateIndex()
             }
             const auto lstPath = QStandardPaths::locateAll(QStandardPaths::GenericDataLocation, d->packageRoot, QStandardPaths::LocateDirectory);
             for (auto const &p : lstPath) {
-                for (const auto &_proot: qAsConst(packageRoots)) {
+                for (const auto &_proot : qAsConst(packageRoots)) {
                     QFileInfo packageDirInfo(QStringLiteral("%1%2").arg(p, _proot));
                     if (!packageDirInfo.isWritable()) {
                         continue;
