@@ -85,7 +85,7 @@ public:
         PackageAlreadyInstalledError, /**< The package is already installed and a normal install (not update) was performed */
         PackageMoveError, /**< Failure to move a package from the system temporary folder to its final destination */
         PackageCopyError, /**< Failure to copy a package folder from somewhere in the filesystem to its final destination */
-        PackageUninstallError /**< Failure to uninstall a package */
+        PackageUninstallError, /**< Failure to uninstall a package */
     };
 
     /**

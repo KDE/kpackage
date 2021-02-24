@@ -33,7 +33,7 @@ class PackageJobThread : public QThread
 public:
     enum OperationType {
         Install,
-        Update
+        Update,
     };
 
     explicit PackageJobThread(QObject *parent = nullptr);
