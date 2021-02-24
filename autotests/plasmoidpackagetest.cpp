@@ -280,8 +280,10 @@ void PlasmoidPackageTest::createAndInstallPackage()
     //const QString packageRoot = "plasma/plasmoids/";
     //const QString servicePrefix = "plasma-applet-";
     KJob *job = p->install(packagePath, m_packageRoot);
+    // clang-format off
     connect(job, SIGNAL(finished(KJob*)), SLOT(packageInstalled(KJob*)));
     QSignalSpy spy(job, SIGNAL(finished(KJob*)));
+    // clang-format on
     QVERIFY(spy.wait(1000));
 
     //is the package instance usable (ie proper path) after the install job has been completed?
@@ -312,8 +314,10 @@ void PlasmoidPackageTest::noCrashOnAsyncInstall()
         KPackage::Package package(new KPackage::PackageStructure(this));
         job = package.install(packagePath, m_packageRoot);
     }
+    // clang-format off
     connect(job, SIGNAL(finished(KJob*)), SLOT(packageInstalled(KJob*)));
     QSignalSpy spy(job, SIGNAL(finished(KJob*)));
+    // clang-format on
     QVERIFY(spy.wait(1000));
 
 
@@ -362,12 +366,13 @@ void PlasmoidPackageTest::createAndUpdatePackage()
     //const QString packageRoot = "plasma/plasmoids/";
     //const QString servicePrefix = "plasma-applet-";
 
+    // clang-format off
     KJob *job = p->update(packagePath, m_packageRoot);
     connect(job, SIGNAL(finished(KJob*)), SLOT(packageInstalled(KJob*)));
     QSignalSpy spy(job, SIGNAL(finished(KJob*)));
     QVERIFY(spy.wait(1000));
 
-    //same version, should fail
+    // same version, should fail
     job = p->update(packagePath, m_packageRoot);
     QSignalSpy spyFail(job, SIGNAL(finished(KJob*)));
     QVERIFY(spyFail.wait(1000));
@@ -375,7 +380,7 @@ void PlasmoidPackageTest::createAndUpdatePackage()
     qDebug()<<job->errorText();
 
 
-    //create a new package with higher version
+    // create a new package with higher version
     createTestPackage(QStringLiteral("plasmoid_to_package"), QStringLiteral("1.2"));
 
     KZip creator2(packagePath);
@@ -390,6 +395,7 @@ void PlasmoidPackageTest::createAndUpdatePackage()
     connect(job2, SIGNAL(finished(KJob*)), SLOT(packageInstalled(KJob*)));
     QSignalSpy spy2(job2, SIGNAL(finished(KJob*)));
     QVERIFY(spy2.wait(1000));
+    // clang-format on
 
     cleanupPackage(QStringLiteral("plasmoid_to_package"));
 

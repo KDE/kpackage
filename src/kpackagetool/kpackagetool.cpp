@@ -308,7 +308,9 @@ void PackageTool::runMain()
             if (installed.contains(pluginName)) { // Assume it's a plugin name
                 d->installer.setPath(pluginName);
                 KJob *uninstallJob = d->installer.uninstall(pluginName, d->packageRoot);
+                // clang-format off
                 connect(uninstallJob, SIGNAL(result(KJob*)), SLOT(packageUninstalled(KJob*)));
+                // clang-format on
                 return;
             } else {
                 d->coutput(i18n("Error: Plugin %1 is not installed.", pluginName));
@@ -317,7 +319,9 @@ void PackageTool::runMain()
         }
         if (d->parser->isSet(Options::install())) {
             KJob *installJob = d->installer.install(d->packageFile, d->packageRoot);
+            // clang-format off
             connect(installJob, SIGNAL(result(KJob*)), SLOT(packageInstalled(KJob*)));
+            // clang-format on
             return;
         }
         if (d->package.isEmpty()) {
@@ -781,7 +785,9 @@ void PackageTool::packageUninstalled(KJob *job)
         if (d->parser->isSet(Options::upgrade())) {
             d->coutput(i18n("Upgrading package from file: %1", d->packageFile));
             KJob *installJob = d->installer.install(d->packageFile, d->packageRoot);
+            // clang-format off
             connect(installJob, SIGNAL(result(KJob*)), SLOT(packageInstalled(KJob*)));
+            // clang-format on
             return;
         }
         d->coutput(i18n("Successfully uninstalled %1", d->packageFile));
