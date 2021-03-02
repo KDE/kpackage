@@ -169,7 +169,7 @@ bool PackageJobThread::install(const QString &src, const QString &dest)
 {
     bool ok = installPackage(src, dest, Install);
     Q_EMIT installPathChanged(d->installPath);
-    Q_EMIT finished(ok, d->errorMessage);
+    Q_EMIT jobThreadFinished(ok, d->errorMessage);
     return ok;
 }
 
@@ -402,7 +402,7 @@ bool PackageJobThread::update(const QString &src, const QString &dest)
 {
     bool ok = installPackage(src, dest, Update);
     Q_EMIT installPathChanged(d->installPath);
-    Q_EMIT finished(ok, d->errorMessage);
+    Q_EMIT jobThreadFinished(ok, d->errorMessage);
     return ok;
 }
 
@@ -412,7 +412,7 @@ bool PackageJobThread::uninstall(const QString &packagePath)
     // qCDebug(KPACKAGE_LOG) << "emit installPathChanged " << d->installPath;
     Q_EMIT installPathChanged(QString());
     // qCDebug(KPACKAGE_LOG) << "Thread: installFinished" << ok;
-    Q_EMIT finished(ok, d->errorMessage);
+    Q_EMIT jobThreadFinished(ok, d->errorMessage);
     return ok;
 }
 

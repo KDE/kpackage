@@ -108,7 +108,7 @@ void PackageJob::setupNotificationsOnJobFinished(const QString &messageName)
         }
         slotFinished(ok, error);
     };
-    connect(d->thread, &PackageJobThread::finished, this, onJobFinished, Qt::QueuedConnection);
+    connect(d->thread, &PackageJobThread::jobThreadFinished, this, onJobFinished, Qt::QueuedConnection);
 }
 
 } // namespace KPackage
