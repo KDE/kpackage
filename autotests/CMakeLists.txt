@@ -24,6 +24,7 @@ PLASMA_UNIT_TESTS(
     plasmoidpackagetest
     rccpackagetest
     querytest
+    benchmarkstest
 )
 
 set_tests_properties(plasma-querytest PROPERTIES RUN_SERIAL TRUE) # it wipes out ~/.qttest/share

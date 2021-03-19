@@ -150,6 +150,7 @@ Package PackageLoader::loadPackage(const QString &packageFormat, const QString &
 
 QList<KPluginMetaData> PackageLoader::listPackages(const QString &packageFormat, const QString &packageRoot)
 {
+    d->pluginCache.clear();
     // Note: Use QDateTime::currentSecsSinceEpoch() once we can depend on Qt 5.8
     const qint64 now = qRound64(QDateTime::currentMSecsSinceEpoch() / 1000.0);
     bool useRuntimeCache = true;
@@ -285,6 +286,7 @@ PackageLoader::findPackages(const QString &packageFormat, const QString &package
 
 KPackage::PackageStructure *PackageLoader::loadPackageStructure(const QString &packageFormat)
 {
+    d->structures.clear();
     PackageStructure *structure = d->structures.value(packageFormat).data();
     if (!structure) {
         if (packageFormat == QStringLiteral("KPackage/Generic")) {
