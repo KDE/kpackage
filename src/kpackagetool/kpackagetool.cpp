@@ -62,27 +62,7 @@ static QVector<KPluginMetaData> listPackageTypes()
 
     QVector<KPluginMetaData> offers;
     for (const QString &plugindir : qAsConst(libraryPaths)) {
-        const QString &_ixfile = plugindir + s_kpluginindex;
-        QFile indexFile(_ixfile);
-        if (indexFile.exists()) {
-            indexFile.open(QIODevice::ReadOnly);
-            QJsonDocument jdoc = QJsonDocument::fromBinaryData(indexFile.readAll());
-            indexFile.close();
-
-            QJsonArray plugins = jdoc.array();
-            for (QJsonArray::const_iterator iter = plugins.constBegin(); iter != plugins.constEnd(); ++iter) {
-                const QJsonObject obj = iter->toObject();
-                const QString candidate = obj.value(QStringLiteral("FileName")).toString();
-                offers << KPluginMetaData(obj, candidate);
-            }
-        } else {
-            QVector<KPluginMetaData> plugins = KPluginLoader::findPlugins(plugindir);
-            QVectorIterator<KPluginMetaData> iter(plugins);
-            while (iter.hasNext()) {
-                auto md = iter.next();
-                offers << md;
-            }
-        }
+        offers << KPluginLoader::findPlugins(plugindir);
     }
     return offers;
 }
@@ -227,11 +207,13 @@ void PackageTool::runMain()
         exit(0);
 
     } else if (d->parser->isSet(Options::generateIndex())) {
-        recreateIndex();
+        // TODO KF6 Remove
+        qWarning() << "The indexing feature is removed in KPackage 5.82";
         exit(0);
 
     } else if (d->parser->isSet(Options::removeIndex())) {
-        removeIndex();
+        // TODO KF6 Remove
+        qWarning() << "The indexing feature is removed in KPackage 5.82";
         exit(0);
 
     } else {
@@ -679,88 +661,6 @@ void PackageToolPrivate::listTypes()
         }
 
         renderTypeTable(plugins);
-    }
-}
-
-void PackageTool::recreateIndex()
-{
-    d->packageRoot = findPackageRoot(d->package, d->packageRoot);
-
-    if (!QDir::isAbsolutePath(d->packageRoot)) {
-        if (d->parser->isSet(Options::global())) {
-            // Find package roots
-            QStringList packageRoots;
-            const QVector<KPluginMetaData> offers = listPackageTypes();
-            if (!offers.isEmpty()) {
-                for (const KPluginMetaData &info : offers) {
-                    KPackage::Package pkg = KPackage::PackageLoader::self()->loadPackage(info.pluginId());
-                    const auto proot = pkg.defaultPackageRoot();
-                    if (!proot.isEmpty()) {
-                        packageRoots << pkg.defaultPackageRoot();
-                    }
-                }
-            }
-            const auto lstPath = QStandardPaths::locateAll(QStandardPaths::GenericDataLocation, d->packageRoot, QStandardPaths::LocateDirectory);
-            for (auto const &p : lstPath) {
-                for (const auto &_proot : qAsConst(packageRoots)) {
-                    QFileInfo packageDirInfo(QStringLiteral("%1%2").arg(p, _proot));
-                    if (!packageDirInfo.isWritable()) {
-                        continue;
-                    }
-                    const QString packagedir = packageDirInfo.absoluteFilePath();
-                    if (KPackage::indexDirectory(packagedir, s_kpluginindex)) {
-                        d->coutput(i18n("Generating %1%2", packagedir, s_kpluginindex));
-                    } else {
-                        d->cerror(i18n("Didn't write %1%2", packagedir, s_kpluginindex));
-                    }
-                }
-            }
-            return;
-        } else {
-            d->packageRoot = QStandardPaths::writableLocation(QStandardPaths::GenericDataLocation) + QLatin1Char('/') + d->packageRoot;
-        }
-    }
-
-    if (KPackage::indexDirectory(d->packageRoot, s_kpluginindex)) {
-        d->coutput(i18n("Generating %1/%2", d->packageRoot, s_kpluginindex));
-    } else {
-        d->cerror(i18n("Cannot write %1/%2", d->packageRoot, s_kpluginindex));
-    }
-}
-
-void PackageTool::removeIndex()
-{
-    d->packageRoot = findPackageRoot(d->package, d->packageRoot);
-
-    if (!QDir::isAbsolutePath(d->packageRoot)) {
-        if (d->parser->isSet(Options::global())) {
-            const auto lstEntries = QStandardPaths::locateAll(QStandardPaths::GenericDataLocation, d->packageRoot, QStandardPaths::LocateDirectory);
-            for (auto const &p : lstEntries) {
-                QDirIterator it(p, QStringList(s_kpluginindex), QDir::Files | QDir::Writable | QDir::NoDotAndDotDot, QDirIterator::Subdirectories);
-                qDebug() << "IX index remove" << p;
-                while (it.hasNext()) {
-                    it.next();
-                    const QString path = it.fileInfo().absoluteFilePath();
-                    QFile file(path);
-                    if (!file.remove()) {
-                        d->cerror(i18n("Could not remove index file %1", file.fileName()));
-                    } else {
-                        d->coutput(i18n("Removed %1", file.fileName()));
-                    }
-                }
-            }
-            return;
-        } else {
-            d->packageRoot = QStandardPaths::writableLocation(QStandardPaths::GenericDataLocation) + QLatin1Char('/') + d->packageRoot;
-        }
-    }
-    QFile file(d->packageRoot + s_kpluginindex);
-    if (file.exists()) {
-        if (!file.remove()) {
-            d->cerror(i18n("Could not remove index file %1", file.fileName()));
-        } else {
-            d->coutput(i18n("Removed %1", file.fileName()));
-        }
     }
 }
 

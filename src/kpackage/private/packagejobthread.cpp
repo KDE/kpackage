@@ -77,73 +77,8 @@ bool removeFolder(QString folderPath)
     return folder.removeRecursively();
 }
 
-bool removeIndex(const QString &dir)
-{
-    bool ok = true;
-    QFileInfo fileInfo(dir, QStringLiteral("kpluginindex.json"));
-    if (fileInfo.exists()) {
-        if (fileInfo.isWritable()) {
-            QFile f(fileInfo.absoluteFilePath());
-            if (!f.remove()) {
-                ok = false;
-                qCWarning(KPACKAGE_LOG) << "Cannot remove kplugin index file: " << fileInfo.absoluteFilePath();
-            } else {
-                qCDebug(KPACKAGE_LOG) << "Deleted index: " << fileInfo.absoluteFilePath();
-            }
-        } else {
-            qCWarning(KPACKAGE_LOG) << "Cannot remove kplugin index file (not writable): " << fileInfo.absoluteFilePath();
-            ok = false;
-        }
-    }
-    return ok;
-}
-
 Q_GLOBAL_STATIC_WITH_ARGS(QStringList, metaDataFiles, (QStringList(QLatin1String("metadata.desktop")) << QLatin1String("metadata.json")))
 
-bool indexDirectory(const QString &dir, const QString &dest)
-{
-    QVariantMap vm;
-    vm[QStringLiteral("Version")] = QStringLiteral("1.0");
-    vm[QStringLiteral("Timestamp")] = QDateTime::currentMSecsSinceEpoch();
-
-    QJsonArray plugins;
-
-    QDirIterator it(dir, *metaDataFiles, QDir::Files, QDirIterator::Subdirectories);
-    while (it.hasNext()) {
-        it.next();
-        const QString path = it.fileInfo().absoluteFilePath();
-        QJsonObject obj = KPluginMetaData(path).rawData();
-        obj.insert(QStringLiteral("FileName"), path);
-
-        plugins.append(obj);
-    }
-
-    // Less than two plugin means it's not worth indexing
-    if (plugins.count() < 2) {
-        removeIndex(dir);
-        return true;
-    }
-
-    QString destfile = dest;
-    if (!QDir::isAbsolutePath(dest)) {
-        destfile = dir + QLatin1Char('/') + dest;
-    }
-
-    QDir().mkpath(QFileInfo(destfile).dir().absolutePath());
-    KCompressionDevice file(destfile, KCompressionDevice::BZip2);
-    if (!file.open(QIODevice::WriteOnly)) {
-        qCWarning(KPACKAGE_LOG) << "Failed to open " << destfile;
-        return false;
-    }
-
-    QJsonDocument jdoc;
-    jdoc.setArray(plugins);
-    //     file.write(jdoc.toJson());
-    file.write(jdoc.toBinaryData());
-    qCWarning(KPACKAGE_LOG) << "Generated " << destfile << " (" << plugins.count() << " plugins)";
-
-    return true;
-}
 
 class PackageJobThreadPrivate
 {
@@ -393,7 +328,6 @@ bool PackageJobThread::installPackage(const QString &src, const QString &dest, O
         tempdir.setAutoRemove(false);
     }
 
-    indexDirectory(dest, QStringLiteral("kpluginindex.json"));
     d->installPath = targetName;
     return true;
 }
@@ -443,8 +377,6 @@ bool PackageJobThread::uninstallPackage(const QString &packagePath)
         d->errorCode = Package::JobError::PackageUninstallError;
         return false;
     }
-
-    indexDirectory(root, QStringLiteral("kpluginindex.json"));
 
     return true;
 }

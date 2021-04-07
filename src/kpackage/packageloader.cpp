@@ -213,53 +213,32 @@ QList<KPluginMetaData> PackageLoader::listPackages(const QString &packageFormat,
     }
 
     for (auto const &plugindir : qAsConst(paths)) {
-        const QString &_ixfile = plugindir + s_kpluginindex;
-        if (QFile::exists(_ixfile)) {
-            KCompressionDevice indexFile(_ixfile, KCompressionDevice::BZip2);
-            qCDebug(KPACKAGE_LOG) << "kpluginindex: Using indexfile: " << _ixfile;
-            indexFile.open(QIODevice::ReadOnly);
-            QJsonDocument jdoc = QJsonDocument::fromBinaryData(indexFile.readAll());
-            indexFile.close();
+        // If there's no cache file, fall back to listing the directory
+        const QDirIterator::IteratorFlags flags = QDirIterator::Subdirectories;
+        const QStringList nameFilters = {QStringLiteral("metadata.json"), QStringLiteral("metadata.desktop")};
 
-            QJsonArray plugins = jdoc.array();
-            for (QJsonArray::const_iterator iter = plugins.constBegin(); iter != plugins.constEnd(); ++iter) {
-                const QJsonObject &obj = QJsonValue(*iter).toObject();
-                const QString &pluginFileName = obj.value(QStringLiteral("FileName")).toString();
-                const KPluginMetaData m(obj, QString(), pluginFileName);
-                if (m.isValid() && !uniqueIds.contains(m.pluginId())) {
-                    uniqueIds << m.pluginId();
-                    lst << m;
-                }
+        QDirIterator it(plugindir, nameFilters, QDir::Files, flags);
+        QSet<QString> dirs;
+        while (it.hasNext()) {
+            it.next();
+
+            const QString dir = it.fileInfo().absoluteDir().path();
+
+            if (dirs.contains(dir)) {
+                continue;
             }
-        } else {
-            qCDebug(KPACKAGE_LOG) << "kpluginindex: Not cached" << plugindir;
-            // If there's no cache file, fall back to listing the directory
-            const QDirIterator::IteratorFlags flags = QDirIterator::Subdirectories;
-            const QStringList nameFilters = {QStringLiteral("metadata.json"), QStringLiteral("metadata.desktop")};
+            dirs << dir;
 
-            QDirIterator it(plugindir, nameFilters, QDir::Files, flags);
-            QSet<QString> dirs;
-            while (it.hasNext()) {
-                it.next();
+            const QString metadataPath = it.fileInfo().absoluteFilePath();
+            const KPluginMetaData info(metadataPath);
 
-                const QString dir = it.fileInfo().absoluteDir().path();
+            if (!info.isValid() || uniqueIds.contains(info.pluginId())) {
+                continue;
+            }
 
-                if (dirs.contains(dir)) {
-                    continue;
-                }
-                dirs << dir;
-
-                const QString metadataPath = it.fileInfo().absoluteFilePath();
-                const KPluginMetaData info(metadataPath);
-
-                if (!info.isValid() || uniqueIds.contains(info.pluginId())) {
-                    continue;
-                }
-
-                if (packageFormat.isEmpty() || info.serviceTypes().isEmpty() || info.serviceTypes().contains(packageFormat)) {
-                    uniqueIds << info.pluginId();
-                    lst << info;
-                }
+            if (packageFormat.isEmpty() || info.serviceTypes().isEmpty() || info.serviceTypes().contains(packageFormat)) {
+                uniqueIds << info.pluginId();
+                lst << info;
             }
         }
     }
@@ -316,31 +295,13 @@ KPackage::PackageStructure *PackageLoader::loadPackageStructure(const QString &p
     QString pluginFileName;
 
     for (const QString &plugindir : qAsConst(libraryPaths)) {
-        const QString &_ixfile = plugindir + s_kpluginindex;
-        KCompressionDevice indexFile(_ixfile, KCompressionDevice::BZip2);
-        if (QFile::exists(_ixfile)) {
-            indexFile.open(QIODevice::ReadOnly);
-            QJsonDocument jdoc = QJsonDocument::fromBinaryData(indexFile.readAll());
-            indexFile.close();
-            QJsonArray plugins = jdoc.array();
-            for (QJsonArray::const_iterator iter = plugins.constBegin(); iter != plugins.constEnd(); ++iter) {
-                const QJsonObject &obj = QJsonValue(*iter).toObject();
-                const QString &candidate = obj.value(QStringLiteral("FileName")).toString();
-                const KPluginMetaData m(obj, candidate);
-                if (m.isValid() && m.pluginId() == packageFormat) {
-                    pluginFileName = candidate;
-                    break;
-                }
-            }
-        } else {
-            QVector<KPluginMetaData> plugins = KPluginLoader::findPlugins(plugindir);
-            QVectorIterator<KPluginMetaData> iter(plugins);
-            while (iter.hasNext()) {
-                auto md = iter.next();
-                if (md.isValid() && md.pluginId() == packageFormat) {
-                    pluginFileName = md.fileName();
-                    break;
-                }
+        QVector<KPluginMetaData> plugins = KPluginLoader::findPlugins(plugindir);
+        QVectorIterator<KPluginMetaData> iter(plugins);
+        while (iter.hasNext()) {
+            auto md = iter.next();
+            if (md.isValid() && md.pluginId() == packageFormat) {
+                pluginFileName = md.fileName();
+                break;
             }
         }
     }

@@ -29,8 +29,6 @@ public:
     void showPackageInfo(const QString &pluginName);
     void showAppstreamInfo(const QString &pluginName);
     QString findPackageRoot(const QString &pluginName, const QString &prefix);
-    void recreateIndex();
-    void removeIndex();
 
 private Q_SLOTS:
     void runMain();
