@@ -66,7 +66,7 @@ target_include_directories(KF5Package INTERFACE
 )
 
 set_target_properties(KF5Package PROPERTIES
-                                VERSION ${PACKAGE_VERSION_STRING}
+                                VERSION ${PACKAGE_VERSION}
                                 SOVERSION ${PACKAGE_SOVERSION}
                                 EXPORT_NAME Package
                       )
