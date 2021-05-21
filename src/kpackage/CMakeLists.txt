@@ -7,9 +7,16 @@ set(CMAKE_AUTOMOC_RELAXED_MODE ON)
 
 configure_file(${CMAKE_CURRENT_SOURCE_DIR}/config-package.h.cmake ${CMAKE_CURRENT_BINARY_DIR}/config-package.h)
 
-########### next target ###############
+add_library(KF5Package)
+add_library(KF5::Package ALIAS KF5Package)
 
-set(Package_LIB_SRCS
+set_target_properties(KF5Package PROPERTIES
+    VERSION     ${PACKAGE_VERSION}
+    SOVERSION   ${PACKAGE_SOVERSION}
+    EXPORT_NAME Package
+)
+
+target_sources(KF5Package PRIVATE
     package.cpp
     packagestructure.cpp
     packageloader.cpp
@@ -21,7 +28,7 @@ set(Package_LIB_SRCS
     kpackage.qrc
 )
 
-ecm_qt_declare_logging_category(Package_LIB_SRCS
+ecm_qt_declare_logging_category(KF5Package
     HEADER kpackage_debug.h
     IDENTIFIER KPACKAGE_LOG
     CATEGORY_NAME kf.package
@@ -32,8 +39,6 @@ ecm_qt_declare_logging_category(Package_LIB_SRCS
 
 
 
-add_library(KF5Package ${Package_LIB_SRCS})
-add_library(KF5::Package ALIAS KF5Package)
 ecm_generate_export_header(KF5Package
     EXPORT_FILE_NAME kpackage/package_export.h
     BASE_NAME KPackage
@@ -59,12 +64,6 @@ target_include_directories(KF5Package PUBLIC
 target_include_directories(KF5Package INTERFACE
   "$<INSTALL_INTERFACE:${KDE_INSTALL_INCLUDEDIR_KF5};${KDE_INSTALL_INCLUDEDIR_KF5}/KPackage>"
 )
-
-set_target_properties(KF5Package PROPERTIES
-                                VERSION ${PACKAGE_VERSION}
-                                SOVERSION ${PACKAGE_SOVERSION}
-                                EXPORT_NAME Package
-                      )
 
 ########### install files ###############
 ecm_generate_headers(Package_CamelCase_HEADERS

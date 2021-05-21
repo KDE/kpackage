@@ -95,12 +95,8 @@ X-KDE-ParentApp=org.kde.myapp
 And an own CMakeLists.txt
 
 ```
-set(mystructure_SRCS
-    mystructure.cpp
-)
-
 #build the PackageStructure implementation as a standalone library
-add_library(myapp_packagestructure_mystructure MODULE ${mystructure_SRCS})
+add_library(myapp_packagestructure_mystructure MODULE mystructure.cpp)
 
 target_link_libraries(myapp_packagestructure_mystructure
    KF5::I18n
