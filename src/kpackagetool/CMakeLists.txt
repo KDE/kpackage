@@ -1,4 +1,3 @@
-set(CMAKE_AUTORCC TRUE)
 set(kpackagetool5_debug_SRCS)
 ecm_qt_declare_logging_category(kpackagetool5_debug_SRCS
     HEADER kpackage_debug.h
