@@ -7,9 +7,6 @@ set(CMAKE_AUTOMOC_RELAXED_MODE ON)
 
 configure_file(${CMAKE_CURRENT_SOURCE_DIR}/config-package.h.cmake ${CMAKE_CURRENT_BINARY_DIR}/config-package.h)
 
-
-add_definitions(-DKDE_DEFAULT_DEBUG_AREA=1209)
-
 ########### next target ###############
 
 set(Package_LIB_SRCS
