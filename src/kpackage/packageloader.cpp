@@ -213,7 +213,6 @@ QList<KPluginMetaData> PackageLoader::listPackages(const QString &packageFormat,
     }
 
     for (auto const &plugindir : qAsConst(paths)) {
-        // If there's no cache file, fall back to listing the directory
         const QDirIterator::IteratorFlags flags = QDirIterator::Subdirectories;
         const QStringList nameFilters = {QStringLiteral("metadata.json"), QStringLiteral("metadata.desktop")};
 
