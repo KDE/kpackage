@@ -49,8 +49,9 @@ function(kpackage_install_package dir component)
         add_custom_target(${component}-${root}-metadata-json ALL DEPENDS ${GENERATED_METADATA})
         install(FILES ${GENERATED_METADATA} DESTINATION ${KDE_INSTALL_DATADIR}/${install_dir}/${root}/${component} RENAME metadata.json)
         set(metadatajson ${GENERATED_METADATA})
-   endif()
-
+    elseif (EXISTS "${CMAKE_CURRENT_SOURCE_DIR}/${dir}/metadata.json")
+        install(FILES "${CMAKE_CURRENT_SOURCE_DIR}/${dir}/metadata.json" DESTINATION ${KDE_INSTALL_DATADIR}/${install_dir}/${root}/${component})
+    endif()
 
    get_target_property(kpackagetool_cmd KF5::kpackagetool5 LOCATION)
    if (${component} MATCHES "^.+\\..+\\.") #we make sure there's at least 2 dots
