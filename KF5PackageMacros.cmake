@@ -1,7 +1,8 @@
-
-find_package(ECM 1.6.0 CONFIG REQUIRED)
-include(${ECM_KDE_MODULE_DIR}/KDEInstallDirs.cmake)
-
+# To not mess up the ECM_FIND_VERSION we only include ECM if the required variables are not set
+if (NOT KDE_INSTALL_DATADIR OR NOT KDE_INSTALL_METAINFODIR)
+    find_package(ECM 5.83.0 CONFIG REQUIRED)
+    include(${ECM_KDE_MODULE_DIR}/KDEInstallDirs.cmake)
+endif()
 set(KPACKAGE_RELATIVE_DATA_INSTALL_DIR "kpackage")
 
 # kpackage_install_package(path componentname [root] [install_dir])
