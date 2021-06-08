@@ -275,36 +275,18 @@ KPackage::PackageStructure *PackageLoader::loadPackageStructure(const QString &p
         return structure;
     }
 
-    QStringList libraryPaths;
-
-    const QString subDirectory = QStringLiteral("kpackage/packagestructure");
-    const auto lstPaths = QCoreApplication::libraryPaths();
-
-    for (const QString &dir : lstPaths) {
-        QString d = dir + QDir::separator() + subDirectory;
-        if (!d.endsWith(QDir::separator())) {
-            d += QDir::separator();
-        }
-        libraryPaths << d;
-    }
-
-    QString pluginFileName;
-
-    for (const QString &plugindir : qAsConst(libraryPaths)) {
-        QVector<KPluginMetaData> plugins = KPluginLoader::findPlugins(plugindir);
-        QVectorIterator<KPluginMetaData> iter(plugins);
-        while (iter.hasNext()) {
-            auto md = iter.next();
-            if (md.isValid() && md.pluginId() == packageFormat) {
-                pluginFileName = md.fileName();
-                break;
-            }
-        }
+    KPluginMetaData metaData;
+    QVector<KPluginMetaData> plugins =
+        KPluginLoader::findPlugins(QStringLiteral("kpackage/packagestructure"), [packageFormat](const KPluginMetaData &metaData) {
+            return metaData.pluginId() == packageFormat;
+        });
+    if (!plugins.isEmpty()) {
+        metaData = plugins.constFirst();
     }
 
     QString error;
-    if (!pluginFileName.isEmpty()) {
-        KPluginLoader loader(pluginFileName);
+    if (metaData.isValid()) {
+        KPluginLoader loader(metaData.fileName());
         const QVariantList argsWithMetaData = QVariantList() << loader.metaData().toVariantMap();
         KPluginFactory *factory = loader.factory();
         if (factory) {

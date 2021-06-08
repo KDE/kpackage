@@ -42,28 +42,6 @@
 Q_GLOBAL_STATIC_WITH_ARGS(QTextStream, cout, (stdout))
 Q_GLOBAL_STATIC_WITH_ARGS(QTextStream, cerr, (stderr))
 
-static QVector<KPluginMetaData> listPackageTypes()
-{
-    QStringList libraryPaths;
-
-    const QString subDirectory = QStringLiteral("kpackage/packagestructure");
-
-    const auto lstPath = QCoreApplication::libraryPaths();
-    for (const QString &dir : lstPath) {
-        QString d = dir + QDir::separator() + subDirectory;
-        if (!d.endsWith(QDir::separator())) {
-            d += QDir::separator();
-        }
-        libraryPaths << d;
-    }
-
-    QVector<KPluginMetaData> offers;
-    for (const QString &plugindir : qAsConst(libraryPaths)) {
-        offers << KPluginLoader::findPlugins(plugindir);
-    }
-    return offers;
-}
-
 namespace KPackage
 {
 class PackageToolPrivate
@@ -438,20 +416,12 @@ void PackageTool::showAppstreamInfo(const QString &pluginName)
 
     KPluginMetaData packageStructureMetaData;
     {
-        const auto lst = listPackageTypes();
-
-        QString type;
-        if (!i.serviceTypes().isEmpty()) {
-            type = i.serviceTypes().constFirst();
-        } else {
-            type = QStringLiteral("KPackage/Generic");
-        }
-
-        for (const KPluginMetaData &md : lst) {
-            if (md.pluginId() == type) {
-                packageStructureMetaData = md;
-                break;
-            }
+        QString type = i.serviceTypes().isEmpty() ? QStringLiteral("KPackage/Generic") : i.serviceTypes().constFirst();
+        const auto lst = KPluginLoader::findPlugins(QStringLiteral("kpackage/packagestructure"), [type](const KPluginMetaData &metaData) {
+            return metaData.pluginId() == type;
+        });
+        if (!lst.isEmpty()) {
+            lst.constFirst();
         }
     }
 
@@ -642,7 +612,7 @@ void PackageToolPrivate::listTypes()
 
     renderTypeTable(builtIns);
 
-    const QVector<KPluginMetaData> offers = listPackageTypes();
+    const QVector<KPluginMetaData> offers = KPluginLoader::findPlugins(QStringLiteral("kpackage/packagestructure"));
 
     if (!offers.isEmpty()) {
         std::cout << std::endl;
