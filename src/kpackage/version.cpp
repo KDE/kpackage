@@ -6,6 +6,8 @@
 
 #include <kpackage/version.h>
 
+#if KPACKAGE_BUILD_DEPRECATED_SINCE(5, 84)
+
 #include "kpackage_debug.h"
 
 namespace KPackage
@@ -60,3 +62,4 @@ bool isPluginVersionCompatible(unsigned int version)
 }
 
 } // namespace
+#endif

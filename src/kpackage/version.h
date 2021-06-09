@@ -7,10 +7,15 @@
 #ifndef KPACKAGEVERSION_H
 #define KPACKAGEVERSION_H
 
-/** @file kpackage/version.h <KPackage/Version> */
+/**
+ *@file kpackage/version.h <KPackage/Version>
+ *@deprecated Deprecated for lack of usage, use equivalents from plasma-framework instead
+ */
 
 #include <kpackage/package_export.h>
 #include <kpackage_version.h>
+
+#if KPACKAGE_ENABLE_DEPRECATED_SINCE(5, 84)
 
 #define PACKAGE_MAKE_VERSION(a, b, c) (((a) << 16) | ((b) << 8) | (c))
 
@@ -56,5 +61,7 @@ KPACKAGE_EXPORT const char *versionString();
 KPACKAGE_EXPORT bool isPluginVersionCompatible(unsigned int version);
 
 } // Plasma namespace
+
+#endif
 
 #endif // multiple inclusion guard

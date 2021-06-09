@@ -13,7 +13,6 @@
 
 #include <kpackage/package.h>
 #include <kpackage/package_export.h>
-#include <kpackage/version.h>
 
 namespace KPackage
 {
