@@ -69,11 +69,10 @@ void MyStructure::initPackage(KPackage::Package *package)
     package->setRequired("mainscript", true);
 }
 ...
-
-K_EXPORT_KPACKAGE_PACKAGE_WITH_JSON(MyStructure, "myapp-packagestructure-mystructure.json")
+K_PLUGIN_CLASS_WITH_JSON(MyStructure, "myapp-packagestructure-mystructure.json")
 ```
 
-The line K_EXPORT_KPACKAGE_PACKAGE_WITH_JSON is important in order to export the PackageStructure subclass MyStructure as a standalone plugin library using the KPluginLoader architecture, in order to be loadable and recognizable by a PackageLoader instance from any process (without the need to explicitly link to a library containing the MyStructure implementation).
+The line K_PLUGIN_CLASS_WITH_JSON is important in order to export the PackageStructure subclass MyStructure as a standalone plugin library using the KPluginLoader architecture, in order to be loadable and recognizable by a PackageLoader instance from any process (without the need to explicitly link to a library containing the MyStructure implementation).
 
 In order to build the plugin, it is also needed a .desktop file describing the metadata for the plugin:
 
