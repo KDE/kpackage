@@ -15,14 +15,11 @@
 #include <KTar>
 #include <kzip.h>
 
-#include <KCompressionDevice>
 
 #include "kpackage_debug.h"
 #include <QDir>
-#include <QDirIterator>
 #include <QFile>
 #include <QIODevice>
-#include <QJsonArray>
 #include <QJsonDocument>
 #include <QMimeDatabase>
 #include <QMimeType>

@@ -8,7 +8,6 @@
 #include "querytest.h"
 
 #include <KLocalizedString>
-#include <QDebug>
 #include <QStandardPaths>
 
 #include "packageloader.h"

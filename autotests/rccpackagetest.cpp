@@ -13,7 +13,6 @@
 #include "packageloader.h"
 #include "packagestructure.h"
 #include "plasmoidstructure.h"
-#include <KLocalizedString>
 
 void RccPackageTest::initTestCase()
 {

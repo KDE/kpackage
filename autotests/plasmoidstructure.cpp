@@ -9,7 +9,6 @@
 #include "config-package.h"
 #include "package.h"
 #include <KLocalizedString>
-#include <QVariant>
 
 namespace KPackage
 {

@@ -12,8 +12,6 @@
 #include <KPluginLoader>
 #include <KShell>
 #include <QDebug>
-#include <QJsonArray>
-#include <QJsonDocument>
 
 #include <KJob>
 #include <kpackage/package.h>
@@ -22,7 +20,6 @@
 
 #include <QCommandLineParser>
 #include <QDir>
-#include <QDirIterator>
 #include <QFileInfo>
 #include <QMap>
 #include <QRegularExpression>

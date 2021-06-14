@@ -11,12 +11,9 @@
 #include <QCoreApplication>
 #include <QDateTime>
 #include <QDirIterator>
-#include <QJsonArray>
-#include <QJsonDocument>
 #include <QStandardPaths>
 #include <QVector>
 
-#include <KCompressionDevice>
 #include <KLocalizedString>
 #include <KPluginFactory>
 #include <KPluginLoader>

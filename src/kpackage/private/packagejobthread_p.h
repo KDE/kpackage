@@ -9,7 +9,6 @@
 #define KPACKAGE_PACKAGEJOBTHREAD_P_H
 
 #include "package.h"
-#include <KJob>
 #include <QThread>
 
 namespace KPackage

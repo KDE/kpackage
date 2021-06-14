@@ -7,7 +7,6 @@
 
 #include "fallbackpackagetest.h"
 
-#include <QDebug>
 
 #include "packageloader.h"
 #include "packagestructure.h"
