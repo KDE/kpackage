@@ -17,6 +17,7 @@
 #include <kpackage/package.h>
 #include <kpackage/packageloader.h>
 #include <kpackage/packagestructure.h>
+#include <kpackage/private/utils.h>
 
 #include <QCommandLineParser>
 #include <QDir>
@@ -228,7 +229,7 @@ void PackageTool::runMain()
             d->installer.setPath(pkgPath);
 
             if (!d->parser->isSet(Options::type())) {
-                const auto lst = d->installer.metadata().serviceTypes();
+                const QStringList lst = readKPackageTypes(d->installer.metadata());
                 for (const QString &st : lst) {
                     if (!d->pluginTypes.contains(st)) {
                         d->pluginTypes << st;
@@ -416,12 +417,13 @@ void PackageTool::showAppstreamInfo(const QString &pluginName)
 
     KPluginMetaData packageStructureMetaData;
     {
-        QString type = i.serviceTypes().isEmpty() ? QStringLiteral("KPackage/Generic") : i.serviceTypes().constFirst();
-        const auto lst = KPluginLoader::findPlugins(QStringLiteral("kpackage/packagestructure"), [type](const KPluginMetaData &metaData) {
-            return metaData.pluginId() == type;
+        const QStringList packageFormats = readKPackageTypes(i);
+        const QString packageFormat = packageFormats.isEmpty() ? QStringLiteral("KPackage/Generic") : packageFormats.first();
+        const auto lst = KPluginLoader::findPlugins(QStringLiteral("kpackage/packagestructure"), [packageFormat](const KPluginMetaData &metaData) {
+            return readKPackageTypes(metaData).contains(packageFormat);
         });
         if (!lst.isEmpty()) {
-            lst.constFirst();
+            packageStructureMetaData = lst.constFirst();
         }
     }
 

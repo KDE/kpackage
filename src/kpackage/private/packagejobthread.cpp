@@ -6,6 +6,7 @@
 */
 
 #include "private/packagejobthread_p.h"
+#include "private/utils.h"
 
 #include "config-package.h"
 #include "package.h"
@@ -263,7 +264,7 @@ bool PackageJobThread::installPackage(const QString &src, const QString &dest, O
         if (operation == Update) {
             KPluginMetaData oldMeta(targetName + QLatin1String("/metadata.desktop"));
 
-            if (oldMeta.serviceTypes() != meta.serviceTypes()) {
+            if (readKPackageTypes(oldMeta) != readKPackageTypes(meta)) {
                 d->errorMessage = i18n("The new package has a different type from the old version already installed.");
                 d->errorCode = Package::JobError::UpdatePackageTypeMismatchError;
             } else if (isVersionNewer(oldMeta.version(), meta.version())) {

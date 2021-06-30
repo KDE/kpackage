@@ -9,7 +9,7 @@
         "Id": "org.kde.testpackagesdep",
         "License": "GPLv2+",
         "Name": "Test Packages with Dependencies",
-        "ServiceTypes": [ "KPackage/Generic" ],
+        "ServiceTypes": [ "KPackage/Generic", "Plasma/TestKPackageInternalPlasmoid" ],
         "Description": "test description"
     },
     "X-KPackage-Dependencies": [ "mock://validdep", "mock://validdep2" ],

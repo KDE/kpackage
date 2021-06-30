@@ -17,6 +17,7 @@ MACRO(PLASMA_UNIT_TESTS)
                        LINK_LIBRARIES Qt5::Test kpackage_test_static
                        TEST_NAME ${_testname}
                        NAME_PREFIX "plasma-")
+                       target_compile_definitions(${_testname} PRIVATE TEST_PLUGIN_DIR="${CMAKE_BINARY_DIR}/bin/")
        ENDFOREACH(_testname)
 ENDMACRO(PLASMA_UNIT_TESTS)
 
@@ -27,6 +28,10 @@ PLASMA_UNIT_TESTS(
     rccpackagetest
     querytest
 )
+
+add_library(plasmoidstructure_plugin MODULE packagestructures/plugin.cpp)
+target_link_libraries(plasmoidstructure_plugin kpackage_test_static)
+set_target_properties(plasmoidstructure_plugin PROPERTIES LIBRARY_OUTPUT_DIRECTORY "${CMAKE_BINARY_DIR}/bin/kpackage/packagestructure")
 
 set_tests_properties(plasma-querytest PROPERTIES RUN_SERIAL TRUE) # it wipes out ~/.qttest/share
 set_tests_properties(plasma-plasmoidpackagetest PROPERTIES RUN_SERIAL TRUE)

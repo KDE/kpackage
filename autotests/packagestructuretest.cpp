@@ -12,6 +12,7 @@
 
 #include "packageloader.h"
 #include "packagestructure.h"
+#include "private/utils.h"
 
 class NoPrefixes : public KPackage::Package
 {
@@ -91,7 +92,7 @@ public:
         if (!package->metadata().isValid()) {
             return;
         }
-        if (package->metadata().serviceTypes().contains(QStringLiteral("CustomContent"))) {
+        if (readKPackageTypes(package->metadata()).contains(QStringLiteral("CustomContent"))) {
             package->addFileDefinition("customcontentfile",
                                        QStringLiteral("customcontent/CustomContentFile.qml"),
                                        i18n("Custom file only for packages that contain CustomContent in their servicetypes"));

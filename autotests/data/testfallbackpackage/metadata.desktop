@@ -38,7 +38,7 @@ Name[zh_TW]=測試預設套件
 Comment=test description
 Type=Service
 
-X-KDE-ServiceTypes=KPackage/Generic
+X-KDE-ServiceTypes=KPackage/Generic,Plasma/TestKPackageInternalPlasmoid
 X-KDE-ParentApp=
 X-KDE-PluginInfo-Author=Marco Martin
 X-KDE-PluginInfo-Category=

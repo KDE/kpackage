@@ -20,6 +20,8 @@ private Q_SLOTS:
     void cleanupTestCase();
     void installAndQuery();
 
+    void queryCustomPlugin();
+
 private:
     KPackage::Package ps;
     QDir m_dataDir;

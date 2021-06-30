@@ -6,6 +6,7 @@
 
 #include "packageloader.h"
 #include "private/packageloader_p.h"
+#include "private/utils.h"
 
 #include "kpackage_debug.h"
 #include <QCoreApplication>
@@ -232,7 +233,8 @@ QList<KPluginMetaData> PackageLoader::listPackages(const QString &packageFormat,
                 continue;
             }
 
-            if (packageFormat.isEmpty() || info.serviceTypes().isEmpty() || info.serviceTypes().contains(packageFormat)) {
+            const QStringList kpackageTypes = readKPackageTypes(info);
+            if (packageFormat.isEmpty() || kpackageTypes.isEmpty() || kpackageTypes.contains(packageFormat)) {
                 uniqueIds << info.pluginId();
                 lst << info;
             }
@@ -278,7 +280,7 @@ KPackage::PackageStructure *PackageLoader::loadPackageStructure(const QString &p
     KPluginMetaData metaData;
     QVector<KPluginMetaData> plugins =
         KPluginLoader::findPlugins(QStringLiteral("kpackage/packagestructure"), [packageFormat](const KPluginMetaData &metaData) {
-            return metaData.pluginId() == packageFormat;
+            return readKPackageTypes(metaData).contains(packageFormat);
         });
     if (!plugins.isEmpty()) {
         metaData = plugins.constFirst();
