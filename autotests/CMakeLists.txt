@@ -8,11 +8,13 @@ include(ECMAddTests)
 
 configure_file(config.h.cmake ${CMAKE_CURRENT_BINARY_DIR}/config.h)
 
+add_library(kpackage_test_static STATIC plasmoidstructure.cpp ${CMAKE_CURRENT_SOURCE_DIR}/../src/kpackage/private/packages.cpp)
+target_link_libraries(kpackage_test_static KF5::Package KF5::Archive KF5::CoreAddons KF5::I18n )
 MACRO(PLASMA_UNIT_TESTS)
        FOREACH(_testname ${ARGN})
                ecm_add_test(
-                       plasmoidstructure.cpp ${_testname}.cpp ${CMAKE_CURRENT_SOURCE_DIR}/../src/kpackage/private/packages.cpp
-                       LINK_LIBRARIES Qt5::Test KF5::Package KF5::Archive KF5::CoreAddons KF5::I18n
+                       ${_testname}.cpp
+                       LINK_LIBRARIES Qt5::Test kpackage_test_static
                        TEST_NAME ${_testname}
                        NAME_PREFIX "plasma-")
        ENDFOREACH(_testname)
