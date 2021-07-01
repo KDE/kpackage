@@ -12,7 +12,7 @@
 
 #include "packageloader.h"
 #include "packagestructure.h"
-#include "plasmoidstructure.h"
+#include "packagestructures/plasmoidstructure.h"
 
 void RccPackageTest::initTestCase()
 {
