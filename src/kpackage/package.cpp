@@ -475,6 +475,7 @@ void Package::setPath(const QString &path)
         d->discoveries.clear();
         d->valid = false;
         d->checkedValid = true;
+        qCWarning(KPACKAGE_LOG) << "Cannot set a path in a package without structure" << path;
         return;
     }
 
