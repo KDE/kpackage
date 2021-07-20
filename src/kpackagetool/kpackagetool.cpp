@@ -38,6 +38,7 @@
 
 #include "../kpackage/config-package.h"
 // for the index creation function
+#include "../kpackage/package_export.h"
 #include "../kpackage/private/packagejobthread_p.h"
 
 Q_GLOBAL_STATIC_WITH_ARGS(QTextStream, cout, (stdout))
@@ -415,6 +416,14 @@ void PackageTool::showAppstreamInfo(const QString &pluginName)
         i = pkg.metadata();
     }
 
+    if (!i.isValid()) {
+        *cerr << i18n("Error: Can't find plugin metadata: %1\n", pluginName);
+        std::exit(3);
+        return;
+    }
+    QString parentApp = i.rawData().value(QLatin1String("X-KDE-ParentApp")).toString();
+
+#if KPACKAGE_BUILD_DEPRECATED_SINCE(5, 85)
     KPluginMetaData packageStructureMetaData;
     {
         const QStringList packageFormats = readKPackageTypes(i);
@@ -426,17 +435,15 @@ void PackageTool::showAppstreamInfo(const QString &pluginName)
             packageStructureMetaData = lst.constFirst();
         }
     }
-
-    if (!i.isValid()) {
-        *cerr << i18n("Error: Can't find plugin metadata: %1\n", pluginName);
-        std::exit(3);
-        return;
-    }
-
-    QString parentApp = i.rawData().value(QLatin1String("X-KDE-ParentApp")).toString();
     if (parentApp.isEmpty()) {
         parentApp = packageStructureMetaData.rawData().value(QLatin1String("X-KDE-ParentApp")).toString();
+        if (!parentApp.isEmpty()) {
+            qWarning() << "Implicitly specifying X-KDE-ParentApp by it's parent structure is deprecated and will"
+                          "be removed in KF6. Either the value should be explicitly set or the default will be used";
+        }
     }
+#endif
+
     const QJsonObject rootObject = i.rawData()[QStringLiteral("KPlugin")].toObject();
 
     // Be super aggressive in finding a NoDisplay property. It can be a top-level property or
