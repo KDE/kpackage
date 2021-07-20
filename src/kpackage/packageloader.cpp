@@ -62,20 +62,6 @@ QSet<QString> PackageLoaderPrivate::knownCategories()
     return categories;
 }
 
-QString PackageLoaderPrivate::parentAppConstraint(const QString &parentApp)
-{
-    if (parentApp.isEmpty()) {
-        const QCoreApplication *app = QCoreApplication::instance();
-        if (!app) {
-            return QString();
-        }
-
-        return QStringLiteral("((not exist [X-KDE-ParentApp] or [X-KDE-ParentApp] == '') or [X-KDE-ParentApp] == '%1')").arg(app->applicationName());
-    }
-
-    return QStringLiteral("[X-KDE-ParentApp] == '%1'").arg(parentApp);
-}
-
 PackageLoader::PackageLoader()
     : d(new PackageLoaderPrivate)
 {

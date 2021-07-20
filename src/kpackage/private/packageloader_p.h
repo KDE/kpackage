@@ -22,7 +22,6 @@ public:
     }
 
     static QSet<QString> knownCategories();
-    static QString parentAppConstraint(const QString &parentApp = QString());
 
     static QSet<QString> s_customCategories;
 
