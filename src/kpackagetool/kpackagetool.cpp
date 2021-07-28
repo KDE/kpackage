@@ -41,6 +41,8 @@
 #include "../kpackage/package_export.h"
 #include "../kpackage/private/packagejobthread_p.h"
 
+#include "kpackage_debug.h"
+
 Q_GLOBAL_STATIC_WITH_ARGS(QTextStream, cout, (stdout))
 Q_GLOBAL_STATIC_WITH_ARGS(QTextStream, cerr, (stderr))
 
@@ -438,8 +440,8 @@ void PackageTool::showAppstreamInfo(const QString &pluginName)
     if (parentApp.isEmpty()) {
         parentApp = packageStructureMetaData.rawData().value(QLatin1String("X-KDE-ParentApp")).toString();
         if (!parentApp.isEmpty()) {
-            qWarning() << "Implicitly specifying X-KDE-ParentApp by it's parent structure is deprecated and will"
-                          "be removed in KF6. Either the value should be explicitly set or the default will be used";
+            qCDebug(KPACKAGE_LOG) << "Implicitly specifying X-KDE-ParentApp by it's parent structure is deprecated and will"
+                                     "be removed in KF6. Either the value should be explicitly set or the default will be used";
         }
     }
 #endif
