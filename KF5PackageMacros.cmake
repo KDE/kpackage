@@ -83,7 +83,9 @@ endfunction()
 # accessed is actually rcc-compatible (e.g. package.fileUrl must be used and
 # manually constructed paths shouldn't treat the resources as file:// URLs
 # either).
+# Deprecated since 5.85, use kpackage_install_package instead. 
 function(kpackage_install_bundled_package dir component)
+    message(WARNING "kpackage_install_bundled_package is deprecated, use kpackage_install_package instead")
     set(root ${ARGV2})
     set(install_dir ${ARGV3})
     if(NOT root)
