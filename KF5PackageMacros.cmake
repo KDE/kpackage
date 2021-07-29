@@ -75,17 +75,6 @@ function(kpackage_install_package dir component)
    else()
         message(DEBUG "KPackage components should be specified in reverse domain notation. Appstream information won't be generated for ${component}.")
    endif()
-
-   set(newentry "${kpackagetool_cmd} --generate-index -g -p ${CMAKE_INSTALL_PREFIX}/${KDE_INSTALL_DATADIR}/${install_dir}/${root}\n")
-   get_directory_property(currentindex kpackageindex)
-   string(FIND "${currentindex}" "${newentry}" alreadyin)
-   if (alreadyin LESS 0)
-        set(regenerateindex "${currentindex}${newentry}")
-
-        set_directory_properties(PROPERTIES kpackageindex "${regenerateindex}")
-        file(WRITE ${CMAKE_CURRENT_BINARY_DIR}/regenerateindex.sh ${regenerateindex})
-   endif()
-
 endfunction()
 
 # See kpackage_install_package documentation above.
@@ -138,17 +127,6 @@ function(kpackage_install_bundled_package dir component)
     else()
             message(DEBUG "KPackage components should be specified in reverse domain notation. Appstream information won't be generated for ${component}.")
     endif()
-
-    set(newentry "${kpackagetool_cmd} --generate-index -g -p ${CMAKE_INSTALL_PREFIX}/${KDE_INSTALL_DATADIR}/${install_dir}/${root}\n")
-    get_directory_property(currentindex kpackageindex)
-    string(FIND "${currentindex}" "${newentry}" alreadyin)
-    if (alreadyin LESS 0)
-            set(regenerateindex "${currentindex}${newentry}")
-
-            set_directory_properties(PROPERTIES kpackageindex "${regenerateindex}")
-            file(WRITE ${CMAKE_CURRENT_BINARY_DIR}/regenerateindex.sh ${regenerateindex})
-    endif()
-
 
     set(kpkgqrc "${CMAKE_CURRENT_BINARY_DIR}/${component}.qrc")
     set(metadatajson ${metadatajson})
