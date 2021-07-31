@@ -429,12 +429,8 @@ void PackageTool::showAppstreamInfo(const QString &pluginName)
     KPluginMetaData packageStructureMetaData;
     {
         const QStringList packageFormats = readKPackageTypes(i);
-        const QString packageFormat = packageFormats.isEmpty() ? QStringLiteral("KPackage/Generic") : packageFormats.first();
-        const auto lst = KPluginLoader::findPlugins(QStringLiteral("kpackage/packagestructure"), [packageFormat](const KPluginMetaData &metaData) {
-            return readKPackageTypes(metaData).contains(packageFormat);
-        });
-        if (!lst.isEmpty()) {
-            packageStructureMetaData = lst.constFirst();
+        if (!packageFormats.isEmpty()) {
+            packageStructureMetaData = structureForKPackageType(packageFormats.first());
         }
     }
     if (parentApp.isEmpty()) {
