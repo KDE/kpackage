@@ -263,14 +263,7 @@ KPackage::PackageStructure *PackageLoader::loadPackageStructure(const QString &p
         return structure;
     }
 
-    KPluginMetaData metaData;
-    QVector<KPluginMetaData> plugins =
-        KPluginLoader::findPlugins(QStringLiteral("kpackage/packagestructure"), [packageFormat](const KPluginMetaData &metaData) {
-            return readKPackageTypes(metaData).contains(packageFormat);
-        });
-    if (!plugins.isEmpty()) {
-        metaData = plugins.constFirst();
-    }
+    const KPluginMetaData &metaData = structureForKPackageType(packageFormat);
 
     QString error;
     if (metaData.isValid()) {
