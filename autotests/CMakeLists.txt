@@ -36,6 +36,9 @@ set_target_properties(plasmoidstructure_plugin PROPERTIES LIBRARY_OUTPUT_DIRECTO
 set_tests_properties(plasma-querytest PROPERTIES RUN_SERIAL TRUE) # it wipes out ~/.qttest/share
 set_tests_properties(plasma-plasmoidpackagetest PROPERTIES RUN_SERIAL TRUE)
 
+add_executable(kpackage_performance_test kpackagestructure_performance_test.cpp)
+target_link_libraries(kpackage_performance_test Qt5::Test KF5::Package KF5::CoreAddons)
+
 function(kpackagetool5test testname)
     add_test(NAME ${testname}-appstream COMMAND cmake -Dkpackagetool=$<TARGET_FILE:kpackagetool5>
                                                       -Dgenerated=${CMAKE_CURRENT_BINARY_DIR}/${testname}.appdata.xml
