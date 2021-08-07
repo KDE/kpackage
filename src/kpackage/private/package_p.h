@@ -88,7 +88,7 @@ public:
     QHash<QByteArray, ContentStructure> contents;
     Package *fallbackPackage;
     QStringList mimeTypes;
-    KPluginMetaData *metadata;
+    KPluginMetaData *metadata = nullptr;
     QString rccPath;
     bool externalPaths : 1;
     bool valid : 1;

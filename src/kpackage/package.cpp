@@ -468,6 +468,8 @@ void Package::setPath(const QString &path)
     // hold onto the old pointer just in case it does not, however!
     QExplicitlySharedDataPointer<PackagePrivate> oldD(d);
     d.detach();
+    delete d->metadata;
+    d->metadata = nullptr;
 
     // without structure we're doomed
     if (!d->structure) {
@@ -550,6 +552,7 @@ void Package::setPath(const QString &path)
 
         const QString fallbackPath = metadata().value(QStringLiteral("X-Plasma-RootPath"));
         if (!fallbackPath.isEmpty()) {
+            qWarning() << "fallbackpath" << fallbackPath;
             const KPackage::Package fp = KPackage::PackageLoader::self()->loadPackage(QStringLiteral("Plasma/Applet"), fallbackPath);
             setFallbackPackage(fp);
         }
@@ -570,8 +573,6 @@ void Package::setPath(const QString &path)
 
     // .. but something did change, so we get rid of our discovery cache
     d->discoveries.clear();
-    delete d->metadata;
-    d->metadata = nullptr;
 
     // uh-oh, but we didn't end up with anything valid, so we sadly reset ourselves
     // to futility.
@@ -870,7 +871,9 @@ PackagePrivate::PackagePrivate(const PackagePrivate &other)
     : QSharedData()
 {
     *this = other;
-    metadata = nullptr;
+    if (other.metadata && other.metadata->isValid()) {
+        metadata = new KPluginMetaData(*other.metadata);
+    }
 }
 
 PackagePrivate::~PackagePrivate()
@@ -902,12 +905,14 @@ PackagePrivate &PackagePrivate::operator=(const PackagePrivate &rhs)
     } else {
         fallbackPackage = nullptr;
     }
+    if (rhs.metadata && rhs.metadata->isValid()) {
+        metadata = new KPluginMetaData(*rhs.metadata);
+    }
     path = rhs.path;
     contentsPrefixPaths = rhs.contentsPrefixPaths;
     contents = rhs.contents;
     mimeTypes = rhs.mimeTypes;
     defaultPackageRoot = rhs.defaultPackageRoot;
-    metadata = nullptr;
     externalPaths = rhs.externalPaths;
     valid = rhs.valid;
     return *this;
@@ -971,6 +976,7 @@ void PackagePrivate::createPackageMetadata(const QString &path)
 {
     const bool isDir = QFileInfo(path).isDir();
 
+    qWarning() << Q_FUNC_INFO << metadata << (metadata ? metadata->fileName() : QString());
     delete metadata;
     if (isDir && QFile::exists(path + QStringLiteral("/metadata.json"))) {
         metadata = new KPluginMetaData(path + QStringLiteral("/metadata.json"));
