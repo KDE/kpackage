@@ -75,16 +75,14 @@ PackageLoader::~PackageLoader()
     delete d;
 }
 
+#if KPACKAGE_BUILD_DEPRECATED_SINCE(5, 86)
 void PackageLoader::setPackageLoader(PackageLoader *loader)
 {
     if (!s_packageTrader) {
         s_packageTrader = loader;
-    } else {
-#ifndef NDEBUG
-        // qCDebug(KPACKAGE_LOG) << "Cannot set packageTrader, already set!" << s_packageTrader;
-#endif
     }
 }
+#endif
 
 PackageLoader *PackageLoader::self()
 {
@@ -101,6 +99,7 @@ PackageLoader *PackageLoader::self()
 
 Package PackageLoader::loadPackage(const QString &packageFormat, const QString &packagePath)
 {
+#if KPACKAGE_BUILD_DEPRECATED_SINCE(5, 86)
     if (!d->isDefaultLoader) {
         Package p = internalLoadPackage(packageFormat);
         if (p.hasValidStructure()) {
@@ -110,6 +109,7 @@ Package PackageLoader::loadPackage(const QString &packageFormat, const QString &
             return p;
         }
     }
+#endif
 
     if (packageFormat.isEmpty()) {
         return Package();
@@ -294,10 +294,12 @@ void PackageLoader::addKnownPackageStructure(const QString &packageFormat, KPack
     d->structures.insert(packageFormat, structure);
 }
 
+#if KPACKAGE_BUILD_DEPRECATED_SINCE(5, 86)
 Package PackageLoader::internalLoadPackage(const QString &name)
 {
     Q_UNUSED(name);
     return Package();
 }
+#endif
 
 } // KPackage Namespace

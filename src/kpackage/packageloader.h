@@ -89,13 +89,17 @@ public:
      */
     void addKnownPackageStructure(const QString &packageFormat, KPackage::PackageStructure *structure);
 
+#if KPACKAGE_BUILD_DEPRECATED_SINCE(5, 86)
     /**
      * Set the plugin loader which will be queried for all loads.
      *
      * @param loader A subclass of PackageLoader which will be supplied
      * by the application
+     * @deprecated Since 5.86, deprecated for lack of usage. Use default package loader instead
      **/
+    KPACKAGE_DEPRECATED_VERSION(5, 86, "deprecated for lack of usage. Use default package loader instead")
     static void setPackageLoader(PackageLoader *loader);
+#endif
 
     /**
      * Return the active plugin loader
@@ -103,6 +107,7 @@ public:
     static PackageLoader *self();
 
 protected:
+#if KPACKAGE_BUILD_DEPRECATED_SINCE(5, 86)
     /**
      * A re-implementable method that allows subclasses to override
      * the default behaviour of loadPackage. If the service requested is not recognized,
@@ -114,8 +119,11 @@ protected:
      * @param packageFormat the format of the package to load
      *
      * @return a Package instance with the proper PackageStructure
+     * @deprecated Since 5.86, deprecated for lack of usage. Use default package loading instead
      **/
+    KPACKAGE_DEPRECATED_VERSION(5, 86, "deprecated for lack of usage. Use default package loading instead")
     virtual Package internalLoadPackage(const QString &packageFormat);
+#endif
 
     PackageLoader();
     virtual ~PackageLoader();
