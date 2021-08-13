@@ -118,8 +118,9 @@ static QString resolveHandler(const QString &scheme)
 bool PackageJobThread::installDependency(const QUrl &destUrl)
 {
     auto handler = resolveHandler(destUrl.scheme());
-    if (handler.isEmpty())
+    if (handler.isEmpty()) {
         return false;
+    }
 
     QProcess process;
     process.setProgram(handler);
