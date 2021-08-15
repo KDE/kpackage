@@ -39,7 +39,7 @@ ecm_setup_version(PROJECT
 
 ################# now find all used packages #################
 
-set (REQUIRED_QT_VERSION 5.15.0)
+set (REQUIRED_QT_VERSION 5.15.2)
 
 find_package(Qt5 ${REQUIRED_QT_VERSION} REQUIRED NO_MODULE COMPONENTS Core DBus)
 
@@ -60,7 +60,7 @@ ecm_setup_qtplugin_macro_names(
     CONFIG_CODE_VARIABLE
         PACKAGE_SETUP_AUTOMOC_VARIABLES
 )
-add_definitions(-DQT_DISABLE_DEPRECATED_BEFORE=0x050f00)
+add_definitions(-DQT_DISABLE_DEPRECATED_BEFORE=0x050f02)
 add_definitions(-DKF_DISABLE_DEPRECATED_BEFORE_AND_AT=0x055100)
 include(KF5PackageMacros.cmake)
 
