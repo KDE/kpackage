@@ -1,7 +1,6 @@
 #pragma once
 
 #include "kpackage_debug.h"
-#include <KPluginLoader>
 #include <KPluginMetaData>
 #include <QString>
 
@@ -41,7 +40,7 @@ inline KPluginMetaData structureForKPackageType(const QString &packageFormat)
     }
     qCDebug(KPACKAGE_LOG) << "Could not find package structure for" << packageFormat << "by plugin path. The guessed path was" << guessedPath;
     QVector<KPluginMetaData> plugins =
-        KPluginLoader::findPlugins(QStringLiteral("kpackage/packagestructure"), [packageFormat](const KPluginMetaData &metaData) {
+        KPluginMetaData::findPlugins(QStringLiteral("kpackage/packagestructure"), [packageFormat](const KPluginMetaData &metaData) {
             return readKPackageTypes(metaData).contains(packageFormat);
         });
     if (!plugins.isEmpty()) {

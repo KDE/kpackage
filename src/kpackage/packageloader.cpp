@@ -17,7 +17,6 @@
 
 #include <KLocalizedString>
 #include <KPluginFactory>
-#include <KPluginLoader>
 
 #include "config-package.h"
 
@@ -263,28 +262,24 @@ KPackage::PackageStructure *PackageLoader::loadPackageStructure(const QString &p
         return structure;
     }
 
-    const KPluginMetaData &metaData = structureForKPackageType(packageFormat);
+    const KPluginMetaData metaData = structureForKPackageType(packageFormat);
 
     QString error;
-    if (metaData.isValid()) {
-        KPluginLoader loader(metaData.fileName());
-        const QVariantList argsWithMetaData = QVariantList() << loader.metaData().toVariantMap();
-        KPluginFactory *factory = loader.factory();
-        if (factory) {
-            structure = factory->create<PackageStructure>(nullptr, argsWithMetaData);
-            if (!structure) {
-                error = QCoreApplication::translate("", "No service matching the requirements was found");
-            }
-        }
+    if (!metaData.isValid()) {
+        qCWarning(KPACKAGE_LOG) << "Invalid metadata for package structure" << packageFormat;
+        return nullptr;
     }
 
-    if (structure && !error.isEmpty()) {
-        qCWarning(KPACKAGE_LOG) << i18n("Could not load installer for package of type %1. Error reported was: %2", packageFormat, error);
+    auto result = KPluginFactory::instantiatePlugin<PackageStructure>(metaData, nullptr, {metaData.rawData().toVariantMap()});
+
+    if (!result) {
+        qCWarning(KPACKAGE_LOG) << i18n("Could not load installer for package of type %1. Error reported was: %2", packageFormat, result.errorString);
+        return nullptr;
     }
 
-    if (structure) {
-        d->structures.insert(packageFormat, structure);
-    }
+    structure = result.plugin;
+
+    d->structures.insert(packageFormat, structure);
 
     return structure;
 }

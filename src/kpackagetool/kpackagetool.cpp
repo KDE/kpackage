@@ -9,7 +9,6 @@
 
 #include <KAboutData>
 #include <KLocalizedString>
-#include <KPluginLoader>
 #include <KShell>
 #include <QDebug>
 
@@ -619,7 +618,7 @@ void PackageToolPrivate::listTypes()
 
     renderTypeTable(builtIns);
 
-    const QVector<KPluginMetaData> offers = KPluginLoader::findPlugins(QStringLiteral("kpackage/packagestructure"));
+    const QVector<KPluginMetaData> offers = KPluginMetaData::findPlugins(QStringLiteral("kpackage/packagestructure"));
 
     if (!offers.isEmpty()) {
         std::cout << std::endl;
