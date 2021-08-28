@@ -255,7 +255,7 @@ void PackageStructureTest::directories()
 
     for (const char *dir : psDirs) {
         bool found = false;
-        for (const char *check : qAsConst(dirs)) {
+        for (const char *check : std::as_const(dirs)) {
             if (qstrcmp(dir, check)) {
                 found = true;
                 break;
@@ -264,7 +264,7 @@ void PackageStructureTest::directories()
         QVERIFY(found);
     }
 
-    for (const char *dir : qAsConst(dirs)) {
+    for (const char *dir : std::as_const(dirs)) {
         bool found = false;
         for (const char *check : psDirs) {
             if (qstrcmp(dir, check)) {
@@ -296,7 +296,7 @@ void PackageStructureTest::files()
     //}
     for (const char *file : psFiles) {
         bool found = false;
-        for (const char *check : qAsConst(files)) {
+        for (const char *check : std::as_const(files)) {
             if (qstrcmp(file, check)) {
                 found = true;
                 break;

@@ -204,7 +204,7 @@ void PackageTool::runMain()
 
         if (d->parser->isSet(Options::remove()) || d->parser->isSet(Options::upgrade())) {
             QString pkgPath;
-            for (const QString &t : qAsConst(d->pluginTypes)) {
+            for (const QString &t : std::as_const(d->pluginTypes)) {
                 KPackage::Package pkg = KPackage::PackageLoader::self()->loadPackage(t);
                 pkg.setPath(d->package);
                 if (pkg.isValid()) {
@@ -558,7 +558,7 @@ void PackageTool::listPackages(const QStringList &types, const QString &path)
 {
     QStringList list = d->packages(types, path);
     list.sort();
-    for (const QString &package : qAsConst(list)) {
+    for (const QString &package : std::as_const(list)) {
         d->coutput(package);
     }
     exit(0);

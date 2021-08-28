@@ -68,7 +68,7 @@ PackageLoader::PackageLoader()
 
 PackageLoader::~PackageLoader()
 {
-    for (auto wp : qAsConst(d->structures)) {
+    for (auto wp : std::as_const(d->structures)) {
         delete wp.data();
     }
     delete d;
@@ -195,7 +195,7 @@ QList<KPluginMetaData> PackageLoader::listPackages(const QString &packageFormat,
         }
     }
 
-    for (auto const &plugindir : qAsConst(paths)) {
+    for (auto const &plugindir : std::as_const(paths)) {
         const QDirIterator::IteratorFlags flags = QDirIterator::Subdirectories;
         const QStringList nameFilters = {QStringLiteral("metadata.json"), QStringLiteral("metadata.desktop")};
 

@@ -348,7 +348,7 @@ QString Package::filePath(const QByteArray &fileType, const QString &filename) c
 
     // Nested loop, but in the medium case resolves to just one iteration
     //     qCDebug(KPACKAGE_LOG) << "prefixes:" << d->contentsPrefixPaths.count() << d->contentsPrefixPaths;
-    for (const QString &contentsPrefix : qAsConst(d->contentsPrefixPaths)) {
+    for (const QString &contentsPrefix : std::as_const(d->contentsPrefixPaths)) {
         QString prefix;
         // We are an installed package
         if (d->tempRoot.isEmpty()) {
@@ -358,7 +358,7 @@ QString Package::filePath(const QByteArray &fileType, const QString &filename) c
             prefix = fileType == "metadata" ? d->tempRoot : (d->tempRoot + contentsPrefix);
         }
 
-        for (const QString &path : qAsConst(paths)) {
+        for (const QString &path : std::as_const(paths)) {
             QString file = prefix + path;
 
             if (!filename.isEmpty()) {
@@ -413,7 +413,7 @@ QStringList Package::entryList(const QByteArray &key) const
 
     // qCDebug(KPACKAGE_LOG) << "going to list" << key;
     QStringList list;
-    for (const QString &prefix : qAsConst(d->contentsPrefixPaths)) {
+    for (const QString &prefix : std::as_const(d->contentsPrefixPaths)) {
         // qCDebug(KPACKAGE_LOG) << "     looking in" << prefix;
         const QStringList paths = it.value().paths;
         for (const QString &path : paths) {
@@ -527,7 +527,7 @@ void Package::setPath(const QString &path)
     // now we search each path found, caching our previous path to know if
     // anything actually really changed
     const QString previousPath = d->path;
-    for (const QString &p : qAsConst(paths)) {
+    for (const QString &p : std::as_const(paths)) {
         d->checkedValid = false;
         QDir dir(p);
 
@@ -642,7 +642,7 @@ QByteArray Package::cryptographicHash(QCryptographicHash::Algorithm algorithm) c
         qCWarning(KPACKAGE_LOG) << "no metadata at" << metadataPath;
     }
 
-    for (const QString &prefix : qAsConst(d->contentsPrefixPaths)) {
+    for (const QString &prefix : std::as_const(d->contentsPrefixPaths)) {
         const QString basePath = d->path + prefix;
         QDir dir(basePath);
 
