@@ -468,6 +468,7 @@ void Package::setPath(const QString &path)
     // hold onto the old pointer just in case it does not, however!
     QExplicitlySharedDataPointer<PackagePrivate> oldD(d);
     d.detach();
+    d->metadata = nullptr;
 
     // without structure we're doomed
     if (!d->structure) {
@@ -870,7 +871,9 @@ PackagePrivate::PackagePrivate(const PackagePrivate &other)
     : QSharedData()
 {
     *this = other;
-    metadata = nullptr;
+    if (other.metadata && other.metadata->isValid()) {
+        metadata = new KPluginMetaData(*other.metadata);
+    }
 }
 
 PackagePrivate::~PackagePrivate()
@@ -902,12 +905,14 @@ PackagePrivate &PackagePrivate::operator=(const PackagePrivate &rhs)
     } else {
         fallbackPackage = nullptr;
     }
+    if (rhs.metadata && rhs.metadata->isValid()) {
+        metadata = new KPluginMetaData(*rhs.metadata);
+    }
     path = rhs.path;
     contentsPrefixPaths = rhs.contentsPrefixPaths;
     contents = rhs.contents;
     mimeTypes = rhs.mimeTypes;
     defaultPackageRoot = rhs.defaultPackageRoot;
-    metadata = nullptr;
     externalPaths = rhs.externalPaths;
     valid = rhs.valid;
     return *this;
