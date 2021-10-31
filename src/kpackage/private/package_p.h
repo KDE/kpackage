@@ -15,6 +15,7 @@
 #include <QPointer>
 #include <QSharedData>
 #include <QString>
+#include <optional>
 namespace KPackage
 {
 // KPackage is is normally used on the stack, explicitly shared and isn't a QObject
@@ -88,7 +89,7 @@ public:
     QHash<QByteArray, ContentStructure> contents;
     Package *fallbackPackage;
     QStringList mimeTypes;
-    KPluginMetaData *metadata = nullptr;
+    std::optional<KPluginMetaData> metadata;
     QString rccPath;
     bool externalPaths : 1;
     bool valid : 1;

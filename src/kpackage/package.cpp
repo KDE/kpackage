@@ -223,11 +223,13 @@ KPluginMetaData Package::metadata() const
         }
     }
 
+    // Set a dummy KPluginMetaData object, this way we don't try to do the expensive
+    // search for the metadata again if none of the paths have changed
     if (!d->metadata) {
-        d->metadata = new KPluginMetaData();
+        d->metadata = KPluginMetaData();
     }
 
-    return *d->metadata;
+    return d->metadata.value();
 }
 
 QString PackagePrivate::unpack(const QString &filePath)
@@ -468,7 +470,7 @@ void Package::setPath(const QString &path)
     // hold onto the old pointer just in case it does not, however!
     QExplicitlySharedDataPointer<PackagePrivate> oldD(d);
     d.detach();
-    d->metadata = nullptr;
+    d->metadata = std::nullopt;
 
     // without structure we're doomed
     if (!d->structure) {
@@ -571,8 +573,7 @@ void Package::setPath(const QString &path)
 
     // .. but something did change, so we get rid of our discovery cache
     d->discoveries.clear();
-    delete d->metadata;
-    d->metadata = nullptr;
+    d->metadata = std::nullopt;
 
     // uh-oh, but we didn't end up with anything valid, so we sadly reset ourselves
     // to futility.
@@ -859,7 +860,6 @@ KJob *Package::uninstall(const QString &packageName, const QString &packageRoot)
 PackagePrivate::PackagePrivate()
     : QSharedData()
     , fallbackPackage(nullptr)
-    , metadata(nullptr)
     , externalPaths(false)
     , valid(false)
     , checkedValid(false)
@@ -871,8 +871,8 @@ PackagePrivate::PackagePrivate(const PackagePrivate &other)
     : QSharedData()
 {
     *this = other;
-    if (other.metadata && other.metadata->isValid()) {
-        metadata = new KPluginMetaData(*other.metadata);
+    if (other.metadata && other.metadata.value().isValid()) {
+        metadata = other.metadata;
     }
 }
 
@@ -889,7 +889,6 @@ PackagePrivate::~PackagePrivate()
         QDir dir(tempRoot);
         dir.removeRecursively();
     }
-    delete metadata;
     delete fallbackPackage;
 }
 
@@ -905,8 +904,8 @@ PackagePrivate &PackagePrivate::operator=(const PackagePrivate &rhs)
     } else {
         fallbackPackage = nullptr;
     }
-    if (rhs.metadata && rhs.metadata->isValid()) {
-        metadata = new KPluginMetaData(*rhs.metadata);
+    if (rhs.metadata && rhs.metadata.value().isValid()) {
+        metadata = rhs.metadata;
     }
     path = rhs.path;
     contentsPrefixPaths = rhs.contentsPrefixPaths;
@@ -976,20 +975,17 @@ void PackagePrivate::createPackageMetadata(const QString &path)
 {
     const bool isDir = QFileInfo(path).isDir();
 
-    delete metadata;
     if (isDir && QFile::exists(path + QStringLiteral("/metadata.json"))) {
-        metadata = new KPluginMetaData(path + QStringLiteral("/metadata.json"));
+        metadata = KPluginMetaData(path + QStringLiteral("/metadata.json"));
     } else if (isDir && QFile::exists(path + QStringLiteral("/metadata.desktop"))) {
-        auto md = KPluginMetaData::fromDesktopFile(path + QStringLiteral("/metadata.desktop"), {QStringLiteral(":/kservicetypes5/kpackage-generic.desktop")});
-        metadata = new KPluginMetaData(md);
+        metadata = KPluginMetaData::fromDesktopFile(path + QStringLiteral("/metadata.desktop"), {QStringLiteral(":/kservicetypes5/kpackage-generic.desktop")});
     } else {
         if (isDir) {
             qCDebug(KPACKAGE_LOG) << "No metadata file in the package, expected it at:" << path;
         } else if (path.endsWith(QLatin1String(".desktop"))) {
-            auto md = KPluginMetaData::fromDesktopFile(path, {QStringLiteral(":/kservicetypes5/kpackage-generic.desktop")});
-            metadata = new KPluginMetaData(md);
+            metadata = KPluginMetaData::fromDesktopFile(path, {QStringLiteral(":/kservicetypes5/kpackage-generic.desktop")});
         } else {
-            metadata = new KPluginMetaData(path);
+            metadata = KPluginMetaData(path);
         }
     }
 }
