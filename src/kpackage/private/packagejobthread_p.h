@@ -32,7 +32,7 @@ public:
     };
 
     explicit PackageJobThread(QObject *parent = nullptr);
-    virtual ~PackageJobThread();
+    ~PackageJobThread() override;
 
     bool install(const QString &src, const QString &dest);
     bool update(const QString &src, const QString &dest);

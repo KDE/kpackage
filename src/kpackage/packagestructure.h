@@ -45,7 +45,7 @@ class KPACKAGE_EXPORT PackageStructure : public QObject
 public:
     explicit PackageStructure(QObject *parent = nullptr, const QVariantList &args = QVariantList());
 
-    ~PackageStructure();
+    ~PackageStructure() override;
 
     /**
      * Called when a the PackageStructure should initialize a Package with the initial

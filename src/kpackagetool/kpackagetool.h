@@ -23,7 +23,7 @@ class PackageTool : public QCoreApplication
 
 public:
     PackageTool(int &argc, char **argv, QCommandLineParser *parser);
-    virtual ~PackageTool();
+    ~PackageTool() override;
 
     void listPackages(const QStringList &types, const QString &path = QString());
     void showPackageInfo(const QString &pluginName);
