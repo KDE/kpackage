@@ -191,6 +191,12 @@ bool Package::allowExternalPaths() const
     return d->externalPaths;
 }
 
+void Package::setMetadata(const KPluginMetaData &data)
+{
+    Q_ASSERT(data.isValid());
+    d->metadata = data;
+}
+
 void Package::setAllowExternalPaths(bool allow)
 {
     d.detach();

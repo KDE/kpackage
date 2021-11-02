@@ -207,6 +207,14 @@ public:
     bool allowExternalPaths() const;
 
     /**
+     * Sets the metadata for the KPackage. This overwrites the current metadata.
+     * This should be used in case a kpackage gets loaded by name, based
+     * on the path a C++ plugin which has embedded metadata.
+     * @since 5.88
+     */
+    void setMetadata(const KPluginMetaData &data);
+
+    /**
      * @return the package metadata object.
      */
     KPluginMetaData metadata() const;
