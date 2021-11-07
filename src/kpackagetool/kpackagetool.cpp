@@ -422,7 +422,7 @@ void PackageTool::showAppstreamInfo(const QString &pluginName)
         std::exit(3);
         return;
     }
-    QString parentApp = i.rawData().value(QLatin1String("X-KDE-ParentApp")).toString();
+    QString parentApp = i.value(QLatin1String("X-KDE-ParentApp"));
 
 #if KPACKAGE_BUILD_DEPRECATED_SINCE(5, 85)
     KPluginMetaData packageStructureMetaData;
@@ -433,7 +433,7 @@ void PackageTool::showAppstreamInfo(const QString &pluginName)
         }
     }
     if (parentApp.isEmpty()) {
-        parentApp = packageStructureMetaData.rawData().value(QLatin1String("X-KDE-ParentApp")).toString();
+        parentApp = packageStructureMetaData.value(QLatin1String("X-KDE-ParentApp"));
         if (!parentApp.isEmpty()) {
             qCDebug(KPACKAGE_LOG) << "Implicitly specifying X-KDE-ParentApp by it's parent structure is deprecated and will"
                                      "be removed in KF6. Either the value should be explicitly set or the default will be used";

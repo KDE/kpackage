@@ -290,7 +290,7 @@ bool PackageJobThread::installPackage(const QString &src, const QString &dest, O
     }
 
     // install dependencies
-    const QStringList dependencies = KPluginMetaData::readStringList(meta.rawData(), QStringLiteral("X-KPackage-Dependencies"));
+    const QStringList dependencies = meta.value(QStringLiteral("X-KPackage-Dependencies"), QStringList());
     for (const QString &dep : dependencies) {
         QUrl depUrl(dep);
         if (!installDependency(depUrl)) {
