@@ -441,17 +441,8 @@ void PackageTool::showAppstreamInfo(const QString &pluginName)
     }
 #endif
 
-    const QJsonObject rootObject = i.rawData()[QStringLiteral("KPlugin")].toObject();
-
-    // Be super aggressive in finding a NoDisplay property. It can be a top-level property or
-    // inside the KPlugin object, it also can be either a stringy type or a bool type. Try all
-    // possible scopes and type conversions to find NoDisplay
-    for (const auto &object : {i.rawData(), rootObject}) {
-        if (object.value(QLatin1String("NoDisplay")).toBool(false) ||
-            // Standard value is unprocessed string we'll need to deal with.
-            object.value(QLatin1String("NoDisplay")).toString() == QStringLiteral("true")) {
-            std::exit(0);
-        }
+    if (i.value(QStringLiteral("NoDisplay"), false)) {
+        std::exit(0);
     }
 
     QXmlStreamAttributes componentAttributes;
@@ -475,7 +466,7 @@ void PackageTool::showAppstreamInfo(const QString &pluginName)
         outputDevice = outputFile.data();
     }
 
-    if (!rootObject.contains(QStringLiteral("Description"))) {
+    if (i.description().isEmpty()) {
         *cerr << "Error: description missing, will result in broken appdata field as <summary/> is mandatory at "
               << QFileInfo(i.metaDataFileName()).absoluteFilePath();
         std::exit(10);
@@ -491,6 +482,8 @@ void PackageTool::showAppstreamInfo(const QString &pluginName)
     if (!parentApp.isEmpty()) {
         writer.writeTextElement(QStringLiteral("extends"), parentApp);
     }
+
+    const QJsonObject rootObject = i.rawData()[QStringLiteral("KPlugin")].toObject();
     translateKPluginToAppstream(QStringLiteral("name"), QStringLiteral("Name"), rootObject, writer, false);
     translateKPluginToAppstream(QStringLiteral("summary"), QStringLiteral("Description"), rootObject, writer, false);
     if (!i.website().isEmpty()) {
