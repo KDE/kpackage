@@ -19,6 +19,7 @@
 
 #include "packageloader.h"
 #include "packagestructures/plasmoidstructure.h"
+#include "private/utils.h"
 
 void PlasmoidPackageTest::initTestCase()
 {
@@ -408,7 +409,7 @@ void PlasmoidPackageTest::uncompressPackageWithSubFolder()
     package.setPath(QFINDTESTDATA("data/customcontent.tar.gz"));
 
     // if metadata is correctly found, servicetypes should be ("SimpleContent", "CustomContent")
-    QCOMPARE(package.metadata().serviceTypes(), QStringList({"SimpleContent", "CustomContent"}));
+    QCOMPARE(readKPackageTypes(package.metadata()), QStringList({"SimpleContent", "CustomContent"}));
 }
 
 void PlasmoidPackageTest::cleanupPackage(const QString &packageName)

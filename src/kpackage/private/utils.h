@@ -16,12 +16,13 @@ inline QStringList readKPackageTypes(const KPluginMetaData &metaData)
     // Compatibility block for old keys
     QStringList types;
     const static QStringList ignoreStringList = QStringList{QStringLiteral("KPackage/PackageStructure")};
-    if (metaData.serviceTypes() == ignoreStringList) {
+    const auto serviceTypes = metaData.rawData().value(QStringLiteral("KPlugin")).toObject().value(QStringLiteral("ServiceTypes")).toVariant().toStringList();
+    if (serviceTypes == ignoreStringList) {
         // If the service type is set to this value we have a structure plugin, consequently we want the pluginId
         types << metaData.pluginId();
     } else {
         // We have a package, read the service types
-        types << metaData.serviceTypes();
+        types << serviceTypes;
     }
     // while most package structure plugins do, they don't need to set the service types,
     // if we haven't found anything so far we use the plugin id

@@ -9,6 +9,7 @@
 #include "packagejobthread_p.h"
 
 #include "package_p.h"
+#include "utils.h"
 
 #include "kpackage_debug.h"
 
@@ -96,7 +97,7 @@ void PackageJob::setupNotificationsOnJobFinished(const QString &messageName)
     // capture first as uninstalling wipes d->package
     // or d-package can become dangling during the job if deleted externally
     const QString pluginId = d->package->metadata().pluginId();
-    const QStringList serviceTypes = d->package->metadata().serviceTypes();
+    const QStringList serviceTypes = readKPackageTypes(d->package->metadata());
 
     auto onJobFinished = [=](bool ok, const QString &error) {
         if (ok) {
