@@ -1,4 +1,4 @@
-find_package(Qt5Test ${REQUIRED_QT_VERSION} REQUIRED NO_MODULE)
+find_package(Qt${QT_MAJOR_VERSION}Test ${REQUIRED_QT_VERSION} REQUIRED NO_MODULE)
 set_package_properties(Qt5Test PROPERTIES PURPOSE "Required for tests")
 
 remove_definitions(-DQT_NO_CAST_FROM_ASCII -DQT_STRICT_ITERATORS -DQT_NO_CAST_FROM_BYTEARRAY -DQT_NO_KEYWORDS)
@@ -14,7 +14,7 @@ MACRO(PLASMA_UNIT_TESTS)
        FOREACH(_testname ${ARGN})
                ecm_add_test(
                        ${_testname}.cpp
-                       LINK_LIBRARIES Qt5::Test kpackage_test_static
+                       LINK_LIBRARIES Qt${QT_MAJOR_VERSION}::Test kpackage_test_static
                        TEST_NAME ${_testname}
                        NAME_PREFIX "plasma-")
                        target_compile_definitions(${_testname} PRIVATE TEST_PLUGIN_DIR="${CMAKE_BINARY_DIR}/bin/")

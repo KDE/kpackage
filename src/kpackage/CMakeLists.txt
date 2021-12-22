@@ -53,7 +53,7 @@ target_link_libraries(KF5Package
 PUBLIC
      KF5::CoreAddons
 PRIVATE
-     Qt5::DBus
+     Qt${QT_MAJOR_VERSION}::DBus
      KF5::Archive
      KF5::I18n
 )
@@ -83,17 +83,17 @@ set(Package_HEADERS
 install(FILES
         ${Package_HEADERS}
         ${CMAKE_CURRENT_BINARY_DIR}/kpackage/package_export.h
-        DESTINATION ${KDE_INSTALL_INCLUDEDIR_KF5}/KPackage/kpackage COMPONENT Devel)
+        DESTINATION ${KDE_INSTALL_INCLUDEDIR_KF}/KPackage/kpackage COMPONENT Devel)
 
 install(FILES
         ${Package_CamelCase_HEADERS}
-        DESTINATION ${KDE_INSTALL_INCLUDEDIR_KF5}/KPackage/KPackage COMPONENT Devel)
+        DESTINATION ${KDE_INSTALL_INCLUDEDIR_KF}/KPackage/KPackage COMPONENT Devel)
 
 install(FILES
    data/kservicetypes5/kpackage-packagestructure.desktop
    data/kservicetypes5/kpackage-generic.desktop
    data/kservicetypes5/kpackage-genericqml.desktop
-   DESTINATION ${KDE_INSTALL_KSERVICETYPES5DIR})
+   DESTINATION ${KDE_INSTALL_KSERVICETYPESDIR})
 
 
 install(TARGETS KF5Package EXPORT KF5PackageTargets ${KF5_INSTALL_TARGETS_DEFAULT_ARGS})
