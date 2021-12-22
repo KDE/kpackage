@@ -999,7 +999,7 @@ void PackagePrivate::createPackageMetadata(const QString &path)
 QString PackagePrivate::fallbackFilePath(const QByteArray &key, const QString &filename) const
 {
     // don't fallback if the package isn't valid and never fallback the metadata file
-    if (qstrcmp(key, "metadata") != 0 && fallbackPackage && fallbackPackage->isValid()) {
+    if (qstrcmp(key.constData(), "metadata") != 0 && fallbackPackage && fallbackPackage->isValid()) {
         return fallbackPackage->filePath(key, filename);
     } else {
         return QString();
