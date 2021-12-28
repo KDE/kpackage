@@ -174,7 +174,7 @@ void Package::setFallbackPackage(const KPackage::Package &package)
         return;
     }
 
-    d->fallbackPackage = new Package(package);
+    d->fallbackPackage = std::make_unique<Package>(package);
 }
 
 KPackage::Package Package::fallbackPackage() const
@@ -895,7 +895,6 @@ PackagePrivate::~PackagePrivate()
         QDir dir(tempRoot);
         dir.removeRecursively();
     }
-    delete fallbackPackage;
 }
 
 PackagePrivate &PackagePrivate::operator=(const PackagePrivate &rhs)
@@ -906,7 +905,7 @@ PackagePrivate &PackagePrivate::operator=(const PackagePrivate &rhs)
 
     structure = rhs.structure;
     if (rhs.fallbackPackage) {
-        fallbackPackage = new Package(*rhs.fallbackPackage);
+        fallbackPackage = std::make_unique<Package>(*rhs.fallbackPackage);
     } else {
         fallbackPackage = nullptr;
     }
@@ -1014,8 +1013,8 @@ bool PackagePrivate::hasCycle(const KPackage::Package &package)
 
     // This is the Floyd cycle detection algorithm
     // http://en.wikipedia.org/wiki/Cycle_detection#Tortoise_and_hare
-    KPackage::Package *slowPackage = const_cast<KPackage::Package *>(&package);
-    KPackage::Package *fastPackage = const_cast<KPackage::Package *>(&package);
+    const KPackage::Package *slowPackage = &package;
+    const KPackage::Package *fastPackage = &package;
 
     while (fastPackage && fastPackage->d->fallbackPackage) {
         // consider two packages the same if they have the same metadata
@@ -1025,8 +1024,8 @@ bool PackagePrivate::hasCycle(const KPackage::Package &package)
             qCWarning(KPACKAGE_LOG) << "Warning: the fallback chain of " << package.metadata().pluginId() << "contains a cyclical dependency.";
             return true;
         }
-        fastPackage = fastPackage->d->fallbackPackage->d->fallbackPackage;
-        slowPackage = slowPackage->d->fallbackPackage;
+        fastPackage = fastPackage->d->fallbackPackage->d->fallbackPackage.get();
+        slowPackage = slowPackage->d->fallbackPackage.get();
     }
     return false;
 }

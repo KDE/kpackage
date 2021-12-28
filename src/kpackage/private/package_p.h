@@ -87,7 +87,7 @@ public:
     QString defaultPackageRoot;
     QHash<QString, QString> discoveries;
     QHash<QByteArray, ContentStructure> contents;
-    Package *fallbackPackage;
+    std::unique_ptr<Package> fallbackPackage;
     QStringList mimeTypes;
     std::optional<KPluginMetaData> metadata;
     QString rccPath;
