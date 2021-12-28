@@ -67,9 +67,6 @@ void QueryTest::installAndQuery()
 
     // package with valid dep information should be installed
     QVERIFY(checkedInstall(ps, QFINDTESTDATA("data/testpackagesdep"), KJob::NoError));
-#ifdef Q_OS_WIN
-    QEXPECT_FAIL("", "This returns 3 on Windows, why?", Abort);
-#endif
     QCOMPARE(KPackage::PackageLoader::self()->listPackages(QStringLiteral("KPackage/Generic")).count(), 4);
 
     // package with invalid dep information should not be installed
@@ -99,9 +96,6 @@ void QueryTest::queryCustomPlugin()
 
     // package with valid dep information should be installed
     QVERIFY(checkedInstall(testPackageStructure, QFINDTESTDATA("data/testpackagesdep"), KJob::NoError));
-#ifdef Q_OS_WIN
-    QEXPECT_FAIL("", "This returns 3 on Windows, why?", Abort);
-#endif
     QCOMPARE(KPackage::PackageLoader::self()->listPackages(QStringLiteral("Plasma/TestKPackageInternalPlasmoid")).count(), 4);
 
     // package with invalid dep information should not be installed

@@ -108,11 +108,14 @@ bool PackageJobThread::install(const QString &src, const QString &dest)
 
 static QString resolveHandler(const QString &scheme)
 {
-    QString candidatePath = QStringLiteral(KDE_INSTALL_FULL_LIBEXECDIR_KF "/kpackagehandlers/%1handler").arg(scheme);
-    if (qEnvironmentVariableIsSet("KPACKAGE_DEP_RESOLVERS_PATH")) {
-        candidatePath = QStringLiteral("%1/%2handler").arg(QString::fromUtf8(qgetenv("KPACKAGE_DEP_RESOLVERS_PATH")), scheme);
+    QString envOverride = qEnvironmentVariable("KPACKAGE_DEP_RESOLVERS_PATH");
+    QStringList searchDirs;
+    if (!envOverride.isEmpty()) {
+        searchDirs.push_back(envOverride);
     }
-    return QFile::exists(candidatePath) ? candidatePath : QString();
+    searchDirs.append(QStringLiteral(KDE_INSTALL_FULL_LIBEXECDIR_KF "/kpackagehandlers"));
+    // We have to use QStandardPaths::findExecutable here to handle the .exe suffix on Windows.
+    return QStandardPaths::findExecutable(scheme + QLatin1String("handler"), searchDirs);
 }
 
 bool PackageJobThread::installDependency(const QUrl &destUrl)
