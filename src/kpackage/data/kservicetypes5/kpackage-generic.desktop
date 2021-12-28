@@ -16,3 +16,6 @@ Type=QStringList
 
 [PropertyDef::Keywords]
 Type=QStringList
+
+[PropertyDef::NoDisplay]
+Type=bool

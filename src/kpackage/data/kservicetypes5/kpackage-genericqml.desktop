@@ -10,3 +10,6 @@ Type=QString
 
 [PropertyDef::X-KPackage-Dependencies]
 Type=QStringList
+
+[PropertyDef::NoDisplay]
+Type=bool
