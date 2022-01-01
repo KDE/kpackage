@@ -1,0 +1,511 @@
+# Copyright (C) YEAR This_file_is_part_of_KDE
+# This file is distributed under the same license as the PACKAGE package.
+#
+# A S Alam <aalam@users.sf.net>, 2014, 2018.
+msgid ""
+msgstr ""
+"Project-Id-Version: \n"
+"Report-Msgid-Bugs-To: https://bugs.kde.org\n"
+"POT-Creation-Date: 2021-12-23 00:40+0000\n"
+"PO-Revision-Date: 2018-11-16 21:04-0800\n"
+"Last-Translator: A S Alam <alam.yellow@gmail.com>\n"
+"Language-Team: Punjabi <punjabi-users@lists.sf.net>\n"
+"Language: pa\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=2; plural=n != 1;\n"
+"X-Generator: Lokalize 2.0\n"
+
+#, fuzzy, kde-format
+#| msgid "Fun and Games"
+msgctxt "NAME OF TRANSLATORS"
+msgid "Your names"
+msgstr "ਮੌਜਾਂ ਤੇ ਖੇਡਾਂ"
+
+#, kde-format
+msgctxt "EMAIL OF TRANSLATORS"
+msgid "Your emails"
+msgstr ""
+
+#: kpackage/package.cpp:42
+#, kde-format
+msgid "Desktop file that describes this package."
+msgstr "ਡੈਸਕਟਾਪ ਫਾਈਲ, ਜੋ ਕਿ ਇਸ ਪੈਕੇਜ ਬਾਰੇ ਜਾਣਕਾਰੀ ਦਿੰਦੀ ਹੈ।"
+
+#: kpackage/packageloader.cpp:41
+msgid "Accessibility"
+msgstr "ਅਸੈੱਸਬਿਲਟੀ"
+
+#: kpackage/packageloader.cpp:42
+msgid "Application Launchers"
+msgstr "ਐਪਲੀਕੇਸ਼ਨ ਲਾਂਚਰ"
+
+#: kpackage/packageloader.cpp:43
+msgid "Astronomy"
+msgstr "ਗਰੈਹ ਵਿਦਿਆ"
+
+#: kpackage/packageloader.cpp:44
+msgid "Date and Time"
+msgstr "ਮਿਤੀ ਅਤੇ ਟਾਈਮ"
+
+#: kpackage/packageloader.cpp:45
+msgid "Development Tools"
+msgstr "ਡਿਵੈਲਪਮੈਂਟ ਟੂਲ"
+
+#: kpackage/packageloader.cpp:46
+msgid "Education"
+msgstr "ਸਿੱਖਿਆ"
+
+#: kpackage/packageloader.cpp:47
+msgid "Environment and Weather"
+msgstr "ਵਾਤਾਵਰਨ ਤੇ ਮੌਸਮ"
+
+#: kpackage/packageloader.cpp:48
+msgid "Examples"
+msgstr "ਮਿਸਾਲਾਂ"
+
+#: kpackage/packageloader.cpp:49
+msgid "File System"
+msgstr "ਫਾਈਲ-ਸਿਸਟਮ"
+
+#: kpackage/packageloader.cpp:50
+msgid "Fun and Games"
+msgstr "ਮੌਜਾਂ ਤੇ ਖੇਡਾਂ"
+
+#: kpackage/packageloader.cpp:51
+msgid "Graphics"
+msgstr "ਗਰਾਫਿਕਸ"
+
+#: kpackage/packageloader.cpp:52
+msgid "Language"
+msgstr "ਭਾਸ਼ਾ"
+
+#: kpackage/packageloader.cpp:53
+msgid "Mapping"
+msgstr "ਨਕਸ਼ੇ"
+
+#: kpackage/packageloader.cpp:54
+msgid "Miscellaneous"
+msgstr "ਫੁਟਕਲ"
+
+#: kpackage/packageloader.cpp:55
+msgid "Multimedia"
+msgstr "ਮਲਟੀਮੀਡਿਆ"
+
+#: kpackage/packageloader.cpp:56
+msgid "Online Services"
+msgstr "ਆਨਲਾਈਨ ਸਰਵਿਸਾਂ"
+
+#: kpackage/packageloader.cpp:57
+msgid "Productivity"
+msgstr "ਉਤਪਾਦਨ"
+
+#: kpackage/packageloader.cpp:58
+msgid "System Information"
+msgstr "ਸਿਸਟਮ ਜਾਣਕਾਰੀ"
+
+#: kpackage/packageloader.cpp:59
+msgid "Utilities"
+msgstr "ਸਹੂਲਤਾਂ"
+
+#: kpackage/packageloader.cpp:60
+msgid "Windows and Tasks"
+msgstr "ਵਿੰਡੋਜ਼ ਅਤੇ ਟਾਸਕ"
+
+#: kpackage/packageloader.cpp:277
+#, kde-format
+msgid "Could not load installer for package of type %1. Error reported was: %2"
+msgstr "ਪੈਕੇਜ ਟਾਈਪ %1 ਲਈ ਇੰਸਟਾਲਰ ਲੋਡ ਨਹੀਂ ਕੀਤਾ ਜਾ ਸਕਿਆ। ਦਿੱਤੀ ਗਲਤੀ: %2"
+
+#: kpackage/private/packagejobthread.cpp:141
+#, kde-format
+msgid "Could not create package root directory: %1"
+msgstr ""
+
+#: kpackage/private/packagejobthread.cpp:150
+#, kde-format
+msgid "No such file: %1"
+msgstr "ਇੰਝ ਦੀ ਫਾਈਲ ਨਹੀਂ: %1"
+
+#: kpackage/private/packagejobthread.cpp:180
+#, kde-format
+msgid "Could not open package file, unsupported archive format: %1 %2"
+msgstr ""
+
+#: kpackage/private/packagejobthread.cpp:188
+#, kde-format
+msgid "Could not open package file: %1"
+msgstr "ਪੈਕੇਜ ਫਾਈਲ ਖੋਲ੍ਹੀ ਨਹੀਂ ਜਾ ਸਕੀ: %1"
+
+#: kpackage/private/packagejobthread.cpp:223
+#, kde-format
+msgid "Could not open metadata file: %1"
+msgstr "ਮੇਟਾਡਾਟਾ ਫਾਈਲ ਖੋਲ੍ਹੀ ਨਹੀਂ ਜਾ ਸਕੀ: %1"
+
+#: kpackage/private/packagejobthread.cpp:234
+#, kde-format
+msgid "No metadata file in package: %1"
+msgstr "ਪੈਕੇਜ ਵਿੱਚ ਕੋਈ ਮੇਟਾਡਾਟਾ ਫਾਈਲ ਨਹੀਂ ਹੈ: %1"
+
+#: kpackage/private/packagejobthread.cpp:243
+#, kde-format
+msgid "Package plugin name not specified: %1"
+msgstr "ਪੈਕੇਜ ਪਲੱਗਇਨ ਨਾਂ ਦਿੱਤਾ ਨਹੀ ਹੈ: %1"
+
+#: kpackage/private/packagejobthread.cpp:253
+#, kde-format
+msgid "Package plugin name %1 contains invalid characters"
+msgstr ""
+
+#: kpackage/private/packagejobthread.cpp:269
+#, kde-format
+msgid ""
+"The new package has a different type from the old version already installed."
+msgstr ""
+
+#: kpackage/private/packagejobthread.cpp:274
+#, kde-format
+msgid ""
+"Impossible to remove the old installation of %1 located at %2. error: %3"
+msgstr ""
+
+#: kpackage/private/packagejobthread.cpp:278
+#, kde-format
+msgid "Not installing version %1 of %2. Version %3 already installed."
+msgstr ""
+
+#: kpackage/private/packagejobthread.cpp:282
+#, kde-format
+msgid "%1 already exists"
+msgstr "%1 ਪਹਿਲਾਂ ਹੀ ਮੌਜੂਦ ਹੈ"
+
+#: kpackage/private/packagejobthread.cpp:297
+#, kde-format
+msgid "Could not install dependency: '%1'"
+msgstr "ਨਿਰਭਰਤਾ ਇੰਸਟਾਲ ਨਹੀਂ ਕੀਤੀ ਜਾ ਸਕੀ: '%1'"
+
+#: kpackage/private/packagejobthread.cpp:309
+#, kde-format
+msgid "Could not move package to destination: %1"
+msgstr ""
+
+#: kpackage/private/packagejobthread.cpp:319
+#, kde-format
+msgid "Could not copy package to destination: %1"
+msgstr ""
+
+#: kpackage/private/packagejobthread.cpp:355
+#, kde-format
+msgid "package path was deleted manually"
+msgstr ""
+
+#: kpackage/private/packagejobthread.cpp:355
+#, kde-format
+msgid "%1 does not exist"
+msgstr "%1 ਮੌਜੂਦ ਨਹੀਂ"
+
+#: kpackage/private/packagejobthread.cpp:375
+#, kde-format
+msgid "Could not delete package from: %1"
+msgstr ""
+
+#: kpackage/private/packages.cpp:17 kpackage/private/packages.cpp:38
+#, kde-format
+msgid "Main Script File"
+msgstr "ਮੁੱਖ ਸਕ੍ਰਿਪਟ ਫਾਈਲ"
+
+#: kpackage/private/packages.cpp:48
+#, kde-format
+msgid "Images"
+msgstr "ਚਿੱਤਰ"
+
+#: kpackage/private/packages.cpp:49
+#, kde-format
+msgid "Themed Images"
+msgstr "ਥੀਮ ਚਿੱਤਰ"
+
+#: kpackage/private/packages.cpp:55
+#, kde-format
+msgid "Configuration Definitions"
+msgstr ""
+
+#: kpackage/private/packages.cpp:60
+#, kde-format
+msgid "User Interface"
+msgstr "ਵਰਤੋਂਕਾਰ ਇੰਟਰਫੇਸ"
+
+#: kpackage/private/packages.cpp:62
+#, kde-format
+msgid "Data Files"
+msgstr "ਡਾਟਾ ਫਾਈਲਾਂ"
+
+#: kpackage/private/packages.cpp:64
+#, kde-format
+msgid "Executable Scripts"
+msgstr "ਚੱਲਣਯੋਗ ਸਕ੍ਰਿਪਟਾਂ"
+
+#: kpackage/private/packages.cpp:69
+#, kde-format
+msgid "Translations"
+msgstr "ਅਨੁਵਾਦ"
+
+#: kpackage/private/packages.cpp:76
+#, fuzzy, kde-format
+#| msgid "Main Script File"
+msgid "Main UI File"
+msgstr "ਮੁੱਖ ਸਕ੍ਰਿਪਟ ਫਾਈਲ"
+
+#: kpackagetool/kpackagetool.cpp:91
+#, kde-format
+msgid "Failed to generate a Package hash for %1"
+msgstr "%1 ਲਈ ਇੱਕ ਪੈਕੇਜ ਹੈਸ਼ ਤਿਆਰ ਕਰਨ ਲਈ ਫੇਲ੍ਹ ਹੈ"
+
+#: kpackagetool/kpackagetool.cpp:94
+#, kde-format
+msgid "SHA1 hash for Package at %1: '%2'"
+msgstr "%1 ਉੱਤੇ ਪੈਕੇਜ ਲਈ SHA1 ਹੈਸ਼: '%2'"
+
+#: kpackagetool/kpackagetool.cpp:133
+#, kde-format
+msgctxt "package type"
+msgid "wallpaper"
+msgstr "ਵਾਲਪੇਪਰ"
+
+#: kpackagetool/kpackagetool.cpp:184
+#, kde-format
+msgid "Listing service types: %1 in %2"
+msgstr ""
+
+#: kpackagetool/kpackagetool.cpp:275
+#, kde-format
+msgid "Error: Plugin %1 is not installed."
+msgstr ""
+
+#: kpackagetool/kpackagetool.cpp:289
+#, kde-format
+msgctxt ""
+"No option was given, this is the error message telling the user he needs at "
+"least one, do not translate install, remove, upgrade nor list"
+msgid "One of install, remove, upgrade or list is required."
+msgstr ""
+
+#: kpackagetool/kpackagetool.cpp:342 kpackagetool/kpackagetool.cpp:422
+#, kde-format
+msgid "Error: Can't find plugin metadata: %1\n"
+msgstr ""
+
+#: kpackagetool/kpackagetool.cpp:346
+#, kde-format
+msgid "Showing info for package: %1"
+msgstr ""
+
+#: kpackagetool/kpackagetool.cpp:347
+#, kde-format
+msgid "      Name : %1"
+msgstr "      ਨਾਂ : %1"
+
+#: kpackagetool/kpackagetool.cpp:348
+#, kde-format
+msgid "   Comment : %1"
+msgstr "   ਟਿੱਪਣੀ: %1"
+
+#: kpackagetool/kpackagetool.cpp:349
+#, kde-format
+msgid "    Plugin : %1"
+msgstr "    ਪਲੱਗਇਨ : %1"
+
+#: kpackagetool/kpackagetool.cpp:351
+#, kde-format
+msgid "    Author : %1"
+msgstr "    ਲੇਖਕ : %1"
+
+#: kpackagetool/kpackagetool.cpp:352
+#, kde-format
+msgid "      Path : %1"
+msgstr "      ਪਾਥ : %1"
+
+#: kpackagetool/kpackagetool.cpp:535
+#, kde-format
+msgctxt ""
+"The user entered conflicting options packageroot and global, this is the "
+"error message telling the user he can use only one"
+msgid ""
+"The packageroot and global options conflict with each other, please select "
+"only one."
+msgstr "ਪੈਕੇਜ-ਰੂਟ ਅਤੇ ਗਲੋਬਲ ਚੋਣਾਂ ਦਾ ਆਪਸ ਵਿੱਚ ਟਕਰਾ ਹੈ, ਕਿਸੇ ਇੱਕ ਦੀ ਚੋਣ ਕਰੋ ਜੀ।"
+
+#: kpackagetool/kpackagetool.cpp:563
+#, kde-format
+msgid "Addon Name"
+msgstr "ਐਡ-ਆਨ ਨਾਂ"
+
+#: kpackagetool/kpackagetool.cpp:564
+#, kde-format
+msgid "Service Type"
+msgstr "ਸਰਵਿਸ ਕਿਸਮ"
+
+#: kpackagetool/kpackagetool.cpp:565
+#, kde-format
+msgid "Path"
+msgstr "ਮਾਰਗ"
+
+#: kpackagetool/kpackagetool.cpp:604
+#, kde-format
+msgid "Package types that are installable with this tool:"
+msgstr "ਇਹ ਟੂਲ ਨਾਲ ਇੰਸਟਾਲ ਹੋਣਯੋਗ ਪੈਕੇਜ ਕਿਸਮਾਂ:"
+
+#: kpackagetool/kpackagetool.cpp:605
+#, kde-format
+msgid "Built in:"
+msgstr "ਬਿਲਟ-ਇਨ:"
+
+#: kpackagetool/kpackagetool.cpp:608
+#, fuzzy, kde-format
+#| msgid "Package"
+msgid "KPackage/Generic"
+msgstr "ਪੈਕੇਜ"
+
+#: kpackagetool/kpackagetool.cpp:610
+#, fuzzy, kde-format
+#| msgid "Package"
+msgid "KPackage/GenericQML"
+msgstr "ਪੈਕੇਜ"
+
+#: kpackagetool/kpackagetool.cpp:619
+#, kde-format
+msgid "Provided by plugins:"
+msgstr "ਪਲੱਗਇਨ ਦਿੱਤੇ ਗਏ:"
+
+#: kpackagetool/kpackagetool.cpp:640
+#, kde-format
+msgid "Successfully upgraded %1"
+msgstr "%1 ਕਾਮਯਾਬੀ ਨਾਲ ਅੱਪਗਰੇਡ ਕੀਤਾ"
+
+#: kpackagetool/kpackagetool.cpp:642
+#, kde-format
+msgid "Successfully installed %1"
+msgstr "%1 ਠੀਕ ਤਰ੍ਹਾਂ ਇੰਸਟਾਲ ਕੀਤਾ"
+
+#: kpackagetool/kpackagetool.cpp:645
+#, kde-format
+msgid "Error: Installation of %1 failed: %2"
+msgstr ""
+
+#: kpackagetool/kpackagetool.cpp:657
+#, kde-format
+msgid "Upgrading package from file: %1"
+msgstr ""
+
+#: kpackagetool/kpackagetool.cpp:664
+#, kde-format
+msgid "Successfully uninstalled %1"
+msgstr ""
+
+#: kpackagetool/kpackagetool.cpp:666
+#, kde-format
+msgid "Error: Uninstallation of %1 failed: %2"
+msgstr ""
+
+#: kpackagetool/main.cpp:36
+#, kde-format
+msgid "KPackage Manager"
+msgstr "ਕੇਪੈਕੇਜ ਮੈਨੇਜਰ"
+
+#: kpackagetool/options.h:11
+#, kde-format
+msgctxt "Do not translate <path>"
+msgid "Generate a SHA1 hash for the package at <path>"
+msgstr "<path> ਉੱਤੇ ਪੈਕੇਜ ਲਈ SHA1 ਹੈਸ਼ ਬਣਾਓ"
+
+#: kpackagetool/options.h:18
+#, kde-format
+msgid "For install or remove, operates on packages installed for all users."
+msgstr "ਸਭ ਯੂਜ਼ਰਾਂ ਲਈ ਇੰਸਟਾਲ ਕੀਤੇ ਪੈਕੇਜਾਂ ਉੱਤੇ ਇੰਸਟਾਲ ਜਾਂ ਹਟਾਓ ਓਪਰੇਸ਼ਨਾਂ ਲਈ"
+
+#: kpackagetool/options.h:27
+#, kde-format
+msgctxt ""
+"theme, wallpaper, etc. are keywords, but they may be translated, as both "
+"versions are recognized by the application (if translated, should be same as "
+"messages with 'package type' context below)"
+msgid ""
+"The type of package, corresponding to the service type of the package "
+"plugin, e.g. KPackage/Generic, Plasma/Theme, Plasma/Wallpaper, Plasma/"
+"Applet, etc."
+msgstr ""
+
+#: kpackagetool/options.h:36
+#, kde-format
+msgctxt "Do not translate <path>"
+msgid "Install the package at <path>"
+msgstr "<path> ਉੱਤੇ ਪੈਕੇਜ ਇੰਸਟਾਲ"
+
+#: kpackagetool/options.h:43
+#, kde-format
+msgctxt "Do not translate <name>"
+msgid "Show information of package <name>"
+msgstr "<name> ਪੈਕੇਜ ਬਾਰੇ ਜਾਣਕਾਰੀ ਵੇਖੋ"
+
+#: kpackagetool/options.h:50
+#, kde-format
+msgctxt "Do not translate <path>"
+msgid "Upgrade the package at <path>"
+msgstr "<path> ਉੱਤੇ ਪੈਕੇਜ ਅੱਪਗਰੇਡ"
+
+#: kpackagetool/options.h:56
+#, kde-format
+msgid "List installed packages"
+msgstr "ਇੰਸਟਾਲ ਕੀਤੇ ਪੈਕੇਜ ਵੇਖੋ"
+
+#: kpackagetool/options.h:61
+#, kde-format
+msgid "List all known package types that can be installed"
+msgstr ""
+
+#: kpackagetool/options.h:67
+#, kde-format
+msgctxt "Do not translate <name>"
+msgid "Remove the package named <name>"
+msgstr "<name> ਨਾਂ ਦਾ ਪੈਕੇਜ ਹਟਾਓ"
+
+#: kpackagetool/options.h:74
+#, kde-format
+msgid ""
+"Absolute path to the package root. If not supplied, then the standard data "
+"directories for this KDE session will be searched instead."
+msgstr ""
+"ਪੈਕੇਜ ਰੂਟ ਲਈ ਅਸਲੀ ਪਾਥ ਹੈ। ਜੇ ਇਹ ਨਾ ਦਿੱਤਾ ਤਾਂ ਇਸ KDE ਸ਼ੈਸ਼ਨ ਲਈ ਸਟੈਂਡਰਡ ਡਾਟਾ ਡਾਇਰੈਕਟਰੀਆਂ ਦੀ "
+"ਖੋਜ ਕੀਤੀ ਜਾਵੇਗੀ।"
+
+#: kpackagetool/options.h:82
+#, kde-format
+msgid ""
+"Recreate the plugin index. To be used in conjunction with either the option -"
+"t or -g. Recreates the index for the given type or package root. Operates in "
+"the user directory, unless -g is used"
+msgstr ""
+
+#: kpackagetool/options.h:90
+#, kde-format
+msgid ""
+"Remove the plugin index. To be used in conjunction with either the option -t "
+"or -g. Recreates the index for the given type or package root. Operates in "
+"the user directory, unless -g is used"
+msgstr ""
+
+#: kpackagetool/options.h:98
+#, fuzzy, kde-format
+#| msgctxt "Do not translate <path>"
+#| msgid "Generate a SHA1 hash for the package at <path>"
+msgctxt "Do not translate <path>"
+msgid "Outputs the metadata for the package <path>"
+msgstr "<path> ਉੱਤੇ ਪੈਕੇਜ ਲਈ SHA1 ਹੈਸ਼ ਬਣਾਓ"
+
+#: kpackagetool/options.h:105
+#, fuzzy, kde-format
+#| msgctxt "Do not translate <path>"
+#| msgid "Generate a SHA1 hash for the package at <path>"
+msgctxt "Do not translate <path>"
+msgid "Outputs the metadata for the package into <path>"
+msgstr "<path> ਉੱਤੇ ਪੈਕੇਜ ਲਈ SHA1 ਹੈਸ਼ ਬਣਾਓ"

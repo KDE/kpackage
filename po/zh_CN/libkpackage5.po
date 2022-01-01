@@ -1,0 +1,516 @@
+# Copyright (C) YEAR This_file_is_part_of_KDE
+# This file is distributed under the same license as the PACKAGE package.
+#
+# Weng Xuetian <wengxt@gmail.com>, 2014, 2015, 2016, 2017.
+# Xuetian Weng <xweng@cs.stonybrook.edu>, 2014.
+# Guo Yunhe <guoyunhebrave@gmail.com>, 2016.
+msgid ""
+msgstr ""
+"Project-Id-Version: kdeorg\n"
+"Report-Msgid-Bugs-To: https://bugs.kde.org\n"
+"POT-Creation-Date: 2021-12-23 00:40+0000\n"
+"PO-Revision-Date: 2021-12-22 14:06\n"
+"Last-Translator: \n"
+"Language-Team: Chinese Simplified\n"
+"Language: zh_CN\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=1; plural=0;\n"
+"X-Crowdin-Project: kdeorg\n"
+"X-Crowdin-Project-ID: 269464\n"
+"X-Crowdin-Language: zh-CN\n"
+"X-Crowdin-File: /kf5-trunk/messages/kpackage/libkpackage5.pot\n"
+"X-Crowdin-File-ID: 5535\n"
+
+#, kde-format
+msgctxt "NAME OF TRANSLATORS"
+msgid "Your names"
+msgstr "KDE 中国, Guo Yunhe, Tyson Tan"
+
+#, kde-format
+msgctxt "EMAIL OF TRANSLATORS"
+msgid "Your emails"
+msgstr "kde-china@kde.org, i@guoyunhe.me, tysontan@tysontan.com"
+
+#: kpackage/package.cpp:42
+#, kde-format
+msgid "Desktop file that describes this package."
+msgstr "描述此包的桌面定义文件。"
+
+#: kpackage/packageloader.cpp:41
+msgid "Accessibility"
+msgstr "无障碍功能"
+
+#: kpackage/packageloader.cpp:42
+msgid "Application Launchers"
+msgstr "应用程序启动器"
+
+#: kpackage/packageloader.cpp:43
+msgid "Astronomy"
+msgstr "天文"
+
+#: kpackage/packageloader.cpp:44
+msgid "Date and Time"
+msgstr "日期和时间"
+
+#: kpackage/packageloader.cpp:45
+msgid "Development Tools"
+msgstr "开发工具"
+
+#: kpackage/packageloader.cpp:46
+msgid "Education"
+msgstr "教育"
+
+#: kpackage/packageloader.cpp:47
+msgid "Environment and Weather"
+msgstr "环境和天气"
+
+#: kpackage/packageloader.cpp:48
+msgid "Examples"
+msgstr "示例"
+
+#: kpackage/packageloader.cpp:49
+msgid "File System"
+msgstr "文件系统"
+
+#: kpackage/packageloader.cpp:50
+msgid "Fun and Games"
+msgstr "娱乐和游戏"
+
+#: kpackage/packageloader.cpp:51
+msgid "Graphics"
+msgstr "图像处理"
+
+#: kpackage/packageloader.cpp:52
+msgid "Language"
+msgstr "语言"
+
+#: kpackage/packageloader.cpp:53
+msgid "Mapping"
+msgstr "映射"
+
+#: kpackage/packageloader.cpp:54
+msgid "Miscellaneous"
+msgstr "杂项"
+
+#: kpackage/packageloader.cpp:55
+msgid "Multimedia"
+msgstr "多媒体"
+
+#: kpackage/packageloader.cpp:56
+msgid "Online Services"
+msgstr "在线服务"
+
+#: kpackage/packageloader.cpp:57
+msgid "Productivity"
+msgstr "生产力"
+
+#: kpackage/packageloader.cpp:58
+msgid "System Information"
+msgstr "系统信息"
+
+#: kpackage/packageloader.cpp:59
+msgid "Utilities"
+msgstr "工具"
+
+#: kpackage/packageloader.cpp:60
+msgid "Windows and Tasks"
+msgstr "窗口和任务"
+
+#: kpackage/packageloader.cpp:277
+#, kde-format
+msgid "Could not load installer for package of type %1. Error reported was: %2"
+msgstr "无法加载类型 %1 的包安装器。报告的错误是：%2"
+
+#: kpackage/private/packagejobthread.cpp:141
+#, kde-format
+msgid "Could not create package root directory: %1"
+msgstr "无法创建包根目录：%1"
+
+#: kpackage/private/packagejobthread.cpp:150
+#, kde-format
+msgid "No such file: %1"
+msgstr "没有这个文件：%1"
+
+#: kpackage/private/packagejobthread.cpp:180
+#, kde-format
+msgid "Could not open package file, unsupported archive format: %1 %2"
+msgstr "无法打开包文件，不支持的压缩格式：%1 %2"
+
+#: kpackage/private/packagejobthread.cpp:188
+#, kde-format
+msgid "Could not open package file: %1"
+msgstr "无法打开包文件：%1"
+
+#: kpackage/private/packagejobthread.cpp:223
+#, kde-format
+msgid "Could not open metadata file: %1"
+msgstr "无法打开元数据文件：%1"
+
+#: kpackage/private/packagejobthread.cpp:234
+#, kde-format
+msgid "No metadata file in package: %1"
+msgstr "包没有元数据文件：%1"
+
+#: kpackage/private/packagejobthread.cpp:243
+#, kde-format
+msgid "Package plugin name not specified: %1"
+msgstr "包插件名称未指定：%1"
+
+#: kpackage/private/packagejobthread.cpp:253
+#, kde-format
+msgid "Package plugin name %1 contains invalid characters"
+msgstr "包插件名称 %1 包含无效字符"
+
+#: kpackage/private/packagejobthread.cpp:269
+#, kde-format
+msgid ""
+"The new package has a different type from the old version already installed."
+msgstr "新包的格式和已安装的旧版本不同。"
+
+#: kpackage/private/packagejobthread.cpp:274
+#, kde-format
+msgid ""
+"Impossible to remove the old installation of %1 located at %2. error: %3"
+msgstr "无法删除位于 %2 的 %1 的旧版安装文件。错误：%3"
+
+#: kpackage/private/packagejobthread.cpp:278
+#, kde-format
+msgid "Not installing version %1 of %2. Version %3 already installed."
+msgstr "未安装 %1 版本的 %2。已安装版本 %3 。"
+
+#: kpackage/private/packagejobthread.cpp:282
+#, kde-format
+msgid "%1 already exists"
+msgstr "%1 已存在"
+
+#: kpackage/private/packagejobthread.cpp:297
+#, kde-format
+msgid "Could not install dependency: '%1'"
+msgstr "无法安装依赖：“%1”"
+
+#: kpackage/private/packagejobthread.cpp:309
+#, kde-format
+msgid "Could not move package to destination: %1"
+msgstr "无法移动包到目标：%1"
+
+#: kpackage/private/packagejobthread.cpp:319
+#, kde-format
+msgid "Could not copy package to destination: %1"
+msgstr "无法复制包到目标：%1"
+
+#: kpackage/private/packagejobthread.cpp:355
+#, kde-format
+msgid "package path was deleted manually"
+msgstr "软件包路径已被手动删除"
+
+#: kpackage/private/packagejobthread.cpp:355
+#, kde-format
+msgid "%1 does not exist"
+msgstr "%1 不存在"
+
+#: kpackage/private/packagejobthread.cpp:375
+#, kde-format
+msgid "Could not delete package from: %1"
+msgstr "无法从位置删除包：%1"
+
+#: kpackage/private/packages.cpp:17 kpackage/private/packages.cpp:38
+#, kde-format
+msgid "Main Script File"
+msgstr "主脚本文件"
+
+#: kpackage/private/packages.cpp:48
+#, kde-format
+msgid "Images"
+msgstr "图像"
+
+#: kpackage/private/packages.cpp:49
+#, kde-format
+msgid "Themed Images"
+msgstr "主题化的图像"
+
+#: kpackage/private/packages.cpp:55
+#, kde-format
+msgid "Configuration Definitions"
+msgstr "配置定义"
+
+#: kpackage/private/packages.cpp:60
+#, kde-format
+msgid "User Interface"
+msgstr "用户界面"
+
+#: kpackage/private/packages.cpp:62
+#, kde-format
+msgid "Data Files"
+msgstr "日期文件"
+
+#: kpackage/private/packages.cpp:64
+#, kde-format
+msgid "Executable Scripts"
+msgstr "可执行脚本"
+
+#: kpackage/private/packages.cpp:69
+#, kde-format
+msgid "Translations"
+msgstr "翻译"
+
+#: kpackage/private/packages.cpp:76
+#, kde-format
+msgid "Main UI File"
+msgstr "主界面文件"
+
+#: kpackagetool/kpackagetool.cpp:91
+#, kde-format
+msgid "Failed to generate a Package hash for %1"
+msgstr "生成 %1 的包哈希值失败"
+
+#: kpackagetool/kpackagetool.cpp:94
+#, kde-format
+msgid "SHA1 hash for Package at %1: '%2'"
+msgstr "位于 %1 的包的 SHA1 哈希值：'%2'"
+
+#: kpackagetool/kpackagetool.cpp:133
+#, kde-format
+msgctxt "package type"
+msgid "wallpaper"
+msgstr "壁纸"
+
+#: kpackagetool/kpackagetool.cpp:184
+#, kde-format
+msgid "Listing service types: %1 in %2"
+msgstr "列出服务类型：%1 在 %2"
+
+#: kpackagetool/kpackagetool.cpp:275
+#, kde-format
+msgid "Error: Plugin %1 is not installed."
+msgstr "错误：插件 %1 未安装。"
+
+#: kpackagetool/kpackagetool.cpp:289
+#, kde-format
+msgctxt ""
+"No option was given, this is the error message telling the user he needs at "
+"least one, do not translate install, remove, upgrade nor list"
+msgid "One of install, remove, upgrade or list is required."
+msgstr ""
+"必须使用安装 (install)、移除 (remove)、升级 (upgrade) 或列出 (list) 四个选项"
+"之一。"
+
+#: kpackagetool/kpackagetool.cpp:342 kpackagetool/kpackagetool.cpp:422
+#, kde-format
+msgid "Error: Can't find plugin metadata: %1\n"
+msgstr "错误：无法找到插件元数据：%1\n"
+
+#: kpackagetool/kpackagetool.cpp:346
+#, kde-format
+msgid "Showing info for package: %1"
+msgstr "显示包信息：%1"
+
+#: kpackagetool/kpackagetool.cpp:347
+#, kde-format
+msgid "      Name : %1"
+msgstr "      名称：%1"
+
+#: kpackagetool/kpackagetool.cpp:348
+#, kde-format
+msgid "   Comment : %1"
+msgstr "   注释：%1"
+
+#: kpackagetool/kpackagetool.cpp:349
+#, kde-format
+msgid "    Plugin : %1"
+msgstr "    插件：%1"
+
+#: kpackagetool/kpackagetool.cpp:351
+#, kde-format
+msgid "    Author : %1"
+msgstr "    作者：%1"
+
+#: kpackagetool/kpackagetool.cpp:352
+#, kde-format
+msgid "      Path : %1"
+msgstr "      路径：%1"
+
+#: kpackagetool/kpackagetool.cpp:535
+#, kde-format
+msgctxt ""
+"The user entered conflicting options packageroot and global, this is the "
+"error message telling the user he can use only one"
+msgid ""
+"The packageroot and global options conflict with each other, please select "
+"only one."
+msgstr "包目录树的选项和全局选项相互冲突，请选择其中一个。"
+
+#: kpackagetool/kpackagetool.cpp:563
+#, kde-format
+msgid "Addon Name"
+msgstr "插件名称"
+
+#: kpackagetool/kpackagetool.cpp:564
+#, kde-format
+msgid "Service Type"
+msgstr "服务类型"
+
+#: kpackagetool/kpackagetool.cpp:565
+#, kde-format
+msgid "Path"
+msgstr "路径"
+
+#: kpackagetool/kpackagetool.cpp:604
+#, kde-format
+msgid "Package types that are installable with this tool:"
+msgstr "使用本工具可安装的包类型："
+
+#: kpackagetool/kpackagetool.cpp:605
+#, kde-format
+msgid "Built in:"
+msgstr "构建于："
+
+#: kpackagetool/kpackagetool.cpp:608
+#, kde-format
+msgid "KPackage/Generic"
+msgstr "KPackage/通用"
+
+#: kpackagetool/kpackagetool.cpp:610
+#, kde-format
+msgid "KPackage/GenericQML"
+msgstr "KPackage/通用 QML"
+
+#: kpackagetool/kpackagetool.cpp:619
+#, kde-format
+msgid "Provided by plugins:"
+msgstr "由这些插件提供："
+
+#: kpackagetool/kpackagetool.cpp:640
+#, kde-format
+msgid "Successfully upgraded %1"
+msgstr "已成功升级 %1"
+
+#: kpackagetool/kpackagetool.cpp:642
+#, kde-format
+msgid "Successfully installed %1"
+msgstr "已成功安装 %1"
+
+#: kpackagetool/kpackagetool.cpp:645
+#, kde-format
+msgid "Error: Installation of %1 failed: %2"
+msgstr "错误：安装 %1 失败：%2"
+
+#: kpackagetool/kpackagetool.cpp:657
+#, kde-format
+msgid "Upgrading package from file: %1"
+msgstr "从文件更新包：%1"
+
+#: kpackagetool/kpackagetool.cpp:664
+#, kde-format
+msgid "Successfully uninstalled %1"
+msgstr "已成功卸载 %1"
+
+#: kpackagetool/kpackagetool.cpp:666
+#, kde-format
+msgid "Error: Uninstallation of %1 failed: %2"
+msgstr "错误：卸载 %1 失败：%2"
+
+#: kpackagetool/main.cpp:36
+#, kde-format
+msgid "KPackage Manager"
+msgstr "KPackage 管理器"
+
+#: kpackagetool/options.h:11
+#, kde-format
+msgctxt "Do not translate <path>"
+msgid "Generate a SHA1 hash for the package at <path>"
+msgstr "生成位于 <path> 的包的哈希值。"
+
+#: kpackagetool/options.h:18
+#, kde-format
+msgid "For install or remove, operates on packages installed for all users."
+msgstr "供所有用户对包进行安装、移除和其他操作。"
+
+#: kpackagetool/options.h:27
+#, kde-format
+msgctxt ""
+"theme, wallpaper, etc. are keywords, but they may be translated, as both "
+"versions are recognized by the application (if translated, should be same as "
+"messages with 'package type' context below)"
+msgid ""
+"The type of package, corresponding to the service type of the package "
+"plugin, e.g. KPackage/Generic, Plasma/Theme, Plasma/Wallpaper, Plasma/"
+"Applet, etc."
+msgstr ""
+"包的类型，对应包插件的服务类型，例如 KPackage/Generic, Plasma/Theme, Plasma/"
+"Wallpaper, Plasma/Applet 等。"
+
+#: kpackagetool/options.h:36
+#, kde-format
+msgctxt "Do not translate <path>"
+msgid "Install the package at <path>"
+msgstr "安装位于 <path> 的包"
+
+#: kpackagetool/options.h:43
+#, kde-format
+msgctxt "Do not translate <name>"
+msgid "Show information of package <name>"
+msgstr "显示包 <name> 的信息"
+
+#: kpackagetool/options.h:50
+#, kde-format
+msgctxt "Do not translate <path>"
+msgid "Upgrade the package at <path>"
+msgstr "升级位于 <path> 的包"
+
+#: kpackagetool/options.h:56
+#, kde-format
+msgid "List installed packages"
+msgstr "列出已安装的包"
+
+#: kpackagetool/options.h:61
+#, kde-format
+msgid "List all known package types that can be installed"
+msgstr "列出所有可安装的已知包类型"
+
+#: kpackagetool/options.h:67
+#, kde-format
+msgctxt "Do not translate <name>"
+msgid "Remove the package named <name>"
+msgstr "移除名为 <name> 的包"
+
+#: kpackagetool/options.h:74
+#, kde-format
+msgid ""
+"Absolute path to the package root. If not supplied, then the standard data "
+"directories for this KDE session will be searched instead."
+msgstr ""
+"软件包根目录的绝对路径。如果未提供，则转而搜索本次 KDE 会话的标准数据目录。"
+
+#: kpackagetool/options.h:82
+#, kde-format
+msgid ""
+"Recreate the plugin index. To be used in conjunction with either the option -"
+"t or -g. Recreates the index for the given type or package root. Operates in "
+"the user directory, unless -g is used"
+msgstr ""
+"重建插件索引。应和选项 -t 或者 -g 一起使用。对给定的包根目录或者类型重建索"
+"引。操作在用户目录内进行，除非指定了 -g 参数"
+
+#: kpackagetool/options.h:90
+#, kde-format
+msgid ""
+"Remove the plugin index. To be used in conjunction with either the option -t "
+"or -g. Recreates the index for the given type or package root. Operates in "
+"the user directory, unless -g is used"
+msgstr ""
+"删除插件索引。和 -t 或 -g 选项联合使用。重新创建给定类型或包根目录的索引。除"
+"非指定了 -g 选项，将会在用户目录内进行操作"
+
+#: kpackagetool/options.h:98
+#, kde-format
+msgctxt "Do not translate <path>"
+msgid "Outputs the metadata for the package <path>"
+msgstr "输出位于 <path> 包的元数据"
+
+#: kpackagetool/options.h:105
+#, kde-format
+msgctxt "Do not translate <path>"
+msgid "Outputs the metadata for the package into <path>"
+msgstr "输出软件包元数据到 <path>"
