@@ -399,7 +399,7 @@ void PackageTool::showAppstreamInfo(const QString &pluginName)
     if (QFile::exists(pluginName + QStringLiteral("/metadata.desktop"))) {
         i = KPluginMetaData::fromDesktopFile(pluginName + QStringLiteral("/metadata.desktop"), {QStringLiteral(":/kservicetypes5/kpackage-generic.desktop")});
     } else if (QFile::exists(pluginName + QStringLiteral("/metadata.json"))) {
-        i = KPluginMetaData(pluginName + QStringLiteral("/metadata.json"));
+        i = KPluginMetaData::fromJsonFile(pluginName + QStringLiteral("/metadata.json"));
     } else {
         QString type = QStringLiteral("KPackage/Generic");
         if (!d->pluginTypes.contains(type) && !d->pluginTypes.isEmpty()) {

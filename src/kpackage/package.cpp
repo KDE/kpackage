@@ -981,7 +981,7 @@ void PackagePrivate::createPackageMetadata(const QString &path)
     const bool isDir = QFileInfo(path).isDir();
 
     if (isDir && QFile::exists(path + QStringLiteral("/metadata.json"))) {
-        metadata = KPluginMetaData(path + QStringLiteral("/metadata.json"));
+        metadata = KPluginMetaData::fromJsonFile(path + QStringLiteral("/metadata.json"));
     } else if (isDir && QFile::exists(path + QStringLiteral("/metadata.desktop"))) {
         metadata = KPluginMetaData::fromDesktopFile(path + QStringLiteral("/metadata.desktop"), {QStringLiteral(":/kservicetypes5/kpackage-generic.desktop")});
     } else {
