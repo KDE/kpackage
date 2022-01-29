@@ -220,16 +220,13 @@ bool PackageJobThread::installPackage(const QString &src, const QString &dest, O
         if (metadataFilePath.endsWith(QLatin1String(".desktop"))) {
             meta = KPluginMetaData::fromDesktopFile(metadataFilePath, {QStringLiteral(":/kservicetypes5/kpackage-generic.desktop")});
         } else {
-            QFile f(metadataFilePath);
-            if (!f.open(QIODevice::ReadOnly)) {
-                qCWarning(KPACKAGE_LOG) << "Couldn't open metadata file" << src << path;
-                d->errorMessage = i18n("Could not open metadata file: %1", src);
-                d->errorCode = Package::JobError::MetadataFileMissingError;
-                return false;
-            }
-            QJsonObject metadataObject = QJsonDocument::fromJson(f.readAll()).object();
-            meta = KPluginMetaData(metadataObject, QString(), metadataFilePath);
+            meta = KPluginMetaData::fromJsonFile(metadataFilePath);
         }
+    } else {
+        qCWarning(KPACKAGE_LOG) << "Couldn't open metadata file" << src << path;
+        d->errorMessage = i18n("Could not open metadata file: %1", src);
+        d->errorCode = Package::JobError::MetadataFileMissingError;
+        return false;
     }
 
     if (!meta.isValid()) {
