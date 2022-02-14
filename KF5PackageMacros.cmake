@@ -44,10 +44,9 @@ function(kpackage_install_package dir component)
    set(ORIGINAL_METADATA "${CMAKE_CURRENT_SOURCE_DIR}/${dir}/metadata.desktop")
    if(NOT EXISTS ${component}-${root}-metadata.json AND EXISTS ${ORIGINAL_METADATA})
         set(GENERATED_METADATA "${CMAKE_CURRENT_BINARY_DIR}/${component}-${root}-metadata.json")
-        add_custom_command(OUTPUT ${GENERATED_METADATA}
-                           DEPENDS ${ORIGINAL_METADATA}
-                           COMMAND KF5::desktoptojson -i ${ORIGINAL_METADATA} -o ${GENERATED_METADATA})
         add_custom_target(${component}-${root}-metadata-json ALL DEPENDS ${GENERATED_METADATA})
+        kcoreaddons_desktop_to_json(${component}-${root}-metadata-json ${ORIGINAL_METADATA}
+                                    OUTPUT_FILE ${GENERATED_METADATA})
         install(FILES ${GENERATED_METADATA} DESTINATION ${KDE_INSTALL_DATADIR}/${install_dir}/${root}/${component} RENAME metadata.json)
         set(metadatajson ${GENERATED_METADATA})
     elseif (EXISTS "${CMAKE_CURRENT_SOURCE_DIR}/${dir}/metadata.json")
@@ -99,10 +98,9 @@ function(kpackage_install_bundled_package dir component)
     set(ORIGINAL_METADATA "${CMAKE_CURRENT_SOURCE_DIR}/${dir}/metadata.desktop")
     if(NOT EXISTS ${component}-${root}-metadata.json AND EXISTS ${ORIGINAL_METADATA})
             set(GENERATED_METADATA "${CMAKE_CURRENT_BINARY_DIR}/${component}-${root}-metadata.json")
-            add_custom_command(OUTPUT ${GENERATED_METADATA}
-                            DEPENDS ${ORIGINAL_METADATA}
-                            COMMAND KF5::desktoptojson -i ${ORIGINAL_METADATA} -o ${GENERATED_METADATA})
             add_custom_target(${component}-${root}-metadata-json ALL DEPENDS ${GENERATED_METADATA})
+            kcoreaddons_desktop_to_json(${component}-${root}-metadata-json ${ORIGINAL_METADATA}
+                                        OUTPUT_FILE ${GENERATED_METADATA})
             install(FILES ${GENERATED_METADATA} DESTINATION ${KDE_INSTALL_DATADIR}/${install_dir}/${root}/${component} RENAME metadata.json)
             set(metadatajson ${GENERATED_METADATA})
     endif()
