@@ -263,7 +263,12 @@ bool PackageJobThread::installPackage(const QString &src, const QString &dest, O
 
     if (QFile::exists(targetName)) {
         if (operation == Update) {
-            KPluginMetaData oldMeta(targetName + QLatin1String("/metadata.desktop"));
+            KPluginMetaData oldMeta;
+            if (QFileInfo::exists(targetName + QLatin1String("/metadata.desktop"))) {
+                oldMeta = KPluginMetaData::fromDesktopFile(targetName + QLatin1String("/metadata.desktop"));
+            } else if (QFileInfo::exists(targetName + QLatin1String("/metadata.json"))) {
+                oldMeta = KPluginMetaData::fromJsonFile(targetName + QLatin1String("/metadata.json"));
+            }
 
             if (readKPackageTypes(oldMeta) != readKPackageTypes(meta)) {
                 d->errorMessage = i18n("The new package has a different type from the old version already installed.");
