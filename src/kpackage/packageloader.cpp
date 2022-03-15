@@ -18,6 +18,7 @@
 #include <KLazyLocalizedString>
 #include <KLocalizedString>
 #include <KPluginFactory>
+#include <KPluginMetaData>
 
 #include "config-package.h"
 
@@ -213,7 +214,12 @@ QList<KPluginMetaData> PackageLoader::listPackages(const QString &packageFormat,
             dirs << dir;
 
             const QString metadataPath = it.fileInfo().absoluteFilePath();
-            const KPluginMetaData info(metadataPath);
+            KPluginMetaData info;
+            if (metadataPath.endsWith(QLatin1String(".desktop"))) {
+                info = KPluginMetaData::fromDesktopFile(metadataPath);
+            } else {
+                info = KPluginMetaData::fromJsonFile(metadataPath);
+            }
 
             if (!info.isValid() || uniqueIds.contains(info.pluginId())) {
                 continue;

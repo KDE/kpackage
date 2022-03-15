@@ -990,7 +990,7 @@ void PackagePrivate::createPackageMetadata(const QString &path)
         } else if (path.endsWith(QLatin1String(".desktop"))) {
             metadata = KPluginMetaData::fromDesktopFile(path, {QStringLiteral(":/kservicetypes5/kpackage-generic.desktop")});
         } else {
-            metadata = KPluginMetaData(path);
+            metadata = KPluginMetaData::fromJsonFile(path);
         }
     }
 }
