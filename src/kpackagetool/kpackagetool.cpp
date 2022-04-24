@@ -396,10 +396,12 @@ void PackageTool::showAppstreamInfo(const QString &pluginName)
     // This can happen in the case an application wanting to support kpackage based extensions includes in the same project both the packagestructure plugin and
     // the packages themselves. In that case at build time the packagestructure plugin wouldn't be installed yet
 
-    if (QFile::exists(pluginName + QStringLiteral("/metadata.desktop"))) {
-        i = KPluginMetaData::fromDesktopFile(pluginName + QStringLiteral("/metadata.desktop"), {QStringLiteral(":/kservicetypes5/kpackage-generic.desktop")});
-    } else if (QFile::exists(pluginName + QStringLiteral("/metadata.json"))) {
+    if (QFile::exists(pluginName + QStringLiteral("/metadata.json"))) {
         i = KPluginMetaData::fromJsonFile(pluginName + QStringLiteral("/metadata.json"));
+#if KCOREADDONS_BUILD_DEPRECATED_SINCE(5, 92)
+    } else if (QFile::exists(pluginName + QStringLiteral("/metadata.desktop"))) {
+        i = KPluginMetaData::fromDesktopFile(pluginName + QStringLiteral("/metadata.desktop"), {QStringLiteral(":/kservicetypes5/kpackage-generic.desktop")});
+#endif
     } else {
         QString type = QStringLiteral("KPackage/Generic");
         if (!d->pluginTypes.contains(type) && !d->pluginTypes.isEmpty()) {

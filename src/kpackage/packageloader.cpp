@@ -215,11 +215,15 @@ QList<KPluginMetaData> PackageLoader::listPackages(const QString &packageFormat,
 
             const QString metadataPath = it.fileInfo().absoluteFilePath();
             KPluginMetaData info;
+#if KCOREADDONS_BUILD_DEPRECATED_SINCE(5, 92)
             if (metadataPath.endsWith(QLatin1String(".desktop"))) {
                 info = KPluginMetaData::fromDesktopFile(metadataPath);
             } else {
                 info = KPluginMetaData::fromJsonFile(metadataPath);
             }
+#else
+            info = KPluginMetaData::fromJsonFile(metadataPath);
+#endif
 
             if (!info.isValid() || uniqueIds.contains(info.pluginId())) {
                 continue;
