@@ -1,10 +1,3 @@
-# This option should be removed, or moved down as far as possible.
-# That means porting the existing frameworks to the CMake automoc
-# feature. Porting is mostly removing explicit moc includes, and
-# leaving the ones which are truly needed (ie, if you remove
-# them, the build fails).
-set(CMAKE_AUTOMOC_RELAXED_MODE ON)
-
 configure_file(${CMAKE_CURRENT_SOURCE_DIR}/config-package.h.cmake ${CMAKE_CURRENT_BINARY_DIR}/config-package.h)
 
 add_library(KF5Package)

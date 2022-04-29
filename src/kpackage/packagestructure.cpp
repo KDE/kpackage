@@ -62,5 +62,3 @@ KJob *PackageStructure::uninstall(Package *package, const QString &packageRoot)
 }
 
 }
-
-#include "moc_packagestructure.cpp"
