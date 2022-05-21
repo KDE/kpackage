@@ -457,7 +457,7 @@ void PackageTool::showAppstreamInfo(const QString &pluginName)
     // with the argument we'll print to the defined path.
     // TODO: in KF6 we should switch to argument-only.
     QIODevice *outputDevice = cout->device();
-    QScopedPointer<QFile> outputFile;
+    std::unique_ptr<QFile> outputFile;
     const auto outputPath = d->parser->value(Options::appstreamOutput());
     if (!outputPath.isEmpty()) {
         auto outputUrl = QUrl::fromUserInput(outputPath);
@@ -466,7 +466,7 @@ void PackageTool::showAppstreamInfo(const QString &pluginName)
             *cerr << "Failed to open output file for writing.";
             exit(1);
         }
-        outputDevice = outputFile.data();
+        outputDevice = outputFile.get();
     }
 
     if (i.description().isEmpty()) {
