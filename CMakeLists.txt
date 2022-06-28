@@ -25,6 +25,7 @@ include(ECMMarkNonGuiExecutable)
 include(ECMAddQch)
 include(ECMQtDeclareLoggingCategory)
 include(ECMSetupQtPluginMacroNames)
+include(ECMDeprecationSettings)
 
 set(EXCLUDE_DEPRECATED_BEFORE_AND_AT 0 CACHE STRING "Control the range of deprecated API excluded from the build [default=0].")
 
@@ -60,8 +61,12 @@ ecm_setup_qtplugin_macro_names(
     CONFIG_CODE_VARIABLE
         PACKAGE_SETUP_AUTOMOC_VARIABLES
 )
-add_definitions(-DQT_DISABLE_DEPRECATED_BEFORE=0x050f02)
-add_definitions(-DKF_DISABLE_DEPRECATED_BEFORE_AND_AT=0x055900)
+ecm_set_disabled_deprecation_versions(
+    QT 5.15.2
+    KF 5.95
+    KCOREADDONS 5.91 # KPluginMetaData::fromDesktopFile
+)
+
 include(KF5PackageMacros.cmake)
 
 # make package_version.h available
