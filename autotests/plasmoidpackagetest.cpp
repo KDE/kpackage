@@ -276,6 +276,9 @@ void PlasmoidPackageTest::createAndInstallPackage()
 
     m_defaultPackageStructure = new KPackage::PackageStructure(this);
     KPackage::Package *p = new KPackage::Package(m_defaultPackageStructure);
+#if !KCOREADDONS_BUILD_DEPRECATED_SINCE(5, 92)
+    QSKIP("test data still uses desktop files instead of JSON!");
+#endif
     qDebug() << "Installing " << packagePath;
     // const QString packageRoot = "plasma/plasmoids/";
     // const QString servicePrefix = "plasma-applet-";
@@ -306,6 +309,9 @@ void PlasmoidPackageTest::noCrashOnAsyncInstall()
     QDir rootDir(m_packageRoot + "/plasmoid_to_package");
     rootDir.removeRecursively();
 
+#if !KCOREADDONS_BUILD_DEPRECATED_SINCE(5, 92)
+    QSKIP("test data still uses desktop files instead of JSON!");
+#endif
     KJob *job;
     // scope the package so it will get deleted before the install operation finishes
     // package is explicitlyshared internally and designed to be used on the stack
@@ -361,6 +367,9 @@ void PlasmoidPackageTest::createAndUpdatePackage()
 
     m_defaultPackageStructure = new KPackage::PackageStructure(this);
     KPackage::Package *p = new KPackage::Package(m_defaultPackageStructure);
+#if !KCOREADDONS_BUILD_DEPRECATED_SINCE(5, 92)
+    QSKIP("test data still uses desktop files instead of JSON!");
+#endif
     qDebug() << "Installing " << packagePath;
     // const QString packageRoot = "plasma/plasmoids/";
     // const QString servicePrefix = "plasma-applet-";
@@ -408,6 +417,9 @@ void PlasmoidPackageTest::uncompressPackageWithSubFolder()
     KPackage::Package package(structure);
     package.setPath(QFINDTESTDATA("data/customcontent.tar.gz"));
 
+#if !KCOREADDONS_BUILD_DEPRECATED_SINCE(5, 92)
+    QEXPECT_FAIL("", "test data still uses desktop files instead of JSON!", Continue);
+#endif
     // if metadata is correctly found, servicetypes should be ("SimpleContent", "CustomContent")
     QCOMPARE(readKPackageTypes(package.metadata()), QStringList({"SimpleContent", "CustomContent"}));
 }

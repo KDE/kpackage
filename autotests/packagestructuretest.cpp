@@ -354,6 +354,9 @@ void PackageStructureTest::customContent()
 
     p.setPath(QFINDTESTDATA("data/customcontent"));
     const QString expected = QFINDTESTDATA("data/customcontent") + "/contents/customcontent/CustomContentFile.qml";
+#if !KCOREADDONS_BUILD_DEPRECATED_SINCE(5, 92)
+    QEXPECT_FAIL("", "test data still uses desktop files instead of JSON!", Continue);
+#endif
     QCOMPARE(p.filePath("customcontentfile"), expected);
     QVERIFY(p.isValid());
 
