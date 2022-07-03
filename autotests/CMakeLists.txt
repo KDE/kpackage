@@ -51,7 +51,10 @@ function(kpackagetool5test testname)
     set_property(TEST ${testname}-appstream PROPERTY ENVIRONMENT "XDG_DATA_DIRS=${CMAKE_SOURCE_DIR}/src/kpackage/data:${XDG_DATA_DIRS}")
 endfunction()
 
-foreach(var "testfallbackpackage" "testpackage" "testpackage-nodisplay" "testjsonmetadatapackage" "testpackagesdep" "testpackagesdepinvalid") # "customcontent" "simplecontent"
+if (QT_MAJOR_VERSION EQUAL "5")
+    kpackagetool5test("testpackage")
+endif()
+foreach(var "testfallbackpackage"  "testpackage-nodisplay" "testjsonmetadatapackage" "testpackagesdep" "testpackagesdepinvalid") # "customcontent" "simplecontent"
     kpackagetool5test(${var})
 endforeach()
 

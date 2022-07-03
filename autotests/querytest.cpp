@@ -55,23 +55,41 @@ void QueryTest::installAndQuery()
     QCOMPARE(KPackage::PackageLoader::self()->listPackages(QStringLiteral("KPackage/Generic")).count(), 0);
 
     // install some packages
+#if KCOREADDONS_BUILD_DEPRECATED_SINCE(5, 92)
     QVERIFY(checkedInstall(ps, QFINDTESTDATA("data/testpackage"), KJob::NoError));
     QVERIFY(checkedInstall(ps, QFINDTESTDATA("data/testfallbackpackage"), KJob::NoError));
+#endif
     QVERIFY(checkedInstall(ps, QFINDTESTDATA("data/testjsonmetadatapackage"), KJob::NoError));
     system("find '/Users/alex/.qttest/Library/Application Support'");
+#if KCOREADDONS_BUILD_DEPRECATED_SINCE(5, 92)
     QCOMPARE(KPackage::PackageLoader::self()->listPackages(QStringLiteral("KPackage/Generic")).count(), 3);
+#else
+    QCOMPARE(KPackage::PackageLoader::self()->listPackages(QStringLiteral("KPackage/Generic")).count(), 1);
+#endif
 
     // installing package with invalid metadata should not be possible
     QVERIFY(checkedInstall(ps, QFINDTESTDATA("data/testinvalidmetadata"), KPackage::Package::MetadataFileMissingError));
+#if KCOREADDONS_BUILD_DEPRECATED_SINCE(5, 92)
     QCOMPARE(KPackage::PackageLoader::self()->listPackages(QStringLiteral("KPackage/Generic")).count(), 3);
+#else
+    QCOMPARE(KPackage::PackageLoader::self()->listPackages(QStringLiteral("KPackage/Generic")).count(), 1);
+#endif
 
     // package with valid dep information should be installed
     QVERIFY(checkedInstall(ps, QFINDTESTDATA("data/testpackagesdep"), KJob::NoError));
+#if KCOREADDONS_BUILD_DEPRECATED_SINCE(5, 92)
     QCOMPARE(KPackage::PackageLoader::self()->listPackages(QStringLiteral("KPackage/Generic")).count(), 4);
+#else
+    QCOMPARE(KPackage::PackageLoader::self()->listPackages(QStringLiteral("KPackage/Generic")).count(), 2);
+#endif
 
     // package with invalid dep information should not be installed
     QVERIFY(checkedInstall(ps, QFINDTESTDATA("data/testpackagesdepinvalid"), KPackage::Package::JobError::PackageCopyError));
+#if KCOREADDONS_BUILD_DEPRECATED_SINCE(5, 92)
     QCOMPARE(KPackage::PackageLoader::self()->listPackages(QStringLiteral("KPackage/Generic")).count(), 4);
+#else
+    QCOMPARE(KPackage::PackageLoader::self()->listPackages(QStringLiteral("KPackage/Generic")).count(), 2);
+#endif
 }
 
 void QueryTest::queryCustomPlugin()
@@ -85,23 +103,41 @@ void QueryTest::queryCustomPlugin()
 
     auto testPackageStructure = KPackage::PackageLoader::self()->loadPackage(QStringLiteral("Plasma/TestKPackageInternalPlasmoid"));
     // install some packages
+#if KCOREADDONS_BUILD_DEPRECATED_SINCE(5, 92)
     QVERIFY(checkedInstall(testPackageStructure, QFINDTESTDATA("data/testpackage"), KJob::NoError));
     QVERIFY(checkedInstall(testPackageStructure, QFINDTESTDATA("data/testfallbackpackage"), KJob::NoError));
+#endif
     QVERIFY(checkedInstall(testPackageStructure, QFINDTESTDATA("data/testjsonmetadatapackage"), KJob::NoError));
+#if KCOREADDONS_BUILD_DEPRECATED_SINCE(5, 92)
     QCOMPARE(KPackage::PackageLoader::self()->listPackages(QStringLiteral("Plasma/TestKPackageInternalPlasmoid")).count(), 3);
+#else
+    QCOMPARE(KPackage::PackageLoader::self()->listPackages(QStringLiteral("Plasma/TestKPackageInternalPlasmoid")).count(), 1);
+#endif
 
     // installing package with invalid metadata should not be possible
     QVERIFY(checkedInstall(testPackageStructure, QFINDTESTDATA("data/testinvalidmetadata"), KPackage::Package::MetadataFileMissingError));
+#if KCOREADDONS_BUILD_DEPRECATED_SINCE(5, 92)
     QCOMPARE(KPackage::PackageLoader::self()->listPackages(QStringLiteral("Plasma/TestKPackageInternalPlasmoid")).count(), 3);
+#else
+    QCOMPARE(KPackage::PackageLoader::self()->listPackages(QStringLiteral("Plasma/TestKPackageInternalPlasmoid")).count(), 1);
+#endif
 
     // package with valid dep information should be installed
     QVERIFY(checkedInstall(testPackageStructure, QFINDTESTDATA("data/testpackagesdep"), KJob::NoError));
+#if KCOREADDONS_BUILD_DEPRECATED_SINCE(5, 92)
     QCOMPARE(KPackage::PackageLoader::self()->listPackages(QStringLiteral("Plasma/TestKPackageInternalPlasmoid")).count(), 4);
+#else
+    QCOMPARE(KPackage::PackageLoader::self()->listPackages(QStringLiteral("Plasma/TestKPackageInternalPlasmoid")).count(), 2);
+#endif
 
     // package with invalid dep information should not be installed
     QVERIFY(checkedInstall(testPackageStructure, QFINDTESTDATA("data/testpackagesdepinvalid"), KPackage::Package::JobError::PackageCopyError));
 
+#if KCOREADDONS_BUILD_DEPRECATED_SINCE(5, 92)
     QCOMPARE(KPackage::PackageLoader::self()->listPackages(QStringLiteral("Plasma/TestKPackageInternalPlasmoid")).count(), 4);
+#else
+    QCOMPARE(KPackage::PackageLoader::self()->listPackages(QStringLiteral("Plasma/TestKPackageInternalPlasmoid")).count(), 2);
+#endif
 }
 
 QTEST_MAIN(QueryTest)
