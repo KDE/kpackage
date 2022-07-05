@@ -1,0 +1,44 @@
+{
+    "KPlugin": {
+        "Authors": [
+            {
+                "Email": "jblow@kde.org",
+                "Name": "Joe Blow"
+            }
+        ],
+        "Category": "",
+        "Id": "org.kde.customcontent",
+        "License": "GPLv2+",
+        "Name": "Custom Content",
+        "Name[ca@valencia]": "Contingut personalitzat",
+        "Name[ca]": "Contingut personalitzat",
+        "Name[en_GB]": "Custom Content",
+        "Name[es]": "Contenido personalizado",
+        "Name[fi]": "Mukautettu sisältö",
+        "Name[gl]": "Contido personalizado",
+        "Name[it]": "Contenuto personalizzato",
+        "Name[nl]": "Aangepaste inhoud",
+        "Name[pl]": "Własna treść",
+        "Name[pt]": "Conteúdo Personalizado",
+        "Name[pt_BR]": "Conteúdo personalizado",
+        "Name[sk]": "Vlastný obsah",
+        "Name[sl]": "Vsebina po meri",
+        "Name[sr@ijekavian]": "Посебан садржај",
+        "Name[sr@ijekavianlatin]": "Poseban sadržaj",
+        "Name[sr@latin]": "Poseban sadržaj",
+        "Name[sr]": "Посебан садржај",
+        "Name[sv]": "Eget innehåll",
+        "Name[uk]": "Нетиповий вміст",
+        "Name[x-test]": "xxCustom Contentxx",
+        "Name[zh_CN]": "自定义内容",
+        "ServiceTypes": [
+            "SimpleContent",
+            "CustomContent"
+        ],
+        "Version": "",
+        "Website": ""
+    },
+    "Keywords": "",
+    "X-KDE-ParentApp": "",
+    "X-Plasma-MainScript": "ui/main.qml"
+}

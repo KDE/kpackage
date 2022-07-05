@@ -1,0 +1,44 @@
+{
+    "Description": "test description",
+    "KPlugin": {
+        "Authors": [
+            {
+                "Email": "jblow@kde.org",
+                "Name": "Joe Blow"
+            }
+        ],
+        "Category": "",
+        "Id": "org.kde.simplecontent",
+        "License": "GPLv2+",
+        "Name": "Simple Content",
+        "Name[ca@valencia]": "Contingut simple",
+        "Name[ca]": "Contingut simple",
+        "Name[en_GB]": "Simple Content",
+        "Name[es]": "Contenido sencillo",
+        "Name[fi]": "Yksinkertainen sisältö",
+        "Name[gl]": "Contido simple",
+        "Name[it]": "Contenuto semplice",
+        "Name[nl]": "Eenvoudige inhoud",
+        "Name[pl]": "Prosta treść",
+        "Name[pt]": "Conteúdo Simples",
+        "Name[pt_BR]": "Conteúdo simples",
+        "Name[sk]": "Jednoduchý obsah",
+        "Name[sl]": "Preprosta vsebina",
+        "Name[sr@ijekavian]": "Једноставан садржај",
+        "Name[sr@ijekavianlatin]": "Jednostavan sadržaj",
+        "Name[sr@latin]": "Jednostavan sadržaj",
+        "Name[sr]": "Једноставан садржај",
+        "Name[sv]": "Enkelt innehåll",
+        "Name[uk]": "Простий вміст",
+        "Name[x-test]": "xxSimple Contentxx",
+        "Name[zh_CN]": "简单内容",
+        "ServiceTypes": [
+            "SimpleContent"
+        ],
+        "Version": "",
+        "Website": ""
+    },
+    "Keywords": "",
+    "X-KDE-ParentApp": "",
+    "X-Plasma-MainScript": "ui/main.qml"
+}
