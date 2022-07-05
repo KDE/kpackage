@@ -16,6 +16,8 @@
 #include <kzip.h>
 
 #include <QDebug>
+#include <QJsonDocument>
+#include <QJsonObject>
 
 #include "packageloader.h"
 #include "packagestructures/plasmoidstructure.h"
@@ -55,16 +57,19 @@ void PlasmoidPackageTest::createTestPackage(const QString &packageName, const QS
     QVERIFY(QDir().mkpath(m_packageRoot + "/" + packageName));
     qDebug() << "Created" << (m_packageRoot + "/" + packageName);
 
-    // Create the metadata.desktop file
-    QFile file(m_packageRoot + "/" + packageName + "/metadata.desktop");
+    // Create the metadata.json file
+    QFile file(m_packageRoot + "/" + packageName + "/metadata.json");
 
     QVERIFY(file.open(QIODevice::WriteOnly));
 
+    QJsonObject kplugin;
+    kplugin.insert(QLatin1String("Id"), packageName);
+    kplugin.insert(QLatin1String("Name"), packageName);
+    kplugin.insert(QLatin1String("Version"), version);
+    QJsonObject root{{QLatin1String("KPlugin"), kplugin}};
+
     QTextStream out(&file);
-    out << "[Desktop Entry]\n";
-    out << "Name=" << packageName << "\n";
-    out << "X-KDE-PluginInfo-Name=" << packageName << "\n";
-    out << "X-KDE-PluginInfo-Version=" << version << "\n";
+    file.write(QJsonDocument(root).toJson());
     file.flush();
     file.close();
 
@@ -139,8 +144,8 @@ void PlasmoidPackageTest::isValid()
     p->setPath(m_packageRoot + '/' + m_package);
     QVERIFY(!p->isValid());
 
-    // Create the metadata.desktop file.
-    QFile file(m_packageRoot + "/" + m_package + "/metadata.desktop");
+    // Create the metadata.json file.
+    QFile file(m_packageRoot + "/" + m_package + "/metadata.json");
     QVERIFY(file.open(QIODevice::WriteOnly));
 
     QTextStream out(&file);
@@ -266,7 +271,7 @@ void PlasmoidPackageTest::createAndInstallPackage()
     QVERIFY(package.open(QIODevice::ReadOnly));
     const KArchiveDirectory *dir = package.directory();
     QVERIFY(dir); //
-    QVERIFY(dir->entry(QStringLiteral("metadata.desktop")));
+    QVERIFY(dir->entry(QStringLiteral("metadata.json")));
     const KArchiveEntry *contentsEntry = dir->entry(QStringLiteral("contents"));
     QVERIFY(contentsEntry);
     QVERIFY(contentsEntry->isDirectory());
@@ -351,7 +356,7 @@ void PlasmoidPackageTest::createAndUpdatePackage()
     QVERIFY(package.open(QIODevice::ReadOnly));
     const KArchiveDirectory *dir = package.directory();
     QVERIFY(dir); //
-    QVERIFY(dir->entry(QStringLiteral("metadata.desktop")));
+    QVERIFY(dir->entry(QStringLiteral("metadata.json")));
     const KArchiveEntry *contentsEntry = dir->entry(QStringLiteral("contents"));
     QVERIFY(contentsEntry);
     QVERIFY(contentsEntry->isDirectory());
