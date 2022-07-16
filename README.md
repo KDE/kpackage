@@ -1,6 +1,6 @@
 # KPackage Framework
 
-Installation and loading of additional content (ex: scripts, images...) as packages
+Installation and loading of additional content (ex: scripts, images...) as packages.
 
 ## Introduction
 
@@ -8,7 +8,7 @@ The KPackage framework lets the user install and load packages of non binary con
 
 # Using KPackage
 
-The frameworks consists of 3 classes: PackageStructure, PackageLoader and Package
+The frameworks consists of 3 classes: PackageStructure, PackageLoader and Package.
 The central class is Package, that represents an installed package and is used to access its file, install, update or uninstall it.
 
 In order to use the framework the developer has to define a package structure. (the package type, that will be depending on the particular application, and the type of content that will be provided, may be a sound theme, graphics assets, qml files etc).
@@ -19,7 +19,7 @@ The package loader is used to load instances of Package of a given type.
 
 Package is the central class of the framework, and it represents a package of a certain type, it can be either "abstract", not pointing to a particular package on disk (in which case the only things allowed will be installing and uninstalling) or it can point to a particular package installed on disk: its path() not being empty and valid.
 
-A Package defines a particular filesystem structure for installed addons, made up of allowed subdirectories in which content will be organized and several optional named files, if you want to mandate a particular named file in every package (for instance if your addons need a file named "main.qml" in order to be considered valid)
+A Package defines a particular filesystem structure for installed addons, made up of allowed subdirectories in which content will be organized and several optional named files, if you want to mandate a particular named file in every package (for instance if your addons need a file named "main.qml" in order to be considered valid).
 
 A fixed structure is encouraged by the api of Package in order to encourage plugin creators to distribute packages made with a standard and expected structure, encouraging a common path installation prefix, and strongly discouraging cross references between different packages such as ../ relative paths and symlinks across packages.
 
@@ -38,7 +38,7 @@ An example filesystem structure (that in the end, depends from the PackageStruct
 
 ```
 
-The special, main and always required for every packagestructure file is the "metadata" file, which describes the package with values such as name, description, pluginname etc. It is in any format accepted by KPluginMetadata, meaning at the moment either a .desktop or json files. The metadata is accessible with Package::metadata().
+The special, main and always required for every package structure file is the "metadata" file, which describes the package with values such as name, description, pluginname etc. It is in any format accepted by KPluginMetadata, meaning at the moment either a .desktop or json files. The metadata is accessible with Package::metadata().
 
 All the other files are under the contents/ subdirectory: a folder under addDirectoryDefinition will be registered under contents/.
 
@@ -48,9 +48,9 @@ To access a file within the package, the filePath(key, filename) method is used.
 
 The key parameter is one of those that has been registered by the structure beforehand by addFileDefinition or addDirectoryDefinition. Files asked with an unknown keys won't be resolved.
 
-Accessing a file under a directory will look like package.filePath("ui", "main.qml") while accessing a particular named file will look like package.filePath("mainscript")
+Accessing a file under a directory will look like package.filePath("ui", "main.qml") while accessing a particular named file will look like package.filePath("mainscript").
 
-If as file path is passed a relative path with ".." elements in it or an absolute path, the resolution will fail as well, in order to discourage cross references (same thing will happen if the resolved file is a symlink), unless the package structure explicitly allowed it with setAllowExternalPaths()
+If as file path is passed a relative path with ".." elements in it or an absolute path, the resolution will fail as well, in order to discourage cross references (same thing will happen if the resolved file is a symlink), unless the package structure explicitly allowed it with setAllowExternalPaths().
 Here is a minimal example of a PackageStructure::initPackage.
 
 ```
@@ -92,7 +92,7 @@ X-KDE-ParentApp=org.kde.myapp
 
 ```
 
-And an own CMakeLists.txt
+And an own CMakeLists.txt.
 
 ```
 #build the PackageStructure implementation as a standalone library
@@ -118,7 +118,7 @@ The c++ implementation with its cmake and desktop files are recommended to be in
 
 Package structures are instance of PackageStructure and are shipeed as plugins.
 
-PackageStructure::initPackage will be executed once when any package is created, and this initializes the Package instance on what are the allowed subfolders and named files for this type. The most important thing to do in initPackage is setting a packageRoot path, that will be a common prefix under which all packages will be installed, relative to the xdg data paths. For instance the packages of type "plasmoid" will be under "plasma/plasmoids" which means searching under ~/.local/share/plasma/plasmoids and /usr/share/plasma/plasmoids
+PackageStructure::initPackage will be executed once when any package is created, and this initializes the Package instance on what are the allowed subfolders and named files for this type. The most important thing to do in initPackage is setting a packageRoot path, that will be a common prefix under which all packages will be installed, relative to the xdg data paths. For instance the packages of type "plasmoid" will be under "plasma/plasmoids" which means searching under ~/.local/share/plasma/plasmoids and /usr/share/plasma/plasmoids.
 
 This is the only required function to be reimplemented for a given PackageStructure, the other ones being optional only when particular needs ensue.
 
@@ -139,4 +139,3 @@ if (p.isValid()) {
     qDebug() << p.filePath("mainscript");
 }
 ```
-
