@@ -63,7 +63,7 @@ ecm_setup_qtplugin_macro_names(
 )
 ecm_set_disabled_deprecation_versions(
     QT 5.15.2
-    KF 5.95
+    KF 5.97
     KCOREADDONS 5.91 # KPluginMetaData::fromDesktopFile
 )
 
