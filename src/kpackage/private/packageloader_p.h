@@ -21,10 +21,6 @@ public:
     {
     }
 
-    static QSet<QString> knownCategories();
-
-    static QSet<QString> s_customCategories;
-
     QHash<QString, QPointer<PackageStructure>> structures;
     bool isDefaultLoader;
     QString packageStructurePluginDir;
