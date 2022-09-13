@@ -301,9 +301,15 @@ bool PackageJobThread::installPackage(const QString &src, const QString &dest, O
     }
 
     // install dependencies
+    const QStringList optionalDependencies{QStringLiteral("sddmtheme.knsrc")};
     const QStringList dependencies = meta.value(QStringLiteral("X-KPackage-Dependencies"), QStringList());
     for (const QString &dep : dependencies) {
         QUrl depUrl(dep);
+        const QString knsrcFilePath = QStandardPaths::locate(QStandardPaths::GenericDataLocation, QLatin1String("knsrcfiles/") + depUrl.host());
+        if (knsrcFilePath.isEmpty() && optionalDependencies.contains(depUrl.host())) {
+            qWarning() << "Skipping depdendency due to knsrc files being missing" << depUrl;
+            continue;
+        }
         if (!installDependency(depUrl)) {
             d->errorMessage = i18n("Could not install dependency: '%1'", dep);
             d->errorCode = Package::JobError::PackageCopyError;
