@@ -15,8 +15,6 @@ target_sources(KF5Package PRIVATE
     packageloader.cpp
     private/packages.cpp
     private/packagejob.cpp
-    private/packagejobthread.cpp
-    private/versionparser.cpp
     version.cpp
     kpackage.qrc
 )
@@ -42,6 +40,10 @@ ecm_generate_export_header(KF5Package
     EXCLUDE_DEPRECATED_BEFORE_AND_AT ${EXCLUDE_DEPRECATED_BEFORE_AND_AT}
 )
 
+add_library(kpackage_common_STATIC STATIC private/packagejobthread.cpp private/versionparser.cpp)
+target_link_libraries(kpackage_common_STATIC PRIVATE Qt${QT_VERSION_MAJOR}::Core KF5::CoreAddons KF5::Archive KF5::I18n)
+set_property(TARGET kpackage_common_STATIC PROPERTY POSITION_INDEPENDENT_CODE ON)
+
 target_link_libraries(KF5Package
 PUBLIC
      KF5::CoreAddons
@@ -49,6 +51,7 @@ PRIVATE
      Qt${QT_MAJOR_VERSION}::DBus
      KF5::Archive
      KF5::I18n
+     kpackage_common_STATIC
 )
 
 target_include_directories(KF5Package PUBLIC
@@ -90,6 +93,9 @@ install(FILES
 
 
 install(TARGETS KF5Package EXPORT KF5PackageTargets ${KF5_INSTALL_TARGETS_DEFAULT_ARGS})
+if (NOT BUILD_SHARED_LIBS)
+    install(TARGETS kpackage_common_STATIC EXPORT KF5PackageTargets ${KF5_INSTALL_TARGETS_DEFAULT_ARGS})
+endif()
 
 if(BUILD_QCH)
     ecm_add_qch(
