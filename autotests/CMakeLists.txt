@@ -11,6 +11,7 @@ configure_file(config.h.cmake ${CMAKE_CURRENT_BINARY_DIR}/config.h)
 add_library(kpackage_test_static STATIC packagestructures/plasmoidstructure.cpp)
 set_property(TARGET kpackage_test_static PROPERTY POSITION_INDEPENDENT_CODE ON)
 target_link_libraries(kpackage_test_static KF5::Package KF5::Archive KF5::CoreAddons KF5::I18n )
+
 MACRO(PLASMA_UNIT_TESTS)
        FOREACH(_testname ${ARGN})
                ecm_add_test(
@@ -18,7 +19,6 @@ MACRO(PLASMA_UNIT_TESTS)
                        LINK_LIBRARIES Qt${QT_MAJOR_VERSION}::Test kpackage_test_static
                        TEST_NAME ${_testname}
                        NAME_PREFIX "plasma-")
-                       target_compile_definitions(${_testname} PRIVATE TEST_PLUGIN_DIR="${CMAKE_BINARY_DIR}/bin/")
        ENDFOREACH(_testname)
 ENDMACRO(PLASMA_UNIT_TESTS)
 
@@ -30,9 +30,10 @@ PLASMA_UNIT_TESTS(
     querytest
 )
 
-add_library(plasmoidstructure_plugin MODULE packagestructures/plugin.cpp)
+
+kcoreaddons_add_plugin(plasmoidstructure_plugin STATIC SOURCES packagestructures/plugin.cpp INSTALL_NAMESPACE kpackage/packagestructure)
 target_link_libraries(plasmoidstructure_plugin kpackage_test_static)
-set_target_properties(plasmoidstructure_plugin PROPERTIES LIBRARY_OUTPUT_DIRECTORY "${CMAKE_BINARY_DIR}/bin/kpackage/packagestructure")
+kcoreaddons_target_static_plugins(querytest kpackage/packagestructure)
 
 set_tests_properties(plasma-querytest PROPERTIES RUN_SERIAL TRUE) # it wipes out ~/.qttest/share
 set_tests_properties(plasma-plasmoidpackagetest PROPERTIES RUN_SERIAL TRUE)

@@ -18,7 +18,6 @@
 
 void QueryTest::initTestCase()
 {
-    QCoreApplication::addLibraryPath(TEST_PLUGIN_DIR);
     QStandardPaths::setTestModeEnabled(true);
     // Remove any eventual installed package globally on the system
     qputenv("XDG_DATA_DIRS", "/not/valid");
