@@ -15,4 +15,4 @@ ecm_qt_declare_logging_category(kpackagetool5
 )
 target_link_libraries(kpackagetool5 kpackage_common_STATIC KF5::Archive KF5::Package KF5::I18n KF5::CoreAddons)
 
-install(TARGETS kpackagetool5 EXPORT KF5PackageToolsTargets ${KF5_INSTALL_TARGETS_DEFAULT_ARGS})
+install(TARGETS kpackagetool5 EXPORT KF5PackageToolsTargets ${KF_INSTALL_TARGETS_DEFAULT_ARGS})
