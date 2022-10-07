@@ -434,9 +434,3 @@ msgstr "<path> のパッケージのために SHA1 ハッシュを生成"
 msgctxt "Do not translate <path>"
 msgid "Outputs the metadata for the package into <path>"
 msgstr "<path> のパッケージのために SHA1 ハッシュを生成"
-
-#~ msgid "Addon Name"
-#~ msgstr "アドオン名"
-
-#~ msgid "Service Type"
-#~ msgstr "サービスタイプ"
