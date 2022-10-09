@@ -162,7 +162,7 @@
 ></term>
 <listitem
 ><para
->Per a instal·lar o suprimir, opera amb els paquets instal·lats per a tots els usuaris.</para
+>Per a instal·lar o suprimir, opera sobre els paquets instal·lats per a tots els usuaris.</para
 ></listitem>
 </varlistentry>
 <varlistentry>
@@ -174,7 +174,7 @@
 ></term>
 <listitem
 ><para
->El tipus del paquet, el qual es correspon amb el tipus de servei del connector que es troba al paquet, &pex;, KPackage/Generic, Plasma/Theme, Plasma/Wallpaper, Plasma/Applet, &etc;</para
+>El tipus del paquet, el qual es correspon amb el tipus de servei del connector que es troba en el paquet, &pex;, KPackage/Generic, Plasma/Theme, Plasma/Wallpaper, Plasma/Applet, &etc;</para
 ></listitem>
 </varlistentry>
 <varlistentry>
@@ -295,7 +295,7 @@
 <para
 >Hi ha disponible documentació d'usuari més detallada des de <ulink url="help:/plasma-desktop"
 >help:/plasma-desktop</ulink
-> (podeu emprar este &URL; a &konqueror; o bé executar <userinput
+> (podeu emprar este &URL; a dins de &konqueror; o bé executar <userinput
 ><command
 >khelpcenter</command
 > <parameter
