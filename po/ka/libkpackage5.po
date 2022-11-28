@@ -8,7 +8,7 @@ msgstr ""
 "Project-Id-Version: kpackage\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2022-09-15 00:41+0000\n"
-"PO-Revision-Date: 2022-09-27 13:49+0200\n"
+"PO-Revision-Date: 2022-11-27 11:40+0100\n"
 "Last-Translator: Temuri Doghonadze <temuri.doghonadze@gmail.com>\n"
 "Language-Team: Georgian <kde-i18n-doc@kde.org>\n"
 "Language: ka\n"
@@ -16,7 +16,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
-"X-Generator: Poedit 3.1.1\n"
+"X-Generator: Poedit 3.2\n"
 
 #, kde-format
 msgctxt "NAME OF TRANSLATORS"
@@ -82,13 +82,14 @@ msgstr "პაკეტის დამატება სახელით %1 
 #, kde-format
 msgid ""
 "The new package has a different type from the old version already installed."
-msgstr ""
+msgstr "ახალი პაკეტის ტიპი ძველი განსხვავდება უკვე დაყენებული ვერსიისგან."
 
 #: kpackage/private/packagejobthread.cpp:285
 #, kde-format
 msgid ""
 "Impossible to remove the old installation of %1 located at %2. error: %3"
 msgstr ""
+"ძველი დაყენების %1, რომელიც მდებარეობს %2-ზე, წაშლა შეუძლებელია. შეცდომა: %3"
 
 #: kpackage/private/packagejobthread.cpp:289
 #, kde-format
@@ -255,6 +256,7 @@ msgid ""
 "The packageroot and global options conflict with each other, please select "
 "only one."
 msgstr ""
+"გლობალური პარამეტრები და packageroot კონფლიქტობენ. აირჩიეთ მხოლოდ ერთი."
 
 #: kpackagetool/kpackagetool.cpp:565
 #, kde-format
@@ -269,7 +271,7 @@ msgstr "ბილიკი"
 #: kpackagetool/kpackagetool.cpp:597
 #, kde-format
 msgid "Package types that are installable with this tool:"
-msgstr ""
+msgstr "პაკეტის ტიპი, რომელიც დაყენებადია ამ პროგრამით:"
 
 #: kpackagetool/kpackagetool.cpp:598
 #, kde-format
@@ -330,12 +332,13 @@ msgstr "KPackage -ის მმართველი"
 #, kde-format
 msgctxt "Do not translate <path>"
 msgid "Generate a SHA1 hash for the package at <path>"
-msgstr ""
+msgstr "<ბილიკზე> მდებარე პაკეტის SHA1 ჰეშის გენერაცია"
 
 #: kpackagetool/options.h:18
 #, kde-format
 msgid "For install or remove, operates on packages installed for all users."
 msgstr ""
+"დასაყენებლად ან წასაშლელად, ოპერაციები ყველა მომხმარებელზე გავრცელდება."
 
 #: kpackagetool/options.h:27
 #, kde-format
