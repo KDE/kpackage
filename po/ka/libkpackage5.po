@@ -8,7 +8,7 @@ msgstr ""
 "Project-Id-Version: kpackage\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2022-09-15 00:41+0000\n"
-"PO-Revision-Date: 2022-11-27 11:40+0100\n"
+"PO-Revision-Date: 2022-11-30 07:09+0100\n"
 "Last-Translator: Temuri Doghonadze <temuri.doghonadze@gmail.com>\n"
 "Language-Team: Georgian <kde-i18n-doc@kde.org>\n"
 "Language: ka\n"
@@ -351,6 +351,8 @@ msgid ""
 "plugin, e.g. KPackage/Generic, Plasma/Theme, Plasma/Wallpaper, Plasma/"
 "Applet, etc."
 msgstr ""
+"პაკეტის ტიპი, რომელიც პაკეტის დამატების სერვისის ტიპს შეესაბამება. მაგალითად "
+"KPackage/Generic, Plasma/Theme, Plasma/Wallpaper, Plasma/Applet და სხვ."
 
 #: kpackagetool/options.h:36
 #, kde-format
@@ -392,6 +394,8 @@ msgid ""
 "Absolute path to the package root. If not supplied, then the standard data "
 "directories for this KDE session will be searched instead."
 msgstr ""
+"აბსოლუტური ბილიკი პაკეტის ძირითად საქაღალდემდე. თუ მითითებული არაა, "
+"მოსაძებნად KDE-ის სესიის მონაცემების საქაღალდე იქნება გამოყენებული."
 
 #: kpackagetool/options.h:82
 #, kde-format
@@ -400,6 +404,10 @@ msgid ""
 "t or -g. Recreates the index for the given type or package root. Operates in "
 "the user directory, unless -g is used"
 msgstr ""
+"დამატებების ინდექსის თავიდან შექმნა. გამოიყენება სხვა, -t და -g "
+"პარამეტრებთან ერთად. თავიდან შექმნის ინდექსს მითითებული ტიპის ან პაკეტის "
+"საწყისი საქაღალდისთვის. ოპერირებს მომხმარებლის საქაღალდეში იმ შემთხვევის "
+"გარდა, როცა -g -ს მიუთითებთ"
 
 #: kpackagetool/options.h:90
 #, kde-format
@@ -408,15 +416,18 @@ msgid ""
 "or -g. Recreates the index for the given type or package root. Operates in "
 "the user directory, unless -g is used"
 msgstr ""
+"დამატებების ინდექსის წაშლა. გამოიყენება სხვა, -t და -g პარამეტრებთან ერთად. "
+"თავიდან შექმნის ინდექსს მითითებული ტიპის ან პაკეტის საწყისი საქაღალდისთვის. "
+"ოპერირებს მომხმარებლის საქაღალდეში იმ შემთხვევის გარდა, როცა -g -ს მიუთითებთ"
 
 #: kpackagetool/options.h:98
 #, kde-format
 msgctxt "Do not translate <path>"
 msgid "Outputs the metadata for the package <path>"
-msgstr ""
+msgstr "პაკეტისთვის <ბილიკი> მეტამონაცემების გამოტანა"
 
 #: kpackagetool/options.h:105
 #, kde-format
 msgctxt "Do not translate <path>"
 msgid "Outputs the metadata for the package into <path>"
-msgstr ""
+msgstr "პაკეტის შესახებ მეტამონაცემების <ბილიკზე> გამოტანა"
