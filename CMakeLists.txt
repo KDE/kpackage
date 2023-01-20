@@ -35,8 +35,8 @@ add_feature_info(QCH ${BUILD_QCH} "API documentation in QCH format (for e.g. Qt 
 ecm_setup_version(PROJECT
                   VARIABLE_PREFIX PACKAGE
                   VERSION_HEADER "${CMAKE_CURRENT_BINARY_DIR}/kpackage_version.h"
-                  PACKAGE_VERSION_FILE "${CMAKE_CURRENT_BINARY_DIR}/KF5PackageConfigVersion.cmake"
-                  SOVERSION 5)
+                  PACKAGE_VERSION_FILE "${CMAKE_CURRENT_BINARY_DIR}/KF6PackageConfigVersion.cmake"
+                  SOVERSION 6)
 
 ################# now find all used packages #################
 
@@ -44,12 +44,12 @@ set (REQUIRED_QT_VERSION 6.4.0)
 
 find_package(Qt${QT_MAJOR_VERSION} ${REQUIRED_QT_VERSION} REQUIRED NO_MODULE COMPONENTS Core DBus)
 
-find_package(KF5Archive ${KF_DEP_VERSION} REQUIRED)
-find_package(KF5I18n ${KF_DEP_VERSION} REQUIRED)
-find_package(KF5CoreAddons ${KF_DEP_VERSION} REQUIRED)
+find_package(KF6Archive ${KF_DEP_VERSION} REQUIRED)
+find_package(KF6I18n ${KF_DEP_VERSION} REQUIRED)
+find_package(KF6CoreAddons ${KF_DEP_VERSION} REQUIRED)
 
-find_package(KF5DocTools ${KF_DEP_VERSION})
-set_package_properties(KF5DocTools PROPERTIES DESCRIPTION "Tools to generate documentation"
+find_package(KF6DocTools ${KF_DEP_VERSION})
+set_package_properties(KF6DocTools PROPERTIES DESCRIPTION "Tools to generate documentation"
                        TYPE OPTIONAL
                       )
 
@@ -67,18 +67,18 @@ ecm_set_disabled_deprecation_versions(
     KCOREADDONS 5.91 # KPluginMetaData::fromDesktopFile
 )
 
-include(KF5PackageMacros.cmake)
+include(KF6PackageMacros.cmake)
 
 # make package_version.h available
 include_directories(${CMAKE_CURRENT_BINARY_DIR})
 
 ################# list the subdirectories #################
-if (KF5DocTools_FOUND)
+if (KF6DocTools_FOUND)
     add_subdirectory(docs)
 endif()
 add_definitions(-DTRANSLATION_DOMAIN=\"libkpackage5\")
 ki18n_install(po)
-if (KF5DocTools_FOUND)
+if (KF6DocTools_FOUND)
     kdoctools_install(po)
 endif()
 add_subdirectory(src)
@@ -90,43 +90,43 @@ endif()
 
 # create a Config.cmake and a ConfigVersion.cmake file and install them
 
-set(CMAKECONFIG_INSTALL_DIR "${KDE_INSTALL_CMAKEPACKAGEDIR}/KF5Package")
+set(CMAKECONFIG_INSTALL_DIR "${KDE_INSTALL_CMAKEPACKAGEDIR}/KF6Package")
 
 if (BUILD_QCH)
     ecm_install_qch_export(
-        TARGETS KF5Package_QCH
-        FILE KF5PackageQchTargets.cmake
+        TARGETS KF6Package_QCH
+        FILE KF6PackageQchTargets.cmake
         DESTINATION "${CMAKECONFIG_INSTALL_DIR}"
         COMPONENT Devel
     )
-    set(PACKAGE_INCLUDE_QCHTARGETS "include(\"\${CMAKE_CURRENT_LIST_DIR}/KF5PackageQchTargets.cmake\")")
+    set(PACKAGE_INCLUDE_QCHTARGETS "include(\"\${CMAKE_CURRENT_LIST_DIR}/KF6PackageQchTargets.cmake\")")
 endif()
 
 configure_package_config_file(
-  "${CMAKE_CURRENT_SOURCE_DIR}/KF5PackageConfig.cmake.in"
-  "${CMAKE_CURRENT_BINARY_DIR}/KF5PackageConfig.cmake"
+  "${CMAKE_CURRENT_SOURCE_DIR}/KF6PackageConfig.cmake.in"
+  "${CMAKE_CURRENT_BINARY_DIR}/KF6PackageConfig.cmake"
   INSTALL_DESTINATION  ${CMAKECONFIG_INSTALL_DIR}
   PATH_VARS  KDE_INSTALL_INCLUDEDIR_KF CMAKE_INSTALL_PREFIX
 )
 
 install(FILES
   qrc.cmake
-  "${CMAKE_CURRENT_BINARY_DIR}/KF5PackageConfig.cmake"
-  "${CMAKE_CURRENT_BINARY_DIR}/KF5PackageConfigVersion.cmake"
-  "${CMAKE_CURRENT_SOURCE_DIR}/KF5PackageMacros.cmake"
+  "${CMAKE_CURRENT_BINARY_DIR}/KF6PackageConfig.cmake"
+  "${CMAKE_CURRENT_BINARY_DIR}/KF6PackageConfigVersion.cmake"
+  "${CMAKE_CURRENT_SOURCE_DIR}/KF6PackageMacros.cmake"
   DESTINATION "${CMAKECONFIG_INSTALL_DIR}"
   COMPONENT Devel
 )
 
-install(EXPORT KF5PackageTargets
+install(EXPORT KF6PackageTargets
         DESTINATION "${CMAKECONFIG_INSTALL_DIR}"
-        FILE KF5PackageTargets.cmake
-        NAMESPACE KF5::
+        FILE KF6PackageTargets.cmake
+        NAMESPACE KF6::
         COMPONENT Devel)
-install(EXPORT KF5PackageToolsTargets
+install(EXPORT KF6PackageToolsTargets
         DESTINATION "${CMAKECONFIG_INSTALL_DIR}"
-        FILE KF5PackageToolsTargets.cmake
-        NAMESPACE KF5::
+        FILE KF6PackageToolsTargets.cmake
+        NAMESPACE KF6::
         COMPONENT Devel)
 
 install(FILES ${CMAKE_CURRENT_BINARY_DIR}/kpackage_version.h

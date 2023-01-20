@@ -10,7 +10,7 @@ configure_file(config.h.cmake ${CMAKE_CURRENT_BINARY_DIR}/config.h)
 
 add_library(kpackage_test_static STATIC packagestructures/plasmoidstructure.cpp)
 set_property(TARGET kpackage_test_static PROPERTY POSITION_INDEPENDENT_CODE ON)
-target_link_libraries(kpackage_test_static KF5::Package KF5::Archive KF5::CoreAddons KF5::I18n )
+target_link_libraries(kpackage_test_static KF6::Package KF6::Archive KF6::CoreAddons KF6::I18n )
 
 MACRO(PLASMA_UNIT_TESTS)
        FOREACH(_testname ${ARGN})

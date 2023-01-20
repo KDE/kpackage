@@ -11,8 +11,8 @@ portingAid: false
 deprecated: false
 release: true
 libraries:
- - cmake: KF5::Package
-cmakename: KF5Package
+ - cmake: KF6::Package
+cmakename: KF6Package
 
 public_lib: true
 group: Frameworks

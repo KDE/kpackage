@@ -99,8 +99,8 @@ And an own CMakeLists.txt.
 add_library(myapp_packagestructure_mystructure MODULE mystructure.cpp)
 
 target_link_libraries(myapp_packagestructure_mystructure
-   KF5::I18n
-   KF5::Package
+   KF6::I18n
+   KF6::Package
 )
 
 #Qt plugins needs metadata in json format baked into the library
