@@ -9,6 +9,8 @@
 
 #include "packagestructure.h"
 #include <KPluginMetaData>
+#include <QHash>
+#include <QPointer>
 
 namespace KPackage
 {
