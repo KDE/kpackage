@@ -70,11 +70,6 @@ ecm_generate_headers(Package_CamelCase_HEADERS
     PREFIX KPackage
 )
 
-set(Package_HEADERS
-    ${Package_HEADERS}
-    version.h
-)
-
 install(FILES
         ${Package_HEADERS}
         ${CMAKE_CURRENT_BINARY_DIR}/kpackage/package_export.h
