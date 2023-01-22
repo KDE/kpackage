@@ -398,10 +398,6 @@ void PackageTool::showAppstreamInfo(const QString &pluginName)
 
     if (QFile::exists(pluginName + QStringLiteral("/metadata.json"))) {
         i = KPluginMetaData::fromJsonFile(pluginName + QStringLiteral("/metadata.json"));
-#if KCOREADDONS_BUILD_DEPRECATED_SINCE(5, 92)
-    } else if (QFile::exists(pluginName + QStringLiteral("/metadata.desktop"))) {
-        i = KPluginMetaData::fromDesktopFile(pluginName + QStringLiteral("/metadata.desktop"), {QStringLiteral(":/kservicetypes5/kpackage-generic.desktop")});
-#endif
     } else {
         QString type = QStringLiteral("KPackage/Generic");
         if (!d->pluginTypes.contains(type) && !d->pluginTypes.isEmpty()) {
@@ -426,23 +422,6 @@ void PackageTool::showAppstreamInfo(const QString &pluginName)
         return;
     }
     QString parentApp = i.value(QLatin1String("X-KDE-ParentApp"));
-
-#if KPACKAGE_BUILD_DEPRECATED_SINCE(5, 85)
-    KPluginMetaData packageStructureMetaData;
-    {
-        const QStringList packageFormats = readKPackageTypes(i);
-        if (!packageFormats.isEmpty()) {
-            packageStructureMetaData = structureForKPackageType(packageFormats.first());
-        }
-    }
-    if (parentApp.isEmpty()) {
-        parentApp = packageStructureMetaData.value(QLatin1String("X-KDE-ParentApp"));
-        if (!parentApp.isEmpty()) {
-            qCDebug(KPACKAGE_LOG) << "Implicitly specifying X-KDE-ParentApp by it's parent structure is deprecated and will"
-                                     "be removed in KF6. Either the value should be explicitly set or the default will be used";
-        }
-    }
-#endif
 
     if (i.value(QStringLiteral("NoDisplay"), false)) {
         std::exit(0);

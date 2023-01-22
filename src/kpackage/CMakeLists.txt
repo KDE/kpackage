@@ -15,7 +15,6 @@ target_sources(KF6Package PRIVATE
     packageloader.cpp
     private/packages.cpp
     private/packagejob.cpp
-    version.cpp
     kpackage.qrc
 )
 
@@ -36,7 +35,7 @@ ecm_generate_export_header(KF6Package
     GROUP_BASE_NAME KF
     VERSION ${KF_VERSION}
     DEPRECATED_BASE_VERSION 0
-    DEPRECATION_VERSIONS 5.21 5.84 5.85 5.86
+    DEPRECATION_VERSIONS
     EXCLUDE_DEPRECATED_BEFORE_AND_AT ${EXCLUDE_DEPRECATED_BEFORE_AND_AT}
 )
 

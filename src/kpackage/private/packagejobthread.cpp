@@ -217,15 +217,7 @@ bool PackageJobThread::installPackage(const QString &src, const QString &dest, O
     KPluginMetaData meta;
     if (!entries.isEmpty()) {
         const QString metadataFilePath = entries.first().filePath();
-#if KCOREADDONS_BUILD_DEPRECATED_SINCE(5, 92)
-        if (metadataFilePath.endsWith(QLatin1String(".desktop"))) {
-            meta = KPluginMetaData::fromDesktopFile(metadataFilePath, {QStringLiteral(":/kservicetypes5/kpackage-generic.desktop")});
-        } else {
-            meta = KPluginMetaData::fromJsonFile(metadataFilePath);
-        }
-#else
         meta = KPluginMetaData::fromJsonFile(metadataFilePath);
-#endif
     } else {
         qCWarning(KPACKAGE_LOG) << "Couldn't open metadata file" << src << path;
         d->errorMessage = i18n("Could not open metadata file: %1", src);
@@ -270,10 +262,6 @@ bool PackageJobThread::installPackage(const QString &src, const QString &dest, O
             KPluginMetaData oldMeta;
             if (QFileInfo::exists(targetName + QLatin1String("/metadata.json"))) {
                 oldMeta = KPluginMetaData::fromJsonFile(targetName + QLatin1String("/metadata.json"));
-#if KCOREADDONS_BUILD_DEPRECATED_SINCE(5, 92)
-            } else if (QFileInfo::exists(targetName + QLatin1String("/metadata.desktop"))) {
-                oldMeta = KPluginMetaData::fromDesktopFile(targetName + QLatin1String("/metadata.desktop"));
-#endif
             }
 
             if (readKPackageTypes(oldMeta) != readKPackageTypes(meta)) {

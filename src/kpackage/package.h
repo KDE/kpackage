@@ -219,16 +219,6 @@ public:
      */
     KPluginMetaData metadata() const;
 
-#if KPACKAGE_ENABLE_DEPRECATED_SINCE(5, 21)
-    /**
-     * @return a SHA1 hash digest of the contents of the package in hexadecimal form
-     * @since 4.4
-     * @deprecated Since 5.21 use cryptographicHash
-     */
-    KPACKAGE_DEPRECATED_VERSION(5, 21, "Use Package::cryptographicHash(QCryptographicHash::Algorithm)")
-    QString contentsHash() const;
-#endif
-
     /**
      * @return a hash digest of the contents of the package in hexadecimal form
      * @since 5.21

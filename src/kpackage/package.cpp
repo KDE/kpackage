@@ -619,13 +619,6 @@ void Package::setContentsPrefixPaths(const QStringList &prefixPaths)
     }
 }
 
-#if KPACKAGE_BUILD_DEPRECATED_SINCE(5, 21)
-QString Package::contentsHash() const
-{
-    return QString::fromLocal8Bit(cryptographicHash(QCryptographicHash::Sha1));
-}
-#endif
-
 QByteArray Package::cryptographicHash(QCryptographicHash::Algorithm algorithm) const
 {
     if (!d->valid) {
@@ -982,17 +975,9 @@ void PackagePrivate::createPackageMetadata(const QString &path)
 
     if (isDir && QFile::exists(path + QStringLiteral("/metadata.json"))) {
         metadata = KPluginMetaData::fromJsonFile(path + QStringLiteral("/metadata.json"));
-#if KCOREADDONS_BUILD_DEPRECATED_SINCE(5, 92)
-    } else if (isDir && QFile::exists(path + QStringLiteral("/metadata.desktop"))) {
-        metadata = KPluginMetaData::fromDesktopFile(path + QStringLiteral("/metadata.desktop"), {QStringLiteral(":/kservicetypes5/kpackage-generic.desktop")});
-#endif
     } else {
         if (isDir) {
             qCDebug(KPACKAGE_LOG) << "No metadata file in the package, expected it at:" << path;
-#if KCOREADDONS_BUILD_DEPRECATED_SINCE(5, 92)
-        } else if (path.endsWith(QLatin1String(".desktop"))) {
-            metadata = KPluginMetaData::fromDesktopFile(path, {QStringLiteral(":/kservicetypes5/kpackage-generic.desktop")});
-#endif
         } else {
             metadata = KPluginMetaData::fromJsonFile(path);
         }

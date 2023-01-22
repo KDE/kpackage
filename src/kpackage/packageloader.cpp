@@ -44,15 +44,6 @@ PackageLoader::~PackageLoader()
     delete d;
 }
 
-#if KPACKAGE_BUILD_DEPRECATED_SINCE(5, 86)
-void PackageLoader::setPackageLoader(PackageLoader *loader)
-{
-    if (!s_packageTrader) {
-        s_packageTrader = loader;
-    }
-}
-#endif
-
 PackageLoader *PackageLoader::self()
 {
     if (!s_packageTrader) {
@@ -68,18 +59,6 @@ PackageLoader *PackageLoader::self()
 
 Package PackageLoader::loadPackage(const QString &packageFormat, const QString &packagePath)
 {
-#if KPACKAGE_BUILD_DEPRECATED_SINCE(5, 86)
-    if (!d->isDefaultLoader) {
-        Package p = internalLoadPackage(packageFormat);
-        if (p.hasValidStructure()) {
-            if (!packagePath.isEmpty()) {
-                p.setPath(packagePath);
-            }
-            return p;
-        }
-    }
-#endif
-
     if (packageFormat.isEmpty()) {
         return Package();
     }
@@ -182,16 +161,7 @@ QList<KPluginMetaData> PackageLoader::listPackages(const QString &packageFormat,
             dirs << dir;
 
             const QString metadataPath = it.fileInfo().absoluteFilePath();
-            KPluginMetaData info;
-#if KCOREADDONS_BUILD_DEPRECATED_SINCE(5, 92)
-            if (metadataPath.endsWith(QLatin1String(".desktop"))) {
-                info = KPluginMetaData::fromDesktopFile(metadataPath);
-            } else {
-                info = KPluginMetaData::fromJsonFile(metadataPath);
-            }
-#else
-            info = KPluginMetaData::fromJsonFile(metadataPath);
-#endif
+            KPluginMetaData info = KPluginMetaData::fromJsonFile(metadataPath);
 
             if (!info.isValid() || uniqueIds.contains(info.pluginId())) {
                 continue;
@@ -267,13 +237,5 @@ void PackageLoader::addKnownPackageStructure(const QString &packageFormat, KPack
 {
     d->structures.insert(packageFormat, structure);
 }
-
-#if KPACKAGE_BUILD_DEPRECATED_SINCE(5, 86)
-Package PackageLoader::internalLoadPackage(const QString &name)
-{
-    Q_UNUSED(name);
-    return Package();
-}
-#endif
 
 } // KPackage Namespace
