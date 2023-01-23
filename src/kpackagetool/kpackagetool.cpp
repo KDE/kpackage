@@ -184,17 +184,6 @@ void PackageTool::runMain()
         d->coutput(i18n("Listing service types: %1 in %2", d->pluginTypes.join(QStringLiteral(", ")), d->packageRoot));
         listPackages(d->pluginTypes, d->packageRoot);
         exit(0);
-
-    } else if (d->parser->isSet(Options::generateIndex())) {
-        // TODO KF6 Remove
-        qWarning() << "The indexing feature is removed in KPackage 5.82";
-        exit(0);
-
-    } else if (d->parser->isSet(Options::removeIndex())) {
-        // TODO KF6 Remove
-        qWarning() << "The indexing feature is removed in KPackage 5.82";
-        exit(0);
-
     } else {
         // install, remove or upgrade
         if (!d->installer.isValid()) {
@@ -511,7 +500,7 @@ QString PackageTool::findPackageRoot(const QString &pluginName, const QString &p
     Q_UNUSED(pluginName);
     Q_UNUSED(prefix);
     QString packageRoot;
-    if (d->parser->isSet(Options::packageRoot()) && d->parser->isSet(Options::global()) && !d->parser->isSet(Options::generateIndex())) {
+    if (d->parser->isSet(Options::packageRoot()) && d->parser->isSet(Options::global())) {
         qWarning() << i18nc("The user entered conflicting options packageroot and global, this is the error message telling the user he can use only one",
                             "The packageroot and global options conflict with each other, please select only one.");
         ::exit(7);

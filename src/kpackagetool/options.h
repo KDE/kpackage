@@ -76,22 +76,6 @@ static QCommandLineOption packageRoot()
                                 QStringLiteral("path")};
     return o;
 }
-static QCommandLineOption generateIndex()
-{
-    static QCommandLineOption o{QStringLiteral("generate-index"),
-                                i18n("Recreate the plugin index. To be used in conjunction with either the option -t or"
-                                     " -g. Recreates the index for the given type or package root. Operates in the user"
-                                     " directory, unless -g is used")};
-    return o;
-}
-static QCommandLineOption removeIndex()
-{
-    static QCommandLineOption o{QStringLiteral("remove-index"),
-                                i18n("Remove the plugin index. To be used in conjunction with either the option -t or"
-                                     " -g. Recreates the index for the given type or package root. Operates in the user"
-                                     " directory, unless -g is used")};
-    return o;
-}
 static QCommandLineOption appstream()
 {
     static QCommandLineOption o{QStringLiteral("appstream-metainfo"),

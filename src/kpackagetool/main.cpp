@@ -50,8 +50,6 @@ int main(int argc, char **argv)
                        Options::listTypes(),
                        Options::remove(),
                        Options::packageRoot(),
-                       Options::generateIndex(),
-                       Options::removeIndex(),
                        Options::appstream(),
                        Options::appstreamOutput()});
     parser.process(app);
