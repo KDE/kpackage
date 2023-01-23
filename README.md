@@ -34,11 +34,11 @@ An example filesystem structure (that in the end, depends from the PackageStruct
 |   `-- config.xml
 |-- images
 |   `-- background.png
-`-- metadata.desktop
+`-- metadata.json
 
 ```
 
-The special, main and always required for every package structure file is the "metadata" file, which describes the package with values such as name, description, pluginname etc. It is in any format accepted by KPluginMetadata, meaning at the moment either a .desktop or json files. The metadata is accessible with Package::metadata().
+The special, main and always required for every package structure file is the "metadata" file, which describes the package with values such as name, description, pluginname etc. It is in the JSON format accepted by KPluginMetadata. The metadata is accessible with Package::metadata().
 
 All the other files are under the contents/ subdirectory: a folder under addDirectoryDefinition will be registered under contents/.
 
@@ -74,21 +74,24 @@ K_PLUGIN_CLASS_WITH_JSON(MyStructure, "myapp-packagestructure-mystructure.json")
 
 The line K_PLUGIN_CLASS_WITH_JSON is important in order to export the PackageStructure subclass MyStructure as a standalone plugin library using the KPluginLoader architecture, in order to be loadable and recognizable by a PackageLoader instance from any process (without the need to explicitly link to a library containing the MyStructure implementation).
 
-In order to build the plugin, it is also needed a .desktop file describing the metadata for the plugin:
+In order to build the plugin, it is also needed a .json file describing the metadata for the plugin:
 
-```
-[Desktop Entry]
-Name=My package type
-Type=Service
-X-KDE-ServiceTypes=KPackage/PackageStructure
-X-KDE-Library=myapp_packagestructure_mystructure
+```json
+{
+    "KPlugin": {
+        "Authors": [
+            {
+                "Email": "john@example.com",
+                "Name": "John Doe"
+            }
+        ],
+        "Id": "MyApp/MyStructure",
+        "Name": "My package type",
+        "Version": "1"
+    },
+    "X-KDE-ParentApp": "org.kde.myapp"
+}
 
-X-KDE-PluginInfo-Author=John Doe
-X-KDE-PluginInfo-Email=john@example.com
-#X-KDE-PluginInfo-Name will be used for loading, so PackageLoader::loadPackage("MyApp/MyStructure);
-X-KDE-PluginInfo-Name=MyApp/MyStructure
-X-KDE-PluginInfo-Version=1
-X-KDE-ParentApp=org.kde.myapp
 
 ```
 
@@ -103,15 +106,12 @@ target_link_libraries(myapp_packagestructure_mystructure
    KF5::Package
 )
 
-#Qt plugins needs metadata in json format baked into the library
-kcoreaddons_desktop_to_json(myapp_packagestructure_mystructure myapp-packagestructure-mystructure.desktop)
-
 #install the plugin where PackageLoader looks for them
 install(TARGETS myapp_packagestructure_mystructure DESTINATION ${KDE_INSTALL_PLUGINDIR}/kpackage/packagestructure)
 
 ```
 
-The c++ implementation with its cmake and desktop files are recommended to be in their own subdirectory, for separation respect to the code of the parent application.
+The C++ implementation with its CMake and JSON files are recommended to be in their own subdirectory, for separation respect to the code of the parent application.
 
 
 ## Package structures
