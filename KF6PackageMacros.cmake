@@ -53,7 +53,7 @@ function(kpackage_install_package dir component)
         install(FILES "${CMAKE_CURRENT_SOURCE_DIR}/${dir}/metadata.json" DESTINATION ${KDE_INSTALL_DATADIR}/${install_dir}/${root}/${component})
     endif()
 
-   get_target_property(kpackagetool_cmd KF6::kpackagetool5 LOCATION)
+   get_target_property(kpackagetool_cmd KF6::kpackagetool LOCATION)
    if (${component} MATCHES "^.+\\..+\\.") #we make sure there's at least 2 dots
         set(APPDATAFILE "${CMAKE_CURRENT_BINARY_DIR}/${component}.appdata.xml")
 

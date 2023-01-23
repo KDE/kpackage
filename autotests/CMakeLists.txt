@@ -38,8 +38,8 @@ kcoreaddons_target_static_plugins(querytest kpackage/packagestructure)
 set_tests_properties(plasma-querytest PROPERTIES RUN_SERIAL TRUE) # it wipes out ~/.qttest/share
 set_tests_properties(plasma-plasmoidpackagetest PROPERTIES RUN_SERIAL TRUE)
 
-function(kpackagetool5test testname)
-    add_test(NAME ${testname}-appstream COMMAND cmake -Dkpackagetool=$<TARGET_FILE:kpackagetool5>
+function(kpackagetooltest testname)
+    add_test(NAME ${testname}-appstream COMMAND cmake -Dkpackagetool=$<TARGET_FILE:kpackagetool6>
                                                       -Dgenerated=${CMAKE_CURRENT_BINARY_DIR}/${testname}.appdata.xml
                                                       -Dinput=${CMAKE_CURRENT_LIST_DIR}/data/${testname}/
                                                       -Doutput=${CMAKE_CURRENT_SOURCE_DIR}/data/${testname}/${testname}.testappdataxml
@@ -53,7 +53,7 @@ function(kpackagetool5test testname)
 endfunction()
 
 foreach(var "testfallbackpackage" "testpackage" "testpackage-nodisplay" "testjsonmetadatapackage" "testpackagesdep" "testpackagesdepinvalid") # "customcontent" "simplecontent"
-    kpackagetool5test(${var})
+    kpackagetooltest(${var})
 endforeach()
 
 file(MAKE_DIRECTORY "${CMAKE_CURRENT_BINARY_DIR}/testpackage-rcc")

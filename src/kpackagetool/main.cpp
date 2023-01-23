@@ -6,7 +6,7 @@
 */
 
 /**
- * kpackagetool5 exit codes used in this program
+ * kpackagetool6 exit codes used in this program
 
     0 No error
 

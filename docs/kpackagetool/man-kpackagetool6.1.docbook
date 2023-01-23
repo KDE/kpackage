@@ -12,18 +12,18 @@
 </refentryinfo>
 
 <refmeta>
-<refentrytitle><command>kpackagetool5</command></refentrytitle>
+<refentrytitle><command>kpackagetool6</command></refentrytitle>
 <manvolnum>1</manvolnum>
 </refmeta>
 
 <refnamediv>
-<refname><command>kpackagetool5</command></refname>
+<refname><command>kpackagetool6</command></refname>
 <refpurpose>Install, list, remove &plasma; packages</refpurpose>
 </refnamediv>
 
 <refsynopsisdiv>
 <cmdsynopsis>
-<command>kpackagetool5</command>
+<command>kpackagetool6</command>
 
 <group choice="opt"><option>-v, --version</option></group>
 <group choice="opt"><option>-h, --help</option></group>
@@ -43,7 +43,7 @@
 
 <refsect1>
 <title>Description</title>
-<para><command>kpackagetool5</command> is a command line tool to
+<para><command>kpackagetool6</command> is a command line tool to
 install, list, remove &plasma; packages.</para>
 
 </refsect1>
@@ -127,7 +127,7 @@ url="help:/plasma-desktop">help:/plasma-desktop</ulink>
 
 <refsect1>
 <title>Authors</title>
-<para><command>kpackagetool5</command> was written by
+<para><command>kpackagetool6</command> was written by
 <personname><firstname>Aaron</firstname><surname>Seigo</surname></personname> <email>aseigo@kde.org</email>.</para>
 </refsect1>
 
