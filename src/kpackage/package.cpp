@@ -542,15 +542,6 @@ void Package::setPath(const QString &path)
 
         Q_ASSERT(QFile::exists(dir.canonicalPath()));
 
-        // if it has a contents.rcc, give priority to it
-        if (dir.exists(QStringLiteral("contents.rcc"))) {
-            d->rccPath = dir.absoluteFilePath(QStringLiteral("contents.rcc"));
-            QResource::registerResource(d->rccPath);
-
-            // we need just the plugin name here, never the absolute path
-            dir = QDir(QStringLiteral(":/") + defaultPackageRoot() + QStringView(path).mid(path.lastIndexOf(QLatin1Char('/'))));
-        }
-
         d->path = dir.canonicalPath();
         // canonicalPath() does not include a trailing slash (unless it is the root dir)
         if (!d->path.endsWith(QLatin1Char('/'))) {
@@ -877,13 +868,6 @@ PackagePrivate::PackagePrivate(const PackagePrivate &other)
 
 PackagePrivate::~PackagePrivate()
 {
-    if (!rccPath.isEmpty()) {
-        // qresource register/unregisterpath is refcounted if we call it two times
-        // on the same path, the resource will actually be unregistered only when
-        // unregister is called 2 times
-        QResource::unregisterResource(rccPath);
-    }
-
     if (!tempRoot.isEmpty()) {
         QDir dir(tempRoot);
         dir.removeRecursively();

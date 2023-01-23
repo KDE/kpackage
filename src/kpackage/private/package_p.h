@@ -90,7 +90,6 @@ public:
     std::unique_ptr<Package> fallbackPackage;
     QStringList mimeTypes;
     std::optional<KPluginMetaData> metadata;
-    QString rccPath;
     bool externalPaths : 1;
     bool valid : 1;
     bool checkedValid : 1;
