@@ -24,7 +24,6 @@ include(ECMSetupVersion)
 include(ECMMarkNonGuiExecutable)
 include(ECMAddQch)
 include(ECMQtDeclareLoggingCategory)
-include(ECMSetupQtPluginMacroNames)
 include(ECMDeprecationSettings)
 
 set(EXCLUDE_DEPRECATED_BEFORE_AND_AT 0 CACHE STRING "Control the range of deprecated API excluded from the build [default=0].")
@@ -53,14 +52,6 @@ set_package_properties(KF6DocTools PROPERTIES DESCRIPTION "Tools to generate doc
                        TYPE OPTIONAL
                       )
 
-#########################################################################
-
-ecm_setup_qtplugin_macro_names(
-    JSON_ARG2
-        "K_EXPORT_KPACKAGE_PACKAGE_WITH_JSON"
-    CONFIG_CODE_VARIABLE
-        PACKAGE_SETUP_AUTOMOC_VARIABLES
-)
 ecm_set_disabled_deprecation_versions(
     QT 6.4
     KF 5.102

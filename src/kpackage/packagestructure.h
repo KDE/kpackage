@@ -112,10 +112,4 @@ private:
 
 } // KPackage namespace
 
-/**
- * Register a Package class when it is contained in a loadable module
- */
-
-#define K_EXPORT_KPACKAGE_PACKAGE_WITH_JSON(classname, jsonFile) K_PLUGIN_FACTORY_WITH_JSON(factory, jsonFile, registerPlugin<classname>();)
-
 #endif
