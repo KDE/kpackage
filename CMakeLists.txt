@@ -42,7 +42,7 @@ ecm_setup_version(PROJECT
 
 set (REQUIRED_QT_VERSION 6.4.0)
 
-find_package(Qt${QT_MAJOR_VERSION} ${REQUIRED_QT_VERSION} REQUIRED NO_MODULE COMPONENTS Core DBus)
+find_package(Qt6 ${REQUIRED_QT_VERSION} REQUIRED NO_MODULE COMPONENTS Core DBus)
 
 find_package(KF6Archive ${KF_DEP_VERSION} REQUIRED)
 find_package(KF6I18n ${KF_DEP_VERSION} REQUIRED)
@@ -62,9 +62,8 @@ ecm_setup_qtplugin_macro_names(
         PACKAGE_SETUP_AUTOMOC_VARIABLES
 )
 ecm_set_disabled_deprecation_versions(
-    QT 5.15.2
-    KF 5.97
-    KCOREADDONS 5.91 # KPluginMetaData::fromDesktopFile
+    QT 6.4
+    KF 5.102
 )
 
 include(KF6PackageMacros.cmake)

@@ -1,5 +1,5 @@
-find_package(Qt${QT_MAJOR_VERSION}Test ${REQUIRED_QT_VERSION} REQUIRED NO_MODULE)
-set_package_properties(Qt${QT_MAJOR_VERSION}Test PROPERTIES PURPOSE "Required for tests")
+find_package(Qt6Test ${REQUIRED_QT_VERSION} REQUIRED NO_MODULE)
+set_package_properties(Qt6Test PROPERTIES PURPOSE "Required for tests")
 
 remove_definitions(-DQT_NO_CAST_FROM_ASCII -DQT_STRICT_ITERATORS -DQT_NO_CAST_FROM_BYTEARRAY -DQT_NO_KEYWORDS)
 
@@ -16,7 +16,7 @@ MACRO(PLASMA_UNIT_TESTS)
        FOREACH(_testname ${ARGN})
                ecm_add_test(
                        ${_testname}.cpp
-                       LINK_LIBRARIES Qt${QT_MAJOR_VERSION}::Test kpackage_test_static
+                       LINK_LIBRARIES Qt6::Test kpackage_test_static
                        TEST_NAME ${_testname}
                        NAME_PREFIX "plasma-")
        ENDFOREACH(_testname)
@@ -62,7 +62,7 @@ set(kpkgrcc "${CMAKE_CURRENT_BINARY_DIR}/testpackage-rcc/contents.rcc")
 configure_file("${CMAKE_CURRENT_SOURCE_DIR}/data/testpackage-rcc/metadata.json"  ${CMAKE_CURRENT_BINARY_DIR}/testpackage-rcc COPYONLY)
 add_custom_command(OUTPUT ${kpkgrcc}
                     WORKING_DIRECTORY ${CMAKE_CURRENT_SOURCE_DIR}
-        COMMAND Qt${QT_MAJOR_VERSION}::rcc ${kpkgqrc} --binary -o ${kpkgrcc})
+        COMMAND Qt6::rcc ${kpkgqrc} --binary -o ${kpkgrcc})
 add_custom_target(testpackage-rcc ALL DEPENDS ${kpkgrcc})
 
 

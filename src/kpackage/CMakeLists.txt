@@ -47,7 +47,7 @@ target_link_libraries(KF6Package
 PUBLIC
      KF6::CoreAddons
 PRIVATE
-     Qt${QT_MAJOR_VERSION}::DBus
+     Qt6::DBus
      KF6::Archive
      KF6::I18n
      kpackage_common_STATIC
