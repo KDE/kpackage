@@ -4,13 +4,13 @@
 # Volkan, 2013.
 # Volkan Gezer <volkangezer@gmail.com>, 2013, 2014, 2015.
 # Kaan Ozdincer <kaanozdincer@gmail.com>, 2014.
-# Emir SARI <emir_sari@icloud.com>, 2022.
+# Emir SARI <emir_sari@icloud.com>, 2022, 2023.
 msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2022-09-15 00:41+0000\n"
-"PO-Revision-Date: 2022-07-26 12:20+0300\n"
+"PO-Revision-Date: 2023-01-31 01:15+0300\n"
 "Last-Translator: Emir SARI <emir_sari@icloud.com>\n"
 "Language-Team: Turkish <kde-l10n-tr@kde.org>\n"
 "Language: tr\n"
@@ -18,7 +18,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=(n > 1);\n"
-"X-Generator: Lokalize 22.04.2\n"
+"X-Generator: Lokalize 22.12.1\n"
 
 #, kde-format
 msgctxt "NAME OF TRANSLATORS"
@@ -38,7 +38,7 @@ msgstr "Bu paketi tanımlayan masaüstü dosyası."
 #: kpackage/packageloader.cpp:255
 #, kde-format
 msgid "Could not load installer for package of type %1. Error reported was: %2"
-msgstr "%1 paket türü için kurucu yüklenemedi. Hata bildirildi: %2"
+msgstr "%1 paket türü için kurucu yüklenemedi. Bildirilen hata: %2"
 
 #: kpackage/private/packagejobthread.cpp:144
 #, kde-format
@@ -84,7 +84,8 @@ msgstr "Paket eklenti adı %1 geçersiz karakterler içeriyor"
 #, kde-format
 msgid ""
 "The new package has a different type from the old version already installed."
-msgstr "Yeni paket zaten yüklü olan eski sürümden farklı bir türe sahip."
+msgstr ""
+"Yeni paketin halihazırda kurulu olan eski sürümden farklı bir türü var."
 
 #: kpackage/private/packagejobthread.cpp:285
 #, kde-format
@@ -95,17 +96,17 @@ msgstr "%2'deki %1'in eski kurulumu kaldırılamıyor. hata: %3"
 #: kpackage/private/packagejobthread.cpp:289
 #, kde-format
 msgid "Not installing version %1 of %2. Version %3 already installed."
-msgstr "%2'nin %1 sürümü yüklenmiyor. Sürüm %3 zaten yüklü."
+msgstr "%1/%2 sürümü kurulmuyor. %3 sürümü halihazırda kurulu."
 
 #: kpackage/private/packagejobthread.cpp:293
 #, kde-format
 msgid "%1 already exists"
-msgstr "%1 zaten mevcut"
+msgstr "%1 halihazırda var"
 
 #: kpackage/private/packagejobthread.cpp:314
 #, kde-format
 msgid "Could not install dependency: '%1'"
-msgstr "Bağımlılık yüklenemedi: '%1'"
+msgstr "Bağımlılık kurulamadı: '%1'"
 
 #: kpackage/private/packagejobthread.cpp:326
 #, kde-format
@@ -175,7 +176,7 @@ msgstr "Çeviriler"
 #: kpackage/private/packages.cpp:76
 #, kde-format
 msgid "Main UI File"
-msgstr "Ana UI Dosyası"
+msgstr "Ana Kullanıcı Arayüzü Dosyası"
 
 #: kpackagetool/kpackagetool.cpp:91
 #, kde-format
