@@ -1,5 +1,4 @@
 add_executable(kpackagetool6)
-add_executable(KF6::kpackagetool ALIAS kpackagetool6)
 
 ecm_mark_nongui_executable(kpackagetool6)
 
