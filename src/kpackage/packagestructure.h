@@ -52,7 +52,7 @@ public:
      * structure. This allows setting paths before setPath is called.
      *
      * Note: one special value is "metadata" which can be set to the location of KPluginMetaData
-     * compatible .desktop file within the package. If not defined, it is assumed that this file
+     * compatible .json file within the package. If not defined, it is assumed that this file
      * exists under the top level directory of the package.
      *
      * @param package the Package to set up. The object is empty of all definition when
