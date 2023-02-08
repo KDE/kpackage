@@ -11,25 +11,22 @@
 
 namespace KPackage
 {
-PackageStructure::PackageStructure(QObject *parent, const QVariantList &args)
+PackageStructure::PackageStructure(QObject *parent, const QVariantList & /*args*/)
     : QObject(parent)
     , d(nullptr)
 {
-    Q_UNUSED(args)
 }
 
 PackageStructure::~PackageStructure()
 {
 }
 
-void PackageStructure::initPackage(Package *package)
+void PackageStructure::initPackage(Package * /*package*/)
 {
-    Q_UNUSED(package)
 }
 
-void PackageStructure::pathChanged(Package *package)
+void PackageStructure::pathChanged(Package * /*package*/)
 {
-    Q_UNUSED(package)
 }
 
 KJob *PackageStructure::install(Package *package, const QString &archivePath, const QString &packageRoot)

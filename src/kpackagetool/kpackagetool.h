@@ -28,7 +28,7 @@ public:
     void listPackages(const QStringList &types, const QString &path = QString());
     void showPackageInfo(const QString &pluginName);
     void showAppstreamInfo(const QString &pluginName);
-    QString findPackageRoot(const QString &pluginName, const QString &prefix);
+    QString findPackageRoot();
 
 private Q_SLOTS:
     void runMain();

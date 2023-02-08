@@ -17,11 +17,9 @@ class PlasmoidPackage : public KPackage::PackageStructure
 
 public:
     // Needed for K_PLUGIN_CLASS_WITH_JSON macro
-    explicit PlasmoidPackage(QObject *parent = nullptr, const QVariantList &args = QVariantList())
+    explicit PlasmoidPackage(QObject * /*parent*/, const QVariantList & /*args*/ = {})
         : KPackage::PackageStructure()
     {
-        Q_UNUSED(parent)
-        Q_UNUSED(args)
     }
     void initPackage(Package *package) override;
 };

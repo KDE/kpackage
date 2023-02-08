@@ -180,7 +180,7 @@ void PackageTool::runMain()
     }
 
     if (d->parser->isSet(Options::list())) {
-        d->packageRoot = findPackageRoot(d->package, d->packageRoot);
+        d->packageRoot = findPackageRoot();
         d->coutput(i18n("Listing service types: %1 in %2", d->pluginTypes.join(QStringLiteral(", ")), d->packageRoot));
         listPackages(d->pluginTypes, d->packageRoot);
         exit(0);
@@ -190,7 +190,7 @@ void PackageTool::runMain()
             d->installer = KPackage::Package(new KPackage::PackageStructure());
         }
 
-        d->packageRoot = findPackageRoot(d->package, d->packageRoot);
+        d->packageRoot = findPackageRoot();
 
         if (d->parser->isSet(Options::remove()) || d->parser->isSet(Options::upgrade())) {
             QString pkgPath;
@@ -495,10 +495,8 @@ void PackageTool::showAppstreamInfo(const QString &pluginName)
     exit(0);
 }
 
-QString PackageTool::findPackageRoot(const QString &pluginName, const QString &prefix)
+QString PackageTool::findPackageRoot()
 {
-    Q_UNUSED(pluginName);
-    Q_UNUSED(prefix);
     QString packageRoot;
     if (d->parser->isSet(Options::packageRoot()) && d->parser->isSet(Options::global())) {
         qWarning() << i18nc("The user entered conflicting options packageroot and global, this is the error message telling the user he can use only one",

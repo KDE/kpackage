@@ -33,7 +33,7 @@ void PlasmoidPackageTest::init()
     qDebug() << "PlasmoidPackage::init()";
     m_package = QStringLiteral("Package");
     m_packageRoot = QStandardPaths::writableLocation(QStandardPaths::GenericDataLocation) + "/packageRoot";
-    m_defaultPackage = KPackage::Package(new KPackage::PlasmoidPackage);
+    m_defaultPackage = KPackage::Package(new KPackage::PlasmoidPackage(this));
     cleanup(); // to prevent previous runs from interfering with this one
 }
 
