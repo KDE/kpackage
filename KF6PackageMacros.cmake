@@ -8,9 +8,9 @@ set(KPACKAGE_RELATIVE_DATA_INSTALL_DIR "kpackage")
 # kpackage_install_package(path componentname [root] [install_dir])
 #
 # Installs a package to the system path
-# @arg path The source path to install from, location of metadata.desktop
+# @arg path The source path to install from, location of metadata.json
 # @arg componentname The plugin name of the component, corresponding to the
-#       X-KDE-PluginInfo-Name key in metadata.desktop
+#       Id key of the KPlugin object in metadata.json
 # @arg root The subdirectory to install to, default: packages
 # @arg install_dir the path where to install packages,
 #       such as myapp, that would go under prefix/share/myapp:
@@ -41,7 +41,6 @@ function(kpackage_install_package dir component)
             PATTERN dummydata EXCLUDE)
 
    set(metadatajson)
-   set(ORIGINAL_METADATA "${CMAKE_CURRENT_SOURCE_DIR}/${dir}/metadata.desktop")
     if (EXISTS "${CMAKE_CURRENT_SOURCE_DIR}/${dir}/metadata.json")
         install(FILES "${CMAKE_CURRENT_SOURCE_DIR}/${dir}/metadata.json" DESTINATION ${KDE_INSTALL_DATADIR}/${install_dir}/${root}/${component})
     endif()
@@ -61,7 +60,7 @@ function(kpackage_install_package dir component)
                 message(WARNING "warnings during generation of metainfo for ${component}: ${appstreamerror}")
             endif()
 
-            # OPTIONAL because desktop files can be NoDisplay so they render no XML.
+            # OPTIONAL because json files can be NoDisplay so they render no XML
             install(FILES ${APPDATAFILE} DESTINATION ${KDE_INSTALL_METAINFODIR} OPTIONAL)
         endif()
    else()
