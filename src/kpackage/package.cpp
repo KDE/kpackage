@@ -41,7 +41,6 @@ Package::Package(PackageStructure *structure)
         d->structure.data()->initPackage(this);
         auto desc = i18n("Desktop file that describes this package.");
         addFileDefinition("metadata", QStringLiteral("metadata.json"), desc);
-        addFileDefinition("metadata", QStringLiteral("metadata.desktop"), desc);
     }
 }
 
@@ -264,12 +263,12 @@ QString PackagePrivate::unpack(const QString &filePath)
         tempRoot = tempdir.path() + QLatin1Char('/');
         source->copyTo(tempRoot);
 
-        if (!QFile::exists(tempdir.path() + QLatin1String("/metadata.json")) && !QFile::exists(tempdir.path() + QLatin1String("/metadata.desktop"))) {
-            // search metadata.desktop, the zip file might have the package contents in a subdirectory
+        if (!QFile::exists(tempdir.path() + QLatin1String("/metadata.json"))) {
+            // search metadata.json, the zip file might have the package contents in a subdirectory
             QDir unpackedPath(tempdir.path());
             const auto entries = unpackedPath.entryInfoList(QDir::Dirs | QDir::NoDotAndDotDot);
             for (const auto &pack : entries) {
-                if (QFile::exists(pack.filePath() + QLatin1String("/metadata.json")) || QFile::exists(pack.filePath() + QLatin1String("/metadata.desktop"))) {
+                if (QFile::exists(pack.filePath() + QLatin1String("/metadata.json"))) {
                     tempRoot = pack.filePath() + QLatin1Char('/');
                 }
             }
@@ -618,9 +617,8 @@ QByteArray Package::cryptographicHash(QCryptographicHash::Algorithm algorithm) c
     }
 
     QCryptographicHash hash(algorithm);
-    const QString metadataPath = QFile::exists(d->path + QLatin1String("metadata.json"))
-        ? d->path + QLatin1String("metadata.json")
-        : QFile::exists(d->path + QLatin1String("metadata.desktop")) ? d->path + QLatin1String("metadata.desktop") : QString();
+    const QString guessedMetaDataJson = d->path + QLatin1String("metadata.json");
+    const QString metadataPath = QFile::exists(guessedMetaDataJson) ? guessedMetaDataJson : QString();
     if (!metadataPath.isEmpty()) {
         QFile f(metadataPath);
         if (f.open(QIODevice::ReadOnly)) {

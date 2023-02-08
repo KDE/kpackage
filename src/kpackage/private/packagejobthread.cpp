@@ -75,9 +75,6 @@ bool removeFolder(QString folderPath)
     return folder.removeRecursively();
 }
 
-Q_GLOBAL_STATIC_WITH_ARGS(QStringList, metaDataFiles, (QStringList(QLatin1String("metadata.desktop")) << QLatin1String("metadata.json")))
-
-
 class PackageJobThreadPrivate
 {
 public:
@@ -213,7 +210,7 @@ bool PackageJobThread::installPackage(const QString &src, const QString &dest, O
     }
 
     QDir packageDir(path);
-    QFileInfoList entries = packageDir.entryInfoList(*metaDataFiles);
+    QFileInfoList entries = packageDir.entryInfoList(QStringList(QLatin1String("metadata.json")));
     KPluginMetaData meta;
     if (!entries.isEmpty()) {
         const QString metadataFilePath = entries.first().filePath();
