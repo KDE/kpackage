@@ -100,7 +100,6 @@ configure_package_config_file(
 )
 
 install(FILES
-  qrc.cmake
   "${CMAKE_CURRENT_BINARY_DIR}/KF6PackageConfig.cmake"
   "${CMAKE_CURRENT_BINARY_DIR}/KF6PackageConfigVersion.cmake"
   "${CMAKE_CURRENT_SOURCE_DIR}/KF6PackageMacros.cmake"
