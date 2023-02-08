@@ -15,7 +15,6 @@ target_sources(KF6Package PRIVATE
     packageloader.cpp
     private/packages.cpp
     private/packagejob.cpp
-    kpackage.qrc
 )
 
 ecm_qt_declare_logging_category(KF6Package
@@ -78,13 +77,6 @@ install(FILES
 install(FILES
         ${Package_CamelCase_HEADERS}
         DESTINATION ${KDE_INSTALL_INCLUDEDIR_KF}/KPackage/KPackage COMPONENT Devel)
-
-install(FILES
-   data/kservicetypes5/kpackage-packagestructure.desktop
-   data/kservicetypes5/kpackage-generic.desktop
-   data/kservicetypes5/kpackage-genericqml.desktop
-   DESTINATION ${KDE_INSTALL_KSERVICETYPESDIR})
-
 
 install(TARGETS KF6Package EXPORT KF6PackageTargets ${KF_INSTALL_TARGETS_DEFAULT_ARGS})
 if (NOT BUILD_SHARED_LIBS)

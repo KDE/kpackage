@@ -5,7 +5,6 @@ ecm_mark_nongui_executable(kpackagetool6)
 target_sources(kpackagetool6 PRIVATE
     main.cpp
     kpackagetool.cpp
-    kpackagetool.qrc
 )
 ecm_qt_declare_logging_category(kpackagetool6
     HEADER kpackage_debug.h
