@@ -75,10 +75,11 @@ public:
         PackageFileNotFoundError, /**< The package file does not exist */
         UnsupportedArchiveFormatError, /**< The archive format of the package is not supported */
         PackageOpenError, /**< Can't open the package file for reading */
-        MetadataFileMissingError, /**< The package doesn't have a metadata.desktop file */
-        PluginNameMissingError, /**< The metadata.desktop file doesn't specify a plugin name */
+        MetadataFileMissingError, /**< The package doesn't have a metadata.json file */
+        // TODO KF6 This can never happen due to deriving the pluginId from the filename
+        PluginNameMissingError, /**< The metadata.json file doesn't specify a plugin name */
         PluginNameInvalidError, /**< The plugin name contains characters different from letters, digits, dots and underscores */
-        UpdatePackageTypeMismatchError, /**< A package with this plugin name was already installed, but has a different type in the metadata.desktop file */
+        UpdatePackageTypeMismatchError, /**< A package with this plugin name was already installed, but has a different type in the metadata.json file */
         OldVersionRemovalError, /**< Failed to remove the old version of the package during an upgrade */
         NewerVersionAlreadyInstalledError, /**< We tried to update, but the same version or a newer one is already installed */
         PackageAlreadyInstalledError, /**< The package is already installed and a normal install (not update) was performed */
