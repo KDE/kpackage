@@ -93,13 +93,11 @@ public:
      *
      * @param structure if a null pointer is passed in, this will creates an empty (invalid) Package;
      * otherwise the structure is allowed to set up the Package's initial layout
-     * @since 4.6
      */
     explicit Package(PackageStructure *structure = nullptr);
 
     /**
      * Copy constructor
-     * @since 4.6
      */
     Package(const Package &other);
 
@@ -107,7 +105,6 @@ public:
 
     /**
      * Assignment operator
-     * @since 4.6
      */
     Package &operator=(const Package &rhs);
 
@@ -127,7 +124,6 @@ public:
     /**
      * Sets the path to the root of this package
      * @param path an absolute path, or a relative path to the default package root
-     * @since 4.3
      */
     void setPath(const QString &path);
 
@@ -192,7 +188,6 @@ public:
     /**
      * @return the prefix paths inserted between the base path and content entries, in order of priority.
      *         When searching for a file, all paths will be tried in order.
-     * @since 4.6
      */
     QStringList contentsPrefixPaths() const;
 
@@ -254,7 +249,6 @@ public:
 
     /**
      * Removes a definition from the structure of the package.
-     * @since 4.6
      * @param key the internal label of the file or directory to remove
      */
     void removeDefinition(const QByteArray &key);
@@ -297,7 +291,6 @@ public:
      * and the first found will be returned.
      *
      * @param prefix paths the directory prefix to use
-     * @since 4.6
      */
     void setContentsPrefixPaths(const QStringList &prefixPaths);
 
