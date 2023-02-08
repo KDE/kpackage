@@ -76,7 +76,7 @@ public:
         UnsupportedArchiveFormatError, /**< The archive format of the package is not supported */
         PackageOpenError, /**< Can't open the package file for reading */
         MetadataFileMissingError, /**< The package doesn't have a metadata.json file */
-        PluginNameInvalidError, /**< The plugin name is not specified in the metadata.json file or contains
+        PluginIdInvalidError, /**< The plugin name is not specified in the metadata.json file or contains
                                     characters different from letters, digits, dots and underscores */
         UpdatePackageTypeMismatchError, /**< A package with this plugin name was already installed, but has a different type in the metadata.json file */
         OldVersionRemovalError, /**< Failed to remove the old version of the package during an upgrade */

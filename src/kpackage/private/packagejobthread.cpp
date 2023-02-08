@@ -234,7 +234,7 @@ bool PackageJobThread::installPackage(const QString &src, const QString &dest, O
     if (pluginName == QLatin1String("metadata")) {
         // qCWarning(KPACKAGE_LOG) << "Package plugin name not specified";
         d->errorMessage = i18n("Package plugin name not specified: %1", src);
-        d->errorCode = Package::JobError::PluginNameInvalidError;
+        d->errorCode = Package::JobError::PluginIdInvalidError;
         return false;
     }
 
@@ -244,7 +244,7 @@ bool PackageJobThread::installPackage(const QString &src, const QString &dest, O
     if (!validatePluginName.match(pluginName).hasMatch()) {
         // qCDebug(KPACKAGE_LOG) << "Package plugin name " << pluginName << "contains invalid characters";
         d->errorMessage = i18n("Package plugin name %1 contains invalid characters", pluginName);
-        d->errorCode = Package::JobError::PluginNameInvalidError;
+        d->errorCode = Package::JobError::PluginIdInvalidError;
         return false;
     }
 
