@@ -144,17 +144,6 @@ void PlasmoidPackageTest::isValid()
     p->setPath(m_packageRoot + '/' + m_package);
     QVERIFY(!p->isValid());
 
-    // Create the metadata.json file.
-    QFile file(m_packageRoot + "/" + m_package + "/metadata.json");
-    QVERIFY(file.open(QIODevice::WriteOnly));
-
-    QTextStream out(&file);
-    out << "[Desktop Entry]\n";
-    out << "Name=test\n";
-    out << "Description=Just a test desktop file";
-    file.flush();
-    file.close();
-
     // Create the ui dir.
     QVERIFY(QDir().mkpath(m_packageRoot + "/" + m_package + "/contents/ui"));
 
@@ -165,10 +154,10 @@ void PlasmoidPackageTest::isValid()
     QVERIFY(!p->isValid());
 
     // Create the main file.
-    file.setFileName(m_packageRoot + "/" + m_package + "/contents/ui/main.qml");
+    QFile file(m_packageRoot + "/" + m_package + "/contents/ui/main.qml");
     QVERIFY(file.open(QIODevice::WriteOnly));
 
-    out.setDevice(&file);
+    QTextStream out(&file);
     out << "THIS IS A PLASMOID SCRIPT.....\n";
     file.flush();
     file.close();
@@ -179,7 +168,7 @@ void PlasmoidPackageTest::isValid()
     p = new KPackage::Package(m_defaultPackage);
     p->setPath(m_packageRoot + '/' + m_package);
     QVERIFY(p->isValid());
-    QCOMPARE(p->cryptographicHash(QCryptographicHash::Sha1), QByteArrayLiteral("a41160c6a763ea505c95bee12a7fc87952a61cf1"));
+    QCOMPARE(p->cryptographicHash(QCryptographicHash::Sha1), QByteArrayLiteral("468c7934dfa635986a85e3364363b1f39d157cd5"));
     delete p;
 }
 
