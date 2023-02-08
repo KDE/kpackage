@@ -42,15 +42,7 @@ function(kpackage_install_package dir component)
 
    set(metadatajson)
    set(ORIGINAL_METADATA "${CMAKE_CURRENT_SOURCE_DIR}/${dir}/metadata.desktop")
-   if(NOT EXISTS ${component}-${root}-metadata.json AND EXISTS ${ORIGINAL_METADATA})
-        message(WARNING "Providing metadata with .desktop files is deprecated. Please run \"desktoptojson -i ${CMAKE_CURRENT_SOURCE_DIR}/${dir}/metadata.desktop\" to convert the file to json and remove the desktop file")
-        set(GENERATED_METADATA "${CMAKE_CURRENT_BINARY_DIR}/${component}-${root}-metadata.json")
-        add_custom_target(${component}-${root}-metadata-json ALL DEPENDS ${GENERATED_METADATA})
-        kcoreaddons_desktop_to_json(${component}-${root}-metadata-json ${ORIGINAL_METADATA}
-                                    OUTPUT_FILE ${GENERATED_METADATA})
-        install(FILES ${GENERATED_METADATA} DESTINATION ${KDE_INSTALL_DATADIR}/${install_dir}/${root}/${component} RENAME metadata.json)
-        set(metadatajson ${GENERATED_METADATA})
-    elseif (EXISTS "${CMAKE_CURRENT_SOURCE_DIR}/${dir}/metadata.json")
+    if (EXISTS "${CMAKE_CURRENT_SOURCE_DIR}/${dir}/metadata.json")
         install(FILES "${CMAKE_CURRENT_SOURCE_DIR}/${dir}/metadata.json" DESTINATION ${KDE_INSTALL_DATADIR}/${install_dir}/${root}/${component})
     endif()
 
