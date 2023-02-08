@@ -232,8 +232,8 @@ bool PackageJobThread::installPackage(const QString &src, const QString &dest, O
     QString pluginName = meta.pluginId();
     qCDebug(KPACKAGE_LOG) << "pluginname: " << meta.pluginId();
     if (pluginName == QLatin1String("metadata")) {
-        // qCWarning(KPACKAGE_LOG) << "Package plugin name not specified";
-        d->errorMessage = i18n("Package plugin name not specified: %1", src);
+        // qCWarning(KPACKAGE_LOG) << "Package plugin id not specified";
+        d->errorMessage = i18n("Package plugin id not specified: %1", src);
         d->errorCode = Package::JobError::PluginIdInvalidError;
         return false;
     }
@@ -242,8 +242,8 @@ bool PackageJobThread::installPackage(const QString &src, const QString &dest, O
     // bad characters into the paths used for removal.
     const QRegularExpression validatePluginName(QStringLiteral("^[\\w\\-\\.]+$")); // Only allow letters, numbers, underscore and period.
     if (!validatePluginName.match(pluginName).hasMatch()) {
-        // qCDebug(KPACKAGE_LOG) << "Package plugin name " << pluginName << "contains invalid characters";
-        d->errorMessage = i18n("Package plugin name %1 contains invalid characters", pluginName);
+        // qCDebug(KPACKAGE_LOG) << "Package plugin id " << pluginName << "contains invalid characters";
+        d->errorMessage = i18n("Package plugin id %1 contains invalid characters", pluginName);
         d->errorCode = Package::JobError::PluginIdInvalidError;
         return false;
     }

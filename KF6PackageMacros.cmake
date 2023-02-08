@@ -9,7 +9,7 @@ set(KPACKAGE_RELATIVE_DATA_INSTALL_DIR "kpackage")
 #
 # Installs a package to the system path
 # @arg path The source path to install from, location of metadata.json
-# @arg componentname The plugin name of the component, corresponding to the
+# @arg componentname The plugin id of the component, corresponding to the
 #       Id key of the KPlugin object in metadata.json
 # @arg root The subdirectory to install to, default: packages
 # @arg install_dir the path where to install packages,

@@ -235,10 +235,10 @@ void PackageTool::runMain()
                 if (!d->metadata.isValid()) {
                     pluginName = d->package;
                 } else if (!d->metadata.isValid() && d->metadata.pluginId().isEmpty()) {
-                    // plugin name given in command line
+                    // plugin id given in command line
                     pluginName = d->package;
                 } else {
-                    // Parameter was a plasma package, get plugin name from the package
+                    // Parameter was a plasma package, get plugin id from the package
                     pluginName = d->metadata.pluginId();
                 }
             }
@@ -253,7 +253,7 @@ void PackageTool::runMain()
                 }
             }
             // Uninstalling ...
-            if (installed.contains(pluginName)) { // Assume it's a plugin name
+            if (installed.contains(pluginName)) { // Assume it's a plugin id
                 d->installer.setPath(pluginName);
                 KJob *uninstallJob = d->installer.uninstall(pluginName, d->packageRoot);
                 // clang-format off
