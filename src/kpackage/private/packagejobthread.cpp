@@ -231,10 +231,10 @@ bool PackageJobThread::installPackage(const QString &src, const QString &dest, O
 
     QString pluginName = meta.pluginId();
     qCDebug(KPACKAGE_LOG) << "pluginname: " << meta.pluginId();
-    if (pluginName.isEmpty()) {
+    if (pluginName == QLatin1String("metadata")) {
         // qCWarning(KPACKAGE_LOG) << "Package plugin name not specified";
         d->errorMessage = i18n("Package plugin name not specified: %1", src);
-        d->errorCode = Package::JobError::PluginNameMissingError;
+        d->errorCode = Package::JobError::PluginNameInvalidError;
         return false;
     }
 
