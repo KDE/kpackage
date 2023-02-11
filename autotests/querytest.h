@@ -21,6 +21,8 @@ private Q_SLOTS:
     void installAndQuery();
 
     void queryCustomPlugin();
+    // Tests a package without ServiceTypes can be listed
+    void noServiceTypesPackage();
 
 private:
     KPackage::Package ps;

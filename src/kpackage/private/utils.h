@@ -25,9 +25,10 @@ inline QStringList readKPackageTypes(const KPluginMetaData &metaData)
         types << serviceTypes;
     }
     // while most package structure plugins do, they don't need to set the service types,
-    // if we haven't found anything so far we use the plugin id
-    if (types.isEmpty() && !metaData.fileName().endsWith(QLatin1String(".json"))) {
-        types << metaData.pluginId();
+    // if we haven't found anything so far we use the plugin id if it looks like a valid package type.
+    const QString pluginId = metaData.pluginId();
+    if (types.isEmpty() && !metaData.fileName().endsWith(QLatin1String(".json")) && pluginId.contains(QLatin1Char('/'))) {
+        types << pluginId;
     }
     return types;
 }

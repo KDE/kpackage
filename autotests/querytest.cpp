@@ -103,4 +103,16 @@ void QueryTest::queryCustomPlugin()
     QCOMPARE(KPackage::PackageLoader::self()->listPackages(QStringLiteral("Plasma/TestKPackageInternalPlasmoid")).count(), 4);
 }
 
+void QueryTest::noServiceTypesPackage()
+{
+#if QT_VERSION_MAJOR >= 6
+    QSKIP("desktop metadata files are not supported in Qt6");
+#endif
+    const int oldSize = KPackage::PackageLoader::self()->listPackages(QStringLiteral("KPackage/Generic")).size();
+
+    QVERIFY(checkedInstall(ps, QFINDTESTDATA("data/testplasmathemepackagewithoutservicetypes"), KJob::NoError));
+
+    QCOMPARE(KPackage::PackageLoader::self()->listPackages(QStringLiteral("KPackage/Generic")).size(), oldSize + 1);
+}
+
 QTEST_MAIN(QueryTest)
