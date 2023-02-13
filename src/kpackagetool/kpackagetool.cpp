@@ -134,25 +134,7 @@ void PackageTool::runMain()
             || type.compare(QLatin1String("wallpaper"), Qt::CaseInsensitive) == 0)) {
         // Check type for common plasma packages
         KPackage::Package package(&structure);
-        QString serviceType;
         package.setPath(d->packageFile);
-
-        if (package.isValid() && package.metadata().isValid()) {
-            serviceType = package.metadata().value(QStringLiteral("X-Plasma-ServiceType"));
-            const auto serviceTypes = readKPackageTypes(package.metadata());
-            if (serviceType.isEmpty() && !serviceTypes.isEmpty()) {
-                serviceType = serviceTypes.first();
-            }
-        }
-
-        if (!serviceType.isEmpty()) {
-            if (serviceType == QLatin1String("KPackage/Generic")) {
-                type = QStringLiteral("KPackage/Generic");
-            } else {
-                type = serviceType;
-                // qDebug() << "fallthrough type is" << serviceType;
-            }
-        }
     }
 
     {
