@@ -124,35 +124,33 @@ void PlasmoidPackageTest::createTestPackage(const QString &packageName, const QS
 
 void PlasmoidPackageTest::isValid()
 {
-    KPackage::Package *p = new KPackage::Package(m_defaultPackage);
-    p->setPath(m_packageRoot + '/' + m_package);
+    KPackage::Package p(m_defaultPackage);
+    p.setPath(m_packageRoot + '/' + m_package);
 #ifndef NDEBUG
-    qDebug() << "package path is" << p->path();
+    qDebug() << "package path is" << p.path();
 #endif
 
     // A PlasmoidPackage is valid when:
     // - The package root exists.
     // - The package root consists an file named "ui/main.qml"
-    QVERIFY(!p->isValid());
+    QVERIFY(!p.isValid());
 
     // Create the root and package dir.
     QVERIFY(QDir().mkpath(m_packageRoot));
     QVERIFY(QDir().mkpath(m_packageRoot + "/" + m_package));
 
     // Should still be invalid.
-    delete p;
-    p = new KPackage::Package(m_defaultPackage);
-    p->setPath(m_packageRoot + '/' + m_package);
-    QVERIFY(!p->isValid());
+    p = KPackage::Package(m_defaultPackage);
+    p.setPath(m_packageRoot + '/' + m_package);
+    QVERIFY(!p.isValid());
 
     // Create the ui dir.
     QVERIFY(QDir().mkpath(m_packageRoot + "/" + m_package + "/contents/ui"));
 
     // No main file yet so should still be invalid.
-    delete p;
-    p = new KPackage::Package(m_defaultPackage);
-    p->setPath(m_packageRoot + '/' + m_package);
-    QVERIFY(!p->isValid());
+    p = KPackage::Package(m_defaultPackage);
+    p.setPath(m_packageRoot + '/' + m_package);
+    QVERIFY(!p.isValid());
 
     // Create the main file.
     QFile file(m_packageRoot + "/" + m_package + "/contents/ui/main.qml");
@@ -165,12 +163,10 @@ void PlasmoidPackageTest::isValid()
 
     file.setPermissions(QFile::ReadUser | QFile::WriteUser);
     // Main file exists so should be valid now.
-    delete p;
-    p = new KPackage::Package(m_defaultPackage);
-    p->setPath(m_packageRoot + '/' + m_package);
-    QVERIFY(p->isValid());
-    QCOMPARE(p->cryptographicHash(QCryptographicHash::Sha1), QByteArrayLiteral("468c7934dfa635986a85e3364363b1f39d157cd5"));
-    delete p;
+    p = KPackage::Package(m_defaultPackage);
+    p.setPath(m_packageRoot + '/' + m_package);
+    QVERIFY(p.isValid());
+    QCOMPARE(p.cryptographicHash(QCryptographicHash::Sha1), QByteArrayLiteral("468c7934dfa635986a85e3364363b1f39d157cd5"));
 }
 
 void PlasmoidPackageTest::filePath()
@@ -179,10 +175,10 @@ void PlasmoidPackageTest::filePath()
     // Package::filePath() returns
     // - {package_root}/{package_name}/path/to/file if the file exists
     // - QString() otherwise.
-    KPackage::Package *p = new KPackage::Package(m_defaultPackage);
-    p->setPath(m_packageRoot + '/' + m_package);
+    KPackage::Package p(m_defaultPackage);
+    p.setPath(m_packageRoot + '/' + m_package);
 
-    QCOMPARE(p->filePath("scripts", QStringLiteral("main")), QString());
+    QCOMPARE(p.filePath("scripts", QStringLiteral("main")), QString());
 
     QVERIFY(QDir().mkpath(m_packageRoot + "/" + m_package + "/contents/ui/main.qml"));
     QFile file(m_packageRoot + "/" + m_package + "/contents/ui/main.qml");
@@ -194,9 +190,8 @@ void PlasmoidPackageTest::filePath()
     file.close();
 
     // The package is valid by now so a path for code/main should get returned.
-    delete p;
-    p = new KPackage::Package(m_defaultPackage);
-    p->setPath(m_packageRoot + '/' + m_package);
+    p = KPackage::Package(m_defaultPackage);
+    p.setPath(m_packageRoot + '/' + m_package);
 
     const QString path = QFileInfo(m_packageRoot + "/" + m_package + "/contents/ui/main.qml").canonicalFilePath();
 
@@ -207,9 +202,8 @@ void PlasmoidPackageTest::filePath()
     //
     // NOTE: scripts, main and mainscript are defined in packages.cpp and are
     //       specific for a PlasmoidPackage.
-    QCOMPARE(p->filePath("scripts", QStringLiteral("main")), path);
-    QCOMPARE(p->filePath("mainscript"), path);
-    delete p;
+    QCOMPARE(p.filePath("scripts", QStringLiteral("main")), path);
+    QCOMPARE(p.filePath("mainscript"), path);
 }
 
 void PlasmoidPackageTest::entryList()
@@ -218,24 +212,23 @@ void PlasmoidPackageTest::entryList()
     createTestPackage(m_package, QStringLiteral("1.1"));
 
     // Create a package object and verify that it is valid.
-    KPackage::Package *p = new KPackage::Package(m_defaultPackage);
-    p->setPath(m_packageRoot + '/' + m_package);
-    QVERIFY(p->isValid());
+    KPackage::Package p(m_defaultPackage);
+    p.setPath(m_packageRoot + '/' + m_package);
+    QVERIFY(p.isValid());
 
     // Now we have a valid package that should contain the following files in
     // given filetypes:
     // fileTye - Files
     // scripts - {"script.js"}
     // images - {"image-1.svg", "image-2.svg"}
-    QStringList files = p->entryList("scripts");
+    QStringList files = p.entryList("scripts");
     QCOMPARE(files.size(), 1);
     QVERIFY(files.contains(QStringLiteral("script.js")));
 
-    files = p->entryList("images");
+    files = p.entryList("images");
     QCOMPARE(files.size(), 2);
     QVERIFY(files.contains(QStringLiteral("image-1.svg")));
     QVERIFY(files.contains(QStringLiteral("image-2.svg")));
-    delete p;
 }
 
 void PlasmoidPackageTest::createAndInstallPackage()
@@ -267,11 +260,11 @@ void PlasmoidPackageTest::createAndInstallPackage()
     QVERIFY(contents->entry(QStringLiteral("images")));
 
     m_defaultPackageStructure = new KPackage::PackageStructure(this);
-    KPackage::Package *p = new KPackage::Package(m_defaultPackageStructure);
+    KPackage::Package p(m_defaultPackageStructure);
     qDebug() << "Installing " << packagePath;
     // const QString packageRoot = "plasma/plasmoids/";
     // const QString servicePrefix = "plasma-applet-";
-    KJob *job = p->install(packagePath, m_packageRoot);
+    KJob *job = p.install(packagePath, m_packageRoot);
     // clang-format off
     connect(job, SIGNAL(finished(KJob*)), SLOT(packageInstalled(KJob*)));
     QSignalSpy spy(job, SIGNAL(finished(KJob*)));
@@ -279,11 +272,8 @@ void PlasmoidPackageTest::createAndInstallPackage()
     QVERIFY(spy.wait(1000));
 
     // is the package instance usable (ie proper path) after the install job has been completed?
-    QCOMPARE(p->path(), QString(QDir(m_packageRoot % "/plasmoid_to_package").canonicalPath() + QLatin1Char('/')));
+    QCOMPARE(p.path(), QString(QDir(m_packageRoot % "/plasmoid_to_package").canonicalPath() + QLatin1Char('/')));
     cleanupPackage(QStringLiteral("plasmoid_to_package"));
-
-    // QVERIFY(p->isValid());
-    delete p;
 }
 
 void PlasmoidPackageTest::noCrashOnAsyncInstall()
@@ -352,19 +342,19 @@ void PlasmoidPackageTest::createAndUpdatePackage()
     QVERIFY(contents->entry(QStringLiteral("images")));
 
     m_defaultPackageStructure = new KPackage::PackageStructure(this);
-    KPackage::Package *p = new KPackage::Package(m_defaultPackageStructure);
+    KPackage::Package p(m_defaultPackageStructure);
     qDebug() << "Installing " << packagePath;
     // const QString packageRoot = "plasma/plasmoids/";
     // const QString servicePrefix = "plasma-applet-";
 
     // clang-format off
-    KJob *job = p->update(packagePath, m_packageRoot);
+    KJob *job = p.update(packagePath, m_packageRoot);
     connect(job, SIGNAL(finished(KJob*)), SLOT(packageInstalled(KJob*)));
     QSignalSpy spy(job, SIGNAL(finished(KJob*)));
     QVERIFY(spy.wait(1000));
 
     // same version, should fail
-    job = p->update(packagePath, m_packageRoot);
+    job = p.update(packagePath, m_packageRoot);
     QSignalSpy spyFail(job, SIGNAL(finished(KJob*)));
     QVERIFY(spyFail.wait(1000));
     QVERIFY(job->error() == KPackage::Package::JobError::NewerVersionAlreadyInstalledError);
@@ -382,16 +372,13 @@ void PlasmoidPackageTest::createAndUpdatePackage()
     rootDir2.removeRecursively();
 
 
-    KJob *job2 = p->update(packagePath, m_packageRoot);
+    KJob *job2 = p.update(packagePath, m_packageRoot);
     connect(job2, SIGNAL(finished(KJob*)), SLOT(packageInstalled(KJob*)));
     QSignalSpy spy2(job2, SIGNAL(finished(KJob*)));
     QVERIFY(spy2.wait(1000));
     // clang-format on
 
     cleanupPackage(QStringLiteral("plasmoid_to_package"));
-
-    // QVERIFY(p->isValid());
-    delete p;
 }
 
 void PlasmoidPackageTest::uncompressPackageWithSubFolder()
@@ -405,8 +392,8 @@ void PlasmoidPackageTest::uncompressPackageWithSubFolder()
 
 void PlasmoidPackageTest::cleanupPackage(const QString &packageName)
 {
-    KPackage::Package *p = new KPackage::Package(m_defaultPackageStructure);
-    KJob *jj = p->uninstall(packageName, m_packageRoot);
+    KPackage::Package p(m_defaultPackageStructure);
+    KJob *jj = p.uninstall(packageName, m_packageRoot);
     connect(jj, SIGNAL(finished(KJob *)), SLOT(packageUninstalled(KJob *)));
 
     QSignalSpy spy(jj, &KJob::finished);
