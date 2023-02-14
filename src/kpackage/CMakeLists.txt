@@ -15,6 +15,7 @@ target_sources(KF6Package PRIVATE
     packageloader.cpp
     private/packages.cpp
     private/packagejob.cpp
+    private/packagejobthread.cpp
 )
 
 ecm_qt_declare_logging_category(KF6Package
@@ -38,10 +39,6 @@ ecm_generate_export_header(KF6Package
     EXCLUDE_DEPRECATED_BEFORE_AND_AT ${EXCLUDE_DEPRECATED_BEFORE_AND_AT}
 )
 
-add_library(kpackage_common_STATIC STATIC private/packagejobthread.cpp private/versionparser.cpp)
-target_link_libraries(kpackage_common_STATIC PRIVATE Qt${QT_VERSION_MAJOR}::Core KF6::CoreAddons KF6::Archive KF6::I18n)
-set_property(TARGET kpackage_common_STATIC PROPERTY POSITION_INDEPENDENT_CODE ON)
-
 target_link_libraries(KF6Package
 PUBLIC
      KF6::CoreAddons
@@ -49,7 +46,6 @@ PRIVATE
      Qt6::DBus
      KF6::Archive
      KF6::I18n
-     kpackage_common_STATIC
 )
 
 target_include_directories(KF6Package PUBLIC

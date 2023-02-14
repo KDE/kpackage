@@ -3,6 +3,7 @@
 #include "kpackage_debug.h"
 #include <KPluginMetaData>
 #include <QString>
+#include <QVersionNumber>
 
 inline QString readKPackageType(const KPluginMetaData &metaData)
 {
@@ -23,4 +24,11 @@ inline KPluginMetaData structureForKPackageType(const QString &packageFormat)
             return readKPackageType(metaData) == packageFormat;
         });
     return plugins.isEmpty() ? KPluginMetaData() : plugins.first();
+}
+
+inline bool isVersionNewer(const QString &version1, const QString &version2)
+{
+    const auto v1 = QVersionNumber::fromString(version1);
+    const auto v2 = QVersionNumber::fromString(version2);
+    return v2 > v1;
 }

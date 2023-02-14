@@ -6,7 +6,6 @@
 
 #include "plasmoidpackagetest.h"
 #include "../src/kpackage/config-package.h"
-#include "../src/kpackage/private/versionparser.cpp"
 
 #include <KJob>
 #include <QDir>
@@ -306,12 +305,12 @@ void PlasmoidPackageTest::noCrashOnAsyncInstall()
 void PlasmoidPackageTest::createAndUpdatePackage()
 {
     // does the version number parsing work?
-    QVERIFY(KPackage::isVersionNewer(QStringLiteral("1.1"), QStringLiteral("1.1.1")));
-    QVERIFY(!KPackage::isVersionNewer(QStringLiteral("1.1.1"), QStringLiteral("1.1")));
-    QVERIFY(KPackage::isVersionNewer(QStringLiteral("1.1.1"), QStringLiteral("1.1.2")));
-    QVERIFY(KPackage::isVersionNewer(QStringLiteral("1.1.2"), QStringLiteral("2.1")));
-    QVERIFY(KPackage::isVersionNewer(QStringLiteral("0.1.2"), QStringLiteral("2")));
-    QVERIFY(!KPackage::isVersionNewer(QStringLiteral("1"), QStringLiteral("0.1.2")));
+    QVERIFY(isVersionNewer(QStringLiteral("1.1"), QStringLiteral("1.1.1")));
+    QVERIFY(!isVersionNewer(QStringLiteral("1.1.1"), QStringLiteral("1.1")));
+    QVERIFY(isVersionNewer(QStringLiteral("1.1.1"), QStringLiteral("1.1.2")));
+    QVERIFY(isVersionNewer(QStringLiteral("1.1.2"), QStringLiteral("2.1")));
+    QVERIFY(isVersionNewer(QStringLiteral("0.1.2"), QStringLiteral("2")));
+    QVERIFY(!isVersionNewer(QStringLiteral("1"), QStringLiteral("0.1.2")));
 
     qDebug() << "                   ";
     qDebug() << "   CreateAndUpdate ";

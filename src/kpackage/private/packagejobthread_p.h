@@ -17,10 +17,6 @@ class PackageJobThreadPrivate;
 
 bool indexDirectory(const QString &dir, const QString &dest);
 
-// true if version2 is more recent than version1
-// TODO: replace with QVersionNumber when we will be able to depend from Qt 5.6
-bool isVersionNewer(const QString &version1, const QString &version2);
-
 class PackageJobThread : public QThread
 {
     Q_OBJECT

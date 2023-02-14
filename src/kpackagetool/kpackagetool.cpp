@@ -36,9 +36,6 @@
 #include "options.h"
 
 #include "../kpackage/config-package.h"
-// for the index creation function
-#include "../kpackage/package_export.h"
-#include "../kpackage/private/packagejobthread_p.h"
 
 #include "kpackage_debug.h"
 
