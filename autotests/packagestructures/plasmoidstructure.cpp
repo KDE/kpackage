@@ -4,31 +4,39 @@
     SPDX-License-Identifier: LGPL-2.0-or-later
 */
 
-#include "plasmoidstructure.h"
+#include "packagestructure.h"
+#include <KPluginFactory>
 
-#include "config-package.h"
-#include "package.h"
-#include <KLocalizedString>
-
-namespace KPackage
+class PlasmoidTestPackageStructure : public KPackage::PackageStructure
 {
-void PlasmoidPackage::initPackage(Package *package)
-{
-    KPackage::PackageStructure::initPackage(package);
-    package->setDefaultPackageRoot(QStringLiteral("plasma/plasmoids/"));
+    Q_OBJECT
 
-    package->addDirectoryDefinition("ui", QStringLiteral("ui/"), i18n("User interface"));
-    package->addFileDefinition("mainscript", QStringLiteral("ui/main.qml"), i18n("Main Script File"));
-    package->setRequired("mainscript", true);
+public:
+    explicit PlasmoidTestPackageStructure(QObject *parent, const QVariantList &args)
+        : KPackage::PackageStructure(parent, args)
+    {
+    }
 
-    package->addFileDefinition("configmodel", QStringLiteral("config/config.qml"), i18n("Configuration UI pages model"));
-    package->addFileDefinition("mainconfigxml", QStringLiteral("config/main.xml"), i18n("Configuration XML file"));
+    void initPackage(KPackage::Package *package) override
+    {
+        KPackage::PackageStructure::initPackage(package);
+        package->setDefaultPackageRoot(QStringLiteral("plasma/plasmoids/"));
 
-    package->addDirectoryDefinition("images", QStringLiteral("images"), i18n("Images"));
-    package->setMimeTypes("images", {QStringLiteral("image/svg+xml"), QStringLiteral("image/png"), QStringLiteral("image/jpeg")});
+        package->addDirectoryDefinition("ui", QStringLiteral("ui/"), QStringLiteral("User interface"));
+        package->addFileDefinition("mainscript", QStringLiteral("ui/main.qml"), QStringLiteral("Main Script File"));
+        package->setRequired("mainscript", true);
 
-    package->addDirectoryDefinition("scripts", QStringLiteral("code"), i18n("Executable Scripts"));
-    package->setMimeTypes("scripts", {QStringLiteral("text/plain")});
-}
+        package->addFileDefinition("configmodel", QStringLiteral("config/config.qml"), QStringLiteral("Configuration UI pages model"));
+        package->addFileDefinition("mainconfigxml", QStringLiteral("config/main.xml"), QStringLiteral("Configuration XML file"));
 
-} // namespace KPackage
+        package->addDirectoryDefinition("images", QStringLiteral("images"), QStringLiteral("Images"));
+        package->setMimeTypes("images", {QStringLiteral("image/svg+xml"), QStringLiteral("image/png"), QStringLiteral("image/jpeg")});
+
+        package->addDirectoryDefinition("scripts", QStringLiteral("code"), QStringLiteral("Executable Scripts"));
+        package->setMimeTypes("scripts", {QStringLiteral("text/plain")});
+    }
+};
+
+K_PLUGIN_CLASS_WITH_JSON(PlasmoidTestPackageStructure, "plasmoidpackagestructure.json")
+
+#include "plasmoidstructure.moc"

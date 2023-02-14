@@ -20,7 +20,6 @@
 #include <QJsonObject>
 
 #include "packageloader.h"
-#include "packagestructures/plasmoidstructure.h"
 #include "private/utils.h"
 
 void PlasmoidPackageTest::initTestCase()
@@ -33,7 +32,9 @@ void PlasmoidPackageTest::init()
     qDebug() << "PlasmoidPackage::init()";
     m_package = QStringLiteral("Package");
     m_packageRoot = QStandardPaths::writableLocation(QStandardPaths::GenericDataLocation) + "/packageRoot";
-    m_defaultPackage = KPackage::Package(new KPackage::PlasmoidPackage(this));
+    const auto pack = KPackage::PackageLoader::self()->loadPackageStructure("Plasma/TestKPackageInternalPlasmoid");
+    QVERIFY(pack);
+    m_defaultPackage = KPackage::Package(pack);
     cleanup(); // to prevent previous runs from interfering with this one
 }
 

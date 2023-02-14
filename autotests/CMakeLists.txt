@@ -8,15 +8,11 @@ include(ECMAddTests)
 
 configure_file(config.h.cmake ${CMAKE_CURRENT_BINARY_DIR}/config.h)
 
-add_library(kpackage_test_static STATIC packagestructures/plasmoidstructure.cpp)
-set_property(TARGET kpackage_test_static PROPERTY POSITION_INDEPENDENT_CODE ON)
-target_link_libraries(kpackage_test_static KF6::Package KF6::Archive KF6::CoreAddons KF6::I18n )
-
 MACRO(PLASMA_UNIT_TESTS)
        FOREACH(_testname ${ARGN})
                ecm_add_test(
                        ${_testname}.cpp
-                       LINK_LIBRARIES Qt6::Test kpackage_test_static
+                       LINK_LIBRARIES Qt6::Test KF6::Package KF6::I18n KF6::Archive
                        TEST_NAME ${_testname}
                        NAME_PREFIX "plasma-")
        ENDFOREACH(_testname)
@@ -30,9 +26,10 @@ PLASMA_UNIT_TESTS(
 )
 
 
-kcoreaddons_add_plugin(plasmoidstructure_plugin STATIC SOURCES packagestructures/plugin.cpp INSTALL_NAMESPACE kpackage/packagestructure)
-target_link_libraries(plasmoidstructure_plugin kpackage_test_static)
+kcoreaddons_add_plugin(plasmoidstructure_plugin STATIC SOURCES packagestructures/plasmoidstructure.cpp INSTALL_NAMESPACE kpackage/packagestructure)
+target_link_libraries(plasmoidstructure_plugin KF6::Package)
 kcoreaddons_target_static_plugins(querytest kpackage/packagestructure)
+kcoreaddons_target_static_plugins(plasmoidpackagetest kpackage/packagestructure)
 
 set_tests_properties(plasma-querytest PROPERTIES RUN_SERIAL TRUE) # it wipes out ~/.qttest/share
 set_tests_properties(plasma-plasmoidpackagetest PROPERTIES RUN_SERIAL TRUE)
