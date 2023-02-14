@@ -50,7 +50,6 @@ void QueryTest::installAndQuery()
     QVERIFY(checkedInstall(ps, QFINDTESTDATA("data/testpackage"), KJob::NoError));
     QVERIFY(checkedInstall(ps, QFINDTESTDATA("data/testfallbackpackage"), KJob::NoError));
     QVERIFY(checkedInstall(ps, QFINDTESTDATA("data/testjsonmetadatapackage"), KJob::NoError));
-    system("find '/Users/alex/.qttest/Library/Application Support'");
     QCOMPARE(KPackage::PackageLoader::self()->listPackages(QStringLiteral("Plasma/TestKPackageInternalPlasmoid")).count(), 3);
 
     // installing package with invalid metadata should not be possible
