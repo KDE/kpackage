@@ -262,13 +262,11 @@ void PlasmoidPackageTest::createAndInstallPackage()
     m_defaultPackageStructure = new KPackage::PackageStructure(this);
     KPackage::Package p(m_defaultPackageStructure);
     qDebug() << "Installing " << packagePath;
-    // const QString packageRoot = "plasma/plasmoids/";
-    // const QString servicePrefix = "plasma-applet-";
     KJob *job = p.install(packagePath, m_packageRoot);
-    // clang-format off
-    connect(job, SIGNAL(finished(KJob*)), SLOT(packageInstalled(KJob*)));
-    QSignalSpy spy(job, SIGNAL(finished(KJob*)));
-    // clang-format on
+    connect(job, &KJob::finished, [this, job]() {
+        packageInstalled(job);
+    });
+    QSignalSpy spy(job, &KJob::finished);
     QVERIFY(spy.wait(1000));
 
     // is the package instance usable (ie proper path) after the install job has been completed?
@@ -296,10 +294,10 @@ void PlasmoidPackageTest::noCrashOnAsyncInstall()
         KPackage::Package package(new KPackage::PackageStructure(this));
         job = package.install(packagePath, m_packageRoot);
     }
-    // clang-format off
-    connect(job, SIGNAL(finished(KJob*)), SLOT(packageInstalled(KJob*)));
-    QSignalSpy spy(job, SIGNAL(finished(KJob*)));
-    // clang-format on
+    connect(job, &KJob::finished, [this, job]() {
+        packageInstalled(job);
+    });
+    QSignalSpy spy(job, &KJob::finished);
     QVERIFY(spy.wait(1000));
 
     cleanupPackage(QStringLiteral("plasmoid_to_package"));
@@ -344,18 +342,17 @@ void PlasmoidPackageTest::createAndUpdatePackage()
     m_defaultPackageStructure = new KPackage::PackageStructure(this);
     KPackage::Package p(m_defaultPackageStructure);
     qDebug() << "Installing " << packagePath;
-    // const QString packageRoot = "plasma/plasmoids/";
-    // const QString servicePrefix = "plasma-applet-";
 
-    // clang-format off
     KJob *job = p.update(packagePath, m_packageRoot);
-    connect(job, SIGNAL(finished(KJob*)), SLOT(packageInstalled(KJob*)));
-    QSignalSpy spy(job, SIGNAL(finished(KJob*)));
+    connect(job, &KJob::finished, [this, job]() {
+        packageInstalled(job);
+    });
+    QSignalSpy spy(job, &KJob::finished);
     QVERIFY(spy.wait(1000));
 
     // same version, should fail
     job = p.update(packagePath, m_packageRoot);
-    QSignalSpy spyFail(job, SIGNAL(finished(KJob*)));
+    QSignalSpy spyFail(job, &KJob::finished);
     QVERIFY(spyFail.wait(1000));
     QVERIFY(job->error() == KPackage::Package::JobError::NewerVersionAlreadyInstalledError);
     qDebug()<<job->errorText();
@@ -373,10 +370,11 @@ void PlasmoidPackageTest::createAndUpdatePackage()
 
 
     KJob *job2 = p.update(packagePath, m_packageRoot);
-    connect(job2, SIGNAL(finished(KJob*)), SLOT(packageInstalled(KJob*)));
-    QSignalSpy spy2(job2, SIGNAL(finished(KJob*)));
+    connect(job2, &KJob::finished, [this, job2]() {
+        packageInstalled(job2);
+    });
+    QSignalSpy spy2(job2, &KJob::finished);
     QVERIFY(spy2.wait(1000));
-    // clang-format on
 
     cleanupPackage(QStringLiteral("plasmoid_to_package"));
 }
@@ -394,7 +392,9 @@ void PlasmoidPackageTest::cleanupPackage(const QString &packageName)
 {
     KPackage::Package p(m_defaultPackageStructure);
     KJob *jj = p.uninstall(packageName, m_packageRoot);
-    connect(jj, SIGNAL(finished(KJob *)), SLOT(packageUninstalled(KJob *)));
+    connect(jj, &KJob::finished, [this, jj]() {
+        packageUninstalled(jj);
+    });
 
     QSignalSpy spy(jj, &KJob::finished);
     QVERIFY(spy.wait(1000));
