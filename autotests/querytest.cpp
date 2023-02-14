@@ -24,17 +24,9 @@ void QueryTest::initTestCase()
     qputenv("KPACKAGE_DEP_RESOLVERS_PATH", KPACKAGE_DEP_RESOLVERS);
 
     m_dataDir = QDir(QStandardPaths::writableLocation(QStandardPaths::GenericDataLocation));
-    m_dataDir.removeRecursively();
 
-    QVERIFY(m_dataDir.mkpath(QStringLiteral(".")));
-
-    ps = KPackage::PackageLoader::self()->loadPackage(QStringLiteral("KPackage/Generic"));
+    ps = KPackage::PackageLoader::self()->loadPackage(QStringLiteral("Plasma/TestKPackageInternalPlasmoid"));
     ps.addFileDefinition("mainscript", QStringLiteral("ui/main.qml"), i18n("Main Script File"));
-}
-
-void QueryTest::cleanupTestCase()
-{
-    m_dataDir.removeRecursively();
 }
 
 static bool checkedInstall(KPackage::Package &ps, const QString &source, int expectedError)
@@ -50,31 +42,33 @@ static bool checkedInstall(KPackage::Package &ps, const QString &source, int exp
 
 void QueryTest::installAndQuery()
 {
+    m_dataDir.removeRecursively();
     // verify that no packages are installed
-    QCOMPARE(KPackage::PackageLoader::self()->listPackages(QStringLiteral("KPackage/Generic")).count(), 0);
+    QCOMPARE(KPackage::PackageLoader::self()->listPackages(QStringLiteral("Plasma/TestKPackageInternalPlasmoid")).count(), 0);
 
     // install some packages
     QVERIFY(checkedInstall(ps, QFINDTESTDATA("data/testpackage"), KJob::NoError));
     QVERIFY(checkedInstall(ps, QFINDTESTDATA("data/testfallbackpackage"), KJob::NoError));
     QVERIFY(checkedInstall(ps, QFINDTESTDATA("data/testjsonmetadatapackage"), KJob::NoError));
     system("find '/Users/alex/.qttest/Library/Application Support'");
-    QCOMPARE(KPackage::PackageLoader::self()->listPackages(QStringLiteral("KPackage/Generic")).count(), 3);
+    QCOMPARE(KPackage::PackageLoader::self()->listPackages(QStringLiteral("Plasma/TestKPackageInternalPlasmoid")).count(), 3);
 
     // installing package with invalid metadata should not be possible
     QVERIFY(checkedInstall(ps, QFINDTESTDATA("data/testinvalidmetadata"), KPackage::Package::MetadataFileMissingError));
-    QCOMPARE(KPackage::PackageLoader::self()->listPackages(QStringLiteral("KPackage/Generic")).count(), 3);
+    QCOMPARE(KPackage::PackageLoader::self()->listPackages(QStringLiteral("Plasma/TestKPackageInternalPlasmoid")).count(), 3);
 
     // package with valid dep information should be installed
     QVERIFY(checkedInstall(ps, QFINDTESTDATA("data/testpackagesdep"), KJob::NoError));
-    QCOMPARE(KPackage::PackageLoader::self()->listPackages(QStringLiteral("KPackage/Generic")).count(), 4);
+    QCOMPARE(KPackage::PackageLoader::self()->listPackages(QStringLiteral("Plasma/TestKPackageInternalPlasmoid")).count(), 4);
 
     // package with invalid dep information should not be installed
     QVERIFY(checkedInstall(ps, QFINDTESTDATA("data/testpackagesdepinvalid"), KPackage::Package::JobError::PackageCopyError));
-    QCOMPARE(KPackage::PackageLoader::self()->listPackages(QStringLiteral("KPackage/Generic")).count(), 4);
+    QCOMPARE(KPackage::PackageLoader::self()->listPackages(QStringLiteral("Plasma/TestKPackageInternalPlasmoid")).count(), 4);
 }
 
 void QueryTest::queryCustomPlugin()
 {
+    m_dataDir.removeRecursively();
     // verify that the test plugin if found
     auto packageStructure = KPackage::PackageLoader::self()->loadPackageStructure("Plasma/TestKPackageInternalPlasmoid");
     QVERIFY(packageStructure);

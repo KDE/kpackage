@@ -53,16 +53,8 @@
         "Name[uk]": "Тестовий пакунок",
         "Name[x-test]": "xxTest Packagexx",
         "Name[zh_CN]": "测试包",
-        "Name[zh_TW]": "測試套件",
-        "ServiceTypes": [
-            "KPackage/Generic",
-            "Plasma/TestKPackageInternalPlasmoid"
-        ],
-        "Version": "",
-        "Website": ""
+        "Name[zh_TW]": "測試套件"
     },
-    "Keywords": [
-    ],
-    "X-KDE-ParentApp": "",
+    "KPackageStructure": "Plasma/TestKPackageInternalPlasmoid",
     "X-Plasma-MainScript": "ui/main.qml"
 }

@@ -53,16 +53,9 @@
         "Name[uk]": "Тестовий пакунок",
         "Name[x-test]": "xxTest Packagexx",
         "Name[zh_CN]": "测试包",
-        "Name[zh_TW]": "測試套件",
-        "ServiceTypes": [
-            "KPackage/Generic"
-        ],
-        "Version": "",
-        "Website": ""
+        "Name[zh_TW]": "測試套件"
     },
-    "Keywords": [
-    ],
+    "KPackageStructure": "KPackage/Generic",
     "NoDisplay": true,
-    "X-KDE-ParentApp": "",
     "X-Plasma-MainScript": "ui/main.qml"
 }

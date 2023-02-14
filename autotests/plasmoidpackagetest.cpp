@@ -399,8 +399,7 @@ void PlasmoidPackageTest::uncompressPackageWithSubFolder()
     KPackage::Package package(structure);
     package.setPath(QFINDTESTDATA("data/customcontent.tar.gz"));
 
-    // if metadata is correctly found, servicetypes should be ("SimpleContent", "CustomContent")
-    QCOMPARE(readKPackageTypes(package.metadata()), QStringList({"SimpleContent", "CustomContent"}));
+    QCOMPARE(readKPackageType(package.metadata()), "CustomContent");
 }
 
 void PlasmoidPackageTest::cleanupPackage(const QString &packageName)

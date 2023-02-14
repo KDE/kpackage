@@ -92,10 +92,10 @@ public:
         if (!package->metadata().isValid()) {
             return;
         }
-        if (readKPackageTypes(package->metadata()).contains(QStringLiteral("CustomContent"))) {
+        if (readKPackageType(package->metadata()) == QStringLiteral("CustomContent")) {
             package->addFileDefinition("customcontentfile",
                                        QStringLiteral("customcontent/CustomContentFile.qml"),
-                                       i18n("Custom file only for packages that contain CustomContent in their servicetypes"));
+                                       i18n("Custom file only for packages that contain CustomContent as their KPackageType"));
         } else {
             package->removeDefinition("customcontentfile");
         }

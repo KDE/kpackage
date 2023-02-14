@@ -9,8 +9,8 @@
         "Id": "org.kde.testjsonpackage",
         "License": "GPLv2+",
         "Name": "Test JSON Package",
-        "ServiceTypes": [ "KPackage/Generic", "Plasma/TestKPackageInternalPlasmoid" ],
         "Description": "test description"
     },
+    "KPackageStructure": "Plasma/TestKPackageInternalPlasmoid",
     "X-Plasma-MainScript": "ui/main.qml"
 }

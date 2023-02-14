@@ -203,11 +203,9 @@ void PackageTool::runMain()
             d->installer.setPath(pkgPath);
 
             if (!d->parser->isSet(Options::type())) {
-                const QStringList lst = readKPackageTypes(d->installer.metadata());
-                for (const QString &st : lst) {
-                    if (!d->pluginTypes.contains(st)) {
-                        d->pluginTypes << st;
-                    }
+                const QString type = readKPackageType(d->installer.metadata());
+                if (!d->pluginTypes.contains(type)) {
+                    d->pluginTypes << type;
                 }
             }
 
@@ -558,13 +556,12 @@ void PackageToolPrivate::listTypes()
 
         QMap<QString, QString> plugins;
         for (const KPluginMetaData &info : offers) {
-            const QStringList types = readKPackageTypes(info);
-            if (types.isEmpty()) {
+            const QString type = readKPackageType(info);
+            if (type.isEmpty()) {
                 continue;
             }
-            KPackage::Package pkg = KPackage::PackageLoader::self()->loadPackage(types.first());
-            QString path = pkg.defaultPackageRoot();
-            plugins.insert(types.first(), path);
+            KPackage::Package pkg = KPackage::PackageLoader::self()->loadPackage(type);
+            plugins.insert(type, pkg.defaultPackageRoot());
         }
 
         renderTypeTable(plugins);

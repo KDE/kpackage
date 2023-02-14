@@ -97,15 +97,13 @@ void PackageJob::setupNotificationsOnJobFinished(const QString &messageName)
     // capture first as uninstalling wipes d->package
     // or d-package can become dangling during the job if deleted externally
     const QString pluginId = d->package->metadata().pluginId();
-    const QStringList serviceTypes = readKPackageTypes(d->package->metadata());
+    const QString kpackageType = readKPackageType(d->package->metadata());
 
     auto onJobFinished = [=](bool ok, const QString &error) {
         if (ok) {
-            for (auto &packageType : serviceTypes) {
-                auto msg = QDBusMessage::createSignal(QStringLiteral("/KPackage/") + packageType, QStringLiteral("org.kde.plasma.kpackage"), messageName);
-                msg.setArguments({pluginId});
-                QDBusConnection::sessionBus().send(msg);
-            }
+            auto msg = QDBusMessage::createSignal(QStringLiteral("/KPackage/") + kpackageType, QStringLiteral("org.kde.plasma.kpackage"), messageName);
+            msg.setArguments({pluginId});
+            QDBusConnection::sessionBus().send(msg);
         }
         slotFinished(ok, error);
     };

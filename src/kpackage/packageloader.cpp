@@ -167,8 +167,7 @@ QList<KPluginMetaData> PackageLoader::listPackages(const QString &packageFormat,
                 continue;
             }
 
-            const QStringList kpackageTypes = readKPackageTypes(info);
-            if (packageFormat.isEmpty() || kpackageTypes.isEmpty() || kpackageTypes.contains(packageFormat)) {
+            if (packageFormat.isEmpty() || readKPackageType(info) == packageFormat) {
                 uniqueIds << info.pluginId();
                 lst << info;
             }
@@ -212,15 +211,12 @@ KPackage::PackageStructure *PackageLoader::loadPackageStructure(const QString &p
     }
 
     const KPluginMetaData metaData = structureForKPackageType(packageFormat);
-
-    QString error;
     if (!metaData.isValid()) {
         qCWarning(KPACKAGE_LOG) << "Invalid metadata for package structure" << packageFormat;
         return nullptr;
     }
 
     auto result = KPluginFactory::instantiatePlugin<PackageStructure>(metaData, nullptr, {metaData.rawData().toVariantMap()});
-
     if (!result) {
         qCWarning(KPACKAGE_LOG) << i18n("Could not load installer for package of type %1. Error reported was: %2", packageFormat, result.errorString);
         return nullptr;
