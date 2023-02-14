@@ -8,21 +8,12 @@ include(ECMAddTests)
 
 configure_file(config.h.cmake ${CMAKE_CURRENT_BINARY_DIR}/config.h)
 
-MACRO(PLASMA_UNIT_TESTS)
-       FOREACH(_testname ${ARGN})
-               ecm_add_test(
-                       ${_testname}.cpp
-                       LINK_LIBRARIES Qt6::Test KF6::Package KF6::I18n KF6::Archive
-                       TEST_NAME ${_testname}
-                       NAME_PREFIX "plasma-")
-       ENDFOREACH(_testname)
-ENDMACRO(PLASMA_UNIT_TESTS)
-
-PLASMA_UNIT_TESTS(
-    fallbackpackagetest
-    packagestructuretest
-    plasmoidpackagetest
-    querytest
+ecm_add_tests(
+    fallbackpackagetest.cpp
+    packagestructuretest.cpp
+    plasmoidpackagetest.cpp
+    querytest.cpp
+    LINK_LIBRARIES Qt6::Test KF6::Package KF6::I18n KF6::Archive
 )
 
 
@@ -31,8 +22,8 @@ target_link_libraries(plasmoidstructure_plugin KF6::Package)
 kcoreaddons_target_static_plugins(querytest kpackage/packagestructure)
 kcoreaddons_target_static_plugins(plasmoidpackagetest kpackage/packagestructure)
 
-set_tests_properties(plasma-querytest PROPERTIES RUN_SERIAL TRUE) # it wipes out ~/.qttest/share
-set_tests_properties(plasma-plasmoidpackagetest PROPERTIES RUN_SERIAL TRUE)
+set_tests_properties(querytest PROPERTIES RUN_SERIAL TRUE) # it wipes out ~/.qttest/share
+set_tests_properties(plasmoidpackagetest PROPERTIES RUN_SERIAL TRUE)
 
 function(kpackagetooltest testname)
     add_test(NAME ${testname}-appstream COMMAND cmake -Dkpackagetool=$<TARGET_FILE:kpackagetool6>
