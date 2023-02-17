@@ -80,14 +80,32 @@ class PackageJobThreadPrivate
 public:
     QString installPath;
     QString errorMessage;
+    std::function<void()> run;
     int errorCode;
 };
 
-PackageJobThread::PackageJobThread(QObject *parent)
-    : QThread(parent)
+PackageJobThread::PackageJobThread(PackageJob::OperationType type, const QString &src, const QString &dest, const QString &packagePath)
+    : QObject()
+    , QRunnable()
 {
     d = new PackageJobThreadPrivate;
     d->errorCode = KJob::NoError;
+    if (type == PackageJob::Install) {
+        d->run = [this, src, dest]() {
+            install(src, dest);
+        };
+    } else if (type == PackageJob::Update) {
+        d->run = [this, src, dest]() {
+            update(src, dest);
+        };
+    } else if (type == PackageJob::Uninstall) {
+        d->run = [this, packagePath]() {
+            uninstall(packagePath);
+        };
+
+    } else {
+        Q_UNREACHABLE();
+    }
 }
 
 PackageJobThread::~PackageJobThread()
@@ -95,11 +113,16 @@ PackageJobThread::~PackageJobThread()
     delete d;
 }
 
+void PackageJobThread::run()
+{
+    Q_ASSERT(d->run);
+    d->run();
+}
 bool PackageJobThread::install(const QString &src, const QString &dest)
 {
-    bool ok = installPackage(src, dest, Install);
+    bool ok = installPackage(src, dest, PackageJob::Install);
     Q_EMIT installPathChanged(d->installPath);
-    Q_EMIT jobThreadFinished(ok, d->errorMessage);
+    Q_EMIT jobThreadFinished(ok, errorCode(), d->errorMessage);
     return ok;
 }
 
@@ -132,7 +155,7 @@ bool PackageJobThread::installDependency(const QUrl &destUrl)
     return process.exitCode() == 0;
 }
 
-bool PackageJobThread::installPackage(const QString &src, const QString &dest, OperationType operation)
+bool PackageJobThread::installPackage(const QString &src, const QString &dest, PackageJob::OperationType operation)
 {
     QDir root(dest);
     if (!root.exists()) {
@@ -255,7 +278,7 @@ bool PackageJobThread::installPackage(const QString &src, const QString &dest, O
     targetName.append(pluginName);
 
     if (QFile::exists(targetName)) {
-        if (operation == Update) {
+        if (operation == PackageJob::Update) {
             KPluginMetaData oldMeta;
             if (QFileInfo::exists(targetName + QLatin1String("/metadata.json"))) {
                 oldMeta = KPluginMetaData::fromJsonFile(targetName + QLatin1String("/metadata.json"));
@@ -335,9 +358,9 @@ bool PackageJobThread::installPackage(const QString &src, const QString &dest, O
 
 bool PackageJobThread::update(const QString &src, const QString &dest)
 {
-    bool ok = installPackage(src, dest, Update);
+    bool ok = installPackage(src, dest, PackageJob::Update);
     Q_EMIT installPathChanged(d->installPath);
-    Q_EMIT jobThreadFinished(ok, d->errorMessage);
+    Q_EMIT jobThreadFinished(ok, errorCode(), d->errorMessage);
     return ok;
 }
 
@@ -347,7 +370,7 @@ bool PackageJobThread::uninstall(const QString &packagePath)
     // qCDebug(KPACKAGE_LOG) << "emit installPathChanged " << d->installPath;
     Q_EMIT installPathChanged(QString());
     // qCDebug(KPACKAGE_LOG) << "Thread: installFinished" << ok;
-    Q_EMIT jobThreadFinished(ok, d->errorMessage);
+    Q_EMIT jobThreadFinished(ok, errorCode(), d->errorMessage);
     return ok;
 }
 

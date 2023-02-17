@@ -31,21 +31,16 @@ void PackageStructure::pathChanged(Package * /*package*/)
 
 KJob *PackageStructure::install(Package *package, const QString &archivePath, const QString &packageRoot)
 {
-    PackageJob *j = new PackageJob(package);
-    j->install(archivePath, packageRoot);
-    return j;
+    return PackageJob::install(package, archivePath, packageRoot);
 }
 
 KJob *PackageStructure::update(Package *package, const QString &archivePath, const QString &packageRoot)
 {
-    PackageJob *j = new PackageJob(package);
-    j->update(archivePath, packageRoot);
-    return j;
+    return PackageJob::update(package, archivePath, packageRoot);
 }
 
 KJob *PackageStructure::uninstall(Package *package, const QString &packageRoot)
 {
-    PackageJob *j = new PackageJob(package);
     const QString pluginID = package->metadata().pluginId();
     QString uninstallPath;
     // We handle the empty path when uninstalling the package
@@ -54,8 +49,7 @@ KJob *PackageStructure::uninstall(Package *package, const QString &packageRoot)
     if (!pluginID.isEmpty()) {
         uninstallPath = packageRoot + QLatin1Char('/') + pluginID;
     }
-    j->uninstall(uninstallPath);
-    return j;
+    return PackageJob::uninstall(package, uninstallPath);
 }
 
 }

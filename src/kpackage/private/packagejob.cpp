@@ -15,6 +15,9 @@
 
 #include <QDBusConnection>
 #include <QDBusMessage>
+#include <QDebug>
+#include <QThreadPool>
+#include <QTimer>
 
 namespace KPackage
 {
@@ -26,12 +29,23 @@ public:
     QString installPath;
 };
 
-PackageJob::PackageJob(Package *package, QObject *parent)
-    : KJob(parent)
+PackageJob::PackageJob(OperationType type, Package *package, const QString &src, const QString &dest, const QString &packagePath)
+    : KJob()
     , d(new PackageJobPrivate)
 {
-    d->thread = new PackageJobThread(this);
+    d->thread = new PackageJobThread(type, src, dest, packagePath);
     d->package = package;
+
+    if (type == Install) {
+        setupNotificationsOnJobFinished(QStringLiteral("packageInstalled"));
+    } else if (type == Update) {
+        setupNotificationsOnJobFinished(QStringLiteral("packageUpdated"));
+        d->thread->update(src, dest);
+    } else if (type == Uninstall) {
+        setupNotificationsOnJobFinished(QStringLiteral("packageUninstalled"));
+    } else {
+        Q_UNREACHABLE();
+    }
 
     connect(PackageDeletionNotifier::self(), &PackageDeletionNotifier::packageDeleted, this, [this](Package *package) {
         if (package == d->package) {
@@ -57,39 +71,32 @@ PackageJob::~PackageJob()
     delete d;
 }
 
-void PackageJob::slotFinished(bool ok, const QString &err)
-{
-    if (ok) {
-        setError(NoError);
-    } else {
-        setError(d->thread->errorCode());
-        setErrorText(err);
-    }
-    d->thread->exit(0);
-    emitResult();
-}
-
 void PackageJob::start()
 {
-    d->thread->start();
+    Q_ASSERT(d->thread);
+    QThreadPool::globalInstance()->start(d->thread);
+    d->thread = nullptr;
 }
 
-void PackageJob::install(const QString &src, const QString &dest)
+PackageJob *PackageJob::install(Package *package, const QString &src, const QString &dest)
 {
-    setupNotificationsOnJobFinished(QStringLiteral("packageInstalled"));
-    d->thread->install(src, dest);
+    auto job = new PackageJob(Install, package, src, dest);
+    job->start();
+    return job;
 }
 
-void PackageJob::update(const QString &src, const QString &dest)
+PackageJob *PackageJob::update(Package *package, const QString &src, const QString &dest)
 {
-    setupNotificationsOnJobFinished(QStringLiteral("packageUpdated"));
-    d->thread->update(src, dest);
+    auto job = new PackageJob(Update, package, src, dest);
+    job->start();
+    return job;
 }
 
-void PackageJob::uninstall(const QString &installationPath)
+PackageJob *PackageJob::uninstall(Package *package, const QString &packagePath)
 {
-    setupNotificationsOnJobFinished(QStringLiteral("packageUninstalled"));
-    d->thread->uninstall(installationPath);
+    auto job = new PackageJob(Uninstall, package, QString(), QString(), packagePath);
+    job->start();
+    return job;
 }
 
 void PackageJob::setupNotificationsOnJobFinished(const QString &messageName)
@@ -99,13 +106,20 @@ void PackageJob::setupNotificationsOnJobFinished(const QString &messageName)
     const QString pluginId = d->package->metadata().pluginId();
     const QString kpackageType = readKPackageType(d->package->metadata());
 
-    auto onJobFinished = [=](bool ok, const QString &error) {
+    auto onJobFinished = [=](bool ok, Package::JobError errorCode, const QString &error) {
         if (ok) {
             auto msg = QDBusMessage::createSignal(QStringLiteral("/KPackage/") + kpackageType, QStringLiteral("org.kde.plasma.kpackage"), messageName);
             msg.setArguments({pluginId});
             QDBusConnection::sessionBus().send(msg);
         }
-        slotFinished(ok, error);
+
+        if (ok) {
+            setError(NoError);
+        } else {
+            setError(errorCode);
+            setErrorText(error);
+        }
+        emitResult();
     };
     connect(d->thread, &PackageJobThread::jobThreadFinished, this, onJobFinished, Qt::QueuedConnection);
 }

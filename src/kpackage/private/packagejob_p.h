@@ -19,22 +19,24 @@ class PackageJob : public KJob
     Q_OBJECT
 
 public:
-    PackageJob(Package *package, QObject *parent = nullptr);
+    enum OperationType {
+        Install,
+        Update,
+        Uninstall,
+    };
     ~PackageJob() override;
 
     void start() override;
 
-    void install(const QString &src, const QString &dest);
-    void update(const QString &src, const QString &dest);
-    void uninstall(const QString &installationPath);
+    static PackageJob *install(Package *package, const QString &src, const QString &dest);
+    static PackageJob *update(Package *package, const QString &src, const QString &dest);
+    static PackageJob *uninstall(Package *package, const QString &packagePath);
 
 Q_SIGNALS:
     void installPathChanged(const QString &path);
 
-private Q_SLOTS:
-    void slotFinished(bool ok, const QString &err);
-
 private:
+    explicit PackageJob(OperationType type, Package *package, const QString &src, const QString &dest, const QString &packagePath = {});
     void setupNotificationsOnJobFinished(const QString &messageName);
 
     PackageJobPrivate *const d;

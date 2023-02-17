@@ -32,7 +32,11 @@ void QueryTest::initTestCase()
 static bool checkedInstall(KPackage::Package &ps, const QString &source, int expectedError)
 {
     auto job = ps.install(source);
-    job->exec();
+    QEventLoop l;
+    QObject::connect(job, &KJob::result, &l, [&l]() {
+        l.quit();
+    });
+    l.exec();
     if (job->error() == expectedError) {
         return true;
     }
