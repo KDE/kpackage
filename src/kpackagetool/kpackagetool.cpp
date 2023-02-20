@@ -52,7 +52,6 @@ public:
     QString packageFile;
     QString package;
     QString kpackageType = QStringLiteral("KPackage/Generic");
-    KPackage::Package installer;
     KPluginMetaData metadata;
     QString installPath;
     void output(const QString &msg);
@@ -79,9 +78,9 @@ PackageTool::~PackageTool()
 
 void PackageTool::runMain()
 {
-    KPackage::PackageStructure structure;
     if (d->parser->isSet(Options::hash())) {
         const QString path = d->parser->value(Options::hash());
+        KPackage::PackageStructure structure;
         KPackage::Package package(&structure);
         package.setPath(path);
         const QString hash = QString::fromLocal8Bit(package.cryptographicHash(QCryptographicHash::Sha1));
@@ -101,8 +100,10 @@ void PackageTool::runMain()
         return;
     }
 
-    QString type = d->parser->value(Options::type());
-    d->installer = Package();
+    if (d->parser->isSet(Options::type())) {
+        d->kpackageType = d->parser->value(Options::type());
+    }
+    d->packageRoot = KPackage::PackageLoader::self()->loadPackage(d->kpackageType).defaultPackageRoot();
 
     if (d->parser->isSet(Options::remove())) {
         d->package = d->parser->value(Options::remove());
@@ -126,28 +127,11 @@ void PackageTool::runMain()
         d->packageFile = d->package;
     }
 
-    if (!d->packageFile.isEmpty()
-        && (!d->parser->isSet(Options::type()) || type.compare(i18nc("package type", "wallpaper"), Qt::CaseInsensitive) == 0
-            || type.compare(QLatin1String("wallpaper"), Qt::CaseInsensitive) == 0)) {
-        // Check type for common plasma packages
-        KPackage::Package package(&structure);
-        package.setPath(d->packageFile);
+    PackageStructure *structure = PackageLoader::self()->loadPackageStructure(d->kpackageType);
+    if (!structure) {
+        qWarning() << "Package type" << d->kpackageType << "not found";
     }
 
-    {
-        PackageStructure *structure = PackageLoader::self()->loadPackageStructure(type);
-
-        if (structure) {
-            d->installer = Package(structure);
-        }
-
-        if (!d->installer.hasValidStructure()) {
-            qWarning() << "Package type" << type << "not found";
-        }
-
-        d->packageRoot = d->installer.defaultPackageRoot();
-        d->kpackageType = type;
-    }
     if (d->parser->isSet(Options::show())) {
         const QString pluginName = d->package;
         showPackageInfo(pluginName);
@@ -159,17 +143,13 @@ void PackageTool::runMain()
     }
 
     if (d->parser->isSet(Options::list())) {
-        d->packageRoot = findPackageRoot();
-        d->coutput(i18n("Listing KPackageType: %1 in %2", d->kpackageType, d->packageRoot));
-        listPackages(d->kpackageType, d->packageRoot);
+        QString packageRoot = resolvePackageRootWithOptions();
+        d->coutput(i18n("Listing KPackageType: %1 in %2", d->kpackageType, packageRoot));
+        listPackages(d->kpackageType, packageRoot);
         exit(0);
     } else {
         // install, remove or upgrade
-        if (!d->installer.isValid()) {
-            d->installer = KPackage::Package(new KPackage::PackageStructure());
-        }
-
-        d->packageRoot = findPackageRoot();
+        d->packageRoot = resolvePackageRootWithOptions();
 
         if (d->parser->isSet(Options::remove()) || d->parser->isSet(Options::upgrade())) {
             QString pkgPath;
@@ -184,25 +164,19 @@ void PackageTool::runMain()
             if (pkgPath.isEmpty()) {
                 pkgPath = d->package;
             }
-
-            if (d->parser->isSet(Options::upgrade())) {
-                d->installer.setPath(d->package);
-            }
             QString _p = d->packageRoot;
             if (!_p.endsWith(QLatin1Char('/'))) {
                 _p.append(QLatin1Char('/'));
             }
             _p.append(d->package);
-            d->installer.setDefaultPackageRoot(d->packageRoot);
-            d->installer.setPath(pkgPath);
 
             if (!d->parser->isSet(Options::type())) {
-                d->kpackageType = readKPackageType(d->installer.metadata());
+                d->kpackageType = readKPackageType(pkg.metadata());
             }
 
             QString pluginName;
-            if (d->installer.isValid()) {
-                d->metadata = d->installer.metadata();
+            if (pkg.metadata().isValid()) {
+                d->metadata = pkg.metadata();
                 if (!d->metadata.isValid()) {
                     pluginName = d->package;
                 } else if (!d->metadata.isValid() && d->metadata.pluginId().isEmpty()) {
@@ -215,17 +189,8 @@ void PackageTool::runMain()
             }
             QStringList installed = d->packages(d->kpackageType);
 
-            if (QFile::exists(d->packageFile)) {
-                d->installer.setPath(d->packageFile);
-                if (d->installer.isValid()) {
-                    if (d->installer.metadata().isValid()) {
-                        pluginName = d->installer.metadata().pluginId();
-                    }
-                }
-            }
             // Uninstalling ...
             if (installed.contains(pluginName)) { // Assume it's a plugin id
-                d->installer.setPath(pluginName);
                 KPackage::PackageStructure *structure = KPackage::PackageLoader::self()->loadPackageStructure(d->kpackageType);
                 KJob *uninstallJob = KPackage::PackageJob::uninstall(structure, pluginName, d->packageRoot);
                 // clang-format off
@@ -280,9 +245,7 @@ QStringList PackageToolPrivate::packages(const QString &type, const QString &pat
 
 void PackageTool::showPackageInfo(const QString &pluginName)
 {
-    QString type = d->kpackageType.isEmpty() ? QStringLiteral("KPackage/Generic") : d->kpackageType;
-    KPackage::Package pkg = KPackage::PackageLoader::self()->loadPackage(type);
-
+    KPackage::Package pkg = KPackage::PackageLoader::self()->loadPackage(d->kpackageType);
     pkg.setDefaultPackageRoot(d->packageRoot);
 
     if (QFile::exists(d->packageFile)) {
@@ -455,7 +418,7 @@ void PackageTool::showAppstreamInfo(const QString &pluginName)
     exit(0);
 }
 
-QString PackageTool::findPackageRoot()
+QString PackageTool::resolvePackageRootWithOptions()
 {
     QString packageRoot;
     if (d->parser->isSet(Options::packageRoot()) && d->parser->isSet(Options::global())) {
