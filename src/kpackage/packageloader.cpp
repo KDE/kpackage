@@ -170,6 +170,8 @@ QList<KPluginMetaData> PackageLoader::listPackages(const QString &packageFormat,
             if (packageFormat.isEmpty() || readKPackageType(info) == packageFormat) {
                 uniqueIds << info.pluginId();
                 lst << info;
+            } else {
+                qInfo() << "KPackageStructure of" << info << "does not match requested format" << packageFormat;
             }
         }
     }
