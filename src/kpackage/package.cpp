@@ -23,7 +23,6 @@
 #include <QMimeDatabase>
 #include <QStandardPaths>
 
-#include "packagejob.h"
 #include "packageloader.h"
 #include "packagestructure.h"
 #include "private/package_p.h"
@@ -48,13 +47,7 @@ Package::Package(const Package &other)
 {
 }
 
-Package::~Package()
-{
-    // guard against deletion on application shutdown
-    if (PackageDeletionNotifier::self()) {
-        Q_EMIT PackageDeletionNotifier::self()->packageDeleted(this);
-    }
-}
+Package::~Package() = default;
 
 Package &Package::operator=(const Package &rhs)
 {
@@ -790,60 +783,6 @@ QList<QByteArray> Package::requiredFiles() const
     return files;
 }
 
-KJob *Package::install(const QString &sourcePackage, const QString &packageRoot)
-{
-    if (!d->structure) {
-        return nullptr;
-    }
-
-    const QString src = sourcePackage;
-    setPath(src);
-    QString dest = packageRoot.isEmpty() ? defaultPackageRoot() : packageRoot;
-    KPackage::PackageLoader::self()->d->maxCacheAge = -1;
-
-    // use absolute paths if passed, otherwise go under share
-    if (!QDir::isAbsolutePath(dest)) {
-        dest = QStandardPaths::writableLocation(QStandardPaths::GenericDataLocation) + QLatin1Char('/') + dest;
-    }
-
-    // qCDebug(KPACKAGE_LOG) << "Source: " << src;
-    // qCDebug(KPACKAGE_LOG) << "PackageRoot: " << dest;
-    KJob *j = d->structure.data()->install(this, src, dest);
-    return j;
-}
-
-KJob *Package::update(const QString &sourcePackage, const QString &packageRoot)
-{
-    if (!d->structure) {
-        return nullptr;
-    }
-
-    const QString src = sourcePackage;
-    setPath(src);
-    QString dest = packageRoot.isEmpty() ? defaultPackageRoot() : packageRoot;
-    KPackage::PackageLoader::self()->d->maxCacheAge = -1;
-
-    // use absolute paths if passed, otherwise go under share
-    if (!QDir::isAbsolutePath(dest)) {
-        dest = QStandardPaths::writableLocation(QStandardPaths::GenericDataLocation) + QLatin1Char('/') + dest;
-    }
-
-    // qCDebug(KPACKAGE_LOG) << "Source: " << src;
-    // qCDebug(KPACKAGE_LOG) << "PackageRoot: " << dest;
-    KJob *j = d->structure.data()->update(this, src, dest);
-    return j;
-}
-
-KJob *Package::uninstall(const QString &packageName, const QString &packageRoot)
-{
-    KPackage::PackageLoader::self()->d->maxCacheAge = -1;
-    d->createPackageMetadata(packageRoot + QLatin1Char('/') + packageName);
-    if (!d->structure) {
-        return nullptr;
-    }
-    return d->structure.data()->uninstall(this, packageRoot);
-}
-
 PackagePrivate::PackagePrivate()
     : QSharedData()
     , fallbackPackage(nullptr)
@@ -998,12 +937,6 @@ bool PackagePrivate::hasCycle(const KPackage::Package &package)
         slowPackage = slowPackage->d->fallbackPackage.get();
     }
     return false;
-}
-
-Q_GLOBAL_STATIC(PackageDeletionNotifier, s_packageDeletionNotifier)
-PackageDeletionNotifier *PackageDeletionNotifier::self()
-{
-    return s_packageDeletionNotifier;
 }
 
 } // Namespace

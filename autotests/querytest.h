@@ -18,11 +18,10 @@ class QueryTest : public QObject
 private Q_SLOTS:
     void initTestCase();
     void installAndQuery();
-
     void queryCustomPlugin();
 
 private:
-    KPackage::Package ps;
+    KPackage::PackageStructure *structure;
     QDir m_dataDir;
 };
 

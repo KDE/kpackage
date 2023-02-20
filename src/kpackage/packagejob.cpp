@@ -6,10 +6,12 @@
 */
 
 #include "packagejob.h"
-#include "config-package.h"
-#include "private/packagejobthread_p.h"
 
+#include "config-package.h"
+#include "packageloader.h"
+#include "packagestructure.h"
 #include "private/package_p.h"
+#include "private/packagejobthread_p.h"
 #include "private/utils.h"
 
 #include "kpackage_debug.h"
@@ -17,6 +19,7 @@
 #include <QDBusConnection>
 #include <QDBusMessage>
 #include <QDebug>
+#include <QStandardPaths>
 #include <QThreadPool>
 #include <QTimer>
 
@@ -26,15 +29,15 @@ class PackageJobPrivate
 {
 public:
     PackageJobThread *thread = nullptr;
-    Package *package = nullptr;
+    Package package;
     QString installPath;
 };
 
-PackageJob::PackageJob(OperationType type, Package *package, const QString &src, const QString &dest, const QString &packagePath)
+PackageJob::PackageJob(OperationType type, Package &package, const QString &src, const QString &dest)
     : KJob()
     , d(new PackageJobPrivate)
 {
-    d->thread = new PackageJobThread(type, src, dest, packagePath);
+    d->thread = new PackageJobThread(type, src, dest, package.path());
     d->package = package;
 
     if (type == Install) {
@@ -47,24 +50,12 @@ PackageJob::PackageJob(OperationType type, Package *package, const QString &src,
     } else {
         Q_UNREACHABLE();
     }
-
-    connect(PackageDeletionNotifier::self(), &PackageDeletionNotifier::packageDeleted, this, [this](Package *package) {
-        if (package == d->package) {
-            d->package = nullptr;
-        }
+    connect(d->thread, &PackageJobThread::installPathChanged, this, [this](const QString &installPath) {
+        d->package.setPath(installPath);
     });
-
-    connect(
-        d->thread,
-        &PackageJobThread::installPathChanged,
-        this,
-        [this](const QString &installPath) {
-            if (d->package) {
-                d->package->setPath(installPath);
-            }
-            Q_EMIT installPathChanged(installPath);
-        },
-        Qt::QueuedConnection);
+    connect(d->thread, &PackageJobThread::jobThreadFinished, this, [this]() {
+        Q_EMIT operationFinished(d->package);
+    });
 }
 
 PackageJob::~PackageJob() = default;
@@ -76,23 +67,52 @@ void PackageJob::start()
     d->thread = nullptr;
 }
 
-PackageJob *PackageJob::install(Package *package, const QString &src, const QString &dest)
+PackageJob *PackageJob::install(PackageStructure *structure, const QString &sourcePackage, const QString &packageRoot)
 {
-    auto job = new PackageJob(Install, package, src, dest);
+    Package package(structure);
+    package.setPath(sourcePackage);
+    QString dest = packageRoot.isEmpty() ? package.defaultPackageRoot() : packageRoot;
+    PackageLoader::invalidateCache();
+
+    // use absolute paths if passed, otherwise go under share
+    if (!QDir::isAbsolutePath(dest)) {
+        dest = QStandardPaths::writableLocation(QStandardPaths::GenericDataLocation) + QLatin1Char('/') + dest;
+    }
+    auto job = new PackageJob(Install, package, sourcePackage, dest);
     job->start();
     return job;
 }
 
-PackageJob *PackageJob::update(Package *package, const QString &src, const QString &dest)
+PackageJob *PackageJob::update(PackageStructure *structure, const QString &sourcePackage, const QString &packageRoot)
 {
-    auto job = new PackageJob(Update, package, src, dest);
+    Package package(structure);
+    package.setPath(sourcePackage);
+    QString dest = packageRoot.isEmpty() ? package.defaultPackageRoot() : packageRoot;
+    PackageLoader::invalidateCache();
+
+    // use absolute paths if passed, otherwise go under share
+    if (!QDir::isAbsolutePath(dest)) {
+        dest = QStandardPaths::writableLocation(QStandardPaths::GenericDataLocation) + QLatin1Char('/') + dest;
+    }
+    auto job = new PackageJob(Update, package, sourcePackage, dest);
     job->start();
     return job;
 }
 
-PackageJob *PackageJob::uninstall(Package *package, const QString &packagePath)
+PackageJob *PackageJob::uninstall(PackageStructure *structure, const QString &pluginId, const QString &packageRoot)
 {
-    auto job = new PackageJob(Uninstall, package, QString(), QString(), packagePath);
+    Package package(structure);
+    QString uninstallPath;
+    // We handle the empty path when uninstalling the package
+    // If the dir already got deleted the pluginId is an empty string, without this
+    // check we would delete the package root, BUG: 410682
+    if (!pluginId.isEmpty()) {
+        uninstallPath = packageRoot + QLatin1Char('/') + pluginId;
+    }
+    package.setPath(uninstallPath);
+
+    PackageLoader::invalidateCache();
+    auto job = new PackageJob(Uninstall, package, QString(), QString());
     job->start();
     return job;
 }
@@ -101,8 +121,8 @@ void PackageJob::setupNotificationsOnJobFinished(const QString &messageName)
 {
     // capture first as uninstalling wipes d->package
     // or d-package can become dangling during the job if deleted externally
-    const QString pluginId = d->package->metadata().pluginId();
-    const QString kpackageType = readKPackageType(d->package->metadata());
+    const QString pluginId = d->package.metadata().pluginId();
+    const QString kpackageType = readKPackageType(d->package.metadata());
 
     auto onJobFinished = [=](bool ok, Package::JobError errorCode, const QString &error) {
         if (ok) {

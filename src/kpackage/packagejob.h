@@ -17,6 +17,7 @@ namespace KPackage
 {
 class PackageJobPrivate;
 class Package;
+class PackageStructure;
 
 class KPACKAGE_EXPORT PackageJob : public KJob
 {
@@ -24,12 +25,11 @@ class KPACKAGE_EXPORT PackageJob : public KJob
 
 public:
     ~PackageJob() override;
-    static PackageJob *install(Package *package, const QString &src, const QString &dest);
-    static PackageJob *update(Package *package, const QString &src, const QString &dest);
-    static PackageJob *uninstall(Package *package, const QString &packagePath);
+    static PackageJob *install(PackageStructure *structure, const QString &sourcePackage, const QString &packageRoot);
+    static PackageJob *update(PackageStructure *structure, const QString &sourcePackage, const QString &packageRoot);
+    static PackageJob *uninstall(PackageStructure *structure, const QString &pluginId, const QString &packageRoot);
 
-Q_SIGNALS:
-    void installPathChanged(const QString &path);
+    Q_SIGNAL void operationFinished(const KPackage::Package &package);
 
 private:
     friend class PackageJobThread;
@@ -39,7 +39,7 @@ private:
         Uninstall,
     };
     void start() override;
-    explicit PackageJob(OperationType type, Package *package, const QString &src, const QString &dest, const QString &packagePath = {});
+    explicit PackageJob(OperationType type, Package &package, const QString &src, const QString &dest);
     void setupNotificationsOnJobFinished(const QString &messageName);
 
     const std::unique_ptr<PackageJobPrivate> d;

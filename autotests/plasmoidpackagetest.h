@@ -27,7 +27,6 @@ private Q_SLOTS:
     void isValid();
     void filePath();
     void entryList();
-    void noCrashOnAsyncInstall();
 
     void packageInstalled(KJob *j);
     void packageUninstalled(KJob *j);

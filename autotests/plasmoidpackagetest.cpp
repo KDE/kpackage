@@ -18,6 +18,7 @@
 #include <QJsonDocument>
 #include <QJsonObject>
 
+#include "packagejob.h"
 #include "packageloader.h"
 #include "private/utils.h"
 
@@ -259,46 +260,17 @@ void PlasmoidPackageTest::createAndInstallPackage()
     QVERIFY(contents->entry(QStringLiteral("images")));
 
     m_defaultPackageStructure = new KPackage::PackageStructure(this);
-    KPackage::Package p(m_defaultPackageStructure);
+    KPackage::Package p;
     qDebug() << "Installing " << packagePath;
-    KJob *job = p.install(packagePath, m_packageRoot);
-    connect(job, &KJob::finished, [this, job]() {
-        packageInstalled(job);
+    auto job = KPackage::PackageJob::install(m_defaultPackageStructure, packagePath, m_packageRoot);
+    connect(job, &KPackage::PackageJob::operationFinished, this, [&p](const KPackage::Package &package) {
+        p = package;
     });
     QSignalSpy spy(job, &KJob::finished);
     QVERIFY(spy.wait(1000));
 
     // is the package instance usable (ie proper path) after the install job has been completed?
     QCOMPARE(p.path(), QString(QDir(m_packageRoot % "/plasmoid_to_package").canonicalPath() + QLatin1Char('/')));
-    cleanupPackage(QStringLiteral("plasmoid_to_package"));
-}
-
-void PlasmoidPackageTest::noCrashOnAsyncInstall()
-{
-    createTestPackage(QStringLiteral("plasmoid_to_package"), QStringLiteral("1.1"));
-    const QString packagePath = m_packageRoot + '/' + "testpackage.plasmoid";
-
-    KZip creator(packagePath);
-    QVERIFY(creator.open(QIODevice::WriteOnly));
-    creator.addLocalDirectory(m_packageRoot + '/' + "plasmoid_to_package", QStringLiteral("."));
-    creator.close();
-    QDir rootDir(m_packageRoot + "/plasmoid_to_package");
-    rootDir.removeRecursively();
-
-    KJob *job;
-    // scope the package so it will get deleted before the install operation finishes
-    // package is explicitlyshared internally and designed to be used on the stack
-    // see #370718
-    {
-        KPackage::Package package(new KPackage::PackageStructure(this));
-        job = package.install(packagePath, m_packageRoot);
-    }
-    connect(job, &KJob::finished, [this, job]() {
-        packageInstalled(job);
-    });
-    QSignalSpy spy(job, &KJob::finished);
-    QVERIFY(spy.wait(1000));
-
     cleanupPackage(QStringLiteral("plasmoid_to_package"));
 }
 
@@ -339,10 +311,9 @@ void PlasmoidPackageTest::createAndUpdatePackage()
     QVERIFY(contents->entry(QStringLiteral("images")));
 
     m_defaultPackageStructure = new KPackage::PackageStructure(this);
-    KPackage::Package p(m_defaultPackageStructure);
     qDebug() << "Installing " << packagePath;
 
-    KJob *job = p.update(packagePath, m_packageRoot);
+    KJob *job = KPackage::PackageJob::update(m_defaultPackageStructure, packagePath, m_packageRoot);
     connect(job, &KJob::finished, [this, job]() {
         packageInstalled(job);
     });
@@ -350,12 +321,11 @@ void PlasmoidPackageTest::createAndUpdatePackage()
     QVERIFY(spy.wait(1000));
 
     // same version, should fail
-    job = p.update(packagePath, m_packageRoot);
+    job = KPackage::PackageJob::update(m_defaultPackageStructure, packagePath, m_packageRoot);
     QSignalSpy spyFail(job, &KJob::finished);
     QVERIFY(spyFail.wait(1000));
     QVERIFY(job->error() == KPackage::Package::JobError::NewerVersionAlreadyInstalledError);
-    qDebug()<<job->errorText();
-
+    qDebug() << job->errorText();
 
     // create a new package with higher version
     createTestPackage(QStringLiteral("plasmoid_to_package"), QStringLiteral("1.2"));
@@ -367,8 +337,7 @@ void PlasmoidPackageTest::createAndUpdatePackage()
     QDir rootDir2(m_packageRoot + "/plasmoid_to_package");
     rootDir2.removeRecursively();
 
-
-    KJob *job2 = p.update(packagePath, m_packageRoot);
+    KJob *job2 = KPackage::PackageJob::update(m_defaultPackageStructure, packagePath, m_packageRoot);
     connect(job2, &KJob::finished, [this, job2]() {
         packageInstalled(job2);
     });
@@ -389,13 +358,12 @@ void PlasmoidPackageTest::uncompressPackageWithSubFolder()
 
 void PlasmoidPackageTest::cleanupPackage(const QString &packageName)
 {
-    KPackage::Package p(m_defaultPackageStructure);
-    KJob *jj = p.uninstall(packageName, m_packageRoot);
-    connect(jj, &KJob::finished, [this, jj]() {
-        packageUninstalled(jj);
+    KJob *j = KPackage::PackageJob::uninstall(m_defaultPackageStructure, packageName, m_packageRoot);
+    connect(j, &KJob::finished, [this, j]() {
+        packageUninstalled(j);
     });
 
-    QSignalSpy spy(jj, &KJob::finished);
+    QSignalSpy spy(j, &KJob::finished);
     QVERIFY(spy.wait(1000));
 }
 

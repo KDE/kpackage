@@ -38,6 +38,7 @@
 #include "../kpackage/config-package.h"
 
 #include "kpackage_debug.h"
+#include "packagejob.h"
 
 Q_GLOBAL_STATIC_WITH_ARGS(QTextStream, cout, (stdout))
 Q_GLOBAL_STATIC_WITH_ARGS(QTextStream, cerr, (stderr))
@@ -50,12 +51,12 @@ public:
     QString packageRoot;
     QString packageFile;
     QString package;
-    QStringList pluginTypes;
+    QString kpackageType = QStringLiteral("KPackage/Generic");
     KPackage::Package installer;
     KPluginMetaData metadata;
     QString installPath;
     void output(const QString &msg);
-    QStringList packages(const QStringList &types, const QString &path = QString());
+    QStringList packages(const QString &type, const QString &path = QString());
     void renderTypeTable(const QMap<QString, QString> &plugins);
     void listTypes();
     void coutput(const QString &msg);
@@ -101,7 +102,6 @@ void PackageTool::runMain()
     }
 
     QString type = d->parser->value(Options::type());
-    d->pluginTypes.clear();
     d->installer = Package();
 
     if (d->parser->isSet(Options::remove())) {
@@ -146,7 +146,7 @@ void PackageTool::runMain()
         }
 
         d->packageRoot = d->installer.defaultPackageRoot();
-        d->pluginTypes << type;
+        d->kpackageType = type;
     }
     if (d->parser->isSet(Options::show())) {
         const QString pluginName = d->package;
@@ -160,8 +160,8 @@ void PackageTool::runMain()
 
     if (d->parser->isSet(Options::list())) {
         d->packageRoot = findPackageRoot();
-        d->coutput(i18n("Listing service types: %1 in %2", d->pluginTypes.join(QStringLiteral(", ")), d->packageRoot));
-        listPackages(d->pluginTypes, d->packageRoot);
+        d->coutput(i18n("Listing KPackageType: %1 in %2", d->kpackageType, d->packageRoot));
+        listPackages(d->kpackageType, d->packageRoot);
         exit(0);
     } else {
         // install, remove or upgrade
@@ -173,15 +173,12 @@ void PackageTool::runMain()
 
         if (d->parser->isSet(Options::remove()) || d->parser->isSet(Options::upgrade())) {
             QString pkgPath;
-            for (const QString &t : std::as_const(d->pluginTypes)) {
-                KPackage::Package pkg = KPackage::PackageLoader::self()->loadPackage(t);
-                pkg.setPath(d->package);
-                if (pkg.isValid()) {
-                    pkgPath = pkg.path();
-                    if (pkgPath.isEmpty() && !d->packageFile.isEmpty()) {
-                        pkgPath = d->packageFile;
-                    }
-                    continue;
+            KPackage::Package pkg = KPackage::PackageLoader::self()->loadPackage(d->kpackageType);
+            pkg.setPath(d->package);
+            if (pkg.isValid()) {
+                pkgPath = pkg.path();
+                if (pkgPath.isEmpty() && !d->packageFile.isEmpty()) {
+                    pkgPath = d->packageFile;
                 }
             }
             if (pkgPath.isEmpty()) {
@@ -200,10 +197,7 @@ void PackageTool::runMain()
             d->installer.setPath(pkgPath);
 
             if (!d->parser->isSet(Options::type())) {
-                const QString type = readKPackageType(d->installer.metadata());
-                if (!d->pluginTypes.contains(type)) {
-                    d->pluginTypes << type;
-                }
+                d->kpackageType = readKPackageType(d->installer.metadata());
             }
 
             QString pluginName;
@@ -219,7 +213,7 @@ void PackageTool::runMain()
                     pluginName = d->metadata.pluginId();
                 }
             }
-            QStringList installed = d->packages(d->pluginTypes);
+            QStringList installed = d->packages(d->kpackageType);
 
             if (QFile::exists(d->packageFile)) {
                 d->installer.setPath(d->packageFile);
@@ -232,7 +226,8 @@ void PackageTool::runMain()
             // Uninstalling ...
             if (installed.contains(pluginName)) { // Assume it's a plugin id
                 d->installer.setPath(pluginName);
-                KJob *uninstallJob = d->installer.uninstall(pluginName, d->packageRoot);
+                KPackage::PackageStructure *structure = KPackage::PackageLoader::self()->loadPackageStructure(d->kpackageType);
+                KJob *uninstallJob = KPackage::PackageJob::uninstall(structure, pluginName, d->packageRoot);
                 // clang-format off
                 connect(uninstallJob, SIGNAL(result(KJob*)), SLOT(packageUninstalled(KJob*)));
                 // clang-format on
@@ -243,7 +238,8 @@ void PackageTool::runMain()
             }
         }
         if (d->parser->isSet(Options::install())) {
-            KJob *installJob = d->installer.install(d->packageFile, d->packageRoot);
+            KPackage::PackageStructure *structure = KPackage::PackageLoader::self()->loadPackageStructure(d->kpackageType);
+            KJob *installJob = KPackage::PackageJob::install(structure, d->packageFile, d->packageRoot);
             // clang-format off
             connect(installJob, SIGNAL(result(KJob*)), SLOT(packageInstalled(KJob*)));
             // clang-format on
@@ -270,29 +266,21 @@ void PackageToolPrivate::cerror(const QString &msg)
     (*cerr).flush();
 }
 
-QStringList PackageToolPrivate::packages(const QStringList &types, const QString &path)
+QStringList PackageToolPrivate::packages(const QString &type, const QString &path)
 {
     QStringList result;
-
-    for (const QString &type : types) {
-        const QList<KPluginMetaData> services = KPackage::PackageLoader::self()->listPackages(type, path);
-        for (const KPluginMetaData &service : services) {
-            const QString _plugin = service.pluginId();
-            if (!result.contains(_plugin)) {
-                result << _plugin;
-            }
+    const QList<KPluginMetaData> dataList = KPackage::PackageLoader::self()->listPackages(type, path);
+    for (const KPluginMetaData &data : dataList) {
+        if (!result.contains(data.pluginId())) {
+            result << data.pluginId();
         }
     }
-
     return result;
 }
 
 void PackageTool::showPackageInfo(const QString &pluginName)
 {
-    QString type = QStringLiteral("KPackage/Generic");
-    if (!d->pluginTypes.contains(type) && !d->pluginTypes.isEmpty()) {
-        type = d->pluginTypes.at(0);
-    }
+    QString type = d->kpackageType.isEmpty() ? QStringLiteral("KPackage/Generic") : d->kpackageType;
     KPackage::Package pkg = KPackage::PackageLoader::self()->loadPackage(type);
 
     pkg.setDefaultPackageRoot(d->packageRoot);
@@ -311,7 +299,7 @@ void PackageTool::showPackageInfo(const QString &pluginName)
     }
     d->coutput(i18n("Showing info for package: %1", pluginName));
     d->coutput(i18n("      Name : %1", i.name()));
-    d->coutput(i18n("   Comment : %1", i.value(QStringLiteral("Comment"))));
+    d->coutput(i18n("   Comment : %1", i.value(QStringLiteral("Comment")))); // FIXME
     d->coutput(i18n("    Plugin : %1", i.pluginId()));
     auto const authors = i.authors();
     d->coutput(i18n("    Author : %1", authors.first().name()));
@@ -365,11 +353,7 @@ void PackageTool::showAppstreamInfo(const QString &pluginName)
     if (QFile::exists(pluginName + QStringLiteral("/metadata.json"))) {
         i = KPluginMetaData::fromJsonFile(pluginName + QStringLiteral("/metadata.json"));
     } else {
-        QString type = QStringLiteral("KPackage/Generic");
-        if (!d->pluginTypes.contains(type) && !d->pluginTypes.isEmpty()) {
-            type = d->pluginTypes.at(0);
-        }
-        KPackage::Package pkg = KPackage::PackageLoader::self()->loadPackage(type);
+        KPackage::Package pkg = KPackage::PackageLoader::self()->loadPackage(d->kpackageType);
 
         pkg.setDefaultPackageRoot(d->packageRoot);
 
@@ -492,9 +476,9 @@ QString PackageTool::findPackageRoot()
     return packageRoot;
 }
 
-void PackageTool::listPackages(const QStringList &types, const QString &path)
+void PackageTool::listPackages(const QString &kpackageType, const QString &path)
 {
-    QStringList list = d->packages(types, path);
+    QStringList list = d->packages(kpackageType, path);
     list.sort();
     for (const QString &package : std::as_const(list)) {
         d->coutput(package);
@@ -589,7 +573,8 @@ void PackageTool::packageUninstalled(KJob *job)
     if (success) {
         if (d->parser->isSet(Options::upgrade())) {
             d->coutput(i18n("Upgrading package from file: %1", d->packageFile));
-            KJob *installJob = d->installer.install(d->packageFile, d->packageRoot);
+            PackageStructure *structure = PackageLoader::self()->loadPackageStructure(d->kpackageType);
+            KJob *installJob = KPackage::PackageJob::install(structure, d->packageFile, d->packageRoot);
             // clang-format off
             connect(installJob, SIGNAL(result(KJob*)), SLOT(packageInstalled(KJob*)));
             // clang-format on

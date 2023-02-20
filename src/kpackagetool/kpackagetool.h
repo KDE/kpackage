@@ -25,7 +25,7 @@ public:
     PackageTool(int &argc, char **argv, QCommandLineParser *parser);
     ~PackageTool() override;
 
-    void listPackages(const QStringList &types, const QString &path = QString());
+    void listPackages(const QString &kpackageType, const QString &path = QString());
     void showPackageInfo(const QString &pluginName);
     void showAppstreamInfo(const QString &pluginName);
     QString findPackageRoot();

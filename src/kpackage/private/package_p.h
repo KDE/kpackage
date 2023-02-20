@@ -18,25 +18,6 @@
 #include <optional>
 namespace KPackage
 {
-// KPackage is is normally used on the stack, explicitly shared and isn't a QObject
-// however PackageJob is given a pointer, which could be deleted at any moment
-// leaving the PackageJob with a dangling pointer
-// we need some way to invalidate the Package* pointer if it gets deleted
-
-// we can't just take a copy in the packagejob as we need to detach and update the *original* KPackage object
-// without changing anything else which happened to share the same KPackage::d
-
-// TODO KF6 - make KPackage::install()'s KJob return a new Package copy rather than modify
-// an existing object.
-class PackageDeletionNotifier : public QObject
-{
-    Q_OBJECT
-public:
-    static PackageDeletionNotifier *self();
-Q_SIGNALS:
-    void packageDeleted(Package *package);
-};
-
 class ContentStructure
 {
 public:

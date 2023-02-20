@@ -340,38 +340,6 @@ public:
      */
     QList<QByteArray> requiredFiles() const;
 
-    /**
-     * Installs a package matching this package structure. By default installs a
-     * native KPackage::Package.
-     * After the KJob will emitted finished(), if the install went well
-     * the Package instance will be guaranteed to have loaded the package just
-     * installed, and be valid and usable.
-     *
-     * @return KJob to track installation progress and result
-     **/
-    KJob *install(const QString &sourcePackage, const QString &packageRoot = QString());
-
-    /**
-     * Updates a package matching this package structure. By default installs a
-     * native KPackage::Package. If an older version is already installed,
-     * it removes the old one. If the installed one is newer,
-     * an error will occur.
-     * After the KJob will emitted finished(), if the install went well
-     * the Package instance will be guaranteed to have loaded the package just
-     * updated, and be valid and usable.
-     *
-     * @return KJob to track installation progress and result
-     * @since 5.17
-     **/
-    KJob *update(const QString &sourcePackage, const QString &packageRoot = QString());
-
-    /**
-     * Uninstalls a package matching this package structure.
-     *
-     * @return KJob to track removal progress and result
-     */
-    KJob *uninstall(const QString &packageName, const QString &packageRoot);
-
 private:
     QExplicitlySharedDataPointer<PackagePrivate> d;
     friend class PackagePrivate;

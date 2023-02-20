@@ -234,4 +234,9 @@ void PackageLoader::addKnownPackageStructure(const QString &packageFormat, KPack
     d->structures.insert(packageFormat, structure);
 }
 
+void PackageLoader::invalidateCache()
+{
+    self()->d->maxCacheAge = -1;
+}
+
 } // KPackage Namespace

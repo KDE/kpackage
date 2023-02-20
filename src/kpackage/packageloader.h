@@ -100,6 +100,8 @@ protected:
 
 private:
     friend class Package;
+    friend class PackageJob;
+    static void invalidateCache();
     PackageLoaderPrivate *const d;
     Q_DISABLE_COPY(PackageLoader)
 };
