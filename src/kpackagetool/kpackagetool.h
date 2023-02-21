@@ -8,6 +8,7 @@
 #ifndef PACKAGETOOL_H
 #define PACKAGETOOL_H
 
+#include "package.h"
 #include <QCoreApplication>
 
 class QCommandLineParser;
@@ -32,8 +33,8 @@ public:
 
 private Q_SLOTS:
     void runMain();
-    void packageInstalled(KJob *job);
-    void packageUninstalled(KJob *job);
+    void packageInstalled(KJob *job, const KPackage::Package &package);
+    void packageUninstalled(KJob *job, const KPackage::Package &package);
 
 private:
     PackageToolPrivate *d;

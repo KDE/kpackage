@@ -263,7 +263,7 @@ void PlasmoidPackageTest::createAndInstallPackage()
     KPackage::Package p;
     qDebug() << "Installing " << packagePath;
     auto job = KPackage::PackageJob::install(m_defaultPackageStructure, packagePath, m_packageRoot);
-    connect(job, &KPackage::PackageJob::operationFinished, this, [&p](const KPackage::Package &package) {
+    connect(job, &KPackage::PackageJob::finished, this, [&p](KJob *, const KPackage::Package &package) {
         p = package;
     });
     QSignalSpy spy(job, &KJob::finished);

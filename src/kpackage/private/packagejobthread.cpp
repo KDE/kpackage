@@ -366,8 +366,7 @@ bool PackageJobThread::update(const QString &src, const QString &dest)
 bool PackageJobThread::uninstall(const QString &packagePath)
 {
     bool ok = uninstallPackage(packagePath);
-    // qCDebug(KPACKAGE_LOG) << "emit installPathChanged " << d->installPath;
-    Q_EMIT installPathChanged(QString());
+    // Do not emit the install patch changed, information about the removed package might be useful for consumers
     // qCDebug(KPACKAGE_LOG) << "Thread: installFinished" << ok;
     Q_EMIT jobThreadFinished(ok, errorCode(), d->errorMessage);
     return ok;

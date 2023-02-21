@@ -192,10 +192,8 @@ void PackageTool::runMain()
             // Uninstalling ...
             if (installed.contains(pluginName)) { // Assume it's a plugin id
                 KPackage::PackageStructure *structure = KPackage::PackageLoader::self()->loadPackageStructure(d->kpackageType);
-                KJob *uninstallJob = KPackage::PackageJob::uninstall(structure, pluginName, d->packageRoot);
-                // clang-format off
-                connect(uninstallJob, SIGNAL(result(KJob*)), SLOT(packageUninstalled(KJob*)));
-                // clang-format on
+                KPackage::PackageJob *uninstallJob = KPackage::PackageJob::uninstall(structure, pluginName, d->packageRoot);
+                connect(uninstallJob, &KPackage::PackageJob::finished, this, &PackageTool::packageUninstalled);
                 return;
             } else {
                 d->coutput(i18n("Error: Plugin %1 is not installed.", pluginName));
@@ -204,10 +202,8 @@ void PackageTool::runMain()
         }
         if (d->parser->isSet(Options::install())) {
             KPackage::PackageStructure *structure = KPackage::PackageLoader::self()->loadPackageStructure(d->kpackageType);
-            KJob *installJob = KPackage::PackageJob::install(structure, d->packageFile, d->packageRoot);
-            // clang-format off
-            connect(installJob, SIGNAL(result(KJob*)), SLOT(packageInstalled(KJob*)));
-            // clang-format on
+            auto installJob = KPackage::PackageJob::install(structure, d->packageFile, d->packageRoot);
+            connect(installJob, &KPackage::PackageJob::finished, this, &PackageTool::packageInstalled);
             return;
         }
         if (d->package.isEmpty()) {
@@ -512,15 +508,15 @@ void PackageToolPrivate::listTypes()
     }
 }
 
-void PackageTool::packageInstalled(KJob *job)
+void PackageTool::packageInstalled(KJob *job, const KPackage::Package &p)
 {
     bool success = (job->error() == KJob::NoError);
     int exitcode = 0;
     if (success) {
         if (d->parser->isSet(Options::upgrade())) {
-            d->coutput(i18n("Successfully upgraded %1", d->packageFile));
+            d->coutput(i18n("Successfully upgraded %1", p.path()));
         } else {
-            d->coutput(i18n("Successfully installed %1", d->packageFile));
+            d->coutput(i18n("Successfully installed %1", p.path()));
         }
     } else {
         d->cerror(i18n("Error: Installation of %1 failed: %2", d->packageFile, job->errorText()));
@@ -529,7 +525,7 @@ void PackageTool::packageInstalled(KJob *job)
     exit(exitcode);
 }
 
-void PackageTool::packageUninstalled(KJob *job)
+void PackageTool::packageUninstalled(KJob *job, const KPackage::Package &p)
 {
     bool success = (job->error() == KJob::NoError);
     int exitcode = 0;
@@ -537,13 +533,11 @@ void PackageTool::packageUninstalled(KJob *job)
         if (d->parser->isSet(Options::upgrade())) {
             d->coutput(i18n("Upgrading package from file: %1", d->packageFile));
             PackageStructure *structure = PackageLoader::self()->loadPackageStructure(d->kpackageType);
-            KJob *installJob = KPackage::PackageJob::install(structure, d->packageFile, d->packageRoot);
-            // clang-format off
-            connect(installJob, SIGNAL(result(KJob*)), SLOT(packageInstalled(KJob*)));
-            // clang-format on
+            auto installJob = KPackage::PackageJob::install(structure, d->packageFile, d->packageRoot);
+            connect(installJob, &KPackage::PackageJob::finished, this, &PackageTool::packageInstalled);
             return;
         }
-        d->coutput(i18n("Successfully uninstalled %1", d->packageFile));
+        d->coutput(i18n("Successfully uninstalled %1", p.path()));
     } else {
         d->cerror(i18n("Error: Uninstallation of %1 failed: %2", d->packageFile, job->errorText()));
         exitcode = 7;

@@ -29,7 +29,7 @@ public:
     static PackageJob *update(PackageStructure *structure, const QString &sourcePackage, const QString &packageRoot);
     static PackageJob *uninstall(PackageStructure *structure, const QString &pluginId, const QString &packageRoot);
 
-    Q_SIGNAL void operationFinished(const KPackage::Package &package);
+    Q_SIGNAL void finished(KJob *job, const KPackage::Package &package);
 
 private:
     friend class PackageJobThread;

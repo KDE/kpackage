@@ -54,7 +54,7 @@ PackageJob::PackageJob(OperationType type, Package &package, const QString &src,
         d->package.setPath(installPath);
     });
     connect(d->thread, &PackageJobThread::jobThreadFinished, this, [this]() {
-        Q_EMIT operationFinished(d->package);
+        Q_EMIT finished(this, d->package);
     });
 }
 
