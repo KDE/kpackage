@@ -9,7 +9,7 @@
 #define KPACKAGE_PACKAGEJOBTHREAD_P_H
 
 #include "package.h"
-#include "packagejob_p.h"
+#include "packagejob.h"
 #include <QRunnable>
 
 namespace KPackage

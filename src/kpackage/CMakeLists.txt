@@ -13,8 +13,8 @@ target_sources(KF6Package PRIVATE
     package.cpp
     packagestructure.cpp
     packageloader.cpp
+    packagejob.cpp
     private/packages.cpp
-    private/packagejob.cpp
     private/packagejobthread.cpp
 )
 
@@ -61,6 +61,7 @@ ecm_generate_headers(Package_CamelCase_HEADERS
         Package
         PackageStructure
         PackageLoader
+        PackageJob
     REQUIRED_HEADERS Package_HEADERS
     PREFIX KPackage
 )

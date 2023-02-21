@@ -23,11 +23,10 @@
 #include <QMimeDatabase>
 #include <QStandardPaths>
 
+#include "packagejob.h"
 #include "packageloader.h"
 #include "packagestructure.h"
 #include "private/package_p.h"
-//#include "private/packages_p.h"
-#include "private/packagejob_p.h"
 #include "private/packageloader_p.h"
 
 namespace KPackage

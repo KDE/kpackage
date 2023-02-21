@@ -1,15 +1,16 @@
 /*
     SPDX-FileCopyrightText: 2012 Sebastian Kügler <sebas@kde.org>
+    SPDX-FileCopyrightText: 2023 Alexander Lohnau <alexander.lohnau@gmx.de>
 
     SPDX-License-Identifier: LGPL-2.0-or-later
 */
 
+#include "packagejob.h"
 #include "config-package.h"
-#include "packagejob_p.h"
-#include "packagejobthread_p.h"
+#include "private/packagejobthread_p.h"
 
-#include "package_p.h"
-#include "utils.h"
+#include "private/package_p.h"
+#include "private/utils.h"
 
 #include "kpackage_debug.h"
 
@@ -66,10 +67,7 @@ PackageJob::PackageJob(OperationType type, Package *package, const QString &src,
         Qt::QueuedConnection);
 }
 
-PackageJob::~PackageJob()
-{
-    delete d;
-}
+PackageJob::~PackageJob() = default;
 
 void PackageJob::start()
 {

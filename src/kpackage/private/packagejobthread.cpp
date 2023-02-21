@@ -16,7 +16,6 @@
 #include <KTar>
 #include <kzip.h>
 
-
 #include "kpackage_debug.h"
 #include <QDir>
 #include <QFile>
