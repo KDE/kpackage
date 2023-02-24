@@ -19,6 +19,10 @@ class PackageJobPrivate;
 class Package;
 class PackageStructure;
 
+/**
+ * @class PackageJob kpackage/packagejob.h <KPackage/PackageJob>
+ * @short KJob subclass that allows async install/update/uninstall operations for packages
+ */
 class KPACKAGE_EXPORT PackageJob : public KJob
 {
     Q_OBJECT
