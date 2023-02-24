@@ -39,7 +39,7 @@ private:
         Uninstall,
     };
     void start() override;
-    explicit PackageJob(OperationType type, Package &package, const QString &src, const QString &dest);
+    explicit PackageJob(OperationType type, const Package &package, const QString &src, const QString &dest);
     void setupNotificationsOnJobFinished(const QString &messageName);
 
     const std::unique_ptr<PackageJobPrivate> d;

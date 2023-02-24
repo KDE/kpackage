@@ -33,7 +33,7 @@ public:
     QString installPath;
 };
 
-PackageJob::PackageJob(OperationType type, Package &package, const QString &src, const QString &dest)
+PackageJob::PackageJob(OperationType type, const Package &package, const QString &src, const QString &dest)
     : KJob()
     , d(new PackageJobPrivate)
 {
