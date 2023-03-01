@@ -30,7 +30,7 @@
 >kpackagetool5</command
 ></refname>
 <refpurpose
->Instalar, listar e remover os pacotes do Plasma</refpurpose>
+>Instalar, listar e remover os pacotes do &plasma;</refpurpose>
 </refnamediv>
 
 <refsynopsisdiv>
@@ -112,7 +112,7 @@
 <para
 ><command
 >kpackagetool5</command
-> é uma ferramenta de linha de comando para instalar, listar e remover pacotes Plasma.</para>
+> é uma ferramenta de linha de comando para instalar, listar e remover pacotes &plasma;.</para>
 
 </refsect1>
 
@@ -174,7 +174,7 @@
 ></term>
 <listitem
 ><para
->O tipo de pacote, correspondendo ao tipo de serviço do plugin de pacotes, &eg; KPackage/Genérico, Plasma/Tema, Plasma/Papel de parede, Plasma/Miniaplicativo, etc.</para
+>O tipo de pacote, correspondendo ao tipo de serviço do plugin de pacotes, &eg; KPackage/Genérico, Plasma/Tema, Plasma/Papel de parede, Plasma/Miniaplicativo, &etc;.</para
 ></listitem>
 </varlistentry>
 <varlistentry>
@@ -295,9 +295,7 @@
 <para
 >Documentação do usuário mais detalhada está disponível em <ulink url="help:/plasma-desktop"
 >help:/plasma-desktop</ulink
-> (quer através deste <acronym
->URL</acronym
-> no &konqueror;, quer através do comando <userinput
+> (quer através deste &URL; no &konqueror;, quer através do comando <userinput
 ><command
 >khelpcenter</command
 > <parameter

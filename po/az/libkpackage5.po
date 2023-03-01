@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kpackage\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2022-09-15 00:41+0000\n"
+"POT-Creation-Date: 2023-03-01 21:29+0000\n"
 "PO-Revision-Date: 2022-07-26 15:50+0400\n"
 "Last-Translator: Kheyyam <xxmn77@gmail.com>\n"
 "Language-Team: Azerbaijani <kde-i18n-doc@kde.org>\n"
@@ -28,104 +28,107 @@ msgid "Your emails"
 msgstr "xxmn77@gmail.com"
 
 #: kpackage/package.cpp:42
-#, kde-format
-msgid "Desktop file that describes this package."
+#, fuzzy, kde-format
+#| msgid "Desktop file that describes this package."
+msgid "JSON file that describes this package."
 msgstr "Bu paketi təsvir edən masaüstü faylı."
 
-#: kpackage/packageloader.cpp:255
+#: kpackage/packageloader.cpp:221
 #, kde-format
 msgid "Could not load installer for package of type %1. Error reported was: %2"
 msgstr "%1 tipli paket üçün quraşdırıcı yüklənə bilmədi. Xəta hesabatı: %2"
 
-#: kpackage/private/packagejobthread.cpp:144
+#: kpackage/private/packagejobthread.cpp:164
 #, kde-format
 msgid "Could not create package root directory: %1"
 msgstr "Kök kataloqu yaradıla bilməyən paket: %1"
 
-#: kpackage/private/packagejobthread.cpp:153
+#: kpackage/private/packagejobthread.cpp:173
 #, kde-format
 msgid "No such file: %1"
 msgstr "Belə bir fayl yoxdur: %1"
 
-#: kpackage/private/packagejobthread.cpp:183
+#: kpackage/private/packagejobthread.cpp:203
 #, kde-format
 msgid "Could not open package file, unsupported archive format: %1 %2"
 msgstr "%1 paketini açmaq mümkün olmadı: dəstəklənməyən %2 arxivi"
 
-#: kpackage/private/packagejobthread.cpp:191
+#: kpackage/private/packagejobthread.cpp:211
 #, kde-format
 msgid "Could not open package file: %1"
 msgstr "%1 paket faylı açıla bilmir"
 
-#: kpackage/private/packagejobthread.cpp:231
+#: kpackage/private/packagejobthread.cpp:243
 #, kde-format
 msgid "Could not open metadata file: %1"
 msgstr "Açılmayan metaverilər faylı: %1"
 
-#: kpackage/private/packagejobthread.cpp:238
+#: kpackage/private/packagejobthread.cpp:250
 #, kde-format
 msgid "No metadata file in package: %1"
 msgstr "Paketdə metaveriləri faylı yoxdur: %1"
 
-#: kpackage/private/packagejobthread.cpp:247
-#, kde-format
-msgid "Package plugin name not specified: %1"
+#: kpackage/private/packagejobthread.cpp:259
+#, fuzzy, kde-format
+#| msgid "Package plugin name not specified: %1"
+msgid "Package plugin id not specified: %1"
 msgstr "Adı göstərilməyən paket uzantısı: %1"
 
-#: kpackage/private/packagejobthread.cpp:257
-#, kde-format
-msgid "Package plugin name %1 contains invalid characters"
+#: kpackage/private/packagejobthread.cpp:269
+#, fuzzy, kde-format
+#| msgid "Package plugin name %1 contains invalid characters"
+msgid "Package plugin id %1 contains invalid characters"
 msgstr "%1 paket uzantısı adında yalnış simvollar var"
 
-#: kpackage/private/packagejobthread.cpp:280
+#: kpackage/private/packagejobthread.cpp:288
 #, kde-format
 msgid ""
 "The new package has a different type from the old version already installed."
 msgstr ""
 "Yeni paket artıq quraşdırılan köhnə paketdən fərqlənən versiyaya malikdir."
 
-#: kpackage/private/packagejobthread.cpp:285
+#: kpackage/private/packagejobthread.cpp:293
 #, kde-format
 msgid ""
 "Impossible to remove the old installation of %1 located at %2. error: %3"
 msgstr "%2 -də quraşdırılmış köhnə %1 -in silinməsi mümkün deyil, xəta: %3"
 
-#: kpackage/private/packagejobthread.cpp:289
+#: kpackage/private/packagejobthread.cpp:297
 #, kde-format
 msgid "Not installing version %1 of %2. Version %3 already installed."
 msgstr "%2 -nin %1 versiyası quraşdırılmayıb. %3 versiyası artıq quraşdırılıb."
 
-#: kpackage/private/packagejobthread.cpp:293
+#: kpackage/private/packagejobthread.cpp:301
 #, kde-format
 msgid "%1 already exists"
 msgstr "%1 artıq mövcuddur"
 
-#: kpackage/private/packagejobthread.cpp:314
+#: kpackage/private/packagejobthread.cpp:322
 #, kde-format
 msgid "Could not install dependency: '%1'"
 msgstr "Quraşdırıla bilməyən asılılıq: '%1'"
 
-#: kpackage/private/packagejobthread.cpp:326
+#: kpackage/private/packagejobthread.cpp:334
 #, kde-format
 msgid "Could not move package to destination: %1"
 msgstr "Paketin daşına bilmədiyi təyinat yeri: %1"
 
-#: kpackage/private/packagejobthread.cpp:336
+#: kpackage/private/packagejobthread.cpp:344
 #, kde-format
 msgid "Could not copy package to destination: %1"
 msgstr "Paketin kopyalana bilmədiyi təyinat yeri: %1"
 
-#: kpackage/private/packagejobthread.cpp:372
+#: kpackage/private/packagejobthread.cpp:380
 #, kde-format
 msgid "package path was deleted manually"
 msgstr "paketin yolu əl ilə silindi"
 
-#: kpackage/private/packagejobthread.cpp:372
+#: kpackage/private/packagejobthread.cpp:380
 #, kde-format
 msgid "%1 does not exist"
 msgstr "%1 mövcud deyil"
 
-#: kpackage/private/packagejobthread.cpp:392
+#: kpackage/private/packagejobthread.cpp:400
 #, kde-format
 msgid "Could not delete package from: %1"
 msgstr "Paketin silinə bilmədiyi indeks: %1"
@@ -175,33 +178,33 @@ msgstr "Tərcümələr"
 msgid "Main UI File"
 msgstr "Əsas İstifadəçi İnterfeysi faylı"
 
-#: kpackagetool/kpackagetool.cpp:91
+#: kpackagetool/kpackagetool.cpp:88
 #, kde-format
 msgid "Failed to generate a Package hash for %1"
 msgstr "%1 üçün paket heş-i yaradıla bilmədi"
 
-#: kpackagetool/kpackagetool.cpp:94
+#: kpackagetool/kpackagetool.cpp:91
 #, kde-format
 msgid "SHA1 hash for Package at %1: '%2'"
 msgstr "%1 -dəki paket üçün SHA1 heş: %2"
 
-#: kpackagetool/kpackagetool.cpp:133
+#: kpackagetool/kpackagetool.cpp:130
 #, kde-format
 msgctxt "package type"
 msgid "wallpaper"
 msgstr "divar kağızları"
 
-#: kpackagetool/kpackagetool.cpp:184
+#: kpackagetool/kpackagetool.cpp:163
 #, kde-format
 msgid "Listing service types: %1 in %2"
 msgstr "Xidmət növlərinin siyahısı: %2 -də %1"
 
-#: kpackagetool/kpackagetool.cpp:275
+#: kpackagetool/kpackagetool.cpp:241
 #, kde-format
 msgid "Error: Plugin %1 is not installed."
 msgstr "Xəta: %1 uzantısı quraşdırılmayıb."
 
-#: kpackagetool/kpackagetool.cpp:289
+#: kpackagetool/kpackagetool.cpp:255
 #, kde-format
 msgctxt ""
 "No option was given, this is the error message telling the user he needs at "
@@ -209,42 +212,42 @@ msgctxt ""
 msgid "One of install, remove, upgrade or list is required."
 msgstr "Quraşdır, Sil, Yenilə əmrlərindən birini göstərmək vacibdir."
 
-#: kpackagetool/kpackagetool.cpp:342 kpackagetool/kpackagetool.cpp:424
+#: kpackagetool/kpackagetool.cpp:308 kpackagetool/kpackagetool.cpp:386
 #, kde-format
 msgid "Error: Can't find plugin metadata: %1\n"
 msgstr "Xəta: Uzantı metaverilənləri tapılmadı: %1\n"
 
-#: kpackagetool/kpackagetool.cpp:346
+#: kpackagetool/kpackagetool.cpp:312
 #, kde-format
 msgid "Showing info for package: %1"
 msgstr "Məlumatları göstərilən paket: %1"
 
-#: kpackagetool/kpackagetool.cpp:347
+#: kpackagetool/kpackagetool.cpp:313
 #, kde-format
 msgid "      Name : %1"
 msgstr "      Ad : %1"
 
-#: kpackagetool/kpackagetool.cpp:348
+#: kpackagetool/kpackagetool.cpp:314
 #, kde-format
 msgid "   Comment : %1"
 msgstr "   Şərh : %1"
 
-#: kpackagetool/kpackagetool.cpp:349
+#: kpackagetool/kpackagetool.cpp:315
 #, kde-format
 msgid "    Plugin : %1"
 msgstr "    Modul : %1"
 
-#: kpackagetool/kpackagetool.cpp:351
+#: kpackagetool/kpackagetool.cpp:317
 #, kde-format
 msgid "    Author : %1"
 msgstr "    Müəllif : %1"
 
-#: kpackagetool/kpackagetool.cpp:352
+#: kpackagetool/kpackagetool.cpp:318
 #, kde-format
 msgid "      Path : %1"
 msgstr "      Yol : %1"
 
-#: kpackagetool/kpackagetool.cpp:537
+#: kpackagetool/kpackagetool.cpp:479
 #, kde-format
 msgctxt ""
 "The user entered conflicting options packageroot and global, this is the "
@@ -256,67 +259,67 @@ msgstr ""
 "Paketin kök qovluğuna yol qlobal ayarlarla ziddiyyət təşkil edir. Yalnız bir "
 "variant seçin."
 
-#: kpackagetool/kpackagetool.cpp:565
+#: kpackagetool/kpackagetool.cpp:507
 #, kde-format
 msgid "KPackage Structure Name"
 msgstr "KPackage strukturunun adı"
 
-#: kpackagetool/kpackagetool.cpp:566
+#: kpackagetool/kpackagetool.cpp:508
 #, kde-format
 msgid "Path"
 msgstr "Yol"
 
-#: kpackagetool/kpackagetool.cpp:597
+#: kpackagetool/kpackagetool.cpp:539
 #, kde-format
 msgid "Package types that are installable with this tool:"
 msgstr "Paket növü bu vasitə ilə quraşdırıla biləndir:"
 
-#: kpackagetool/kpackagetool.cpp:598
+#: kpackagetool/kpackagetool.cpp:540
 #, kde-format
 msgid "Built in:"
 msgstr "Quraşdırılmış:"
 
-#: kpackagetool/kpackagetool.cpp:601
+#: kpackagetool/kpackagetool.cpp:543
 #, kde-format
 msgid "KPackage/Generic"
 msgstr "KPackage/Ümumi təyinat"
 
-#: kpackagetool/kpackagetool.cpp:602
+#: kpackagetool/kpackagetool.cpp:544
 #, kde-format
 msgid "KPackage/GenericQML"
 msgstr "KPackage/Ümumi QML təyinatı"
 
-#: kpackagetool/kpackagetool.cpp:610
+#: kpackagetool/kpackagetool.cpp:552
 #, kde-format
 msgid "Provided by plugins:"
 msgstr "Modul tərəfindən Dəstəklənir:"
 
-#: kpackagetool/kpackagetool.cpp:633
+#: kpackagetool/kpackagetool.cpp:574
 #, kde-format
 msgid "Successfully upgraded %1"
 msgstr "%1 uğurla yeniləndi"
 
-#: kpackagetool/kpackagetool.cpp:635
+#: kpackagetool/kpackagetool.cpp:576
 #, kde-format
 msgid "Successfully installed %1"
 msgstr "%1 uğurla quraşdırıldı"
 
-#: kpackagetool/kpackagetool.cpp:638
+#: kpackagetool/kpackagetool.cpp:579
 #, kde-format
 msgid "Error: Installation of %1 failed: %2"
 msgstr "Xəta: %1 quraşdırılması alınmadı: %2"
 
-#: kpackagetool/kpackagetool.cpp:650
+#: kpackagetool/kpackagetool.cpp:591
 #, kde-format
 msgid "Upgrading package from file: %1"
 msgstr "Paketin yenilədsiyi fayl: %1"
 
-#: kpackagetool/kpackagetool.cpp:657
+#: kpackagetool/kpackagetool.cpp:598
 #, kde-format
 msgid "Successfully uninstalled %1"
 msgstr "%1 uğurla aradan qaldırıldı"
 
-#: kpackagetool/kpackagetool.cpp:659
+#: kpackagetool/kpackagetool.cpp:600
 #, kde-format
 msgid "Error: Uninstallation of %1 failed: %2"
 msgstr "Xəta: %1 aradan qaldırılması mümkün olmadı: %2"
@@ -396,38 +399,34 @@ msgstr ""
 
 #: kpackagetool/options.h:82
 #, kde-format
-msgid ""
-"Recreate the plugin index. To be used in conjunction with either the option -"
-"t or -g. Recreates the index for the given type or package root. Operates in "
-"the user directory, unless -g is used"
-msgstr ""
-"Uzantı indeksini yenidən yaradır. İstifadə olunacaq: -t və ya -g seçimi ilə "
-"birlikdə. Göstərilən növ və paket kökü üçün indeksi yenidən qurur. Əgər -g "
-"istifadə olunmazsa istifadəçi indeksi işə düşür."
-
-#: kpackagetool/options.h:90
-#, kde-format
-msgid ""
-"Remove the plugin index. To be used in conjunction with either the option -t "
-"or -g. Recreates the index for the given type or package root. Operates in "
-"the user directory, unless -g is used"
-msgstr ""
-"Uzantı indeksini silin. Açar -t və ya -g açarı ilə birliktə istifadə olunur. "
-"Göstərilən növlər və ya paketlərin kök kataloqu üşün təkrar indeks yaradır. "
-"Əgər -g açarı təyin olunmayıbsa, tələb olunan əməl ev qovluğunda yerinə "
-"yetirilir."
-
-#: kpackagetool/options.h:98
-#, kde-format
 msgctxt "Do not translate <path>"
 msgid "Outputs the metadata for the package <path>"
 msgstr "<path> paketi üçün meta məlumatlarının çıxarışı"
 
-#: kpackagetool/options.h:105
+#: kpackagetool/options.h:89
 #, kde-format
 msgctxt "Do not translate <path>"
 msgid "Outputs the metadata for the package into <path>"
 msgstr "<path> daxilindəki paket üçün meta məlumatlarının çıxarışı"
+
+#~ msgid ""
+#~ "Recreate the plugin index. To be used in conjunction with either the "
+#~ "option -t or -g. Recreates the index for the given type or package root. "
+#~ "Operates in the user directory, unless -g is used"
+#~ msgstr ""
+#~ "Uzantı indeksini yenidən yaradır. İstifadə olunacaq: -t və ya -g seçimi "
+#~ "ilə birlikdə. Göstərilən növ və paket kökü üçün indeksi yenidən qurur. "
+#~ "Əgər -g istifadə olunmazsa istifadəçi indeksi işə düşür."
+
+#~ msgid ""
+#~ "Remove the plugin index. To be used in conjunction with either the option "
+#~ "-t or -g. Recreates the index for the given type or package root. "
+#~ "Operates in the user directory, unless -g is used"
+#~ msgstr ""
+#~ "Uzantı indeksini silin. Açar -t və ya -g açarı ilə birliktə istifadə "
+#~ "olunur. Göstərilən növlər və ya paketlərin kök kataloqu üşün təkrar "
+#~ "indeks yaradır. Əgər -g açarı təyin olunmayıbsa, tələb olunan əməl ev "
+#~ "qovluğunda yerinə yetirilir."
 
 #~ msgid "Accessibility"
 #~ msgstr "Xüsusi İmkanlar"

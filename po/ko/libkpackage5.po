@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: plasmapkg\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2022-09-15 00:41+0000\n"
+"POT-Creation-Date: 2023-03-01 21:29+0000\n"
 "PO-Revision-Date: 2022-08-09 13:23+0200\n"
 "Last-Translator: Shinjo Park <kde@peremen.name>\n"
 "Language-Team: Korean <kde-kr@kde.org>\n"
@@ -29,103 +29,106 @@ msgid "Your emails"
 msgstr "kde@peremen.name"
 
 #: kpackage/package.cpp:42
-#, kde-format
-msgid "Desktop file that describes this package."
+#, fuzzy, kde-format
+#| msgid "Desktop file that describes this package."
+msgid "JSON file that describes this package."
 msgstr "패키지를 설명하는 데스크톱 파일입니다."
 
-#: kpackage/packageloader.cpp:255
+#: kpackage/packageloader.cpp:221
 #, kde-format
 msgid "Could not load installer for package of type %1. Error reported was: %2"
 msgstr "패키지 종류 %1에 대한 설치기를 불러올 수 없습니다. 오류: %2"
 
-#: kpackage/private/packagejobthread.cpp:144
+#: kpackage/private/packagejobthread.cpp:164
 #, kde-format
 msgid "Could not create package root directory: %1"
 msgstr "패키지 루트 디렉터리를 만들 수 없음: %1"
 
-#: kpackage/private/packagejobthread.cpp:153
+#: kpackage/private/packagejobthread.cpp:173
 #, kde-format
 msgid "No such file: %1"
 msgstr "파일 없음: %1"
 
-#: kpackage/private/packagejobthread.cpp:183
+#: kpackage/private/packagejobthread.cpp:203
 #, kde-format
 msgid "Could not open package file, unsupported archive format: %1 %2"
 msgstr "패키지 파일을 열 수 없음, 지원하지 않는 압축 형식: %1 %2"
 
-#: kpackage/private/packagejobthread.cpp:191
+#: kpackage/private/packagejobthread.cpp:211
 #, kde-format
 msgid "Could not open package file: %1"
 msgstr "패키지 파일을 열 수 없음: %1"
 
-#: kpackage/private/packagejobthread.cpp:231
+#: kpackage/private/packagejobthread.cpp:243
 #, kde-format
 msgid "Could not open metadata file: %1"
 msgstr "메타데이터 파일을 열 수 없음: %1"
 
-#: kpackage/private/packagejobthread.cpp:238
+#: kpackage/private/packagejobthread.cpp:250
 #, kde-format
 msgid "No metadata file in package: %1"
 msgstr "패키지에 메타데이터 파일이 없음: %1"
 
-#: kpackage/private/packagejobthread.cpp:247
-#, kde-format
-msgid "Package plugin name not specified: %1"
+#: kpackage/private/packagejobthread.cpp:259
+#, fuzzy, kde-format
+#| msgid "Package plugin name not specified: %1"
+msgid "Package plugin id not specified: %1"
 msgstr "패키지 플러그인 이름이 지정되지 않았음: %1"
 
-#: kpackage/private/packagejobthread.cpp:257
-#, kde-format
-msgid "Package plugin name %1 contains invalid characters"
+#: kpackage/private/packagejobthread.cpp:269
+#, fuzzy, kde-format
+#| msgid "Package plugin name %1 contains invalid characters"
+msgid "Package plugin id %1 contains invalid characters"
 msgstr "패키지 플러그인 이름 %1에 잘못된 글자가 들어 있음"
 
-#: kpackage/private/packagejobthread.cpp:280
+#: kpackage/private/packagejobthread.cpp:288
 #, kde-format
 msgid ""
 "The new package has a different type from the old version already installed."
 msgstr "새 패키지와 설치된 기존 패키지의 종류가 다릅니다."
 
-#: kpackage/private/packagejobthread.cpp:285
+#: kpackage/private/packagejobthread.cpp:293
 #, kde-format
 msgid ""
 "Impossible to remove the old installation of %1 located at %2. error: %3"
 msgstr "%2에 있는 %1의 이전 설치본을 삭제할 수 없습니다. 오류: %3"
 
-#: kpackage/private/packagejobthread.cpp:289
+#: kpackage/private/packagejobthread.cpp:297
 #, kde-format
 msgid "Not installing version %1 of %2. Version %3 already installed."
 msgstr "%2의 버전 %1을(를) 설치하지 않습니다. 버전 %3이(가) 설치되어 있습니다."
 
-#: kpackage/private/packagejobthread.cpp:293
+#: kpackage/private/packagejobthread.cpp:301
 #, kde-format
 msgid "%1 already exists"
 msgstr "%1이(가) 이미 존재함"
 
-#: kpackage/private/packagejobthread.cpp:314
+#: kpackage/private/packagejobthread.cpp:322
 #, kde-format
 msgid "Could not install dependency: '%1'"
 msgstr "의존하는 패키지를 설치할 수 없음: '%1'"
 
-#: kpackage/private/packagejobthread.cpp:326
+#: kpackage/private/packagejobthread.cpp:334
 #, kde-format
 msgid "Could not move package to destination: %1"
 msgstr "패키지를 대상으로 이동할 수 없음: %1"
 
-#: kpackage/private/packagejobthread.cpp:336
+#: kpackage/private/packagejobthread.cpp:344
 #, kde-format
 msgid "Could not copy package to destination: %1"
 msgstr "패키지를 대상으로 복사할 수 없음: %1"
 
-#: kpackage/private/packagejobthread.cpp:372
+#: kpackage/private/packagejobthread.cpp:380
 #, kde-format
 msgid "package path was deleted manually"
 msgstr "패키지 경로가 수동으로 삭제됨"
 
-#: kpackage/private/packagejobthread.cpp:372
+#: kpackage/private/packagejobthread.cpp:380
 #, kde-format
 msgid "%1 does not exist"
 msgstr "%1이(가) 없음"
 
-#: kpackage/private/packagejobthread.cpp:392
+#: kpackage/private/packagejobthread.cpp:400
 #, kde-format
 msgid "Could not delete package from: %1"
 msgstr "패키지를 다음에서 삭제할 수 없음: %1"
@@ -175,33 +178,33 @@ msgstr "번역"
 msgid "Main UI File"
 msgstr "주 UI 파일"
 
-#: kpackagetool/kpackagetool.cpp:91
+#: kpackagetool/kpackagetool.cpp:88
 #, kde-format
 msgid "Failed to generate a Package hash for %1"
 msgstr "%1의 패키지 해시를 생성할 수 없음"
 
-#: kpackagetool/kpackagetool.cpp:94
+#: kpackagetool/kpackagetool.cpp:91
 #, kde-format
 msgid "SHA1 hash for Package at %1: '%2'"
 msgstr "%1에 있는 패키지의 SHA1 해시: '%2'"
 
-#: kpackagetool/kpackagetool.cpp:133
+#: kpackagetool/kpackagetool.cpp:130
 #, kde-format
 msgctxt "package type"
 msgid "wallpaper"
 msgstr "배경 화면"
 
-#: kpackagetool/kpackagetool.cpp:184
+#: kpackagetool/kpackagetool.cpp:163
 #, kde-format
 msgid "Listing service types: %1 in %2"
 msgstr "다음 서비스 종류에 대한 목록: %2의 %1"
 
-#: kpackagetool/kpackagetool.cpp:275
+#: kpackagetool/kpackagetool.cpp:241
 #, kde-format
 msgid "Error: Plugin %1 is not installed."
 msgstr "오류: 플러그인 %1이(가) 설치되지 않았습니다."
 
-#: kpackagetool/kpackagetool.cpp:289
+#: kpackagetool/kpackagetool.cpp:255
 #, kde-format
 msgctxt ""
 "No option was given, this is the error message telling the user he needs at "
@@ -209,42 +212,42 @@ msgctxt ""
 msgid "One of install, remove, upgrade or list is required."
 msgstr "설치, 삭제, 업그레이드, 표시 중 하나가 필요합니다."
 
-#: kpackagetool/kpackagetool.cpp:342 kpackagetool/kpackagetool.cpp:424
+#: kpackagetool/kpackagetool.cpp:308 kpackagetool/kpackagetool.cpp:386
 #, kde-format
 msgid "Error: Can't find plugin metadata: %1\n"
 msgstr "오류: 플러그인 메타데이터를 찾을 수 없음: %1\n"
 
-#: kpackagetool/kpackagetool.cpp:346
+#: kpackagetool/kpackagetool.cpp:312
 #, kde-format
 msgid "Showing info for package: %1"
 msgstr "패키지 정보 표시 중: %1"
 
-#: kpackagetool/kpackagetool.cpp:347
+#: kpackagetool/kpackagetool.cpp:313
 #, kde-format
 msgid "      Name : %1"
 msgstr "      이름: %1"
 
-#: kpackagetool/kpackagetool.cpp:348
+#: kpackagetool/kpackagetool.cpp:314
 #, kde-format
 msgid "   Comment : %1"
 msgstr "   설명: %1"
 
-#: kpackagetool/kpackagetool.cpp:349
+#: kpackagetool/kpackagetool.cpp:315
 #, kde-format
 msgid "    Plugin : %1"
 msgstr "    플러그인: %1"
 
-#: kpackagetool/kpackagetool.cpp:351
+#: kpackagetool/kpackagetool.cpp:317
 #, kde-format
 msgid "    Author : %1"
 msgstr "    작성자: %1"
 
-#: kpackagetool/kpackagetool.cpp:352
+#: kpackagetool/kpackagetool.cpp:318
 #, kde-format
 msgid "      Path : %1"
 msgstr "      경로: %1"
 
-#: kpackagetool/kpackagetool.cpp:537
+#: kpackagetool/kpackagetool.cpp:479
 #, kde-format
 msgctxt ""
 "The user entered conflicting options packageroot and global, this is the "
@@ -254,67 +257,67 @@ msgid ""
 "only one."
 msgstr "packageroot와 global 옵션은 서로 충돌하므로 둘 중 하나만 선택하십시오."
 
-#: kpackagetool/kpackagetool.cpp:565
+#: kpackagetool/kpackagetool.cpp:507
 #, kde-format
 msgid "KPackage Structure Name"
 msgstr "KPackage 구조 이름"
 
-#: kpackagetool/kpackagetool.cpp:566
+#: kpackagetool/kpackagetool.cpp:508
 #, kde-format
 msgid "Path"
 msgstr "경로"
 
-#: kpackagetool/kpackagetool.cpp:597
+#: kpackagetool/kpackagetool.cpp:539
 #, kde-format
 msgid "Package types that are installable with this tool:"
 msgstr "이 도구로 설치할 수 있는 패키지 종류:"
 
-#: kpackagetool/kpackagetool.cpp:598
+#: kpackagetool/kpackagetool.cpp:540
 #, kde-format
 msgid "Built in:"
 msgstr "내장됨:"
 
-#: kpackagetool/kpackagetool.cpp:601
+#: kpackagetool/kpackagetool.cpp:543
 #, kde-format
 msgid "KPackage/Generic"
 msgstr "KPackage/일반"
 
-#: kpackagetool/kpackagetool.cpp:602
+#: kpackagetool/kpackagetool.cpp:544
 #, kde-format
 msgid "KPackage/GenericQML"
 msgstr "KPackage/일반 QML"
 
-#: kpackagetool/kpackagetool.cpp:610
+#: kpackagetool/kpackagetool.cpp:552
 #, kde-format
 msgid "Provided by plugins:"
 msgstr "플러그인이 제공함:"
 
-#: kpackagetool/kpackagetool.cpp:633
+#: kpackagetool/kpackagetool.cpp:574
 #, kde-format
 msgid "Successfully upgraded %1"
 msgstr "%1을(를) 업그레이드했습니다"
 
-#: kpackagetool/kpackagetool.cpp:635
+#: kpackagetool/kpackagetool.cpp:576
 #, kde-format
 msgid "Successfully installed %1"
 msgstr "%1을(를) 성공적으로 설치했습니다"
 
-#: kpackagetool/kpackagetool.cpp:638
+#: kpackagetool/kpackagetool.cpp:579
 #, kde-format
 msgid "Error: Installation of %1 failed: %2"
 msgstr "오류: %1 설치 실패: %2"
 
-#: kpackagetool/kpackagetool.cpp:650
+#: kpackagetool/kpackagetool.cpp:591
 #, kde-format
 msgid "Upgrading package from file: %1"
 msgstr "파일에서 패키지 업그레이드 중: %1"
 
-#: kpackagetool/kpackagetool.cpp:657
+#: kpackagetool/kpackagetool.cpp:598
 #, kde-format
 msgid "Successfully uninstalled %1"
 msgstr "%1을(를) 성공적으로 삭제했습니다"
 
-#: kpackagetool/kpackagetool.cpp:659
+#: kpackagetool/kpackagetool.cpp:600
 #, kde-format
 msgid "Error: Uninstallation of %1 failed: %2"
 msgstr "오류: %1 삭제 실패: %2"
@@ -394,37 +397,36 @@ msgstr ""
 
 #: kpackagetool/options.h:82
 #, kde-format
-msgid ""
-"Recreate the plugin index. To be used in conjunction with either the option -"
-"t or -g. Recreates the index for the given type or package root. Operates in "
-"the user directory, unless -g is used"
-msgstr ""
-"플러그인 색인을 다시 만듭니다. -t, -g 옵션과 같이 사용할 수 있습니다. 지정한 "
-"형식의 색인이나 패키지 루트 색인을 다시 만듭니다. -g 옵션을 지정하지 않으면 "
-"사용자 디렉터리에서 작업합니다"
-
-#: kpackagetool/options.h:90
-#, kde-format
-msgid ""
-"Remove the plugin index. To be used in conjunction with either the option -t "
-"or -g. Recreates the index for the given type or package root. Operates in "
-"the user directory, unless -g is used"
-msgstr ""
-"플러그인 색인을 삭제합니다. -t, -g 옵션과 같이 사용할 수 있습니다. 지정한 형"
-"식의 색인이나 패키지 루트 색인을 다시 만듭니다. -g 옵션을 지정하지 않으면 사"
-"용자 디렉터리에서 작업합니다"
-
-#: kpackagetool/options.h:98
-#, kde-format
 msgctxt "Do not translate <path>"
 msgid "Outputs the metadata for the package <path>"
 msgstr "<path>에 있는 패키지의 메타데이터 출력하기"
 
-#: kpackagetool/options.h:105
+#: kpackagetool/options.h:89
 #, kde-format
 msgctxt "Do not translate <path>"
 msgid "Outputs the metadata for the package into <path>"
 msgstr "패키지 메타데이터를 <path>(으)로 출력하기"
+
+#~ msgid "Desktop file that describes this package."
+#~ msgstr "패키지를 설명하는 데스크톱 파일입니다."
+
+#~ msgid ""
+#~ "Recreate the plugin index. To be used in conjunction with either the "
+#~ "option -t or -g. Recreates the index for the given type or package root. "
+#~ "Operates in the user directory, unless -g is used"
+#~ msgstr ""
+#~ "플러그인 색인을 다시 만듭니다. -t, -g 옵션과 같이 사용할 수 있습니다. 지정"
+#~ "한 형식의 색인이나 패키지 루트 색인을 다시 만듭니다. -g 옵션을 지정하지 않"
+#~ "으면 사용자 디렉터리에서 작업합니다"
+
+#~ msgid ""
+#~ "Remove the plugin index. To be used in conjunction with either the option "
+#~ "-t or -g. Recreates the index for the given type or package root. "
+#~ "Operates in the user directory, unless -g is used"
+#~ msgstr ""
+#~ "플러그인 색인을 삭제합니다. -t, -g 옵션과 같이 사용할 수 있습니다. 지정한 "
+#~ "형식의 색인이나 패키지 루트 색인을 다시 만듭니다. -g 옵션을 지정하지 않으"
+#~ "면 사용자 디렉터리에서 작업합니다"
 
 #~ msgid "Accessibility"
 #~ msgstr "접근성"
@@ -509,11 +511,6 @@ msgstr "패키지 메타데이터를 <path>(으)로 출력하기"
 
 #~ msgid "Removed %1"
 #~ msgstr "%1을(를) 삭제했습니다"
-
-#, fuzzy
-#~| msgid "Desktop file that describes this package."
-#~ msgid "JSON file that describes this package."
-#~ msgstr "패키지를 설명하는 데스크톱 파일입니다."
 
 #~ msgid "Generating %1/kpluginindex.json"
 #~ msgstr "%1/kpluginindex.json 생성 중"

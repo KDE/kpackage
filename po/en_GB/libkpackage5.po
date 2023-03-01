@@ -9,7 +9,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: plasmapkg\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2022-09-15 00:41+0000\n"
+"POT-Creation-Date: 2023-03-01 21:29+0000\n"
 "PO-Revision-Date: 2022-08-07 10:57+0100\n"
 "Last-Translator: Steve Allewell <steve.allewell@gmail.com>\n"
 "Language-Team: British English <kde-l10n-en_gb@kde.org>\n"
@@ -31,106 +31,109 @@ msgid "Your emails"
 msgstr "steve.allewell@gmail.com"
 
 #: kpackage/package.cpp:42
-#, kde-format
-msgid "Desktop file that describes this package."
+#, fuzzy, kde-format
+#| msgid "Desktop file that describes this package."
+msgid "JSON file that describes this package."
 msgstr "Desktop file that describes this package."
 
-#: kpackage/packageloader.cpp:255
+#: kpackage/packageloader.cpp:221
 #, kde-format
 msgid "Could not load installer for package of type %1. Error reported was: %2"
 msgstr ""
 "Could not load installer for package of type %1. Error reported was: %2"
 
-#: kpackage/private/packagejobthread.cpp:144
+#: kpackage/private/packagejobthread.cpp:164
 #, kde-format
 msgid "Could not create package root directory: %1"
 msgstr "Could not create package root directory: %1"
 
-#: kpackage/private/packagejobthread.cpp:153
+#: kpackage/private/packagejobthread.cpp:173
 #, kde-format
 msgid "No such file: %1"
 msgstr "No such file: %1"
 
-#: kpackage/private/packagejobthread.cpp:183
+#: kpackage/private/packagejobthread.cpp:203
 #, kde-format
 msgid "Could not open package file, unsupported archive format: %1 %2"
 msgstr "Could not open package file, unsupported archive format: %1 %2"
 
-#: kpackage/private/packagejobthread.cpp:191
+#: kpackage/private/packagejobthread.cpp:211
 #, kde-format
 msgid "Could not open package file: %1"
 msgstr "Could not open package file: %1"
 
-#: kpackage/private/packagejobthread.cpp:231
+#: kpackage/private/packagejobthread.cpp:243
 #, kde-format
 msgid "Could not open metadata file: %1"
 msgstr "Could not open metadata file: %1"
 
-#: kpackage/private/packagejobthread.cpp:238
+#: kpackage/private/packagejobthread.cpp:250
 #, kde-format
 msgid "No metadata file in package: %1"
 msgstr "No metadata file in package: %1"
 
-#: kpackage/private/packagejobthread.cpp:247
-#, kde-format
-msgid "Package plugin name not specified: %1"
+#: kpackage/private/packagejobthread.cpp:259
+#, fuzzy, kde-format
+#| msgid "Package plugin name not specified: %1"
+msgid "Package plugin id not specified: %1"
 msgstr "Package plugin name not specified: %1"
 
-#: kpackage/private/packagejobthread.cpp:257
-#, kde-format
-msgid "Package plugin name %1 contains invalid characters"
+#: kpackage/private/packagejobthread.cpp:269
+#, fuzzy, kde-format
+#| msgid "Package plugin name %1 contains invalid characters"
+msgid "Package plugin id %1 contains invalid characters"
 msgstr "Package plugin name %1 contains invalid characters"
 
-#: kpackage/private/packagejobthread.cpp:280
+#: kpackage/private/packagejobthread.cpp:288
 #, kde-format
 msgid ""
 "The new package has a different type from the old version already installed."
 msgstr ""
 "The new package has a different type from the old version already installed."
 
-#: kpackage/private/packagejobthread.cpp:285
+#: kpackage/private/packagejobthread.cpp:293
 #, kde-format
 msgid ""
 "Impossible to remove the old installation of %1 located at %2. error: %3"
 msgstr ""
 "Impossible to remove the old installation of %1 located at %2. error: %3"
 
-#: kpackage/private/packagejobthread.cpp:289
+#: kpackage/private/packagejobthread.cpp:297
 #, kde-format
 msgid "Not installing version %1 of %2. Version %3 already installed."
 msgstr "Not installing version %1 of %2. Version %3 already installed."
 
-#: kpackage/private/packagejobthread.cpp:293
+#: kpackage/private/packagejobthread.cpp:301
 #, kde-format
 msgid "%1 already exists"
 msgstr "%1 already exists"
 
-#: kpackage/private/packagejobthread.cpp:314
+#: kpackage/private/packagejobthread.cpp:322
 #, kde-format
 msgid "Could not install dependency: '%1'"
 msgstr "Could not install dependency: '%1'"
 
-#: kpackage/private/packagejobthread.cpp:326
+#: kpackage/private/packagejobthread.cpp:334
 #, kde-format
 msgid "Could not move package to destination: %1"
 msgstr "Could not move package to destination: %1"
 
-#: kpackage/private/packagejobthread.cpp:336
+#: kpackage/private/packagejobthread.cpp:344
 #, kde-format
 msgid "Could not copy package to destination: %1"
 msgstr "Could not copy package to destination: %1"
 
-#: kpackage/private/packagejobthread.cpp:372
+#: kpackage/private/packagejobthread.cpp:380
 #, kde-format
 msgid "package path was deleted manually"
 msgstr "package path was deleted manually"
 
-#: kpackage/private/packagejobthread.cpp:372
+#: kpackage/private/packagejobthread.cpp:380
 #, kde-format
 msgid "%1 does not exist"
 msgstr "%1 does not exist"
 
-#: kpackage/private/packagejobthread.cpp:392
+#: kpackage/private/packagejobthread.cpp:400
 #, kde-format
 msgid "Could not delete package from: %1"
 msgstr "Could not delete package from: %1"
@@ -180,33 +183,33 @@ msgstr "Translations"
 msgid "Main UI File"
 msgstr "Main UI File"
 
-#: kpackagetool/kpackagetool.cpp:91
+#: kpackagetool/kpackagetool.cpp:88
 #, kde-format
 msgid "Failed to generate a Package hash for %1"
 msgstr "Failed to generate a Package hash for %1"
 
-#: kpackagetool/kpackagetool.cpp:94
+#: kpackagetool/kpackagetool.cpp:91
 #, kde-format
 msgid "SHA1 hash for Package at %1: '%2'"
 msgstr "SHA1 hash for Package at %1: '%2'"
 
-#: kpackagetool/kpackagetool.cpp:133
+#: kpackagetool/kpackagetool.cpp:130
 #, kde-format
 msgctxt "package type"
 msgid "wallpaper"
 msgstr "wallpaper"
 
-#: kpackagetool/kpackagetool.cpp:184
+#: kpackagetool/kpackagetool.cpp:163
 #, kde-format
 msgid "Listing service types: %1 in %2"
 msgstr "Listing service types: %1 in %2"
 
-#: kpackagetool/kpackagetool.cpp:275
+#: kpackagetool/kpackagetool.cpp:241
 #, kde-format
 msgid "Error: Plugin %1 is not installed."
 msgstr "Error: Plugin %1 is not installed."
 
-#: kpackagetool/kpackagetool.cpp:289
+#: kpackagetool/kpackagetool.cpp:255
 #, kde-format
 msgctxt ""
 "No option was given, this is the error message telling the user he needs at "
@@ -214,42 +217,42 @@ msgctxt ""
 msgid "One of install, remove, upgrade or list is required."
 msgstr "One of install, remove, upgrade or list is required."
 
-#: kpackagetool/kpackagetool.cpp:342 kpackagetool/kpackagetool.cpp:424
+#: kpackagetool/kpackagetool.cpp:308 kpackagetool/kpackagetool.cpp:386
 #, kde-format
 msgid "Error: Can't find plugin metadata: %1\n"
 msgstr "Error: Cannot find plugin metadata: %1\n"
 
-#: kpackagetool/kpackagetool.cpp:346
+#: kpackagetool/kpackagetool.cpp:312
 #, kde-format
 msgid "Showing info for package: %1"
 msgstr "Showing info for package: %1"
 
-#: kpackagetool/kpackagetool.cpp:347
+#: kpackagetool/kpackagetool.cpp:313
 #, kde-format
 msgid "      Name : %1"
 msgstr "      Name : %1"
 
-#: kpackagetool/kpackagetool.cpp:348
+#: kpackagetool/kpackagetool.cpp:314
 #, kde-format
 msgid "   Comment : %1"
 msgstr "   Comment : %1"
 
-#: kpackagetool/kpackagetool.cpp:349
+#: kpackagetool/kpackagetool.cpp:315
 #, kde-format
 msgid "    Plugin : %1"
 msgstr "    Plugin : %1"
 
-#: kpackagetool/kpackagetool.cpp:351
+#: kpackagetool/kpackagetool.cpp:317
 #, kde-format
 msgid "    Author : %1"
 msgstr "    Author : %1"
 
-#: kpackagetool/kpackagetool.cpp:352
+#: kpackagetool/kpackagetool.cpp:318
 #, kde-format
 msgid "      Path : %1"
 msgstr "      Path : %1"
 
-#: kpackagetool/kpackagetool.cpp:537
+#: kpackagetool/kpackagetool.cpp:479
 #, kde-format
 msgctxt ""
 "The user entered conflicting options packageroot and global, this is the "
@@ -261,67 +264,67 @@ msgstr ""
 "The packageroot and global options conflict with each other, please select "
 "only one."
 
-#: kpackagetool/kpackagetool.cpp:565
+#: kpackagetool/kpackagetool.cpp:507
 #, kde-format
 msgid "KPackage Structure Name"
 msgstr "KPackage Structure Name"
 
-#: kpackagetool/kpackagetool.cpp:566
+#: kpackagetool/kpackagetool.cpp:508
 #, kde-format
 msgid "Path"
 msgstr "Path"
 
-#: kpackagetool/kpackagetool.cpp:597
+#: kpackagetool/kpackagetool.cpp:539
 #, kde-format
 msgid "Package types that are installable with this tool:"
 msgstr "Package types that are installable with this tool:"
 
-#: kpackagetool/kpackagetool.cpp:598
+#: kpackagetool/kpackagetool.cpp:540
 #, kde-format
 msgid "Built in:"
 msgstr "Built in:"
 
-#: kpackagetool/kpackagetool.cpp:601
+#: kpackagetool/kpackagetool.cpp:543
 #, kde-format
 msgid "KPackage/Generic"
 msgstr "KPackage/Generic"
 
-#: kpackagetool/kpackagetool.cpp:602
+#: kpackagetool/kpackagetool.cpp:544
 #, kde-format
 msgid "KPackage/GenericQML"
 msgstr "KPackage/GenericQML"
 
-#: kpackagetool/kpackagetool.cpp:610
+#: kpackagetool/kpackagetool.cpp:552
 #, kde-format
 msgid "Provided by plugins:"
 msgstr "Provided by plugins:"
 
-#: kpackagetool/kpackagetool.cpp:633
+#: kpackagetool/kpackagetool.cpp:574
 #, kde-format
 msgid "Successfully upgraded %1"
 msgstr "Successfully upgraded %1"
 
-#: kpackagetool/kpackagetool.cpp:635
+#: kpackagetool/kpackagetool.cpp:576
 #, kde-format
 msgid "Successfully installed %1"
 msgstr "Successfully installed %1"
 
-#: kpackagetool/kpackagetool.cpp:638
+#: kpackagetool/kpackagetool.cpp:579
 #, kde-format
 msgid "Error: Installation of %1 failed: %2"
 msgstr "Error: Installation of %1 failed: %2"
 
-#: kpackagetool/kpackagetool.cpp:650
+#: kpackagetool/kpackagetool.cpp:591
 #, kde-format
 msgid "Upgrading package from file: %1"
 msgstr "Upgrading package from file: %1"
 
-#: kpackagetool/kpackagetool.cpp:657
+#: kpackagetool/kpackagetool.cpp:598
 #, kde-format
 msgid "Successfully uninstalled %1"
 msgstr "Successfully uninstalled %1"
 
-#: kpackagetool/kpackagetool.cpp:659
+#: kpackagetool/kpackagetool.cpp:600
 #, kde-format
 msgid "Error: Uninstallation of %1 failed: %2"
 msgstr "Error: Uninstallation of %1 failed: %2"
@@ -402,37 +405,36 @@ msgstr ""
 
 #: kpackagetool/options.h:82
 #, kde-format
-msgid ""
-"Recreate the plugin index. To be used in conjunction with either the option -"
-"t or -g. Recreates the index for the given type or package root. Operates in "
-"the user directory, unless -g is used"
-msgstr ""
-"Recreate the plugin index. To be used in conjunction with either the option -"
-"t or -g. Recreates the index for the given type or package root. Operates in "
-"the user directory, unless -g is used"
-
-#: kpackagetool/options.h:90
-#, kde-format
-msgid ""
-"Remove the plugin index. To be used in conjunction with either the option -t "
-"or -g. Recreates the index for the given type or package root. Operates in "
-"the user directory, unless -g is used"
-msgstr ""
-"Remove the plugin index. To be used in conjunction with either the option -t "
-"or -g. Recreates the index for the given type or package root. Operates in "
-"the user directory, unless -g is used"
-
-#: kpackagetool/options.h:98
-#, kde-format
 msgctxt "Do not translate <path>"
 msgid "Outputs the metadata for the package <path>"
 msgstr "Outputs the metadata for the package <path>"
 
-#: kpackagetool/options.h:105
+#: kpackagetool/options.h:89
 #, kde-format
 msgctxt "Do not translate <path>"
 msgid "Outputs the metadata for the package into <path>"
 msgstr "Outputs the metadata for the package into <path>"
+
+#~ msgid "Desktop file that describes this package."
+#~ msgstr "Desktop file that describes this package."
+
+#~ msgid ""
+#~ "Recreate the plugin index. To be used in conjunction with either the "
+#~ "option -t or -g. Recreates the index for the given type or package root. "
+#~ "Operates in the user directory, unless -g is used"
+#~ msgstr ""
+#~ "Recreate the plugin index. To be used in conjunction with either the "
+#~ "option -t or -g. Recreates the index for the given type or package root. "
+#~ "Operates in the user directory, unless -g is used"
+
+#~ msgid ""
+#~ "Remove the plugin index. To be used in conjunction with either the option "
+#~ "-t or -g. Recreates the index for the given type or package root. "
+#~ "Operates in the user directory, unless -g is used"
+#~ msgstr ""
+#~ "Remove the plugin index. To be used in conjunction with either the option "
+#~ "-t or -g. Recreates the index for the given type or package root. "
+#~ "Operates in the user directory, unless -g is used"
 
 #~ msgid "Accessibility"
 #~ msgstr "Accessibility"
@@ -517,11 +519,6 @@ msgstr "Outputs the metadata for the package into <path>"
 
 #~ msgid "Removed %1"
 #~ msgstr "Removed %1"
-
-#, fuzzy
-#~| msgid "Desktop file that describes this package."
-#~ msgid "JSON file that describes this package."
-#~ msgstr "Desktop file that describes this package."
 
 #~ msgid "Generating %1/kpluginindex.json"
 #~ msgstr "Generating %1/kpluginindex.json"
