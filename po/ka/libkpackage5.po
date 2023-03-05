@@ -8,7 +8,7 @@ msgstr ""
 "Project-Id-Version: kpackage\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2023-03-01 21:29+0000\n"
-"PO-Revision-Date: 2022-11-30 07:09+0100\n"
+"PO-Revision-Date: 2023-03-04 13:29+0100\n"
 "Last-Translator: Temuri Doghonadze <temuri.doghonadze@gmail.com>\n"
 "Language-Team: Georgian <kde-i18n-doc@kde.org>\n"
 "Language: ka\n"
@@ -16,7 +16,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
-"X-Generator: Poedit 3.2\n"
+"X-Generator: Poedit 3.2.2\n"
 
 #, kde-format
 msgctxt "NAME OF TRANSLATORS"
@@ -29,10 +29,9 @@ msgid "Your emails"
 msgstr "Temuri.doghonadze@gmail.com"
 
 #: kpackage/package.cpp:42
-#, fuzzy, kde-format
-#| msgid "Desktop file that describes this package."
+#, kde-format
 msgid "JSON file that describes this package."
-msgstr "Desktop ფაილი, რომელიც ამ პაკეტს აღწერს."
+msgstr "JSON ფაილი, რომელიც ამ პაკეტს აღწერს."
 
 #: kpackage/packageloader.cpp:221
 #, kde-format
@@ -70,14 +69,12 @@ msgid "No metadata file in package: %1"
 msgstr "პაკეტში მეტამონაცემების ფაილი არ არსებობს: %1"
 
 #: kpackage/private/packagejobthread.cpp:259
-#, fuzzy, kde-format
-#| msgid "Package plugin name not specified: %1"
+#, kde-format
 msgid "Package plugin id not specified: %1"
-msgstr "პაკეტის დამატების სახელი მითითებული არაა: %1"
+msgstr "პაკეტის დამატების ID მითითებული არაა: %1"
 
 #: kpackage/private/packagejobthread.cpp:269
-#, fuzzy, kde-format
-#| msgid "Package plugin name %1 contains invalid characters"
+#, kde-format
 msgid "Package plugin id %1 contains invalid characters"
 msgstr "პაკეტის დამატება სახელით %1 არასწორ სიმბოლოებს შეიცავს"
 

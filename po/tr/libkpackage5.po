@@ -10,7 +10,7 @@ msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2023-03-01 21:29+0000\n"
-"PO-Revision-Date: 2023-01-31 01:15+0300\n"
+"PO-Revision-Date: 2023-03-04 13:34+0300\n"
 "Last-Translator: Emir SARI <emir_sari@icloud.com>\n"
 "Language-Team: Turkish <kde-l10n-tr@kde.org>\n"
 "Language: tr\n"
@@ -18,7 +18,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=(n > 1);\n"
-"X-Generator: Lokalize 22.12.1\n"
+"X-Generator: Lokalize 22.12.2\n"
 
 #, kde-format
 msgctxt "NAME OF TRANSLATORS"
@@ -31,10 +31,9 @@ msgid "Your emails"
 msgstr "emir_sari@icloud.com"
 
 #: kpackage/package.cpp:42
-#, fuzzy, kde-format
-#| msgid "Desktop file that describes this package."
+#, kde-format
 msgid "JSON file that describes this package."
-msgstr "Bu paketi tanımlayan masaüstü dosyası."
+msgstr "Bu paketi tanımlayan JSON dosyası."
 
 #: kpackage/packageloader.cpp:221
 #, kde-format
@@ -72,16 +71,14 @@ msgid "No metadata file in package: %1"
 msgstr "Pakette üstveri dosyası yok: %1"
 
 #: kpackage/private/packagejobthread.cpp:259
-#, fuzzy, kde-format
-#| msgid "Package plugin name not specified: %1"
+#, kde-format
 msgid "Package plugin id not specified: %1"
-msgstr "Paket eklenti adı belirtilmemiş: %1"
+msgstr "Paket eklenti kimliği belirtilmemiş: %1"
 
 #: kpackage/private/packagejobthread.cpp:269
-#, fuzzy, kde-format
-#| msgid "Package plugin name %1 contains invalid characters"
+#, kde-format
 msgid "Package plugin id %1 contains invalid characters"
-msgstr "Paket eklenti adı %1 geçersiz karakterler içeriyor"
+msgstr "Paket eklenti adı %1, geçersiz karakterler içeriyor"
 
 #: kpackage/private/packagejobthread.cpp:288
 #, kde-format

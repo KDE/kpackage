@@ -396,7 +396,7 @@ msgid ""
 "directories for this KDE session will be searched instead."
 msgstr ""
 "المسار المطلق لجذر الحزمة. إذا لم يكن موفر، فسيستخدم أدلة البيانات القياسية "
-"لجلسة كدي هذه بدلاً من ذلك."
+"لجلسة كِيدِي هذه بدلاً من ذلك."
 
 #: kpackagetool/options.h:82
 #, kde-format
