@@ -2,13 +2,13 @@
 # This file is distributed under the same license as the PACKAGE package.
 #
 # Andrej Mernik <andrejm@ubuntu.si>, 2014, 2015, 2016, 2017, 2018.
-# Matjaž Jeran <matjaz.jeran@amis.net>, 2020, 2022.
+# Matjaž Jeran <matjaz.jeran@amis.net>, 2020, 2022, 2023.
 msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2023-03-01 21:29+0000\n"
-"PO-Revision-Date: 2022-07-28 07:02+0200\n"
+"PO-Revision-Date: 2023-03-04 10:02+0100\n"
 "Last-Translator: Matjaž Jeran <matjaz.jeran@amis.net>\n"
 "Language-Team: Slovenian <lugos-slo@lugos.si>\n"
 "Language: sl\n"
@@ -18,7 +18,7 @@ msgstr ""
 "Translator: Andrej Mernik <andrejm@ubuntu.si>\n"
 "Plural-Forms: nplurals=4; plural=(n%100==1 ? 1 : n%100==2 ? 2 : n%100==3 || n"
 "%100==4 ? 3 : 0);\n"
-"X-Generator: Lokalize 22.04.1\n"
+"X-Generator: Lokalize 22.12.2\n"
 
 #, kde-format
 msgctxt "NAME OF TRANSLATORS"
@@ -31,10 +31,9 @@ msgid "Your emails"
 msgstr "matjaz.jeran@amis.net"
 
 #: kpackage/package.cpp:42
-#, fuzzy, kde-format
-#| msgid "Desktop file that describes this package."
+#, kde-format
 msgid "JSON file that describes this package."
-msgstr "Datoteka .desktop, ki opisuje ta paket."
+msgstr "Datoteka JSON, ki opisuje ta paket."
 
 #: kpackage/packageloader.cpp:221
 #, kde-format
@@ -75,16 +74,14 @@ msgid "No metadata file in package: %1"
 msgstr "V paketu ni datoteke z metapodatki: %1"
 
 #: kpackage/private/packagejobthread.cpp:259
-#, fuzzy, kde-format
-#| msgid "Package plugin name not specified: %1"
+#, kde-format
 msgid "Package plugin id not specified: %1"
-msgstr "Ime vstavka v paketu ni navedeno: %1"
+msgstr "Določilnik vstavka v paketu ni naveden: %1"
 
 #: kpackage/private/packagejobthread.cpp:269
-#, fuzzy, kde-format
-#| msgid "Package plugin name %1 contains invalid characters"
+#, kde-format
 msgid "Package plugin id %1 contains invalid characters"
-msgstr "Ime vstavka v paketu, %1, vsebuje neveljavne znake"
+msgstr "Določilnik vstavka v paketu, %1 vsebuje neveljavne znake"
 
 #: kpackage/private/packagejobthread.cpp:288
 #, kde-format

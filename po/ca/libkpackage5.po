@@ -1,9 +1,9 @@
 # Translation of libkpackage5.po to Catalan
-# Copyright (C) 2014-2022 This_file_is_part_of_KDE
+# Copyright (C) 2014-2023 This_file_is_part_of_KDE
 # This file is distributed under the license LGPL version 2.1 or
 # version 3 or later versions approved by the membership of KDE e.V.
 #
-# Josep M. Ferrer <txemaq@gmail.com>, 2014, 2015, 2016, 2017, 2018, 2019, 2020, 2021, 2022.
+# Josep M. Ferrer <txemaq@gmail.com>, 2014, 2015, 2016, 2017, 2018, 2019, 2020, 2021, 2022, 2023.
 # Antoni Bella Pérez <antonibella5@yahoo.com>, 2014, 2015, 2016, 2017, 2020, 2022.
 # Empar Montoro Martín <montoro_mde@gva.es>, 2019.
 msgid ""
@@ -11,7 +11,7 @@ msgstr ""
 "Project-Id-Version: kpackage\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2023-03-01 21:29+0000\n"
-"PO-Revision-Date: 2022-07-26 13:14+0200\n"
+"PO-Revision-Date: 2023-03-05 12:57+0100\n"
 "Last-Translator: Josep M. Ferrer <txemaq@gmail.com>\n"
 "Language-Team: Catalan <kde-i18n-ca@kde.org>\n"
 "Language: ca\n"
@@ -33,10 +33,9 @@ msgid "Your emails"
 msgstr "txemaq@gmail.com"
 
 #: kpackage/package.cpp:42
-#, fuzzy, kde-format
-#| msgid "Desktop file that describes this package."
+#, kde-format
 msgid "JSON file that describes this package."
-msgstr "Fitxer «desktop» que descriu aquest paquet."
+msgstr "Fitxer JSON que descriu aquest paquet."
 
 #: kpackage/packageloader.cpp:221
 #, kde-format
@@ -76,16 +75,14 @@ msgid "No metadata file in package: %1"
 msgstr "No hi ha fitxer de metadades en el paquet: %1"
 
 #: kpackage/private/packagejobthread.cpp:259
-#, fuzzy, kde-format
-#| msgid "Package plugin name not specified: %1"
+#, kde-format
 msgid "Package plugin id not specified: %1"
-msgstr "No s'ha especificat el nom del connector del paquet: %1"
+msgstr "No s'ha especificat l'ID del connector del paquet: %1"
 
 #: kpackage/private/packagejobthread.cpp:269
-#, fuzzy, kde-format
-#| msgid "Package plugin name %1 contains invalid characters"
+#, kde-format
 msgid "Package plugin id %1 contains invalid characters"
-msgstr "El nom del connector del paquet %1 conté caràcters no vàlids"
+msgstr "L'ID del connector del paquet %1 conté caràcters no vàlids"
 
 #: kpackage/private/packagejobthread.cpp:288
 #, kde-format
@@ -423,81 +420,3 @@ msgstr "Sortida de les metadades per al paquet <camí>"
 msgctxt "Do not translate <path>"
 msgid "Outputs the metadata for the package into <path>"
 msgstr "Sortida de les metadades per al paquet dins del <camí>"
-
-#~ msgid ""
-#~ "Recreate the plugin index. To be used in conjunction with either the "
-#~ "option -t or -g. Recreates the index for the given type or package root. "
-#~ "Operates in the user directory, unless -g is used"
-#~ msgstr ""
-#~ "Es torna a crear l'índex de connectors. S'utilitzarà conjuntament amb les "
-#~ "opcions -t o -g. Torna a crear l'índex per al tipus indicat o l'arrel del "
-#~ "paquet. Opera en el directori d'usuari, excepte si s'usa -g"
-
-#~ msgid ""
-#~ "Remove the plugin index. To be used in conjunction with either the option "
-#~ "-t or -g. Recreates the index for the given type or package root. "
-#~ "Operates in the user directory, unless -g is used"
-#~ msgstr ""
-#~ "S'elimina l'índex de connectors. S'utilitzarà conjuntament amb les "
-#~ "opcions -t o -g. Torna a crear l'índex per al tipus indicat o l'arrel del "
-#~ "paquet. Opera en el directori d'usuari, excepte si s'usa -g"
-
-#~ msgid "Accessibility"
-#~ msgstr "Accessibilitat"
-
-#~ msgid "Application Launchers"
-#~ msgstr "Llançadors d'aplicacions"
-
-#~ msgid "Astronomy"
-#~ msgstr "Astronomia"
-
-#~ msgid "Date and Time"
-#~ msgstr "Data i hora"
-
-#~ msgid "Development Tools"
-#~ msgstr "Eines de desenvolupament"
-
-#~ msgid "Education"
-#~ msgstr "Educació"
-
-#~ msgid "Environment and Weather"
-#~ msgstr "Medi ambient i meteorologia"
-
-#~ msgid "Examples"
-#~ msgstr "Exemples"
-
-#~ msgid "File System"
-#~ msgstr "Sistema de fitxers"
-
-#~ msgid "Fun and Games"
-#~ msgstr "Jocs i esbarjo"
-
-#~ msgid "Graphics"
-#~ msgstr "Gràfics"
-
-#~ msgid "Language"
-#~ msgstr "Idioma"
-
-#~ msgid "Mapping"
-#~ msgstr "Cartografia"
-
-#~ msgid "Miscellaneous"
-#~ msgstr "Miscel·lània"
-
-#~ msgid "Multimedia"
-#~ msgstr "Multimèdia"
-
-#~ msgid "Online Services"
-#~ msgstr "Serveis en línia"
-
-#~ msgid "Productivity"
-#~ msgstr "Productivitat"
-
-#~ msgid "System Information"
-#~ msgstr "Informació del sistema"
-
-#~ msgid "Utilities"
-#~ msgstr "Utilitats"
-
-#~ msgid "Windows and Tasks"
-#~ msgstr "Finestres i tasques"
