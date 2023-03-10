@@ -2,14 +2,14 @@
 # This file is distributed under the same license as the PACKAGE package.
 # Vít Pelčák <vit@pelcak.org>, 2010, 2011, 2013, 2014, 2015, 2016, 2017, 2018, 2020.
 # Lukáš Tinkl <ltinkl@redhat.com>, 2010, 2012.
-# Vit Pelcak <vit@pelcak.org>, 2022.
+# Vit Pelcak <vit@pelcak.org>, 2022, 2023.
 #
 msgid ""
 msgstr ""
 "Project-Id-Version: plasmapkg\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2023-03-01 21:29+0000\n"
-"PO-Revision-Date: 2022-10-10 16:55+0200\n"
+"PO-Revision-Date: 2023-03-02 18:28+0100\n"
 "Last-Translator: Vit Pelcak <vit@pelcak.org>\n"
 "Language-Team: Czech <kde-i18n-doc@kde.org>\n"
 "Language: cs\n"
@@ -17,7 +17,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=3; plural=(n==1) ? 0 : (n>=2 && n<=4) ? 1 : 2;\n"
-"X-Generator: Lokalize 22.08.1\n"
+"X-Generator: Lokalize 22.12.2\n"
 "X-Language: cs_CZ\n"
 "X-Source-Language: en_US\n"
 
@@ -32,10 +32,9 @@ msgid "Your emails"
 msgstr "vit@pelcak.org"
 
 #: kpackage/package.cpp:42
-#, fuzzy, kde-format
-#| msgid "Desktop file that describes this package."
+#, kde-format
 msgid "JSON file that describes this package."
-msgstr "Soubor desktop, který popisuje tento balíček."
+msgstr "Soubor JSON, který popisuje tento balíček."
 
 #: kpackage/packageloader.cpp:221
 #, kde-format
@@ -74,16 +73,14 @@ msgid "No metadata file in package: %1"
 msgstr "Žádná metadata v balíčku: %1"
 
 #: kpackage/private/packagejobthread.cpp:259
-#, fuzzy, kde-format
-#| msgid "Package plugin name not specified: %1"
+#, kde-format
 msgid "Package plugin id not specified: %1"
-msgstr "Název modulu balíčku nebyl zadán: %1"
+msgstr "Id modulu balíčku nebylo zadáno: %1"
 
 #: kpackage/private/packagejobthread.cpp:269
-#, fuzzy, kde-format
-#| msgid "Package plugin name %1 contains invalid characters"
+#, kde-format
 msgid "Package plugin id %1 contains invalid characters"
-msgstr "Název modulu balíčku %1 obsahuje neplatné znaky"
+msgstr "Id modulu balíčku %1 obsahuje neplatné znaky"
 
 #: kpackage/private/packagejobthread.cpp:288
 #, kde-format
