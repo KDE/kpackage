@@ -384,7 +384,7 @@ void PlasmoidPackageTest::testInstallNonExistentPackageStructure()
     auto job = KPackage::PackageJob::install("KPackage/DoesNotExist", packageName, m_packageRoot);
     connect(job, &KPackage::PackageJob::finished, this, [](KJob *job, const KPackage::Package &package) {
         QVERIFY(!package.isValid());
-        QVERIFY(job->error());
+        QCOMPARE(job->error(), KPackage::Package::JobError::InvalidPackageStructure);
         QCOMPARE(job->errorText(), "Could not load package structure KPackage/DoesNotExist");
     });
     QSignalSpy spy(job, &KPackage::PackageJob::finished);

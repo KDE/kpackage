@@ -39,7 +39,7 @@ public:
         } else {
             auto job = new PackageJob(PackageJob::Install, Package(), QString(), QString());
             job->setErrorText(QStringLiteral("Could not load package structure ") + packageFormat);
-            job->setError(KJob::UserDefinedError);
+            job->setError(Package::JobError::InvalidPackageStructure);
             QTimer::singleShot(0, job, [job]() {
                 job->finished(job, KPackage::Package());
                 job->emitResult();

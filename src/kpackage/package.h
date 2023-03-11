@@ -71,7 +71,8 @@ public:
      * @since 5.17
      */
     enum JobError {
-        RootCreationError = KJob::UserDefinedError + 1, /**< Cannot create package root directory */
+        InvalidPackageStructure = KJob::UserDefinedError + 1, /**< Could not find/load the given package structure */
+        RootCreationError, /**< Cannot create package root directory */
         PackageFileNotFoundError, /**< The package file does not exist */
         UnsupportedArchiveFormatError, /**< The archive format of the package is not supported */
         PackageOpenError, /**< Can't open the package file for reading */
