@@ -254,12 +254,12 @@ void PackageTool::showPackageInfo(const QString &pluginName)
         return;
     }
     d->coutput(i18n("Showing info for package: %1", pluginName));
-    d->coutput(i18n("      Name : %1", i.name()));
-    d->coutput(i18n("   Comment : %1", i.value(QStringLiteral("Comment")))); // FIXME
-    d->coutput(i18n("    Plugin : %1", i.pluginId()));
+    d->coutput(i18n("  Name       : %1", i.name()));
+    d->coutput(i18n("  Description: %1", i.description()));
+    d->coutput(i18n("  Plugin     : %1", i.pluginId()));
     auto const authors = i.authors();
-    d->coutput(i18n("    Author : %1", authors.first().name()));
-    d->coutput(i18n("      Path : %1", pkg.path()));
+    d->coutput(i18n("  Author     : %1", authors.first().name()));
+    d->coutput(i18n("  Path       : %1", pkg.path()));
 
     exit(0);
 }
