@@ -39,7 +39,7 @@ public:
         } else {
             auto job = new PackageJob(PackageJob::Install, Package(), QString(), QString());
             job->setErrorText(QStringLiteral("Could not load package structure ") + packageFormat);
-            job->setError(Package::JobError::InvalidPackageStructure);
+            job->setError(PackageJob::JobError::InvalidPackageStructure);
             QTimer::singleShot(0, job, [job]() {
                 job->finished(job, KPackage::Package());
                 job->emitResult();
@@ -158,7 +158,7 @@ void PackageJob::setupNotificationsOnJobFinished(const QString &messageName)
     const QString pluginId = d->package.metadata().pluginId();
     const QString kpackageType = readKPackageType(d->package.metadata());
 
-    auto onJobFinished = [=](bool ok, Package::JobError errorCode, const QString &error) {
+    auto onJobFinished = [=](bool ok, JobError errorCode, const QString &error) {
         if (ok) {
             auto msg = QDBusMessage::createSignal(QStringLiteral("/KPackage/") + kpackageType, QStringLiteral("org.kde.plasma.kpackage"), messageName);
             msg.setArguments({pluginId});

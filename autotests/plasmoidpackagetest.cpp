@@ -325,7 +325,7 @@ void PlasmoidPackageTest::createAndUpdatePackage()
     job = KPackage::PackageJob::update(m_defaultPackageStructure, packagePath, m_packageRoot);
     QSignalSpy spyFail(job, &KJob::finished);
     QVERIFY(spyFail.wait(1000));
-    QVERIFY(job->error() == KPackage::Package::JobError::NewerVersionAlreadyInstalledError);
+    QVERIFY(job->error() == KPackage::PackageJob::JobError::NewerVersionAlreadyInstalledError);
     qDebug() << job->errorText();
 
     // create a new package with higher version
@@ -384,7 +384,7 @@ void PlasmoidPackageTest::testInstallNonExistentPackageStructure()
     auto job = KPackage::PackageJob::install("KPackage/DoesNotExist", packageName, m_packageRoot);
     connect(job, &KPackage::PackageJob::finished, this, [](KJob *job, const KPackage::Package &package) {
         QVERIFY(!package.isValid());
-        QCOMPARE(job->error(), KPackage::Package::JobError::InvalidPackageStructure);
+        QCOMPARE(job->error(), KPackage::PackageJob::JobError::InvalidPackageStructure);
         QCOMPARE(job->errorText(), "Could not load package structure KPackage/DoesNotExist");
     });
     QSignalSpy spy(job, &KPackage::PackageJob::finished);

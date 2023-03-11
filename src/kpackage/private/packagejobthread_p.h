@@ -31,10 +31,10 @@ public:
     bool update(const QString &src, const QString &dest);
     bool uninstall(const QString &packagePath);
 
-    Package::JobError errorCode() const;
+    PackageJob::JobError errorCode() const;
 
 Q_SIGNALS:
-    void jobThreadFinished(bool success, Package::JobError errorCode, const QString &errorMessage = QString());
+    void jobThreadFinished(bool success, PackageJob::JobError errorCode, const QString &errorMessage = QString());
     void percentChanged(int percent);
     void error(const QString &errorMessage);
     void installPathChanged(const QString &installPath);

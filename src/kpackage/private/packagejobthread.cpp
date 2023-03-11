@@ -161,7 +161,7 @@ bool PackageJobThread::installPackage(const QString &src, const QString &dest, P
         QDir().mkpath(dest);
         if (!root.exists()) {
             d->errorMessage = i18n("Could not create package root directory: %1", dest);
-            d->errorCode = Package::JobError::RootCreationError;
+            d->errorCode = PackageJob::JobError::RootCreationError;
             // qCWarning(KPACKAGE_LOG) << "Could not create package root directory: " << dest;
             return false;
         }
@@ -170,7 +170,7 @@ bool PackageJobThread::installPackage(const QString &src, const QString &dest, P
     QFileInfo fileInfo(src);
     if (!fileInfo.exists()) {
         d->errorMessage = i18n("No such file: %1", src);
-        d->errorCode = Package::JobError::PackageFileNotFoundError;
+        d->errorCode = PackageJob::JobError::PackageFileNotFoundError;
         return false;
     }
 
@@ -200,7 +200,7 @@ bool PackageJobThread::installPackage(const QString &src, const QString &dest, P
         } else {
             // qCWarning(KPACKAGE_LOG) << "Could not open package file, unsupported archive format:" << src << mimetype.name();
             d->errorMessage = i18n("Could not open package file, unsupported archive format: %1 %2", src, mimetype.name());
-            d->errorCode = Package::JobError::UnsupportedArchiveFormatError;
+            d->errorCode = PackageJob::JobError::UnsupportedArchiveFormatError;
             return false;
         }
 
@@ -208,7 +208,7 @@ bool PackageJobThread::installPackage(const QString &src, const QString &dest, P
             // qCWarning(KPACKAGE_LOG) << "Could not open package file:" << src;
             delete archive;
             d->errorMessage = i18n("Could not open package file: %1", src);
-            d->errorCode = Package::JobError::PackageOpenError;
+            d->errorCode = PackageJob::JobError::PackageOpenError;
             return false;
         }
 
@@ -240,14 +240,14 @@ bool PackageJobThread::installPackage(const QString &src, const QString &dest, P
     } else {
         qCWarning(KPACKAGE_LOG) << "Couldn't open metadata file" << src << path;
         d->errorMessage = i18n("Could not open metadata file: %1", src);
-        d->errorCode = Package::JobError::MetadataFileMissingError;
+        d->errorCode = PackageJob::JobError::MetadataFileMissingError;
         return false;
     }
 
     if (!meta.isValid()) {
         qCDebug(KPACKAGE_LOG) << "No metadata file in package" << src << path;
         d->errorMessage = i18n("No metadata file in package: %1", src);
-        d->errorCode = Package::JobError::MetadataFileMissingError;
+        d->errorCode = PackageJob::JobError::MetadataFileMissingError;
         return false;
     }
 
@@ -256,7 +256,7 @@ bool PackageJobThread::installPackage(const QString &src, const QString &dest, P
     if (pluginName == QLatin1String("metadata")) {
         // qCWarning(KPACKAGE_LOG) << "Package plugin id not specified";
         d->errorMessage = i18n("Package plugin id not specified: %1", src);
-        d->errorCode = Package::JobError::PluginIdInvalidError;
+        d->errorCode = PackageJob::JobError::PluginIdInvalidError;
         return false;
     }
 
@@ -266,7 +266,7 @@ bool PackageJobThread::installPackage(const QString &src, const QString &dest, P
     if (!validatePluginName.match(pluginName).hasMatch()) {
         // qCDebug(KPACKAGE_LOG) << "Package plugin id " << pluginName << "contains invalid characters";
         d->errorMessage = i18n("Package plugin id %1 contains invalid characters", pluginName);
-        d->errorCode = Package::JobError::PluginIdInvalidError;
+        d->errorCode = PackageJob::JobError::PluginIdInvalidError;
         return false;
     }
 
@@ -285,20 +285,20 @@ bool PackageJobThread::installPackage(const QString &src, const QString &dest, P
 
             if (readKPackageType(oldMeta) != readKPackageType(meta)) {
                 d->errorMessage = i18n("The new package has a different type from the old version already installed.");
-                d->errorCode = Package::JobError::UpdatePackageTypeMismatchError;
+                d->errorCode = PackageJob::JobError::UpdatePackageTypeMismatchError;
             } else if (isVersionNewer(oldMeta.version(), meta.version())) {
                 const bool ok = uninstallPackage(targetName);
                 if (!ok) {
                     d->errorMessage = i18n("Impossible to remove the old installation of %1 located at %2. error: %3", pluginName, targetName, d->errorMessage);
-                    d->errorCode = Package::JobError::OldVersionRemovalError;
+                    d->errorCode = PackageJob::JobError::OldVersionRemovalError;
                 }
             } else {
                 d->errorMessage = i18n("Not installing version %1 of %2. Version %3 already installed.", meta.version(), meta.pluginId(), oldMeta.version());
-                d->errorCode = Package::JobError::NewerVersionAlreadyInstalledError;
+                d->errorCode = PackageJob::JobError::NewerVersionAlreadyInstalledError;
             }
         } else {
             d->errorMessage = i18n("%1 already exists", targetName);
-            d->errorCode = Package::JobError::PackageAlreadyInstalledError;
+            d->errorCode = PackageJob::JobError::PackageAlreadyInstalledError;
         }
 
         if (d->errorCode != KJob::NoError) {
@@ -319,7 +319,7 @@ bool PackageJobThread::installPackage(const QString &src, const QString &dest, P
         }
         if (!installDependency(depUrl)) {
             d->errorMessage = i18n("Could not install dependency: '%1'", dep);
-            d->errorCode = Package::JobError::PackageCopyError;
+            d->errorCode = PackageJob::JobError::PackageCopyError;
             return false;
         }
     }
@@ -331,7 +331,7 @@ bool PackageJobThread::installPackage(const QString &src, const QString &dest, P
         if (!ok) {
             // qCWarning(KPACKAGE_LOG) << "Could not move package to destination:" << targetName;
             d->errorMessage = i18n("Could not move package to destination: %1", targetName);
-            d->errorCode = Package::JobError::PackageMoveError;
+            d->errorCode = PackageJob::JobError::PackageMoveError;
             return false;
         }
     } else {
@@ -341,7 +341,7 @@ bool PackageJobThread::installPackage(const QString &src, const QString &dest, P
         if (!ok) {
             // qCWarning(KPACKAGE_LOG) << "Could not copy package to destination:" << targetName;
             d->errorMessage = i18n("Could not copy package to destination: %1", targetName);
-            d->errorCode = Package::JobError::PackageCopyError;
+            d->errorCode = PackageJob::JobError::PackageCopyError;
             return false;
         }
     }
@@ -376,7 +376,7 @@ bool PackageJobThread::uninstallPackage(const QString &packagePath)
 {
     if (!QFile::exists(packagePath)) {
         d->errorMessage = packagePath.isEmpty() ? i18n("package path was deleted manually") : i18n("%1 does not exist", packagePath);
-        d->errorCode = Package::JobError::PackageFileNotFoundError;
+        d->errorCode = PackageJob::JobError::PackageFileNotFoundError;
         return false;
     }
     QString pkg;
@@ -396,16 +396,16 @@ bool PackageJobThread::uninstallPackage(const QString &packagePath)
     bool ok = removeFolder(packagePath);
     if (!ok) {
         d->errorMessage = i18n("Could not delete package from: %1", packagePath);
-        d->errorCode = Package::JobError::PackageUninstallError;
+        d->errorCode = PackageJob::JobError::PackageUninstallError;
         return false;
     }
 
     return true;
 }
 
-Package::JobError PackageJobThread::errorCode() const
+PackageJob::JobError PackageJobThread::errorCode() const
 {
-    return static_cast<Package::JobError>(d->errorCode);
+    return static_cast<PackageJob::JobError>(d->errorCode);
 }
 
 } // namespace KPackage
