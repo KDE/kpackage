@@ -258,7 +258,11 @@ void PackageTool::showPackageInfo(const QString &pluginName)
     d->coutput(i18n("  Description: %1", i.description()));
     d->coutput(i18n("  Plugin     : %1", i.pluginId()));
     auto const authors = i.authors();
-    d->coutput(i18n("  Author     : %1", authors.first().name()));
+    QStringList authorNames;
+    for (const KAboutPerson &author : authors) {
+        authorNames << author.name();
+    }
+    d->coutput(i18n("  Author     : %1", authorNames.join(QLatin1String(", "))));
     d->coutput(i18n("  Path       : %1", pkg.path()));
 
     exit(0);
