@@ -27,6 +27,7 @@ private Q_SLOTS:
     void isValid();
     void filePath();
     void entryList();
+    void testInstallNonExistentPackageStructure();
 
     void packageInstalled(KJob *j);
     void packageUninstalled(KJob *j);
@@ -39,7 +40,7 @@ private:
     QString m_package;
     KJob *m_packageJob;
     KPackage::Package m_defaultPackage;
-    KPackage::PackageStructure *m_defaultPackageStructure;
+    const QString m_defaultPackageStructure = "KPackage/Test";
 };
 
 #endif

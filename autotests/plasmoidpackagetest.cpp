@@ -17,6 +17,7 @@
 #include <QDebug>
 #include <QJsonDocument>
 #include <QJsonObject>
+#include <qtestcase.h>
 
 #include "packagejob.h"
 #include "packageloader.h"
@@ -30,6 +31,7 @@ void PlasmoidPackageTest::initTestCase()
 void PlasmoidPackageTest::init()
 {
     qDebug() << "PlasmoidPackage::init()";
+    qRegisterMetaType<KPackage::Package>(); // Needed for signal spy
     m_package = QStringLiteral("Package");
     m_packageRoot = QStandardPaths::writableLocation(QStandardPaths::GenericDataLocation) + "/packageRoot";
     const auto pack = KPackage::PackageLoader::self()->loadPackageStructure("Plasma/TestKPackageInternalPlasmoid");
@@ -259,7 +261,7 @@ void PlasmoidPackageTest::createAndInstallPackage()
     QVERIFY(contents->entry(QStringLiteral("ui")));
     QVERIFY(contents->entry(QStringLiteral("images")));
 
-    m_defaultPackageStructure = new KPackage::PackageStructure(this);
+    KPackage::PackageLoader::self()->addKnownPackageStructure(m_defaultPackageStructure, new KPackage::PackageStructure(this));
     KPackage::Package p;
     qDebug() << "Installing " << packagePath;
     auto job = KPackage::PackageJob::install(m_defaultPackageStructure, packagePath, m_packageRoot);
@@ -310,7 +312,6 @@ void PlasmoidPackageTest::createAndUpdatePackage()
     QVERIFY(contents->entry(QStringLiteral("ui")));
     QVERIFY(contents->entry(QStringLiteral("images")));
 
-    m_defaultPackageStructure = new KPackage::PackageStructure(this);
     qDebug() << "Installing " << packagePath;
 
     KJob *job = KPackage::PackageJob::update(m_defaultPackageStructure, packagePath, m_packageRoot);
@@ -375,6 +376,19 @@ void PlasmoidPackageTest::packageInstalled(KJob *j)
 void PlasmoidPackageTest::packageUninstalled(KJob *j)
 {
     QVERIFY2(j->error() == KJob::NoError, qPrintable(j->errorText()));
+}
+void PlasmoidPackageTest::testInstallNonExistentPackageStructure()
+{
+    const QString packageName = "testpackage";
+    createTestPackage(packageName, "1.0");
+    auto job = KPackage::PackageJob::install("KPackage/DoesNotExist", packageName, m_packageRoot);
+    connect(job, &KPackage::PackageJob::finished, this, [](KJob *job, const KPackage::Package &package) {
+        QVERIFY(!package.isValid());
+        QVERIFY(job->error());
+        QCOMPARE(job->errorText(), "Could not load package structure KPackage/DoesNotExist");
+    });
+    QSignalSpy spy(job, &KPackage::PackageJob::finished);
+    QVERIFY(spy.wait(1000));
 }
 
 QTEST_MAIN(PlasmoidPackageTest)

@@ -127,8 +127,7 @@ void PackageTool::runMain()
         d->packageFile = d->package;
     }
 
-    PackageStructure *structure = PackageLoader::self()->loadPackageStructure(d->kpackageType);
-    if (!structure) {
+    if (!PackageLoader::self()->loadPackageStructure(d->kpackageType)) {
         qWarning() << "Package type" << d->kpackageType << "not found";
     }
 
@@ -191,8 +190,7 @@ void PackageTool::runMain()
 
             // Uninstalling ...
             if (installed.contains(pluginName)) { // Assume it's a plugin id
-                KPackage::PackageStructure *structure = KPackage::PackageLoader::self()->loadPackageStructure(d->kpackageType);
-                KPackage::PackageJob *uninstallJob = KPackage::PackageJob::uninstall(structure, pluginName, d->packageRoot);
+                KPackage::PackageJob *uninstallJob = KPackage::PackageJob::uninstall(d->kpackageType, pluginName, d->packageRoot);
                 connect(uninstallJob, &KPackage::PackageJob::finished, this, &PackageTool::packageUninstalled);
                 return;
             } else {
@@ -201,8 +199,7 @@ void PackageTool::runMain()
             }
         }
         if (d->parser->isSet(Options::install())) {
-            KPackage::PackageStructure *structure = KPackage::PackageLoader::self()->loadPackageStructure(d->kpackageType);
-            auto installJob = KPackage::PackageJob::install(structure, d->packageFile, d->packageRoot);
+            auto installJob = KPackage::PackageJob::install(d->kpackageType, d->packageFile, d->packageRoot);
             connect(installJob, &KPackage::PackageJob::finished, this, &PackageTool::packageInstalled);
             return;
         }
@@ -532,8 +529,7 @@ void PackageTool::packageUninstalled(KJob *job, const KPackage::Package &p)
     if (success) {
         if (d->parser->isSet(Options::upgrade())) {
             d->coutput(i18n("Upgrading package from file: %1", d->packageFile));
-            PackageStructure *structure = PackageLoader::self()->loadPackageStructure(d->kpackageType);
-            auto installJob = KPackage::PackageJob::install(structure, d->packageFile, d->packageRoot);
+            auto installJob = KPackage::PackageJob::install(d->kpackageType, d->packageFile, d->packageRoot);
             connect(installJob, &KPackage::PackageJob::finished, this, &PackageTool::packageInstalled);
             return;
         }

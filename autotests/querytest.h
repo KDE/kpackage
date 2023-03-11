@@ -21,7 +21,7 @@ private Q_SLOTS:
     void queryCustomPlugin();
 
 private:
-    KPackage::PackageStructure *structure;
+    const QString packageFormat = "Plasma/TestKPackageInternalPlasmoid";
     QDir m_dataDir;
 };
 

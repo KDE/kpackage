@@ -29,9 +29,9 @@ class KPACKAGE_EXPORT PackageJob : public KJob
 
 public:
     ~PackageJob() override;
-    static PackageJob *install(PackageStructure *structure, const QString &sourcePackage, const QString &packageRoot);
-    static PackageJob *update(PackageStructure *structure, const QString &sourcePackage, const QString &packageRoot);
-    static PackageJob *uninstall(PackageStructure *structure, const QString &pluginId, const QString &packageRoot);
+    static PackageJob *install(const QString &packageFormat, const QString &sourcePackage, const QString &packageRoot);
+    static PackageJob *update(const QString &packageFormat, const QString &sourcePackage, const QString &packageRoot);
+    static PackageJob *uninstall(const QString &packageFormat, const QString &pluginId, const QString &packageRoot);
 
     Q_SIGNAL void finished(KJob *job, const KPackage::Package &package);
 
@@ -47,6 +47,7 @@ private:
     void setupNotificationsOnJobFinished(const QString &messageName);
 
     const std::unique_ptr<PackageJobPrivate> d;
+    friend PackageJobPrivate;
 };
 
 }

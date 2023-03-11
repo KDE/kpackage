@@ -25,9 +25,28 @@
 
 namespace KPackage
 {
+struct StructureOrErrorJob {
+    PackageStructure *structure = nullptr;
+    PackageJob *errorJob = nullptr;
+};
 class PackageJobPrivate
 {
 public:
+    static StructureOrErrorJob loadStructure(const QString &packageFormat)
+    {
+        if (auto structure = PackageLoader::self()->loadPackageStructure(packageFormat)) {
+            return {.structure = structure};
+        } else {
+            auto job = new PackageJob(PackageJob::Install, Package(), QString(), QString());
+            job->setErrorText(QStringLiteral("Could not load package structure ") + packageFormat);
+            job->setError(KJob::UserDefinedError);
+            QTimer::singleShot(0, job, [job]() {
+                job->finished(job, KPackage::Package());
+                job->emitResult();
+            });
+            return {.errorJob = job};
+        }
+    }
     PackageJobThread *thread = nullptr;
     Package package;
     QString installPath;
@@ -67,54 +86,69 @@ void PackageJob::start()
     d->thread = nullptr;
 }
 
-PackageJob *PackageJob::install(PackageStructure *structure, const QString &sourcePackage, const QString &packageRoot)
+PackageJob *PackageJob::install(const QString &packageFormat, const QString &sourcePackage, const QString &packageRoot)
 {
-    Package package(structure);
-    package.setPath(sourcePackage);
-    QString dest = packageRoot.isEmpty() ? package.defaultPackageRoot() : packageRoot;
-    PackageLoader::invalidateCache();
+    auto structOrErr = PackageJobPrivate::loadStructure(packageFormat);
+    if (auto structure = structOrErr.structure) {
+        Package package(structure);
+        package.setPath(sourcePackage);
+        QString dest = packageRoot.isEmpty() ? package.defaultPackageRoot() : packageRoot;
+        PackageLoader::invalidateCache();
 
-    // use absolute paths if passed, otherwise go under share
-    if (!QDir::isAbsolutePath(dest)) {
-        dest = QStandardPaths::writableLocation(QStandardPaths::GenericDataLocation) + QLatin1Char('/') + dest;
+        // use absolute paths if passed, otherwise go under share
+        if (!QDir::isAbsolutePath(dest)) {
+            dest = QStandardPaths::writableLocation(QStandardPaths::GenericDataLocation) + QLatin1Char('/') + dest;
+        }
+        auto job = new PackageJob(Install, package, sourcePackage, dest);
+        job->start();
+        return job;
+    } else {
+        return structOrErr.errorJob;
     }
-    auto job = new PackageJob(Install, package, sourcePackage, dest);
-    job->start();
-    return job;
 }
 
-PackageJob *PackageJob::update(PackageStructure *structure, const QString &sourcePackage, const QString &packageRoot)
+PackageJob *PackageJob::update(const QString &packageFormat, const QString &sourcePackage, const QString &packageRoot)
 {
-    Package package(structure);
-    package.setPath(sourcePackage);
-    QString dest = packageRoot.isEmpty() ? package.defaultPackageRoot() : packageRoot;
-    PackageLoader::invalidateCache();
+    auto structOrErr = PackageJobPrivate::loadStructure(packageFormat);
+    if (auto structure = structOrErr.structure) {
+        Package package(structure);
+        package.setPath(sourcePackage);
+        QString dest = packageRoot.isEmpty() ? package.defaultPackageRoot() : packageRoot;
+        PackageLoader::invalidateCache();
 
-    // use absolute paths if passed, otherwise go under share
-    if (!QDir::isAbsolutePath(dest)) {
-        dest = QStandardPaths::writableLocation(QStandardPaths::GenericDataLocation) + QLatin1Char('/') + dest;
+        // use absolute paths if passed, otherwise go under share
+        if (!QDir::isAbsolutePath(dest)) {
+            dest = QStandardPaths::writableLocation(QStandardPaths::GenericDataLocation) + QLatin1Char('/') + dest;
+        }
+        auto job = new PackageJob(Update, package, sourcePackage, dest);
+        job->start();
+        return job;
+    } else {
+        return structOrErr.errorJob;
     }
-    auto job = new PackageJob(Update, package, sourcePackage, dest);
-    job->start();
-    return job;
 }
 
-PackageJob *PackageJob::uninstall(PackageStructure *structure, const QString &pluginId, const QString &packageRoot)
+PackageJob *PackageJob::uninstall(const QString &packageFormat, const QString &pluginId, const QString &packageRoot)
 {
-    Package package(structure);
-    QString uninstallPath;
-    // We handle the empty path when uninstalling the package
-    // If the dir already got deleted the pluginId is an empty string, without this
-    // check we would delete the package root, BUG: 410682
-    if (!pluginId.isEmpty()) {
-        uninstallPath = packageRoot + QLatin1Char('/') + pluginId;
-    }
-    package.setPath(uninstallPath);
+    auto structOrErr = PackageJobPrivate::loadStructure(packageFormat);
+    if (auto structure = structOrErr.structure) {
+        Package package(structure);
+        QString uninstallPath;
+        // We handle the empty path when uninstalling the package
+        // If the dir already got deleted the pluginId is an empty string, without this
+        // check we would delete the package root, BUG: 410682
+        if (!pluginId.isEmpty()) {
+            uninstallPath = packageRoot + QLatin1Char('/') + pluginId;
+        }
+        package.setPath(uninstallPath);
 
-    PackageLoader::invalidateCache();
-    auto job = new PackageJob(Uninstall, package, QString(), QString());
-    job->start();
-    return job;
+        PackageLoader::invalidateCache();
+        auto job = new PackageJob(Uninstall, package, QString(), QString());
+        job->start();
+        return job;
+    } else {
+        return structOrErr.errorJob;
+    }
 }
 
 void PackageJob::setupNotificationsOnJobFinished(const QString &messageName)
