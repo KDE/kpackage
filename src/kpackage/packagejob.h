@@ -50,9 +50,9 @@ public:
     };
 
     ~PackageJob() override;
-    static PackageJob *install(const QString &packageFormat, const QString &sourcePackage, const QString &packageRoot);
-    static PackageJob *update(const QString &packageFormat, const QString &sourcePackage, const QString &packageRoot);
-    static PackageJob *uninstall(const QString &packageFormat, const QString &pluginId, const QString &packageRoot);
+    static PackageJob *install(const QString &packageFormat, const QString &sourcePackage, const QString &packageRoot = QString());
+    static PackageJob *update(const QString &packageFormat, const QString &sourcePackage, const QString &packageRoot = QString());
+    static PackageJob *uninstall(const QString &packageFormat, const QString &pluginId, const QString &packageRoot = QString());
 
     Q_SIGNAL void finished(KJob *job, const KPackage::Package &package);
 
