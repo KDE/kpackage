@@ -81,9 +81,12 @@ PackageJob::~PackageJob() = default;
 
 void PackageJob::start()
 {
-    Q_ASSERT(d->thread);
-    QThreadPool::globalInstance()->start(d->thread);
-    d->thread = nullptr;
+    if (d->thread) {
+        QThreadPool::globalInstance()->start(d->thread);
+        d->thread = nullptr;
+    } else {
+        qCWarning(KPACKAGE_LOG) << "The KPackage::PackageJob was already started";
+    }
 }
 
 PackageJob *PackageJob::install(const QString &packageFormat, const QString &sourcePackage, const QString &packageRoot)

@@ -50,8 +50,11 @@ public:
     };
 
     ~PackageJob() override;
+    /// Installs the give, package. The returned job is already started
     static PackageJob *install(const QString &packageFormat, const QString &sourcePackage, const QString &packageRoot = QString());
+    /// Installs the give, package. The returned job is already started
     static PackageJob *update(const QString &packageFormat, const QString &sourcePackage, const QString &packageRoot = QString());
+    /// Installs the give, package. The returned job is already started
     static PackageJob *uninstall(const QString &packageFormat, const QString &pluginId, const QString &packageRoot = QString());
 
     Q_SIGNAL void finished(KJob *job, const KPackage::Package &package);
