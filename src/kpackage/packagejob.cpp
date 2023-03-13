@@ -35,7 +35,7 @@ public:
     static StructureOrErrorJob loadStructure(const QString &packageFormat)
     {
         if (auto structure = PackageLoader::self()->loadPackageStructure(packageFormat)) {
-            return {.structure = structure};
+            return StructureOrErrorJob{structure, nullptr};
         } else {
             auto job = new PackageJob(PackageJob::Install, Package(), QString(), QString());
             job->setErrorText(QStringLiteral("Could not load package structure ") + packageFormat);
@@ -44,7 +44,7 @@ public:
                 job->finished(job, KPackage::Package());
                 job->emitResult();
             });
-            return {.errorJob = job};
+            return StructureOrErrorJob{nullptr, job};
         }
     }
     PackageJobThread *thread = nullptr;
