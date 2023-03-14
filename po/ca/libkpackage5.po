@@ -1,9 +1,9 @@
 # Translation of libkpackage5.po to Catalan
-# Copyright (C) 2014-2022 This_file_is_part_of_KDE
+# Copyright (C) 2014-2023 This_file_is_part_of_KDE
 # This file is distributed under the license LGPL version 2.1 or
 # version 3 or later versions approved by the membership of KDE e.V.
 #
-# Josep M. Ferrer <txemaq@gmail.com>, 2014, 2015, 2016, 2017, 2018, 2019, 2020, 2021, 2022.
+# Josep M. Ferrer <txemaq@gmail.com>, 2014, 2015, 2016, 2017, 2018, 2019, 2020, 2021, 2022, 2023.
 # Antoni Bella Pérez <antonibella5@yahoo.com>, 2014, 2015, 2016, 2017, 2020, 2022.
 # Empar Montoro Martín <montoro_mde@gva.es>, 2019.
 msgid ""
@@ -11,7 +11,7 @@ msgstr ""
 "Project-Id-Version: kpackage\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2022-09-15 00:41+0000\n"
-"PO-Revision-Date: 2022-07-26 13:14+0200\n"
+"PO-Revision-Date: 2023-03-13 10:33+0100\n"
 "Last-Translator: Josep M. Ferrer <txemaq@gmail.com>\n"
 "Language-Team: Catalan <kde-i18n-ca@kde.org>\n"
 "Language: ca\n"
@@ -285,7 +285,7 @@ msgstr "Tipus de paquets que es poden instal·lar amb aquesta eina:"
 #: kpackagetool/kpackagetool.cpp:598
 #, kde-format
 msgid "Built in:"
-msgstr "Incorporats:"
+msgstr "Integrats:"
 
 #: kpackagetool/kpackagetool.cpp:601
 #, kde-format
@@ -442,63 +442,3 @@ msgstr "Sortida de les metadades per al paquet <camí>"
 msgctxt "Do not translate <path>"
 msgid "Outputs the metadata for the package into <path>"
 msgstr "Sortida de les metadades per al paquet dins del <camí>"
-
-#~ msgid "Accessibility"
-#~ msgstr "Accessibilitat"
-
-#~ msgid "Application Launchers"
-#~ msgstr "Llançadors d'aplicacions"
-
-#~ msgid "Astronomy"
-#~ msgstr "Astronomia"
-
-#~ msgid "Date and Time"
-#~ msgstr "Data i hora"
-
-#~ msgid "Development Tools"
-#~ msgstr "Eines de desenvolupament"
-
-#~ msgid "Education"
-#~ msgstr "Educació"
-
-#~ msgid "Environment and Weather"
-#~ msgstr "Medi ambient i meteorologia"
-
-#~ msgid "Examples"
-#~ msgstr "Exemples"
-
-#~ msgid "File System"
-#~ msgstr "Sistema de fitxers"
-
-#~ msgid "Fun and Games"
-#~ msgstr "Jocs i esbarjo"
-
-#~ msgid "Graphics"
-#~ msgstr "Gràfics"
-
-#~ msgid "Language"
-#~ msgstr "Idioma"
-
-#~ msgid "Mapping"
-#~ msgstr "Cartografia"
-
-#~ msgid "Miscellaneous"
-#~ msgstr "Miscel·lània"
-
-#~ msgid "Multimedia"
-#~ msgstr "Multimèdia"
-
-#~ msgid "Online Services"
-#~ msgstr "Serveis en línia"
-
-#~ msgid "Productivity"
-#~ msgstr "Productivitat"
-
-#~ msgid "System Information"
-#~ msgstr "Informació del sistema"
-
-#~ msgid "Utilities"
-#~ msgstr "Utilitats"
-
-#~ msgid "Windows and Tasks"
-#~ msgstr "Finestres i tasques"
