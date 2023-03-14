@@ -38,7 +38,6 @@
 #include "../kpackage/config-package.h"
 
 #include "kpackage_debug.h"
-#include "packagejob.h"
 
 Q_GLOBAL_STATIC_WITH_ARGS(QTextStream, cout, (stdout))
 Q_GLOBAL_STATIC_WITH_ARGS(QTextStream, cerr, (stderr))
@@ -191,7 +190,9 @@ void PackageTool::runMain()
             // Uninstalling ...
             if (installed.contains(pluginName)) { // Assume it's a plugin id
                 KPackage::PackageJob *uninstallJob = KPackage::PackageJob::uninstall(d->kpackageType, pluginName, d->packageRoot);
-                connect(uninstallJob, &KPackage::PackageJob::finished, this, &PackageTool::packageUninstalled);
+                connect(uninstallJob, &KPackage::PackageJob::finished, this, [uninstallJob, this]() {
+                    packageUninstalled(uninstallJob);
+                });
                 return;
             } else {
                 d->coutput(i18n("Error: Plugin %1 is not installed.", pluginName));
@@ -200,7 +201,9 @@ void PackageTool::runMain()
         }
         if (d->parser->isSet(Options::install())) {
             auto installJob = KPackage::PackageJob::install(d->kpackageType, d->packageFile, d->packageRoot);
-            connect(installJob, &KPackage::PackageJob::finished, this, &PackageTool::packageInstalled);
+            connect(installJob, &KPackage::PackageJob::finished, this, [installJob, this]() {
+                packageInstalled(installJob);
+            });
             return;
         }
         if (d->package.isEmpty()) {
@@ -509,15 +512,15 @@ void PackageToolPrivate::listTypes()
     }
 }
 
-void PackageTool::packageInstalled(KJob *job, const KPackage::Package &p)
+void PackageTool::packageInstalled(KPackage::PackageJob *job)
 {
     bool success = (job->error() == KJob::NoError);
     int exitcode = 0;
     if (success) {
         if (d->parser->isSet(Options::upgrade())) {
-            d->coutput(i18n("Successfully upgraded %1", p.path()));
+            d->coutput(i18n("Successfully upgraded %1", job->package().path()));
         } else {
-            d->coutput(i18n("Successfully installed %1", p.path()));
+            d->coutput(i18n("Successfully installed %1", job->package().path()));
         }
     } else {
         d->cerror(i18n("Error: Installation of %1 failed: %2", d->packageFile, job->errorText()));
@@ -526,7 +529,7 @@ void PackageTool::packageInstalled(KJob *job, const KPackage::Package &p)
     exit(exitcode);
 }
 
-void PackageTool::packageUninstalled(KJob *job, const KPackage::Package &p)
+void PackageTool::packageUninstalled(KPackage::PackageJob *job)
 {
     bool success = (job->error() == KJob::NoError);
     int exitcode = 0;
@@ -534,10 +537,12 @@ void PackageTool::packageUninstalled(KJob *job, const KPackage::Package &p)
         if (d->parser->isSet(Options::upgrade())) {
             d->coutput(i18n("Upgrading package from file: %1", d->packageFile));
             auto installJob = KPackage::PackageJob::install(d->kpackageType, d->packageFile, d->packageRoot);
-            connect(installJob, &KPackage::PackageJob::finished, this, &PackageTool::packageInstalled);
+            connect(installJob, &KPackage::PackageJob::finished, this, [installJob, this]() {
+                packageInstalled(installJob);
+            });
             return;
         }
-        d->coutput(i18n("Successfully uninstalled %1", p.path()));
+        d->coutput(i18n("Successfully uninstalled %1", job->package().path()));
     } else {
         d->cerror(i18n("Error: Uninstallation of %1 failed: %2", d->packageFile, job->errorText()));
         exitcode = 7;

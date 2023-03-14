@@ -57,7 +57,7 @@ public:
     /// Installs the give, package. The returned job is already started
     static PackageJob *uninstall(const QString &packageFormat, const QString &pluginId, const QString &packageRoot = QString());
 
-    Q_SIGNAL void finished(KJob *job, const KPackage::Package &package);
+    KPackage::Package package() const;
 
 private:
     friend class PackageJobThread;

@@ -41,7 +41,6 @@ public:
             job->setErrorText(QStringLiteral("Could not load package structure ") + packageFormat);
             job->setError(PackageJob::JobError::InvalidPackageStructure);
             QTimer::singleShot(0, job, [job]() {
-                job->finished(job, KPackage::Package());
                 job->emitResult();
             });
             return StructureOrErrorJob{nullptr, job};
@@ -73,7 +72,7 @@ PackageJob::PackageJob(OperationType type, const Package &package, const QString
         d->package.setPath(installPath);
     });
     connect(d->thread, &PackageJobThread::jobThreadFinished, this, [this]() {
-        Q_EMIT finished(this, d->package);
+        emitResult();
     });
 }
 
@@ -154,6 +153,10 @@ PackageJob *PackageJob::uninstall(const QString &packageFormat, const QString &p
     }
 }
 
+KPackage::Package PackageJob::package() const
+{
+    return d->package;
+}
 void PackageJob::setupNotificationsOnJobFinished(const QString &messageName)
 {
     // capture first as uninstalling wipes d->package
