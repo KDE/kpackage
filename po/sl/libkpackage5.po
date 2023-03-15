@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2023-03-01 21:29+0000\n"
+"POT-Creation-Date: 2023-03-15 02:11+0000\n"
 "PO-Revision-Date: 2023-03-04 10:02+0100\n"
 "Last-Translator: Matjaž Jeran <matjaz.jeran@amis.net>\n"
 "Language-Team: Slovenian <lugos-slo@lugos.si>\n"
@@ -30,108 +30,108 @@ msgctxt "EMAIL OF TRANSLATORS"
 msgid "Your emails"
 msgstr "matjaz.jeran@amis.net"
 
-#: kpackage/package.cpp:42
+#: kpackage/package.cpp:40
 #, kde-format
 msgid "JSON file that describes this package."
 msgstr "Datoteka JSON, ki opisuje ta paket."
 
-#: kpackage/packageloader.cpp:221
+#: kpackage/packageloader.cpp:223
 #, kde-format
 msgid "Could not load installer for package of type %1. Error reported was: %2"
 msgstr ""
 "Za paket vrste »%1« ni bilo mogoče naložiti primernega namestilnika. "
 "Sporočena napaka je: %2"
 
-#: kpackage/private/packagejobthread.cpp:164
+#: kpackage/private/packagejobthread.cpp:163
 #, kde-format
 msgid "Could not create package root directory: %1"
 msgstr "Ni bilo mogoče ustvariti korenske mape paketa: %1"
 
-#: kpackage/private/packagejobthread.cpp:173
+#: kpackage/private/packagejobthread.cpp:172
 #, kde-format
 msgid "No such file: %1"
 msgstr "Datoteka ne obstaja: %1"
 
-#: kpackage/private/packagejobthread.cpp:203
+#: kpackage/private/packagejobthread.cpp:202
 #, kde-format
 msgid "Could not open package file, unsupported archive format: %1 %2"
 msgstr ""
 "Ni bilo mogoče odpreti datoteke s paketom, vrsta arhiva ni podprta: %1 %2"
 
-#: kpackage/private/packagejobthread.cpp:211
+#: kpackage/private/packagejobthread.cpp:210
 #, kde-format
 msgid "Could not open package file: %1"
 msgstr "Ni bilo mogoče odpreti datoteke s paketom: %1"
 
-#: kpackage/private/packagejobthread.cpp:243
+#: kpackage/private/packagejobthread.cpp:242
 #, kde-format
 msgid "Could not open metadata file: %1"
 msgstr "Ni bilo mogoče odpreti datoteke z metapodatki: %1"
 
-#: kpackage/private/packagejobthread.cpp:250
+#: kpackage/private/packagejobthread.cpp:249
 #, kde-format
 msgid "No metadata file in package: %1"
 msgstr "V paketu ni datoteke z metapodatki: %1"
 
-#: kpackage/private/packagejobthread.cpp:259
+#: kpackage/private/packagejobthread.cpp:258
 #, kde-format
 msgid "Package plugin id not specified: %1"
 msgstr "Določilnik vstavka v paketu ni naveden: %1"
 
-#: kpackage/private/packagejobthread.cpp:269
+#: kpackage/private/packagejobthread.cpp:268
 #, kde-format
 msgid "Package plugin id %1 contains invalid characters"
 msgstr "Določilnik vstavka v paketu, %1 vsebuje neveljavne znake"
 
-#: kpackage/private/packagejobthread.cpp:288
+#: kpackage/private/packagejobthread.cpp:287
 #, kde-format
 msgid ""
 "The new package has a different type from the old version already installed."
 msgstr "Nov paket se po vrsti razlikuje od stare, že nameščene, različice."
 
-#: kpackage/private/packagejobthread.cpp:293
+#: kpackage/private/packagejobthread.cpp:292
 #, kde-format
 msgid ""
 "Impossible to remove the old installation of %1 located at %2. error: %3"
 msgstr ""
 "Stare namestitve %1, ki se nahaja v %2, ni mogoče odstraniti. Napaka: %3"
 
-#: kpackage/private/packagejobthread.cpp:297
+#: kpackage/private/packagejobthread.cpp:296
 #, kde-format
 msgid "Not installing version %1 of %2. Version %3 already installed."
 msgstr "Različica %2 %1 ne bo nameščena. Različica %3 je že nameščena."
 
-#: kpackage/private/packagejobthread.cpp:301
+#: kpackage/private/packagejobthread.cpp:300
 #, kde-format
 msgid "%1 already exists"
 msgstr "%1 že obstaja"
 
-#: kpackage/private/packagejobthread.cpp:322
+#: kpackage/private/packagejobthread.cpp:321
 #, kde-format
 msgid "Could not install dependency: '%1'"
 msgstr "Ni bilo mogoče namestiti odvisnosti: »%1«"
 
-#: kpackage/private/packagejobthread.cpp:334
+#: kpackage/private/packagejobthread.cpp:333
 #, kde-format
 msgid "Could not move package to destination: %1"
 msgstr "Ni bilo mogoče premakniti paketa v cilj: %1"
 
-#: kpackage/private/packagejobthread.cpp:344
+#: kpackage/private/packagejobthread.cpp:343
 #, kde-format
 msgid "Could not copy package to destination: %1"
 msgstr "Ni bilo mogoče kopirati paketa v cilj: %1"
 
-#: kpackage/private/packagejobthread.cpp:380
+#: kpackage/private/packagejobthread.cpp:378
 #, kde-format
 msgid "package path was deleted manually"
 msgstr "pot paketa je bila ročno zbrisana"
 
-#: kpackage/private/packagejobthread.cpp:380
+#: kpackage/private/packagejobthread.cpp:378
 #, kde-format
 msgid "%1 does not exist"
 msgstr "%1 ne obstaja"
 
-#: kpackage/private/packagejobthread.cpp:400
+#: kpackage/private/packagejobthread.cpp:398
 #, kde-format
 msgid "Could not delete package from: %1"
 msgstr "Ni bilo mogoče izbrisati paketa iz: %1"
@@ -181,33 +181,28 @@ msgstr "Prevodi"
 msgid "Main UI File"
 msgstr "Glavna datoteka z vmesnikom"
 
-#: kpackagetool/kpackagetool.cpp:88
+#: kpackagetool/kpackagetool.cpp:87
 #, kde-format
 msgid "Failed to generate a Package hash for %1"
 msgstr "Ni bilo mogoče ustvariti razpršila za paket %1"
 
-#: kpackagetool/kpackagetool.cpp:91
+#: kpackagetool/kpackagetool.cpp:90
 #, kde-format
 msgid "SHA1 hash for Package at %1: '%2'"
 msgstr "Razpršilo SHA1 za paket v %1: »%2«"
 
-#: kpackagetool/kpackagetool.cpp:130
-#, kde-format
-msgctxt "package type"
-msgid "wallpaper"
-msgstr "ozadje"
-
-#: kpackagetool/kpackagetool.cpp:163
-#, kde-format
-msgid "Listing service types: %1 in %2"
+#: kpackagetool/kpackagetool.cpp:145
+#, fuzzy, kde-format
+#| msgid "Listing service types: %1 in %2"
+msgid "Listing KPackageType: %1 in %2"
 msgstr "Izpisovanje seznama vrst storitev: %1 v %2"
 
-#: kpackagetool/kpackagetool.cpp:241
+#: kpackagetool/kpackagetool.cpp:198
 #, kde-format
 msgid "Error: Plugin %1 is not installed."
 msgstr "Napaka: vstavek %1 ni nameščen."
 
-#: kpackagetool/kpackagetool.cpp:255
+#: kpackagetool/kpackagetool.cpp:212
 #, kde-format
 msgctxt ""
 "No option was given, this is the error message telling the user he needs at "
@@ -215,42 +210,47 @@ msgctxt ""
 msgid "One of install, remove, upgrade or list is required."
 msgstr "Zahtevano je eno dejanje: install, remove, upgrade ali list."
 
-#: kpackagetool/kpackagetool.cpp:308 kpackagetool/kpackagetool.cpp:386
+#: kpackagetool/kpackagetool.cpp:255 kpackagetool/kpackagetool.cpp:333
 #, kde-format
 msgid "Error: Can't find plugin metadata: %1\n"
 msgstr "Napaka: ni mogoče najti metapodatkov vstavka: %1\n"
 
-#: kpackagetool/kpackagetool.cpp:312
+#: kpackagetool/kpackagetool.cpp:259
 #, kde-format
 msgid "Showing info for package: %1"
 msgstr "Prikazovanje podrobnosti paketa: %1"
 
-#: kpackagetool/kpackagetool.cpp:313
-#, kde-format
-msgid "      Name : %1"
+#: kpackagetool/kpackagetool.cpp:260
+#, fuzzy, kde-format
+#| msgid "      Name : %1"
+msgid "  Name       : %1"
 msgstr "      Ime : %1"
 
-#: kpackagetool/kpackagetool.cpp:314
-#, kde-format
-msgid "   Comment : %1"
-msgstr "   Opomba : %1"
+#: kpackagetool/kpackagetool.cpp:261
+#, fuzzy, kde-format
+#| msgid "Service Descriptions"
+msgid "  Description: %1"
+msgstr "Opisi storitev"
 
-#: kpackagetool/kpackagetool.cpp:315
-#, kde-format
-msgid "    Plugin : %1"
+#: kpackagetool/kpackagetool.cpp:262
+#, fuzzy, kde-format
+#| msgid "    Plugin : %1"
+msgid "  Plugin     : %1"
 msgstr "    Vstavek : %1"
 
-#: kpackagetool/kpackagetool.cpp:317
-#, kde-format
-msgid "    Author : %1"
+#: kpackagetool/kpackagetool.cpp:268
+#, fuzzy, kde-format
+#| msgid "    Author : %1"
+msgid "  Author     : %1"
 msgstr "    Avtor : %1"
 
-#: kpackagetool/kpackagetool.cpp:318
-#, kde-format
-msgid "      Path : %1"
+#: kpackagetool/kpackagetool.cpp:269
+#, fuzzy, kde-format
+#| msgid "      Path : %1"
+msgid "  Path       : %1"
 msgstr "      Pot : %1"
 
-#: kpackagetool/kpackagetool.cpp:479
+#: kpackagetool/kpackagetool.cpp:426
 #, kde-format
 msgctxt ""
 "The user entered conflicting options packageroot and global, this is the "
@@ -260,67 +260,67 @@ msgid ""
 "only one."
 msgstr "Možnosti packageroot in splošne možnosti so v sporu. Izberite le eno."
 
-#: kpackagetool/kpackagetool.cpp:507
+#: kpackagetool/kpackagetool.cpp:454
 #, kde-format
 msgid "KPackage Structure Name"
 msgstr "Ime strukture KPackage"
 
-#: kpackagetool/kpackagetool.cpp:508
+#: kpackagetool/kpackagetool.cpp:455
 #, kde-format
 msgid "Path"
 msgstr "Pot"
 
-#: kpackagetool/kpackagetool.cpp:539
+#: kpackagetool/kpackagetool.cpp:486
 #, kde-format
 msgid "Package types that are installable with this tool:"
 msgstr "Vrste paketov, ki jih je mogoče namestiti s tem orodjem:"
 
-#: kpackagetool/kpackagetool.cpp:540
+#: kpackagetool/kpackagetool.cpp:487
 #, kde-format
 msgid "Built in:"
 msgstr "Vgrajeni:"
 
-#: kpackagetool/kpackagetool.cpp:543
+#: kpackagetool/kpackagetool.cpp:490
 #, kde-format
 msgid "KPackage/Generic"
 msgstr "KPackage/Splošno"
 
-#: kpackagetool/kpackagetool.cpp:544
+#: kpackagetool/kpackagetool.cpp:491
 #, kde-format
 msgid "KPackage/GenericQML"
 msgstr "KPackage/GenericQML"
 
-#: kpackagetool/kpackagetool.cpp:552
+#: kpackagetool/kpackagetool.cpp:499
 #, kde-format
 msgid "Provided by plugins:"
 msgstr "Na voljo prek vstavkov:"
 
-#: kpackagetool/kpackagetool.cpp:574
+#: kpackagetool/kpackagetool.cpp:521
 #, kde-format
 msgid "Successfully upgraded %1"
 msgstr "%1 je bil uspešno nadgrajen"
 
-#: kpackagetool/kpackagetool.cpp:576
+#: kpackagetool/kpackagetool.cpp:523
 #, kde-format
 msgid "Successfully installed %1"
 msgstr "%1 je bil uspešno nameščen"
 
-#: kpackagetool/kpackagetool.cpp:579
+#: kpackagetool/kpackagetool.cpp:526
 #, kde-format
 msgid "Error: Installation of %1 failed: %2"
 msgstr "Napaka: namestitev %1 je spodletela: %2"
 
-#: kpackagetool/kpackagetool.cpp:591
+#: kpackagetool/kpackagetool.cpp:538
 #, kde-format
 msgid "Upgrading package from file: %1"
 msgstr "Nadgrajevanje paketa iz datoteke: %1"
 
-#: kpackagetool/kpackagetool.cpp:598
+#: kpackagetool/kpackagetool.cpp:545
 #, kde-format
 msgid "Successfully uninstalled %1"
 msgstr "%1 je bil uspešno odstranjen"
 
-#: kpackagetool/kpackagetool.cpp:600
+#: kpackagetool/kpackagetool.cpp:547
 #, kde-format
 msgid "Error: Uninstallation of %1 failed: %2"
 msgstr "Napaka: odstranitev %1 je spodletela: %2"
@@ -411,6 +411,13 @@ msgstr "Izpiše metapodatke za paket <path>"
 msgctxt "Do not translate <path>"
 msgid "Outputs the metadata for the package into <path>"
 msgstr "Izpiše metapodatke za paket v <path>"
+
+#~ msgctxt "package type"
+#~ msgid "wallpaper"
+#~ msgstr "ozadje"
+
+#~ msgid "   Comment : %1"
+#~ msgstr "   Opomba : %1"
 
 #~ msgid "Desktop file that describes this package."
 #~ msgstr "Datoteka .desktop, ki opisuje ta paket."
@@ -654,9 +661,6 @@ msgstr "Izpiše metapodatke za paket v <path>"
 
 #~ msgid "Configuration XML file"
 #~ msgstr "Datoteka XML z nastavitvami"
-
-#~ msgid "Service Descriptions"
-#~ msgstr "Opisi storitev"
 
 #~ msgid "Images for dialogs"
 #~ msgstr "Slike za pogovorna okna"

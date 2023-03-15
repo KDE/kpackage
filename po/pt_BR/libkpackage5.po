@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: libkpackage5\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2023-03-01 21:29+0000\n"
+"POT-Creation-Date: 2023-03-15 02:11+0000\n"
 "PO-Revision-Date: 2022-08-19 14:57-0300\n"
 "Last-Translator: Luiz Fernando Ranghetti <elchevive@opensuse.org>\n"
 "Language-Team: Portuguese <kde-i18n-pt_BR@kde.org>\n"
@@ -29,110 +29,110 @@ msgctxt "EMAIL OF TRANSLATORS"
 msgid "Your emails"
 msgstr "elchevive@opensuse.org, alvarenga@kde.org"
 
-#: kpackage/package.cpp:42
+#: kpackage/package.cpp:40
 #, fuzzy, kde-format
 #| msgid "Desktop file that describes this package."
 msgid "JSON file that describes this package."
 msgstr "Arquivo 'desktop' que descreve este pacote."
 
-#: kpackage/packageloader.cpp:221
+#: kpackage/packageloader.cpp:223
 #, kde-format
 msgid "Could not load installer for package of type %1. Error reported was: %2"
 msgstr ""
 "Não foi possível carregar o instalador do pacote do tipo %1. O erro "
 "reportado foi: %2"
 
-#: kpackage/private/packagejobthread.cpp:164
+#: kpackage/private/packagejobthread.cpp:163
 #, kde-format
 msgid "Could not create package root directory: %1"
 msgstr "Não foi possível criar a pasta raiz do pacote: %1"
 
-#: kpackage/private/packagejobthread.cpp:173
+#: kpackage/private/packagejobthread.cpp:172
 #, kde-format
 msgid "No such file: %1"
 msgstr "Não existe o arquivo: %1"
 
-#: kpackage/private/packagejobthread.cpp:203
+#: kpackage/private/packagejobthread.cpp:202
 #, kde-format
 msgid "Could not open package file, unsupported archive format: %1 %2"
 msgstr ""
 "Não foi possível abrir o pacote, formato de arquivo não suportado: %1 %2"
 
-#: kpackage/private/packagejobthread.cpp:211
+#: kpackage/private/packagejobthread.cpp:210
 #, kde-format
 msgid "Could not open package file: %1"
 msgstr "Não foi possível abrir o pacote: %1"
 
-#: kpackage/private/packagejobthread.cpp:243
+#: kpackage/private/packagejobthread.cpp:242
 #, kde-format
 msgid "Could not open metadata file: %1"
 msgstr "Não foi possível abrir o arquivo de metadados: %1"
 
-#: kpackage/private/packagejobthread.cpp:250
+#: kpackage/private/packagejobthread.cpp:249
 #, kde-format
 msgid "No metadata file in package: %1"
 msgstr "Nenhum arquivo de metadados no pacote: %1"
 
-#: kpackage/private/packagejobthread.cpp:259
+#: kpackage/private/packagejobthread.cpp:258
 #, fuzzy, kde-format
 #| msgid "Package plugin name not specified: %1"
 msgid "Package plugin id not specified: %1"
 msgstr "O nome do plugin do pacote não foi indicado: %1"
 
-#: kpackage/private/packagejobthread.cpp:269
+#: kpackage/private/packagejobthread.cpp:268
 #, fuzzy, kde-format
 #| msgid "Package plugin name %1 contains invalid characters"
 msgid "Package plugin id %1 contains invalid characters"
 msgstr "O nome do plugin do pacote %1 contém caracteres inválidos"
 
-#: kpackage/private/packagejobthread.cpp:288
+#: kpackage/private/packagejobthread.cpp:287
 #, kde-format
 msgid ""
 "The new package has a different type from the old version already installed."
 msgstr "O novo pacote tem um tipo diferente da versão antiga já instalada."
 
-#: kpackage/private/packagejobthread.cpp:293
+#: kpackage/private/packagejobthread.cpp:292
 #, kde-format
 msgid ""
 "Impossible to remove the old installation of %1 located at %2. error: %3"
 msgstr "Não é possível remover a instalação antiga do %1 em %2. Erro: %3"
 
-#: kpackage/private/packagejobthread.cpp:297
+#: kpackage/private/packagejobthread.cpp:296
 #, kde-format
 msgid "Not installing version %1 of %2. Version %3 already installed."
 msgstr "A versão %1 do %2 não será instalada. A versão %3 já está instalada."
 
-#: kpackage/private/packagejobthread.cpp:301
+#: kpackage/private/packagejobthread.cpp:300
 #, kde-format
 msgid "%1 already exists"
 msgstr "%1 já existe"
 
-#: kpackage/private/packagejobthread.cpp:322
+#: kpackage/private/packagejobthread.cpp:321
 #, kde-format
 msgid "Could not install dependency: '%1'"
 msgstr "Não foi possível instalar a dependência: '%1'"
 
-#: kpackage/private/packagejobthread.cpp:334
+#: kpackage/private/packagejobthread.cpp:333
 #, kde-format
 msgid "Could not move package to destination: %1"
 msgstr "Não foi possível mover o pacote para o destino: %1"
 
-#: kpackage/private/packagejobthread.cpp:344
+#: kpackage/private/packagejobthread.cpp:343
 #, kde-format
 msgid "Could not copy package to destination: %1"
 msgstr "Não foi possível copiar o pacote para o destino: %1"
 
-#: kpackage/private/packagejobthread.cpp:380
+#: kpackage/private/packagejobthread.cpp:378
 #, kde-format
 msgid "package path was deleted manually"
 msgstr "o caminho do pacote foi excluído manualmente"
 
-#: kpackage/private/packagejobthread.cpp:380
+#: kpackage/private/packagejobthread.cpp:378
 #, kde-format
 msgid "%1 does not exist"
 msgstr "%1 não existe"
 
-#: kpackage/private/packagejobthread.cpp:400
+#: kpackage/private/packagejobthread.cpp:398
 #, kde-format
 msgid "Could not delete package from: %1"
 msgstr "Não foi possível excluir o pacote de: %1"
@@ -182,33 +182,28 @@ msgstr "Traduções"
 msgid "Main UI File"
 msgstr "Arquivo principal da interface gráfica"
 
-#: kpackagetool/kpackagetool.cpp:88
+#: kpackagetool/kpackagetool.cpp:87
 #, kde-format
 msgid "Failed to generate a Package hash for %1"
 msgstr "Não foi possível gerar um código do pacote para %1"
 
-#: kpackagetool/kpackagetool.cpp:91
+#: kpackagetool/kpackagetool.cpp:90
 #, kde-format
 msgid "SHA1 hash for Package at %1: '%2'"
 msgstr "Código SHA1 do pacote em %1: '%2'"
 
-#: kpackagetool/kpackagetool.cpp:130
-#, kde-format
-msgctxt "package type"
-msgid "wallpaper"
-msgstr "papel de parede"
-
-#: kpackagetool/kpackagetool.cpp:163
-#, kde-format
-msgid "Listing service types: %1 in %2"
+#: kpackagetool/kpackagetool.cpp:145
+#, fuzzy, kde-format
+#| msgid "Listing service types: %1 in %2"
+msgid "Listing KPackageType: %1 in %2"
 msgstr "Listando os tipos de serviço: %1 em %2"
 
-#: kpackagetool/kpackagetool.cpp:241
+#: kpackagetool/kpackagetool.cpp:198
 #, kde-format
 msgid "Error: Plugin %1 is not installed."
 msgstr "Erro: O plugin %1 não está instalado."
 
-#: kpackagetool/kpackagetool.cpp:255
+#: kpackagetool/kpackagetool.cpp:212
 #, kde-format
 msgctxt ""
 "No option was given, this is the error message telling the user he needs at "
@@ -216,42 +211,46 @@ msgctxt ""
 msgid "One of install, remove, upgrade or list is required."
 msgstr "É necessário um dos comandos 'install', 'remove', 'upgrade' ou 'list'."
 
-#: kpackagetool/kpackagetool.cpp:308 kpackagetool/kpackagetool.cpp:386
+#: kpackagetool/kpackagetool.cpp:255 kpackagetool/kpackagetool.cpp:333
 #, kde-format
 msgid "Error: Can't find plugin metadata: %1\n"
 msgstr "Erro: Não é possível encontrar os metadados do plugin: %1\n"
 
-#: kpackagetool/kpackagetool.cpp:312
+#: kpackagetool/kpackagetool.cpp:259
 #, kde-format
 msgid "Showing info for package: %1"
 msgstr "Mostrando informações do pacote: %1"
 
-#: kpackagetool/kpackagetool.cpp:313
-#, kde-format
-msgid "      Name : %1"
+#: kpackagetool/kpackagetool.cpp:260
+#, fuzzy, kde-format
+#| msgid "      Name : %1"
+msgid "  Name       : %1"
 msgstr "      Nome : %1"
 
-#: kpackagetool/kpackagetool.cpp:314
+#: kpackagetool/kpackagetool.cpp:261
 #, kde-format
-msgid "   Comment : %1"
-msgstr "Comentário : %1"
+msgid "  Description: %1"
+msgstr ""
 
-#: kpackagetool/kpackagetool.cpp:315
-#, kde-format
-msgid "    Plugin : %1"
+#: kpackagetool/kpackagetool.cpp:262
+#, fuzzy, kde-format
+#| msgid "    Plugin : %1"
+msgid "  Plugin     : %1"
 msgstr "    Plugin : %1"
 
-#: kpackagetool/kpackagetool.cpp:317
-#, kde-format
-msgid "    Author : %1"
+#: kpackagetool/kpackagetool.cpp:268
+#, fuzzy, kde-format
+#| msgid "    Author : %1"
+msgid "  Author     : %1"
 msgstr "     Autor : %1"
 
-#: kpackagetool/kpackagetool.cpp:318
-#, kde-format
-msgid "      Path : %1"
+#: kpackagetool/kpackagetool.cpp:269
+#, fuzzy, kde-format
+#| msgid "      Path : %1"
+msgid "  Path       : %1"
 msgstr "   Caminho : %1"
 
-#: kpackagetool/kpackagetool.cpp:479
+#: kpackagetool/kpackagetool.cpp:426
 #, kde-format
 msgctxt ""
 "The user entered conflicting options packageroot and global, this is the "
@@ -262,67 +261,67 @@ msgid ""
 msgstr ""
 "A raiz do pacote e as opções globais estão em conflito, selecione apenas uma."
 
-#: kpackagetool/kpackagetool.cpp:507
+#: kpackagetool/kpackagetool.cpp:454
 #, kde-format
 msgid "KPackage Structure Name"
 msgstr "Nome de estrutura do KPackage"
 
-#: kpackagetool/kpackagetool.cpp:508
+#: kpackagetool/kpackagetool.cpp:455
 #, kde-format
 msgid "Path"
 msgstr "Localização"
 
-#: kpackagetool/kpackagetool.cpp:539
+#: kpackagetool/kpackagetool.cpp:486
 #, kde-format
 msgid "Package types that are installable with this tool:"
 msgstr "Os tipos de pacotes que podem ser instalados com esta ferramenta:"
 
-#: kpackagetool/kpackagetool.cpp:540
+#: kpackagetool/kpackagetool.cpp:487
 #, kde-format
 msgid "Built in:"
 msgstr "Incorporadas:"
 
-#: kpackagetool/kpackagetool.cpp:543
+#: kpackagetool/kpackagetool.cpp:490
 #, kde-format
 msgid "KPackage/Generic"
 msgstr "KPackage/Genérico"
 
-#: kpackagetool/kpackagetool.cpp:544
+#: kpackagetool/kpackagetool.cpp:491
 #, kde-format
 msgid "KPackage/GenericQML"
 msgstr "KPackage/GenericQML"
 
-#: kpackagetool/kpackagetool.cpp:552
+#: kpackagetool/kpackagetool.cpp:499
 #, kde-format
 msgid "Provided by plugins:"
 msgstr "Fornecido pelos plugins:"
 
-#: kpackagetool/kpackagetool.cpp:574
+#: kpackagetool/kpackagetool.cpp:521
 #, kde-format
 msgid "Successfully upgraded %1"
 msgstr "%1 atualizado com sucesso"
 
-#: kpackagetool/kpackagetool.cpp:576
+#: kpackagetool/kpackagetool.cpp:523
 #, kde-format
 msgid "Successfully installed %1"
 msgstr "%1 instalado com sucesso"
 
-#: kpackagetool/kpackagetool.cpp:579
+#: kpackagetool/kpackagetool.cpp:526
 #, kde-format
 msgid "Error: Installation of %1 failed: %2"
 msgstr "Erro: Falha na instalação de %1: %2"
 
-#: kpackagetool/kpackagetool.cpp:591
+#: kpackagetool/kpackagetool.cpp:538
 #, kde-format
 msgid "Upgrading package from file: %1"
 msgstr "Atualizando o pacote a partir do arquivo: %1"
 
-#: kpackagetool/kpackagetool.cpp:598
+#: kpackagetool/kpackagetool.cpp:545
 #, kde-format
 msgid "Successfully uninstalled %1"
 msgstr "%1 desinstalado com sucesso"
 
-#: kpackagetool/kpackagetool.cpp:600
+#: kpackagetool/kpackagetool.cpp:547
 #, kde-format
 msgid "Error: Uninstallation of %1 failed: %2"
 msgstr "Erro: Falha na desinstalação de %1: %2"
@@ -414,6 +413,13 @@ msgstr "Produz os metadados para o pacote <path>"
 msgctxt "Do not translate <path>"
 msgid "Outputs the metadata for the package into <path>"
 msgstr "Produz os metadados para o pacote em <path>"
+
+#~ msgctxt "package type"
+#~ msgid "wallpaper"
+#~ msgstr "papel de parede"
+
+#~ msgid "   Comment : %1"
+#~ msgstr "Comentário : %1"
 
 #~ msgid "Desktop file that describes this package."
 #~ msgstr "Arquivo 'desktop' que descreve este pacote."

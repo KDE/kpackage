@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kpackage\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2023-03-01 21:29+0000\n"
+"POT-Creation-Date: 2023-03-15 02:11+0000\n"
 "PO-Revision-Date: 2023-03-04 13:29+0100\n"
 "Last-Translator: Temuri Doghonadze <temuri.doghonadze@gmail.com>\n"
 "Language-Team: Georgian <kde-i18n-doc@kde.org>\n"
@@ -28,105 +28,105 @@ msgctxt "EMAIL OF TRANSLATORS"
 msgid "Your emails"
 msgstr "Temuri.doghonadze@gmail.com"
 
-#: kpackage/package.cpp:42
+#: kpackage/package.cpp:40
 #, kde-format
 msgid "JSON file that describes this package."
 msgstr "JSON ფაილი, რომელიც ამ პაკეტს აღწერს."
 
-#: kpackage/packageloader.cpp:221
+#: kpackage/packageloader.cpp:223
 #, kde-format
 msgid "Could not load installer for package of type %1. Error reported was: %2"
 msgstr "%1 ტიპის პაკეტისთვის დამყენებლის ჩატვირთვა შეუძლებელია. შეცდომა: %2"
 
-#: kpackage/private/packagejobthread.cpp:164
+#: kpackage/private/packagejobthread.cpp:163
 #, kde-format
 msgid "Could not create package root directory: %1"
 msgstr "პაკეტის root საქაღალდის შექმნის შეცდომა: %1"
 
-#: kpackage/private/packagejobthread.cpp:173
+#: kpackage/private/packagejobthread.cpp:172
 #, kde-format
 msgid "No such file: %1"
 msgstr "ფაილი არ არსებობს: %1"
 
-#: kpackage/private/packagejobthread.cpp:203
+#: kpackage/private/packagejobthread.cpp:202
 #, kde-format
 msgid "Could not open package file, unsupported archive format: %1 %2"
 msgstr "პაკეტის ფაილის გახნის შეცდომა. არქივის მხარდაუჭერელი ფორმატი: %1 %2"
 
-#: kpackage/private/packagejobthread.cpp:211
+#: kpackage/private/packagejobthread.cpp:210
 #, kde-format
 msgid "Could not open package file: %1"
 msgstr "პაკეტის ფაილის გახსნის შეცდომა: %1"
 
-#: kpackage/private/packagejobthread.cpp:243
+#: kpackage/private/packagejobthread.cpp:242
 #, kde-format
 msgid "Could not open metadata file: %1"
 msgstr "მეტამონაცემების ფაილის გახსნის შეცდომა: %1"
 
-#: kpackage/private/packagejobthread.cpp:250
+#: kpackage/private/packagejobthread.cpp:249
 #, kde-format
 msgid "No metadata file in package: %1"
 msgstr "პაკეტში მეტამონაცემების ფაილი არ არსებობს: %1"
 
-#: kpackage/private/packagejobthread.cpp:259
+#: kpackage/private/packagejobthread.cpp:258
 #, kde-format
 msgid "Package plugin id not specified: %1"
 msgstr "პაკეტის დამატების ID მითითებული არაა: %1"
 
-#: kpackage/private/packagejobthread.cpp:269
+#: kpackage/private/packagejobthread.cpp:268
 #, kde-format
 msgid "Package plugin id %1 contains invalid characters"
 msgstr "პაკეტის დამატება სახელით %1 არასწორ სიმბოლოებს შეიცავს"
 
-#: kpackage/private/packagejobthread.cpp:288
+#: kpackage/private/packagejobthread.cpp:287
 #, kde-format
 msgid ""
 "The new package has a different type from the old version already installed."
 msgstr "ახალი პაკეტის ტიპი ძველი განსხვავდება უკვე დაყენებული ვერსიისგან."
 
-#: kpackage/private/packagejobthread.cpp:293
+#: kpackage/private/packagejobthread.cpp:292
 #, kde-format
 msgid ""
 "Impossible to remove the old installation of %1 located at %2. error: %3"
 msgstr ""
 "ძველი დაყენების %1, რომელიც მდებარეობს %2-ზე, წაშლა შეუძლებელია. შეცდომა: %3"
 
-#: kpackage/private/packagejobthread.cpp:297
+#: kpackage/private/packagejobthread.cpp:296
 #, kde-format
 msgid "Not installing version %1 of %2. Version %3 already installed."
 msgstr "%1-ის ვერსია %2 დაყენებული არ იქნება. %3 უკვე დაყენებულია."
 
-#: kpackage/private/packagejobthread.cpp:301
+#: kpackage/private/packagejobthread.cpp:300
 #, kde-format
 msgid "%1 already exists"
 msgstr "%1 უკვე არსებობს"
 
-#: kpackage/private/packagejobthread.cpp:322
+#: kpackage/private/packagejobthread.cpp:321
 #, kde-format
 msgid "Could not install dependency: '%1'"
 msgstr "დამოკიდებულების დაყენების შეცდომა: %1"
 
-#: kpackage/private/packagejobthread.cpp:334
+#: kpackage/private/packagejobthread.cpp:333
 #, kde-format
 msgid "Could not move package to destination: %1"
 msgstr "პაკეტის სამიზნეში გადატანის შეცდომა: %1"
 
-#: kpackage/private/packagejobthread.cpp:344
+#: kpackage/private/packagejobthread.cpp:343
 #, kde-format
 msgid "Could not copy package to destination: %1"
 msgstr "პაკეტის სამიზნეში კოპირების შეცდომა: %1"
 
-#: kpackage/private/packagejobthread.cpp:380
+#: kpackage/private/packagejobthread.cpp:378
 #, kde-format
 msgid "package path was deleted manually"
 msgstr "პაკეტის ბილიკი ხელით წაიშალა"
 
-#: kpackage/private/packagejobthread.cpp:380
+#: kpackage/private/packagejobthread.cpp:378
 #, kde-format
 msgid "%1 does not exist"
 msgstr "%1 არ არსებობს"
 
-#: kpackage/private/packagejobthread.cpp:400
+#: kpackage/private/packagejobthread.cpp:398
 #, kde-format
 msgid "Could not delete package from: %1"
 msgstr "%1-დან პაკეტის წაშლის შეცდომა"
@@ -176,33 +176,28 @@ msgstr "თარგმანები"
 msgid "Main UI File"
 msgstr "მთავარი UI-ის ფაილი"
 
-#: kpackagetool/kpackagetool.cpp:88
+#: kpackagetool/kpackagetool.cpp:87
 #, kde-format
 msgid "Failed to generate a Package hash for %1"
 msgstr "ჰეშის გენერაციის შეცდომა პაკეტისთვის: %1"
 
-#: kpackagetool/kpackagetool.cpp:91
+#: kpackagetool/kpackagetool.cpp:90
 #, kde-format
 msgid "SHA1 hash for Package at %1: '%2'"
 msgstr "SHA1 hჰეში პაკეტისთვის %1: '%2'"
 
-#: kpackagetool/kpackagetool.cpp:130
-#, kde-format
-msgctxt "package type"
-msgid "wallpaper"
-msgstr "ფონური სურათი"
-
-#: kpackagetool/kpackagetool.cpp:163
-#, kde-format
-msgid "Listing service types: %1 in %2"
+#: kpackagetool/kpackagetool.cpp:145
+#, fuzzy, kde-format
+#| msgid "Listing service types: %1 in %2"
+msgid "Listing KPackageType: %1 in %2"
 msgstr "სერვისის ტიპების სია: %1 %2-ში"
 
-#: kpackagetool/kpackagetool.cpp:241
+#: kpackagetool/kpackagetool.cpp:198
 #, kde-format
 msgid "Error: Plugin %1 is not installed."
 msgstr "შეცდომა: დამატება დაყენებული არაა: %1."
 
-#: kpackagetool/kpackagetool.cpp:255
+#: kpackagetool/kpackagetool.cpp:212
 #, kde-format
 msgctxt ""
 "No option was given, this is the error message telling the user he needs at "
@@ -212,42 +207,46 @@ msgstr ""
 "საჭიროა ერთერთი \"install\"(დაყენება), \"upgrade\"(განახლება), \"remove"
 "\"(წაშლა) ან \"list\"(ჩამონათვალი)."
 
-#: kpackagetool/kpackagetool.cpp:308 kpackagetool/kpackagetool.cpp:386
+#: kpackagetool/kpackagetool.cpp:255 kpackagetool/kpackagetool.cpp:333
 #, kde-format
 msgid "Error: Can't find plugin metadata: %1\n"
 msgstr "შეცდომა: დამატების მეტამონაცემები ვერ ვიპოვე: %1\n"
 
-#: kpackagetool/kpackagetool.cpp:312
+#: kpackagetool/kpackagetool.cpp:259
 #, kde-format
 msgid "Showing info for package: %1"
 msgstr "ინფორმაციის ჩვენება პაკეტისთვის: %1"
 
-#: kpackagetool/kpackagetool.cpp:313
-#, kde-format
-msgid "      Name : %1"
+#: kpackagetool/kpackagetool.cpp:260
+#, fuzzy, kde-format
+#| msgid "      Name : %1"
+msgid "  Name       : %1"
 msgstr "     სახელი : %1"
 
-#: kpackagetool/kpackagetool.cpp:314
+#: kpackagetool/kpackagetool.cpp:261
 #, kde-format
-msgid "   Comment : %1"
-msgstr "    კომენტარი: %1"
+msgid "  Description: %1"
+msgstr ""
 
-#: kpackagetool/kpackagetool.cpp:315
-#, kde-format
-msgid "    Plugin : %1"
+#: kpackagetool/kpackagetool.cpp:262
+#, fuzzy, kde-format
+#| msgid "    Plugin : %1"
+msgid "  Plugin     : %1"
 msgstr "    დამატება: %1"
 
-#: kpackagetool/kpackagetool.cpp:317
-#, kde-format
-msgid "    Author : %1"
+#: kpackagetool/kpackagetool.cpp:268
+#, fuzzy, kde-format
+#| msgid "    Author : %1"
+msgid "  Author     : %1"
 msgstr "    ავტორი: %1"
 
-#: kpackagetool/kpackagetool.cpp:318
-#, kde-format
-msgid "      Path : %1"
+#: kpackagetool/kpackagetool.cpp:269
+#, fuzzy, kde-format
+#| msgid "      Path : %1"
+msgid "  Path       : %1"
 msgstr "      ბილიკი: %1"
 
-#: kpackagetool/kpackagetool.cpp:479
+#: kpackagetool/kpackagetool.cpp:426
 #, kde-format
 msgctxt ""
 "The user entered conflicting options packageroot and global, this is the "
@@ -258,67 +257,67 @@ msgid ""
 msgstr ""
 "გლობალური პარამეტრები და packageroot კონფლიქტობენ. აირჩიეთ მხოლოდ ერთი."
 
-#: kpackagetool/kpackagetool.cpp:507
+#: kpackagetool/kpackagetool.cpp:454
 #, kde-format
 msgid "KPackage Structure Name"
 msgstr "KPackage სტრუქტურის სახელი"
 
-#: kpackagetool/kpackagetool.cpp:508
+#: kpackagetool/kpackagetool.cpp:455
 #, kde-format
 msgid "Path"
 msgstr "ბილიკი"
 
-#: kpackagetool/kpackagetool.cpp:539
+#: kpackagetool/kpackagetool.cpp:486
 #, kde-format
 msgid "Package types that are installable with this tool:"
 msgstr "პაკეტის ტიპი, რომელიც დაყენებადია ამ პროგრამით:"
 
-#: kpackagetool/kpackagetool.cpp:540
+#: kpackagetool/kpackagetool.cpp:487
 #, kde-format
 msgid "Built in:"
 msgstr "ჩაშენებული:"
 
-#: kpackagetool/kpackagetool.cpp:543
+#: kpackagetool/kpackagetool.cpp:490
 #, kde-format
 msgid "KPackage/Generic"
 msgstr "KPackage/Generic"
 
-#: kpackagetool/kpackagetool.cpp:544
+#: kpackagetool/kpackagetool.cpp:491
 #, kde-format
 msgid "KPackage/GenericQML"
 msgstr "KPackage/GenericQML"
 
-#: kpackagetool/kpackagetool.cpp:552
+#: kpackagetool/kpackagetool.cpp:499
 #, kde-format
 msgid "Provided by plugins:"
 msgstr "მოწოდებულია დამატებებისან:"
 
-#: kpackagetool/kpackagetool.cpp:574
+#: kpackagetool/kpackagetool.cpp:521
 #, kde-format
 msgid "Successfully upgraded %1"
 msgstr "%1-მდე განახლება წარმატებულია"
 
-#: kpackagetool/kpackagetool.cpp:576
+#: kpackagetool/kpackagetool.cpp:523
 #, kde-format
 msgid "Successfully installed %1"
 msgstr "დაყენება წარმატებულია: %1"
 
-#: kpackagetool/kpackagetool.cpp:579
+#: kpackagetool/kpackagetool.cpp:526
 #, kde-format
 msgid "Error: Installation of %1 failed: %2"
 msgstr "შეცდომა: %1-ის დაყენების შეცდომა: %2"
 
-#: kpackagetool/kpackagetool.cpp:591
+#: kpackagetool/kpackagetool.cpp:538
 #, kde-format
 msgid "Upgrading package from file: %1"
 msgstr "პაკეტის განახლება ფაილიდან: %1"
 
-#: kpackagetool/kpackagetool.cpp:598
+#: kpackagetool/kpackagetool.cpp:545
 #, kde-format
 msgid "Successfully uninstalled %1"
 msgstr "%1 წარმატებით წაიშალა"
 
-#: kpackagetool/kpackagetool.cpp:600
+#: kpackagetool/kpackagetool.cpp:547
 #, kde-format
 msgid "Error: Uninstallation of %1 failed: %2"
 msgstr "შეცდომა: %1-ის წაშლა შეუძლებელია: %2"
@@ -408,6 +407,13 @@ msgstr "პაკეტისთვის <ბილიკი> მეტამ�
 msgctxt "Do not translate <path>"
 msgid "Outputs the metadata for the package into <path>"
 msgstr "პაკეტის შესახებ მეტამონაცემების <ბილიკზე> გამოტანა"
+
+#~ msgctxt "package type"
+#~ msgid "wallpaper"
+#~ msgstr "ფონური სურათი"
+
+#~ msgid "   Comment : %1"
+#~ msgstr "    კომენტარი: %1"
 
 #~ msgid ""
 #~ "Recreate the plugin index. To be used in conjunction with either the "
