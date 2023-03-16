@@ -9,7 +9,7 @@ msgstr ""
 "Project-Id-Version: libkpackage5\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2023-03-15 02:11+0000\n"
-"PO-Revision-Date: 2023-03-02 20:58+0200\n"
+"PO-Revision-Date: 2023-03-15 08:05+0200\n"
 "Last-Translator: Yuri Chornoivan <yurchor@ukr.net>\n"
 "Language-Team: Ukrainian <kde-i18n-uk@kde.org>\n"
 "Language: uk\n"
@@ -194,10 +194,9 @@ msgid "SHA1 hash for Package at %1: '%2'"
 msgstr "Хеш SHA1 для пакунка за адресою %1: «%2»"
 
 #: kpackagetool/kpackagetool.cpp:145
-#, fuzzy, kde-format
-#| msgid "Listing service types: %1 in %2"
+#, kde-format
 msgid "Listing KPackageType: %1 in %2"
-msgstr "Будуємо список типів служб: %1 у %2"
+msgstr "Список KPackageType: %1 у %2"
 
 #: kpackagetool/kpackagetool.cpp:198
 #, kde-format
@@ -223,34 +222,29 @@ msgid "Showing info for package: %1"
 msgstr "Показуємо дані щодо пакунка: %1"
 
 #: kpackagetool/kpackagetool.cpp:260
-#, fuzzy, kde-format
-#| msgid "      Name : %1"
+#, kde-format
 msgid "  Name       : %1"
-msgstr "      Назва: %1"
+msgstr "  Назва      : %1"
 
 #: kpackagetool/kpackagetool.cpp:261
-#, fuzzy, kde-format
-#| msgid "Service Descriptions"
+#, kde-format
 msgid "  Description: %1"
-msgstr "Описи служб"
+msgstr "  Опис       : %1"
 
 #: kpackagetool/kpackagetool.cpp:262
-#, fuzzy, kde-format
-#| msgid "    Plugin : %1"
+#, kde-format
 msgid "  Plugin     : %1"
-msgstr "    Додаток: %1"
+msgstr "  Додаток    : %1"
 
 #: kpackagetool/kpackagetool.cpp:268
-#, fuzzy, kde-format
-#| msgid "    Author : %1"
+#, kde-format
 msgid "  Author     : %1"
-msgstr "      Автор: %1"
+msgstr "  Автор      : %1"
 
 #: kpackagetool/kpackagetool.cpp:269
-#, fuzzy, kde-format
-#| msgid "      Path : %1"
+#, kde-format
 msgid "  Path       : %1"
-msgstr "       Шлях: %1"
+msgstr "  Шлях       : %1"
 
 #: kpackagetool/kpackagetool.cpp:426
 #, kde-format

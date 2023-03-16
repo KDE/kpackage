@@ -7,7 +7,7 @@ msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2023-03-15 02:11+0000\n"
-"PO-Revision-Date: 2023-03-05 14:27+0100\n"
+"PO-Revision-Date: 2023-03-15 13:18+0100\n"
 "Last-Translator: Freek de Kruijf <freekdekruijf@kde.nl>\n"
 "Language-Team: \n"
 "Language: nl\n"
@@ -192,10 +192,9 @@ msgid "SHA1 hash for Package at %1: '%2'"
 msgstr "SHA1-hash voor het pakket op %1: '%2'"
 
 #: kpackagetool/kpackagetool.cpp:145
-#, fuzzy, kde-format
-#| msgid "Listing service types: %1 in %2"
+#, kde-format
 msgid "Listing KPackageType: %1 in %2"
-msgstr "Servicetypen tonen: %1 in %2"
+msgstr "KPackageType tonen: %1 in %2"
 
 #: kpackagetool/kpackagetool.cpp:198
 #, kde-format
@@ -221,34 +220,29 @@ msgid "Showing info for package: %1"
 msgstr "Informatie voor pakket wordt getoond: %1"
 
 #: kpackagetool/kpackagetool.cpp:260
-#, fuzzy, kde-format
-#| msgid "      Name : %1"
+#, kde-format
 msgid "  Name       : %1"
-msgstr "      Naam : %1"
+msgstr "  Naam       : %1"
 
 #: kpackagetool/kpackagetool.cpp:261
-#, fuzzy, kde-format
-#| msgid "Service Descriptions"
+#, kde-format
 msgid "  Description: %1"
-msgstr "Service-beschrijvingen"
+msgstr "  Beschrijving: %1"
 
 #: kpackagetool/kpackagetool.cpp:262
-#, fuzzy, kde-format
-#| msgid "    Plugin : %1"
+#, kde-format
 msgid "  Plugin     : %1"
-msgstr "    Plug-in : %1"
+msgstr "  Plug-in     : %1"
 
 #: kpackagetool/kpackagetool.cpp:268
-#, fuzzy, kde-format
-#| msgid "    Author : %1"
+#, kde-format
 msgid "  Author     : %1"
-msgstr "    Auteur : %1"
+msgstr "  Auteur     : %1"
 
 #: kpackagetool/kpackagetool.cpp:269
-#, fuzzy, kde-format
-#| msgid "      Path : %1"
+#, kde-format
 msgid "  Path       : %1"
-msgstr "      Pad : %1"
+msgstr "  Pad       : %1"
 
 #: kpackagetool/kpackagetool.cpp:426
 #, kde-format
