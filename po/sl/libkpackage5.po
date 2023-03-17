@@ -8,7 +8,7 @@ msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2023-03-15 02:11+0000\n"
-"PO-Revision-Date: 2023-03-04 10:02+0100\n"
+"PO-Revision-Date: 2023-03-16 10:38+0100\n"
 "Last-Translator: Matjaž Jeran <matjaz.jeran@amis.net>\n"
 "Language-Team: Slovenian <lugos-slo@lugos.si>\n"
 "Language: sl\n"
@@ -18,7 +18,7 @@ msgstr ""
 "Translator: Andrej Mernik <andrejm@ubuntu.si>\n"
 "Plural-Forms: nplurals=4; plural=(n%100==1 ? 1 : n%100==2 ? 2 : n%100==3 || n"
 "%100==4 ? 3 : 0);\n"
-"X-Generator: Lokalize 22.12.2\n"
+"X-Generator: Lokalize 22.12.3\n"
 
 #, kde-format
 msgctxt "NAME OF TRANSLATORS"
@@ -192,10 +192,9 @@ msgid "SHA1 hash for Package at %1: '%2'"
 msgstr "Razpršilo SHA1 za paket v %1: »%2«"
 
 #: kpackagetool/kpackagetool.cpp:145
-#, fuzzy, kde-format
-#| msgid "Listing service types: %1 in %2"
+#, kde-format
 msgid "Listing KPackageType: %1 in %2"
-msgstr "Izpisovanje seznama vrst storitev: %1 v %2"
+msgstr "Izpisovanje KPackageType: %1 v %2"
 
 #: kpackagetool/kpackagetool.cpp:198
 #, kde-format
@@ -221,34 +220,29 @@ msgid "Showing info for package: %1"
 msgstr "Prikazovanje podrobnosti paketa: %1"
 
 #: kpackagetool/kpackagetool.cpp:260
-#, fuzzy, kde-format
-#| msgid "      Name : %1"
+#, kde-format
 msgid "  Name       : %1"
-msgstr "      Ime : %1"
+msgstr "  Ime          : %1"
 
 #: kpackagetool/kpackagetool.cpp:261
-#, fuzzy, kde-format
-#| msgid "Service Descriptions"
+#, kde-format
 msgid "  Description: %1"
-msgstr "Opisi storitev"
+msgstr "  Opis            : %1"
 
 #: kpackagetool/kpackagetool.cpp:262
-#, fuzzy, kde-format
-#| msgid "    Plugin : %1"
+#, kde-format
 msgid "  Plugin     : %1"
-msgstr "    Vstavek : %1"
+msgstr "  Vstavek   : %1"
 
 #: kpackagetool/kpackagetool.cpp:268
-#, fuzzy, kde-format
-#| msgid "    Author : %1"
+#, kde-format
 msgid "  Author     : %1"
-msgstr "    Avtor : %1"
+msgstr "  Avtor        :  %1"
 
 #: kpackagetool/kpackagetool.cpp:269
-#, fuzzy, kde-format
-#| msgid "      Path : %1"
+#, kde-format
 msgid "  Path       : %1"
-msgstr "      Pot : %1"
+msgstr "  Pot         : %1"
 
 #: kpackagetool/kpackagetool.cpp:426
 #, kde-format

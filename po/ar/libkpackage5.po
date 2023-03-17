@@ -1,22 +1,22 @@
 # Copyright (C) YEAR This_file_is_part_of_KDE
 # This file is distributed under the same license as the libplasma5 package.
 # Safa Alfulaij <safa1996alfulaij@gmail.com>, 2014, 2018.
-# Zayed Al-Saidi <zayed.alsaidi@gmail.com>, 2021, 2022.
+# Zayed Al-Saidi <zayed.alsaidi@gmail.com>, 2021, 2022, 2023.
 msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2023-03-15 02:11+0000\n"
-"PO-Revision-Date: 2022-08-08 23:03+0400\n"
+"PO-Revision-Date: 2023-03-16 11:44+0400\n"
 "Last-Translator: Zayed Al-Saidi <zayed.alsaidi@gmail.com>\n"
-"Language-Team: Arabic <kde-l10n-ar@kde.org>\n"
+"Language-Team: ar\n"
 "Language: ar\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=6; plural=n==0 ? 0 : n==1 ? 1 : n==2 ? 2 : n%100>=3 "
 "&& n%100<=10 ? 3 : n%100>=11 && n%100<=99 ? 4 : 5;\n"
-"X-Generator: Lokalize 21.07.70\n"
+"X-Generator: Lokalize 21.12.3\n"
 "X-Project-Style: kde\n"
 
 #, kde-format
@@ -30,10 +30,9 @@ msgid "Your emails"
 msgstr "zayed.alsaidi@gmail.com"
 
 #: kpackage/package.cpp:40
-#, fuzzy, kde-format
-#| msgid "Desktop file that describes this package."
+#, kde-format
 msgid "JSON file that describes this package."
-msgstr "ملف سطح المكتب الذي يصف هذه الحزمة."
+msgstr "ملف جوسن JSON الذي يصف هذه الحزمة."
 
 #: kpackage/packageloader.cpp:223
 #, kde-format
@@ -71,16 +70,14 @@ msgid "No metadata file in package: %1"
 msgstr "لا ملف بيانات وصفية في الحزمة: %1"
 
 #: kpackage/private/packagejobthread.cpp:258
-#, fuzzy, kde-format
-#| msgid "Package plugin name not specified: %1"
+#, kde-format
 msgid "Package plugin id not specified: %1"
-msgstr "لم يُحدّد اسم ملحقة الحزمة: %1"
+msgstr "لم يُحدّد معرف ملحقة الحزمة: %1"
 
 #: kpackage/private/packagejobthread.cpp:268
-#, fuzzy, kde-format
-#| msgid "Package plugin name %1 contains invalid characters"
+#, kde-format
 msgid "Package plugin id %1 contains invalid characters"
-msgstr "يحتوي اسم ملحقة الحزمة %1 على محارف غير صالحة"
+msgstr "يحتوي معرف ملحقة الحزمة %1 على محارف غير صالحة"
 
 #: kpackage/private/packagejobthread.cpp:287
 #, kde-format
@@ -190,10 +187,9 @@ msgid "SHA1 hash for Package at %1: '%2'"
 msgstr "تلبيدة SHA-1 للحزمة في %1: '%2'"
 
 #: kpackagetool/kpackagetool.cpp:145
-#, fuzzy, kde-format
-#| msgid "Listing service types: %1 in %2"
+#, kde-format
 msgid "Listing KPackageType: %1 in %2"
-msgstr "يسرد أنواع الخدمات: %1 في  %2"
+msgstr "يسرد أنواع KPackageType‏: %1 في  %2"
 
 #: kpackagetool/kpackagetool.cpp:198
 #, kde-format
@@ -219,33 +215,29 @@ msgid "Showing info for package: %1"
 msgstr "يعرض معلومات الحزمة: %1"
 
 #: kpackagetool/kpackagetool.cpp:260
-#, fuzzy, kde-format
-#| msgid "      Name : %1"
+#, kde-format
 msgid "  Name       : %1"
-msgstr "      الاسم: %1"
+msgstr "  الاسم   : %1"
 
 #: kpackagetool/kpackagetool.cpp:261
 #, kde-format
 msgid "  Description: %1"
-msgstr ""
+msgstr "  الوصف: %1"
 
 #: kpackagetool/kpackagetool.cpp:262
-#, fuzzy, kde-format
-#| msgid "    Plugin : %1"
+#, kde-format
 msgid "  Plugin     : %1"
-msgstr "    الملحقة: %1"
+msgstr "  الملحقة: %1"
 
 #: kpackagetool/kpackagetool.cpp:268
-#, fuzzy, kde-format
-#| msgid "    Author : %1"
+#, kde-format
 msgid "  Author     : %1"
-msgstr "    المؤلف: %1"
+msgstr "  المؤلف : %1"
 
 #: kpackagetool/kpackagetool.cpp:269
-#, fuzzy, kde-format
-#| msgid "      Path : %1"
+#, kde-format
 msgid "  Path       : %1"
-msgstr "      المسار: %1"
+msgstr "  المسار  : %1"
 
 #: kpackagetool/kpackagetool.cpp:426
 #, kde-format

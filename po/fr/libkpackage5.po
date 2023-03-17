@@ -18,7 +18,7 @@ msgstr ""
 "Project-Id-Version: plasmapkg\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2023-03-15 02:11+0000\n"
-"PO-Revision-Date: 2023-03-03 07:19+0100\n"
+"PO-Revision-Date: 2023-03-15 20:59+0100\n"
 "Last-Translator: Xavier BESNARD <xavier.besnard]neuf.fr>\n"
 "Language-Team: fr\n"
 "Language: fr\n"
@@ -214,10 +214,9 @@ msgid "SHA1 hash for Package at %1: '%2'"
 msgstr "Hachage SHA1 pour le paquet à %1 : %2"
 
 #: kpackagetool/kpackagetool.cpp:145
-#, fuzzy, kde-format
-#| msgid "Listing service types: %1 in %2"
+#, kde-format
 msgid "Listing KPackageType: %1 in %2"
-msgstr "Listage des types de services : %1 dans %2"
+msgstr "Listage des types de KPackage : %1 dans %2"
 
 #: kpackagetool/kpackagetool.cpp:198
 #, kde-format
@@ -245,34 +244,29 @@ msgid "Showing info for package: %1"
 msgstr "Affichage des informations pour le paquet : %1"
 
 #: kpackagetool/kpackagetool.cpp:260
-#, fuzzy, kde-format
-#| msgid "      Name : %1"
+#, kde-format
 msgid "  Name       : %1"
-msgstr "      Nom : %1"
+msgstr " Nom : %1"
 
 #: kpackagetool/kpackagetool.cpp:261
-#, fuzzy, kde-format
-#| msgid "Service Descriptions"
+#, kde-format
 msgid "  Description: %1"
-msgstr "Descriptions du service"
+msgstr "  Description : %1"
 
 #: kpackagetool/kpackagetool.cpp:262
-#, fuzzy, kde-format
-#| msgid "    Plugin : %1"
+#, kde-format
 msgid "  Plugin     : %1"
-msgstr "    Module externe : %1"
+msgstr " Module externe : %1"
 
 #: kpackagetool/kpackagetool.cpp:268
-#, fuzzy, kde-format
-#| msgid "    Author : %1"
+#, kde-format
 msgid "  Author     : %1"
-msgstr "    Auteur : %1"
+msgstr " Auteur : %1"
 
 #: kpackagetool/kpackagetool.cpp:269
-#, fuzzy, kde-format
-#| msgid "      Path : %1"
+#, kde-format
 msgid "  Path       : %1"
-msgstr "      Emplacement : %1"
+msgstr " Emplacement : %1"
 
 #: kpackagetool/kpackagetool.cpp:426
 #, kde-format

@@ -1,13 +1,13 @@
 # Copyright (C) YEAR This_file_is_part_of_KDE
 # This file is distributed under the same license as the PACKAGE package.
 #
-# G.Sora <g.sora@tiscali.it>, 2014, 2016, 2017, 2019, 2020, 2022.
+# G.Sora <g.sora@tiscali.it>, 2014, 2016, 2017, 2019, 2020, 2022, 2023.
 msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2023-03-15 02:11+0000\n"
-"PO-Revision-Date: 2022-12-18 22:56+0100\n"
+"PO-Revision-Date: 2023-03-16 10:54+0100\n"
 "Last-Translator: giovanni <g.sora@tiscali.it>\n"
 "Language-Team: Interlingua <kde-i18n-doc@kde.org>\n"
 "Language: ia\n"
@@ -15,7 +15,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
-"X-Generator: Lokalize 22.12.0\n"
+"X-Generator: Lokalize 21.12.1\n"
 
 #, kde-format
 msgctxt "NAME OF TRANSLATORS"
@@ -28,10 +28,9 @@ msgid "Your emails"
 msgstr "g.sora@tiscali.it"
 
 #: kpackage/package.cpp:40
-#, fuzzy, kde-format
-#| msgid "Desktop file that describes this package."
+#, kde-format
 msgid "JSON file that describes this package."
-msgstr "File de scriptorio que describe iste pacchetto."
+msgstr "File de JSON que describe iste pacchetto."
 
 #: kpackage/packageloader.cpp:223
 #, kde-format
@@ -72,16 +71,14 @@ msgid "No metadata file in package: %1"
 msgstr "Necun file de metadata in pacchetto: %1"
 
 #: kpackage/private/packagejobthread.cpp:258
-#, fuzzy, kde-format
-#| msgid "Package plugin name not specified: %1"
+#, kde-format
 msgid "Package plugin id not specified: %1"
-msgstr "Nomine de plugin de pacchetto non specificate: %1"
+msgstr "Id de plugin de pacchetto non specificate: %1"
 
 #: kpackage/private/packagejobthread.cpp:268
-#, fuzzy, kde-format
-#| msgid "Package plugin name %1 contains invalid characters"
+#, kde-format
 msgid "Package plugin id %1 contains invalid characters"
-msgstr "Nomine de plugin %1 contine charracteres invalide"
+msgstr "Id de plugin de pacchetto %1 contine charracteres invalide"
 
 #: kpackage/private/packagejobthread.cpp:287
 #, kde-format
@@ -193,10 +190,9 @@ msgid "SHA1 hash for Package at %1: '%2'"
 msgstr "Hash SHA1 per pacchetto a %1: '%2'"
 
 #: kpackagetool/kpackagetool.cpp:145
-#, fuzzy, kde-format
-#| msgid "Listing service types: %1 in %2"
+#, kde-format
 msgid "Listing KPackageType: %1 in %2"
-msgstr "Listante typos de servicio: %1 in %2"
+msgstr "Listante KPackagesType:  %1 in %2"
 
 #: kpackagetool/kpackagetool.cpp:198
 #, kde-format
@@ -222,34 +218,29 @@ msgid "Showing info for package: %1"
 msgstr "Monstrante information pro pacchetto: %1"
 
 #: kpackagetool/kpackagetool.cpp:260
-#, fuzzy, kde-format
-#| msgid "      Name : %1"
+#, kde-format
 msgid "  Name       : %1"
-msgstr "      Nomine : %1"
+msgstr "  Nomine       : %1"
 
 #: kpackagetool/kpackagetool.cpp:261
-#, fuzzy, kde-format
-#| msgid "Service Descriptions"
+#, kde-format
 msgid "  Description: %1"
-msgstr "Descriptiones de servicio"
+msgstr "  Description: %1"
 
 #: kpackagetool/kpackagetool.cpp:262
-#, fuzzy, kde-format
-#| msgid "    Plugin : %1"
+#, kde-format
 msgid "  Plugin     : %1"
-msgstr "    Plugin %1"
+msgstr "  Plugin     : %1"
 
 #: kpackagetool/kpackagetool.cpp:268
-#, fuzzy, kde-format
-#| msgid "    Author : %1"
+#, kde-format
 msgid "  Author     : %1"
-msgstr "    Autor : %1"
+msgstr "  Autor     : %1"
 
 #: kpackagetool/kpackagetool.cpp:269
-#, fuzzy, kde-format
-#| msgid "      Path : %1"
+#, kde-format
 msgid "  Path       : %1"
-msgstr "      Percurso: %1"
+msgstr "  Percurso       : %1"
 
 #: kpackagetool/kpackagetool.cpp:426
 #, kde-format
