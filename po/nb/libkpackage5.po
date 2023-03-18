@@ -411,10 +411,3 @@ msgstr ""
 msgctxt "Do not translate <path>"
 msgid "Outputs the metadata for the package into <path>"
 msgstr ""
-
-#~ msgctxt "package type"
-#~ msgid "wallpaper"
-#~ msgstr "bakgrunnsbilde"
-
-#~ msgid "   Comment : %1"
-#~ msgstr "    Kommentar : %1"

@@ -8,7 +8,7 @@ msgstr ""
 "Project-Id-Version: kpackage\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2023-03-15 02:11+0000\n"
-"PO-Revision-Date: 2023-03-04 13:29+0100\n"
+"PO-Revision-Date: 2023-03-17 05:19+0100\n"
 "Last-Translator: Temuri Doghonadze <temuri.doghonadze@gmail.com>\n"
 "Language-Team: Georgian <kde-i18n-doc@kde.org>\n"
 "Language: ka\n"
@@ -187,10 +187,9 @@ msgid "SHA1 hash for Package at %1: '%2'"
 msgstr "SHA1 hჰეში პაკეტისთვის %1: '%2'"
 
 #: kpackagetool/kpackagetool.cpp:145
-#, fuzzy, kde-format
-#| msgid "Listing service types: %1 in %2"
+#, kde-format
 msgid "Listing KPackageType: %1 in %2"
-msgstr "სერვისის ტიპების სია: %1 %2-ში"
+msgstr "KPackageType-ის სია: %1 %2-ში"
 
 #: kpackagetool/kpackagetool.cpp:198
 #, kde-format
@@ -218,33 +217,29 @@ msgid "Showing info for package: %1"
 msgstr "ინფორმაციის ჩვენება პაკეტისთვის: %1"
 
 #: kpackagetool/kpackagetool.cpp:260
-#, fuzzy, kde-format
-#| msgid "      Name : %1"
+#, kde-format
 msgid "  Name       : %1"
-msgstr "     სახელი : %1"
+msgstr "  სახელი       : %1"
 
 #: kpackagetool/kpackagetool.cpp:261
 #, kde-format
 msgid "  Description: %1"
-msgstr ""
+msgstr "  აღწერა: %1"
 
 #: kpackagetool/kpackagetool.cpp:262
-#, fuzzy, kde-format
-#| msgid "    Plugin : %1"
+#, kde-format
 msgid "  Plugin     : %1"
-msgstr "    დამატება: %1"
+msgstr "  დამატება     : %1"
 
 #: kpackagetool/kpackagetool.cpp:268
-#, fuzzy, kde-format
-#| msgid "    Author : %1"
+#, kde-format
 msgid "  Author     : %1"
-msgstr "    ავტორი: %1"
+msgstr "  ავტორი     : %1"
 
 #: kpackagetool/kpackagetool.cpp:269
-#, fuzzy, kde-format
-#| msgid "      Path : %1"
+#, kde-format
 msgid "  Path       : %1"
-msgstr "      ბილიკი: %1"
+msgstr "  ბილიკი       : %1"
 
 #: kpackagetool/kpackagetool.cpp:426
 #, kde-format

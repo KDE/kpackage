@@ -411,10 +411,3 @@ msgstr "Gjev metadata for pakken <path>"
 msgctxt "Do not translate <path>"
 msgid "Outputs the metadata for the package into <path>"
 msgstr "Gjev metadata for pakken til <path>"
-
-#~ msgctxt "package type"
-#~ msgid "wallpaper"
-#~ msgstr "bakgrunnsbilete"
-
-#~ msgid "   Comment : %1"
-#~ msgstr "   Merknad: %1"
