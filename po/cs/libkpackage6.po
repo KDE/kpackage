@@ -9,7 +9,7 @@ msgstr ""
 "Project-Id-Version: plasmapkg\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2023-03-15 02:11+0000\n"
-"PO-Revision-Date: 2023-03-02 18:28+0100\n"
+"PO-Revision-Date: 2023-03-16 16:28+0100\n"
 "Last-Translator: Vit Pelcak <vit@pelcak.org>\n"
 "Language-Team: Czech <kde-i18n-doc@kde.org>\n"
 "Language: cs\n"
@@ -17,7 +17,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=3; plural=(n==1) ? 0 : (n>=2 && n<=4) ? 1 : 2;\n"
-"X-Generator: Lokalize 22.12.2\n"
+"X-Generator: Lokalize 22.12.3\n"
 "X-Language: cs_CZ\n"
 "X-Source-Language: en_US\n"
 
@@ -190,10 +190,9 @@ msgid "SHA1 hash for Package at %1: '%2'"
 msgstr "Hash SHA1 pro balíček v %1: '%2'"
 
 #: kpackagetool/kpackagetool.cpp:145
-#, fuzzy, kde-format
-#| msgid "Listing service types: %1 in %2"
+#, kde-format
 msgid "Listing KPackageType: %1 in %2"
-msgstr "Vypisuji typy služeb: %1 v %2"
+msgstr "Vypisuji KPackageType: %1 v %2"
 
 #: kpackagetool/kpackagetool.cpp:198
 #, kde-format
@@ -219,33 +218,29 @@ msgid "Showing info for package: %1"
 msgstr "Zobrazuji informace o balíčku: %1"
 
 #: kpackagetool/kpackagetool.cpp:260
-#, fuzzy, kde-format
-#| msgid "      Name : %1"
+#, kde-format
 msgid "  Name       : %1"
-msgstr "      Název : %1"
+msgstr "  Název       : %1"
 
 #: kpackagetool/kpackagetool.cpp:261
 #, kde-format
 msgid "  Description: %1"
-msgstr ""
+msgstr "  Popis: %1"
 
 #: kpackagetool/kpackagetool.cpp:262
-#, fuzzy, kde-format
-#| msgid "    Plugin : %1"
+#, kde-format
 msgid "  Plugin     : %1"
-msgstr "    Modul : %1"
+msgstr "  Modul     : %1"
 
 #: kpackagetool/kpackagetool.cpp:268
-#, fuzzy, kde-format
-#| msgid "    Author : %1"
+#, kde-format
 msgid "  Author     : %1"
-msgstr "    Autor : %1"
+msgstr "  Autor : %1"
 
 #: kpackagetool/kpackagetool.cpp:269
-#, fuzzy, kde-format
-#| msgid "      Path : %1"
+#, kde-format
 msgid "  Path       : %1"
-msgstr "      Cesta : %1"
+msgstr "  Cesta       : %1"
 
 #: kpackagetool/kpackagetool.cpp:426
 #, kde-format
@@ -408,10 +403,3 @@ msgstr "Zobrazí metadata balíčku <path>"
 msgctxt "Do not translate <path>"
 msgid "Outputs the metadata for the package into <path>"
 msgstr "Zobrazí metadata balíčku do <path>"
-
-#~ msgctxt "package type"
-#~ msgid "wallpaper"
-#~ msgstr "tapeta"
-
-#~ msgid "   Comment : %1"
-#~ msgstr "   Komentář : %1"
