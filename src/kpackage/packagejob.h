@@ -68,7 +68,7 @@ private:
     };
     void start() override;
 
-    explicit PackageJob(OperationType type, const Package &package, const QString &src, const QString &dest);
+    KPACKAGE_NO_EXPORT explicit PackageJob(OperationType type, const Package &package, const QString &src, const QString &dest);
     KPACKAGE_NO_EXPORT void setupNotificationsOnJobFinished(const QString &messageName);
 
     const std::unique_ptr<PackageJobPrivate> d;
