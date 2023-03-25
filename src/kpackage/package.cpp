@@ -99,8 +99,8 @@ bool Package::isValid() const
 
         const QString foundPath = filePath(it.key(), {});
         if (foundPath.isEmpty()) {
-            // qCWarning(KPACKAGE_LOG) << "Could not find required" << (it.value().directory ? "directory" : "file") << it.key() << "for package" << path() <<
-            // "should be" << it.value().paths;
+            qCWarning(KPACKAGE_LOG) << "Could not find required" << (it.value().directory ? "directory" : "file") << it.key() << "for package" << path()
+                                    << "should be" << it.value().paths;
             d->valid = false;
             break;
         }
