@@ -11,7 +11,7 @@ msgstr ""
 "Project-Id-Version: kpackage\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2023-03-15 02:11+0000\n"
-"PO-Revision-Date: 2023-03-15 14:56+0100\n"
+"PO-Revision-Date: 2023-03-25 12:05+0100\n"
 "Last-Translator: Josep M. Ferrer <txemaq@gmail.com>\n"
 "Language-Team: Catalan <kde-i18n-ca@kde.org>\n"
 "Language: ca@valencia\n"
@@ -205,6 +205,7 @@ msgstr "Llistat de KPackageType: %1 en %2"
 msgid "Error: Plugin %1 is not installed."
 msgstr "S'ha produït un error: El connector %1 no està instal·lat."
 
+# skip-rule: kct-remove
 #: kpackagetool/kpackagetool.cpp:212
 #, kde-format
 msgctxt ""
