@@ -52,7 +52,7 @@ target_include_directories(KF6Package PUBLIC
   "$<BUILD_INTERFACE:${CMAKE_CURRENT_SOURCE_DIR}/..;${CMAKE_CURRENT_BINARY_DIR};${CMAKE_CURRENT_BINARY_DIR}/KPackage>"
 )
 target_include_directories(KF6Package INTERFACE
-  "$<INSTALL_INTERFACE:${KDE_INSTALL_INCLUDEDIR_KF};${KDE_INSTALL_INCLUDEDIR_KF}/KPackage>"
+  "$<INSTALL_INTERFACE:${KDE_INSTALL_INCLUDEDIR_KF}/KPackage>"
 )
 
 ########### install files ###############
