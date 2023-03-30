@@ -53,8 +53,8 @@ Accessing a file under a directory will look like package.filePath("ui", "main.q
 If as file path is passed a relative path with ".." elements in it or an absolute path, the resolution will fail as well, in order to discourage cross references (same thing will happen if the resolved file is a symlink), unless the package structure explicitly allowed it with setAllowExternalPaths().
 Here is a minimal example of a PackageStructure::initPackage.
 
-```
-...
+```cpp
+// ...
 void MyStructure::initPackage(KPackage::Package *package)
 {
     package->setDefaultPackageRoot(QStringLiteral("myapp" "/packages/"));
@@ -72,27 +72,15 @@ void MyStructure::initPackage(KPackage::Package *package)
 K_PLUGIN_CLASS_WITH_JSON(MyStructure, "myapp-packagestructure-mystructure.json")
 ```
 
-The line K_PLUGIN_CLASS_WITH_JSON is important in order to export the PackageStructure subclass MyStructure as a standalone plugin library using the KPluginLoader architecture, in order to be loadable and recognizable by a PackageLoader instance from any process (without the need to explicitly link to a library containing the MyStructure implementation).
+The line `K_PLUGIN_CLASS_WITH_JSON` is important in order to export the PackageStructure subclass MyStructure as a standalone plugin library using the KPluginFactory architecture, in order to be loadable and recognizable by a PackageLoader instance from any process (without the need to explicitly link to a library containing the MyStructure implementation).
 
 In order to build the plugin, it is also needed a .json file describing the metadata for the plugin:
 
 ```json
 {
-    "KPlugin": {
-        "Authors": [
-            {
-                "Email": "john@example.com",
-                "Name": "John Doe"
-            }
-        ],
-        "Id": "MyApp/MyStructure",
-        "Name": "My package type",
-        "Version": "1"
-    },
+    "KPackageStructure": "MyApp/MyStructure",
     "X-KDE-ParentApp": "org.kde.myapp"
 }
-
-
 ```
 
 And an own CMakeLists.txt.
