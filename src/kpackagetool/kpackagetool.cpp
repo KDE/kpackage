@@ -492,7 +492,7 @@ void PackageToolPrivate::listTypes()
 
     renderTypeTable(builtIns);
 
-    const QVector<KPluginMetaData> offers = KPluginMetaData::findPlugins(QStringLiteral("kpackage/packagestructure"));
+    const QVector<KPluginMetaData> offers = KPluginMetaData::findPlugins(QStringLiteral("kf6/packagestructure"));
 
     if (!offers.isEmpty()) {
         std::cout << std::endl;

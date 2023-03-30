@@ -17,10 +17,10 @@ ecm_add_tests(
 )
 
 
-kcoreaddons_add_plugin(plasmoidstructure_plugin STATIC SOURCES packagestructures/plasmoidstructure.cpp INSTALL_NAMESPACE kpackage/packagestructure)
+kcoreaddons_add_plugin(plasmoidstructure_plugin STATIC SOURCES packagestructures/plasmoidstructure.cpp INSTALL_NAMESPACE kf6/packagestructure)
 target_link_libraries(plasmoidstructure_plugin KF6::Package)
-kcoreaddons_target_static_plugins(querytest kpackage/packagestructure)
-kcoreaddons_target_static_plugins(plasmoidpackagetest kpackage/packagestructure)
+kcoreaddons_target_static_plugins(querytest kf6/packagestructure)
+kcoreaddons_target_static_plugins(plasmoidpackagetest kf6/packagestructure)
 
 set_tests_properties(querytest PROPERTIES RUN_SERIAL TRUE) # it wipes out ~/.qttest/share
 set_tests_properties(plasmoidpackagetest PROPERTIES RUN_SERIAL TRUE)

@@ -20,7 +20,7 @@ inline KPluginMetaData structureForKPackageType(const QString &packageFormat)
     qCDebug(KPACKAGE_LOG) << "Could not find package structure for" << packageFormat << "by plugin path. The guessed path was" << guessedPath;
 
     const QVector<KPluginMetaData> plugins =
-        KPluginMetaData::findPlugins(QStringLiteral("kpackage/packagestructure"), [packageFormat](const KPluginMetaData &metaData) {
+        KPluginMetaData::findPlugins(QStringLiteral("kf6/packagestructure"), [packageFormat](const KPluginMetaData &metaData) {
             return readKPackageType(metaData) == packageFormat;
         });
     return plugins.isEmpty() ? KPluginMetaData() : plugins.first();

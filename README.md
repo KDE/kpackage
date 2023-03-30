@@ -98,17 +98,12 @@ In order to build the plugin, it is also needed a .json file describing the meta
 And an own CMakeLists.txt.
 
 ```
-#build the PackageStructure implementation as a standalone library
-add_library(myapp_packagestructure_mystructure MODULE mystructure.cpp)
-
+# build the PackageStructure implementation and install it where PackageLoader looks for plugins
+kcoreaddons_add_plugin(myapp_packagestructure_mystructure SOURCES mystructure.cpp INSTALL_NAMESPACE kf6/packagestructure)
 target_link_libraries(myapp_packagestructure_mystructure
    KF6::I18n
    KF6::Package
 )
-
-#install the plugin where PackageLoader looks for them
-install(TARGETS myapp_packagestructure_mystructure DESTINATION ${KDE_INSTALL_PLUGINDIR}/kpackage/packagestructure)
-
 ```
 
 The C++ implementation with its CMake and JSON files are recommended to be in their own subdirectory, for separation respect to the code of the parent application.
