@@ -1,5 +1,6 @@
 /*
     SPDX-FileCopyrightText: 2011 Aaron Seigo <aseigo@kde.org>
+    SPDX-FileCopyrightText: 2023 Alexander Lohnau <alexander.lohnau@gmx.de>
 
     SPDX-License-Identifier: LGPL-2.0-or-later
 */
@@ -27,12 +28,11 @@ class PackageStructurePrivate;
  * for instance:
  *
  * @code
- * package->addFileDefinition("mainscript", QStringLiteral("ui/main.qml"), i18n("Main Script File"));
+ * package->addFileDefinition("mainscript", QStringLiteral("ui/main.qml"));
  * package->setDefaultPackageRoot(QStringLiteral("plasma/wallpapers/"));
- * package->addDirectoryDefinition("images", QStringLiteral("images"), i18n("Images"));
- * package->addDirectoryDefinition("theme", QStringLiteral("theme"), i18n("Themed Images"));
- * QStringList mimetypes;
- * mimetypes << QStringLiteral("image/svg+xml") << QStringLiteral("image/png") << QStringLiteral("image/jpeg");
+ * package->addDirectoryDefinition("images", QStringLiteral("images"));
+ * package->addDirectoryDefinition("theme", QStringLiteral("theme"));
+ * QStringList mimetypes{QStringLiteral("image/svg+xml"), QStringLiteral("image/png"), QStringLiteral("image/jpeg")};
  * package->setMimeTypes("images", mimetypes);
  * @endcode
  *
