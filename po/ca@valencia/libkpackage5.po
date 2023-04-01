@@ -211,6 +211,7 @@ msgstr "Llistat dels tipus de serveis: %1 en %2"
 msgid "Error: Plugin %1 is not installed."
 msgstr "S'ha produït un error: El connector %1 no està instal·lat."
 
+# skip-rule: kct-remove
 #: kpackagetool/kpackagetool.cpp:289
 #, kde-format
 msgctxt ""
