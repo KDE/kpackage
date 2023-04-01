@@ -37,8 +37,7 @@ Package::Package(PackageStructure *structure)
 
     if (d->structure) {
         d->structure.data()->initPackage(this);
-        auto desc = i18n("JSON file that describes this package.");
-        addFileDefinition("metadata", QStringLiteral("metadata.json"), desc);
+        addFileDefinition("metadata", QStringLiteral("metadata.json"));
     }
 }
 
@@ -107,16 +106,6 @@ bool Package::isValid() const
     }
 
     return d->valid;
-}
-
-QString Package::name(const QByteArray &key) const
-{
-    QHash<QByteArray, ContentStructure>::const_iterator it = d->contents.constFind(key);
-    if (it == d->contents.constEnd()) {
-        return QString();
-    }
-
-    return it.value().name;
 }
 
 bool Package::isRequired(const QByteArray &key) const
@@ -638,23 +627,19 @@ QByteArray Package::cryptographicHash(QCryptographicHash::Algorithm algorithm) c
     return hash.result().toHex();
 }
 
-void Package::addDirectoryDefinition(const QByteArray &key, const QString &path, const QString &name)
+void Package::addDirectoryDefinition(const QByteArray &key, const QString &path)
 {
     const auto contentsIt = d->contents.constFind(key);
     ContentStructure s;
 
     if (contentsIt != d->contents.constEnd()) {
-        if (contentsIt->paths.contains(path) && contentsIt->directory == true && contentsIt->name == name) {
+        if (contentsIt->paths.contains(path) && contentsIt->directory == true) {
             return;
         }
         s = *contentsIt;
     }
 
     d.detach();
-
-    if (!name.isEmpty()) {
-        s.name = name;
-    }
 
     s.paths.append(path);
     s.directory = true;
@@ -662,22 +647,19 @@ void Package::addDirectoryDefinition(const QByteArray &key, const QString &path,
     d->contents[key] = s;
 }
 
-void Package::addFileDefinition(const QByteArray &key, const QString &path, const QString &name)
+void Package::addFileDefinition(const QByteArray &key, const QString &path)
 {
     const auto contentsIt = d->contents.constFind(key);
     ContentStructure s;
 
     if (contentsIt != d->contents.constEnd()) {
-        if (contentsIt->paths.contains(path) && contentsIt->directory == true && contentsIt->name == name) {
+        if (contentsIt->paths.contains(path) && contentsIt->directory == true) {
             return;
         }
         s = *contentsIt;
     }
 
     d.detach();
-    if (!name.isEmpty()) {
-        s.name = name;
-    }
 
     s.paths.append(path);
     s.directory = false;

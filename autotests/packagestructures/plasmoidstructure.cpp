@@ -22,17 +22,17 @@ public:
         KPackage::PackageStructure::initPackage(package);
         package->setDefaultPackageRoot(QStringLiteral("plasma/plasmoids/"));
 
-        package->addDirectoryDefinition("ui", QStringLiteral("ui/"), QStringLiteral("User interface"));
-        package->addFileDefinition("mainscript", QStringLiteral("ui/main.qml"), QStringLiteral("Main Script File"));
+        package->addDirectoryDefinition("ui", QStringLiteral("ui/"));
+        package->addFileDefinition("mainscript", QStringLiteral("ui/main.qml"));
         package->setRequired("mainscript", true);
 
-        package->addFileDefinition("configmodel", QStringLiteral("config/config.qml"), QStringLiteral("Configuration UI pages model"));
-        package->addFileDefinition("mainconfigxml", QStringLiteral("config/main.xml"), QStringLiteral("Configuration XML file"));
+        package->addFileDefinition("configmodel", QStringLiteral("config/config.qml"));
+        package->addFileDefinition("mainconfigxml", QStringLiteral("config/main.xml"));
 
-        package->addDirectoryDefinition("images", QStringLiteral("images"), QStringLiteral("Images"));
+        package->addDirectoryDefinition("images", QStringLiteral("images"));
         package->setMimeTypes("images", {QStringLiteral("image/svg+xml"), QStringLiteral("image/png"), QStringLiteral("image/jpeg")});
 
-        package->addDirectoryDefinition("scripts", QStringLiteral("code"), QStringLiteral("Executable Scripts"));
+        package->addDirectoryDefinition("scripts", QStringLiteral("code"));
         package->setMimeTypes("scripts", {QStringLiteral("text/plain")});
     }
 };

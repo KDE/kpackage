@@ -32,17 +32,17 @@ namespace KPackage
  @code
     Package package;
 
-    package.addDirectoryDefinition("images", "pics/", i18n("Images"));
+    package.addDirectoryDefinition("images", "pics/");
     QStringList mimeTypes;
     mimeTypes << "image/svg" << "image/png" << "image/jpeg";
     package.setMimeTypes("images", mimeTypes);
 
-    package.addDirectoryDefinition("scripts", "code/", i18n("Executable Scripts"));
+    package.addDirectoryDefinition("scripts", "code/");
     mimeTypes.clear();
     mimeTypes << "text/\*";
     package.setMimeTypes("scripts", mimeTypes);
 
-    package.addFileDefinition("mainscript", "code/main.js", i18n("Main Script File"));
+    package.addFileDefinition("mainscript", "code/main.js");
     package.setRequired("mainscript", true);
  @endcode
  * One may also choose to create a subclass of PackageStructure and include the setup
@@ -149,11 +149,6 @@ public:
     QStringList entryList(const QByteArray &key) const;
 
     /**
-     * @return user visible name for the given entry
-     **/
-    QString name(const QByteArray &key) const;
-
-    /**
      * @return true if the item at path exists and is required
      **/
     bool isRequired(const QByteArray &key) const;
@@ -210,7 +205,7 @@ public:
      * @param path the path within the package for this directory
      * @param name the user visible (translated) name for the directory
      **/
-    void addDirectoryDefinition(const QByteArray &key, const QString &path, const QString &name);
+    void addDirectoryDefinition(const QByteArray &key, const QString &path);
 
     /**
      * Adds a file to the structure of the package. It is added as
@@ -223,7 +218,7 @@ public:
      * @param path the path within the package for this file
      * @param name the user visible (translated) name for the file
      **/
-    void addFileDefinition(const QByteArray &key, const QString &path, const QString &name);
+    void addFileDefinition(const QByteArray &key, const QString &path);
 
     /**
      * Removes a definition from the structure of the package.

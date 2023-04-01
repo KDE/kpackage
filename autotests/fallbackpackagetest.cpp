@@ -7,7 +7,6 @@
 
 #include "fallbackpackagetest.h"
 
-
 #include "packageloader.h"
 #include "packagestructure.h"
 #include <KLocalizedString>
@@ -16,12 +15,12 @@ void FallbackPackageTest::initTestCase()
 {
     m_fallPackagePath = QFINDTESTDATA("data/testpackage");
     m_fallbackPkg = KPackage::PackageLoader::self()->loadPackage(QStringLiteral("KPackage/Generic"));
-    m_fallbackPkg.addFileDefinition("mainscript", QStringLiteral("ui/main.qml"), i18n("Main Script File"));
+    m_fallbackPkg.addFileDefinition("mainscript", QStringLiteral("ui/main.qml"));
     m_fallbackPkg.setPath(m_fallPackagePath);
 
     m_packagePath = QFINDTESTDATA("data/testfallbackpackage");
     m_pkg = KPackage::PackageLoader::self()->loadPackage(QStringLiteral("KPackage/Generic"));
-    m_pkg.addFileDefinition("mainscript", QStringLiteral("ui/main.qml"), i18n("Main Script File"));
+    m_pkg.addFileDefinition("mainscript", QStringLiteral("ui/main.qml"));
     m_pkg.setPath(m_packagePath);
 }
 

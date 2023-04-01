@@ -23,13 +23,11 @@ private Q_SLOTS:
     void copyPerformance();
     void mutateAfterCopy();
     void emptyContentsPrefix();
-    void multiplePaths();
     void directories();
     void requiredDirectories();
     void files();
     void requiredFiles();
     void path();
-    void name();
     void required();
     void mimeTypes();
     void customContent();

@@ -30,7 +30,6 @@ public:
     ContentStructure(const ContentStructure &other)
     {
         paths = other.paths;
-        name = other.name;
         mimeTypes = other.mimeTypes;
         directory = other.directory;
         required = other.required;
@@ -39,7 +38,6 @@ public:
     ContentStructure &operator=(const ContentStructure &) = default;
 
     QStringList paths;
-    QString name;
     QStringList mimeTypes;
     bool directory : 1;
     bool required : 1;
