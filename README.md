@@ -59,17 +59,16 @@ void MyStructure::initPackage(KPackage::Package *package)
 {
     package->setDefaultPackageRoot(QStringLiteral("myapp" "/packages/"));
 
-    package->addDirectoryDefinition("images", QStringLiteral("images"), i18n("Images"));
-    QStringList mimetypes;
-    mimetypes << QStringLiteral("image/svg+xml") << QStringLiteral("image/png") << QStringLiteral("image/jpeg");
+    package->addDirectoryDefinition("images", QStringLiteral("images"));
+    QStringList mimetypes{QStringLiteral("image/svg+xml"), QStringLiteral("image/png"), QStringLiteral("image/jpeg")};
     package->setMimeTypes("images", mimetypes);
-    package->addDirectoryDefinition("code", QStringLiteral("code"), i18n("Javascript files"));
-    package->addFileDefinition("mainscript", QStringLiteral("scripts/main.js"), i18n("Main Script File"));
+    package->addDirectoryDefinition("code", QStringLiteral("code"));
+    package->addFileDefinition("mainscript", QStringLiteral("scripts/main.js"));
     //this way, the package will not be considered valid if mainscript is not present
     package->setRequired("mainscript", true);
 }
 ...
-K_PLUGIN_CLASS_WITH_JSON(MyStructure, "myapp-packagestructure-mystructure.json")
+K_PLUGIN_CLASS_WITH_JSON(MyStructure, "mystructure.json")
 ```
 
 The line `K_PLUGIN_CLASS_WITH_JSON` is important in order to export the PackageStructure subclass MyStructure as a standalone plugin library using the KPluginFactory architecture, in order to be loadable and recognizable by a PackageLoader instance from any process (without the need to explicitly link to a library containing the MyStructure implementation).
@@ -88,14 +87,10 @@ And an own CMakeLists.txt.
 ```
 # build the PackageStructure implementation and install it where PackageLoader looks for plugins
 kcoreaddons_add_plugin(myapp_packagestructure_mystructure SOURCES mystructure.cpp INSTALL_NAMESPACE kf6/packagestructure)
-target_link_libraries(myapp_packagestructure_mystructure
-   KF6::I18n
-   KF6::Package
-)
+target_link_libraries(myapp_packagestructure_mystructure KF6::Package)
 ```
 
 The C++ implementation with its CMake and JSON files are recommended to be in their own subdirectory, for separation respect to the code of the parent application.
-
 
 ## Package structures
 

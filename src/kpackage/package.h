@@ -33,14 +33,10 @@ namespace KPackage
     Package package;
 
     package.addDirectoryDefinition("images", "pics/");
-    QStringList mimeTypes;
-    mimeTypes << "image/svg" << "image/png" << "image/jpeg";
-    package.setMimeTypes("images", mimeTypes);
+    package.setMimeTypes("images", QStringList{"image/svg", "image/png", "image/jpeg"});
 
     package.addDirectoryDefinition("scripts", "code/");
-    mimeTypes.clear();
-    mimeTypes << "text/\*";
-    package.setMimeTypes("scripts", mimeTypes);
+    package.setMimeTypes("scripts", QStringList{"text/\*"});
 
     package.addFileDefinition("mainscript", "code/main.js");
     package.setRequired("mainscript", true);
@@ -197,27 +193,23 @@ public:
     /**
      * Adds a directory to the structure of the package. It is added as
      * a not-required element with no associated mimeTypes.
-     *
-     * Starting in 4.6, if an entry with the given key
-     * already exists, the path is added to it as a search alternative.
+     * If an entry with the given key already exists, the path
+     * is added to it as a search alternative.
      *
      * @param key  used as an internal label for this directory
      * @param path the path within the package for this directory
-     * @param name the user visible (translated) name for the directory
-     **/
+     */
     void addDirectoryDefinition(const QByteArray &key, const QString &path);
 
     /**
      * Adds a file to the structure of the package. It is added as
      * a not-required element with no associated mimeTypes.
-     *
-     * Starting in 4.6, if an entry with the given key
-     * already exists, the path is added to it as a search alternative.
+     * If an entry with the given key already exists, the path
+     * is added to it as a search alternative.
      *
      * @param key  used as an internal label for this file
      * @param path the path within the package for this file
-     * @param name the user visible (translated) name for the file
-     **/
+     */
     void addFileDefinition(const QByteArray &key, const QString &path);
 
     /**
