@@ -218,7 +218,7 @@ KPackage::PackageStructure *PackageLoader::loadPackageStructure(const QString &p
         return nullptr;
     }
 
-    auto result = KPluginFactory::instantiatePlugin<PackageStructure>(metaData, nullptr, {metaData.rawData().toVariantMap()});
+    auto result = KPluginFactory::instantiatePlugin<PackageStructure>(metaData);
     if (!result) {
         qCWarning(KPACKAGE_LOG) << i18n("Could not load installer for package of type %1. Error reported was: %2", packageFormat, result.errorString);
         return nullptr;
