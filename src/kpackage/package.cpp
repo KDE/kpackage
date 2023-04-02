@@ -922,5 +922,3 @@ bool PackagePrivate::hasCycle(const KPackage::Package &package)
 }
 
 } // Namespace
-
-#include "private/moc_package_p.cpp"
