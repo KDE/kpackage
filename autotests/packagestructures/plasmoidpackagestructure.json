@@ -1,6 +1,3 @@
 {
-    "KPlugin": {
-        "Name": "TestPlasmoid"
-    },
     "KPackageStructure": "Plasma/TestKPackageInternalPlasmoid"
 }
