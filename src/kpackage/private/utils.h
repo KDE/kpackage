@@ -12,7 +12,7 @@ inline QString readKPackageType(const KPluginMetaData &metaData)
 
 inline KPluginMetaData structureForKPackageType(const QString &packageFormat)
 {
-    const QString guessedPath = QStringLiteral("kpackage/packagestructure/") + QString(packageFormat).toLower().replace(QLatin1Char('/'), QLatin1Char('_'));
+    const QString guessedPath = QStringLiteral("kf6/packagestructure/") + QString(packageFormat).toLower().replace(QLatin1Char('/'), QLatin1Char('_'));
     KPluginMetaData guessedData(guessedPath);
     if (guessedData.isValid() && readKPackageType(guessedData) == packageFormat) {
         return guessedData;
