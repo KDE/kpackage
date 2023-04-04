@@ -27,13 +27,12 @@ ecm_qt_declare_logging_category(KF6Package
     EXPORT KPACKAGE
 )
 
-
-
 ecm_generate_export_header(KF6Package
     EXPORT_FILE_NAME kpackage/package_export.h
     BASE_NAME KPackage
     GROUP_BASE_NAME KF
     VERSION ${KF_VERSION}
+    USE_VERSION_HEADER
     DEPRECATED_BASE_VERSION 0
     DEPRECATION_VERSIONS
     EXCLUDE_DEPRECATED_BEFORE_AND_AT ${EXCLUDE_DEPRECATED_BEFORE_AND_AT}
