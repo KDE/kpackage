@@ -14,7 +14,7 @@ msgstr ""
 "Project-Id-Version: plasmapkg\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2023-03-15 02:11+0000\n"
-"PO-Revision-Date: 2023-03-05 18:25+0200\n"
+"PO-Revision-Date: 2023-04-02 16:26+0300\n"
 "Last-Translator: Tommi Nieminen <translator@legisign.org>\n"
 "Language-Team: Finnish <kde-i18n-doc@kde.org>\n"
 "Language: fi\n"
@@ -199,10 +199,9 @@ msgid "SHA1 hash for Package at %1: '%2'"
 msgstr "Paketin %1 SHA1-tiiviste: \"%2\""
 
 #: kpackagetool/kpackagetool.cpp:145
-#, fuzzy, kde-format
-#| msgid "Listing service types: %1 in %2"
+#, kde-format
 msgid "Listing KPackageType: %1 in %2"
-msgstr "Luetellaan palvelutyypit: %1 kansiossa %2"
+msgstr "Luetellaan KPackage-tyyppejä: %1 kansiossa %2"
 
 #: kpackagetool/kpackagetool.cpp:198
 #, kde-format
@@ -228,34 +227,29 @@ msgid "Showing info for package: %1"
 msgstr "Näytetään paketin %1 tiedot"
 
 #: kpackagetool/kpackagetool.cpp:260
-#, fuzzy, kde-format
-#| msgid "      Name : %1"
+#, kde-format
 msgid "  Name       : %1"
-msgstr "           Nimi : %1"
+msgstr "         Nimi: %1"
 
 #: kpackagetool/kpackagetool.cpp:261
-#, fuzzy, kde-format
-#| msgid "Service Descriptions"
+#, kde-format
 msgid "  Description: %1"
-msgstr "Palvelujen kuvaukset"
+msgstr "       Kuvaus: %1"
 
 #: kpackagetool/kpackagetool.cpp:262
-#, fuzzy, kde-format
-#| msgid "    Plugin : %1"
+#, kde-format
 msgid "  Plugin     : %1"
-msgstr "   Liitännäinen : %1"
+msgstr " Liitännäinen: %1"
 
 #: kpackagetool/kpackagetool.cpp:268
-#, fuzzy, kde-format
-#| msgid "    Author : %1"
+#, kde-format
 msgid "  Author     : %1"
-msgstr "         Tekijä : %1"
+msgstr "       Tekijä: %1"
 
 #: kpackagetool/kpackagetool.cpp:269
-#, fuzzy, kde-format
-#| msgid "      Path : %1"
+#, kde-format
 msgid "  Path       : %1"
-msgstr "          Polku : %1"
+msgstr "      Sijainti: %1"
 
 #: kpackagetool/kpackagetool.cpp:426
 #, kde-format
