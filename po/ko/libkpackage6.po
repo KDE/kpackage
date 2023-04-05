@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: plasmapkg\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2023-03-15 02:11+0000\n"
+"POT-Creation-Date: 2023-04-05 02:18+0000\n"
 "PO-Revision-Date: 2022-08-09 13:23+0200\n"
 "Last-Translator: Shinjo Park <kde@peremen.name>\n"
 "Language-Team: Korean <kde-kr@kde.org>\n"
@@ -27,12 +27,6 @@ msgstr "박신조"
 msgctxt "EMAIL OF TRANSLATORS"
 msgid "Your emails"
 msgstr "kde@peremen.name"
-
-#: kpackage/package.cpp:40
-#, fuzzy, kde-format
-#| msgid "Desktop file that describes this package."
-msgid "JSON file that describes this package."
-msgstr "패키지를 설명하는 데스크톱 파일입니다."
 
 #: kpackage/packageloader.cpp:223
 #, kde-format
@@ -132,51 +126,6 @@ msgstr "%1이(가) 없음"
 #, kde-format
 msgid "Could not delete package from: %1"
 msgstr "패키지를 다음에서 삭제할 수 없음: %1"
-
-#: kpackage/private/packages.cpp:17 kpackage/private/packages.cpp:38
-#, kde-format
-msgid "Main Script File"
-msgstr "주 스크립트 파일"
-
-#: kpackage/private/packages.cpp:48
-#, kde-format
-msgid "Images"
-msgstr "그림"
-
-#: kpackage/private/packages.cpp:49
-#, kde-format
-msgid "Themed Images"
-msgstr "테마의 그림"
-
-#: kpackage/private/packages.cpp:55
-#, kde-format
-msgid "Configuration Definitions"
-msgstr "설정 정의"
-
-#: kpackage/private/packages.cpp:60
-#, kde-format
-msgid "User Interface"
-msgstr "사용자 인터페이스"
-
-#: kpackage/private/packages.cpp:62
-#, kde-format
-msgid "Data Files"
-msgstr "데이터 파일"
-
-#: kpackage/private/packages.cpp:64
-#, kde-format
-msgid "Executable Scripts"
-msgstr "실행 가능한 스크립트"
-
-#: kpackage/private/packages.cpp:69
-#, kde-format
-msgid "Translations"
-msgstr "번역"
-
-#: kpackage/private/packages.cpp:76
-#, kde-format
-msgid "Main UI File"
-msgstr "주 UI 파일"
 
 #: kpackagetool/kpackagetool.cpp:87
 #, kde-format
@@ -405,6 +354,38 @@ msgstr "<path>에 있는 패키지의 메타데이터 출력하기"
 msgctxt "Do not translate <path>"
 msgid "Outputs the metadata for the package into <path>"
 msgstr "패키지 메타데이터를 <path>(으)로 출력하기"
+
+#, fuzzy
+#~| msgid "Desktop file that describes this package."
+#~ msgid "JSON file that describes this package."
+#~ msgstr "패키지를 설명하는 데스크톱 파일입니다."
+
+#~ msgid "Main Script File"
+#~ msgstr "주 스크립트 파일"
+
+#~ msgid "Images"
+#~ msgstr "그림"
+
+#~ msgid "Themed Images"
+#~ msgstr "테마의 그림"
+
+#~ msgid "Configuration Definitions"
+#~ msgstr "설정 정의"
+
+#~ msgid "User Interface"
+#~ msgstr "사용자 인터페이스"
+
+#~ msgid "Data Files"
+#~ msgstr "데이터 파일"
+
+#~ msgid "Executable Scripts"
+#~ msgstr "실행 가능한 스크립트"
+
+#~ msgid "Translations"
+#~ msgstr "번역"
+
+#~ msgid "Main UI File"
+#~ msgstr "주 UI 파일"
 
 #~ msgctxt "package type"
 #~ msgid "wallpaper"

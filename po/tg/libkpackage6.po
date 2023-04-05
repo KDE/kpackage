@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kpackage\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2023-03-15 02:11+0000\n"
+"POT-Creation-Date: 2023-04-05 02:18+0000\n"
 "PO-Revision-Date: 2019-09-29 12:45+0500\n"
 "Last-Translator: Victor Ibragimov <victor.ibragimov@gmail.com>\n"
 "Language-Team: English <kde-i18n-doc@kde.org>\n"
@@ -27,12 +27,6 @@ msgstr "Дилхушӣ ва бозиҳо"
 msgctxt "EMAIL OF TRANSLATORS"
 msgid "Your emails"
 msgstr ""
-
-#: kpackage/package.cpp:40
-#, fuzzy, kde-format
-#| msgid "Desktop file that describes this package."
-msgid "JSON file that describes this package."
-msgstr "Файли мизи корие, ки ин бастаро тасвир мекунад."
 
 #: kpackage/packageloader.cpp:223
 #, kde-format
@@ -136,51 +130,6 @@ msgstr "%1 вуҷуд надорад"
 #, kde-format
 msgid "Could not delete package from: %1"
 msgstr "Несткунии баста аз макони зерин қатъ шуд: %1"
-
-#: kpackage/private/packages.cpp:17 kpackage/private/packages.cpp:38
-#, kde-format
-msgid "Main Script File"
-msgstr "Файли нақши асосӣ"
-
-#: kpackage/private/packages.cpp:48
-#, kde-format
-msgid "Images"
-msgstr "Тасвирҳо"
-
-#: kpackage/private/packages.cpp:49
-#, kde-format
-msgid "Themed Images"
-msgstr "Тасвирҳои мавзӯӣ"
-
-#: kpackage/private/packages.cpp:55
-#, kde-format
-msgid "Configuration Definitions"
-msgstr "Таърифҳои танзимот"
-
-#: kpackage/private/packages.cpp:60
-#, kde-format
-msgid "User Interface"
-msgstr "Воситаи корбарӣ"
-
-#: kpackage/private/packages.cpp:62
-#, kde-format
-msgid "Data Files"
-msgstr "Файлҳои иттилоотӣ"
-
-#: kpackage/private/packages.cpp:64
-#, kde-format
-msgid "Executable Scripts"
-msgstr "Нақшҳои иҷрошаванда"
-
-#: kpackage/private/packages.cpp:69
-#, kde-format
-msgid "Translations"
-msgstr "Тарҷумаҳо"
-
-#: kpackage/private/packages.cpp:76
-#, kde-format
-msgid "Main UI File"
-msgstr "Файли воситаи корбарии асосӣ"
 
 #: kpackagetool/kpackagetool.cpp:87
 #, kde-format
@@ -416,6 +365,38 @@ msgstr "Иттилооти фавқро барои бастаи <path> эҷод 
 msgctxt "Do not translate <path>"
 msgid "Outputs the metadata for the package into <path>"
 msgstr "Иттилооти фавқро барои баста дар <path> эҷод мекунад"
+
+#, fuzzy
+#~| msgid "Desktop file that describes this package."
+#~ msgid "JSON file that describes this package."
+#~ msgstr "Файли мизи корие, ки ин бастаро тасвир мекунад."
+
+#~ msgid "Main Script File"
+#~ msgstr "Файли нақши асосӣ"
+
+#~ msgid "Images"
+#~ msgstr "Тасвирҳо"
+
+#~ msgid "Themed Images"
+#~ msgstr "Тасвирҳои мавзӯӣ"
+
+#~ msgid "Configuration Definitions"
+#~ msgstr "Таърифҳои танзимот"
+
+#~ msgid "User Interface"
+#~ msgstr "Воситаи корбарӣ"
+
+#~ msgid "Data Files"
+#~ msgstr "Файлҳои иттилоотӣ"
+
+#~ msgid "Executable Scripts"
+#~ msgstr "Нақшҳои иҷрошаванда"
+
+#~ msgid "Translations"
+#~ msgstr "Тарҷумаҳо"
+
+#~ msgid "Main UI File"
+#~ msgstr "Файли воситаи корбарии асосӣ"
 
 #~ msgctxt "package type"
 #~ msgid "wallpaper"

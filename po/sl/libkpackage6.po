@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2023-03-15 02:11+0000\n"
+"POT-Creation-Date: 2023-04-05 02:18+0000\n"
 "PO-Revision-Date: 2023-03-16 10:38+0100\n"
 "Last-Translator: Matjaž Jeran <matjaz.jeran@amis.net>\n"
 "Language-Team: Slovenian <lugos-slo@lugos.si>\n"
@@ -29,11 +29,6 @@ msgstr "Matjaž Jeran"
 msgctxt "EMAIL OF TRANSLATORS"
 msgid "Your emails"
 msgstr "matjaz.jeran@amis.net"
-
-#: kpackage/package.cpp:40
-#, kde-format
-msgid "JSON file that describes this package."
-msgstr "Datoteka JSON, ki opisuje ta paket."
 
 #: kpackage/packageloader.cpp:223
 #, kde-format
@@ -135,51 +130,6 @@ msgstr "%1 ne obstaja"
 #, kde-format
 msgid "Could not delete package from: %1"
 msgstr "Ni bilo mogoče izbrisati paketa iz: %1"
-
-#: kpackage/private/packages.cpp:17 kpackage/private/packages.cpp:38
-#, kde-format
-msgid "Main Script File"
-msgstr "Glavna skriptna datoteka"
-
-#: kpackage/private/packages.cpp:48
-#, kde-format
-msgid "Images"
-msgstr "Slike"
-
-#: kpackage/private/packages.cpp:49
-#, kde-format
-msgid "Themed Images"
-msgstr "Tematske slike"
-
-#: kpackage/private/packages.cpp:55
-#, kde-format
-msgid "Configuration Definitions"
-msgstr "Določila nastavitev"
-
-#: kpackage/private/packages.cpp:60
-#, kde-format
-msgid "User Interface"
-msgstr "Uporabniški vmesnik"
-
-#: kpackage/private/packages.cpp:62
-#, kde-format
-msgid "Data Files"
-msgstr "Datoteke s podatki"
-
-#: kpackage/private/packages.cpp:64
-#, kde-format
-msgid "Executable Scripts"
-msgstr "Izvedljivi skripti"
-
-#: kpackage/private/packages.cpp:69
-#, kde-format
-msgid "Translations"
-msgstr "Prevodi"
-
-#: kpackage/private/packages.cpp:76
-#, kde-format
-msgid "Main UI File"
-msgstr "Glavna datoteka z vmesnikom"
 
 #: kpackagetool/kpackagetool.cpp:87
 #, kde-format
@@ -405,6 +355,36 @@ msgstr "Izpiše metapodatke za paket <path>"
 msgctxt "Do not translate <path>"
 msgid "Outputs the metadata for the package into <path>"
 msgstr "Izpiše metapodatke za paket v <path>"
+
+#~ msgid "JSON file that describes this package."
+#~ msgstr "Datoteka JSON, ki opisuje ta paket."
+
+#~ msgid "Main Script File"
+#~ msgstr "Glavna skriptna datoteka"
+
+#~ msgid "Images"
+#~ msgstr "Slike"
+
+#~ msgid "Themed Images"
+#~ msgstr "Tematske slike"
+
+#~ msgid "Configuration Definitions"
+#~ msgstr "Določila nastavitev"
+
+#~ msgid "User Interface"
+#~ msgstr "Uporabniški vmesnik"
+
+#~ msgid "Data Files"
+#~ msgstr "Datoteke s podatki"
+
+#~ msgid "Executable Scripts"
+#~ msgstr "Izvedljivi skripti"
+
+#~ msgid "Translations"
+#~ msgstr "Prevodi"
+
+#~ msgid "Main UI File"
+#~ msgstr "Glavna datoteka z vmesnikom"
 
 #~ msgctxt "package type"
 #~ msgid "wallpaper"

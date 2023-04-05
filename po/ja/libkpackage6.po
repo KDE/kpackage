@@ -3,7 +3,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: plasmapkg\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2023-03-15 02:11+0000\n"
+"POT-Creation-Date: 2023-04-05 02:18+0000\n"
 "PO-Revision-Date: 2011-12-11 14:21-0800\n"
 "Last-Translator: Fumiaki Okushi <okushi@kde.gr.jp>\n"
 "Language-Team: Japanese <kde-jp@kde.org>\n"
@@ -24,11 +24,6 @@ msgstr "Fumiaki Okushi"
 msgctxt "EMAIL OF TRANSLATORS"
 msgid "Your emails"
 msgstr "okushi@kde.gr.jp"
-
-#: kpackage/package.cpp:40
-#, kde-format
-msgid "JSON file that describes this package."
-msgstr ""
 
 #: kpackage/packageloader.cpp:223
 #, kde-format
@@ -128,52 +123,6 @@ msgstr ""
 #| msgid "Could not find a suitable installer for package of type %1"
 msgid "Could not delete package from: %1"
 msgstr "パッケージタイプ %1 に適したインストーラがありません"
-
-#: kpackage/private/packages.cpp:17 kpackage/private/packages.cpp:38
-#, kde-format
-msgid "Main Script File"
-msgstr ""
-
-#: kpackage/private/packages.cpp:48
-#, kde-format
-msgid "Images"
-msgstr ""
-
-#: kpackage/private/packages.cpp:49
-#, kde-format
-msgid "Themed Images"
-msgstr ""
-
-#: kpackage/private/packages.cpp:55
-#, kde-format
-msgid "Configuration Definitions"
-msgstr ""
-
-#: kpackage/private/packages.cpp:60
-#, kde-format
-msgid "User Interface"
-msgstr ""
-
-#: kpackage/private/packages.cpp:62
-#, fuzzy, kde-format
-#| msgid "DataEngine"
-msgid "Data Files"
-msgstr "データエンジン"
-
-#: kpackage/private/packages.cpp:64
-#, kde-format
-msgid "Executable Scripts"
-msgstr ""
-
-#: kpackage/private/packages.cpp:69
-#, kde-format
-msgid "Translations"
-msgstr ""
-
-#: kpackage/private/packages.cpp:76
-#, kde-format
-msgid "Main UI File"
-msgstr ""
 
 #: kpackagetool/kpackagetool.cpp:87
 #, kde-format
@@ -412,6 +361,11 @@ msgstr "<path> のパッケージのために SHA1 ハッシュを生成"
 msgctxt "Do not translate <path>"
 msgid "Outputs the metadata for the package into <path>"
 msgstr "<path> のパッケージのために SHA1 ハッシュを生成"
+
+#, fuzzy
+#~| msgid "DataEngine"
+#~ msgid "Data Files"
+#~ msgstr "データエンジン"
 
 #~ msgctxt "package type"
 #~ msgid "wallpaper"

@@ -10,7 +10,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2023-03-15 02:11+0000\n"
+"POT-Creation-Date: 2023-04-05 02:18+0000\n"
 "PO-Revision-Date: 2023-03-19 09:02+0900\n"
 "Last-Translator: Kisaragi Hiu <mail@kisaragi-hiu.com>\n"
 "Language-Team: Chinese <zh-l10n@linux.org.tw>\n"
@@ -30,11 +30,6 @@ msgstr "Kisaragi Hiu"
 msgctxt "EMAIL OF TRANSLATORS"
 msgid "Your emails"
 msgstr "mail@kisaragi-hiu.com"
-
-#: kpackage/package.cpp:40
-#, kde-format
-msgid "JSON file that describes this package."
-msgstr "描述此軟體包的 JSON 檔案。"
 
 #: kpackage/packageloader.cpp:223
 #, kde-format
@@ -132,51 +127,6 @@ msgstr "%1 不存在"
 #, kde-format
 msgid "Could not delete package from: %1"
 msgstr "無法從 %1 中刪除軟體包"
-
-#: kpackage/private/packages.cpp:17 kpackage/private/packages.cpp:38
-#, kde-format
-msgid "Main Script File"
-msgstr "主文稿檔"
-
-#: kpackage/private/packages.cpp:48
-#, kde-format
-msgid "Images"
-msgstr "影像"
-
-#: kpackage/private/packages.cpp:49
-#, kde-format
-msgid "Themed Images"
-msgstr "主題影像"
-
-#: kpackage/private/packages.cpp:55
-#, kde-format
-msgid "Configuration Definitions"
-msgstr "設定定義"
-
-#: kpackage/private/packages.cpp:60
-#, kde-format
-msgid "User Interface"
-msgstr "使用者介面"
-
-#: kpackage/private/packages.cpp:62
-#, kde-format
-msgid "Data Files"
-msgstr "資料檔"
-
-#: kpackage/private/packages.cpp:64
-#, kde-format
-msgid "Executable Scripts"
-msgstr "執行文稿"
-
-#: kpackage/private/packages.cpp:69
-#, kde-format
-msgid "Translations"
-msgstr "翻譯"
-
-#: kpackage/private/packages.cpp:76
-#, kde-format
-msgid "Main UI File"
-msgstr "主介面檔"
 
 #: kpackagetool/kpackagetool.cpp:87
 #, kde-format
@@ -400,6 +350,36 @@ msgstr "產生軟體包的中介資料於 <path>"
 msgctxt "Do not translate <path>"
 msgid "Outputs the metadata for the package into <path>"
 msgstr "產生軟體包的中介資料於 <path>"
+
+#~ msgid "JSON file that describes this package."
+#~ msgstr "描述此軟體包的 JSON 檔案。"
+
+#~ msgid "Main Script File"
+#~ msgstr "主文稿檔"
+
+#~ msgid "Images"
+#~ msgstr "影像"
+
+#~ msgid "Themed Images"
+#~ msgstr "主題影像"
+
+#~ msgid "Configuration Definitions"
+#~ msgstr "設定定義"
+
+#~ msgid "User Interface"
+#~ msgstr "使用者介面"
+
+#~ msgid "Data Files"
+#~ msgstr "資料檔"
+
+#~ msgid "Executable Scripts"
+#~ msgstr "執行文稿"
+
+#~ msgid "Translations"
+#~ msgstr "翻譯"
+
+#~ msgid "Main UI File"
+#~ msgstr "主介面檔"
 
 #~ msgctxt "package type"
 #~ msgid "wallpaper"

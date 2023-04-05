@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2023-03-15 02:11+0000\n"
+"POT-Creation-Date: 2023-04-05 02:18+0000\n"
 "PO-Revision-Date: 2020-09-05 16:12+0300\n"
 "Last-Translator: Stelios <sstavra@gmail.com>\n"
 "Language-Team: Greek <kde-i18n-el@kde.org>\n"
@@ -27,12 +27,6 @@ msgstr "Dimitris Kardarakos,Stelios"
 msgctxt "EMAIL OF TRANSLATORS"
 msgid "Your emails"
 msgstr "dimkard@gmail.com,sstavra@gmail.com"
-
-#: kpackage/package.cpp:40
-#, fuzzy, kde-format
-#| msgid "Desktop file that describes this package."
-msgid "JSON file that describes this package."
-msgstr "Αρχείο επιφάνειας εργασίας που περιγράφει αυτό το πακέτο."
 
 #: kpackage/packageloader.cpp:223
 #, kde-format
@@ -141,51 +135,6 @@ msgstr "Το %1 δεν υπάρχει"
 #, kde-format
 msgid "Could not delete package from: %1"
 msgstr "Αδυναμία διαγραφής πακέτου από: %1"
-
-#: kpackage/private/packages.cpp:17 kpackage/private/packages.cpp:38
-#, kde-format
-msgid "Main Script File"
-msgstr "Κύριο αρχείο σεναρίου"
-
-#: kpackage/private/packages.cpp:48
-#, kde-format
-msgid "Images"
-msgstr "Εικόνες"
-
-#: kpackage/private/packages.cpp:49
-#, kde-format
-msgid "Themed Images"
-msgstr "Εικόνες με θέμα"
-
-#: kpackage/private/packages.cpp:55
-#, kde-format
-msgid "Configuration Definitions"
-msgstr "Ορισμοί διαμόρφωσης"
-
-#: kpackage/private/packages.cpp:60
-#, kde-format
-msgid "User Interface"
-msgstr "Περιβάλλον χρήστη"
-
-#: kpackage/private/packages.cpp:62
-#, kde-format
-msgid "Data Files"
-msgstr "Αρχεία δεδομένων"
-
-#: kpackage/private/packages.cpp:64
-#, kde-format
-msgid "Executable Scripts"
-msgstr "Εκτελέσιμα σενάρια"
-
-#: kpackage/private/packages.cpp:69
-#, kde-format
-msgid "Translations"
-msgstr "Μεταφράσεις"
-
-#: kpackage/private/packages.cpp:76
-#, kde-format
-msgid "Main UI File"
-msgstr "Κύριο αρχείο UI"
 
 #: kpackagetool/kpackagetool.cpp:87
 #, kde-format
@@ -420,6 +369,38 @@ msgstr "Έξοδος των μεταδεδομένων του πακέτου <pa
 msgctxt "Do not translate <path>"
 msgid "Outputs the metadata for the package into <path>"
 msgstr "Έξοδος των μεταδεδομένων του πακέτου στο <path>"
+
+#, fuzzy
+#~| msgid "Desktop file that describes this package."
+#~ msgid "JSON file that describes this package."
+#~ msgstr "Αρχείο επιφάνειας εργασίας που περιγράφει αυτό το πακέτο."
+
+#~ msgid "Main Script File"
+#~ msgstr "Κύριο αρχείο σεναρίου"
+
+#~ msgid "Images"
+#~ msgstr "Εικόνες"
+
+#~ msgid "Themed Images"
+#~ msgstr "Εικόνες με θέμα"
+
+#~ msgid "Configuration Definitions"
+#~ msgstr "Ορισμοί διαμόρφωσης"
+
+#~ msgid "User Interface"
+#~ msgstr "Περιβάλλον χρήστη"
+
+#~ msgid "Data Files"
+#~ msgstr "Αρχεία δεδομένων"
+
+#~ msgid "Executable Scripts"
+#~ msgstr "Εκτελέσιμα σενάρια"
+
+#~ msgid "Translations"
+#~ msgstr "Μεταφράσεις"
+
+#~ msgid "Main UI File"
+#~ msgstr "Κύριο αρχείο UI"
 
 #~ msgctxt "package type"
 #~ msgid "wallpaper"

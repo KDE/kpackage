@@ -2,7 +2,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kdeorg\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2023-03-15 02:11+0000\n"
+"POT-Creation-Date: 2023-04-05 02:18+0000\n"
 "PO-Revision-Date: 2023-02-24 12:43\n"
 "Last-Translator: \n"
 "Language-Team: Chinese Simplified\n"
@@ -26,12 +26,6 @@ msgstr "KDE 中国, Guo Yunhe, Tyson Tan"
 msgctxt "EMAIL OF TRANSLATORS"
 msgid "Your emails"
 msgstr "kde-china@kde.org, i@guoyunhe.me, tysontan@tysontan.com"
-
-#: kpackage/package.cpp:40
-#, fuzzy, kde-format
-#| msgid "Desktop file that describes this package."
-msgid "JSON file that describes this package."
-msgstr "描述此包的桌面定义文件。"
 
 #: kpackage/packageloader.cpp:223
 #, kde-format
@@ -131,51 +125,6 @@ msgstr "%1 不存在"
 #, kde-format
 msgid "Could not delete package from: %1"
 msgstr "无法从位置删除包：%1"
-
-#: kpackage/private/packages.cpp:17 kpackage/private/packages.cpp:38
-#, kde-format
-msgid "Main Script File"
-msgstr "主脚本文件"
-
-#: kpackage/private/packages.cpp:48
-#, kde-format
-msgid "Images"
-msgstr "图像"
-
-#: kpackage/private/packages.cpp:49
-#, kde-format
-msgid "Themed Images"
-msgstr "主题化的图像"
-
-#: kpackage/private/packages.cpp:55
-#, kde-format
-msgid "Configuration Definitions"
-msgstr "配置定义"
-
-#: kpackage/private/packages.cpp:60
-#, kde-format
-msgid "User Interface"
-msgstr "用户界面"
-
-#: kpackage/private/packages.cpp:62
-#, kde-format
-msgid "Data Files"
-msgstr "日期文件"
-
-#: kpackage/private/packages.cpp:64
-#, kde-format
-msgid "Executable Scripts"
-msgstr "可执行脚本"
-
-#: kpackage/private/packages.cpp:69
-#, kde-format
-msgid "Translations"
-msgstr "翻译"
-
-#: kpackage/private/packages.cpp:76
-#, kde-format
-msgid "Main UI File"
-msgstr "主界面文件"
 
 #: kpackagetool/kpackagetool.cpp:87
 #, kde-format
@@ -405,6 +354,38 @@ msgstr "输出位于 <path> 包的元数据"
 msgctxt "Do not translate <path>"
 msgid "Outputs the metadata for the package into <path>"
 msgstr "输出软件包元数据到 <path>"
+
+#, fuzzy
+#~| msgid "Desktop file that describes this package."
+#~ msgid "JSON file that describes this package."
+#~ msgstr "描述此包的桌面定义文件。"
+
+#~ msgid "Main Script File"
+#~ msgstr "主脚本文件"
+
+#~ msgid "Images"
+#~ msgstr "图像"
+
+#~ msgid "Themed Images"
+#~ msgstr "主题化的图像"
+
+#~ msgid "Configuration Definitions"
+#~ msgstr "配置定义"
+
+#~ msgid "User Interface"
+#~ msgstr "用户界面"
+
+#~ msgid "Data Files"
+#~ msgstr "日期文件"
+
+#~ msgid "Executable Scripts"
+#~ msgstr "可执行脚本"
+
+#~ msgid "Translations"
+#~ msgstr "翻译"
+
+#~ msgid "Main UI File"
+#~ msgstr "主界面文件"
 
 #~ msgctxt "package type"
 #~ msgid "wallpaper"

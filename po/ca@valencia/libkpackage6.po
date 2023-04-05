@@ -10,7 +10,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kpackage\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2023-03-15 02:11+0000\n"
+"POT-Creation-Date: 2023-04-05 02:18+0000\n"
 "PO-Revision-Date: 2023-03-25 12:05+0100\n"
 "Last-Translator: Josep M. Ferrer <txemaq@gmail.com>\n"
 "Language-Team: Catalan <kde-i18n-ca@kde.org>\n"
@@ -31,11 +31,6 @@ msgstr "Empar Montoro Martín,Josep M. Ferrer"
 msgctxt "EMAIL OF TRANSLATORS"
 msgid "Your emails"
 msgstr "montoro_mde@gva.es,txemaq@gmail.com"
-
-#: kpackage/package.cpp:40
-#, kde-format
-msgid "JSON file that describes this package."
-msgstr "Fitxer JSON que descriu este paquet."
 
 #: kpackage/packageloader.cpp:223
 #, kde-format
@@ -139,51 +134,6 @@ msgstr "%1 no existix"
 #, kde-format
 msgid "Could not delete package from: %1"
 msgstr "No s'ha pogut eliminar el paquet des de: %1"
-
-#: kpackage/private/packages.cpp:17 kpackage/private/packages.cpp:38
-#, kde-format
-msgid "Main Script File"
-msgstr "Fitxer principal de script"
-
-#: kpackage/private/packages.cpp:48
-#, kde-format
-msgid "Images"
-msgstr "Imatges"
-
-#: kpackage/private/packages.cpp:49
-#, kde-format
-msgid "Themed Images"
-msgstr "Imatges temàtiques"
-
-#: kpackage/private/packages.cpp:55
-#, kde-format
-msgid "Configuration Definitions"
-msgstr "Definicions de la configuració"
-
-#: kpackage/private/packages.cpp:60
-#, kde-format
-msgid "User Interface"
-msgstr "Interfície d'usuari"
-
-#: kpackage/private/packages.cpp:62
-#, kde-format
-msgid "Data Files"
-msgstr "Fitxers de dades"
-
-#: kpackage/private/packages.cpp:64
-#, kde-format
-msgid "Executable Scripts"
-msgstr "Scripts executables"
-
-#: kpackage/private/packages.cpp:69
-#, kde-format
-msgid "Translations"
-msgstr "Traduccions"
-
-#: kpackage/private/packages.cpp:76
-#, kde-format
-msgid "Main UI File"
-msgstr "Fitxer principal de la IU"
 
 #: kpackagetool/kpackagetool.cpp:87
 #, kde-format
@@ -416,3 +366,33 @@ msgstr "Eixida de les metadades per al paquet <camí>"
 msgctxt "Do not translate <path>"
 msgid "Outputs the metadata for the package into <path>"
 msgstr "Eixida de les metadades per al paquet dins del <camí>"
+
+#~ msgid "JSON file that describes this package."
+#~ msgstr "Fitxer JSON que descriu este paquet."
+
+#~ msgid "Main Script File"
+#~ msgstr "Fitxer principal de script"
+
+#~ msgid "Images"
+#~ msgstr "Imatges"
+
+#~ msgid "Themed Images"
+#~ msgstr "Imatges temàtiques"
+
+#~ msgid "Configuration Definitions"
+#~ msgstr "Definicions de la configuració"
+
+#~ msgid "User Interface"
+#~ msgstr "Interfície d'usuari"
+
+#~ msgid "Data Files"
+#~ msgstr "Fitxers de dades"
+
+#~ msgid "Executable Scripts"
+#~ msgstr "Scripts executables"
+
+#~ msgid "Translations"
+#~ msgstr "Traduccions"
+
+#~ msgid "Main UI File"
+#~ msgstr "Fitxer principal de la IU"

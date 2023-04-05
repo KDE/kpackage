@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: trunk-kf 5\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2023-03-15 02:11+0000\n"
+"POT-Creation-Date: 2023-04-05 02:18+0000\n"
 "PO-Revision-Date: 2019-10-11 23:17+0300\n"
 "Last-Translator: Moo\n"
 "Language-Team: lt\n"
@@ -29,12 +29,6 @@ msgstr "Linksmybės ir žaidimai"
 msgctxt "EMAIL OF TRANSLATORS"
 msgid "Your emails"
 msgstr ""
-
-#: kpackage/package.cpp:40
-#, fuzzy, kde-format
-#| msgid "Desktop file that describes this package."
-msgid "JSON file that describes this package."
-msgstr "Darbalaukio failas, kuris aprašo šį paketą."
 
 #: kpackage/packageloader.cpp:223
 #, kde-format
@@ -136,51 +130,6 @@ msgstr "%1 nėra"
 #, kde-format
 msgid "Could not delete package from: %1"
 msgstr "Nepavyko ištrinti paketo iš: %1"
-
-#: kpackage/private/packages.cpp:17 kpackage/private/packages.cpp:38
-#, kde-format
-msgid "Main Script File"
-msgstr "Pagrindinis scenarijaus failas"
-
-#: kpackage/private/packages.cpp:48
-#, kde-format
-msgid "Images"
-msgstr "Paveikslai"
-
-#: kpackage/private/packages.cpp:49
-#, kde-format
-msgid "Themed Images"
-msgstr "Apipavidalinti paveikslai"
-
-#: kpackage/private/packages.cpp:55
-#, kde-format
-msgid "Configuration Definitions"
-msgstr "Konfigūracijos apibrėžimai"
-
-#: kpackage/private/packages.cpp:60
-#, kde-format
-msgid "User Interface"
-msgstr "Naudotojo sąsaja"
-
-#: kpackage/private/packages.cpp:62
-#, kde-format
-msgid "Data Files"
-msgstr "Duomenų failai"
-
-#: kpackage/private/packages.cpp:64
-#, kde-format
-msgid "Executable Scripts"
-msgstr "Vykdomieji scenarijai"
-
-#: kpackage/private/packages.cpp:69
-#, kde-format
-msgid "Translations"
-msgstr "Vertimai"
-
-#: kpackage/private/packages.cpp:76
-#, kde-format
-msgid "Main UI File"
-msgstr "Pagrindiniai naudotojo sąsajos failai"
 
 #: kpackagetool/kpackagetool.cpp:87
 #, kde-format
@@ -414,6 +363,38 @@ msgstr "Išveda <path> paketo metaduomenis"
 msgctxt "Do not translate <path>"
 msgid "Outputs the metadata for the package into <path>"
 msgstr "Išveda paketo metaduomenis į <path>"
+
+#, fuzzy
+#~| msgid "Desktop file that describes this package."
+#~ msgid "JSON file that describes this package."
+#~ msgstr "Darbalaukio failas, kuris aprašo šį paketą."
+
+#~ msgid "Main Script File"
+#~ msgstr "Pagrindinis scenarijaus failas"
+
+#~ msgid "Images"
+#~ msgstr "Paveikslai"
+
+#~ msgid "Themed Images"
+#~ msgstr "Apipavidalinti paveikslai"
+
+#~ msgid "Configuration Definitions"
+#~ msgstr "Konfigūracijos apibrėžimai"
+
+#~ msgid "User Interface"
+#~ msgstr "Naudotojo sąsaja"
+
+#~ msgid "Data Files"
+#~ msgstr "Duomenų failai"
+
+#~ msgid "Executable Scripts"
+#~ msgstr "Vykdomieji scenarijai"
+
+#~ msgid "Translations"
+#~ msgstr "Vertimai"
+
+#~ msgid "Main UI File"
+#~ msgstr "Pagrindiniai naudotojo sąsajos failai"
 
 #~ msgctxt "package type"
 #~ msgid "wallpaper"

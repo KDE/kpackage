@@ -17,7 +17,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: plasmapkg\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2023-03-15 02:11+0000\n"
+"POT-Creation-Date: 2023-04-05 02:18+0000\n"
 "PO-Revision-Date: 2023-03-15 20:59+0100\n"
 "Last-Translator: Xavier BESNARD <xavier.besnard]neuf.fr>\n"
 "Language-Team: fr\n"
@@ -44,11 +44,6 @@ msgid "Your emails"
 msgstr ""
 "xavier.besnard@neuf.fr, jcorn@free.fr, julien.rf@no-log.org, nicolas."
 "ternisien@gmail.com, alain.dias02@gmail.com"
-
-#: kpackage/package.cpp:40
-#, kde-format
-msgid "JSON file that describes this package."
-msgstr "Fichier « JSON » décrivant ce paquet."
 
 #: kpackage/packageloader.cpp:223
 #, kde-format
@@ -157,51 +152,6 @@ msgstr "%1 n'existe pas"
 #, kde-format
 msgid "Could not delete package from: %1"
 msgstr "Impossible de supprimer le paquet depuis : %1"
-
-#: kpackage/private/packages.cpp:17 kpackage/private/packages.cpp:38
-#, kde-format
-msgid "Main Script File"
-msgstr "Script principal"
-
-#: kpackage/private/packages.cpp:48
-#, kde-format
-msgid "Images"
-msgstr "Images"
-
-#: kpackage/private/packages.cpp:49
-#, kde-format
-msgid "Themed Images"
-msgstr "Images thématiques"
-
-#: kpackage/private/packages.cpp:55
-#, kde-format
-msgid "Configuration Definitions"
-msgstr "Définition de configuration"
-
-#: kpackage/private/packages.cpp:60
-#, kde-format
-msgid "User Interface"
-msgstr "Interface utilisateur"
-
-#: kpackage/private/packages.cpp:62
-#, kde-format
-msgid "Data Files"
-msgstr "Fichiers de données"
-
-#: kpackage/private/packages.cpp:64
-#, kde-format
-msgid "Executable Scripts"
-msgstr "Scripts exécutables"
-
-#: kpackage/private/packages.cpp:69
-#, kde-format
-msgid "Translations"
-msgstr "Traductions"
-
-#: kpackage/private/packages.cpp:76
-#, kde-format
-msgid "Main UI File"
-msgstr "Fichier d'interface utilisateur principal"
 
 #: kpackagetool/kpackagetool.cpp:87
 #, kde-format
@@ -432,6 +382,36 @@ msgstr "Affiche les métadonnées du paquet <path>"
 msgctxt "Do not translate <path>"
 msgid "Outputs the metadata for the package into <path>"
 msgstr "Affiche les métadonnées du paquet dans <path>"
+
+#~ msgid "JSON file that describes this package."
+#~ msgstr "Fichier « JSON » décrivant ce paquet."
+
+#~ msgid "Main Script File"
+#~ msgstr "Script principal"
+
+#~ msgid "Images"
+#~ msgstr "Images"
+
+#~ msgid "Themed Images"
+#~ msgstr "Images thématiques"
+
+#~ msgid "Configuration Definitions"
+#~ msgstr "Définition de configuration"
+
+#~ msgid "User Interface"
+#~ msgstr "Interface utilisateur"
+
+#~ msgid "Data Files"
+#~ msgstr "Fichiers de données"
+
+#~ msgid "Executable Scripts"
+#~ msgstr "Scripts exécutables"
+
+#~ msgid "Translations"
+#~ msgstr "Traductions"
+
+#~ msgid "Main UI File"
+#~ msgstr "Fichier d'interface utilisateur principal"
 
 #~ msgctxt "package type"
 #~ msgid "wallpaper"

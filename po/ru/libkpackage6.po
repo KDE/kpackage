@@ -17,7 +17,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: libplasma\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2023-03-15 02:11+0000\n"
+"POT-Creation-Date: 2023-04-05 02:18+0000\n"
 "PO-Revision-Date: 2022-11-17 14:02+0300\n"
 "Last-Translator: Olesya Gerasimenko <translation-team@basealt.ru>\n"
 "Language-Team: Basealt Translation Team\n"
@@ -41,12 +41,6 @@ msgstr "Александр Поташев, Олеся Герасименко"
 msgctxt "EMAIL OF TRANSLATORS"
 msgid "Your emails"
 msgstr "aspotashev@gmail.com, translation-team@basealt.ru"
-
-#: kpackage/package.cpp:40
-#, fuzzy, kde-format
-#| msgid "Desktop file that describes this package."
-msgid "JSON file that describes this package."
-msgstr "Файл ярлыка, который описывает этот пакет."
 
 #: kpackage/packageloader.cpp:223
 #, kde-format
@@ -153,51 +147,6 @@ msgstr "%1 не существует"
 #, kde-format
 msgid "Could not delete package from: %1"
 msgstr "Ошибка удаления пакета из: %1"
-
-#: kpackage/private/packages.cpp:17 kpackage/private/packages.cpp:38
-#, kde-format
-msgid "Main Script File"
-msgstr "Основной файл скрипта"
-
-#: kpackage/private/packages.cpp:48
-#, kde-format
-msgid "Images"
-msgstr "Изображения"
-
-#: kpackage/private/packages.cpp:49
-#, kde-format
-msgid "Themed Images"
-msgstr "Изображения тем"
-
-#: kpackage/private/packages.cpp:55
-#, kde-format
-msgid "Configuration Definitions"
-msgstr "Определения параметров"
-
-#: kpackage/private/packages.cpp:60
-#, kde-format
-msgid "User Interface"
-msgstr "Пользовательский интерфейс"
-
-#: kpackage/private/packages.cpp:62
-#, kde-format
-msgid "Data Files"
-msgstr "Файлы данных"
-
-#: kpackage/private/packages.cpp:64
-#, kde-format
-msgid "Executable Scripts"
-msgstr "Исполняемые скрипты"
-
-#: kpackage/private/packages.cpp:69
-#, kde-format
-msgid "Translations"
-msgstr "Переводы"
-
-#: kpackage/private/packages.cpp:76
-#, kde-format
-msgid "Main UI File"
-msgstr "Основной файл пользовательского интерфейса"
 
 #: kpackagetool/kpackagetool.cpp:87
 #, kde-format
@@ -432,6 +381,38 @@ msgstr "Вывести метаданные пакета <path>."
 msgctxt "Do not translate <path>"
 msgid "Outputs the metadata for the package into <path>"
 msgstr "Вывести метаданные пакета в <path>."
+
+#, fuzzy
+#~| msgid "Desktop file that describes this package."
+#~ msgid "JSON file that describes this package."
+#~ msgstr "Файл ярлыка, который описывает этот пакет."
+
+#~ msgid "Main Script File"
+#~ msgstr "Основной файл скрипта"
+
+#~ msgid "Images"
+#~ msgstr "Изображения"
+
+#~ msgid "Themed Images"
+#~ msgstr "Изображения тем"
+
+#~ msgid "Configuration Definitions"
+#~ msgstr "Определения параметров"
+
+#~ msgid "User Interface"
+#~ msgstr "Пользовательский интерфейс"
+
+#~ msgid "Data Files"
+#~ msgstr "Файлы данных"
+
+#~ msgid "Executable Scripts"
+#~ msgstr "Исполняемые скрипты"
+
+#~ msgid "Translations"
+#~ msgstr "Переводы"
+
+#~ msgid "Main UI File"
+#~ msgstr "Основной файл пользовательского интерфейса"
 
 #~ msgctxt "package type"
 #~ msgid "wallpaper"
