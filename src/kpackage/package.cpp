@@ -26,7 +26,7 @@
 #include "packageloader.h"
 #include "packagestructure.h"
 #include "private/package_p.h"
-//#include "private/packages_p.h"
+// #include "private/packages_p.h"
 #include "private/packagejob_p.h"
 #include "private/packageloader_p.h"
 
@@ -118,6 +118,7 @@ bool Package::isValid() const
     return d->valid;
 }
 
+#if KPACKAGE_BUILD_DEPRECATED_SINCE(5, 106)
 QString Package::name(const QByteArray &key) const
 {
     QHash<QByteArray, ContentStructure>::const_iterator it = d->contents.constFind(key);
@@ -127,6 +128,7 @@ QString Package::name(const QByteArray &key) const
 
     return it.value().name;
 }
+#endif
 
 bool Package::isRequired(const QByteArray &key) const
 {
