@@ -353,33 +353,3 @@ msgstr "Zobrazí metadata balíčku <path>"
 msgctxt "Do not translate <path>"
 msgid "Outputs the metadata for the package into <path>"
 msgstr "Zobrazí metadata balíčku do <path>"
-
-#~ msgid "JSON file that describes this package."
-#~ msgstr "Soubor JSON, který popisuje tento balíček."
-
-#~ msgid "Main Script File"
-#~ msgstr "Soubor s hlavním skriptem"
-
-#~ msgid "Images"
-#~ msgstr "Obrázky"
-
-#~ msgid "Themed Images"
-#~ msgstr "Obrázky s motivem"
-
-#~ msgid "Configuration Definitions"
-#~ msgstr "Definice nastavení"
-
-#~ msgid "User Interface"
-#~ msgstr "Uživatelské rozhraní"
-
-#~ msgid "Data Files"
-#~ msgstr "Datové soubory"
-
-#~ msgid "Executable Scripts"
-#~ msgstr "Spustitelné skripty"
-
-#~ msgid "Translations"
-#~ msgstr "Překlady"
-
-#~ msgid "Main UI File"
-#~ msgstr "Hlavní soubor UI"
