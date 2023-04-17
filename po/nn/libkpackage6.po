@@ -357,33 +357,3 @@ msgstr "Gjev metadata for pakken <path>"
 msgctxt "Do not translate <path>"
 msgid "Outputs the metadata for the package into <path>"
 msgstr "Gjev metadata for pakken til <path>"
-
-#~ msgid "JSON file that describes this package."
-#~ msgstr "JSON-fil som skildrar pakken."
-
-#~ msgid "Main Script File"
-#~ msgstr "Hovudskriptfil"
-
-#~ msgid "Images"
-#~ msgstr "Bilete"
-
-#~ msgid "Themed Images"
-#~ msgstr "Temabilete"
-
-#~ msgid "Configuration Definitions"
-#~ msgstr "Oppsettdefinisjonar"
-
-#~ msgid "User Interface"
-#~ msgstr "Brukargrensesnitt"
-
-#~ msgid "Data Files"
-#~ msgstr "Datafiler"
-
-#~ msgid "Executable Scripts"
-#~ msgstr "Køyrbare skript"
-
-#~ msgid "Translations"
-#~ msgstr "Omsetjingar"
-
-#~ msgid "Main UI File"
-#~ msgstr "Hovudfil for brukargrensesnitt"

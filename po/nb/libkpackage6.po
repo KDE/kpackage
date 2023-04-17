@@ -360,35 +360,3 @@ msgstr ""
 msgctxt "Do not translate <path>"
 msgid "Outputs the metadata for the package into <path>"
 msgstr ""
-
-#, fuzzy
-#~| msgid "Desktop file that describes this package."
-#~ msgid "JSON file that describes this package."
-#~ msgstr "Skrivebordsfil som beskriver denne pakka."
-
-#~ msgid "Main Script File"
-#~ msgstr "Hoved-skriptfil"
-
-#~ msgid "Images"
-#~ msgstr "Bilder"
-
-#~ msgid "Themed Images"
-#~ msgstr "Bilder med temaer"
-
-#~ msgid "Configuration Definitions"
-#~ msgstr "Oppsettdefinisjoner"
-
-#~ msgid "User Interface"
-#~ msgstr "Brukergrensesnitt"
-
-#~ msgid "Data Files"
-#~ msgstr "Datafiler"
-
-#~ msgid "Executable Scripts"
-#~ msgstr "Kjørbare skript"
-
-#~ msgid "Translations"
-#~ msgstr "Oversettelser"
-
-#~ msgid "Main UI File"
-#~ msgstr "Hovedfil for grenseflate"
