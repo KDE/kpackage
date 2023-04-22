@@ -1,14 +1,14 @@
 # Translation of plasmapkg to Korean.
 # Copyright (C) 2008 This_file_is_part_of_KDE
 # This file is distributed under the same license as the kdebase package.
-# Shinjo Park <kde@peremen.name>, 2008, 2009, 2010, 2011, 2012, 2014, 2015, 2016, 2017, 2018, 2019, 2020, 2022.
+# Shinjo Park <kde@peremen.name>, 2008, 2009, 2010, 2011, 2012, 2014, 2015, 2016, 2017, 2018, 2019, 2020, 2022, 2023.
 #
 msgid ""
 msgstr ""
 "Project-Id-Version: plasmapkg\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2023-04-05 02:18+0000\n"
-"PO-Revision-Date: 2022-08-09 13:23+0200\n"
+"PO-Revision-Date: 2023-04-22 00:39+0200\n"
 "Last-Translator: Shinjo Park <kde@peremen.name>\n"
 "Language-Team: Korean <kde-kr@kde.org>\n"
 "Language: ko\n"
@@ -16,7 +16,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=1; plural=0;\n"
-"X-Generator: Lokalize 21.12.3\n"
+"X-Generator: Lokalize 22.12.3\n"
 
 #, kde-format
 msgctxt "NAME OF TRANSLATORS"
@@ -64,16 +64,14 @@ msgid "No metadata file in package: %1"
 msgstr "패키지에 메타데이터 파일이 없음: %1"
 
 #: kpackage/private/packagejobthread.cpp:258
-#, fuzzy, kde-format
-#| msgid "Package plugin name not specified: %1"
+#, kde-format
 msgid "Package plugin id not specified: %1"
-msgstr "패키지 플러그인 이름이 지정되지 않았음: %1"
+msgstr "패키지 플러그인 ID가 지정되지 않았음: %1"
 
 #: kpackage/private/packagejobthread.cpp:268
-#, fuzzy, kde-format
-#| msgid "Package plugin name %1 contains invalid characters"
+#, kde-format
 msgid "Package plugin id %1 contains invalid characters"
-msgstr "패키지 플러그인 이름 %1에 잘못된 글자가 들어 있음"
+msgstr "패키지 플러그인 ID %1에 잘못된 글자가 들어 있음"
 
 #: kpackage/private/packagejobthread.cpp:287
 #, kde-format
@@ -138,10 +136,9 @@ msgid "SHA1 hash for Package at %1: '%2'"
 msgstr "%1에 있는 패키지의 SHA1 해시: '%2'"
 
 #: kpackagetool/kpackagetool.cpp:145
-#, fuzzy, kde-format
-#| msgid "Listing service types: %1 in %2"
+#, kde-format
 msgid "Listing KPackageType: %1 in %2"
-msgstr "다음 서비스 종류에 대한 목록: %2의 %1"
+msgstr "KPackageType 표시 중: %2의 %1"
 
 #: kpackagetool/kpackagetool.cpp:198
 #, kde-format
@@ -167,33 +164,29 @@ msgid "Showing info for package: %1"
 msgstr "패키지 정보 표시 중: %1"
 
 #: kpackagetool/kpackagetool.cpp:260
-#, fuzzy, kde-format
-#| msgid "      Name : %1"
+#, kde-format
 msgid "  Name       : %1"
-msgstr "      이름: %1"
+msgstr "  이름       : %1"
 
 #: kpackagetool/kpackagetool.cpp:261
 #, kde-format
 msgid "  Description: %1"
-msgstr ""
+msgstr "  설명: %1"
 
 #: kpackagetool/kpackagetool.cpp:262
-#, fuzzy, kde-format
-#| msgid "    Plugin : %1"
+#, kde-format
 msgid "  Plugin     : %1"
-msgstr "    플러그인: %1"
+msgstr "  플러그인   : %1"
 
 #: kpackagetool/kpackagetool.cpp:268
-#, fuzzy, kde-format
-#| msgid "    Author : %1"
+#, kde-format
 msgid "  Author     : %1"
-msgstr "    작성자: %1"
+msgstr "  작성자     : %1"
 
 #: kpackagetool/kpackagetool.cpp:269
-#, fuzzy, kde-format
-#| msgid "      Path : %1"
+#, kde-format
 msgid "  Path       : %1"
-msgstr "      경로: %1"
+msgstr "  경로       : %1"
 
 #: kpackagetool/kpackagetool.cpp:426
 #, kde-format
