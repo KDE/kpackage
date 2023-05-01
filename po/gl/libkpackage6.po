@@ -1,15 +1,15 @@
 # Copyright (C) YEAR This_file_is_part_of_KDE
 # This file is distributed under the same license as the PACKAGE package.
-#
 # Marce Villarino <mvillarino@kde-espana.es>, 2013, 2014.
 # Adrián Chaves Fernández <adriyetichaves@gmail.com>, 2015, 2016, 2017.
-# Adrian Chaves (Gallaecio) <adrian@chaves.io>, 2017, 2018, 2019.
+# Adrian Chaves (Gallaecio) <adrian@chaves.io>, 2017, 2018, 2019, 2023.
+#
 msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2023-04-05 02:18+0000\n"
-"PO-Revision-Date: 2019-10-19 22:22+0200\n"
+"PO-Revision-Date: 2023-04-30 11:27+0200\n"
 "Last-Translator: Adrián Chaves (Gallaecio) <adrian@chaves.io>\n"
 "Language-Team: Galician <proxecto@trasno.gal>\n"
 "Language: gl\n"
@@ -17,18 +17,17 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
-"X-Generator: Lokalize 19.11.70\n"
+"X-Generator: Lokalize 23.04.0\n"
 
-#, fuzzy, kde-format
-#| msgid "Fun and Games"
+#, kde-format
 msgctxt "NAME OF TRANSLATORS"
 msgid "Your names"
-msgstr "Lecer e xogos"
+msgstr "Adrian Chaves (Gallaecio)"
 
 #, kde-format
 msgctxt "EMAIL OF TRANSLATORS"
 msgid "Your emails"
-msgstr ""
+msgstr "adrian@chaves.io"
 
 #: kpackage/packageloader.cpp:223
 #, kde-format
@@ -70,16 +69,15 @@ msgid "No metadata file in package: %1"
 msgstr "Non hai ficheiro de metadatos no paquete: %1"
 
 #: kpackage/private/packagejobthread.cpp:258
-#, fuzzy, kde-format
-#| msgid "Package plugin name not specified: %1"
+#, kde-format
 msgid "Package plugin id not specified: %1"
-msgstr "Non se indicou o nome do complemento do paquete: %1"
+msgstr "Non se indicou o identificador do complemento do paquete: %1"
 
 #: kpackage/private/packagejobthread.cpp:268
-#, fuzzy, kde-format
-#| msgid "Package plugin name %1 contains invalid characters"
+#, kde-format
 msgid "Package plugin id %1 contains invalid characters"
-msgstr "O nome %1 do complemento do paquete contén caracteres incorrectos"
+msgstr ""
+"O identificador %1 do complemento do paquete contén caracteres incorrectos"
 
 #: kpackage/private/packagejobthread.cpp:287
 #, kde-format
@@ -123,7 +121,7 @@ msgstr "Non se puido copiar o paquete ao destino: %1"
 #: kpackage/private/packagejobthread.cpp:378
 #, kde-format
 msgid "package path was deleted manually"
-msgstr ""
+msgstr "a ruta do paquete eliminouse manualmente"
 
 #: kpackage/private/packagejobthread.cpp:378
 #, kde-format
@@ -146,10 +144,9 @@ msgid "SHA1 hash for Package at %1: '%2'"
 msgstr "Hash SHA1 para o paquete en %1: «%2»"
 
 #: kpackagetool/kpackagetool.cpp:145
-#, fuzzy, kde-format
-#| msgid "Listing service types: %1 in %2"
+#, kde-format
 msgid "Listing KPackageType: %1 in %2"
-msgstr "Lista dos tipos de servizo: %1 en %2"
+msgstr "Lista de KPackageType: %1 en %2"
 
 #: kpackagetool/kpackagetool.cpp:198
 #, kde-format
@@ -175,34 +172,29 @@ msgid "Showing info for package: %1"
 msgstr "Mostrar información do paquete: %1"
 
 #: kpackagetool/kpackagetool.cpp:260
-#, fuzzy, kde-format
-#| msgid "      Name : %1"
+#, kde-format
 msgid "  Name       : %1"
-msgstr "       Nome: %1"
+msgstr "  Nome       : %1"
 
 #: kpackagetool/kpackagetool.cpp:261
-#, fuzzy, kde-format
-#| msgid "Service Descriptions"
+#, kde-format
 msgid "  Description: %1"
-msgstr "Descricións de servizo"
+msgstr "  Descrición:  %1"
 
 #: kpackagetool/kpackagetool.cpp:262
-#, fuzzy, kde-format
-#| msgid "    Plugin : %1"
+#, kde-format
 msgid "  Plugin     : %1"
-msgstr "Complemento: %1"
+msgstr "  Complemento: %1"
 
 #: kpackagetool/kpackagetool.cpp:268
-#, fuzzy, kde-format
-#| msgid "    Author : %1"
+#, kde-format
 msgid "  Author     : %1"
-msgstr "      Autor: %1"
+msgstr "  Autor      : %1"
 
 #: kpackagetool/kpackagetool.cpp:269
-#, fuzzy, kde-format
-#| msgid "      Path : %1"
+#, kde-format
 msgid "  Path       : %1"
-msgstr "       Ruta: %1"
+msgstr "  Ruta       : %1"
 
 #: kpackagetool/kpackagetool.cpp:426
 #, kde-format
@@ -219,7 +211,7 @@ msgstr ""
 #: kpackagetool/kpackagetool.cpp:454
 #, kde-format
 msgid "KPackage Structure Name"
-msgstr ""
+msgstr "Nome de estrutura de KPackage"
 
 #: kpackagetool/kpackagetool.cpp:455
 #, kde-format
@@ -244,7 +236,7 @@ msgstr "KPackage/Xenérico"
 #: kpackagetool/kpackagetool.cpp:491
 #, kde-format
 msgid "KPackage/GenericQML"
-msgstr "KPackage/XenéricoQML"
+msgstr "KPackage/GenericQML"
 
 #: kpackagetool/kpackagetool.cpp:499
 #, kde-format
