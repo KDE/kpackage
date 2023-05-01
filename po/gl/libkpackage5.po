@@ -1,15 +1,15 @@
 # Copyright (C) YEAR This_file_is_part_of_KDE
 # This file is distributed under the same license as the PACKAGE package.
-#
 # Marce Villarino <mvillarino@kde-espana.es>, 2013, 2014.
 # Adrián Chaves Fernández <adriyetichaves@gmail.com>, 2015, 2016, 2017.
-# Adrian Chaves (Gallaecio) <adrian@chaves.io>, 2017, 2018, 2019.
+# Adrian Chaves (Gallaecio) <adrian@chaves.io>, 2017, 2018, 2019, 2023.
+#
 msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2022-09-15 00:41+0000\n"
-"PO-Revision-Date: 2019-10-19 22:22+0200\n"
+"PO-Revision-Date: 2023-04-30 11:27+0200\n"
 "Last-Translator: Adrián Chaves (Gallaecio) <adrian@chaves.io>\n"
 "Language-Team: Galician <proxecto@trasno.gal>\n"
 "Language: gl\n"
@@ -17,18 +17,17 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
-"X-Generator: Lokalize 19.11.70\n"
+"X-Generator: Lokalize 23.04.0\n"
 
-#, fuzzy, kde-format
-#| msgid "Fun and Games"
+#, kde-format
 msgctxt "NAME OF TRANSLATORS"
 msgid "Your names"
-msgstr "Lecer e xogos"
+msgstr "Adrian Chaves (Gallaecio)"
 
 #, kde-format
 msgctxt "EMAIL OF TRANSLATORS"
 msgid "Your emails"
-msgstr ""
+msgstr "adrian@chaves.io"
 
 #: kpackage/package.cpp:42
 #, kde-format
@@ -126,7 +125,7 @@ msgstr "Non se puido copiar o paquete ao destino: %1"
 #: kpackage/private/packagejobthread.cpp:372
 #, kde-format
 msgid "package path was deleted manually"
-msgstr ""
+msgstr "a ruta do paquete eliminouse manualmente"
 
 #: kpackage/private/packagejobthread.cpp:372
 #, kde-format
@@ -267,7 +266,7 @@ msgstr ""
 #: kpackagetool/kpackagetool.cpp:565
 #, kde-format
 msgid "KPackage Structure Name"
-msgstr ""
+msgstr "Nome de estrutura de KPackage"
 
 #: kpackagetool/kpackagetool.cpp:566
 #, kde-format
@@ -292,7 +291,7 @@ msgstr "KPackage/Xenérico"
 #: kpackagetool/kpackagetool.cpp:602
 #, kde-format
 msgid "KPackage/GenericQML"
-msgstr "KPackage/XenéricoQML"
+msgstr "KPackage/GenericQML"
 
 #: kpackagetool/kpackagetool.cpp:610
 #, kde-format
