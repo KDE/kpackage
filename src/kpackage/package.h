@@ -130,7 +130,7 @@ public:
      *
      * @param key the key of the file type to look for,
      * @param filename optional name of the file to locate within the package
-     * @return path to the file on disk. QString() if not found.
+     * @return path to the file on disk. QUrl() if not found.
      * @since 5.41
      **/
     QUrl fileUrl(const QByteArray &key, const QString &filename = QString()) const;
