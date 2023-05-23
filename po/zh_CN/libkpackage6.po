@@ -3,7 +3,7 @@ msgstr ""
 "Project-Id-Version: kdeorg\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2023-04-05 02:18+0000\n"
-"PO-Revision-Date: 2023-02-24 12:43\n"
+"PO-Revision-Date: 2023-05-22 13:58\n"
 "Last-Translator: \n"
 "Language-Team: Chinese Simplified\n"
 "Language: zh_CN\n"
@@ -14,8 +14,8 @@ msgstr ""
 "X-Crowdin-Project: kdeorg\n"
 "X-Crowdin-Project-ID: 269464\n"
 "X-Crowdin-Language: zh-CN\n"
-"X-Crowdin-File: /kf5-trunk/messages/kpackage/libkpackage5.pot\n"
-"X-Crowdin-File-ID: 5535\n"
+"X-Crowdin-File: /kf6-trunk/messages/kpackage/libkpackage6.pot\n"
+"X-Crowdin-File-ID: 43129\n"
 
 #, kde-format
 msgctxt "NAME OF TRANSLATORS"
@@ -63,16 +63,14 @@ msgid "No metadata file in package: %1"
 msgstr "包没有元数据文件：%1"
 
 #: kpackage/private/packagejobthread.cpp:258
-#, fuzzy, kde-format
-#| msgid "Package plugin name not specified: %1"
+#, kde-format
 msgid "Package plugin id not specified: %1"
-msgstr "包插件名称未指定：%1"
+msgstr "软件包插件 ID 未指定：%1"
 
 #: kpackage/private/packagejobthread.cpp:268
-#, fuzzy, kde-format
-#| msgid "Package plugin name %1 contains invalid characters"
+#, kde-format
 msgid "Package plugin id %1 contains invalid characters"
-msgstr "包插件名称 %1 包含无效字符"
+msgstr "软件包插件 ID %1 包含无效字符"
 
 #: kpackage/private/packagejobthread.cpp:287
 #, kde-format
@@ -137,10 +135,9 @@ msgid "SHA1 hash for Package at %1: '%2'"
 msgstr "位于 %1 的包的 SHA1 哈希值：'%2'"
 
 #: kpackagetool/kpackagetool.cpp:145
-#, fuzzy, kde-format
-#| msgid "Listing service types: %1 in %2"
+#, kde-format
 msgid "Listing KPackageType: %1 in %2"
-msgstr "列出服务类型：%1 在 %2"
+msgstr "正在列出 %2 中的 KPackageType：%1"
 
 #: kpackagetool/kpackagetool.cpp:198
 #, kde-format
@@ -168,33 +165,29 @@ msgid "Showing info for package: %1"
 msgstr "显示包信息：%1"
 
 #: kpackagetool/kpackagetool.cpp:260
-#, fuzzy, kde-format
-#| msgid "      Name : %1"
+#, kde-format
 msgid "  Name       : %1"
-msgstr "      名称：%1"
+msgstr "  名称：%1"
 
 #: kpackagetool/kpackagetool.cpp:261
 #, kde-format
 msgid "  Description: %1"
-msgstr ""
+msgstr "  描述：%1"
 
 #: kpackagetool/kpackagetool.cpp:262
-#, fuzzy, kde-format
-#| msgid "    Plugin : %1"
+#, kde-format
 msgid "  Plugin     : %1"
-msgstr "    插件：%1"
+msgstr "  插件：%1"
 
 #: kpackagetool/kpackagetool.cpp:268
-#, fuzzy, kde-format
-#| msgid "    Author : %1"
+#, kde-format
 msgid "  Author     : %1"
-msgstr "    作者：%1"
+msgstr "  作者：%1"
 
 #: kpackagetool/kpackagetool.cpp:269
-#, fuzzy, kde-format
-#| msgid "      Path : %1"
+#, kde-format
 msgid "  Path       : %1"
-msgstr "      路径：%1"
+msgstr "  路径：%1"
 
 #: kpackagetool/kpackagetool.cpp:426
 #, kde-format
@@ -354,58 +347,3 @@ msgstr "输出位于 <path> 包的元数据"
 msgctxt "Do not translate <path>"
 msgid "Outputs the metadata for the package into <path>"
 msgstr "输出软件包元数据到 <path>"
-
-#, fuzzy
-#~| msgid "Desktop file that describes this package."
-#~ msgid "JSON file that describes this package."
-#~ msgstr "描述此包的桌面定义文件。"
-
-#~ msgid "Main Script File"
-#~ msgstr "主脚本文件"
-
-#~ msgid "Images"
-#~ msgstr "图像"
-
-#~ msgid "Themed Images"
-#~ msgstr "主题化的图像"
-
-#~ msgid "Configuration Definitions"
-#~ msgstr "配置定义"
-
-#~ msgid "User Interface"
-#~ msgstr "用户界面"
-
-#~ msgid "Data Files"
-#~ msgstr "日期文件"
-
-#~ msgid "Executable Scripts"
-#~ msgstr "可执行脚本"
-
-#~ msgid "Translations"
-#~ msgstr "翻译"
-
-#~ msgid "Main UI File"
-#~ msgstr "主界面文件"
-
-#~ msgctxt "package type"
-#~ msgid "wallpaper"
-#~ msgstr "壁纸"
-
-#~ msgid "   Comment : %1"
-#~ msgstr "   注释：%1"
-
-#~ msgid ""
-#~ "Recreate the plugin index. To be used in conjunction with either the "
-#~ "option -t or -g. Recreates the index for the given type or package root. "
-#~ "Operates in the user directory, unless -g is used"
-#~ msgstr ""
-#~ "重建插件索引。应和选项 -t 或者 -g 一起使用。对给定的包根目录或者类型重建索"
-#~ "引。操作在用户目录内进行，除非指定了 -g 参数"
-
-#~ msgid ""
-#~ "Remove the plugin index. To be used in conjunction with either the option "
-#~ "-t or -g. Recreates the index for the given type or package root. "
-#~ "Operates in the user directory, unless -g is used"
-#~ msgstr ""
-#~ "删除插件索引。和 -t 或 -g 选项联合使用。重新创建给定类型或包根目录的索引。"
-#~ "除非指定了 -g 选项，将会在用户目录内进行操作"
