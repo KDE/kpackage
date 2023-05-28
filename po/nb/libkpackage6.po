@@ -68,13 +68,11 @@ msgstr "Ingen metadata-fil i pakken: %1"
 
 #: kpackage/private/packagejobthread.cpp:258
 #, fuzzy, kde-format
-#| msgid "Package plugin name not specified: %1"
 msgid "Package plugin id not specified: %1"
 msgstr "Tillegg-navnet for pakken er ikke oppgitt: %1"
 
 #: kpackage/private/packagejobthread.cpp:268
 #, fuzzy, kde-format
-#| msgid "Package plugin name %1 contains invalid characters"
 msgid "Package plugin id %1 contains invalid characters"
 msgstr "Tillegg-navnet %1 for pakken inneholder ugyldige tegn"
 
@@ -172,7 +170,6 @@ msgstr "Viser informasjon for pakke: %1"
 
 #: kpackagetool/kpackagetool.cpp:260
 #, fuzzy, kde-format
-#| msgid "      Name : %1"
 msgid "  Name       : %1"
 msgstr "      Navn : %1"
 
@@ -183,19 +180,16 @@ msgstr ""
 
 #: kpackagetool/kpackagetool.cpp:262
 #, fuzzy, kde-format
-#| msgid "    Plugin : %1"
 msgid "  Plugin     : %1"
 msgstr "    Programtillegg: %1"
 
 #: kpackagetool/kpackagetool.cpp:268
 #, fuzzy, kde-format
-#| msgid "    Author : %1"
 msgid "  Author     : %1"
 msgstr "    Forfatter : %1"
 
 #: kpackagetool/kpackagetool.cpp:269
 #, fuzzy, kde-format
-#| msgid "      Path : %1"
 msgid "  Path       : %1"
 msgstr "      Sti : %1"
 
