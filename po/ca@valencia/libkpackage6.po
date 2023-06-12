@@ -366,33 +366,3 @@ msgstr "Eixida de les metadades per al paquet <camí>"
 msgctxt "Do not translate <path>"
 msgid "Outputs the metadata for the package into <path>"
 msgstr "Eixida de les metadades per al paquet dins del <camí>"
-
-#~ msgid "JSON file that describes this package."
-#~ msgstr "Fitxer JSON que descriu este paquet."
-
-#~ msgid "Main Script File"
-#~ msgstr "Fitxer principal de script"
-
-#~ msgid "Images"
-#~ msgstr "Imatges"
-
-#~ msgid "Themed Images"
-#~ msgstr "Imatges temàtiques"
-
-#~ msgid "Configuration Definitions"
-#~ msgstr "Definicions de la configuració"
-
-#~ msgid "User Interface"
-#~ msgstr "Interfície d'usuari"
-
-#~ msgid "Data Files"
-#~ msgstr "Fitxers de dades"
-
-#~ msgid "Executable Scripts"
-#~ msgstr "Scripts executables"
-
-#~ msgid "Translations"
-#~ msgstr "Traduccions"
-
-#~ msgid "Main UI File"
-#~ msgstr "Fitxer principal de la IU"
