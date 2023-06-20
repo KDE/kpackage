@@ -169,7 +169,7 @@ msgstr "Erro: Non se atoparon os metadatos do complemento: %1\n"
 #: kpackagetool/kpackagetool.cpp:259
 #, kde-format
 msgid "Showing info for package: %1"
-msgstr "Mostrar información do paquete: %1"
+msgstr "Amosar información do paquete: %1"
 
 #: kpackagetool/kpackagetool.cpp:260
 #, kde-format
@@ -317,7 +317,7 @@ msgstr "Instalar o paquete en <path>"
 #, kde-format
 msgctxt "Do not translate <name>"
 msgid "Show information of package <name>"
-msgstr "Mostrar información do paquete <name>"
+msgstr "Amosar información do paquete <name>"
 
 #: kpackagetool/options.h:50
 #, kde-format
