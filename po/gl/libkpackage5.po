@@ -224,7 +224,7 @@ msgstr "Erro: Non se atoparon os metadatos do complemento: %1\n"
 #: kpackagetool/kpackagetool.cpp:346
 #, kde-format
 msgid "Showing info for package: %1"
-msgstr "Mostrar información do paquete: %1"
+msgstr "Amosar información do paquete: %1"
 
 #: kpackagetool/kpackagetool.cpp:347
 #, kde-format
@@ -372,7 +372,7 @@ msgstr "Instalar o paquete en <path>"
 #, kde-format
 msgctxt "Do not translate <name>"
 msgid "Show information of package <name>"
-msgstr "Mostrar información do paquete <name>"
+msgstr "Amosar información do paquete <name>"
 
 #: kpackagetool/options.h:50
 #, kde-format
@@ -414,7 +414,7 @@ msgid ""
 msgstr ""
 "Rexenerar o índice de complementos. Debe usarse en combinación coa opción «-"
 "t» ou a opción «-g». Rexenera o índice do tipo ou raíz de paquete indicados. "
-"Traballa no directorio persoal a non ser que empregue a opción «-g»."
+"Traballa no directorio persoal a non ser que use a opción «-g»."
 
 #: kpackagetool/options.h:90
 #, kde-format
@@ -425,7 +425,7 @@ msgid ""
 msgstr ""
 "Retirar o índice de complementos. Debe usarse en combinación coa opción «-t» "
 "ou a opción «-g». Rexenera o índice do tipo ou raíz de paquete indicados. "
-"Traballa no directorio persoal a non ser que empregue a opción «-g»."
+"Traballa no directorio persoal a non ser que use a opción «-g»."
 
 #: kpackagetool/options.h:98
 #, kde-format
