@@ -140,7 +140,7 @@ msgstr "Non se puido eliminar o paquete de: %1"
 #: kpackage/private/packages.cpp:17 kpackage/private/packages.cpp:38
 #, kde-format
 msgid "Main Script File"
-msgstr "Ficheiro de script principal"
+msgstr "Ficheiro de guión principal"
 
 #: kpackage/private/packages.cpp:48
 #, kde-format
