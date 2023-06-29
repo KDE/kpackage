@@ -350,4 +350,5 @@ void PackageStructureTest::customContent()
 
 QTEST_MAIN(PackageStructureTest)
 
+#include "moc_packagestructuretest.cpp"
 #include "packagestructuretest.moc"

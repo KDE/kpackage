@@ -392,3 +392,5 @@ void PlasmoidPackageTest::testInstallNonExistentPackageStructure()
 }
 
 QTEST_MAIN(PlasmoidPackageTest)
+
+#include "moc_plasmoidpackagetest.cpp"

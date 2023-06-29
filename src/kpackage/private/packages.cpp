@@ -79,3 +79,5 @@ void GenericQMLPackage::initPackage(KPackage::Package *package)
         QStringLiteral("kpackage"
                        "/genericqml/"));
 }
+
+#include "moc_packages_p.cpp"

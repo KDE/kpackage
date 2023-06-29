@@ -97,3 +97,5 @@ void QueryTest::queryCustomPlugin()
 }
 
 QTEST_MAIN(QueryTest)
+
+#include "moc_querytest.cpp"

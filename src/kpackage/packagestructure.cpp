@@ -30,3 +30,5 @@ void PackageStructure::pathChanged(Package * /*package*/)
 }
 
 }
+
+#include "moc_packagestructure.cpp"

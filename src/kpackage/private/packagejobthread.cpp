@@ -409,3 +409,5 @@ PackageJob::JobError PackageJobThread::errorCode() const
 }
 
 } // namespace KPackage
+
+#include "moc_packagejobthread_p.cpp"

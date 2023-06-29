@@ -55,3 +55,5 @@ void FallbackPackageTest::cycle()
 }
 
 QTEST_MAIN(FallbackPackageTest)
+
+#include "moc_fallbackpackagetest.cpp"
