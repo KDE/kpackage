@@ -5,6 +5,7 @@
 */
 
 #ifndef PACKAGETEST_H
+#define PACKAGETEST_H
 
 #include <QTest>
 
