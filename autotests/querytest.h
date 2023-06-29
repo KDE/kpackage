@@ -6,6 +6,7 @@
 */
 
 #ifndef PACKAGESTRUCTURETEST_H
+#define PACKAGESTRUCTURETEST_H
 
 #include <QTest>
 

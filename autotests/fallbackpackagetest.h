@@ -6,6 +6,7 @@
 */
 
 #ifndef FALLBACKPACKAGETEST_H
+#define FALLBACKPACKAGETEST_H
 
 #include <QTest>
 
