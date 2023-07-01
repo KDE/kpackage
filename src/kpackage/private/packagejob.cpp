@@ -113,3 +113,5 @@ void PackageJob::setupNotificationsOnJobFinished(const QString &messageName)
 }
 
 } // namespace KPackage
+
+#include "moc_packagejob_p.cpp"

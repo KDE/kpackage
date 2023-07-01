@@ -663,3 +663,5 @@ void PackageTool::packageUninstalled(KJob *job)
 }
 
 } // namespace KPackage
+
+#include "moc_kpackagetool.cpp"

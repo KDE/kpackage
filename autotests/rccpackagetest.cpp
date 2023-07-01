@@ -91,3 +91,5 @@ void RccPackageTest::testResourceRefCount()
 }
 
 QTEST_MAIN(RccPackageTest)
+
+#include "moc_rccpackagetest.cpp"

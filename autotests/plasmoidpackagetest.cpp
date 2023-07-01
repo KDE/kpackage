@@ -438,3 +438,5 @@ void PlasmoidPackageTest::packageUninstalled(KJob *j)
 }
 
 QTEST_MAIN(PlasmoidPackageTest)
+
+#include "moc_plasmoidpackagetest.cpp"

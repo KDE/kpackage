@@ -32,3 +32,5 @@ void PlasmoidPackage::initPackage(Package *package)
 }
 
 } // namespace KPackage
+
+#include "moc_plasmoidstructure.cpp"
