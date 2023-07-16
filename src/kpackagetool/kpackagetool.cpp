@@ -277,6 +277,11 @@ void PackageTool::runMain()
             }
         }
         if (d->parser->isSet(Options::install())) {
+            if (QFileInfo::exists(d->packageFile + QLatin1String("/metadata.desktop"))) {
+                qWarning() << "Providing a metadata.desktop file for KPackage metadata is deprecated."
+                           << "Please convert this file using the following command or contact the author:";
+                qWarning() << QLatin1String("desktoptojson %1; rm %1").arg(d->packageFile + QLatin1String("/metadata.desktop"));
+            }
             KJob *installJob = d->installer.install(d->packageFile, d->packageRoot);
             // clang-format off
             connect(installJob, SIGNAL(result(KJob*)), SLOT(packageInstalled(KJob*)));
