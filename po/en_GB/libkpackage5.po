@@ -9,7 +9,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: plasmapkg\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2022-09-15 00:41+0000\n"
+"POT-Creation-Date: 2023-07-28 00:42+0000\n"
 "PO-Revision-Date: 2022-08-07 10:57+0100\n"
 "Last-Translator: Steve Allewell <steve.allewell@gmail.com>\n"
 "Language-Team: British English <kde-l10n-en_gb@kde.org>\n"
@@ -206,7 +206,7 @@ msgstr "Listing service types: %1 in %2"
 msgid "Error: Plugin %1 is not installed."
 msgstr "Error: Plugin %1 is not installed."
 
-#: kpackagetool/kpackagetool.cpp:289
+#: kpackagetool/kpackagetool.cpp:294
 #, kde-format
 msgctxt ""
 "No option was given, this is the error message telling the user he needs at "
@@ -214,42 +214,42 @@ msgctxt ""
 msgid "One of install, remove, upgrade or list is required."
 msgstr "One of install, remove, upgrade or list is required."
 
-#: kpackagetool/kpackagetool.cpp:342 kpackagetool/kpackagetool.cpp:424
+#: kpackagetool/kpackagetool.cpp:347 kpackagetool/kpackagetool.cpp:429
 #, kde-format
 msgid "Error: Can't find plugin metadata: %1\n"
 msgstr "Error: Cannot find plugin metadata: %1\n"
 
-#: kpackagetool/kpackagetool.cpp:346
+#: kpackagetool/kpackagetool.cpp:351
 #, kde-format
 msgid "Showing info for package: %1"
 msgstr "Showing info for package: %1"
 
-#: kpackagetool/kpackagetool.cpp:347
+#: kpackagetool/kpackagetool.cpp:352
 #, kde-format
 msgid "      Name : %1"
 msgstr "      Name : %1"
 
-#: kpackagetool/kpackagetool.cpp:348
+#: kpackagetool/kpackagetool.cpp:353
 #, kde-format
 msgid "   Comment : %1"
 msgstr "   Comment : %1"
 
-#: kpackagetool/kpackagetool.cpp:349
+#: kpackagetool/kpackagetool.cpp:354
 #, kde-format
 msgid "    Plugin : %1"
 msgstr "    Plugin : %1"
 
-#: kpackagetool/kpackagetool.cpp:351
+#: kpackagetool/kpackagetool.cpp:356
 #, kde-format
 msgid "    Author : %1"
 msgstr "    Author : %1"
 
-#: kpackagetool/kpackagetool.cpp:352
+#: kpackagetool/kpackagetool.cpp:357
 #, kde-format
 msgid "      Path : %1"
 msgstr "      Path : %1"
 
-#: kpackagetool/kpackagetool.cpp:537
+#: kpackagetool/kpackagetool.cpp:542
 #, kde-format
 msgctxt ""
 "The user entered conflicting options packageroot and global, this is the "
@@ -261,67 +261,67 @@ msgstr ""
 "The packageroot and global options conflict with each other, please select "
 "only one."
 
-#: kpackagetool/kpackagetool.cpp:565
+#: kpackagetool/kpackagetool.cpp:570
 #, kde-format
 msgid "KPackage Structure Name"
 msgstr "KPackage Structure Name"
 
-#: kpackagetool/kpackagetool.cpp:566
+#: kpackagetool/kpackagetool.cpp:571
 #, kde-format
 msgid "Path"
 msgstr "Path"
 
-#: kpackagetool/kpackagetool.cpp:597
+#: kpackagetool/kpackagetool.cpp:602
 #, kde-format
 msgid "Package types that are installable with this tool:"
 msgstr "Package types that are installable with this tool:"
 
-#: kpackagetool/kpackagetool.cpp:598
+#: kpackagetool/kpackagetool.cpp:603
 #, kde-format
 msgid "Built in:"
 msgstr "Built in:"
 
-#: kpackagetool/kpackagetool.cpp:601
+#: kpackagetool/kpackagetool.cpp:606
 #, kde-format
 msgid "KPackage/Generic"
 msgstr "KPackage/Generic"
 
-#: kpackagetool/kpackagetool.cpp:602
+#: kpackagetool/kpackagetool.cpp:607
 #, kde-format
 msgid "KPackage/GenericQML"
 msgstr "KPackage/GenericQML"
 
-#: kpackagetool/kpackagetool.cpp:610
+#: kpackagetool/kpackagetool.cpp:615
 #, kde-format
 msgid "Provided by plugins:"
 msgstr "Provided by plugins:"
 
-#: kpackagetool/kpackagetool.cpp:633
+#: kpackagetool/kpackagetool.cpp:638
 #, kde-format
 msgid "Successfully upgraded %1"
 msgstr "Successfully upgraded %1"
 
-#: kpackagetool/kpackagetool.cpp:635
+#: kpackagetool/kpackagetool.cpp:640
 #, kde-format
 msgid "Successfully installed %1"
 msgstr "Successfully installed %1"
 
-#: kpackagetool/kpackagetool.cpp:638
+#: kpackagetool/kpackagetool.cpp:643
 #, kde-format
 msgid "Error: Installation of %1 failed: %2"
 msgstr "Error: Installation of %1 failed: %2"
 
-#: kpackagetool/kpackagetool.cpp:650
+#: kpackagetool/kpackagetool.cpp:655
 #, kde-format
 msgid "Upgrading package from file: %1"
 msgstr "Upgrading package from file: %1"
 
-#: kpackagetool/kpackagetool.cpp:657
+#: kpackagetool/kpackagetool.cpp:662
 #, kde-format
 msgid "Successfully uninstalled %1"
 msgstr "Successfully uninstalled %1"
 
-#: kpackagetool/kpackagetool.cpp:659
+#: kpackagetool/kpackagetool.cpp:664
 #, kde-format
 msgid "Error: Uninstallation of %1 failed: %2"
 msgstr "Error: Uninstallation of %1 failed: %2"

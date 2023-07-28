@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: plasmapkg\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2022-09-15 00:41+0000\n"
+"POT-Creation-Date: 2023-07-28 00:42+0000\n"
 "PO-Revision-Date: 2022-08-09 13:23+0200\n"
 "Last-Translator: Shinjo Park <kde@peremen.name>\n"
 "Language-Team: Korean <kde-kr@kde.org>\n"
@@ -201,7 +201,7 @@ msgstr "다음 서비스 종류에 대한 목록: %2의 %1"
 msgid "Error: Plugin %1 is not installed."
 msgstr "오류: 플러그인 %1이(가) 설치되지 않았습니다."
 
-#: kpackagetool/kpackagetool.cpp:289
+#: kpackagetool/kpackagetool.cpp:294
 #, kde-format
 msgctxt ""
 "No option was given, this is the error message telling the user he needs at "
@@ -209,42 +209,42 @@ msgctxt ""
 msgid "One of install, remove, upgrade or list is required."
 msgstr "설치, 삭제, 업그레이드, 표시 중 하나가 필요합니다."
 
-#: kpackagetool/kpackagetool.cpp:342 kpackagetool/kpackagetool.cpp:424
+#: kpackagetool/kpackagetool.cpp:347 kpackagetool/kpackagetool.cpp:429
 #, kde-format
 msgid "Error: Can't find plugin metadata: %1\n"
 msgstr "오류: 플러그인 메타데이터를 찾을 수 없음: %1\n"
 
-#: kpackagetool/kpackagetool.cpp:346
+#: kpackagetool/kpackagetool.cpp:351
 #, kde-format
 msgid "Showing info for package: %1"
 msgstr "패키지 정보 표시 중: %1"
 
-#: kpackagetool/kpackagetool.cpp:347
+#: kpackagetool/kpackagetool.cpp:352
 #, kde-format
 msgid "      Name : %1"
 msgstr "      이름: %1"
 
-#: kpackagetool/kpackagetool.cpp:348
+#: kpackagetool/kpackagetool.cpp:353
 #, kde-format
 msgid "   Comment : %1"
 msgstr "   설명: %1"
 
-#: kpackagetool/kpackagetool.cpp:349
+#: kpackagetool/kpackagetool.cpp:354
 #, kde-format
 msgid "    Plugin : %1"
 msgstr "    플러그인: %1"
 
-#: kpackagetool/kpackagetool.cpp:351
+#: kpackagetool/kpackagetool.cpp:356
 #, kde-format
 msgid "    Author : %1"
 msgstr "    작성자: %1"
 
-#: kpackagetool/kpackagetool.cpp:352
+#: kpackagetool/kpackagetool.cpp:357
 #, kde-format
 msgid "      Path : %1"
 msgstr "      경로: %1"
 
-#: kpackagetool/kpackagetool.cpp:537
+#: kpackagetool/kpackagetool.cpp:542
 #, kde-format
 msgctxt ""
 "The user entered conflicting options packageroot and global, this is the "
@@ -254,67 +254,67 @@ msgid ""
 "only one."
 msgstr "packageroot와 global 옵션은 서로 충돌하므로 둘 중 하나만 선택하십시오."
 
-#: kpackagetool/kpackagetool.cpp:565
+#: kpackagetool/kpackagetool.cpp:570
 #, kde-format
 msgid "KPackage Structure Name"
 msgstr "KPackage 구조 이름"
 
-#: kpackagetool/kpackagetool.cpp:566
+#: kpackagetool/kpackagetool.cpp:571
 #, kde-format
 msgid "Path"
 msgstr "경로"
 
-#: kpackagetool/kpackagetool.cpp:597
+#: kpackagetool/kpackagetool.cpp:602
 #, kde-format
 msgid "Package types that are installable with this tool:"
 msgstr "이 도구로 설치할 수 있는 패키지 종류:"
 
-#: kpackagetool/kpackagetool.cpp:598
+#: kpackagetool/kpackagetool.cpp:603
 #, kde-format
 msgid "Built in:"
 msgstr "내장됨:"
 
-#: kpackagetool/kpackagetool.cpp:601
+#: kpackagetool/kpackagetool.cpp:606
 #, kde-format
 msgid "KPackage/Generic"
 msgstr "KPackage/일반"
 
-#: kpackagetool/kpackagetool.cpp:602
+#: kpackagetool/kpackagetool.cpp:607
 #, kde-format
 msgid "KPackage/GenericQML"
 msgstr "KPackage/일반 QML"
 
-#: kpackagetool/kpackagetool.cpp:610
+#: kpackagetool/kpackagetool.cpp:615
 #, kde-format
 msgid "Provided by plugins:"
 msgstr "플러그인이 제공함:"
 
-#: kpackagetool/kpackagetool.cpp:633
+#: kpackagetool/kpackagetool.cpp:638
 #, kde-format
 msgid "Successfully upgraded %1"
 msgstr "%1을(를) 업그레이드했습니다"
 
-#: kpackagetool/kpackagetool.cpp:635
+#: kpackagetool/kpackagetool.cpp:640
 #, kde-format
 msgid "Successfully installed %1"
 msgstr "%1을(를) 성공적으로 설치했습니다"
 
-#: kpackagetool/kpackagetool.cpp:638
+#: kpackagetool/kpackagetool.cpp:643
 #, kde-format
 msgid "Error: Installation of %1 failed: %2"
 msgstr "오류: %1 설치 실패: %2"
 
-#: kpackagetool/kpackagetool.cpp:650
+#: kpackagetool/kpackagetool.cpp:655
 #, kde-format
 msgid "Upgrading package from file: %1"
 msgstr "파일에서 패키지 업그레이드 중: %1"
 
-#: kpackagetool/kpackagetool.cpp:657
+#: kpackagetool/kpackagetool.cpp:662
 #, kde-format
 msgid "Successfully uninstalled %1"
 msgstr "%1을(를) 성공적으로 삭제했습니다"
 
-#: kpackagetool/kpackagetool.cpp:659
+#: kpackagetool/kpackagetool.cpp:664
 #, kde-format
 msgid "Error: Uninstallation of %1 failed: %2"
 msgstr "오류: %1 삭제 실패: %2"

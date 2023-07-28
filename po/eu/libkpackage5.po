@@ -10,7 +10,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kpackage\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2022-09-15 00:41+0000\n"
+"POT-Creation-Date: 2023-07-28 00:42+0000\n"
 "PO-Revision-Date: 2022-07-26 11:34+0200\n"
 "Last-Translator: Iñigo Salvador Azurmendi <xalba@ni.eus>\n"
 "Language-Team: Basque <kde-i18n-eu@kde.org>\n"
@@ -211,7 +211,7 @@ msgstr "Zerbitzu motak zerrendatzea: %1 %2(a)n"
 msgid "Error: Plugin %1 is not installed."
 msgstr "Errorea: %1 plugina ez dago instalatuta."
 
-#: kpackagetool/kpackagetool.cpp:289
+#: kpackagetool/kpackagetool.cpp:294
 #, kde-format
 msgctxt ""
 "No option was given, this is the error message telling the user he needs at "
@@ -221,42 +221,42 @@ msgstr ""
 "Aukera hauetako bat behar da, « install », « remove », « upgrade » edo « "
 "list »."
 
-#: kpackagetool/kpackagetool.cpp:342 kpackagetool/kpackagetool.cpp:424
+#: kpackagetool/kpackagetool.cpp:347 kpackagetool/kpackagetool.cpp:429
 #, kde-format
 msgid "Error: Can't find plugin metadata: %1\n"
 msgstr "Errorea: Ezin da aurkitu pluginaren metadaturik: %1\n"
 
-#: kpackagetool/kpackagetool.cpp:346
+#: kpackagetool/kpackagetool.cpp:351
 #, kde-format
 msgid "Showing info for package: %1"
 msgstr "Pakete honentzako informazioa erakusten: %1"
 
-#: kpackagetool/kpackagetool.cpp:347
+#: kpackagetool/kpackagetool.cpp:352
 #, kde-format
 msgid "      Name : %1"
 msgstr "      Izena : %1"
 
-#: kpackagetool/kpackagetool.cpp:348
+#: kpackagetool/kpackagetool.cpp:353
 #, kde-format
 msgid "   Comment : %1"
 msgstr "   Iruzkina : %1"
 
-#: kpackagetool/kpackagetool.cpp:349
+#: kpackagetool/kpackagetool.cpp:354
 #, kde-format
 msgid "    Plugin : %1"
 msgstr "    Plugina : %1"
 
-#: kpackagetool/kpackagetool.cpp:351
+#: kpackagetool/kpackagetool.cpp:356
 #, kde-format
 msgid "    Author : %1"
 msgstr "    Egilea : %1"
 
-#: kpackagetool/kpackagetool.cpp:352
+#: kpackagetool/kpackagetool.cpp:357
 #, kde-format
 msgid "      Path : %1"
 msgstr "      Bide-izena : %1"
 
-#: kpackagetool/kpackagetool.cpp:537
+#: kpackagetool/kpackagetool.cpp:542
 #, kde-format
 msgctxt ""
 "The user entered conflicting options packageroot and global, this is the "
@@ -268,67 +268,67 @@ msgstr ""
 "'packageroot' eta aukera orokorrak bata bestearekin gatazka dute, hautatu "
 "soilik bietako bat."
 
-#: kpackagetool/kpackagetool.cpp:565
+#: kpackagetool/kpackagetool.cpp:570
 #, kde-format
 msgid "KPackage Structure Name"
 msgstr "KPackage egitura-izena"
 
-#: kpackagetool/kpackagetool.cpp:566
+#: kpackagetool/kpackagetool.cpp:571
 #, kde-format
 msgid "Path"
 msgstr "Bide-izena"
 
-#: kpackagetool/kpackagetool.cpp:597
+#: kpackagetool/kpackagetool.cpp:602
 #, kde-format
 msgid "Package types that are installable with this tool:"
 msgstr "Tresna honekin instalatu daitezkeen pakete motak:"
 
-#: kpackagetool/kpackagetool.cpp:598
+#: kpackagetool/kpackagetool.cpp:603
 #, kde-format
 msgid "Built in:"
 msgstr "Barneratua:"
 
-#: kpackagetool/kpackagetool.cpp:601
+#: kpackagetool/kpackagetool.cpp:606
 #, kde-format
 msgid "KPackage/Generic"
 msgstr "KPackage/Generikoa"
 
-#: kpackagetool/kpackagetool.cpp:602
+#: kpackagetool/kpackagetool.cpp:607
 #, kde-format
 msgid "KPackage/GenericQML"
 msgstr "KPackage/GenericQML"
 
-#: kpackagetool/kpackagetool.cpp:610
+#: kpackagetool/kpackagetool.cpp:615
 #, kde-format
 msgid "Provided by plugins:"
 msgstr "Pluginek hornitua:"
 
-#: kpackagetool/kpackagetool.cpp:633
+#: kpackagetool/kpackagetool.cpp:638
 #, kde-format
 msgid "Successfully upgraded %1"
 msgstr "Ondo bertsio-berritu da %1"
 
-#: kpackagetool/kpackagetool.cpp:635
+#: kpackagetool/kpackagetool.cpp:640
 #, kde-format
 msgid "Successfully installed %1"
 msgstr "Ondo instalatu da %1"
 
-#: kpackagetool/kpackagetool.cpp:638
+#: kpackagetool/kpackagetool.cpp:643
 #, kde-format
 msgid "Error: Installation of %1 failed: %2"
 msgstr "Errorea: %1 instalatzea huts egin du: %2"
 
-#: kpackagetool/kpackagetool.cpp:650
+#: kpackagetool/kpackagetool.cpp:655
 #, kde-format
 msgid "Upgrading package from file: %1"
 msgstr "Paketea fitxategitik bertsio-berritzen: %1"
 
-#: kpackagetool/kpackagetool.cpp:657
+#: kpackagetool/kpackagetool.cpp:662
 #, kde-format
 msgid "Successfully uninstalled %1"
 msgstr "Ondo desinstalatu da %1"
 
-#: kpackagetool/kpackagetool.cpp:659
+#: kpackagetool/kpackagetool.cpp:664
 #, kde-format
 msgid "Error: Uninstallation of %1 failed: %2"
 msgstr "Errorea: %1 desinstalatzea huts egin du: %2"

@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2022-09-15 00:41+0000\n"
+"POT-Creation-Date: 2023-07-28 00:42+0000\n"
 "PO-Revision-Date: 2022-08-03 10:11+0200\n"
 "Last-Translator: Stefan Asserhäll <stefan.asserhall@bredband.net>\n"
 "Language-Team: Swedish <kde-i18n-doc@kde.org>\n"
@@ -204,7 +204,7 @@ msgstr "Listar tjänsttyper: %1 i %2"
 msgid "Error: Plugin %1 is not installed."
 msgstr "Fel: Insticksprogrammet %1 är inte installerat."
 
-#: kpackagetool/kpackagetool.cpp:289
+#: kpackagetool/kpackagetool.cpp:294
 #, kde-format
 msgctxt ""
 "No option was given, this is the error message telling the user he needs at "
@@ -212,42 +212,42 @@ msgctxt ""
 msgid "One of install, remove, upgrade or list is required."
 msgstr "Antingen install, remove, upgrade eller list krävs."
 
-#: kpackagetool/kpackagetool.cpp:342 kpackagetool/kpackagetool.cpp:424
+#: kpackagetool/kpackagetool.cpp:347 kpackagetool/kpackagetool.cpp:429
 #, kde-format
 msgid "Error: Can't find plugin metadata: %1\n"
 msgstr "Fel: Kan inte hitta insticksprogrammets metadata: %1\n"
 
-#: kpackagetool/kpackagetool.cpp:346
+#: kpackagetool/kpackagetool.cpp:351
 #, kde-format
 msgid "Showing info for package: %1"
 msgstr "Visar information för paket: %1"
 
-#: kpackagetool/kpackagetool.cpp:347
+#: kpackagetool/kpackagetool.cpp:352
 #, kde-format
 msgid "      Name : %1"
 msgstr "           Namn: %1"
 
-#: kpackagetool/kpackagetool.cpp:348
+#: kpackagetool/kpackagetool.cpp:353
 #, kde-format
 msgid "   Comment : %1"
 msgstr "      Kommentar: %1"
 
-#: kpackagetool/kpackagetool.cpp:349
+#: kpackagetool/kpackagetool.cpp:354
 #, kde-format
 msgid "    Plugin : %1"
 msgstr "Insticksprogram: %1"
 
-#: kpackagetool/kpackagetool.cpp:351
+#: kpackagetool/kpackagetool.cpp:356
 #, kde-format
 msgid "    Author : %1"
 msgstr "     Upphovsman: %1"
 
-#: kpackagetool/kpackagetool.cpp:352
+#: kpackagetool/kpackagetool.cpp:357
 #, kde-format
 msgid "      Path : %1"
 msgstr "         Sökväg: %1"
 
-#: kpackagetool/kpackagetool.cpp:537
+#: kpackagetool/kpackagetool.cpp:542
 #, kde-format
 msgctxt ""
 "The user entered conflicting options packageroot and global, this is the "
@@ -258,67 +258,67 @@ msgid ""
 msgstr ""
 "Paketroten och globala alternativ står i konflikt med varandra, välj bara en."
 
-#: kpackagetool/kpackagetool.cpp:565
+#: kpackagetool/kpackagetool.cpp:570
 #, kde-format
 msgid "KPackage Structure Name"
 msgstr "Kpackage strukturnamn"
 
-#: kpackagetool/kpackagetool.cpp:566
+#: kpackagetool/kpackagetool.cpp:571
 #, kde-format
 msgid "Path"
 msgstr "Sökväg"
 
-#: kpackagetool/kpackagetool.cpp:597
+#: kpackagetool/kpackagetool.cpp:602
 #, kde-format
 msgid "Package types that are installable with this tool:"
 msgstr "Typer av paket som kan installeras med det här verkyget:"
 
-#: kpackagetool/kpackagetool.cpp:598
+#: kpackagetool/kpackagetool.cpp:603
 #, kde-format
 msgid "Built in:"
 msgstr "Inbyggda:"
 
-#: kpackagetool/kpackagetool.cpp:601
+#: kpackagetool/kpackagetool.cpp:606
 #, kde-format
 msgid "KPackage/Generic"
 msgstr "Kpackage/Generell"
 
-#: kpackagetool/kpackagetool.cpp:602
+#: kpackagetool/kpackagetool.cpp:607
 #, kde-format
 msgid "KPackage/GenericQML"
 msgstr "Kpackage/Generell QML"
 
-#: kpackagetool/kpackagetool.cpp:610
+#: kpackagetool/kpackagetool.cpp:615
 #, kde-format
 msgid "Provided by plugins:"
 msgstr "Tillhandahållna av insticksprogram:"
 
-#: kpackagetool/kpackagetool.cpp:633
+#: kpackagetool/kpackagetool.cpp:638
 #, kde-format
 msgid "Successfully upgraded %1"
 msgstr "Uppgraderade %1 med lyckat resultat"
 
-#: kpackagetool/kpackagetool.cpp:635
+#: kpackagetool/kpackagetool.cpp:640
 #, kde-format
 msgid "Successfully installed %1"
 msgstr "Installerade %1 med lyckat resultat"
 
-#: kpackagetool/kpackagetool.cpp:638
+#: kpackagetool/kpackagetool.cpp:643
 #, kde-format
 msgid "Error: Installation of %1 failed: %2"
 msgstr "Fel: Installation av %1 misslyckades: %2"
 
-#: kpackagetool/kpackagetool.cpp:650
+#: kpackagetool/kpackagetool.cpp:655
 #, kde-format
 msgid "Upgrading package from file: %1"
 msgstr "Uppgraderar paket från fil: %1"
 
-#: kpackagetool/kpackagetool.cpp:657
+#: kpackagetool/kpackagetool.cpp:662
 #, kde-format
 msgid "Successfully uninstalled %1"
 msgstr "Avinstallerade %1 med lyckat resultat"
 
-#: kpackagetool/kpackagetool.cpp:659
+#: kpackagetool/kpackagetool.cpp:664
 #, kde-format
 msgid "Error: Uninstallation of %1 failed: %2"
 msgstr "Fel: Avinstallation av %1 misslyckades: %2"

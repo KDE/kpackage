@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2022-09-15 00:41+0000\n"
+"POT-Creation-Date: 2023-07-28 00:42+0000\n"
 "PO-Revision-Date: 2013-03-09 14:27+0530\n"
 "Last-Translator: Chetan Khona <chetan@kompkin.com>\n"
 "Language-Team: Marathi <kde-i18n-doc@kde.org>\n"
@@ -204,7 +204,7 @@ msgstr "सेवा प्रकारांची यादी करत आ�
 msgid "Error: Plugin %1 is not installed."
 msgstr "त्रुटी : %1 हे प्लगइन प्रतिष्ठापीत झालेले नाही."
 
-#: kpackagetool/kpackagetool.cpp:289
+#: kpackagetool/kpackagetool.cpp:294
 #, kde-format
 msgctxt ""
 "No option was given, this is the error message telling the user he needs at "
@@ -212,43 +212,43 @@ msgctxt ""
 msgid "One of install, remove, upgrade or list is required."
 msgstr "प्रतिष्ठापन, काढून टाका, अद्ययावत करा किंवा यादी यापैकी एकाची गरज आहे."
 
-#: kpackagetool/kpackagetool.cpp:342 kpackagetool/kpackagetool.cpp:424
+#: kpackagetool/kpackagetool.cpp:347 kpackagetool/kpackagetool.cpp:429
 #, fuzzy, kde-format
 #| msgid "Error: Can't find plugin metadata: %1"
 msgid "Error: Can't find plugin metadata: %1\n"
 msgstr "त्रुटी :  प्लगइन मेटाडेटा सापडत नाही: %1"
 
-#: kpackagetool/kpackagetool.cpp:346
+#: kpackagetool/kpackagetool.cpp:351
 #, kde-format
 msgid "Showing info for package: %1"
 msgstr "पॅकेजची माहिती दर्शवित आहे : %1"
 
-#: kpackagetool/kpackagetool.cpp:347
+#: kpackagetool/kpackagetool.cpp:352
 #, kde-format
 msgid "      Name : %1"
 msgstr "      नाव : %1"
 
-#: kpackagetool/kpackagetool.cpp:348
+#: kpackagetool/kpackagetool.cpp:353
 #, kde-format
 msgid "   Comment : %1"
 msgstr "   टीप : %1"
 
-#: kpackagetool/kpackagetool.cpp:349
+#: kpackagetool/kpackagetool.cpp:354
 #, kde-format
 msgid "    Plugin : %1"
 msgstr "    प्लगइन : %1"
 
-#: kpackagetool/kpackagetool.cpp:351
+#: kpackagetool/kpackagetool.cpp:356
 #, kde-format
 msgid "    Author : %1"
 msgstr "    लेखक : %1"
 
-#: kpackagetool/kpackagetool.cpp:352
+#: kpackagetool/kpackagetool.cpp:357
 #, kde-format
 msgid "      Path : %1"
 msgstr "      मार्ग : %1"
 
-#: kpackagetool/kpackagetool.cpp:537
+#: kpackagetool/kpackagetool.cpp:542
 #, fuzzy, kde-format
 #| msgctxt ""
 #| "The user entered conflicting options packageroot and global, this is the "
@@ -264,69 +264,69 @@ msgid ""
 "only one."
 msgstr "पॅकेजरूट व जागतिक पर्याय यांचा मतभेद आहे. कृपया फक्त एक निवडा."
 
-#: kpackagetool/kpackagetool.cpp:565
+#: kpackagetool/kpackagetool.cpp:570
 #, kde-format
 msgid "KPackage Structure Name"
 msgstr ""
 
-#: kpackagetool/kpackagetool.cpp:566
+#: kpackagetool/kpackagetool.cpp:571
 #, kde-format
 msgid "Path"
 msgstr "मार्ग"
 
-#: kpackagetool/kpackagetool.cpp:597
+#: kpackagetool/kpackagetool.cpp:602
 #, kde-format
 msgid "Package types that are installable with this tool:"
 msgstr "या साधनाने प्रतिष्ठापीत करता येण्याजोगे पॅकेज प्रकार :"
 
-#: kpackagetool/kpackagetool.cpp:598
+#: kpackagetool/kpackagetool.cpp:603
 #, kde-format
 msgid "Built in:"
 msgstr "अंतर्भूत :"
 
-#: kpackagetool/kpackagetool.cpp:601
+#: kpackagetool/kpackagetool.cpp:606
 #, fuzzy, kde-format
 #| msgid "Package"
 msgid "KPackage/Generic"
 msgstr "पॅकेज"
 
-#: kpackagetool/kpackagetool.cpp:602
+#: kpackagetool/kpackagetool.cpp:607
 #, fuzzy, kde-format
 #| msgid "Package"
 msgid "KPackage/GenericQML"
 msgstr "पॅकेज"
 
-#: kpackagetool/kpackagetool.cpp:610
+#: kpackagetool/kpackagetool.cpp:615
 #, kde-format
 msgid "Provided by plugins:"
 msgstr "प्लगइनने पुरविलेले :"
 
-#: kpackagetool/kpackagetool.cpp:633
+#: kpackagetool/kpackagetool.cpp:638
 #, kde-format
 msgid "Successfully upgraded %1"
 msgstr "यशस्वीरित्या अद्ययावत केले %1"
 
-#: kpackagetool/kpackagetool.cpp:635
+#: kpackagetool/kpackagetool.cpp:640
 #, kde-format
 msgid "Successfully installed %1"
 msgstr "%1 हे यशस्वीरित्या प्रतिष्ठापीत केले"
 
-#: kpackagetool/kpackagetool.cpp:638
+#: kpackagetool/kpackagetool.cpp:643
 #, kde-format
 msgid "Error: Installation of %1 failed: %2"
 msgstr "त्रुटी : %1 ची प्रतिष्ठापना करण्यास अपयश: %2"
 
-#: kpackagetool/kpackagetool.cpp:650
+#: kpackagetool/kpackagetool.cpp:655
 #, kde-format
 msgid "Upgrading package from file: %1"
 msgstr "पॅकेज या फाईल वरून अद्ययावत करत आहे : %1"
 
-#: kpackagetool/kpackagetool.cpp:657
+#: kpackagetool/kpackagetool.cpp:662
 #, kde-format
 msgid "Successfully uninstalled %1"
 msgstr "यशस्वीरित्या अप्रतिष्ठापीत केले %1"
 
-#: kpackagetool/kpackagetool.cpp:659
+#: kpackagetool/kpackagetool.cpp:664
 #, kde-format
 msgid "Error: Uninstallation of %1 failed: %2"
 msgstr "त्रुटी : %1 ची अप्रतिष्ठापना करण्यास अपयश: %2"
