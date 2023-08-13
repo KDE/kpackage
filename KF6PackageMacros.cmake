@@ -40,7 +40,6 @@ function(kpackage_install_package dir component)
             PATTERN Messages.sh EXCLUDE
             PATTERN dummydata EXCLUDE)
 
-   set(metadatajson)
     if (EXISTS "${CMAKE_CURRENT_SOURCE_DIR}/${dir}/metadata.json")
         install(FILES "${CMAKE_CURRENT_SOURCE_DIR}/${dir}/metadata.json" DESTINATION ${KDE_INSTALL_DATADIR}/${install_dir}/${root}/${component})
     endif()
