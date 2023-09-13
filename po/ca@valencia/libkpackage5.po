@@ -365,7 +365,7 @@ msgid ""
 "Applet, etc."
 msgstr ""
 "El tipus de paquet, corresponent al tipus de servei del connector del "
-"paquet, p. ex. KPackage/Generic, Plasma/Theme, Plasma/Wallpaper, Plasma/"
+"paquet, p. ex., KPackage/Generic, Plasma/Theme, Plasma/Wallpaper, Plasma/"
 "Applet, etc."
 
 #: kpackagetool/options.h:36
