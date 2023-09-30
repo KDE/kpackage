@@ -5,6 +5,5 @@
         "License": "GPLv2+",
         "Name": "Test Fallback Package"
     },
-    "KPackageStructure": "Plasma/TestKPackageInternalPlasmoid",
-    "X-Plasma-MainScript": "ui/main.qml"
+    "KPackageStructure": "Plasma/TestKPackageInternalPlasmoid"
 }

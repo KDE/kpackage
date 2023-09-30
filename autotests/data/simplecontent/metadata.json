@@ -3,6 +3,5 @@
         "Id": "org.kde.simplecontent",
         "Name": "Simple Content"
     },
-    "KPackageStructure": "SimpleContent",
-    "X-Plasma-MainScript": "ui/main.qml"
+    "KPackageStructure": "SimpleContent"
 }

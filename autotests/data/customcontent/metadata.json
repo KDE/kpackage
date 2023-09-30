@@ -3,6 +3,5 @@
         "Id": "org.kde.customcontent",
         "Name": "Custom Content"
     },
-    "KPackageStructure": "CustomContent",
-    "X-Plasma-MainScript": "ui/main.qml"
+    "KPackageStructure": "CustomContent"
 }

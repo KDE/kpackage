@@ -21,7 +21,6 @@ private Q_SLOTS:
     void validStructures();
     void validPackages();
     void wallpaperPackage();
-    void copyPerformance();
     void mutateAfterCopy();
     void emptyContentsPrefix();
     void directories();

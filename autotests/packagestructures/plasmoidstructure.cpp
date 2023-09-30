@@ -12,10 +12,7 @@ class PlasmoidTestPackageStructure : public KPackage::PackageStructure
     Q_OBJECT
 
 public:
-    explicit PlasmoidTestPackageStructure(QObject *parent, const QVariantList &args)
-        : KPackage::PackageStructure(parent, args)
-    {
-    }
+    using KPackage::PackageStructure::PackageStructure;
 
     void initPackage(KPackage::Package *package) override
     {

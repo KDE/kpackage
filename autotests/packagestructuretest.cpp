@@ -103,8 +103,7 @@ public:
 void PackageStructureTest::initTestCase()
 {
     m_packagePath = QFINDTESTDATA("data/testpackage");
-    ps = KPackage::PackageLoader::self()->loadPackage(QStringLiteral("KPackage/Generic"));
-    ps.addFileDefinition("mainscript", QStringLiteral("ui/main.qml"));
+    ps = KPackage::PackageLoader::self()->loadPackage(QStringLiteral("KPackage/GenericQML"));
     ps.setPath(m_packagePath);
 }
 
@@ -140,18 +139,6 @@ void PackageStructureTest::wallpaperPackage()
     KPackage::Package p2(new Wallpaper);
     p2.setPath(m_packagePath + "/contents/images/empty.png");
     QVERIFY(p2.isValid());
-}
-
-void PackageStructureTest::copyPerformance()
-{
-    // seed the cache first
-    ps.filePath("mainscript");
-
-    QBENCHMARK {
-        KPackage::Package foo(ps);
-        const QString bar = foo.filePath("mainscript");
-        Q_UNUSED(bar);
-    }
 }
 
 void PackageStructureTest::mutateAfterCopy()

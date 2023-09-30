@@ -55,6 +55,5 @@
         "Name[zh_CN]": "测试包",
         "Name[zh_TW]": "測試套件"
     },
-    "KPackageStructure": "Plasma/TestKPackageInternalPlasmoid",
-    "X-Plasma-MainScript": "ui/main.qml"
+    "KPackageStructure": "Plasma/TestKPackageInternalPlasmoid"
 }

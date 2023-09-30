@@ -12,6 +12,7 @@
         "Description": "test description"
     },
     "KPackageStructure": "Plasma/TestKPackageInternalPlasmoid",
-    "X-KPackage-Dependencies": [ "mock://invaliddep" ],
-    "X-Plasma-MainScript": "ui/main.qml"
+    "X-KPackage-Dependencies": [
+        "mock://invaliddep"
+    ]
 }
