@@ -91,7 +91,7 @@ QList<KPluginMetaData> PackageLoader::listPackages(const QString &packageFormat,
         d->pluginCache.clear();
     }
 
-    const QString cacheKey = QStringLiteral("%1.%2").arg(packageFormat, packageRoot);
+    const QString cacheKey = packageFormat + QLatin1Char('.') + packageRoot;
     if (useRuntimeCache) {
         auto it = d->pluginCache.constFind(cacheKey);
         if (it != d->pluginCache.constEnd()) {
@@ -111,9 +111,9 @@ QList<KPluginMetaData> PackageLoader::listPackages(const QString &packageFormat,
     if (actualRoot.isEmpty()) {
         PackageStructure *structure = d->structures.value(packageFormat).data();
         if (!structure) {
-            if (packageFormat == QStringLiteral("KPackage/Generic")) {
+            if (packageFormat == QLatin1String("KPackage/Generic")) {
                 structure = new GenericPackage();
-            } else if (packageFormat == QStringLiteral("KPackage/GenericQML")) {
+            } else if (packageFormat == QLatin1String("KPackage/GenericQML")) {
                 structure = new GenericQMLPackage();
             }
         }
@@ -199,10 +199,10 @@ KPackage::PackageStructure *PackageLoader::loadPackageStructure(const QString &p
 {
     PackageStructure *structure = d->structures.value(packageFormat).data();
     if (!structure) {
-        if (packageFormat == QStringLiteral("KPackage/Generic")) {
+        if (packageFormat == QLatin1String("KPackage/Generic")) {
             structure = new GenericPackage();
             d->structures.insert(packageFormat, structure);
-        } else if (packageFormat == QStringLiteral("KPackage/GenericQML")) {
+        } else if (packageFormat == QLatin1String("KPackage/GenericQML")) {
             structure = new GenericQMLPackage();
             d->structures.insert(packageFormat, structure);
         }
