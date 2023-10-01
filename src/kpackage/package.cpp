@@ -767,10 +767,6 @@ QList<QByteArray> Package::requiredFiles() const
 
 PackagePrivate::PackagePrivate()
     : QSharedData()
-    , fallbackPackage(nullptr)
-    , externalPaths(false)
-    , valid(false)
-    , checkedValid(false)
 {
     contentsPrefixPaths << QStringLiteral("contents/");
 }

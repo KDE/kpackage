@@ -22,8 +22,6 @@ class ContentStructure
 {
 public:
     ContentStructure()
-        : directory(false)
-        , required(false)
     {
     }
 
@@ -39,8 +37,8 @@ public:
 
     QStringList paths;
     QStringList mimeTypes;
-    bool directory : 1;
-    bool required : 1;
+    bool directory = false;
+    bool required = false;
 };
 
 class PackagePrivate : public QSharedData
@@ -69,9 +67,9 @@ public:
     std::unique_ptr<Package> fallbackPackage;
     QStringList mimeTypes;
     std::optional<KPluginMetaData> metadata;
-    bool externalPaths : 1;
-    bool valid : 1;
-    bool checkedValid : 1;
+    bool externalPaths = false;
+    bool valid = false;
+    bool checkedValid = false;
 };
 
 }
