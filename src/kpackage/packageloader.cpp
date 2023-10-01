@@ -18,7 +18,7 @@
 #include <KLazyLocalizedString>
 #include <KPluginFactory>
 #include <KPluginMetaData>
-#include <set>
+#include <unordered_set>
 
 #include "config-package.h"
 
@@ -129,7 +129,7 @@ QList<KPluginMetaData> PackageLoader::listPackages(const QString &packageFormat,
 
     for (auto const &plugindir : std::as_const(paths)) {
         QDirIterator it(plugindir, QStringList{QStringLiteral("metadata.json")}, QDir::Files, QDirIterator::Subdirectories);
-        std::set<QString> dirs;
+        std::unordered_set<QString> dirs;
         while (it.hasNext()) {
             it.next();
 

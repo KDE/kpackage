@@ -88,16 +88,8 @@ bool Package::isValid() const
     // search for the file in all prefixes and in all possible paths for each prefix
     // even if it's a big nested loop, usually there is one prefix and one location
     // so shouldn't cause too much disk access
-    QHashIterator<QByteArray, ContentStructure> it(d->contents);
-
-    while (it.hasNext()) {
-        it.next();
-        if (!it.value().required) {
-            continue;
-        }
-
-        const QString foundPath = filePath(it.key(), {});
-        if (foundPath.isEmpty()) {
+    for (auto it = d->contents.cbegin(), end = d->contents.cend(); it != end; ++it) {
+        if (it.value().required && filePath(it.key()).isEmpty()) {
             qCWarning(KPACKAGE_LOG) << "Could not find required" << (it.value().directory ? "directory" : "file") << it.key() << "for package" << path()
                                     << "should be" << it.value().paths;
             d->valid = false;
@@ -110,7 +102,7 @@ bool Package::isValid() const
 
 bool Package::isRequired(const QByteArray &key) const
 {
-    QHash<QByteArray, ContentStructure>::const_iterator it = d->contents.constFind(key);
+    auto it = d->contents.constFind(key);
     if (it == d->contents.constEnd()) {
         return false;
     }
@@ -120,7 +112,7 @@ bool Package::isRequired(const QByteArray &key) const
 
 QStringList Package::mimeTypes(const QByteArray &key) const
 {
-    QHash<QByteArray, ContentStructure>::const_iterator it = d->contents.constFind(key);
+    auto it = d->contents.constFind(key);
     if (it == d->contents.constEnd()) {
         return QStringList();
     }
@@ -701,26 +693,21 @@ void Package::setDefaultMimeTypes(const QStringList &mimeTypes)
 
 void Package::setMimeTypes(const QByteArray &key, const QStringList &mimeTypes)
 {
-    QHash<QByteArray, ContentStructure>::iterator it = d->contents.find(key);
-    if (it == d->contents.end()) {
+    if (!d->contents.contains(key)) {
         return;
     }
 
     d.detach();
-    // have to find the item again after detaching: d->contents is a different object now
-    it = d->contents.find(key);
-    it.value().mimeTypes = mimeTypes;
+    d->contents[key].mimeTypes = mimeTypes;
 }
 
 QList<QByteArray> Package::directories() const
 {
     QList<QByteArray> dirs;
-    QHash<QByteArray, ContentStructure>::const_iterator it = d->contents.constBegin();
-    while (it != d->contents.constEnd()) {
+    for (auto it = d->contents.cbegin(); it != d->contents.cend(); ++it) {
         if (it.value().directory) {
             dirs << it.key();
         }
-        ++it;
     }
     return dirs;
 }
@@ -728,12 +715,10 @@ QList<QByteArray> Package::directories() const
 QList<QByteArray> Package::requiredDirectories() const
 {
     QList<QByteArray> dirs;
-    QHash<QByteArray, ContentStructure>::const_iterator it = d->contents.constBegin();
-    while (it != d->contents.constEnd()) {
+    for (auto it = d->contents.cbegin(); it != d->contents.cend(); ++it) {
         if (it.value().directory && it.value().required) {
             dirs << it.key();
         }
-        ++it;
     }
     return dirs;
 }
@@ -741,12 +726,10 @@ QList<QByteArray> Package::requiredDirectories() const
 QList<QByteArray> Package::files() const
 {
     QList<QByteArray> files;
-    QHash<QByteArray, ContentStructure>::const_iterator it = d->contents.constBegin();
-    while (it != d->contents.constEnd()) {
+    for (auto it = d->contents.cbegin(); it != d->contents.cend(); ++it) {
         if (!it.value().directory) {
             files << it.key();
         }
-        ++it;
     }
     return files;
 }
@@ -754,12 +737,10 @@ QList<QByteArray> Package::files() const
 QList<QByteArray> Package::requiredFiles() const
 {
     QList<QByteArray> files;
-    QHash<QByteArray, ContentStructure>::const_iterator it = d->contents.constBegin();
-    while (it != d->contents.constEnd()) {
+    for (auto it = d->contents.cbegin(); it != d->contents.cend(); ++it) {
         if (!it.value().directory && it.value().required) {
             files << it.key();
         }
-        ++it;
     }
 
     return files;
