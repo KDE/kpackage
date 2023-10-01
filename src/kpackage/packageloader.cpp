@@ -29,8 +29,6 @@
 
 namespace KPackage
 {
-static PackageLoader *s_packageTrader = nullptr;
-
 PackageLoader::PackageLoader()
     : d(new PackageLoaderPrivate)
 {
@@ -46,14 +44,7 @@ PackageLoader::~PackageLoader()
 
 PackageLoader *PackageLoader::self()
 {
-    if (!s_packageTrader) {
-        // we have been called before any PackageLoader was set, so just use the default
-        // implementation. this prevents plugins from nefariously injecting their own
-        // plugin loader if the app doesn't
-        s_packageTrader = new PackageLoader;
-        s_packageTrader->d->isDefaultLoader = true;
-    }
-
+    static PackageLoader *s_packageTrader = new PackageLoader;
     return s_packageTrader;
 }
 

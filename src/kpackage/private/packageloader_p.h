@@ -17,13 +17,7 @@ namespace KPackage
 class PackageLoaderPrivate
 {
 public:
-    PackageLoaderPrivate()
-        : isDefaultLoader(false)
-    {
-    }
-
     QHash<QString, QPointer<PackageStructure>> structures;
-    bool isDefaultLoader;
     // We only use this cache during start of the process to speed up many consecutive calls
     // After that, we're too afraid to produce race conditions and it's not that time-critical anyway
     // the 20 seconds here means that the cache is only used within 20sec during startup, after that,
