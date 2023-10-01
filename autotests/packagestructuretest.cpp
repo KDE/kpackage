@@ -36,8 +36,7 @@ public:
     {
         package->addDirectoryDefinition("images", QStringLiteral("images/"));
 
-        QStringList mimetypes;
-        mimetypes << QStringLiteral("image/svg") << QStringLiteral("image/png") << QStringLiteral("image/jpeg") << QStringLiteral("image/jpg");
+        const QStringList mimetypes{QStringLiteral("image/svg"), QStringLiteral("image/png"), QStringLiteral("image/jpeg"), QStringLiteral("image/jpg")};
         package->setMimeTypes("images", mimetypes);
 
         package->setRequired("images", true);
@@ -67,7 +66,7 @@ public:
         package->setRequired("images", isFullPackage);
 
         if (isFullPackage) {
-            package->setContentsPrefixPaths(QStringList() << QStringLiteral("contents/"));
+            package->setContentsPrefixPaths(QStringList{QStringLiteral("contents/")});
         } else {
             package->addFileDefinition("screenshot", info.fileName());
             package->addFileDefinition("preferred", info.fileName());
@@ -170,8 +169,7 @@ void PackageStructureTest::mutateAfterCopy()
     QCOMPARE(copy.allowExternalPaths(), !externalPaths);
 
     copy = ps;
-    QStringList copyContentsPrefixPaths = contentsPrefixPaths;
-    copyContentsPrefixPaths << QStringLiteral("more/");
+    const QStringList copyContentsPrefixPaths = QStringList(contentsPrefixPaths) << QStringLiteral("more/");
     copy.setContentsPrefixPaths(copyContentsPrefixPaths);
     QCOMPARE(ps.contentsPrefixPaths(), contentsPrefixPaths);
     QCOMPARE(copy.contentsPrefixPaths(), copyContentsPrefixPaths);
@@ -193,15 +191,13 @@ void PackageStructureTest::mutateAfterCopy()
 
     copy = ps;
     QVERIFY(!imageMimeTypes.isEmpty());
-    QStringList copyMimeTypes;
-    copyMimeTypes << imageMimeTypes.first();
+    const QStringList copyMimeTypes(imageMimeTypes.first());
     copy.setMimeTypes("images", copyMimeTypes);
     QCOMPARE(ps.mimeTypes("images"), imageMimeTypes);
     QCOMPARE(copy.mimeTypes("images"), copyMimeTypes);
 
     copy = ps;
-    QStringList copyDefaultMimeTypes = defaultMimeTypes;
-    copyDefaultMimeTypes << QStringLiteral("rubbish");
+    const QStringList copyDefaultMimeTypes = QStringList(defaultMimeTypes) << QStringLiteral("rubbish");
     copy.setDefaultMimeTypes(copyDefaultMimeTypes);
     QCOMPARE(ps.mimeTypes("translations"), defaultMimeTypes);
     QCOMPARE(copy.mimeTypes("translations"), copyDefaultMimeTypes);
@@ -211,7 +207,6 @@ void PackageStructureTest::emptyContentsPrefix()
 {
     NoPrefixes package;
     QString path(package.filePath("bin", QStringLiteral("ls")));
-    // qDebug() << path;
     if (QFileInfo::exists(QStringLiteral("/bin/ls"))) { // not Windows
         QCOMPARE(path, QStringLiteral("/bin/ls"));
     }
@@ -219,14 +214,15 @@ void PackageStructureTest::emptyContentsPrefix()
 
 void PackageStructureTest::directories()
 {
-    QList<QByteArray> dirs;
-    dirs << "config"
-         << "data"
-         << "images"
-         << "theme"
-         << "scripts"
-         << "translations"
-         << "ui";
+    const QList<QByteArray> dirs{
+        "config",
+        "data",
+        "images",
+        "theme",
+        "scripts",
+        "translations",
+        "ui",
+    };
 
     const QList<QByteArray> psDirs = ps.directories();
 
@@ -263,16 +259,14 @@ void PackageStructureTest::requiredDirectories()
 
 void PackageStructureTest::files()
 {
-    QList<QByteArray> files;
-    files << "mainconfigui"
-          << "mainconfigxml"
-          << "mainscript";
+    const QList<QByteArray> files{
+        "mainconfigui",
+        "mainconfigxml",
+        "mainscript",
+    };
 
     const QList<QByteArray> psFiles = ps.files();
 
-    // for (int i = 0; i < psFiles.count(); ++i) {
-    //    qDebug() << psFiles[i];
-    //}
     for (const char *file : psFiles) {
         bool found = false;
         for (const char *check : std::as_const(files)) {
@@ -287,15 +281,9 @@ void PackageStructureTest::files()
 
 void PackageStructureTest::requiredFiles()
 {
-    QList<QByteArray> files;
-    files << "mainscript";
-
-    QList<QByteArray> psFiles = ps.requiredFiles();
-
-    QCOMPARE(files.count(), psFiles.count());
-    for (int i = 0; i < files.count(); ++i) {
-        QCOMPARE(files[i], psFiles[i]);
-    }
+    const QList<QByteArray> files{"mainscript"};
+    const QList<QByteArray> psFiles = ps.requiredFiles();
+    QCOMPARE(files, psFiles);
 }
 
 void PackageStructureTest::path()
@@ -312,8 +300,7 @@ void PackageStructureTest::required()
 
 void PackageStructureTest::mimeTypes()
 {
-    QStringList mimeTypes;
-    mimeTypes << QStringLiteral("image/svg+xml") << QStringLiteral("image/png") << QStringLiteral("image/jpeg");
+    const QStringList mimeTypes{QStringLiteral("image/svg+xml"), QStringLiteral("image/png"), QStringLiteral("image/jpeg")};
     QCOMPARE(ps.mimeTypes("images"), mimeTypes);
     QCOMPARE(ps.mimeTypes("theme"), mimeTypes);
 }

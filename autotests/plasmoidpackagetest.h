@@ -39,7 +39,6 @@ private:
 
     QString m_packageRoot;
     QString m_package;
-    KJob *m_packageJob;
     KPackage::Package m_defaultPackage;
     const QString m_defaultPackageStructure = "KPackage/Test";
 };
