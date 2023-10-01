@@ -33,13 +33,13 @@ msgstr "adrian@chaves.io"
 #, kde-format
 msgid "Could not load installer for package of type %1. Error reported was: %2"
 msgstr ""
-"Non se puido cargar un instalador axeitado para o paquete do tipo %1. "
+"Non foi posíbel cargar un instalador axeitado para o paquete do tipo %1. "
 "Informouse do erro: %2"
 
 #: kpackage/private/packagejobthread.cpp:163
 #, kde-format
 msgid "Could not create package root directory: %1"
-msgstr "Non se puido crear o cartafol raíz do paquete: %1"
+msgstr "Non foi posíbel crear o cartafol raíz do paquete: %1"
 
 #: kpackage/private/packagejobthread.cpp:172
 #, kde-format
@@ -50,18 +50,18 @@ msgstr "Non existe o ficheiro: %1"
 #, kde-format
 msgid "Could not open package file, unsupported archive format: %1 %2"
 msgstr ""
-"Non se puido abrir o ficheiro do paquete, o formato do arquivo non é "
+"Non foi posíbel abrir o ficheiro do paquete, o formato do arquivo non é "
 "compatíbel: %1 %2"
 
 #: kpackage/private/packagejobthread.cpp:210
 #, kde-format
 msgid "Could not open package file: %1"
-msgstr "Non se puido abrir o ficheiro do paquete: %1"
+msgstr "Non foi posíbel abrir o ficheiro do paquete: %1"
 
 #: kpackage/private/packagejobthread.cpp:242
 #, kde-format
 msgid "Could not open metadata file: %1"
-msgstr "Non se puido abrir o ficheiro de metadatos: %1"
+msgstr "Non foi posíbel abrir o ficheiro de metadatos: %1"
 
 #: kpackage/private/packagejobthread.cpp:249
 #, kde-format
@@ -106,17 +106,17 @@ msgstr "%1 xa existe"
 #: kpackage/private/packagejobthread.cpp:321
 #, kde-format
 msgid "Could not install dependency: '%1'"
-msgstr "Non se puido instalar a dependencia: «%1»"
+msgstr "Non foi posíbel instalar a dependencia: «%1»"
 
 #: kpackage/private/packagejobthread.cpp:333
 #, kde-format
 msgid "Could not move package to destination: %1"
-msgstr "Non se puido mover o paquete ao destino: %1"
+msgstr "Non foi posíbel mover o paquete ao destino: %1"
 
 #: kpackage/private/packagejobthread.cpp:343
 #, kde-format
 msgid "Could not copy package to destination: %1"
-msgstr "Non se puido copiar o paquete ao destino: %1"
+msgstr "Non foi posíbel copiar o paquete ao destino: %1"
 
 #: kpackage/private/packagejobthread.cpp:378
 #, kde-format
@@ -131,12 +131,12 @@ msgstr "%1 non existe"
 #: kpackage/private/packagejobthread.cpp:398
 #, kde-format
 msgid "Could not delete package from: %1"
-msgstr "Non se puido eliminar o paquete de: %1"
+msgstr "Non foi posíbel eliminar o paquete de: %1"
 
 #: kpackagetool/kpackagetool.cpp:87
 #, kde-format
 msgid "Failed to generate a Package hash for %1"
-msgstr "Non se puido xerar un hash de paquete para %1"
+msgstr "Non foi posíbel xerar un hash de paquete para %1"
 
 #: kpackagetool/kpackagetool.cpp:90
 #, kde-format
