@@ -63,19 +63,13 @@ Package PackageLoader::loadPackage(const QString &packageFormat, const QString &
         return Package();
     }
 
-    PackageStructure *structure = loadPackageStructure(packageFormat);
-
-    if (structure) {
+    if (PackageStructure *structure = loadPackageStructure(packageFormat)) {
         Package p(structure);
         if (!packagePath.isEmpty()) {
             p.setPath(packagePath);
         }
         return p;
     }
-
-#ifndef NDEBUG
-    // qCDebug(KPACKAGE_LOG) << "Couldn't load Package for" << packageFormat << "! reason given: " << error;
-#endif
 
     return Package();
 }
@@ -115,11 +109,9 @@ QList<KPluginMetaData> PackageLoader::listPackages(const QString &packageFormat,
                 structure = new GenericPackage();
             } else if (packageFormat == QLatin1String("KPackage/GenericQML")) {
                 structure = new GenericQMLPackage();
+            } else {
+                structure = loadPackageStructure(packageFormat);
             }
-        }
-
-        if (!structure) {
-            structure = loadPackageStructure(packageFormat);
         }
 
         if (structure) {
