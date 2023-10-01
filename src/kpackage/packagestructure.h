@@ -33,8 +33,6 @@ namespace KPackage
  * QStringList mimetypes{QStringLiteral("image/svg+xml"), QStringLiteral("image/png"), QStringLiteral("image/jpeg")};
  * package->setMimeTypes("images", mimetypes);
  * @endcode
- *
- * @author Aaron Seigo
  */
 class KPACKAGE_EXPORT PackageStructure : public QObject
 {
