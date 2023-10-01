@@ -18,6 +18,7 @@
 #include <KLazyLocalizedString>
 #include <KPluginFactory>
 #include <KPluginMetaData>
+#include <set>
 
 #include "config-package.h"
 
@@ -144,20 +145,15 @@ QList<KPluginMetaData> PackageLoader::listPackages(const QString &packageFormat,
     }
 
     for (auto const &plugindir : std::as_const(paths)) {
-        const QDirIterator::IteratorFlags flags = QDirIterator::Subdirectories;
-        const QStringList nameFilters = {QStringLiteral("metadata.json")};
-
-        QDirIterator it(plugindir, nameFilters, QDir::Files, flags);
-        QSet<QString> dirs;
+        QDirIterator it(plugindir, QStringList{QStringLiteral("metadata.json")}, QDir::Files, QDirIterator::Subdirectories);
+        std::set<QString> dirs;
         while (it.hasNext()) {
             it.next();
 
             const QString dir = it.fileInfo().absoluteDir().path();
-
-            if (dirs.contains(dir)) {
+            if (!dirs.insert(dir).second) {
                 continue;
             }
-            dirs << dir;
 
             const QString metadataPath = it.fileInfo().absoluteFilePath();
             KPluginMetaData info = KPluginMetaData::fromJsonFile(metadataPath);
