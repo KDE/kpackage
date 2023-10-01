@@ -16,7 +16,6 @@
 #include <QVector>
 
 #include <KLazyLocalizedString>
-#include <KLocalizedString>
 #include <KPluginFactory>
 #include <KPluginMetaData>
 
@@ -220,7 +219,7 @@ KPackage::PackageStructure *PackageLoader::loadPackageStructure(const QString &p
 
     auto result = KPluginFactory::instantiatePlugin<PackageStructure>(metaData);
     if (!result) {
-        qCWarning(KPACKAGE_LOG) << i18n("Could not load installer for package of type %1. Error reported was: %2", packageFormat, result.errorString);
+        qCWarning(KPACKAGE_LOG).noquote() << "Could not load installer for package of type" << packageFormat << "Error reported was: " << result.errorString;
         return nullptr;
     }
 
