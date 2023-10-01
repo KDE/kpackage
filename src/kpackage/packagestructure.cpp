@@ -13,8 +13,8 @@ namespace KPackage
 {
 PackageStructure::PackageStructure(QObject *parent, const QVariantList & /*args*/)
     : QObject(parent)
-    , d(nullptr)
 {
+    Q_UNUSED(d)
 }
 
 PackageStructure::~PackageStructure()

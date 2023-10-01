@@ -17,8 +17,6 @@
 
 namespace KPackage
 {
-class PackageStructurePrivate;
-
 /**
  * @class PackageStructure kpackage/packagestructure.h <KPackage/PackageStructure>
  *
@@ -67,7 +65,7 @@ public:
     virtual void pathChanged(Package *package);
 
 private:
-    PackageStructurePrivate *d;
+    void *d;
 };
 
 } // KPackage namespace
