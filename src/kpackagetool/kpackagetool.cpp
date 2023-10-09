@@ -399,9 +399,12 @@ void PackageTool::showAppstreamInfo(const QString &pluginName)
         QStringList authorsText;
         authorsText.reserve(authors.size());
         for (const auto &author : authors) {
-            authorsText += QStringLiteral("%1 <%2>").arg(author.name(), author.emailAddress());
+            authorsText += QStringLiteral("%1").arg(author.name());
         }
-        writer.writeTextElement(QStringLiteral("developer_name"), authorsText.join(QStringLiteral(", ")));
+        writer.writeStartElement(QStringLiteral("developer"));
+        writer.writeAttribute(QStringLiteral("id"), QStringLiteral("kde.org"));
+        writer.writeTextElement(QStringLiteral("name"), authorsText.join(QStringLiteral(", ")));
+        writer.writeEndElement();
     }
 
     if (!i.iconName().isEmpty()) {
