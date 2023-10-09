@@ -3,7 +3,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: plasmapkg\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2023-04-05 02:18+0000\n"
+"POT-Creation-Date: 2023-10-09 01:44+0000\n"
 "PO-Revision-Date: 2011-12-11 14:21-0800\n"
 "Last-Translator: Fumiaki Okushi <okushi@kde.gr.jp>\n"
 "Language-Team: Japanese <kde-jp@kde.org>\n"
@@ -24,11 +24,6 @@ msgstr "Fumiaki Okushi"
 msgctxt "EMAIL OF TRANSLATORS"
 msgid "Your emails"
 msgstr "okushi@kde.gr.jp"
-
-#: kpackage/packageloader.cpp:223
-#, kde-format
-msgid "Could not load installer for package of type %1. Error reported was: %2"
-msgstr "パッケージタイプ %1 のインストーラを読み込めません。エラー: %2"
 
 #: kpackage/private/packagejobthread.cpp:163
 #, kde-format
@@ -362,11 +357,6 @@ msgctxt "Do not translate <path>"
 msgid "Outputs the metadata for the package into <path>"
 msgstr "<path> のパッケージのために SHA1 ハッシュを生成"
 
-#, fuzzy
-#~| msgid "DataEngine"
-#~ msgid "Data Files"
-#~ msgstr "データエンジン"
-
-#~ msgctxt "package type"
-#~ msgid "wallpaper"
-#~ msgstr "壁紙"
+#~ msgid ""
+#~ "Could not load installer for package of type %1. Error reported was: %2"
+#~ msgstr "パッケージタイプ %1 のインストーラを読み込めません。エラー: %2"

@@ -17,7 +17,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: plasmapkg\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2023-04-05 02:18+0000\n"
+"POT-Creation-Date: 2023-10-09 01:44+0000\n"
 "PO-Revision-Date: 2023-03-15 20:59+0100\n"
 "Last-Translator: Xavier BESNARD <xavier.besnard]neuf.fr>\n"
 "Language-Team: fr\n"
@@ -44,13 +44,6 @@ msgid "Your emails"
 msgstr ""
 "xavier.besnard@neuf.fr, jcorn@free.fr, julien.rf@no-log.org, nicolas."
 "ternisien@gmail.com, alain.dias02@gmail.com"
-
-#: kpackage/packageloader.cpp:223
-#, kde-format
-msgid "Could not load installer for package of type %1. Error reported was: %2"
-msgstr ""
-"Impossible de charger un installateur pour un paquet de type %1. L'erreur "
-"reportée était : %2"
 
 #: kpackage/private/packagejobthread.cpp:163
 #, kde-format
@@ -382,6 +375,12 @@ msgstr "Affiche les métadonnées du paquet <path>"
 msgctxt "Do not translate <path>"
 msgid "Outputs the metadata for the package into <path>"
 msgstr "Affiche les métadonnées du paquet dans <path>"
+
+#~ msgid ""
+#~ "Could not load installer for package of type %1. Error reported was: %2"
+#~ msgstr ""
+#~ "Impossible de charger un installateur pour un paquet de type %1. L'erreur "
+#~ "reportée était : %2"
 
 #~ msgid "JSON file that describes this package."
 #~ msgstr "Fichier « JSON » décrivant ce paquet."

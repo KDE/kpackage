@@ -17,7 +17,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: libplasma\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2023-04-05 02:18+0000\n"
+"POT-Creation-Date: 2023-10-09 01:44+0000\n"
 "PO-Revision-Date: 2022-11-17 14:02+0300\n"
 "Last-Translator: Olesya Gerasimenko <translation-team@basealt.ru>\n"
 "Language-Team: Basealt Translation Team\n"
@@ -41,11 +41,6 @@ msgstr "Александр Поташев, Олеся Герасименко"
 msgctxt "EMAIL OF TRANSLATORS"
 msgid "Your emails"
 msgstr "aspotashev@gmail.com, translation-team@basealt.ru"
-
-#: kpackage/packageloader.cpp:223
-#, kde-format
-msgid "Could not load installer for package of type %1. Error reported was: %2"
-msgstr "Не удалось запустить модуль установки для пакета типа «%1». Ошибка: %2"
 
 #: kpackage/private/packagejobthread.cpp:163
 #, kde-format
@@ -381,6 +376,11 @@ msgstr "Вывести метаданные пакета <path>."
 msgctxt "Do not translate <path>"
 msgid "Outputs the metadata for the package into <path>"
 msgstr "Вывести метаданные пакета в <path>."
+
+#~ msgid ""
+#~ "Could not load installer for package of type %1. Error reported was: %2"
+#~ msgstr ""
+#~ "Не удалось запустить модуль установки для пакета типа «%1». Ошибка: %2"
 
 #, fuzzy
 #~| msgid "Desktop file that describes this package."

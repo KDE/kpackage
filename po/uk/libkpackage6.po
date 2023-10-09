@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: libkpackage5\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2023-04-05 02:18+0000\n"
+"POT-Creation-Date: 2023-10-09 01:44+0000\n"
 "PO-Revision-Date: 2023-03-15 08:05+0200\n"
 "Last-Translator: Yuri Chornoivan <yurchor@ukr.net>\n"
 "Language-Team: Ukrainian <kde-i18n-uk@kde.org>\n"
@@ -29,13 +29,6 @@ msgstr "Юрій Чорноіван"
 msgctxt "EMAIL OF TRANSLATORS"
 msgid "Your emails"
 msgstr "yurchor@ukr.net"
-
-#: kpackage/packageloader.cpp:223
-#, kde-format
-msgid "Could not load installer for package of type %1. Error reported was: %2"
-msgstr ""
-"Не вдалося знайти програми встановлення для пакунка типу %1. Повідомлення "
-"помилки: %2"
 
 #: kpackage/private/packagejobthread.cpp:163
 #, kde-format
@@ -360,6 +353,12 @@ msgstr "Вивести метадані для пакунка <path>"
 msgctxt "Do not translate <path>"
 msgid "Outputs the metadata for the package into <path>"
 msgstr "Вивести метадані для пакунка до <path>"
+
+#~ msgid ""
+#~ "Could not load installer for package of type %1. Error reported was: %2"
+#~ msgstr ""
+#~ "Не вдалося знайти програми встановлення для пакунка типу %1. Повідомлення "
+#~ "помилки: %2"
 
 #~ msgid "JSON file that describes this package."
 #~ msgstr "Файл JSON з описом цього пакунка."

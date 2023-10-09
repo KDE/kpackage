@@ -10,7 +10,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kpackage\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2023-04-05 02:18+0000\n"
+"POT-Creation-Date: 2023-10-09 01:44+0000\n"
 "PO-Revision-Date: 2023-03-25 12:05+0100\n"
 "Last-Translator: Josep M. Ferrer <txemaq@gmail.com>\n"
 "Language-Team: Catalan <kde-i18n-ca@kde.org>\n"
@@ -31,13 +31,6 @@ msgstr "Josep M. Ferrer"
 msgctxt "EMAIL OF TRANSLATORS"
 msgid "Your emails"
 msgstr "txemaq@gmail.com"
-
-#: kpackage/packageloader.cpp:223
-#, kde-format
-msgid "Could not load installer for package of type %1. Error reported was: %2"
-msgstr ""
-"No s'ha pogut carregar l'instal·lador per al paquet de tipus %1. L'error "
-"detectat és: %2"
 
 #: kpackage/private/packagejobthread.cpp:163
 #, kde-format
@@ -365,6 +358,12 @@ msgstr "Sortida de les metadades per al paquet <camí>"
 msgctxt "Do not translate <path>"
 msgid "Outputs the metadata for the package into <path>"
 msgstr "Sortida de les metadades per al paquet dins del <camí>"
+
+#~ msgid ""
+#~ "Could not load installer for package of type %1. Error reported was: %2"
+#~ msgstr ""
+#~ "No s'ha pogut carregar l'instal·lador per al paquet de tipus %1. L'error "
+#~ "detectat és: %2"
 
 #~ msgid "JSON file that describes this package."
 #~ msgstr "Fitxer JSON que descriu aquest paquet."

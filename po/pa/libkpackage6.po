@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2023-04-05 02:18+0000\n"
+"POT-Creation-Date: 2023-10-09 01:44+0000\n"
 "PO-Revision-Date: 2018-11-16 21:04-0800\n"
 "Last-Translator: A S Alam <alam.yellow@gmail.com>\n"
 "Language-Team: Punjabi <punjabi-users@lists.sf.net>\n"
@@ -27,11 +27,6 @@ msgstr "ਮੌਜਾਂ ਤੇ ਖੇਡਾਂ"
 msgctxt "EMAIL OF TRANSLATORS"
 msgid "Your emails"
 msgstr ""
-
-#: kpackage/packageloader.cpp:223
-#, kde-format
-msgid "Could not load installer for package of type %1. Error reported was: %2"
-msgstr "ਪੈਕੇਜ ਟਾਈਪ %1 ਲਈ ਇੰਸਟਾਲਰ ਲੋਡ ਨਹੀਂ ਕੀਤਾ ਜਾ ਸਕਿਆ। ਦਿੱਤੀ ਗਲਤੀ: %2"
 
 #: kpackage/private/packagejobthread.cpp:163
 #, kde-format
@@ -357,6 +352,10 @@ msgstr "<path> ਉੱਤੇ ਪੈਕੇਜ ਲਈ SHA1 ਹੈਸ਼ ਬਣਾ�
 msgctxt "Do not translate <path>"
 msgid "Outputs the metadata for the package into <path>"
 msgstr "<path> ਉੱਤੇ ਪੈਕੇਜ ਲਈ SHA1 ਹੈਸ਼ ਬਣਾਓ"
+
+#~ msgid ""
+#~ "Could not load installer for package of type %1. Error reported was: %2"
+#~ msgstr "ਪੈਕੇਜ ਟਾਈਪ %1 ਲਈ ਇੰਸਟਾਲਰ ਲੋਡ ਨਹੀਂ ਕੀਤਾ ਜਾ ਸਕਿਆ। ਦਿੱਤੀ ਗਲਤੀ: %2"
 
 #, fuzzy
 #~| msgid "Desktop file that describes this package."

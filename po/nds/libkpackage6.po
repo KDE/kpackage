@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: plasmapkg\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2023-04-05 02:18+0000\n"
+"POT-Creation-Date: 2023-10-09 01:44+0000\n"
 "PO-Revision-Date: 2014-08-13 22:05+0200\n"
 "Last-Translator: Sönke Dibbern <s_dibbern@web.de>\n"
 "Language-Team: Low Saxon <kde-i18n-nds@kde.org>\n"
@@ -29,13 +29,6 @@ msgstr "Högen un Spelen"
 msgctxt "EMAIL OF TRANSLATORS"
 msgid "Your emails"
 msgstr ""
-
-#: kpackage/packageloader.cpp:223
-#, kde-format
-msgid "Could not load installer for package of type %1. Error reported was: %2"
-msgstr ""
-"Dat Installeerprogramm för den Pakettyp \"%1\" lett sik nich laden. De "
-"torüchgeven Fehler weer: %2"
 
 #: kpackage/private/packagejobthread.cpp:163
 #, kde-format
@@ -385,6 +378,12 @@ msgid "Outputs the metadata for the package into <path>"
 msgstr ""
 "De SHA1-Pröövsumm för dat Paket ünner den Padd <path> lett sik nich "
 "opstellen."
+
+#~ msgid ""
+#~ "Could not load installer for package of type %1. Error reported was: %2"
+#~ msgstr ""
+#~ "Dat Installeerprogramm för den Pakettyp \"%1\" lett sik nich laden. De "
+#~ "torüchgeven Fehler weer: %2"
 
 #~ msgid "Main Script File"
 #~ msgstr "Hööft-Skriptdatei"

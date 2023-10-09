@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2023-04-05 02:18+0000\n"
+"POT-Creation-Date: 2023-10-09 01:44+0000\n"
 "PO-Revision-Date: 2023-03-16 10:38+0100\n"
 "Last-Translator: Matjaž Jeran <matjaz.jeran@amis.net>\n"
 "Language-Team: Slovenian <lugos-slo@lugos.si>\n"
@@ -29,13 +29,6 @@ msgstr "Matjaž Jeran"
 msgctxt "EMAIL OF TRANSLATORS"
 msgid "Your emails"
 msgstr "matjaz.jeran@amis.net"
-
-#: kpackage/packageloader.cpp:223
-#, kde-format
-msgid "Could not load installer for package of type %1. Error reported was: %2"
-msgstr ""
-"Za paket vrste »%1« ni bilo mogoče naložiti primernega namestilnika. "
-"Sporočena napaka je: %2"
 
 #: kpackage/private/packagejobthread.cpp:163
 #, kde-format
@@ -355,6 +348,12 @@ msgstr "Izpiše metapodatke za paket <path>"
 msgctxt "Do not translate <path>"
 msgid "Outputs the metadata for the package into <path>"
 msgstr "Izpiše metapodatke za paket v <path>"
+
+#~ msgid ""
+#~ "Could not load installer for package of type %1. Error reported was: %2"
+#~ msgstr ""
+#~ "Za paket vrste »%1« ni bilo mogoče naložiti primernega namestilnika. "
+#~ "Sporočena napaka je: %2"
 
 #~ msgid "JSON file that describes this package."
 #~ msgstr "Datoteka JSON, ki opisuje ta paket."

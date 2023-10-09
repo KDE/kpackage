@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2023-04-05 02:18+0000\n"
+"POT-Creation-Date: 2023-10-09 01:44+0000\n"
 "PO-Revision-Date: 2020-09-05 16:12+0300\n"
 "Last-Translator: Stelios <sstavra@gmail.com>\n"
 "Language-Team: Greek <kde-i18n-el@kde.org>\n"
@@ -27,13 +27,6 @@ msgstr "Dimitris Kardarakos,Stelios"
 msgctxt "EMAIL OF TRANSLATORS"
 msgid "Your emails"
 msgstr "dimkard@gmail.com,sstavra@gmail.com"
-
-#: kpackage/packageloader.cpp:223
-#, kde-format
-msgid "Could not load installer for package of type %1. Error reported was: %2"
-msgstr ""
-"Αδυναμία φόρτωσης προγράμματος εγκατάστασης για τον τύπο πακέτου %1. Το "
-"σφάλμα ήταν: %2"
 
 #: kpackage/private/packagejobthread.cpp:163
 #, kde-format
@@ -369,6 +362,12 @@ msgstr "Έξοδος των μεταδεδομένων του πακέτου <pa
 msgctxt "Do not translate <path>"
 msgid "Outputs the metadata for the package into <path>"
 msgstr "Έξοδος των μεταδεδομένων του πακέτου στο <path>"
+
+#~ msgid ""
+#~ "Could not load installer for package of type %1. Error reported was: %2"
+#~ msgstr ""
+#~ "Αδυναμία φόρτωσης προγράμματος εγκατάστασης για τον τύπο πακέτου %1. Το "
+#~ "σφάλμα ήταν: %2"
 
 #, fuzzy
 #~| msgid "Desktop file that describes this package."

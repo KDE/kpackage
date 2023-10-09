@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: libplasma\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2023-04-05 02:18+0000\n"
+"POT-Creation-Date: 2023-10-09 01:44+0000\n"
 "PO-Revision-Date: 2020-09-08 19:03+0200\n"
 "Last-Translator: Matej Mrenica <matejm98mthw@gmail.com>\n"
 "Language-Team: Slovak <kde-i18n-doc@kde.org>\n"
@@ -26,12 +26,6 @@ msgstr "Matej Mrenica"
 msgctxt "EMAIL OF TRANSLATORS"
 msgid "Your emails"
 msgstr "matejm98mthw@gmail.com"
-
-#: kpackage/packageloader.cpp:223
-#, kde-format
-msgid "Could not load installer for package of type %1. Error reported was: %2"
-msgstr ""
-"Nepodarilo sa načítať inštalátor pre balíček typu %1. Bola hlásená chyba: %2"
 
 #: kpackage/private/packagejobthread.cpp:163
 #, kde-format
@@ -360,6 +354,12 @@ msgstr "Vytvorí metadáta pre balíček <path>"
 msgctxt "Do not translate <path>"
 msgid "Outputs the metadata for the package into <path>"
 msgstr "Vytvorí metadáta pre balíček do <path>"
+
+#~ msgid ""
+#~ "Could not load installer for package of type %1. Error reported was: %2"
+#~ msgstr ""
+#~ "Nepodarilo sa načítať inštalátor pre balíček typu %1. Bola hlásená chyba: "
+#~ "%2"
 
 #, fuzzy
 #~| msgid "Desktop file that describes this package."

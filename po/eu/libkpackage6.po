@@ -9,7 +9,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kpackage\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2023-04-05 02:18+0000\n"
+"POT-Creation-Date: 2023-10-09 01:44+0000\n"
 "PO-Revision-Date: 2023-04-10 07:44+0200\n"
 "Last-Translator: Iñigo Salvador Azurmendi <xalba@ni.eus>\n"
 "Language-Team: Basque <kde-i18n-eu@kde.org>\n"
@@ -29,13 +29,6 @@ msgstr "Iñigo Salvador Azurmendi"
 msgctxt "EMAIL OF TRANSLATORS"
 msgid "Your emails"
 msgstr "xalba@ni.eus"
-
-#: kpackage/packageloader.cpp:223
-#, kde-format
-msgid "Could not load installer for package of type %1. Error reported was: %2"
-msgstr ""
-"Ezin izan da instalatzailea zamatu %1 motako paketearentzako. Jakinarazitako "
-"errorea: %2"
 
 #: kpackage/private/packagejobthread.cpp:163
 #, kde-format
@@ -362,6 +355,12 @@ msgstr "Kanporatzen ditu paketearen metadatuak: <path>"
 msgctxt "Do not translate <path>"
 msgid "Outputs the metadata for the package into <path>"
 msgstr "Kanporatzen ditu hemen dagoen paketearentzako metadatuak: <path>"
+
+#~ msgid ""
+#~ "Could not load installer for package of type %1. Error reported was: %2"
+#~ msgstr ""
+#~ "Ezin izan da instalatzailea zamatu %1 motako paketearentzako. "
+#~ "Jakinarazitako errorea: %2"
 
 #~ msgid "JSON file that describes this package."
 #~ msgstr "Pakete hau deskribatzen duen JSON fitxategia."

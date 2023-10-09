@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2023-04-05 02:18+0000\n"
+"POT-Creation-Date: 2023-10-09 01:44+0000\n"
 "PO-Revision-Date: 2016-04-30 12:04+0100\n"
 "Last-Translator: GunChleoc <fios@foramnagaidhlig.net>\n"
 "Language-Team: Fòram na Gàidhlig\n"
@@ -29,13 +29,6 @@ msgstr "Tlachd is geamannan"
 msgctxt "EMAIL OF TRANSLATORS"
 msgid "Your emails"
 msgstr ""
-
-#: kpackage/packageloader.cpp:223
-#, kde-format
-msgid "Could not load installer for package of type %1. Error reported was: %2"
-msgstr ""
-"Cha b' urrainn dhuinn an stàlaichear airson na pacaid dhen t-seòrsa %1 a "
-"luchdadh. Seo a' mhearachd a chaidh aithris: %2"
 
 #: kpackage/private/packagejobthread.cpp:163
 #, kde-format
@@ -375,6 +368,12 @@ msgstr "Gin hais SHA1airson na pacaid air <path>"
 msgctxt "Do not translate <path>"
 msgid "Outputs the metadata for the package into <path>"
 msgstr "Gin hais SHA1airson na pacaid air <path>"
+
+#~ msgid ""
+#~ "Could not load installer for package of type %1. Error reported was: %2"
+#~ msgstr ""
+#~ "Cha b' urrainn dhuinn an stàlaichear airson na pacaid dhen t-seòrsa %1 a "
+#~ "luchdadh. Seo a' mhearachd a chaidh aithris: %2"
 
 #, fuzzy
 #~| msgid "Desktop file that describes this package."

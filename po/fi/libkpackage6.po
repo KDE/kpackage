@@ -13,7 +13,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: plasmapkg\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2023-04-05 02:18+0000\n"
+"POT-Creation-Date: 2023-10-09 01:44+0000\n"
 "PO-Revision-Date: 2023-04-02 16:26+0300\n"
 "Last-Translator: Tommi Nieminen <translator@legisign.org>\n"
 "Language-Team: Finnish <kde-i18n-doc@kde.org>\n"
@@ -35,11 +35,6 @@ msgctxt "EMAIL OF TRANSLATORS"
 msgid "Your emails"
 msgstr ""
 "teemu.rytilahti@kde-fi.org,translator@legisign.org,karvonen.jorma@gmail.com"
-
-#: kpackage/packageloader.cpp:223
-#, kde-format
-msgid "Could not load installer for package of type %1. Error reported was: %2"
-msgstr "Pakettityypille %1 sopivaa asennusohjelmaa ei voitu ladata. Virhe: %2"
 
 #: kpackage/private/packagejobthread.cpp:163
 #, kde-format
@@ -364,6 +359,11 @@ msgstr "Tulostaa paketin <path> metatiedot"
 msgctxt "Do not translate <path>"
 msgid "Outputs the metadata for the package into <path>"
 msgstr "Tulostaa paketin metatiedot sijaintiin <path>"
+
+#~ msgid ""
+#~ "Could not load installer for package of type %1. Error reported was: %2"
+#~ msgstr ""
+#~ "Pakettityypille %1 sopivaa asennusohjelmaa ei voitu ladata. Virhe: %2"
 
 #~ msgid "JSON file that describes this package."
 #~ msgstr "Paketin kuvaava JSON-tiedosto."

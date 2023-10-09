@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kpackage\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2023-04-05 02:18+0000\n"
+"POT-Creation-Date: 2023-10-09 01:44+0000\n"
 "PO-Revision-Date: 2022-07-26 15:50+0400\n"
 "Last-Translator: Kheyyam <xxmn77@gmail.com>\n"
 "Language-Team: Azerbaijani <kde-i18n-doc@kde.org>\n"
@@ -26,11 +26,6 @@ msgstr "Xəyyam Qocayev"
 msgctxt "EMAIL OF TRANSLATORS"
 msgid "Your emails"
 msgstr "xxmn77@gmail.com"
-
-#: kpackage/packageloader.cpp:223
-#, kde-format
-msgid "Could not load installer for package of type %1. Error reported was: %2"
-msgstr "%1 tipli paket üçün quraşdırıcı yüklənə bilmədi. Xəta hesabatı: %2"
 
 #: kpackage/private/packagejobthread.cpp:163
 #, kde-format
@@ -356,6 +351,10 @@ msgstr "<path> paketi üçün meta məlumatlarının çıxarışı"
 msgctxt "Do not translate <path>"
 msgid "Outputs the metadata for the package into <path>"
 msgstr "<path> daxilindəki paket üçün meta məlumatlarının çıxarışı"
+
+#~ msgid ""
+#~ "Could not load installer for package of type %1. Error reported was: %2"
+#~ msgstr "%1 tipli paket üçün quraşdırıcı yüklənə bilmədi. Xəta hesabatı: %2"
 
 #, fuzzy
 #~| msgid "Desktop file that describes this package."

@@ -5,7 +5,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: libkpackage5\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2023-04-05 02:18+0000\n"
+"POT-Creation-Date: 2023-10-09 01:44+0000\n"
 "PO-Revision-Date: 2017-12-15 12:37+0100\n"
 "Last-Translator: Chusslove Illich <caslav.ilic@gmx.net>\n"
 "Language-Team: Serbian <kde-i18n-sr@kde.org>\n"
@@ -30,11 +30,6 @@ msgstr "забава и игре"
 msgctxt "EMAIL OF TRANSLATORS"
 msgid "Your emails"
 msgstr ""
-
-#: kpackage/packageloader.cpp:223
-#, kde-format
-msgid "Could not load installer for package of type %1. Error reported was: %2"
-msgstr "Не могу да учитам инсталатер за пакет типа %1. Пријављена грешка: %2"
 
 #: kpackage/private/packagejobthread.cpp:163
 #, kde-format
@@ -368,6 +363,11 @@ msgstr "Испиши метаподатке за пакет у дату пута
 msgctxt "Do not translate <path>"
 msgid "Outputs the metadata for the package into <path>"
 msgstr "Испиши метаподатке за пакет у дату путању"
+
+#~ msgid ""
+#~ "Could not load installer for package of type %1. Error reported was: %2"
+#~ msgstr ""
+#~ "Не могу да учитам инсталатер за пакет типа %1. Пријављена грешка: %2"
 
 #, fuzzy
 #~| msgid "Desktop file that describes this package."

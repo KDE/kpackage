@@ -10,7 +10,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2023-04-05 02:18+0000\n"
+"POT-Creation-Date: 2023-10-09 01:44+0000\n"
 "PO-Revision-Date: 2023-03-19 09:02+0900\n"
 "Last-Translator: Kisaragi Hiu <mail@kisaragi-hiu.com>\n"
 "Language-Team: Chinese <zh-l10n@linux.org.tw>\n"
@@ -30,11 +30,6 @@ msgstr "Kisaragi Hiu"
 msgctxt "EMAIL OF TRANSLATORS"
 msgid "Your emails"
 msgstr "mail@kisaragi-hiu.com"
-
-#: kpackage/packageloader.cpp:223
-#, kde-format
-msgid "Could not load installer for package of type %1. Error reported was: %2"
-msgstr "無法載入軟體包型態 %1 的安裝器。錯誤：%2"
 
 #: kpackage/private/packagejobthread.cpp:163
 #, kde-format
@@ -350,6 +345,10 @@ msgstr "產生軟體包的中介資料於 <path>"
 msgctxt "Do not translate <path>"
 msgid "Outputs the metadata for the package into <path>"
 msgstr "產生軟體包的中介資料於 <path>"
+
+#~ msgid ""
+#~ "Could not load installer for package of type %1. Error reported was: %2"
+#~ msgstr "無法載入軟體包型態 %1 的安裝器。錯誤：%2"
 
 #~ msgid "JSON file that describes this package."
 #~ msgstr "描述此軟體包的 JSON 檔案。"

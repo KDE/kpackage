@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2023-04-05 02:18+0000\n"
+"POT-Creation-Date: 2023-10-09 01:44+0000\n"
 "PO-Revision-Date: 2023-06-24 10:16+0200\n"
 "Last-Translator: Adrián Chaves (Gallaecio) <adrian@chaves.io>\n"
 "Language-Team: Galician <proxecto@trasno.gal>\n"
@@ -28,13 +28,6 @@ msgstr "Adrian Chaves (Gallaecio)"
 msgctxt "EMAIL OF TRANSLATORS"
 msgid "Your emails"
 msgstr "adrian@chaves.io"
-
-#: kpackage/packageloader.cpp:223
-#, kde-format
-msgid "Could not load installer for package of type %1. Error reported was: %2"
-msgstr ""
-"Non foi posíbel cargar un instalador axeitado para o paquete do tipo %1. "
-"Informouse do erro: %2"
 
 #: kpackage/private/packagejobthread.cpp:163
 #, kde-format
@@ -361,6 +354,12 @@ msgstr "Emite os metadatos para o paquete <path>"
 msgctxt "Do not translate <path>"
 msgid "Outputs the metadata for the package into <path>"
 msgstr "Garda os metadatos do paquete en <path>"
+
+#~ msgid ""
+#~ "Could not load installer for package of type %1. Error reported was: %2"
+#~ msgstr ""
+#~ "Non foi posíbel cargar un instalador axeitado para o paquete do tipo %1. "
+#~ "Informouse do erro: %2"
 
 #, fuzzy
 #~| msgid "Desktop file that describes this package."
