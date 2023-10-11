@@ -347,8 +347,3 @@ msgstr "Zobrazí metadata balíčku <path>"
 msgctxt "Do not translate <path>"
 msgid "Outputs the metadata for the package into <path>"
 msgstr "Zobrazí metadata balíčku do <path>"
-
-#~ msgid ""
-#~ "Could not load installer for package of type %1. Error reported was: %2"
-#~ msgstr ""
-#~ "Nepovedlo se načíst instalátor balíčku typu %1. Byla nahlášena chyba: %2"
