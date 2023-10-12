@@ -196,7 +196,7 @@ msgstr "Hash SHA1 para o paquete en %1: «%2»"
 #, kde-format
 msgctxt "package type"
 msgid "wallpaper"
-msgstr "fondo de pantalla"
+msgstr "fondo"
 
 #: kpackagetool/kpackagetool.cpp:184
 #, kde-format
