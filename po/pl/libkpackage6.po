@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2023-10-09 01:44+0000\n"
+"POT-Creation-Date: 2023-10-14 01:47+0000\n"
 "PO-Revision-Date: 2023-04-10 11:02+0200\n"
 "Last-Translator: Łukasz Wojniłowicz <lukasz.wojnilowicz@gmail.com>\n"
 "Language-Team: Polish <kde-i18n-doc@kde.org>\n"
@@ -184,7 +184,7 @@ msgstr "  Autor     : %1"
 msgid "  Path       : %1"
 msgstr "  Ścieżka       : %1"
 
-#: kpackagetool/kpackagetool.cpp:426
+#: kpackagetool/kpackagetool.cpp:429
 #, kde-format
 msgctxt ""
 "The user entered conflicting options packageroot and global, this is the "
@@ -196,67 +196,67 @@ msgstr ""
 "Opcje packageroot i global są ze sobą w konflikcie, proszę wybrać tylko "
 "jedną z nich."
 
-#: kpackagetool/kpackagetool.cpp:454
+#: kpackagetool/kpackagetool.cpp:457
 #, kde-format
 msgid "KPackage Structure Name"
 msgstr "Nazwa struktury KPackage"
 
-#: kpackagetool/kpackagetool.cpp:455
+#: kpackagetool/kpackagetool.cpp:458
 #, kde-format
 msgid "Path"
 msgstr "Ścieżka"
 
-#: kpackagetool/kpackagetool.cpp:486
+#: kpackagetool/kpackagetool.cpp:489
 #, kde-format
 msgid "Package types that are installable with this tool:"
 msgstr "Rodzaje pakietów wgrywalnych z danym narzędziem:"
 
-#: kpackagetool/kpackagetool.cpp:487
+#: kpackagetool/kpackagetool.cpp:490
 #, kde-format
 msgid "Built in:"
 msgstr "Wbudowane w:"
 
-#: kpackagetool/kpackagetool.cpp:490
+#: kpackagetool/kpackagetool.cpp:493
 #, kde-format
 msgid "KPackage/Generic"
 msgstr "KPackage/Zwykłe"
 
-#: kpackagetool/kpackagetool.cpp:491
+#: kpackagetool/kpackagetool.cpp:494
 #, kde-format
 msgid "KPackage/GenericQML"
 msgstr "KPackage/ZwykłeQML"
 
-#: kpackagetool/kpackagetool.cpp:499
+#: kpackagetool/kpackagetool.cpp:502
 #, kde-format
 msgid "Provided by plugins:"
 msgstr "Dostarczone przez wtyczki:"
 
-#: kpackagetool/kpackagetool.cpp:521
+#: kpackagetool/kpackagetool.cpp:524
 #, kde-format
 msgid "Successfully upgraded %1"
 msgstr "Pomyślnie unowocześniono %1"
 
-#: kpackagetool/kpackagetool.cpp:523
+#: kpackagetool/kpackagetool.cpp:526
 #, kde-format
 msgid "Successfully installed %1"
 msgstr "Pomyślnie wgrano %1"
 
-#: kpackagetool/kpackagetool.cpp:526
+#: kpackagetool/kpackagetool.cpp:529
 #, kde-format
 msgid "Error: Installation of %1 failed: %2"
 msgstr "Błąd: Nieudane wgrywanie %1: %2"
 
-#: kpackagetool/kpackagetool.cpp:538
+#: kpackagetool/kpackagetool.cpp:541
 #, kde-format
 msgid "Upgrading package from file: %1"
 msgstr "Uaktualnianie pakietu z pliku: %1"
 
-#: kpackagetool/kpackagetool.cpp:545
+#: kpackagetool/kpackagetool.cpp:548
 #, kde-format
 msgid "Successfully uninstalled %1"
 msgstr "Pomyślnie odinstalowano %1"
 
-#: kpackagetool/kpackagetool.cpp:547
+#: kpackagetool/kpackagetool.cpp:550
 #, kde-format
 msgid "Error: Uninstallation of %1 failed: %2"
 msgstr "Błąd: Nieudane odinstalowywanie %1: %2"

@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: plasma\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2023-10-09 01:44+0000\n"
+"POT-Creation-Date: 2023-10-14 01:47+0000\n"
 "PO-Revision-Date: 2014-01-31 21:06+0100\n"
 "Last-Translator: Samir Ribić <megaribi@epn.ba>\n"
 "Language-Team: bosanski <bs@li.org>\n"
@@ -200,7 +200,7 @@ msgstr "    Autor : %1"
 msgid "  Path       : %1"
 msgstr "      Staza: %1"
 
-#: kpackagetool/kpackagetool.cpp:426
+#: kpackagetool/kpackagetool.cpp:429
 #, fuzzy, kde-format
 #| msgctxt ""
 #| "The user entered conflicting options packageroot and global, this is the "
@@ -218,70 +218,70 @@ msgstr ""
 "Opcije packageroot i global isključuju jedna drugu, zadajte samo jednu od "
 "njih."
 
-#: kpackagetool/kpackagetool.cpp:454
+#: kpackagetool/kpackagetool.cpp:457
 #, kde-format
 msgid "KPackage Structure Name"
 msgstr ""
 
-#: kpackagetool/kpackagetool.cpp:455
+#: kpackagetool/kpackagetool.cpp:458
 #, kde-format
 msgid "Path"
 msgstr "Staza"
 
-#: kpackagetool/kpackagetool.cpp:486
+#: kpackagetool/kpackagetool.cpp:489
 #, kde-format
 msgid "Package types that are installable with this tool:"
 msgstr "Tipovi paketa koji se mogu instalisati ovim alatom"
 
-#: kpackagetool/kpackagetool.cpp:487
+#: kpackagetool/kpackagetool.cpp:490
 #, kde-format
 msgid "Built in:"
 msgstr "Ugrađeno:"
 
-#: kpackagetool/kpackagetool.cpp:490
+#: kpackagetool/kpackagetool.cpp:493
 #, fuzzy, kde-format
 #| msgid "Package"
 msgid "KPackage/Generic"
 msgstr "Paket"
 
-#: kpackagetool/kpackagetool.cpp:491
+#: kpackagetool/kpackagetool.cpp:494
 #, fuzzy, kde-format
 #| msgid "Package"
 msgid "KPackage/GenericQML"
 msgstr "Paket"
 
-#: kpackagetool/kpackagetool.cpp:499
+#: kpackagetool/kpackagetool.cpp:502
 #, kde-format
 msgid "Provided by plugins:"
 msgstr "Navedeni dodaci:"
 
-#: kpackagetool/kpackagetool.cpp:521
+#: kpackagetool/kpackagetool.cpp:524
 #, kde-format
 msgid "Successfully upgraded %1"
 msgstr "Uspiješno nadograđen%1"
 
-#: kpackagetool/kpackagetool.cpp:523
+#: kpackagetool/kpackagetool.cpp:526
 #, kde-format
 msgid "Successfully installed %1"
 msgstr "Uspješno instalirano: %1"
 
-#: kpackagetool/kpackagetool.cpp:526
+#: kpackagetool/kpackagetool.cpp:529
 #, kde-format
 msgid "Error: Installation of %1 failed: %2"
 msgstr "Greska: Instalacija %1 neuspijela:%2"
 
-#: kpackagetool/kpackagetool.cpp:538
+#: kpackagetool/kpackagetool.cpp:541
 #, fuzzy, kde-format
 #| msgid "Could not open package file: %1"
 msgid "Upgrading package from file: %1"
 msgstr "Ne mogu otvoriti paket datoteku: %1"
 
-#: kpackagetool/kpackagetool.cpp:545
+#: kpackagetool/kpackagetool.cpp:548
 #, kde-format
 msgid "Successfully uninstalled %1"
 msgstr "Uspijesno izbrisan %1"
 
-#: kpackagetool/kpackagetool.cpp:547
+#: kpackagetool/kpackagetool.cpp:550
 #, kde-format
 msgid "Error: Uninstallation of %1 failed: %2"
 msgstr "Greska: Brisanje %1 neuspijelo:%2"

@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kpackage\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2023-10-09 01:44+0000\n"
+"POT-Creation-Date: 2023-10-14 01:47+0000\n"
 "PO-Revision-Date: 2023-08-09 10:42+0200\n"
 "Last-Translator: Mincho Kondarev <mkondarev@yahoo.de>\n"
 "Language-Team: \n"
@@ -190,7 +190,7 @@ msgstr "  Автор: %1"
 msgid "  Path       : %1"
 msgstr "  Път: %1"
 
-#: kpackagetool/kpackagetool.cpp:426
+#: kpackagetool/kpackagetool.cpp:429
 #, kde-format
 msgctxt ""
 "The user entered conflicting options packageroot and global, this is the "
@@ -202,67 +202,67 @@ msgstr ""
 "Packageroot и глобалните настройки са е конфликт. Моля, изберете само едно "
 "от тях."
 
-#: kpackagetool/kpackagetool.cpp:454
+#: kpackagetool/kpackagetool.cpp:457
 #, kde-format
 msgid "KPackage Structure Name"
 msgstr "Структурно име на KPackage"
 
-#: kpackagetool/kpackagetool.cpp:455
+#: kpackagetool/kpackagetool.cpp:458
 #, kde-format
 msgid "Path"
 msgstr "Път"
 
-#: kpackagetool/kpackagetool.cpp:486
+#: kpackagetool/kpackagetool.cpp:489
 #, kde-format
 msgid "Package types that are installable with this tool:"
 msgstr "Видове пакети, които могат да се инсталират с този инструмент:"
 
-#: kpackagetool/kpackagetool.cpp:487
+#: kpackagetool/kpackagetool.cpp:490
 #, kde-format
 msgid "Built in:"
 msgstr "Вградени:"
 
-#: kpackagetool/kpackagetool.cpp:490
+#: kpackagetool/kpackagetool.cpp:493
 #, kde-format
 msgid "KPackage/Generic"
 msgstr "KPackage/Общи"
 
-#: kpackagetool/kpackagetool.cpp:491
+#: kpackagetool/kpackagetool.cpp:494
 #, kde-format
 msgid "KPackage/GenericQML"
 msgstr "KPackage/GenericQML"
 
-#: kpackagetool/kpackagetool.cpp:499
+#: kpackagetool/kpackagetool.cpp:502
 #, kde-format
 msgid "Provided by plugins:"
 msgstr "Предоставени от приставки:"
 
-#: kpackagetool/kpackagetool.cpp:521
+#: kpackagetool/kpackagetool.cpp:524
 #, kde-format
 msgid "Successfully upgraded %1"
 msgstr "Успешно актуализиране на %1"
 
-#: kpackagetool/kpackagetool.cpp:523
+#: kpackagetool/kpackagetool.cpp:526
 #, kde-format
 msgid "Successfully installed %1"
 msgstr "Успешно инсталиране на %1"
 
-#: kpackagetool/kpackagetool.cpp:526
+#: kpackagetool/kpackagetool.cpp:529
 #, kde-format
 msgid "Error: Installation of %1 failed: %2"
 msgstr "Грешка: Неуспешно инсталиране на %1: %2"
 
-#: kpackagetool/kpackagetool.cpp:538
+#: kpackagetool/kpackagetool.cpp:541
 #, kde-format
 msgid "Upgrading package from file: %1"
 msgstr "Актуализиране на пакет от файл: %1"
 
-#: kpackagetool/kpackagetool.cpp:545
+#: kpackagetool/kpackagetool.cpp:548
 #, kde-format
 msgid "Successfully uninstalled %1"
 msgstr "Успешно деинсталиране на %1"
 
-#: kpackagetool/kpackagetool.cpp:547
+#: kpackagetool/kpackagetool.cpp:550
 #, kde-format
 msgid "Error: Uninstallation of %1 failed: %2"
 msgstr "Грешка: Неуспешно деинсталиране на %1: %2"

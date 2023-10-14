@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2023-10-09 01:44+0000\n"
+"POT-Creation-Date: 2023-10-14 01:47+0000\n"
 "PO-Revision-Date: 2018-11-16 21:04-0800\n"
 "Last-Translator: A S Alam <alam.yellow@gmail.com>\n"
 "Language-Team: Punjabi <punjabi-users@lists.sf.net>\n"
@@ -189,7 +189,7 @@ msgstr "    ਲੇਖਕ : %1"
 msgid "  Path       : %1"
 msgstr "      ਪਾਥ : %1"
 
-#: kpackagetool/kpackagetool.cpp:426
+#: kpackagetool/kpackagetool.cpp:429
 #, kde-format
 msgctxt ""
 "The user entered conflicting options packageroot and global, this is the "
@@ -199,69 +199,69 @@ msgid ""
 "only one."
 msgstr "ਪੈਕੇਜ-ਰੂਟ ਅਤੇ ਗਲੋਬਲ ਚੋਣਾਂ ਦਾ ਆਪਸ ਵਿੱਚ ਟਕਰਾ ਹੈ, ਕਿਸੇ ਇੱਕ ਦੀ ਚੋਣ ਕਰੋ ਜੀ।"
 
-#: kpackagetool/kpackagetool.cpp:454
+#: kpackagetool/kpackagetool.cpp:457
 #, kde-format
 msgid "KPackage Structure Name"
 msgstr ""
 
-#: kpackagetool/kpackagetool.cpp:455
+#: kpackagetool/kpackagetool.cpp:458
 #, kde-format
 msgid "Path"
 msgstr "ਮਾਰਗ"
 
-#: kpackagetool/kpackagetool.cpp:486
+#: kpackagetool/kpackagetool.cpp:489
 #, kde-format
 msgid "Package types that are installable with this tool:"
 msgstr "ਇਹ ਟੂਲ ਨਾਲ ਇੰਸਟਾਲ ਹੋਣਯੋਗ ਪੈਕੇਜ ਕਿਸਮਾਂ:"
 
-#: kpackagetool/kpackagetool.cpp:487
+#: kpackagetool/kpackagetool.cpp:490
 #, kde-format
 msgid "Built in:"
 msgstr "ਬਿਲਟ-ਇਨ:"
 
-#: kpackagetool/kpackagetool.cpp:490
+#: kpackagetool/kpackagetool.cpp:493
 #, fuzzy, kde-format
 #| msgid "Package"
 msgid "KPackage/Generic"
 msgstr "ਪੈਕੇਜ"
 
-#: kpackagetool/kpackagetool.cpp:491
+#: kpackagetool/kpackagetool.cpp:494
 #, fuzzy, kde-format
 #| msgid "Package"
 msgid "KPackage/GenericQML"
 msgstr "ਪੈਕੇਜ"
 
-#: kpackagetool/kpackagetool.cpp:499
+#: kpackagetool/kpackagetool.cpp:502
 #, kde-format
 msgid "Provided by plugins:"
 msgstr "ਪਲੱਗਇਨ ਦਿੱਤੇ ਗਏ:"
 
-#: kpackagetool/kpackagetool.cpp:521
+#: kpackagetool/kpackagetool.cpp:524
 #, kde-format
 msgid "Successfully upgraded %1"
 msgstr "%1 ਕਾਮਯਾਬੀ ਨਾਲ ਅੱਪਗਰੇਡ ਕੀਤਾ"
 
-#: kpackagetool/kpackagetool.cpp:523
+#: kpackagetool/kpackagetool.cpp:526
 #, kde-format
 msgid "Successfully installed %1"
 msgstr "%1 ਠੀਕ ਤਰ੍ਹਾਂ ਇੰਸਟਾਲ ਕੀਤਾ"
 
-#: kpackagetool/kpackagetool.cpp:526
+#: kpackagetool/kpackagetool.cpp:529
 #, kde-format
 msgid "Error: Installation of %1 failed: %2"
 msgstr ""
 
-#: kpackagetool/kpackagetool.cpp:538
+#: kpackagetool/kpackagetool.cpp:541
 #, kde-format
 msgid "Upgrading package from file: %1"
 msgstr ""
 
-#: kpackagetool/kpackagetool.cpp:545
+#: kpackagetool/kpackagetool.cpp:548
 #, kde-format
 msgid "Successfully uninstalled %1"
 msgstr ""
 
-#: kpackagetool/kpackagetool.cpp:547
+#: kpackagetool/kpackagetool.cpp:550
 #, kde-format
 msgid "Error: Uninstallation of %1 failed: %2"
 msgstr ""
