@@ -676,6 +676,7 @@ void Package::setRequired(const QByteArray &key, bool required)
 {
     QHash<QByteArray, ContentStructure>::iterator it = d->contents.find(key);
     if (it == d->contents.end()) {
+        qCWarning(KPACKAGE_LOG) << key << "is now a known key for the package. File is thus not set to being required";
         return;
     }
 
