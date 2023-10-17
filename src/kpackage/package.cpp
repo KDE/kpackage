@@ -852,7 +852,7 @@ void PackagePrivate::updateHash(const QString &basePath, const QString &subPath,
 void PackagePrivate::createPackageMetadata(const QString &path)
 {
     if (QFileInfo(path).isDir()) {
-        if (const QString jsonPath = path + QStringLiteral("/metadata.json"); QFile::exists(path)) {
+        if (const QString jsonPath = path + QLatin1String("/metadata.json"); QFileInfo::exists(jsonPath)) {
             metadata = KPluginMetaData::fromJsonFile(jsonPath);
         } else {
             qCDebug(KPACKAGE_LOG) << "No metadata file in the package, expected it at:" << jsonPath;

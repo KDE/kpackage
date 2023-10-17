@@ -279,8 +279,8 @@ bool PackageJobThread::installPackage(const QString &src, const QString &dest, P
     if (QFile::exists(targetName)) {
         if (operation == PackageJob::Update) {
             KPluginMetaData oldMeta;
-            if (QFileInfo::exists(targetName + QLatin1String("/metadata.json"))) {
-                oldMeta = KPluginMetaData::fromJsonFile(targetName + QLatin1String("/metadata.json"));
+            if (QString jsonPath = targetName + QLatin1String("/metadata.json"); QFileInfo::exists(jsonPath)) {
+                oldMeta = KPluginMetaData::fromJsonFile(jsonPath);
             }
 
             if (readKPackageType(oldMeta) != readKPackageType(meta)) {
