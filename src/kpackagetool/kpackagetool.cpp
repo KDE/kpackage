@@ -21,13 +21,13 @@
 #include <QCommandLineParser>
 #include <QDir>
 #include <QFileInfo>
+#include <QList>
 #include <QMap>
 #include <QRegularExpression>
 #include <QStandardPaths>
 #include <QStringList>
 #include <QTimer>
 #include <QUrl>
-#include <QVector>
 #include <QXmlStreamWriter>
 
 #include <iomanip>
@@ -495,7 +495,7 @@ void PackageToolPrivate::listTypes()
 
     renderTypeTable(builtIns);
 
-    const QVector<KPluginMetaData> offers = KPluginMetaData::findPlugins(QStringLiteral("kf6/packagestructure"));
+    const QList<KPluginMetaData> offers = KPluginMetaData::findPlugins(QStringLiteral("kf6/packagestructure"));
 
     if (!offers.isEmpty()) {
         std::cout << std::endl;

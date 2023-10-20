@@ -12,8 +12,8 @@
 #include <QCoreApplication>
 #include <QDateTime>
 #include <QDirIterator>
+#include <QList>
 #include <QStandardPaths>
-#include <QVector>
 
 #include <KLazyLocalizedString>
 #include <KPluginFactory>
