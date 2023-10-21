@@ -173,7 +173,6 @@ void PlasmoidPackageTest::isValid()
 
 void PlasmoidPackageTest::filePath()
 {
-    return;
     // Package::filePath() returns
     // - {package_root}/{package_name}/path/to/file if the file exists
     // - QString() otherwise.
@@ -182,7 +181,7 @@ void PlasmoidPackageTest::filePath()
 
     QCOMPARE(p.filePath("scripts", QStringLiteral("main")), QString());
 
-    QVERIFY(QDir().mkpath(m_packageRoot + "/" + m_package + "/contents/ui/main.qml"));
+    QVERIFY(QDir().mkpath(m_packageRoot + "/" + m_package + "/contents/ui/"));
     QFile file(m_packageRoot + "/" + m_package + "/contents/ui/main.qml");
     QVERIFY(file.open(QIODevice::WriteOnly));
 
@@ -204,8 +203,8 @@ void PlasmoidPackageTest::filePath()
     //
     // NOTE: scripts, main and mainscript are defined in packages.cpp and are
     //       specific for a PlasmoidPackage.
-    QCOMPARE(p.filePath("scripts", QStringLiteral("main")), path);
     QCOMPARE(p.filePath("mainscript"), path);
+    QCOMPARE(p.filePath("ui", QStringLiteral("main.qml")), path);
 }
 
 void PlasmoidPackageTest::entryList()

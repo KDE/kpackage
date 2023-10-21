@@ -19,7 +19,7 @@ public:
         KPackage::PackageStructure::initPackage(package);
         package->setDefaultPackageRoot(QStringLiteral("plasma/plasmoids/"));
 
-        package->addDirectoryDefinition("ui", QStringLiteral("ui/"));
+        package->addDirectoryDefinition("ui", QStringLiteral("ui"));
         package->addFileDefinition("mainscript", QStringLiteral("ui/main.qml"));
         package->setRequired("mainscript", true);
 
