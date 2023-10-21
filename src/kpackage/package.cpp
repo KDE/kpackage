@@ -385,13 +385,12 @@ QStringList Package::entryList(const QByteArray &key) const
         return QStringList();
     }
 
-    QHash<QByteArray, ContentStructure>::const_iterator it = d->contents.constFind(key);
+    const auto it = d->contents.constFind(key);
     if (it == d->contents.constEnd()) {
-        // qCDebug(KPACKAGE_LOG) << "couldn't find" << key;
+        qCWarning(KPACKAGE_LOG) << "couldn't find" << key << "when trying to list entries";
         return QStringList();
     }
 
-    // qCDebug(KPACKAGE_LOG) << "going to list" << key;
     QStringList list;
     for (const QString &prefix : std::as_const(d->contentsPrefixPaths)) {
         // qCDebug(KPACKAGE_LOG) << "     looking in" << prefix;
@@ -401,7 +400,6 @@ QStringList Package::entryList(const QByteArray &key) const
             if (it.value().directory) {
                 // qCDebug(KPACKAGE_LOG) << "it's a directory, so trying out" << d->path + prefix + path;
                 QDir dir(d->path + prefix + path);
-
                 if (d->externalPaths) {
                     list += dir.entryList(QDir::Files | QDir::Readable);
                 } else {
