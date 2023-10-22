@@ -54,8 +54,8 @@ set_package_properties(KF6DocTools PROPERTIES DESCRIPTION "Tools to generate doc
                       )
 
 ecm_set_disabled_deprecation_versions(
-    QT 6.4
-    KF 5.102
+    QT 6.5
+    KF 5.239
 )
 
 include(KF6PackageMacros.cmake)
