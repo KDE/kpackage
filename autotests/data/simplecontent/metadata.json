@@ -3,5 +3,5 @@
         "Id": "org.kde.simplecontent",
         "Name": "Simple Content"
     },
-    "KPackageStructure": "SimpleContent"
+    "KPackageStructure": "KPackage/SimpleContent"
 }

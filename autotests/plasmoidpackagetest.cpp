@@ -353,7 +353,7 @@ void PlasmoidPackageTest::uncompressPackageWithSubFolder()
     KPackage::Package package(structure);
     package.setPath(QFINDTESTDATA("data/customcontent.tar.gz"));
 
-    QCOMPARE(readKPackageType(package.metadata()), "CustomContent");
+    QCOMPARE(readKPackageType(package.metadata()), "KPackage/CustomContent");
 }
 
 void PlasmoidPackageTest::cleanupPackage(const QString &packageName)

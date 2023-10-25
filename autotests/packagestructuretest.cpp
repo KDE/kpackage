@@ -91,7 +91,7 @@ public:
         if (!package->metadata().isValid()) {
             return;
         }
-        if (readKPackageType(package->metadata()) == QStringLiteral("CustomContent")) {
+        if (readKPackageType(package->metadata()) == QStringLiteral("KPackage/CustomContent")) {
             package->addFileDefinition("customcontentfile", QStringLiteral("customcontent/CustomContentFile.qml"));
         } else {
             package->removeDefinition("customcontentfile");
