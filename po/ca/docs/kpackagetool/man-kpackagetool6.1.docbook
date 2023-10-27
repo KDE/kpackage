@@ -150,9 +150,7 @@
 ></term>
 <listitem
 ><para
->Genera una suma de verificació SHA1 per al paquet al <quote
->camí</quote
->.</para
+>Genera una suma de verificació SHA1 per al paquet al «camí».</para
 ></listitem>
 </varlistentry>
 <varlistentry>
@@ -186,9 +184,7 @@
 ></term>
 <listitem
 ><para
->Instal·la el paquet al <quote
->camí</quote
->.</para
+>Instal·la el paquet al «camí».</para
 ></listitem>
 </varlistentry>
 <varlistentry>
@@ -200,9 +196,7 @@
 ></term>
 <listitem
 ><para
->Mostra la informació del paquet <quote
->nom</quote
->.</para
+>Mostra la informació del paquet «nom».</para
 ></listitem>
 </varlistentry>
 <varlistentry>
@@ -214,9 +208,7 @@
 ></term>
 <listitem
 ><para
->Actualitza el paquet al <quote
->camí</quote
->.</para
+>Actualitza el paquet al «camí».</para
 ></listitem>
 </varlistentry>
 <varlistentry>
@@ -248,9 +240,7 @@
 ></term>
 <listitem
 ><para
->Suprimeix el paquet anomenat <quote
->nom</quote
->.</para
+>Suprimeix el paquet anomenat «nom».</para
 ></listitem>
 </varlistentry>
 <varlistentry>
