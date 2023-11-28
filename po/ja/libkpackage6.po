@@ -356,7 +356,3 @@ msgstr "<path> のパッケージのために SHA1 ハッシュを生成"
 msgctxt "Do not translate <path>"
 msgid "Outputs the metadata for the package into <path>"
 msgstr "<path> のパッケージのために SHA1 ハッシュを生成"
-
-#~ msgid ""
-#~ "Could not load installer for package of type %1. Error reported was: %2"
-#~ msgstr "パッケージタイプ %1 のインストーラを読み込めません。エラー: %2"
