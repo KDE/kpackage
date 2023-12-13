@@ -239,19 +239,9 @@ bool PackageJobThread::installPackage(const QString &src, const QString &dest, P
         meta = KPluginMetaData::fromJsonFile(metadataFilePath);
     } else {
         qCWarning(KPACKAGE_LOG) << "Couldn't open metadata file" << src << path;
-        d->errorMessage = i18n("Could not open metadata file: %1", src);
-        d->errorCode = PackageJob::JobError::MetadataFileMissingError;
-        return false;
     }
 
-    if (!meta.isValid()) {
-        qCDebug(KPACKAGE_LOG) << "No metadata file in package" << src << path;
-        d->errorMessage = i18n("No metadata file in package: %1", src);
-        d->errorCode = PackageJob::JobError::MetadataFileMissingError;
-        return false;
-    }
-
-    QString pluginName = meta.pluginId();
+    QString pluginName = meta.pluginId().isEmpty() ? QFileInfo(src).baseName() : meta.pluginId();
     qCDebug(KPACKAGE_LOG) << "pluginname: " << meta.pluginId();
     if (pluginName == QLatin1String("metadata")) {
         // qCWarning(KPACKAGE_LOG) << "Package plugin id not specified";

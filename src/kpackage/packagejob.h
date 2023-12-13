@@ -37,7 +37,6 @@ public:
         PackageFileNotFoundError, /**< The package file does not exist */
         UnsupportedArchiveFormatError, /**< The archive format of the package is not supported */
         PackageOpenError, /**< Can't open the package file for reading */
-        MetadataFileMissingError, /**< The package doesn't have a metadata.json file */
         PluginIdInvalidError, /**< The plugin id is not specified in the metadata.json file or contains
                                     characters different from letters, digits, dots and underscores */
         UpdatePackageTypeMismatchError, /**< A package with this plugin id was already installed, but has a different type in the metadata.json file */
