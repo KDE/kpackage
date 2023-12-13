@@ -22,13 +22,13 @@ class PackageJobThread : public QObject, public QRunnable
 {
     Q_OBJECT
 public:
-    explicit PackageJobThread(PackageJob::OperationType type, const QString &src, const QString &dest, const QString &packagePath);
+    explicit PackageJobThread(PackageJob::OperationType type, const QString &src, const QString &dest, const KPackage::Package &package);
     ~PackageJobThread() override;
 
     void run() override;
 
-    bool install(const QString &src, const QString &dest);
-    bool update(const QString &src, const QString &dest);
+    bool install(const QString &src, const QString &dest, const Package &package);
+    bool update(const QString &src, const QString &dest, const Package &package);
     bool uninstall(const QString &packagePath);
 
     PackageJob::JobError errorCode() const;
@@ -43,7 +43,7 @@ private:
     // OperationType says whether we want to install, update or any
     // new similar operation it will be expanded
     bool installDependency(const QUrl &src);
-    bool installPackage(const QString &src, const QString &dest, PackageJob::OperationType operation);
+    bool installPackage(const QString &src, const QString &dest, const Package &package, PackageJob::OperationType operation);
     bool uninstallPackage(const QString &packagePath);
     PackageJobThreadPrivate *d;
 };

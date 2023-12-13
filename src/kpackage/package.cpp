@@ -36,8 +36,8 @@ Package::Package(PackageStructure *structure)
     d->structure = structure;
 
     if (d->structure) {
-        d->structure.data()->initPackage(this);
         addFileDefinition("metadata", QStringLiteral("metadata.json"));
+        d->structure.data()->initPackage(this);
     }
 }
 
@@ -59,6 +59,7 @@ Package &Package::operator=(const Package &rhs)
 
 bool Package::hasValidStructure() const
 {
+    qWarning() << d->structure << requiredFiles();
     return d->structure;
 }
 

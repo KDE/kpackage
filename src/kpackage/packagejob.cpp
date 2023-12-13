@@ -55,14 +55,15 @@ PackageJob::PackageJob(OperationType type, const Package &package, const QString
     : KJob()
     , d(new PackageJobPrivate)
 {
-    d->thread = new PackageJobThread(type, src, dest, package.path());
+    d->thread = new PackageJobThread(type, src, dest, package);
+    qWarning() << Q_FUNC_INFO << package.hasValidStructure();
     d->package = package;
 
     if (type == Install) {
         setupNotificationsOnJobFinished(QStringLiteral("packageInstalled"));
     } else if (type == Update) {
         setupNotificationsOnJobFinished(QStringLiteral("packageUpdated"));
-        d->thread->update(src, dest);
+        d->thread->update(src, dest, package);
     } else if (type == Uninstall) {
         setupNotificationsOnJobFinished(QStringLiteral("packageUninstalled"));
     } else {

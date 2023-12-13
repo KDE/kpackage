@@ -33,6 +33,7 @@ namespace KPackage
 {
 bool copyFolder(QString sourcePath, QString targetPath)
 {
+    qWarning() << Q_FUNC_INFO << sourcePath << targetPath;
     QDir source(sourcePath);
     if (!source.exists()) {
         return false;
@@ -83,21 +84,22 @@ public:
     int errorCode;
 };
 
-PackageJobThread::PackageJobThread(PackageJob::OperationType type, const QString &src, const QString &dest, const QString &packagePath)
+PackageJobThread::PackageJobThread(PackageJob::OperationType type, const QString &src, const QString &dest, const KPackage::Package &package)
     : QObject()
     , QRunnable()
 {
     d = new PackageJobThreadPrivate;
     d->errorCode = KJob::NoError;
     if (type == PackageJob::Install) {
-        d->run = [this, src, dest]() {
-            install(src, dest);
+        d->run = [this, src, dest, package]() {
+            install(src, dest, package);
         };
     } else if (type == PackageJob::Update) {
-        d->run = [this, src, dest]() {
-            update(src, dest);
+        d->run = [this, src, dest, package]() {
+            update(src, dest, package);
         };
     } else if (type == PackageJob::Uninstall) {
+        const QString packagePath = package.path();
         d->run = [this, packagePath]() {
             uninstall(packagePath);
         };
@@ -117,9 +119,9 @@ void PackageJobThread::run()
     Q_ASSERT(d->run);
     d->run();
 }
-bool PackageJobThread::install(const QString &src, const QString &dest)
+bool PackageJobThread::install(const QString &src, const QString &dest, const Package &package)
 {
-    bool ok = installPackage(src, dest, PackageJob::Install);
+    bool ok = installPackage(src, dest, package, PackageJob::Install);
     Q_EMIT installPathChanged(d->installPath);
     Q_EMIT jobThreadFinished(ok, errorCode(), d->errorMessage);
     return ok;
@@ -154,7 +156,7 @@ bool PackageJobThread::installDependency(const QUrl &destUrl)
     return process.exitCode() == 0;
 }
 
-bool PackageJobThread::installPackage(const QString &src, const QString &dest, PackageJob::OperationType operation)
+bool PackageJobThread::installPackage(const QString &src, const QString &dest, const Package &package, PackageJob::OperationType operation)
 {
     QDir root(dest);
     if (!root.exists()) {
@@ -314,6 +316,13 @@ bool PackageJobThread::installPackage(const QString &src, const QString &dest, P
         }
     }
 
+    Package copyPackage = package;
+    copyPackage.setPath(path);
+    if (!copyPackage.isValid()) {
+        d->errorMessage = i18n("Package is not considered valid");
+        d->errorCode = PackageJob::JobError::InvalidPackageStructure;
+        return false;
+    }
     if (archivedPackage) {
         // it's in a temp dir, so just move it over.
         const bool ok = copyFolder(path, targetName);
@@ -345,9 +354,9 @@ bool PackageJobThread::installPackage(const QString &src, const QString &dest, P
     return true;
 }
 
-bool PackageJobThread::update(const QString &src, const QString &dest)
+bool PackageJobThread::update(const QString &src, const QString &dest, const Package &package)
 {
-    bool ok = installPackage(src, dest, PackageJob::Update);
+    bool ok = installPackage(src, dest, package, PackageJob::Update);
     Q_EMIT installPathChanged(d->installPath);
     Q_EMIT jobThreadFinished(ok, errorCode(), d->errorMessage);
     return ok;
