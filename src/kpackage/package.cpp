@@ -180,7 +180,7 @@ KPluginMetaData Package::metadata() const
 {
     // qCDebug(KPACKAGE_LOG) << "metadata: " << d->path << filePath("metadata");
     if (!d->metadata && !d->path.isEmpty()) {
-        const QString metadataPath = filePath("metadata");
+        const QString metadataPath = filePath("metadata", QStringLiteral("metadata.json"));
 
         if (!metadataPath.isEmpty()) {
             d->createPackageMetadata(metadataPath);
