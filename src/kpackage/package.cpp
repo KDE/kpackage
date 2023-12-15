@@ -291,7 +291,7 @@ bool PackagePrivate::isInsidePackageDir(const QString &canonicalPath) const
 
 QString Package::filePath(const QByteArray &fileType, const QString &filename) const
 {
-    if (!d->valid) {
+    if (!d->valid && d->checkedValid) { // Don't check the validity here, because we'd have infinite recursion
         QString result = d->fallbackFilePath(fileType, filename);
         if (result.isEmpty()) {
             // qCDebug(KPACKAGE_LOG) << fileType << "file with name" << filename
