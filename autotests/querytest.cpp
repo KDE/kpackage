@@ -57,7 +57,7 @@ void QueryTest::installAndQuery()
     QCOMPARE(KPackage::PackageLoader::self()->listPackages(QStringLiteral("Plasma/TestKPackageInternalPlasmoid")).count(), 2);
 
     // installing package with invalid metadata should not be possible
-    QVERIFY(checkedInstall(packageFormat, QFINDTESTDATA("data/testinvalidmetadata"), KPackage::PackageJob::MetadataFileMissingError));
+    QVERIFY(checkedInstall(packageFormat, QFINDTESTDATA("data/testinvalidmetadata"), KPackage::PackageJob::PluginIdInvalidError));
     QCOMPARE(KPackage::PackageLoader::self()->listPackages(QStringLiteral("Plasma/TestKPackageInternalPlasmoid")).count(), 2);
 
     // package with valid dep information should be installed
@@ -83,7 +83,7 @@ void QueryTest::queryCustomPlugin()
     QCOMPARE(KPackage::PackageLoader::self()->listPackages(QStringLiteral("Plasma/TestKPackageInternalPlasmoid")).count(), 2);
 
     // installing package with invalid metadata should not be possible
-    QVERIFY(checkedInstall(packageFormat, QFINDTESTDATA("data/testinvalidmetadata"), KPackage::PackageJob::JobError::MetadataFileMissingError));
+    QVERIFY(checkedInstall(packageFormat, QFINDTESTDATA("data/testinvalidmetadata"), KPackage::PackageJob::JobError::PluginIdInvalidError));
     QCOMPARE(KPackage::PackageLoader::self()->listPackages(QStringLiteral("Plasma/TestKPackageInternalPlasmoid")).count(), 2);
 
     // package with valid dep information should be installed
