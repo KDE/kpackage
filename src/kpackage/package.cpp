@@ -541,7 +541,11 @@ void Package::setPath(const QString &path)
 
     // .. but something did change, so we get rid of our discovery cache
     d->discoveries.clear();
-    d->metadata = std::nullopt;
+
+    // Do NOT override the metadata when the PackageStructure has set it
+    if (!previousPath.isEmpty()) {
+        d->metadata = std::nullopt;
+    }
 
     // uh-oh, but we didn't end up with anything valid, so we sadly reset ourselves
     // to futility.
