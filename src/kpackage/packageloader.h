@@ -54,6 +54,17 @@ public:
     QList<KPluginMetaData> listPackages(const QString &packageFormat, const QString &packageRoot = QString());
 
     /**
+     * List all available packages of a certain type
+     *
+     * @param packageFormat the format of the packages to list
+     * @param packageRoot the root folder where the packages are installed.
+     *          If not specified the default from the packageformat will be taken.
+     *
+     * @since 6.0
+     */
+    QList<Package> listKPackages(const QString &packageFormat, const QString &packageRoot = QString());
+
+    /**
      * List package of a certain type that match a certain filter function
      *
      * @param packageFormat the format of the packages to list

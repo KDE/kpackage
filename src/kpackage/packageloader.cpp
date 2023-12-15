@@ -65,6 +65,70 @@ Package PackageLoader::loadPackage(const QString &packageFormat, const QString &
     return Package();
 }
 
+QList<Package> PackageLoader::listKPackages(const QString &packageFormat, const QString &packageRoot)
+{
+    QList<Package> lst;
+
+    // has been a root specified?
+    QString actualRoot = packageRoot;
+
+    PackageStructure *structure = d->structures.value(packageFormat).data();
+    // try to take it from the package structure
+    if (actualRoot.isEmpty()) {
+        if (!structure) {
+            if (packageFormat == QLatin1String("KPackage/Generic")) {
+                structure = new GenericPackage();
+            } else if (packageFormat == QLatin1String("KPackage/GenericQML")) {
+                structure = new GenericQMLPackage();
+            } else {
+                structure = loadPackageStructure(packageFormat);
+            }
+        }
+
+        if (structure) {
+            d->structures.insert(packageFormat, structure);
+            actualRoot = Package(structure).defaultPackageRoot();
+        }
+    }
+
+    if (actualRoot.isEmpty()) {
+        actualRoot = packageFormat;
+    }
+
+    QStringList paths;
+    if (QDir::isAbsolutePath(actualRoot)) {
+        paths = QStringList(actualRoot);
+    } else {
+        const auto listPath = QStandardPaths::standardLocations(QStandardPaths::GenericDataLocation);
+        for (const QString &path : listPath) {
+            paths += path + QLatin1Char('/') + actualRoot;
+        }
+    }
+
+    for (auto const &plugindir : std::as_const(paths)) {
+        QDirIterator it(plugindir, QDir::Dirs | QDir::NoDotAndDotDot);
+        std::unordered_set<QString> dirs;
+        while (it.hasNext()) {
+            it.next();
+
+            const QString dir = it.filePath();
+            if (!dirs.insert(it.fileInfo().completeBaseName()).second) {
+                continue;
+            }
+            Package package(structure);
+            package.setPath(dir);
+            if (package.isValid()) {
+                // Ignore packages with empty metadata here
+                if (packageFormat.isEmpty() || !package.metadata().isValid() || readKPackageType(package.metadata()) == packageFormat) {
+                    lst << package;
+                } else {
+                    qInfo() << "KPackage in" << package.path() << readKPackageType(package.metadata()) << "does not match requested format" << packageFormat;
+                }
+            }
+        }
+    }
+    return lst;
+}
 QList<KPluginMetaData> PackageLoader::listPackages(const QString &packageFormat, const QString &packageRoot)
 {
     // Note: Use QDateTime::currentSecsSinceEpoch() once we can depend on Qt 5.8
