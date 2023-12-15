@@ -224,6 +224,11 @@ QList<KPluginMetaData> PackageLoader::listPackages(const QString &packageFormat,
     return lst;
 }
 
+QList<KPluginMetaData> PackageLoader::listPackagesMetadata(const QString &packageFormat, const QString &packageRoot)
+{
+    return listPackages(packageFormat, packageRoot);
+}
+
 QList<KPluginMetaData>
 PackageLoader::findPackages(const QString &packageFormat, const QString &packageRoot, std::function<bool(const KPluginMetaData &)> filter)
 {

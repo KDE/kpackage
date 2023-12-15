@@ -54,6 +54,12 @@ public:
     QList<KPluginMetaData> listPackages(const QString &packageFormat, const QString &packageRoot = QString());
 
     /**
+     * @overload
+     * @since 6.0
+     */
+    QList<KPluginMetaData> listPackagesMetadata(const QString &packageFormat, const QString &packageRoot = QString());
+
+    /**
      * List all available packages of a certain type
      *
      * @param packageFormat the format of the packages to list
