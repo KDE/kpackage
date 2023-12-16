@@ -61,6 +61,7 @@ ecm_generate_headers(Package_CamelCase_HEADERS
         PackageStructure
         PackageLoader
         PackageJob
+        packagestructure_compat_p
     REQUIRED_HEADERS Package_HEADERS
     PREFIX KPackage
 )
