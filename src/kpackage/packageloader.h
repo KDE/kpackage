@@ -60,7 +60,8 @@ public:
     QList<KPluginMetaData> listPackagesMetadata(const QString &packageFormat, const QString &packageRoot = QString());
 
     /**
-     * List all available packages of a certain type
+     * List all available packages of a certain type. This should be used in case the package structure modifies the metadata or you need to access the
+     * contained files of the package.
      *
      * @param packageFormat the format of the packages to list
      * @param packageRoot the root folder where the packages are installed.

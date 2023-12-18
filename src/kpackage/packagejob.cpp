@@ -56,7 +56,6 @@ PackageJob::PackageJob(OperationType type, const Package &package, const QString
     , d(new PackageJobPrivate)
 {
     d->thread = new PackageJobThread(type, src, dest, package);
-    qWarning() << Q_FUNC_INFO << package.hasValidStructure();
     d->package = package;
 
     if (type == Install) {

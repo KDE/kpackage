@@ -112,7 +112,7 @@ QList<Package> PackageLoader::listKPackages(const QString &packageFormat, const 
             it.next();
 
             const QString dir = it.filePath();
-            if (!dirs.insert(it.fileInfo().completeBaseName()).second) {
+            if (!dirs.insert(it.fileInfo().fileName()).second) {
                 continue;
             }
             Package package(structure);

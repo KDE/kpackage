@@ -33,7 +33,6 @@ namespace KPackage
 {
 bool copyFolder(QString sourcePath, QString targetPath)
 {
-    qWarning() << Q_FUNC_INFO << sourcePath << targetPath;
     QDir source(sourcePath);
     if (!source.exists()) {
         return false;
