@@ -16,10 +16,10 @@ void convertCompatMetaDataDesktopFile(KPackage::Package *package, const QMap<QSt
         DesktopFile file(legacyPath);
         const ConfigGroup grp = file.desktopGroup();
         QJsonObject kplugin{
-            {"Name", grp.readEntry("X-KDE-PluginInfo-Name")},
-            {"Description", grp.readEntry("Comment")},
-            {"Version", grp.readEntry("X-KDE-PluginInfo-Version")},
-            {"Id", grp.readEntry("X-KDE-PluginInfo-Name")},
+            {QLatin1String("Name"), grp.readEntry("X-KDE-PluginInfo-Name")},
+            {QLatin1String("Description"), grp.readEntry("Comment")},
+            {QLatin1String("Version"), grp.readEntry("X-KDE-PluginInfo-Version")},
+            {QLatin1String("Id"), grp.readEntry("X-KDE-PluginInfo-Name")},
         };
         QJsonObject obj{
             {QLatin1String("KPlugin"), kplugin},
@@ -27,7 +27,7 @@ void convertCompatMetaDataDesktopFile(KPackage::Package *package, const QMap<QSt
         };
         for (auto it = customValueTypes.begin(), end = customValueTypes.end(); it != end; ++it) {
             if (const QString value = grp.readEntry(it.key()); !value.isEmpty()) {
-                if (QVariant variant(value); variant.convert(QMetaType(it.value()))) {
+                if (QVariant variant(value); variant.convert(QMetaType(it.value()))) { // Make sure the type in resulting json is what the API caller needs
                     obj.insert(it.key(), QJsonValue::fromVariant(variant));
                 }
             }
