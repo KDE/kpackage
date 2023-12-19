@@ -10,7 +10,7 @@ template<typename DesktopFile = KDesktopFile, typename ConfigGroup = KConfigGrou
  * @param package KPackage which will have the desktop file metadata set to (if present)
  * @param customValueTypes Additional keys and their types that should be read from the desktop file
  */
-void convertCompatMetaDataDesktopFile(KPackage::Package *package, const QMap<QString, QMetaType::Type> &customValueTypes)
+void convertCompatMetaDataDesktopFile(KPackage::Package *package, const QMap<QString, QMetaType::Type> &customValueTypes = {})
 {
     if (const QString legacyPath = package->filePath("metadata"); !legacyPath.isEmpty() && legacyPath.endsWith(QLatin1String(".desktop"))) {
         DesktopFile file(legacyPath);
