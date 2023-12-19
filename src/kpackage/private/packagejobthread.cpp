@@ -232,16 +232,15 @@ bool PackageJobThread::installPackage(const QString &src, const QString &dest, c
         delete archive;
     }
 
-    QDir packageDir(path);
-    QFileInfoList entries = packageDir.entryInfoList(QStringList(QLatin1String("metadata.json")));
-    KPluginMetaData meta;
-    if (!entries.isEmpty()) {
-        const QString metadataFilePath = entries.first().filePath();
-        meta = KPluginMetaData::fromJsonFile(metadataFilePath);
-    } else {
-        qCWarning(KPACKAGE_LOG) << "Couldn't open metadata file" << src << path;
+    Package copyPackage = package;
+    copyPackage.setPath(path);
+    if (!copyPackage.isValid()) {
+        d->errorMessage = i18n("Package is not considered valid");
+        d->errorCode = PackageJob::JobError::InvalidPackageStructure;
+        return false;
     }
 
+    KPluginMetaData meta = copyPackage.metadata(); // The packagestructure might have set the metadata, so use that
     QString pluginName = meta.pluginId().isEmpty() ? QFileInfo(src).baseName() : meta.pluginId();
     qCDebug(KPACKAGE_LOG) << "pluginname: " << meta.pluginId();
     if (pluginName == QLatin1String("metadata")) {
@@ -315,13 +314,6 @@ bool PackageJobThread::installPackage(const QString &src, const QString &dest, c
         }
     }
 
-    Package copyPackage = package;
-    copyPackage.setPath(path);
-    if (!copyPackage.isValid()) {
-        d->errorMessage = i18n("Package is not considered valid");
-        d->errorCode = PackageJob::JobError::InvalidPackageStructure;
-        return false;
-    }
     if (archivedPackage) {
         // it's in a temp dir, so just move it over.
         const bool ok = copyFolder(path, targetName);
