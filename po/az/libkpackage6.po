@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kpackage\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2023-10-14 01:47+0000\n"
+"POT-Creation-Date: 2023-12-20 01:33+0000\n"
 "PO-Revision-Date: 2022-07-26 15:50+0400\n"
 "Last-Translator: Kheyyam <xxmn77@gmail.com>\n"
 "Language-Team: Azerbaijani <kde-i18n-doc@kde.org>\n"
@@ -27,97 +27,92 @@ msgctxt "EMAIL OF TRANSLATORS"
 msgid "Your emails"
 msgstr "xxmn77@gmail.com"
 
-#: kpackage/private/packagejobthread.cpp:163
+#: kpackage/private/packagejobthread.cpp:164
 #, kde-format
 msgid "Could not create package root directory: %1"
 msgstr "Kök kataloqu yaradıla bilməyən paket: %1"
 
-#: kpackage/private/packagejobthread.cpp:172
+#: kpackage/private/packagejobthread.cpp:173
 #, kde-format
 msgid "No such file: %1"
 msgstr "Belə bir fayl yoxdur: %1"
 
-#: kpackage/private/packagejobthread.cpp:202
+#: kpackage/private/packagejobthread.cpp:203
 #, kde-format
 msgid "Could not open package file, unsupported archive format: %1 %2"
 msgstr "%1 paketini açmaq mümkün olmadı: dəstəklənməyən %2 arxivi"
 
-#: kpackage/private/packagejobthread.cpp:210
+#: kpackage/private/packagejobthread.cpp:211
 #, kde-format
 msgid "Could not open package file: %1"
 msgstr "%1 paket faylı açıla bilmir"
 
-#: kpackage/private/packagejobthread.cpp:242
+#: kpackage/private/packagejobthread.cpp:238
 #, kde-format
-msgid "Could not open metadata file: %1"
-msgstr "Açılmayan metaverilər faylı: %1"
+msgid "Package is not considered valid"
+msgstr ""
 
-#: kpackage/private/packagejobthread.cpp:249
-#, kde-format
-msgid "No metadata file in package: %1"
-msgstr "Paketdə metaveriləri faylı yoxdur: %1"
-
-#: kpackage/private/packagejobthread.cpp:258
+#: kpackage/private/packagejobthread.cpp:248
 #, fuzzy, kde-format
 #| msgid "Package plugin name not specified: %1"
 msgid "Package plugin id not specified: %1"
 msgstr "Adı göstərilməyən paket uzantısı: %1"
 
-#: kpackage/private/packagejobthread.cpp:268
+#: kpackage/private/packagejobthread.cpp:258
 #, fuzzy, kde-format
 #| msgid "Package plugin name %1 contains invalid characters"
 msgid "Package plugin id %1 contains invalid characters"
 msgstr "%1 paket uzantısı adında yalnış simvollar var"
 
-#: kpackage/private/packagejobthread.cpp:287
+#: kpackage/private/packagejobthread.cpp:277
 #, kde-format
 msgid ""
 "The new package has a different type from the old version already installed."
 msgstr ""
 "Yeni paket artıq quraşdırılan köhnə paketdən fərqlənən versiyaya malikdir."
 
-#: kpackage/private/packagejobthread.cpp:292
+#: kpackage/private/packagejobthread.cpp:282
 #, kde-format
 msgid ""
 "Impossible to remove the old installation of %1 located at %2. error: %3"
 msgstr "%2 -də quraşdırılmış köhnə %1 -in silinməsi mümkün deyil, xəta: %3"
 
-#: kpackage/private/packagejobthread.cpp:296
+#: kpackage/private/packagejobthread.cpp:286
 #, kde-format
 msgid "Not installing version %1 of %2. Version %3 already installed."
 msgstr "%2 -nin %1 versiyası quraşdırılmayıb. %3 versiyası artıq quraşdırılıb."
 
-#: kpackage/private/packagejobthread.cpp:300
+#: kpackage/private/packagejobthread.cpp:290
 #, kde-format
 msgid "%1 already exists"
 msgstr "%1 artıq mövcuddur"
 
-#: kpackage/private/packagejobthread.cpp:321
+#: kpackage/private/packagejobthread.cpp:311
 #, kde-format
 msgid "Could not install dependency: '%1'"
 msgstr "Quraşdırıla bilməyən asılılıq: '%1'"
 
-#: kpackage/private/packagejobthread.cpp:333
+#: kpackage/private/packagejobthread.cpp:323
 #, kde-format
 msgid "Could not move package to destination: %1"
 msgstr "Paketin daşına bilmədiyi təyinat yeri: %1"
 
-#: kpackage/private/packagejobthread.cpp:343
+#: kpackage/private/packagejobthread.cpp:333
 #, kde-format
 msgid "Could not copy package to destination: %1"
 msgstr "Paketin kopyalana bilmədiyi təyinat yeri: %1"
 
-#: kpackage/private/packagejobthread.cpp:378
+#: kpackage/private/packagejobthread.cpp:368
 #, kde-format
 msgid "package path was deleted manually"
 msgstr "paketin yolu əl ilə silindi"
 
-#: kpackage/private/packagejobthread.cpp:378
+#: kpackage/private/packagejobthread.cpp:368
 #, kde-format
 msgid "%1 does not exist"
 msgstr "%1 mövcud deyil"
 
-#: kpackage/private/packagejobthread.cpp:398
+#: kpackage/private/packagejobthread.cpp:388
 #, kde-format
 msgid "Could not delete package from: %1"
 msgstr "Paketin silinə bilmədiyi indeks: %1"
@@ -351,6 +346,12 @@ msgstr "<path> paketi üçün meta məlumatlarının çıxarışı"
 msgctxt "Do not translate <path>"
 msgid "Outputs the metadata for the package into <path>"
 msgstr "<path> daxilindəki paket üçün meta məlumatlarının çıxarışı"
+
+#~ msgid "Could not open metadata file: %1"
+#~ msgstr "Açılmayan metaverilər faylı: %1"
+
+#~ msgid "No metadata file in package: %1"
+#~ msgstr "Paketdə metaveriləri faylı yoxdur: %1"
 
 #~ msgid ""
 #~ "Could not load installer for package of type %1. Error reported was: %2"

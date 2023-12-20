@@ -4,7 +4,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2023-10-14 01:47+0000\n"
+"POT-Creation-Date: 2023-12-20 01:33+0000\n"
 "PO-Revision-Date: 2023-03-21 20:00+0100\n"
 "Last-Translator: Frederik Schwarzer <schwarzer@kde.org>\n"
 "Language-Team: German <kde-i18n-de@kde.org>\n"
@@ -25,48 +25,43 @@ msgctxt "EMAIL OF TRANSLATORS"
 msgid "Your emails"
 msgstr "kde-i18n-de@kde.org"
 
-#: kpackage/private/packagejobthread.cpp:163
+#: kpackage/private/packagejobthread.cpp:164
 #, kde-format
 msgid "Could not create package root directory: %1"
 msgstr "Der Basisordner des Pakts kann nicht erstellt werden: %1"
 
-#: kpackage/private/packagejobthread.cpp:172
+#: kpackage/private/packagejobthread.cpp:173
 #, kde-format
 msgid "No such file: %1"
 msgstr "Datei nicht gefunden: %1"
 
-#: kpackage/private/packagejobthread.cpp:202
+#: kpackage/private/packagejobthread.cpp:203
 #, kde-format
 msgid "Could not open package file, unsupported archive format: %1 %2"
 msgstr ""
 "Das Paket lässt sich nicht öffnen. Nicht unterstütztes Archivformat: %1 %2"
 
-#: kpackage/private/packagejobthread.cpp:210
+#: kpackage/private/packagejobthread.cpp:211
 #, kde-format
 msgid "Could not open package file: %1"
 msgstr "Die Paketdatei lässt sich nicht öffnen: %1"
 
-#: kpackage/private/packagejobthread.cpp:242
+#: kpackage/private/packagejobthread.cpp:238
 #, kde-format
-msgid "Could not open metadata file: %1"
-msgstr "Die Metadatendatei lässt sich nicht öffnen: %1"
+msgid "Package is not considered valid"
+msgstr ""
 
-#: kpackage/private/packagejobthread.cpp:249
-#, kde-format
-msgid "No metadata file in package: %1"
-msgstr "Keine Metadatendatei im Paket: %1"
-
-#: kpackage/private/packagejobthread.cpp:258
+#: kpackage/private/packagejobthread.cpp:248
 #, kde-format
 msgid "Package plugin id not specified: %1"
 msgstr "Die Modulkennung des Pakets wurde nicht angegeben: %1"
 
-#: kpackage/private/packagejobthread.cpp:268
+#: kpackage/private/packagejobthread.cpp:258
 #, kde-format
 msgid "Package plugin id %1 contains invalid characters"
 msgstr "Die Modulkennung %1 des Pakets enthält ungültige Zeichen"
 
-#: kpackage/private/packagejobthread.cpp:287
+#: kpackage/private/packagejobthread.cpp:277
 #, kde-format
 msgid ""
 "The new package has a different type from the old version already installed."
@@ -74,7 +69,7 @@ msgstr ""
 "Das neue Paket hat einen anderen Typ als die alte Version, die bereits "
 "installiert ist."
 
-#: kpackage/private/packagejobthread.cpp:292
+#: kpackage/private/packagejobthread.cpp:282
 #, kde-format
 msgid ""
 "Impossible to remove the old installation of %1 located at %2. error: %3"
@@ -82,43 +77,43 @@ msgstr ""
 "Es ist nicht möglich, die alte Installation von %1 aus %2 zu entfernen. "
 "Fehler: %3"
 
-#: kpackage/private/packagejobthread.cpp:296
+#: kpackage/private/packagejobthread.cpp:286
 #, kde-format
 msgid "Not installing version %1 of %2. Version %3 already installed."
 msgstr ""
 "Version %1 von %2 wird nicht installiert. Version %3 ist bereits installiert."
 
-#: kpackage/private/packagejobthread.cpp:300
+#: kpackage/private/packagejobthread.cpp:290
 #, kde-format
 msgid "%1 already exists"
 msgstr "%1 existiert bereits."
 
-#: kpackage/private/packagejobthread.cpp:321
+#: kpackage/private/packagejobthread.cpp:311
 #, kde-format
 msgid "Could not install dependency: '%1'"
 msgstr "Die Abhängigkeit kann nicht installiert werden: %1"
 
-#: kpackage/private/packagejobthread.cpp:333
+#: kpackage/private/packagejobthread.cpp:323
 #, kde-format
 msgid "Could not move package to destination: %1"
 msgstr "Das Paket kann nicht zum Ziel verschoben werden: %1"
 
-#: kpackage/private/packagejobthread.cpp:343
+#: kpackage/private/packagejobthread.cpp:333
 #, kde-format
 msgid "Could not copy package to destination: %1"
 msgstr "Das Paket kann nicht zum Ziel kopiert werden: %1"
 
-#: kpackage/private/packagejobthread.cpp:378
+#: kpackage/private/packagejobthread.cpp:368
 #, kde-format
 msgid "package path was deleted manually"
 msgstr "Das Paket wurde manuell gelöscht"
 
-#: kpackage/private/packagejobthread.cpp:378
+#: kpackage/private/packagejobthread.cpp:368
 #, kde-format
 msgid "%1 does not exist"
 msgstr "%1 existiert nicht"
 
-#: kpackage/private/packagejobthread.cpp:398
+#: kpackage/private/packagejobthread.cpp:388
 #, kde-format
 msgid "Could not delete package from: %1"
 msgstr "Das Paket kann nicht gelöscht werden von: %1"
@@ -349,6 +344,12 @@ msgstr "Ausgabe der Metadaten für das Paket in <path>"
 msgctxt "Do not translate <path>"
 msgid "Outputs the metadata for the package into <path>"
 msgstr "Ausgabe der Metadaten für das Paket in <path>"
+
+#~ msgid "Could not open metadata file: %1"
+#~ msgstr "Die Metadatendatei lässt sich nicht öffnen: %1"
+
+#~ msgid "No metadata file in package: %1"
+#~ msgstr "Keine Metadatendatei im Paket: %1"
 
 #~ msgid ""
 #~ "Could not load installer for package of type %1. Error reported was: %2"

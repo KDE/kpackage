@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: plasmapkg\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2023-10-14 01:47+0000\n"
+"POT-Creation-Date: 2023-12-20 01:33+0000\n"
 "PO-Revision-Date: 2023-04-22 00:39+0200\n"
 "Last-Translator: Shinjo Park <kde@peremen.name>\n"
 "Language-Team: Korean <kde-kr@kde.org>\n"
@@ -28,94 +28,89 @@ msgctxt "EMAIL OF TRANSLATORS"
 msgid "Your emails"
 msgstr "kde@peremen.name"
 
-#: kpackage/private/packagejobthread.cpp:163
+#: kpackage/private/packagejobthread.cpp:164
 #, kde-format
 msgid "Could not create package root directory: %1"
 msgstr "패키지 루트 디렉터리를 만들 수 없음: %1"
 
-#: kpackage/private/packagejobthread.cpp:172
+#: kpackage/private/packagejobthread.cpp:173
 #, kde-format
 msgid "No such file: %1"
 msgstr "파일 없음: %1"
 
-#: kpackage/private/packagejobthread.cpp:202
+#: kpackage/private/packagejobthread.cpp:203
 #, kde-format
 msgid "Could not open package file, unsupported archive format: %1 %2"
 msgstr "패키지 파일을 열 수 없음, 지원하지 않는 압축 형식: %1 %2"
 
-#: kpackage/private/packagejobthread.cpp:210
+#: kpackage/private/packagejobthread.cpp:211
 #, kde-format
 msgid "Could not open package file: %1"
 msgstr "패키지 파일을 열 수 없음: %1"
 
-#: kpackage/private/packagejobthread.cpp:242
+#: kpackage/private/packagejobthread.cpp:238
 #, kde-format
-msgid "Could not open metadata file: %1"
-msgstr "메타데이터 파일을 열 수 없음: %1"
+msgid "Package is not considered valid"
+msgstr ""
 
-#: kpackage/private/packagejobthread.cpp:249
-#, kde-format
-msgid "No metadata file in package: %1"
-msgstr "패키지에 메타데이터 파일이 없음: %1"
-
-#: kpackage/private/packagejobthread.cpp:258
+#: kpackage/private/packagejobthread.cpp:248
 #, kde-format
 msgid "Package plugin id not specified: %1"
 msgstr "패키지 플러그인 ID가 지정되지 않았음: %1"
 
-#: kpackage/private/packagejobthread.cpp:268
+#: kpackage/private/packagejobthread.cpp:258
 #, kde-format
 msgid "Package plugin id %1 contains invalid characters"
 msgstr "패키지 플러그인 ID %1에 잘못된 글자가 들어 있음"
 
-#: kpackage/private/packagejobthread.cpp:287
+#: kpackage/private/packagejobthread.cpp:277
 #, kde-format
 msgid ""
 "The new package has a different type from the old version already installed."
 msgstr "새 패키지와 설치된 기존 패키지의 종류가 다릅니다."
 
-#: kpackage/private/packagejobthread.cpp:292
+#: kpackage/private/packagejobthread.cpp:282
 #, kde-format
 msgid ""
 "Impossible to remove the old installation of %1 located at %2. error: %3"
 msgstr "%2에 있는 %1의 이전 설치본을 삭제할 수 없습니다. 오류: %3"
 
-#: kpackage/private/packagejobthread.cpp:296
+#: kpackage/private/packagejobthread.cpp:286
 #, kde-format
 msgid "Not installing version %1 of %2. Version %3 already installed."
 msgstr "%2의 버전 %1을(를) 설치하지 않습니다. 버전 %3이(가) 설치되어 있습니다."
 
-#: kpackage/private/packagejobthread.cpp:300
+#: kpackage/private/packagejobthread.cpp:290
 #, kde-format
 msgid "%1 already exists"
 msgstr "%1이(가) 이미 존재함"
 
-#: kpackage/private/packagejobthread.cpp:321
+#: kpackage/private/packagejobthread.cpp:311
 #, kde-format
 msgid "Could not install dependency: '%1'"
 msgstr "의존하는 패키지를 설치할 수 없음: '%1'"
 
-#: kpackage/private/packagejobthread.cpp:333
+#: kpackage/private/packagejobthread.cpp:323
 #, kde-format
 msgid "Could not move package to destination: %1"
 msgstr "패키지를 대상으로 이동할 수 없음: %1"
 
-#: kpackage/private/packagejobthread.cpp:343
+#: kpackage/private/packagejobthread.cpp:333
 #, kde-format
 msgid "Could not copy package to destination: %1"
 msgstr "패키지를 대상으로 복사할 수 없음: %1"
 
-#: kpackage/private/packagejobthread.cpp:378
+#: kpackage/private/packagejobthread.cpp:368
 #, kde-format
 msgid "package path was deleted manually"
 msgstr "패키지 경로가 수동으로 삭제됨"
 
-#: kpackage/private/packagejobthread.cpp:378
+#: kpackage/private/packagejobthread.cpp:368
 #, kde-format
 msgid "%1 does not exist"
 msgstr "%1이(가) 없음"
 
-#: kpackage/private/packagejobthread.cpp:398
+#: kpackage/private/packagejobthread.cpp:388
 #, kde-format
 msgid "Could not delete package from: %1"
 msgstr "패키지를 다음에서 삭제할 수 없음: %1"
@@ -342,6 +337,12 @@ msgstr "<path>에 있는 패키지의 메타데이터 출력하기"
 msgctxt "Do not translate <path>"
 msgid "Outputs the metadata for the package into <path>"
 msgstr "패키지 메타데이터를 <path>(으)로 출력하기"
+
+#~ msgid "Could not open metadata file: %1"
+#~ msgstr "메타데이터 파일을 열 수 없음: %1"
+
+#~ msgid "No metadata file in package: %1"
+#~ msgstr "패키지에 메타데이터 파일이 없음: %1"
 
 #~ msgid ""
 #~ "Could not load installer for package of type %1. Error reported was: %2"

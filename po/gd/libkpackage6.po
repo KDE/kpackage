@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2023-10-14 01:47+0000\n"
+"POT-Creation-Date: 2023-12-20 01:33+0000\n"
 "PO-Revision-Date: 2016-04-30 12:04+0100\n"
 "Last-Translator: GunChleoc <fios@foramnagaidhlig.net>\n"
 "Language-Team: Fòram na Gàidhlig\n"
@@ -30,51 +30,46 @@ msgctxt "EMAIL OF TRANSLATORS"
 msgid "Your emails"
 msgstr ""
 
-#: kpackage/private/packagejobthread.cpp:163
+#: kpackage/private/packagejobthread.cpp:164
 #, kde-format
 msgid "Could not create package root directory: %1"
 msgstr "Cha b' urrainn dhuinn pasgan freumha na pacaid a chruthachadh: %1"
 
-#: kpackage/private/packagejobthread.cpp:172
+#: kpackage/private/packagejobthread.cpp:173
 #, kde-format
 msgid "No such file: %1"
 msgstr "Chan eil am faidhle seo ann: %1"
 
-#: kpackage/private/packagejobthread.cpp:202
+#: kpackage/private/packagejobthread.cpp:203
 #, kde-format
 msgid "Could not open package file, unsupported archive format: %1 %2"
 msgstr ""
 "Cha b' urrainn dhuinn faidhle na pacaid fhosgladh, cha chuir sinn taic ri "
 "fòrmat na tasg-lainn: %1 %2"
 
-#: kpackage/private/packagejobthread.cpp:210
+#: kpackage/private/packagejobthread.cpp:211
 #, kde-format
 msgid "Could not open package file: %1"
 msgstr "Cha b' urrainn dhuinn faidhle na pacaid fhosgladh: %1"
 
-#: kpackage/private/packagejobthread.cpp:242
+#: kpackage/private/packagejobthread.cpp:238
 #, kde-format
-msgid "Could not open metadata file: %1"
-msgstr "Cha b' urrainn dhuinn faidhle a' mheata-dàta fhosgladh: %1"
+msgid "Package is not considered valid"
+msgstr ""
 
-#: kpackage/private/packagejobthread.cpp:249
-#, kde-format
-msgid "No metadata file in package: %1"
-msgstr "Chan eil faidhle meata-dàta sa phacaid: %1"
-
-#: kpackage/private/packagejobthread.cpp:258
+#: kpackage/private/packagejobthread.cpp:248
 #, fuzzy, kde-format
 #| msgid "Package plugin name not specified: %1"
 msgid "Package plugin id not specified: %1"
 msgstr "Cha deach ainm plugan na pacaid a shònrachadh: %1"
 
-#: kpackage/private/packagejobthread.cpp:268
+#: kpackage/private/packagejobthread.cpp:258
 #, fuzzy, kde-format
 #| msgid "Package plugin name %1 contains invalid characters"
 msgid "Package plugin id %1 contains invalid characters"
 msgstr "Tha caractaran mì-dhligheach ann an ainm plugain na pacaid %1"
 
-#: kpackage/private/packagejobthread.cpp:287
+#: kpackage/private/packagejobthread.cpp:277
 #, kde-format
 msgid ""
 "The new package has a different type from the old version already installed."
@@ -82,7 +77,7 @@ msgstr ""
 "Chan eil seòrsa na pacaide ùire co-ionnann ri seòrsa an t-seann-tionndaidh a "
 "chaidh a stàladh mar-thà."
 
-#: kpackage/private/packagejobthread.cpp:292
+#: kpackage/private/packagejobthread.cpp:282
 #, fuzzy, kde-format
 #| msgid "Impossible to remove the old installation of %1 located at %2"
 msgid ""
@@ -90,46 +85,46 @@ msgid ""
 msgstr ""
 "Chan urrainn dhuinn an seann-stàladh dhe %1 san ionad %2 a thoirt air falbh"
 
-#: kpackage/private/packagejobthread.cpp:296
+#: kpackage/private/packagejobthread.cpp:286
 #, kde-format
 msgid "Not installing version %1 of %2. Version %3 already installed."
 msgstr ""
 "Chan eil sinn a' stàladh tionndadh %1 dhe %2. Chaidh an tionndadh %3 a "
 "stàladh mar-thà."
 
-#: kpackage/private/packagejobthread.cpp:300
+#: kpackage/private/packagejobthread.cpp:290
 #, kde-format
 msgid "%1 already exists"
 msgstr "Tha %1 ann mar-thà"
 
-#: kpackage/private/packagejobthread.cpp:321
+#: kpackage/private/packagejobthread.cpp:311
 #, fuzzy, kde-format
 #| msgid "Could not open package file: %1"
 msgid "Could not install dependency: '%1'"
 msgstr "Cha b' urrainn dhuinn faidhle na pacaid fhosgladh: %1"
 
-#: kpackage/private/packagejobthread.cpp:333
+#: kpackage/private/packagejobthread.cpp:323
 #, kde-format
 msgid "Could not move package to destination: %1"
 msgstr "Cha b' urrainn dhuinn a' phacaid a ghluasad dhan cheann-uidhe: %1"
 
-#: kpackage/private/packagejobthread.cpp:343
+#: kpackage/private/packagejobthread.cpp:333
 #, kde-format
 msgid "Could not copy package to destination: %1"
 msgstr ""
 "Cha b' urrainn dhuinn lethbhreac dhen phacaid a chur dhan cheann-uidhe: %1"
 
-#: kpackage/private/packagejobthread.cpp:378
+#: kpackage/private/packagejobthread.cpp:368
 #, kde-format
 msgid "package path was deleted manually"
 msgstr ""
 
-#: kpackage/private/packagejobthread.cpp:378
+#: kpackage/private/packagejobthread.cpp:368
 #, kde-format
 msgid "%1 does not exist"
 msgstr "Chan eil %1 ann"
 
-#: kpackage/private/packagejobthread.cpp:398
+#: kpackage/private/packagejobthread.cpp:388
 #, kde-format
 msgid "Could not delete package from: %1"
 msgstr "Cha b' urrainn dhuinn a' phacaid a sguabadh às o: %1"
@@ -368,6 +363,12 @@ msgstr "Gin hais SHA1airson na pacaid air <path>"
 msgctxt "Do not translate <path>"
 msgid "Outputs the metadata for the package into <path>"
 msgstr "Gin hais SHA1airson na pacaid air <path>"
+
+#~ msgid "Could not open metadata file: %1"
+#~ msgstr "Cha b' urrainn dhuinn faidhle a' mheata-dàta fhosgladh: %1"
+
+#~ msgid "No metadata file in package: %1"
+#~ msgstr "Chan eil faidhle meata-dàta sa phacaid: %1"
 
 #~ msgid ""
 #~ "Could not load installer for package of type %1. Error reported was: %2"

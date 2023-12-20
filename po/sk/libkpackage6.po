@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: libplasma\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2023-10-14 01:47+0000\n"
+"POT-Creation-Date: 2023-12-20 01:33+0000\n"
 "PO-Revision-Date: 2020-09-08 19:03+0200\n"
 "Last-Translator: Matej Mrenica <matejm98mthw@gmail.com>\n"
 "Language-Team: Slovak <kde-i18n-doc@kde.org>\n"
@@ -27,97 +27,92 @@ msgctxt "EMAIL OF TRANSLATORS"
 msgid "Your emails"
 msgstr "matejm98mthw@gmail.com"
 
-#: kpackage/private/packagejobthread.cpp:163
+#: kpackage/private/packagejobthread.cpp:164
 #, kde-format
 msgid "Could not create package root directory: %1"
 msgstr "Nemôžem vytvoriť koreňový adresár balíka: %1"
 
-#: kpackage/private/packagejobthread.cpp:172
+#: kpackage/private/packagejobthread.cpp:173
 #, kde-format
 msgid "No such file: %1"
 msgstr "Súbor neexistuje: %1"
 
-#: kpackage/private/packagejobthread.cpp:202
+#: kpackage/private/packagejobthread.cpp:203
 #, kde-format
 msgid "Could not open package file, unsupported archive format: %1 %2"
 msgstr "Nemôžem otvoriť súbor balíka, nepodporovaný formát archívu: %1 %2"
 
-#: kpackage/private/packagejobthread.cpp:210
+#: kpackage/private/packagejobthread.cpp:211
 #, kde-format
 msgid "Could not open package file: %1"
 msgstr "Nemôžem otvoriť súbor balíka: %1"
 
-#: kpackage/private/packagejobthread.cpp:242
+#: kpackage/private/packagejobthread.cpp:238
 #, kde-format
-msgid "Could not open metadata file: %1"
-msgstr "Nemôžem otvoriť súbor metadát: %1"
+msgid "Package is not considered valid"
+msgstr ""
 
-#: kpackage/private/packagejobthread.cpp:249
-#, kde-format
-msgid "No metadata file in package: %1"
-msgstr "Žiadne metadáta v balíku: %1"
-
-#: kpackage/private/packagejobthread.cpp:258
+#: kpackage/private/packagejobthread.cpp:248
 #, fuzzy, kde-format
 #| msgid "Package plugin name not specified: %1"
 msgid "Package plugin id not specified: %1"
 msgstr "Nie je zadaný názov balíka pluginu: %1"
 
-#: kpackage/private/packagejobthread.cpp:268
+#: kpackage/private/packagejobthread.cpp:258
 #, fuzzy, kde-format
 #| msgid "Package plugin name %1 contains invalid characters"
 msgid "Package plugin id %1 contains invalid characters"
 msgstr "Názov balíka pluginu %1 obsahuje neplatné znaky"
 
-#: kpackage/private/packagejobthread.cpp:287
+#: kpackage/private/packagejobthread.cpp:277
 #, kde-format
 msgid ""
 "The new package has a different type from the old version already installed."
 msgstr ""
 "Nový balík ma rozdielny typ od starej verzie, ktorá je už nainštalovaná."
 
-#: kpackage/private/packagejobthread.cpp:292
+#: kpackage/private/packagejobthread.cpp:282
 #, kde-format
 msgid ""
 "Impossible to remove the old installation of %1 located at %2. error: %3"
 msgstr "Nie je možné odstrániť starú inštaláciu %1 umiestnenú na %2. chyba: %3"
 
-#: kpackage/private/packagejobthread.cpp:296
+#: kpackage/private/packagejobthread.cpp:286
 #, kde-format
 msgid "Not installing version %1 of %2. Version %3 already installed."
 msgstr "Neinštalujem verziu %1 %2. Verzia %3 je už nainštalovaná."
 
-#: kpackage/private/packagejobthread.cpp:300
+#: kpackage/private/packagejobthread.cpp:290
 #, kde-format
 msgid "%1 already exists"
 msgstr "%1 už existuje"
 
-#: kpackage/private/packagejobthread.cpp:321
+#: kpackage/private/packagejobthread.cpp:311
 #, kde-format
 msgid "Could not install dependency: '%1'"
 msgstr "Nepodarilo sa nainštalovať závislosť: '%1'"
 
-#: kpackage/private/packagejobthread.cpp:333
+#: kpackage/private/packagejobthread.cpp:323
 #, kde-format
 msgid "Could not move package to destination: %1"
 msgstr "Nemôžem presunúť balík do cieľa: %1"
 
-#: kpackage/private/packagejobthread.cpp:343
+#: kpackage/private/packagejobthread.cpp:333
 #, kde-format
 msgid "Could not copy package to destination: %1"
 msgstr "Nemôžem kopírovať balík do cieľa: %1"
 
-#: kpackage/private/packagejobthread.cpp:378
+#: kpackage/private/packagejobthread.cpp:368
 #, kde-format
 msgid "package path was deleted manually"
 msgstr "cesta k balíku bola ručne odstránená"
 
-#: kpackage/private/packagejobthread.cpp:378
+#: kpackage/private/packagejobthread.cpp:368
 #, kde-format
 msgid "%1 does not exist"
 msgstr "%1 neexistuje"
 
-#: kpackage/private/packagejobthread.cpp:398
+#: kpackage/private/packagejobthread.cpp:388
 #, kde-format
 msgid "Could not delete package from: %1"
 msgstr "Nemôžem vymazať balík z: %1"
@@ -354,6 +349,12 @@ msgstr "Vytvorí metadáta pre balíček <path>"
 msgctxt "Do not translate <path>"
 msgid "Outputs the metadata for the package into <path>"
 msgstr "Vytvorí metadáta pre balíček do <path>"
+
+#~ msgid "Could not open metadata file: %1"
+#~ msgstr "Nemôžem otvoriť súbor metadát: %1"
+
+#~ msgid "No metadata file in package: %1"
+#~ msgstr "Žiadne metadáta v balíku: %1"
 
 #~ msgid ""
 #~ "Could not load installer for package of type %1. Error reported was: %2"
