@@ -3,7 +3,7 @@
 # This file is distributed under the license LGPL version 2.1 or
 # version 3 or later versions approved by the membership of KDE e.V.
 #
-# Josep M. Ferrer <txemaq@gmail.com>, 2014, 2015, 2016, 2017, 2018, 2019, 2020, 2021, 2022, 2023.
+# Josep M. Ferrer <txemaq@gmail.com>, 2014, 2015, 2016, 2017, 2018, 2019, 2020, 2021, 2022, 2023
 # Antoni Bella Pérez <antonibella5@yahoo.com>, 2014, 2015, 2016, 2017, 2020, 2022.
 # Empar Montoro Martín <montoro_mde@gva.es>, 2019.
 msgid ""
@@ -11,7 +11,7 @@ msgstr ""
 "Project-Id-Version: kpackage\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2023-12-20 01:33+0000\n"
-"PO-Revision-Date: 2023-03-25 12:05+0100\n"
+"PO-Revision-Date: 2023-12-20 09:10+0100\n"
 "Last-Translator: Josep M. Ferrer <txemaq@gmail.com>\n"
 "Language-Team: Catalan <kde-i18n-ca@kde.org>\n"
 "Language: ca@valencia\n"
@@ -20,7 +20,7 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
 "X-Accelerator-Marker: &\n"
-"X-Generator: Lokalize 20.12.0\n"
+"X-Generator: Lokalize 23.08.4\n"
 
 #, kde-format
 msgctxt "NAME OF TRANSLATORS"
@@ -55,7 +55,7 @@ msgstr "No s'ha pogut obrir el fitxer del paquet: %1"
 #: kpackage/private/packagejobthread.cpp:238
 #, kde-format
 msgid "Package is not considered valid"
-msgstr ""
+msgstr "El paquet no es considera vàlid"
 
 #: kpackage/private/packagejobthread.cpp:248
 #, kde-format
@@ -354,15 +354,3 @@ msgstr "Eixida de les metadades per al paquet <camí>"
 msgctxt "Do not translate <path>"
 msgid "Outputs the metadata for the package into <path>"
 msgstr "Eixida de les metadades per al paquet dins del <camí>"
-
-#~ msgid "Could not open metadata file: %1"
-#~ msgstr "No s'ha pogut obrir el fitxer de les metadades: %1"
-
-#~ msgid "No metadata file in package: %1"
-#~ msgstr "No existix el fitxer de metadades en el paquet: %1"
-
-#~ msgid ""
-#~ "Could not load installer for package of type %1. Error reported was: %2"
-#~ msgstr ""
-#~ "No s'ha pogut carregar l'instal·lador per al paquet de tipus %1. L'error "
-#~ "detectat és: %2"
