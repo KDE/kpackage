@@ -6,27 +6,27 @@
 # Julien Richard-Foy <julien.rf@no-log.org>, 2008, 2009, 2010.
 # Sébastien Renard <Sebastien.Renard@digitalfox.org>, 2008, 2012.
 # Sébastien Renard <renard@kde.org>, 2012, 2014.
-# Xavier Besnard <xavier.besnard@kde.org>, 2013.
+# SPDX-FileCopyrightText: 2013, 2023 Xavier Besnard <xavier.besnard@kde.org>
 # Joëlle Cornavin <jcorn@free.fr>, 2013.
 # Vincent PINON <vpinon@kde.org>, 2014, 2017.
 # Simon Depiets <sdepiets@gmail.com>, 2017, 2019.
 # Xavier Besnard <xavier.besnard@kde.org>, 2020, 2021, 2022.
-# Xavier BESNARD <xavier.besnard@kde.org>, 2023.
+# Xavier Besnard <xavier.besnard@kde.org>, 2023.
 #
 msgid ""
 msgstr ""
 "Project-Id-Version: plasmapkg\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2023-11-05 12:25+0000\n"
-"PO-Revision-Date: 2023-01-06 10:58+0100\n"
-"Last-Translator: Xavier BESNARD <xavier.besnard]neuf.fr>\n"
-"Language-Team: fr\n"
+"PO-Revision-Date: 2023-12-21 08:55+0100\n"
+"Last-Translator: Xavier Besnard <xavier.besnard@kde.org>\n"
+"Language-Team: \n"
 "Language: fr\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=(n > 1);\n"
-"X-Generator: Lokalize 22.12.3\n"
+"X-Generator: Lokalize 23.08.4\n"
 "X-Environment: kde\n"
 "X-Accelerator-Marker: &\n"
 "X-Text-Markup: kde4\n"
@@ -42,7 +42,7 @@ msgstr ""
 msgctxt "EMAIL OF TRANSLATORS"
 msgid "Your emails"
 msgstr ""
-"xavier.besnard@neuf.fr, jcorn@free.fr, julien.rf@no-log.org, nicolas."
+"xavier.besnard@kde.org, jcorn@free.fr, julien.rf@no-log.org, nicolas."
 "ternisien@gmail.com, alain.dias02@gmail.com"
 
 #: kpackage/package.cpp:42
