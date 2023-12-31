@@ -350,8 +350,3 @@ msgstr "<path> のパッケージのために SHA1 ハッシュを生成"
 msgctxt "Do not translate <path>"
 msgid "Outputs the metadata for the package into <path>"
 msgstr "<path> のパッケージのために SHA1 ハッシュを生成"
-
-#, fuzzy
-#~| msgid "Could not find a suitable installer for package of type %1"
-#~ msgid "Could not open metadata file: %1"
-#~ msgstr "パッケージタイプ %1 に適したインストーラがありません"
