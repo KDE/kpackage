@@ -342,6 +342,3 @@ msgstr ""
 msgctxt "Do not translate <path>"
 msgid "Outputs the metadata for the package into <path>"
 msgstr ""
-
-#~ msgid "No metadata file in package: %1"
-#~ msgstr "Ingen metadata-fil i pakken: %1"

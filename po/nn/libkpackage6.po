@@ -347,9 +347,3 @@ msgstr "Gjev metadata for pakken <path>"
 msgctxt "Do not translate <path>"
 msgid "Outputs the metadata for the package into <path>"
 msgstr "Gjev metadata for pakken til <path>"
-
-#~ msgid "Could not open metadata file: %1"
-#~ msgstr "Klarte ikkje opna metadatafil: %1"
-
-#~ msgid "No metadata file in package: %1"
-#~ msgstr "Ingen metadata i pakken: %1"
