@@ -3,21 +3,21 @@
 #
 # Balázs Úr <urbalazs@gmail.com>, 2013, 2014.
 # Kristóf Kiszel <ulysses@kubuntu.org>, 2014, 2015, 2019.
-# Kristof Kiszel <kiszel.kristof@gmail.com>, 2018, 2020.
+# SPDX-FileCopyrightText: 2018, 2020, 2024 Kristof Kiszel <kiszel.kristof@gmail.com>
 msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2023-12-20 01:33+0000\n"
-"PO-Revision-Date: 2020-12-19 19:29+0100\n"
-"Last-Translator: Kristóf Kiszel <kiszel.kristof@gmail.com>\n"
+"PO-Revision-Date: 2024-01-07 22:40+0100\n"
+"Last-Translator: Kristof Kiszel <ulysses@fsf.hu>\n"
 "Language-Team: Hungarian <kde-l10n-hu@kde.org>\n"
 "Language: hu\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
-"X-Generator: Lokalize 21.03.70\n"
+"X-Generator: Lokalize 23.08.4\n"
 
 #, kde-format
 msgctxt "NAME OF TRANSLATORS"
@@ -27,7 +27,7 @@ msgstr "Kiszel Kristóf"
 #, kde-format
 msgctxt "EMAIL OF TRANSLATORS"
 msgid "Your emails"
-msgstr "kiszel.kristof@gmail.com"
+msgstr "ulysses@fsf.hu"
 
 #: kpackage/private/packagejobthread.cpp:164
 #, kde-format
@@ -53,19 +53,17 @@ msgstr "Nem sikerült megnyitni a csomagfájlt: %1"
 #: kpackage/private/packagejobthread.cpp:238
 #, kde-format
 msgid "Package is not considered valid"
-msgstr ""
+msgstr "A csomag nem tekinthető érvényesnek"
 
 #: kpackage/private/packagejobthread.cpp:248
-#, fuzzy, kde-format
-#| msgid "Package plugin name not specified: %1"
+#, kde-format
 msgid "Package plugin id not specified: %1"
-msgstr "A csomag bővítményneve nincs megadva: %1"
+msgstr "A csomag bővítményazonosítója nincs megadva: %1"
 
 #: kpackage/private/packagejobthread.cpp:258
-#, fuzzy, kde-format
-#| msgid "Package plugin name %1 contains invalid characters"
+#, kde-format
 msgid "Package plugin id %1 contains invalid characters"
-msgstr "A csomag bővítményneve (%1) érvénytelen karaktereket tartalmaz"
+msgstr "A csomag bővítményazonosítója (%1) érvénytelen karaktereket tartalmaz"
 
 #: kpackage/private/packagejobthread.cpp:277
 #, kde-format
@@ -131,10 +129,9 @@ msgid "SHA1 hash for Package at %1: '%2'"
 msgstr "A(z) %1 helyen lévő csomag SHA1 összege: „%2”"
 
 #: kpackagetool/kpackagetool.cpp:145
-#, fuzzy, kde-format
-#| msgid "Listing service types: %1 in %2"
+#, kde-format
 msgid "Listing KPackageType: %1 in %2"
-msgstr "Szolgáltatástípusok listázása: %1 itt: %2"
+msgstr "KPackageType listázása: %1 itt: %2"
 
 #: kpackagetool/kpackagetool.cpp:198
 #, kde-format
@@ -162,34 +159,29 @@ msgid "Showing info for package: %1"
 msgstr "Csomag adatainak megjelenítése: %1"
 
 #: kpackagetool/kpackagetool.cpp:260
-#, fuzzy, kde-format
-#| msgid "      Name : %1"
+#, kde-format
 msgid "  Name       : %1"
-msgstr "      Név : %1"
+msgstr "  Név       : %1"
 
 #: kpackagetool/kpackagetool.cpp:261
-#, fuzzy, kde-format
-#| msgid "Service Descriptions"
+#, kde-format
 msgid "  Description: %1"
-msgstr "Szolgáltatásleírások"
+msgstr "  Leírás: %1"
 
 #: kpackagetool/kpackagetool.cpp:262
-#, fuzzy, kde-format
-#| msgid "    Plugin : %1"
+#, kde-format
 msgid "  Plugin     : %1"
-msgstr "    Bővítmény : %1"
+msgstr "  Bővítmény     : %1"
 
 #: kpackagetool/kpackagetool.cpp:268
-#, fuzzy, kde-format
-#| msgid "    Author : %1"
+#, kde-format
 msgid "  Author     : %1"
-msgstr "    Szerző : %1"
+msgstr "  Szerző     : %1"
 
 #: kpackagetool/kpackagetool.cpp:269
-#, fuzzy, kde-format
-#| msgid "      Path : %1"
+#, kde-format
 msgid "  Path       : %1"
-msgstr "      Elérési út : %1"
+msgstr "  Elérési út       : %1"
 
 #: kpackagetool/kpackagetool.cpp:429
 #, kde-format
@@ -206,7 +198,7 @@ msgstr ""
 #: kpackagetool/kpackagetool.cpp:457
 #, kde-format
 msgid "KPackage Structure Name"
-msgstr ""
+msgstr "KPackage struktúranév"
 
 #: kpackagetool/kpackagetool.cpp:458
 #, kde-format
