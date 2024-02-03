@@ -8,7 +8,7 @@ msgstr ""
 "Project-Id-Version: trunk-kf 5\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2023-12-20 01:33+0000\n"
-"PO-Revision-Date: 2019-10-11 23:17+0300\n"
+"PO-Revision-Date: 2024-02-02 13:57+0200\n"
 "Last-Translator: Moo\n"
 "Language-Team: lt\n"
 "Language: lt\n"
@@ -17,18 +17,17 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=4; plural=(n==1 ? 0 : n%10>=2 && (n%100<10 || n"
 "%100>=20) ? 1 : n%10==0 || (n%100>10 && n%100<20) ? 2 : 3);\n"
-"X-Generator: Poedit 2.0.6\n"
+"X-Generator: Poedit 3.0.1\n"
 
-#, fuzzy, kde-format
-#| msgid "Fun and Games"
+#, kde-format
 msgctxt "NAME OF TRANSLATORS"
 msgid "Your names"
-msgstr "Linksmybės ir žaidimai"
+msgstr "Moo"
 
 #, kde-format
 msgctxt "EMAIL OF TRANSLATORS"
 msgid "Your emails"
-msgstr ""
+msgstr "<>"
 
 #: kpackage/private/packagejobthread.cpp:164
 #, kde-format
@@ -53,19 +52,17 @@ msgstr "Nepavyko atverti paketo failo: %1"
 #: kpackage/private/packagejobthread.cpp:238
 #, kde-format
 msgid "Package is not considered valid"
-msgstr ""
+msgstr "Paketas nelaikomas tinkamu"
 
 #: kpackage/private/packagejobthread.cpp:248
-#, fuzzy, kde-format
-#| msgid "Package plugin name not specified: %1"
+#, kde-format
 msgid "Package plugin id not specified: %1"
-msgstr "Nenurodytas paketo papildinio pavadinimas: %1"
+msgstr "Nenurodytas paketo įskiepio id: %1"
 
 #: kpackage/private/packagejobthread.cpp:258
-#, fuzzy, kde-format
-#| msgid "Package plugin name %1 contains invalid characters"
+#, kde-format
 msgid "Package plugin id %1 contains invalid characters"
-msgstr "Paketo papildinio pavadinime %1 yra neteisingų simbolių"
+msgstr "Paketo įskiepio id %1 yra neteisingų simbolių"
 
 #: kpackage/private/packagejobthread.cpp:277
 #, kde-format
@@ -108,7 +105,7 @@ msgstr "Nepavyko nukopijuoti paketo į paskirties vietą: %1"
 #: kpackage/private/packagejobthread.cpp:368
 #, kde-format
 msgid "package path was deleted manually"
-msgstr ""
+msgstr "paketo kelias buvo ištrintas rankiniu būdu"
 
 #: kpackage/private/packagejobthread.cpp:368
 #, kde-format
@@ -131,15 +128,14 @@ msgid "SHA1 hash for Package at %1: '%2'"
 msgstr "SHA1 maiša paketui, esančiam ties %1: \"%2\""
 
 #: kpackagetool/kpackagetool.cpp:145
-#, fuzzy, kde-format
-#| msgid "Listing service types: %1 in %2"
+#, kde-format
 msgid "Listing KPackageType: %1 in %2"
-msgstr "Išvardijami paslaugos tipai: %1, esantys %2"
+msgstr "Išvardijami KPackageType: %1, esantys %2"
 
 #: kpackagetool/kpackagetool.cpp:198
 #, kde-format
 msgid "Error: Plugin %1 is not installed."
-msgstr "Klaida: Papildinys %1 nėra įdiegtas."
+msgstr "Klaida: Įskiepis %1 nėra įdiegtas."
 
 #: kpackagetool/kpackagetool.cpp:212
 #, kde-format
@@ -152,7 +148,7 @@ msgstr "Reikalingas vienas iš šių: install, remove, upgrade ar list."
 #: kpackagetool/kpackagetool.cpp:255 kpackagetool/kpackagetool.cpp:333
 #, kde-format
 msgid "Error: Can't find plugin metadata: %1\n"
-msgstr "Klaida: Nepavyksta rasti papildinio metaduomenų: %1\n"
+msgstr "Klaida: Nepavyksta rasti įskiepio metaduomenų: %1\n"
 
 #: kpackagetool/kpackagetool.cpp:259
 #, kde-format
@@ -160,33 +156,29 @@ msgid "Showing info for package: %1"
 msgstr "Rodoma informacija paketui: %1"
 
 #: kpackagetool/kpackagetool.cpp:260
-#, fuzzy, kde-format
-#| msgid "      Name : %1"
+#, kde-format
 msgid "  Name       : %1"
-msgstr "      Pavadinimas : %1"
+msgstr "  Pavadinimas       : %1"
 
 #: kpackagetool/kpackagetool.cpp:261
 #, kde-format
 msgid "  Description: %1"
-msgstr ""
+msgstr "  Aprašas: %1"
 
 #: kpackagetool/kpackagetool.cpp:262
-#, fuzzy, kde-format
-#| msgid "    Plugin : %1"
+#, kde-format
 msgid "  Plugin     : %1"
-msgstr "    Papildinys : %1"
+msgstr "  Įskiepis     : %1"
 
 #: kpackagetool/kpackagetool.cpp:268
-#, fuzzy, kde-format
-#| msgid "    Author : %1"
+#, kde-format
 msgid "  Author     : %1"
-msgstr "    Autorius : %1"
+msgstr "  Autorius     : %1"
 
 #: kpackagetool/kpackagetool.cpp:269
-#, fuzzy, kde-format
-#| msgid "      Path : %1"
+#, kde-format
 msgid "  Path       : %1"
-msgstr "      Kelias : %1"
+msgstr "  Kelias       : %1"
 
 #: kpackagetool/kpackagetool.cpp:429
 #, kde-format
@@ -203,7 +195,7 @@ msgstr ""
 #: kpackagetool/kpackagetool.cpp:457
 #, kde-format
 msgid "KPackage Structure Name"
-msgstr ""
+msgstr "KPackage struktūros pavadinimas"
 
 #: kpackagetool/kpackagetool.cpp:458
 #, kde-format
@@ -233,7 +225,7 @@ msgstr "KPackage/BendrinisQML"
 #: kpackagetool/kpackagetool.cpp:502
 #, kde-format
 msgid "Provided by plugins:"
-msgstr "Teikia šie papildiniai:"
+msgstr "Teikia šie įskiepiai:"
 
 #: kpackagetool/kpackagetool.cpp:524
 #, kde-format
@@ -294,9 +286,9 @@ msgid ""
 "plugin, e.g. KPackage/Generic, Plasma/Theme, Plasma/Wallpaper, Plasma/"
 "Applet, etc."
 msgstr ""
-"Paketo tipas, atitinkantis paketo papildinio paslaugos tipą, pvz., KPackage/"
+"Paketo tipas, atitinkantis paketo įskiepio paslaugos tipą, pvz., KPackage/"
 "Bendrinis, Plasma/Apipavidalinimas, Plasma/Darbalaukio fonas, Plasma/"
-"Plėtinys ir t.t."
+"programėlė ir t.t."
 
 #: kpackagetool/options.h:36
 #, kde-format
