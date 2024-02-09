@@ -1,6 +1,6 @@
 # Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
 # This file is distributed under the same license as the PACKAGE package.
-# Vít Pelčák <vit@pelcak.org>, 2010, 2011, 2013, 2014, 2015, 2016, 2017, 2018, 2020.
+# SPDX-FileCopyrightText: 2010, 2011, 2013, 2014, 2015, 2016, 2017, 2018, 2020, 2024 Vít Pelčák <vit@pelcak.org>
 # Lukáš Tinkl <ltinkl@redhat.com>, 2010, 2012.
 # Vit Pelcak <vit@pelcak.org>, 2022, 2023.
 #
@@ -9,7 +9,7 @@ msgstr ""
 "Project-Id-Version: plasmapkg\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2023-12-20 01:33+0000\n"
-"PO-Revision-Date: 2023-03-16 16:28+0100\n"
+"PO-Revision-Date: 2024-01-19 15:51+0100\n"
 "Last-Translator: Vit Pelcak <vit@pelcak.org>\n"
 "Language-Team: Czech <kde-i18n-doc@kde.org>\n"
 "Language: cs\n"
@@ -17,7 +17,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=3; plural=(n==1) ? 0 : (n>=2 && n<=4) ? 1 : 2;\n"
-"X-Generator: Lokalize 22.12.3\n"
+"X-Generator: Lokalize 23.08.4\n"
 "X-Language: cs_CZ\n"
 "X-Source-Language: en_US\n"
 
@@ -54,7 +54,7 @@ msgstr "Nelze otevřít soubor balíčku: %1"
 #: kpackage/private/packagejobthread.cpp:238
 #, kde-format
 msgid "Package is not considered valid"
-msgstr ""
+msgstr "Balíček není považován za platný"
 
 #: kpackage/private/packagejobthread.cpp:248
 #, kde-format
@@ -342,9 +342,3 @@ msgstr "Zobrazí metadata balíčku <path>"
 msgctxt "Do not translate <path>"
 msgid "Outputs the metadata for the package into <path>"
 msgstr "Zobrazí metadata balíčku do <path>"
-
-#~ msgid "Could not open metadata file: %1"
-#~ msgstr "Nelze otevřít soubor s metadaty: %1"
-
-#~ msgid "No metadata file in package: %1"
-#~ msgstr "Žádná metadata v balíčku: %1"
