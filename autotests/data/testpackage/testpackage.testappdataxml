@@ -45,6 +45,7 @@
     <name xml:lang="zh_CN">测试包</name>
     <name xml:lang="zh_TW">測試套件</name>
     <summary>fancy shmancy summary</summary>
+    <url type="homepage">https://www.kde.org/</url>
     <url type="donation">https://www.kde.org/donate.php?app=org.kde.testpackage</url>
     <developer_name>Joe Blow &lt;jblow@kde.org&gt;</developer_name>
     <icon type="stock">plasma</icon>
