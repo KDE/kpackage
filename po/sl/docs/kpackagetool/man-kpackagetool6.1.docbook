@@ -1,0 +1,325 @@
+<?xml version="1.0" ?>
+<!DOCTYPE refentry PUBLIC "-//KDE//DTD DocBook XML V4.5-Based Variant V1.1//EN" "dtd/kdedbx45.dtd" [
+<!ENTITY % Slovenian "INCLUDE">
+]>
+
+<refentry lang="&language;">
+<refentryinfo>
+<title
+>KPackage Manager</title>
+<date
+>03.01.2017</date>
+<releaseinfo
+>Frameworks 5.30</releaseinfo>
+<productname
+>KDE Frameworks</productname>
+</refentryinfo>
+
+<refmeta>
+<refentrytitle
+><command
+>kpackagetool6</command
+></refentrytitle>
+<manvolnum
+>1</manvolnum>
+</refmeta>
+
+<refnamediv>
+<refname
+><command
+>kpackagetool6</command
+></refname>
+<refpurpose
+>Namesti, seznam, odstrani</refpurpose>
+</refnamediv>
+
+<refsynopsisdiv>
+<cmdsynopsis
+><command
+>kpackagetool6</command
+> <group choice="opt"
+><option
+>-v, --version</option
+></group
+> <group choice="opt"
+><option
+>-h, --help</option
+></group
+> <group choice="opt"
+><option
+>--hash</option
+> <replaceable
+> path</replaceable
+></group
+> <group choice="opt"
+><option
+>-g, --global</option
+></group
+> <group choice="opt"
+><option
+>-t, --type</option
+> <replaceable
+> type</replaceable
+></group
+> <group choice="opt"
+><option
+>-i, --install</option
+> <replaceable
+> path</replaceable
+></group
+> <group choice="opt"
+><option
+>-s, --show</option
+> <replaceable
+> name</replaceable
+></group
+> <group choice="opt"
+><option
+>-u, --upgrade</option
+> <replaceable
+> path</replaceable
+></group
+> <group choice="opt"
+><option
+>-l, --list</option
+></group
+> <group choice="opt"
+><option
+>--list-types</option
+></group
+> <group choice="opt"
+><option
+>-r, --remove</option
+> <replaceable
+> name</replaceable
+></group
+> <group choice="opt"
+><option
+>-p, --packageroot</option
+> <replaceable
+> path</replaceable
+></group
+> <group choice="opt"
+><option
+>--generate-index</option
+></group
+> </cmdsynopsis>
+</refsynopsisdiv>
+
+<refsect1>
+<title
+>Opis</title>
+<para
+><command
+>kpackagetool6</command
+> je orodje ukazne vrstice za namestitev, seznam, odstranjevanje &plasma; paketi.</para>
+
+</refsect1>
+
+<refsect1>
+<title
+>Opcije</title>
+
+<variablelist>
+<varlistentry>
+<term
+><option
+>-v, --version</option
+></term>
+<listitem
+><para
+>Prikaže informacije o različici.</para
+></listitem>
+</varlistentry>
+<varlistentry>
+<term
+><option
+>-h, --help</option
+></term>
+<listitem
+><para
+>Prikaže to pomoč.</para
+></listitem>
+</varlistentry>
+<varlistentry>
+<term
+><option
+>--hash</option
+> <replaceable
+> path</replaceable
+></term>
+<listitem
+><para
+>Ustvari zgoščeno vrednost SHA1 za paket na <quote
+>pot</quote
+>.</para
+></listitem>
+</varlistentry>
+<varlistentry>
+<term
+><option
+>-g, --global</option
+></term>
+<listitem
+><para
+>Za namestitev ali odstranitev deluje na paketih, nameščenih za vse uporabnike.</para
+></listitem>
+</varlistentry>
+<varlistentry>
+<term
+><option
+>-t, --type</option
+> <replaceable
+> type</replaceable
+></term>
+<listitem
+><para
+>Vrsta paketa, ki ustreza vrsti storitve vtičnika paketa, &eg; KPackage/generično, Plasma/tema, Plasma/ozadje, Plasma/Applet, &etc;</para
+></listitem>
+</varlistentry>
+<varlistentry>
+<term
+><option
+>-i, --install</option
+> <replaceable
+> path</replaceable
+></term>
+<listitem
+><para
+>Namestite paket na <quote
+>path</quote
+>.</para
+></listitem>
+</varlistentry>
+<varlistentry>
+<term
+><option
+>-s, --show</option
+> <replaceable
+> name</replaceable
+></term>
+<listitem
+><para
+>Prikaži informacije <quote
+>name</quote
+> paketa.</para
+></listitem>
+</varlistentry>
+<varlistentry>
+<term
+><option
+>-u, --upgrade</option
+> <replaceable
+> path</replaceable
+></term>
+<listitem
+><para
+>Nadgradite paket na <quote
+>path</quote
+>.</para
+></listitem>
+</varlistentry>
+<varlistentry>
+<term
+><option
+>-l, --list</option
+></term>
+<listitem
+><para
+>Seznam nameščenih paketov.</para
+></listitem>
+</varlistentry>
+<varlistentry>
+<term
+><option
+>--list-types</option
+></term>
+<listitem
+><para
+>Navaja vse znane vrste paketov, ki jih je mogoče namestiti.</para
+></listitem>
+</varlistentry>
+<varlistentry>
+<term
+><option
+>-r, --remove</option
+> <replaceable
+> name</replaceable
+></term>
+<listitem
+><para
+>Odstranite paket z imenom <quote
+>name</quote
+>.</para
+></listitem>
+</varlistentry>
+<varlistentry>
+<term
+><option
+>-p, --packageroot</option
+> <replaceable
+> path</replaceable
+></term>
+<listitem
+><para
+>Absolutna pot do korena paketa. Če ni priložen, so standardni podatkovni imeniki za ta &plasma; Namesto tega se bo iskala seja.</para
+></listitem>
+</varlistentry>
+<varlistentry>
+<term
+><option
+>--generate-index</option
+> <replaceable
+> path</replaceable
+></term>
+<listitem
+><para
+>Ponovno ustvarite indeks vtičnika. Za uporabo v povezavi z možnostjo <option
+>-t</option
+> ali <option
+>-g</option
+>. Ponovno ustvari indeks za dano vrsto ali koren paketa. Deluje v uporabniškem imeniku, razen če je uporabljena <option
+>-g</option
+>.</para
+></listitem>
+</varlistentry>
+
+</variablelist>
+
+</refsect1>
+
+<refsect1>
+<title
+>Poglej tudi</title>
+
+<para
+>Podrobnejša uporabniška dokumentacija je na voljo na <ulink url="help:/plasma-desktop"
+>help:/plasma-desktop</ulink
+> (vnesite ta &URL; v &konqueror; ali zaženite <userinput
+><command
+>khelpcenter</command
+> <parameter
+>help:/plasma-desktop</parameter
+></userinput
+>).</para>
+
+</refsect1>
+
+<refsect1>
+<title
+>Avtorji</title>
+<para
+><command
+>kpackagetool6</command
+> je napisal <personname
+><firstname
+>Aaron</firstname
+><surname
+>Seigo</surname
+></personname
+> <email
+>aseigo@kde.org</email
+>.</para>
+</refsect1>
+
+</refentry>
