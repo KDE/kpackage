@@ -164,7 +164,7 @@ void PackageJob::setupNotificationsOnJobFinished(const QString &messageName)
     const QString pluginId = d->package.metadata().pluginId();
     const QString kpackageType = readKPackageType(d->package.metadata());
 
-    auto onJobFinished = [=](bool ok, JobError errorCode, const QString &error) {
+    auto onJobFinished = [=, this](bool ok, JobError errorCode, const QString &error) {
         if (ok) {
             auto msg = QDBusMessage::createSignal(QStringLiteral("/KPackage/") + kpackageType, QStringLiteral("org.kde.plasma.kpackage"), messageName);
             msg.setArguments({pluginId});
