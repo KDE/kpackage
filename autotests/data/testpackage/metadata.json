@@ -11,6 +11,7 @@
         "Icon": "plasma",
         "Id": "org.kde.testpackage",
         "License": "GPLv2+",
+        "Website": "https://kde.org",
         "Name": "Test Package",
         "Name[ar]": "حزمة اختبارية",
         "Name[ast]": "Paquete de prueba",
