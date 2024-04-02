@@ -1,14 +1,14 @@
 # Copyright (C) YEAR This_file_is_part_of_KDE
 # This file is distributed under the same license as the PACKAGE package.
 #
-# SPDX-FileCopyrightText: 2014, 2015, 2016, 2017, 2018, 2021, 2022, 2023 Łukasz Wojniłowicz <lukasz.wojnilowicz@gmail.com>
+# SPDX-FileCopyrightText: 2014, 2015, 2016, 2017, 2018, 2021, 2022, 2023, 2024 Łukasz Wojniłowicz <lukasz.wojnilowicz@gmail.com>
 msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2023-12-20 01:33+0000\n"
-"PO-Revision-Date: 2023-12-23 11:32+0100\n"
-"Last-Translator: Łukasz Wojniłowicz <lukasz.wojnilowicz@gmai.com>\n"
+"PO-Revision-Date: 2024-04-01 07:25+0200\n"
+"Last-Translator: Łukasz Wojniłowicz <lukasz.wojnilowicz@gmail.com>\n"
 "Language-Team: Polish <kde-i18n-doc@kde.org>\n"
 "Language: pl\n"
 "MIME-Version: 1.0\n"
@@ -16,7 +16,7 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=3; plural=(n==1 ? 0 : n%10>=2 && n%10<=4 && (n%100<10 "
 "|| n%100>=20) ? 1 : 2);\n"
-"X-Generator: Lokalize 23.08.3\n"
+"X-Generator: Lokalize 23.08.5\n"
 
 #, kde-format
 msgctxt "NAME OF TRANSLATORS"
@@ -229,7 +229,7 @@ msgstr "Dostarczone przez wtyczki:"
 #: kpackagetool/kpackagetool.cpp:524
 #, kde-format
 msgid "Successfully upgraded %1"
-msgstr "Pomyślnie unowocześniono %1"
+msgstr "Pomyślnie uaktualniono %1"
 
 #: kpackagetool/kpackagetool.cpp:526
 #, kde-format
@@ -249,12 +249,12 @@ msgstr "Uaktualnianie pakietu z pliku: %1"
 #: kpackagetool/kpackagetool.cpp:548
 #, kde-format
 msgid "Successfully uninstalled %1"
-msgstr "Pomyślnie odinstalowano %1"
+msgstr "Pomyślnie usunięto %1"
 
 #: kpackagetool/kpackagetool.cpp:550
 #, kde-format
 msgid "Error: Uninstallation of %1 failed: %2"
-msgstr "Błąd: Nieudane odinstalowywanie %1: %2"
+msgstr "Błąd: Nie udało się usunąć %1: %2"
 
 #: kpackagetool/main.cpp:36
 #, kde-format
@@ -265,14 +265,12 @@ msgstr "Zarządzanie pakietami"
 #, kde-format
 msgctxt "Do not translate <path>"
 msgid "Generate a SHA1 hash for the package at <path>"
-msgstr "Generuj hasz SHA1 dla pakietu przy <path>"
+msgstr "Oblicz skrót SHA1 dla pakietu przy <path>"
 
 #: kpackagetool/options.h:18
 #, kde-format
 msgid "For install or remove, operates on packages installed for all users."
-msgstr ""
-"Aby wgrywać lub usuwać, pracuje na pakietach wgranych dla wszystkich "
-"użytkowników."
+msgstr "Wgrywa lub usuwa pakiety dla wszystkich użytkowników."
 
 #: kpackagetool/options.h:27
 #, kde-format
@@ -298,7 +296,7 @@ msgstr "Wgraj pakiet w <path>"
 #, kde-format
 msgctxt "Do not translate <name>"
 msgid "Show information of package <name>"
-msgstr "Pokaż informacje o pakiecie <name>"
+msgstr "Pokaż szczegóły o pakiecie <name>"
 
 #: kpackagetool/options.h:50
 #, kde-format
