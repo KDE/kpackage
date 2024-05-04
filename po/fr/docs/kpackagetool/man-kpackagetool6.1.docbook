@@ -49,7 +49,7 @@
 ><option
 >--hash</option
 > <replaceable
-> path</replaceable
+> emplacement</replaceable
 ></group
 > <group choice="opt"
 ><option
@@ -65,19 +65,19 @@
 ><option
 >-i, --install</option
 > <replaceable
-> path</replaceable
+> emplacement</replaceable
 ></group
 > <group choice="opt"
 ><option
 >-s, --show</option
 > <replaceable
-> name</replaceable
+> nom</replaceable
 ></group
 > <group choice="opt"
 ><option
 >-u, --upgrade</option
 > <replaceable
-> path</replaceable
+> emplacement</replaceable
 ></group
 > <group choice="opt"
 ><option
@@ -186,8 +186,8 @@
 ></term>
 <listitem
 ><para
->Install le paquet à l'<quote
->emplacement</quote
+>Installer le paquet à <quote
+>l'emplacement</quote
 >.</para
 ></listitem>
 </varlistentry>
