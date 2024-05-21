@@ -4,13 +4,13 @@
 #
 # Malcolm Hunter <malcolm.hunter@gmx.co.uk>, 2008.
 # Andrew Coles <andrew_coles@yahoo.co.uk>, 2009, 2010.
-# Steve Allewell <steve.allewell@gmail.com>, 2014, 2015, 2016, 2017, 2019, 2020, 2022, 2023.
+# SPDX-FileCopyrightText: 2014, 2015, 2016, 2017, 2019, 2020, 2022, 2023, 2024 Steve Allewell <steve.allewell@gmail.com>
 msgid ""
 msgstr ""
 "Project-Id-Version: plasmapkg\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2023-12-20 01:33+0000\n"
-"PO-Revision-Date: 2023-03-26 14:26+0100\n"
+"PO-Revision-Date: 2024-05-20 19:18+0100\n"
 "Last-Translator: Steve Allewell <steve.allewell@gmail.com>\n"
 "Language-Team: British English\n"
 "Language: en_GB\n"
@@ -18,7 +18,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
-"X-Generator: Lokalize 23.03.70\n"
+"X-Generator: Lokalize 24.02.2\n"
 
 #, kde-format
 msgctxt "NAME OF TRANSLATORS"
@@ -53,7 +53,7 @@ msgstr "Could not open package file: %1"
 #: kpackage/private/packagejobthread.cpp:238
 #, kde-format
 msgid "Package is not considered valid"
-msgstr ""
+msgstr "Package is not considered valid"
 
 #: kpackage/private/packagejobthread.cpp:248
 #, kde-format
