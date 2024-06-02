@@ -47,6 +47,16 @@ PRIVATE
      KF6::I18n
 )
 
+if (HAVE_DBUS)
+    target_link_libraries(KF6Package
+        PRIVATE
+        Qt::DBus # notification
+    )
+    target_compile_definitions(KF6Package PRIVATE -DHAVE_QTDBUS=1)
+else()
+    target_compile_definitions(KF6Package PRIVATE -DHAVE_QTDBUS=0)
+endif()
+
 target_include_directories(KF6Package PUBLIC
   "$<BUILD_INTERFACE:${CMAKE_CURRENT_SOURCE_DIR}/..;${CMAKE_CURRENT_BINARY_DIR};${CMAKE_CURRENT_BINARY_DIR}/KPackage>"
 )

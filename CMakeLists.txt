@@ -42,7 +42,19 @@ ecm_setup_version(PROJECT
 
 set (REQUIRED_QT_VERSION 6.5.0)
 
-find_package(Qt6 ${REQUIRED_QT_VERSION} REQUIRED NO_MODULE COMPONENTS Core DBus)
+find_package(Qt6 ${REQUIRED_QT_VERSION} REQUIRED NO_MODULE COMPONENTS Core)
+
+# shall we use DBus?
+# enabled per default on Linux & BSD systems
+set(USE_DBUS_DEFAULT OFF)
+if(UNIX AND NOT APPLE AND NOT ANDROID AND NOT HAIKU)
+    set(USE_DBUS_DEFAULT ON)
+endif()
+option(USE_DBUS "Build components using DBus" ${USE_DBUS_DEFAULT})
+if(USE_DBUS)
+  find_package(Qt6 ${REQUIRED_QT_VERSION} CONFIG REQUIRED DBus)
+  set(HAVE_DBUS ON)
+endif()
 
 find_package(KF6Archive ${KF_DEP_VERSION} REQUIRED)
 find_package(KF6I18n ${KF_DEP_VERSION} REQUIRED)

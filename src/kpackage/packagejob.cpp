@@ -16,8 +16,11 @@
 
 #include "kpackage_debug.h"
 
+#if HAVE_QTDBUS
 #include <QDBusConnection>
 #include <QDBusMessage>
+#endif
+
 #include <QDebug>
 #include <QStandardPaths>
 #include <QThreadPool>
@@ -165,11 +168,13 @@ void PackageJob::setupNotificationsOnJobFinished(const QString &messageName)
     const QString kpackageType = readKPackageType(d->package.metadata());
 
     auto onJobFinished = [=, this](bool ok, JobError errorCode, const QString &error) {
+#if HAVE_QTDBUS
         if (ok) {
             auto msg = QDBusMessage::createSignal(QStringLiteral("/KPackage/") + kpackageType, QStringLiteral("org.kde.plasma.kpackage"), messageName);
             msg.setArguments({pluginId});
             QDBusConnection::sessionBus().send(msg);
         }
+#endif
 
         if (ok) {
             setError(NoError);
