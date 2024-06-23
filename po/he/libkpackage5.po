@@ -3,98 +3,98 @@
 #
 # Elkana Bardugo <ttv200@gmail.com>, 2016.
 # Elkana Bardugo <ttv200@gmail.com>, 2017. #zanata
+# SPDX-FileCopyrightText: 2024 Yaron Shahrabani <sh.yaron@gmail.com>
 msgid ""
 msgstr ""
 "Project-Id-Version: libkpackage5\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2023-11-05 12:25+0000\n"
-"PO-Revision-Date: 2017-05-16 06:50-0400\n"
-"Last-Translator: Copied by Zanata <copied-by-zanata@zanata.org>\n"
-"Language-Team: Hebrew <kde-i18n-doc@kde.org>\n"
+"PO-Revision-Date: 2024-06-21 15:19+0300\n"
+"Last-Translator: Yaron Shahrabani <sh.yaron@gmail.com>\n"
+"Language-Team: צוות התרגום של KDE ישראל\n"
 "Language: he\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
-"X-Generator: Zanata 3.9.6\n"
+"X-Generator: Lokalize 24.02.2\n"
 
-#, fuzzy, kde-format
-#| msgid "Fun and Games"
+#, kde-format
 msgctxt "NAME OF TRANSLATORS"
 msgid "Your names"
-msgstr "כיף ומשחקים"
+msgstr "צוות התרגום של KDE ישראל"
 
 #, kde-format
 msgctxt "EMAIL OF TRANSLATORS"
 msgid "Your emails"
-msgstr ""
+msgstr "kde-l10n-he@kde.org"
 
 #: kpackage/package.cpp:42
 #, kde-format
 msgid "Desktop file that describes this package."
-msgstr ""
+msgstr "קובץ Desktop שמתאר את החבילה."
 
 #: kpackage/packageloader.cpp:255
 #, kde-format
 msgid "Could not load installer for package of type %1. Error reported was: %2"
-msgstr ""
+msgstr "לא ניתן לטעון את תוכנית ההתקנה לחבילה מסוג %1. השגיאה שדווחה הייתה: %2"
 
 #: kpackage/private/packagejobthread.cpp:144
 #, kde-format
 msgid "Could not create package root directory: %1"
-msgstr ""
+msgstr "לא ניתן ליצור תיקיית שורש לחבילה: %1"
 
 #: kpackage/private/packagejobthread.cpp:153
 #, kde-format
 msgid "No such file: %1"
-msgstr ""
+msgstr "אין כזה קובץ: %1"
 
 #: kpackage/private/packagejobthread.cpp:183
 #, kde-format
 msgid "Could not open package file, unsupported archive format: %1 %2"
-msgstr ""
+msgstr "לא ניתן לפתוח קובץ חבילה, סוג הארכיון לא נתמך: %1 %2"
 
 #: kpackage/private/packagejobthread.cpp:191
 #, kde-format
 msgid "Could not open package file: %1"
-msgstr ""
+msgstr "לא ניתן לפתוח קובץ חבילה: %1"
 
 #: kpackage/private/packagejobthread.cpp:231
 #, kde-format
 msgid "Could not open metadata file: %1"
-msgstr ""
+msgstr "לא ניתן לפתוח את קובץ נתוני העל: %1"
 
 #: kpackage/private/packagejobthread.cpp:238
 #, kde-format
 msgid "No metadata file in package: %1"
-msgstr ""
+msgstr "אין קובץ נתוני על בחבילה: %1"
 
 #: kpackage/private/packagejobthread.cpp:247
 #, kde-format
 msgid "Package plugin name not specified: %1"
-msgstr ""
+msgstr "שם תוסף החבילה לא צוין: %1"
 
 #: kpackage/private/packagejobthread.cpp:257
 #, kde-format
 msgid "Package plugin name %1 contains invalid characters"
-msgstr ""
+msgstr "שם תוסף החבילה %1 מכיל תווים שגויים"
 
 #: kpackage/private/packagejobthread.cpp:280
 #, kde-format
 msgid ""
 "The new package has a different type from the old version already installed."
-msgstr ""
+msgstr "לחבילה החדשה יש סוג שונה מהגרסה הישנה שכבר הותקנה."
 
 #: kpackage/private/packagejobthread.cpp:285
 #, kde-format
 msgid ""
 "Impossible to remove the old installation of %1 located at %2. error: %3"
-msgstr ""
+msgstr "אי אפשר להסיר את ההתקנה הישנה של %1 שממוקמת תחת %2. שגיאה: %3"
 
 #: kpackage/private/packagejobthread.cpp:289
 #, kde-format
 msgid "Not installing version %1 of %2. Version %3 already installed."
-msgstr ""
+msgstr "גרסה %1 של %2 לא תותקן. גרסה %3 כבר מותקנת."
 
 #: kpackage/private/packagejobthread.cpp:293
 #, kde-format
@@ -104,22 +104,22 @@ msgstr "%1 כבר קיים"
 #: kpackage/private/packagejobthread.cpp:314
 #, kde-format
 msgid "Could not install dependency: '%1'"
-msgstr ""
+msgstr "לא ניתן להתקין את התלות: ‚%1’"
 
 #: kpackage/private/packagejobthread.cpp:326
 #, kde-format
 msgid "Could not move package to destination: %1"
-msgstr ""
+msgstr "לא ניתן להעביר חבילה ליעד: %1"
 
 #: kpackage/private/packagejobthread.cpp:336
 #, kde-format
 msgid "Could not copy package to destination: %1"
-msgstr ""
+msgstr "לא ניתן להעתיק חבילה ליעד: %1"
 
 #: kpackage/private/packagejobthread.cpp:372
 #, kde-format
 msgid "package path was deleted manually"
-msgstr ""
+msgstr "נתיב החבילה נמחק ידנית"
 
 #: kpackage/private/packagejobthread.cpp:372
 #, kde-format
@@ -129,7 +129,7 @@ msgstr "%1 לא קיים"
 #: kpackage/private/packagejobthread.cpp:392
 #, kde-format
 msgid "Could not delete package from: %1"
-msgstr ""
+msgstr "לא ניתן למחוק חבילה מתוך: %1"
 
 #: kpackage/private/packages.cpp:17 kpackage/private/packages.cpp:38
 #, kde-format
@@ -144,12 +144,12 @@ msgstr "תמונה"
 #: kpackage/private/packages.cpp:49
 #, kde-format
 msgid "Themed Images"
-msgstr ""
+msgstr "תמונות לפי נושא"
 
 #: kpackage/private/packages.cpp:55
 #, kde-format
 msgid "Configuration Definitions"
-msgstr ""
+msgstr "הגדרות תצורה"
 
 #: kpackage/private/packages.cpp:60
 #, kde-format
@@ -164,7 +164,7 @@ msgstr "קובצי נתונים"
 #: kpackage/private/packages.cpp:64
 #, kde-format
 msgid "Executable Scripts"
-msgstr "סקריפט בר־הרצה"
+msgstr "סקריפט להרצה"
 
 #: kpackage/private/packages.cpp:69
 #, kde-format
@@ -179,12 +179,12 @@ msgstr "קובץ ממשק המשתמש הראשי"
 #: kpackagetool/kpackagetool.cpp:91
 #, kde-format
 msgid "Failed to generate a Package hash for %1"
-msgstr ""
+msgstr "יצירת גיבוב עבור החבילה %1 נכשל"
 
 #: kpackagetool/kpackagetool.cpp:94
 #, kde-format
 msgid "SHA1 hash for Package at %1: '%2'"
-msgstr ""
+msgstr "גיבוב SHA1 לחבילה שב־%1:‏ ‚%2’"
 
 #: kpackagetool/kpackagetool.cpp:133
 #, kde-format
@@ -195,12 +195,12 @@ msgstr "רקע"
 #: kpackagetool/kpackagetool.cpp:184
 #, kde-format
 msgid "Listing service types: %1 in %2"
-msgstr ""
+msgstr "סוגי השירותים מוצגים: %1 ב־%2"
 
 #: kpackagetool/kpackagetool.cpp:275
 #, kde-format
 msgid "Error: Plugin %1 is not installed."
-msgstr ""
+msgstr "שגיאה: התוסף %1 לא הותקן."
 
 #: kpackagetool/kpackagetool.cpp:294
 #, kde-format
@@ -208,42 +208,42 @@ msgctxt ""
 "No option was given, this is the error message telling the user he needs at "
 "least one, do not translate install, remove, upgrade nor list"
 msgid "One of install, remove, upgrade or list is required."
-msgstr ""
+msgstr "צריך אחת מבין install,‏ remove,‏ upgrade או list."
 
 #: kpackagetool/kpackagetool.cpp:347 kpackagetool/kpackagetool.cpp:429
 #, kde-format
 msgid "Error: Can't find plugin metadata: %1\n"
-msgstr ""
+msgstr "שגיאה: אי אפשר למצוא נתוני־על של תוסף: %1\n"
 
 #: kpackagetool/kpackagetool.cpp:351
 #, kde-format
 msgid "Showing info for package: %1"
-msgstr ""
+msgstr "מוצג המידע על החבילה: %1"
 
 #: kpackagetool/kpackagetool.cpp:352
 #, kde-format
 msgid "      Name : %1"
-msgstr ""
+msgstr "      שם : %1"
 
 #: kpackagetool/kpackagetool.cpp:353
 #, kde-format
 msgid "   Comment : %1"
-msgstr ""
+msgstr "   הערה : %1"
 
 #: kpackagetool/kpackagetool.cpp:354
 #, kde-format
 msgid "    Plugin : %1"
-msgstr ""
+msgstr "    תוסף : %1"
 
 #: kpackagetool/kpackagetool.cpp:356
 #, kde-format
 msgid "    Author : %1"
-msgstr ""
+msgstr "    יוצר : %1"
 
 #: kpackagetool/kpackagetool.cpp:357
 #, kde-format
 msgid "      Path : %1"
-msgstr ""
+msgstr "      נתיב: %1"
 
 #: kpackagetool/kpackagetool.cpp:542
 #, kde-format
@@ -253,12 +253,12 @@ msgctxt ""
 msgid ""
 "The packageroot and global options conflict with each other, please select "
 "only one."
-msgstr ""
+msgstr "האפשרויות packageroot ו־global סותרות זו את זו, נא לבחור אחת מהן."
 
 #: kpackagetool/kpackagetool.cpp:570
 #, kde-format
 msgid "KPackage Structure Name"
-msgstr ""
+msgstr "שם מבנה KPackage"
 
 #: kpackagetool/kpackagetool.cpp:571
 #, kde-format
@@ -268,73 +268,73 @@ msgstr "נתיב"
 #: kpackagetool/kpackagetool.cpp:602
 #, kde-format
 msgid "Package types that are installable with this tool:"
-msgstr ""
+msgstr "סוגי חבילות שאפשר להתקין עם הכלי הזה:"
 
 #: kpackagetool/kpackagetool.cpp:603
 #, kde-format
 msgid "Built in:"
-msgstr ""
+msgstr "נבנה בעזרת:"
 
 #: kpackagetool/kpackagetool.cpp:606
 #, kde-format
 msgid "KPackage/Generic"
-msgstr ""
+msgstr "KPackage/Generic"
 
 #: kpackagetool/kpackagetool.cpp:607
 #, kde-format
 msgid "KPackage/GenericQML"
-msgstr ""
+msgstr "KPackage/GenericQML"
 
 #: kpackagetool/kpackagetool.cpp:615
 #, kde-format
 msgid "Provided by plugins:"
-msgstr ""
+msgstr "סופק על ידי תוספים:"
 
 #: kpackagetool/kpackagetool.cpp:638
 #, kde-format
 msgid "Successfully upgraded %1"
-msgstr ""
+msgstr "%1 שודרגה בהצלחה"
 
 #: kpackagetool/kpackagetool.cpp:640
 #, kde-format
 msgid "Successfully installed %1"
-msgstr ""
+msgstr "%1 הותקנה בהצלחה"
 
 #: kpackagetool/kpackagetool.cpp:643
 #, kde-format
 msgid "Error: Installation of %1 failed: %2"
-msgstr ""
+msgstr "שגיאה: ההתקנה של %1 נכשלה: %2"
 
 #: kpackagetool/kpackagetool.cpp:655
 #, kde-format
 msgid "Upgrading package from file: %1"
-msgstr ""
+msgstr "חבילה משודרגת מקובץ: %1"
 
 #: kpackagetool/kpackagetool.cpp:662
 #, kde-format
 msgid "Successfully uninstalled %1"
-msgstr ""
+msgstr "%1 הוסרה בהצלחה"
 
 #: kpackagetool/kpackagetool.cpp:664
 #, kde-format
 msgid "Error: Uninstallation of %1 failed: %2"
-msgstr ""
+msgstr "שגיאה: הסרת %1 נכשלה: %2"
 
 #: kpackagetool/main.cpp:36
 #, kde-format
 msgid "KPackage Manager"
-msgstr ""
+msgstr "מנהל החבילות KPackage"
 
 #: kpackagetool/options.h:11
 #, kde-format
 msgctxt "Do not translate <path>"
 msgid "Generate a SHA1 hash for the package at <path>"
-msgstr ""
+msgstr "מייצר גיבוב SHA1 לחבילה שתחת <path>"
 
 #: kpackagetool/options.h:18
 #, kde-format
 msgid "For install or remove, operates on packages installed for all users."
-msgstr ""
+msgstr "להתקנה או הסרה, פועל על חבילות שמותקנות לכל המשתמשים."
 
 #: kpackagetool/options.h:27
 #, kde-format
@@ -347,24 +347,26 @@ msgid ""
 "plugin, e.g. KPackage/Generic, Plasma/Theme, Plasma/Wallpaper, Plasma/"
 "Applet, etc."
 msgstr ""
+"סוג החבילה, לפי סוגי השירות של תוסף החבילות, למשל: KPackage/Generic,‏ Plasma/"
+"Theme,‏ Plasma/Wallpaper,‏ Plasma/Applet וכו׳."
 
 #: kpackagetool/options.h:36
 #, kde-format
 msgctxt "Do not translate <path>"
 msgid "Install the package at <path>"
-msgstr ""
+msgstr "התקנת החבילה שתחת <path>"
 
 #: kpackagetool/options.h:43
 #, kde-format
 msgctxt "Do not translate <name>"
 msgid "Show information of package <name>"
-msgstr ""
+msgstr "הצגת מידע על החבילה <name>"
 
 #: kpackagetool/options.h:50
 #, kde-format
 msgctxt "Do not translate <path>"
 msgid "Upgrade the package at <path>"
-msgstr ""
+msgstr "שדרוג החבילה תחת <path>"
 
 #: kpackagetool/options.h:56
 #, kde-format
@@ -374,13 +376,13 @@ msgstr "רשימת יישומים מותקנים"
 #: kpackagetool/options.h:61
 #, kde-format
 msgid "List all known package types that can be installed"
-msgstr ""
+msgstr "הצגת כל סוגי החבילות שניתן להתקין"
 
 #: kpackagetool/options.h:67
 #, kde-format
 msgctxt "Do not translate <name>"
 msgid "Remove the package named <name>"
-msgstr ""
+msgstr "הסרת חבילה בשם <name>"
 
 #: kpackagetool/options.h:74
 #, kde-format
@@ -388,6 +390,8 @@ msgid ""
 "Absolute path to the package root. If not supplied, then the standard data "
 "directories for this KDE session will be searched instead."
 msgstr ""
+"נתיב שלם לשורש החבילה. אם לא סופק, יעשה חיפוש בתיקיות הנתונים הרגילות בהפעלה "
+"זו של KDE."
 
 #: kpackagetool/options.h:82
 #, kde-format
@@ -409,13 +413,13 @@ msgstr ""
 #, kde-format
 msgctxt "Do not translate <path>"
 msgid "Outputs the metadata for the package <path>"
-msgstr ""
+msgstr "פולט את נתוני העל של החבילה לתוך <path>"
 
 #: kpackagetool/options.h:105
 #, kde-format
 msgctxt "Do not translate <path>"
 msgid "Outputs the metadata for the package into <path>"
-msgstr ""
+msgstr "פולט את נתוני העל של החבילה לתוך <נתיב>"
 
 #~ msgid "Accessibility"
 #~ msgstr "נגישות"
