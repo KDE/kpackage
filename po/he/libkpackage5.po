@@ -9,7 +9,7 @@ msgstr ""
 "Project-Id-Version: libkpackage5\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2023-11-05 12:25+0000\n"
-"PO-Revision-Date: 2024-06-21 15:19+0300\n"
+"PO-Revision-Date: 2024-07-02 14:17+0300\n"
 "Last-Translator: Yaron Shahrabani <sh.yaron@gmail.com>\n"
 "Language-Team: צוות התרגום של KDE ישראל\n"
 "Language: he\n"
@@ -17,7 +17,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
-"X-Generator: Lokalize 24.02.2\n"
+"X-Generator: Lokalize 24.05.1\n"
 
 #, kde-format
 msgctxt "NAME OF TRANSLATORS"
@@ -400,6 +400,8 @@ msgid ""
 "t or -g. Recreates the index for the given type or package root. Operates in "
 "the user directory, unless -g is used"
 msgstr ""
+"יצירת מפתח התוספים מחדש. לשימוש בשילוב עם האפשרויות ‎-t או ‎-g. יצירת המפתח "
+"לסוג שסופק או לשורש החבילות. פועל על תיקיית המשתמש אלמלא צוין ‎-g."
 
 #: kpackagetool/options.h:90
 #, kde-format
@@ -408,6 +410,8 @@ msgid ""
 "or -g. Recreates the index for the given type or package root. Operates in "
 "the user directory, unless -g is used"
 msgstr ""
+"הסרת מפתח התוספים. לשימוש בשילוב עם האפשרויות ‎-t או ‎-g. יצירת המפתח לסוג "
+"שסופק או לשורש החבילות. פועל על תיקיית המשתמש אלמלא צוין ‎-g."
 
 #: kpackagetool/options.h:98
 #, kde-format
