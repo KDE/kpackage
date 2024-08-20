@@ -1,5 +1,9 @@
 // SPDX-FileCopyrightText: 2023 Alexander Lohnau <alexander.lohnau@gmx.de>
 // SPDX-License-Identifier: LGPL-2.0-or-later
+
+#ifndef KPACKAGE_PACKAGESTRUCTURE_COMPAT_P_H
+#define KPACKAGE_PACKAGESTRUCTURE_COMPAT_P_H
+
 #include <KPackage/Package>
 #include <QMap>
 
@@ -38,3 +42,5 @@ void convertCompatMetaDataDesktopFile(KPackage::Package *package, const QMap<QSt
     }
 }
 };
+
+#endif
