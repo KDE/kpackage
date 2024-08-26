@@ -211,8 +211,8 @@ msgctxt ""
 "least one, do not translate install, remove, upgrade nor list"
 msgid "One of install, remove, upgrade or list is required."
 msgstr ""
-"Du må anten oppgje «install» (installer), «upgrade» (oppdater) eller "
-"«list» (vis oversikt)."
+"Du må anten oppgje «install» (installer), «upgrade» (oppdater) eller «list» "
+"(vis oversikt)."
 
 #: kpackagetool/kpackagetool.cpp:347 kpackagetool/kpackagetool.cpp:429
 #, kde-format
