@@ -3,7 +3,7 @@
 # Frederik Schwarzer <schwarzer@kde.org>, 2014, 2016, 2022, 2023.
 msgid ""
 msgstr ""
-"Project-Id-Version: \n"
+"Project-Id-Version: libkpackage6\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2023-11-05 12:25+0000\n"
 "PO-Revision-Date: 2022-12-19 10:40+0100\n"
