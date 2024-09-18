@@ -164,10 +164,9 @@ msgid "Showing info for package: %1"
 msgstr "Εμφάνιση πληροφοριών για το πακέτο: %1"
 
 #: kpackagetool/kpackagetool.cpp:260
-#, fuzzy, kde-format
-#| msgid "      Name : %1"
+#, kde-format
 msgid "  Name       : %1"
-msgstr "      Όνομα : %1"
+msgstr "  Όνομα      : %1"
 
 #: kpackagetool/kpackagetool.cpp:261
 #, kde-format
@@ -175,22 +174,19 @@ msgid "  Description: %1"
 msgstr ""
 
 #: kpackagetool/kpackagetool.cpp:262
-#, fuzzy, kde-format
-#| msgid "    Plugin : %1"
+#, kde-format
 msgid "  Plugin     : %1"
-msgstr "    Πρόσθετο: %1"
+msgstr "  Πρόσθετο   : %1"
 
 #: kpackagetool/kpackagetool.cpp:268
-#, fuzzy, kde-format
-#| msgid "    Author : %1"
+#, kde-format
 msgid "  Author     : %1"
-msgstr "    Συγγραφέας : %1"
+msgstr "  Συγγραφέας : %1"
 
 #: kpackagetool/kpackagetool.cpp:269
-#, fuzzy, kde-format
-#| msgid "      Path : %1"
+#, kde-format
 msgid "  Path       : %1"
-msgstr "      Διαδρομή: %1"
+msgstr "  Διαδρομή   : %1"
 
 #: kpackagetool/kpackagetool.cpp:429
 #, kde-format
