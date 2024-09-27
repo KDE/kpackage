@@ -61,6 +61,12 @@ PackageJob::PackageJob(OperationType type, const Package &package, const QString
     d->thread = new PackageJobThread(type, src, dest, package);
     d->package = package;
 
+    connect(d->thread, &PackageJobThread::installPathChanged, this, [this](const QString &installPath) {
+        d->package.setPath(installPath);
+    });
+
+    // setupNotificationsOnJobFinished connects to jobThreadFinished,
+    // don't connect to it again
     if (type == Install) {
         setupNotificationsOnJobFinished(QStringLiteral("packageInstalled"));
     } else if (type == Update) {
@@ -71,12 +77,6 @@ PackageJob::PackageJob(OperationType type, const Package &package, const QString
     } else {
         Q_UNREACHABLE();
     }
-    connect(d->thread, &PackageJobThread::installPathChanged, this, [this](const QString &installPath) {
-        d->package.setPath(installPath);
-    });
-    connect(d->thread, &PackageJobThread::jobThreadFinished, this, [this]() {
-        emitResult();
-    });
 }
 
 PackageJob::~PackageJob() = default;
