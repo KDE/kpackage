@@ -1,3 +1,7 @@
+// SPDX-FileCopyrightText: 2021 Alexander Lohnau <alexander.lohnau@gmx.de>
+// SPDX-FileCopyrightText: 2021 Nicolas Fella <nicolas.fella@gmx.de>
+// SPDX-License-Identifier: LGPL-2.1-or-later
+
 #pragma once
 
 #include "kpackage_debug.h"
