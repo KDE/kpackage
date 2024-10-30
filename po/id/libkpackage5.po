@@ -2,32 +2,32 @@
 # Copyright (C) 2010 This_file_is_part_of_KDE
 # This file is distributed under the same license as the plasmapkg package.
 # Andhika Padmawan <andhika.padmawan@gmail.com>, 2010-2014.
-# Wantoyo <wantoyek@gmail.com>, 2017, 2018, 2019.
+# SPDX-FileCopyrightText: 2017, 2018, 2019, 2024 Wantoyo <wantoyek@gmail.com>
 #
 msgid ""
 msgstr ""
 "Project-Id-Version: plasmapkg\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2023-11-05 12:25+0000\n"
-"PO-Revision-Date: 2019-11-09 21:00+0700\n"
-"Last-Translator: Wantoyo <wantoyek@gmail.com>\n"
-"Language-Team: Indonesian <kde-i18n-doc@kde.org>\n"
+"PO-Revision-Date: 2024-10-26 21:50+0700\n"
+"Last-Translator: Wantoyèk <wantoyek@gmail.com>\n"
+"Language-Team: https://t.me/Localizations_KDE_Indonesia\n"
 "Language: id\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
+"X-Generator: Lokalize 24.08.2\n"
 
-#, fuzzy, kde-format
-#| msgid "Fun and Games"
+#, kde-format
 msgctxt "NAME OF TRANSLATORS"
 msgid "Your names"
-msgstr "Hiburan dan Permainan"
+msgstr "Wantoyèk"
 
 #, kde-format
 msgctxt "EMAIL OF TRANSLATORS"
 msgid "Your emails"
-msgstr ""
+msgstr "wantoyek@gmail.com"
 
 #: kpackage/package.cpp:42
 #, kde-format
@@ -124,7 +124,7 @@ msgstr "Tidak dapat menyalin paket ke tujuan: %1"
 #: kpackage/private/packagejobthread.cpp:372
 #, kde-format
 msgid "package path was deleted manually"
-msgstr ""
+msgstr "alur paket telah dihapus secara manual"
 
 #: kpackage/private/packagejobthread.cpp:372
 #, kde-format
@@ -144,12 +144,12 @@ msgstr "File Skrip Utama"
 #: kpackage/private/packages.cpp:48
 #, kde-format
 msgid "Images"
-msgstr "Citra"
+msgstr "Gambar"
 
 #: kpackage/private/packages.cpp:49
 #, kde-format
 msgid "Themed Images"
-msgstr "Citra Bertema"
+msgstr "Gambar Bertema"
 
 #: kpackage/private/packages.cpp:55
 #, kde-format
@@ -265,7 +265,7 @@ msgstr ""
 #: kpackagetool/kpackagetool.cpp:570
 #, kde-format
 msgid "KPackage Structure Name"
-msgstr ""
+msgstr "Nama Struktur KPackage"
 
 #: kpackagetool/kpackagetool.cpp:571
 #, kde-format
