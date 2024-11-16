@@ -50,7 +50,9 @@ function(kpackage_install_package dir component)
             PATTERN CMakeLists.txt EXCLUDE
             PATTERN Messages.sh EXCLUDE
             PATTERN dummydata EXCLUDE)
+endfunction()
 
+function(kpackage_generate_appstream_metadata component)
    get_target_property(kpackagetool_cmd KF6::kpackagetool6 LOCATION)
    if (${component} MATCHES "^.+\\..+\\." AND NOT SKIP_APPSTREAM) #we make sure there's at least 2 dots
         set(APPDATAFILE "${CMAKE_CURRENT_BINARY_DIR}/${component}.appdata.xml")
@@ -70,6 +72,6 @@ function(kpackage_install_package dir component)
             install(FILES ${APPDATAFILE} DESTINATION ${KDE_INSTALL_METAINFODIR} OPTIONAL)
         endif()
    else()
-        message(DEBUG "KPackage components should be specified in reverse domain notation. Appstream information won't be generated for ${component}.")
+        message(FATAL_ERROR "KPackage components must be specified in reverse domain notation for appstream generation.")
    endif()
 endfunction()
