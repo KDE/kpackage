@@ -39,26 +39,4 @@ function(kpackage_install_package dir component)
             PATTERN CMakeLists.txt EXCLUDE
             PATTERN Messages.sh EXCLUDE
             PATTERN dummydata EXCLUDE)
-
-   get_target_property(kpackagetool_cmd KF6::kpackagetool6 LOCATION)
-   if (${component} MATCHES "^.+\\..+\\.") #we make sure there's at least 2 dots
-        set(APPDATAFILE "${CMAKE_CURRENT_BINARY_DIR}/${component}.appdata.xml")
-
-        execute_process(
-            COMMAND ${kpackagetool_cmd} --appstream-metainfo ${CMAKE_CURRENT_SOURCE_DIR}/${dir} --appstream-metainfo-output ${APPDATAFILE}
-            ERROR_VARIABLE appstreamerror
-            RESULT_VARIABLE result)
-        if (NOT result EQUAL 0)
-            message(WARNING "couldn't generate metainfo for ${component}: ${appstreamerror}")
-        else()
-            if(appstreamerror)
-                message(WARNING "warnings during generation of metainfo for ${component}: ${appstreamerror}")
-            endif()
-
-            # OPTIONAL because json files can be NoDisplay so they render no XML
-            install(FILES ${APPDATAFILE} DESTINATION ${KDE_INSTALL_METAINFODIR} OPTIONAL)
-        endif()
-   else()
-        message(DEBUG "KPackage components should be specified in reverse domain notation. Appstream information won't be generated for ${component}.")
-   endif()
 endfunction()
