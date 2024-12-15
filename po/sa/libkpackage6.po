@@ -19,12 +19,12 @@ msgstr ""
 #, kde-format
 msgctxt "NAME OF TRANSLATORS"
 msgid "Your names"
-msgstr ""
+msgstr "भवतः नामानि"
 
 #, kde-format
 msgctxt "EMAIL OF TRANSLATORS"
 msgid "Your emails"
-msgstr ""
+msgstr "भवतः ईमेलपत्राणि"
 
 #: kpackage/private/packagejobthread.cpp:164
 #, kde-format
@@ -139,7 +139,7 @@ msgctxt ""
 "No option was given, this is the error message telling the user he needs at "
 "least one, do not translate install, remove, upgrade nor list"
 msgid "One of install, remove, upgrade or list is required."
-msgstr ""
+msgstr "संस्थापनं, निष्कासनं, उन्नयनं वा सूचीं वा इति एकं आवश्यकम् ।"
 
 #: kpackagetool/kpackagetool.cpp:255 kpackagetool/kpackagetool.cpp:333
 #, kde-format
@@ -185,6 +185,7 @@ msgid ""
 "The packageroot and global options conflict with each other, please select "
 "only one."
 msgstr ""
+"packageroot तथा global विकल्पाः परस्परं विग्रहं कुर्वन्ति, कृपया केवलम् एकं चिनोतु ।"
 
 #: kpackagetool/kpackagetool.cpp:457
 #, kde-format
@@ -260,7 +261,7 @@ msgstr "केपैकेज प्रबन्धक"
 #, kde-format
 msgctxt "Do not translate <path>"
 msgid "Generate a SHA1 hash for the package at <path>"
-msgstr ""
+msgstr "<path> इत्यत्र संकुलस्य कृते SHA1 हैशं जनयन्तु"
 
 #: kpackagetool/options.h:18
 #, kde-format
@@ -279,24 +280,26 @@ msgid ""
 "plugin, e.g. KPackage/Generic, Plasma/Theme, Plasma/Wallpaper, Plasma/"
 "Applet, etc."
 msgstr ""
+"संकुलस्य प्रकारः, संकुलप्लगिन् इत्यस्य सेवाप्रकारस्य अनुरूपः, उदा. केपैकेज/सामान्य, प्लाज्मा/थीम, "
+"प्लाज्मा/वॉलपेपर, प्लाज्मा/एप्लेट, आदि।"
 
 #: kpackagetool/options.h:36
 #, kde-format
 msgctxt "Do not translate <path>"
 msgid "Install the package at <path>"
-msgstr ""
+msgstr "<path> इत्यत्र संकुलं संस्थापयन्तु"
 
 #: kpackagetool/options.h:43
 #, kde-format
 msgctxt "Do not translate <name>"
 msgid "Show information of package <name>"
-msgstr ""
+msgstr "<name> इत्यस्य संकुलस्य सूचनां दर्शयतु"
 
 #: kpackagetool/options.h:50
 #, kde-format
 msgctxt "Do not translate <path>"
 msgid "Upgrade the package at <path>"
-msgstr ""
+msgstr "<path> इत्यत्र संकुलं उन्नयनं कुर्वन्तु"
 
 #: kpackagetool/options.h:56
 #, kde-format
@@ -312,7 +315,7 @@ msgstr "संस्थापनीयानां सर्वेषां ज�
 #, kde-format
 msgctxt "Do not translate <name>"
 msgid "Remove the package named <name>"
-msgstr ""
+msgstr "<name> इति नामकं संकुलं निष्कासयन्तु"
 
 #: kpackagetool/options.h:74
 #, kde-format
@@ -327,10 +330,10 @@ msgstr ""
 #, kde-format
 msgctxt "Do not translate <path>"
 msgid "Outputs the metadata for the package <path>"
-msgstr ""
+msgstr "<path> संकुलस्य कृते मेटाडाटा निर्गच्छति"
 
 #: kpackagetool/options.h:89
 #, kde-format
 msgctxt "Do not translate <path>"
 msgid "Outputs the metadata for the package into <path>"
-msgstr ""
+msgstr "संकुलस्य कृते मेटाडाटा <path> इत्यत्र निर्गच्छति"
