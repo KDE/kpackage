@@ -1,4 +1,4 @@
-# Sanskrit translations for kpackage package.
+# Hindi translations for kpackage package.
 # Copyright (C) 2024 This file is copyright:
 # This file is distributed under the same license as the kpackage package.
 # Kali <EMAIL@ADDRESS>, 2024.
@@ -8,131 +8,130 @@ msgstr ""
 "Project-Id-Version: kpackage\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2023-12-20 01:33+0000\n"
-"PO-Revision-Date: 2024-12-13 19:10+0530\n"
+"PO-Revision-Date: 2024-12-15 17:37+0530\n"
 "Last-Translator: Kali <EMAIL@ADDRESS>\n"
-"Language-Team: Sanskrit\n"
-"Language: sa\n"
+"Language-Team: Hindi <fedora-trans-hi@redhat.com>\n"
+"Language: hi\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"Plural-Forms: nplurals=2; plural=(n>2);\n"
 
 #, kde-format
 msgctxt "NAME OF TRANSLATORS"
 msgid "Your names"
-msgstr "भवतः नामानि"
+msgstr "तुम्हारे नाम"
 
 #, kde-format
 msgctxt "EMAIL OF TRANSLATORS"
 msgid "Your emails"
-msgstr "भवतः ईमेलपत्राणि"
+msgstr "आपके ईमेल"
 
 #: kpackage/private/packagejobthread.cpp:164
 #, kde-format
 msgid "Could not create package root directory: %1"
-msgstr "संकुलमूलनिर्देशिकां निर्मातुं न शक्यते: %1"
+msgstr "पैकेज रूट निर्देशिका नहीं बनाई जा सकी: %1"
 
 #: kpackage/private/packagejobthread.cpp:173
 #, kde-format
 msgid "No such file: %1"
-msgstr "एतादृशी सञ्चिका नास्ति: %1"
+msgstr "ऐसी कोई फ़ाइल नहीं: %1"
 
 #: kpackage/private/packagejobthread.cpp:203
 #, kde-format
 msgid "Could not open package file, unsupported archive format: %1 %2"
-msgstr "संकुलसञ्चिकां उद्घाटयितुं न शक्यते, असमर्थितं संग्रहस्वरूपम्: %1 %2"
+msgstr "पैकेज फ़ाइल नहीं खोली जा सकी, असमर्थित संग्रह प्रारूप: %1 %2"
 
 #: kpackage/private/packagejobthread.cpp:211
 #, kde-format
 msgid "Could not open package file: %1"
-msgstr "संकुलसञ्चिकां उद्घाटयितुं न शक्यते: %1"
+msgstr "पैकेज फ़ाइल नहीं खोली जा सकी: %1"
 
 #: kpackage/private/packagejobthread.cpp:238
 #, kde-format
 msgid "Package is not considered valid"
-msgstr "संकुलं वैधं न मन्यते"
+msgstr "पैकेज वैध नहीं माना जाता"
 
 #: kpackage/private/packagejobthread.cpp:248
 #, kde-format
 msgid "Package plugin id not specified: %1"
-msgstr "संकुलप्लगिन् id निर्दिष्टं नास्ति: %1"
+msgstr "पैकेज प्लगइन आईडी निर्दिष्ट नहीं: %1"
 
 #: kpackage/private/packagejobthread.cpp:258
 #, kde-format
 msgid "Package plugin id %1 contains invalid characters"
-msgstr "संकुलप्लगिन् id %1 अमान्यवर्णाः सन्ति"
+msgstr "पैकेज प्लगइन आईडी %1 में अमान्य वर्ण हैं"
 
 #: kpackage/private/packagejobthread.cpp:277
 #, kde-format
 msgid ""
 "The new package has a different type from the old version already installed."
-msgstr "नूतनसङ्कुलस्य पूर्वमेव संस्थापितात् पुरातनसंस्करणात् भिन्नः प्रकारः अस्ति ।"
+msgstr "नये पैकेज का प्रकार पहले से स्थापित पुराने संस्करण से भिन्न है।"
 
 #: kpackage/private/packagejobthread.cpp:282
 #, kde-format
 msgid ""
 "Impossible to remove the old installation of %1 located at %2. error: %3"
-msgstr "%2 इत्यत्र स्थितस्य %1 इत्यस्य पुरातनं संस्थापनं निष्कासयितुं असम्भवम् । त्रुटिः %3"
+msgstr "%2 पर स्थित %1 की पुरानी स्थापना को हटाना असंभव है। त्रुटि: %3"
 
 #: kpackage/private/packagejobthread.cpp:286
 #, kde-format
 msgid "Not installing version %1 of %2. Version %3 already installed."
-msgstr "%2 इत्यस्य %1 संस्करणं न संस्थापितम् । %3 संस्करणं पूर्वमेव संस्थापितम् अस्ति ।"
+msgstr "%2 में से %1 संस्करण स्थापित नहीं किया जा रहा है। संस्करण %3 पहले से स्थापित है।"
 
 #: kpackage/private/packagejobthread.cpp:290
 #, kde-format
 msgid "%1 already exists"
-msgstr "%1 पूर्वमेव अस्ति"
+msgstr "%1 पहले से मौजूद है"
 
 #: kpackage/private/packagejobthread.cpp:311
 #, kde-format
 msgid "Could not install dependency: '%1'"
-msgstr "आश्रयं संस्थापयितुं न शक्यते: '%1'."
+msgstr "निर्भरता स्थापित नहीं की जा सकी: '%1'"
 
 #: kpackage/private/packagejobthread.cpp:323
 #, kde-format
 msgid "Could not move package to destination: %1"
-msgstr "गन्तव्यस्थानं प्रति संकुलं स्थानान्तरयितुं न शक्तम्: %1"
+msgstr "पैकेज को गंतव्य स्थान पर नहीं ले जाया जा सका: %1"
 
 #: kpackage/private/packagejobthread.cpp:333
 #, kde-format
 msgid "Could not copy package to destination: %1"
-msgstr "गन्तव्यस्थानं प्रति संकुलस्य प्रतिलिपिं कर्तुं न शक्तम्: %1"
+msgstr "पैकेज को गंतव्य पर कॉपी नहीं किया जा सका: %1"
 
 #: kpackage/private/packagejobthread.cpp:368
 #, kde-format
 msgid "package path was deleted manually"
-msgstr "संकुलमार्गः स्वहस्तेन विलोपितः आसीत्"
+msgstr "पैकेज पथ मैन्युअल रूप से हटा दिया गया था"
 
 #: kpackage/private/packagejobthread.cpp:368
 #, kde-format
 msgid "%1 does not exist"
-msgstr "%1 नास्ति"
+msgstr "%1 मौजूद नहीं है"
 
 #: kpackage/private/packagejobthread.cpp:388
 #, kde-format
 msgid "Could not delete package from: %1"
-msgstr "%1 इत्यस्मात् संकुलं विलोपयितुं न शक्यते"
+msgstr "पैकेज को यहां से हटाया नहीं जा सका: %1"
 
 #: kpackagetool/kpackagetool.cpp:87
 #, kde-format
 msgid "Failed to generate a Package hash for %1"
-msgstr "%1 कृते Package hash उत्पन्नं कर्तुं असफलम्"
+msgstr "%1 के लिए पैकेज हैश जनरेट करने में विफल"
 
 #: kpackagetool/kpackagetool.cpp:90
 #, kde-format
 msgid "SHA1 hash for Package at %1: '%2'"
-msgstr "%1 इत्यत्र संकुलस्य कृते SHA1 hash: '%2'."
+msgstr "%1 पर पैकेज के लिए SHA1 हैश: '%2'"
 
 #: kpackagetool/kpackagetool.cpp:145
 #, kde-format
 msgid "Listing KPackageType: %1 in %2"
-msgstr "KPackageType इत्यस्य सूचीकरणम्: %2 मध्ये %1"
+msgstr "लिस्टिंग KPackageType: %1 में %2"
 
 #: kpackagetool/kpackagetool.cpp:198
 #, kde-format
 msgid "Error: Plugin %1 is not installed."
-msgstr "त्रुटिः : प्लगिन् %1 संस्थापितम् नास्ति ।"
+msgstr "त्रुटि: प्लगइन %1 स्थापित नहीं है."
 
 #: kpackagetool/kpackagetool.cpp:212
 #, kde-format
@@ -140,42 +139,42 @@ msgctxt ""
 "No option was given, this is the error message telling the user he needs at "
 "least one, do not translate install, remove, upgrade nor list"
 msgid "One of install, remove, upgrade or list is required."
-msgstr "संस्थापनं, निष्कासनं, उन्नयनं वा सूचीं वा इति एकं आवश्यकम् ।"
+msgstr "इंस्टॉल, रिमूव, अपग्रेड या लिस्ट में से किसी एक की आवश्यकता है।"
 
 #: kpackagetool/kpackagetool.cpp:255 kpackagetool/kpackagetool.cpp:333
 #, kde-format
 msgid "Error: Can't find plugin metadata: %1\n"
-msgstr "त्रुटिः: प्लगिन् मेटाडाटा न प्राप्यते: %1\n"
+msgstr "त्रुटि: प्लगइन मेटाडेटा नहीं मिल सका: %1\n"
 
 #: kpackagetool/kpackagetool.cpp:259
 #, kde-format
 msgid "Showing info for package: %1"
-msgstr "संकुलस्य कृते सूचनां दर्शयति: %1"
+msgstr "पैकेज के लिए जानकारी दिखा रहा है: %1"
 
 #: kpackagetool/kpackagetool.cpp:260
 #, kde-format
 msgid "  Name       : %1"
-msgstr "  नाम : %1"
+msgstr "नाम : %1"
 
 #: kpackagetool/kpackagetool.cpp:261
 #, kde-format
 msgid "  Description: %1"
-msgstr "  विवरणम् : %1"
+msgstr "विवरण: %1"
 
 #: kpackagetool/kpackagetool.cpp:262
 #, kde-format
 msgid "  Plugin     : %1"
-msgstr "  प्लगिन् : %1"
+msgstr "प्लगइन : %1"
 
 #: kpackagetool/kpackagetool.cpp:268
 #, kde-format
 msgid "  Author     : %1"
-msgstr "  लेखक : %1"
+msgstr "लेखक : %1"
 
 #: kpackagetool/kpackagetool.cpp:269
 #, kde-format
 msgid "  Path       : %1"
-msgstr "  पथ : %1"
+msgstr "पथ : %1"
 
 #: kpackagetool/kpackagetool.cpp:429
 #, kde-format
@@ -185,90 +184,89 @@ msgctxt ""
 msgid ""
 "The packageroot and global options conflict with each other, please select "
 "only one."
-msgstr ""
-"packageroot तथा global विकल्पाः परस्परं विग्रहं कुर्वन्ति, कृपया केवलम् एकं चिनोतु ।"
+msgstr "पैकेजरूट और वैश्विक विकल्प एक दूसरे के साथ संघर्ष करते हैं, कृपया केवल एक का चयन करें।"
 
 #: kpackagetool/kpackagetool.cpp:457
 #, kde-format
 msgid "KPackage Structure Name"
-msgstr "KPackage संरचना नाम"
+msgstr "Kपैकेज संरचना नाम"
 
 #: kpackagetool/kpackagetool.cpp:458
 #, kde-format
 msgid "Path"
-msgstr "पथं"
+msgstr "पथ"
 
 #: kpackagetool/kpackagetool.cpp:489
 #, kde-format
 msgid "Package types that are installable with this tool:"
-msgstr "एतेन साधनेन संस्थापनप्रकाराः ये संकुलप्रकाराः सन्ति:"
+msgstr "इस उपकरण के साथ स्थापित किये जा सकने वाले पैकेज प्रकार:"
 
 #: kpackagetool/kpackagetool.cpp:490
 #, kde-format
 msgid "Built in:"
-msgstr "निर्मितम् : १."
+msgstr "अंतर्निर्मित:"
 
 #: kpackagetool/kpackagetool.cpp:493
 #, kde-format
 msgid "KPackage/Generic"
-msgstr "केपैकेज/सामान्य"
+msgstr "केपैकेज/जेनेरिक"
 
 #: kpackagetool/kpackagetool.cpp:494
 #, kde-format
 msgid "KPackage/GenericQML"
-msgstr "केपैकेज/सामान्यक्यूएमएल"
+msgstr "KPackage/जेनेरिकQML"
 
 #: kpackagetool/kpackagetool.cpp:502
 #, kde-format
 msgid "Provided by plugins:"
-msgstr "प्लगिन्स् द्वारा प्रदत्तम् : १."
+msgstr "प्लगइन्स द्वारा प्रदान किया गया:"
 
 #: kpackagetool/kpackagetool.cpp:524
 #, kde-format
 msgid "Successfully upgraded %1"
-msgstr "%1 सफलतया उन्नयनं कृतम्"
+msgstr "%1सफलतापूर्वक अपग्रेड किया गया"
 
 #: kpackagetool/kpackagetool.cpp:526
 #, kde-format
 msgid "Successfully installed %1"
-msgstr "%1 सफलतया संस्थापितम्"
+msgstr "%1सफलतापूर्वक स्थापित किया गया"
 
 #: kpackagetool/kpackagetool.cpp:529
 #, kde-format
 msgid "Error: Installation of %1 failed: %2"
-msgstr "त्रुटिः: %1 इत्यस्य संस्थापनं विफलम्: %2"
+msgstr "त्रुटि: %1 की स्थापना विफल: %2"
 
 #: kpackagetool/kpackagetool.cpp:541
 #, kde-format
 msgid "Upgrading package from file: %1"
-msgstr "सञ्चिकातः संकुलस्य उन्नयनम्: %1"
+msgstr "फ़ाइल से पैकेज अपग्रेड किया जा रहा है: %1"
 
 #: kpackagetool/kpackagetool.cpp:548
 #, kde-format
 msgid "Successfully uninstalled %1"
-msgstr "%1 सफलतया विस्थापितम्"
+msgstr "%1 को सफलतापूर्वक अनइंस्टॉल किया गया"
 
 #: kpackagetool/kpackagetool.cpp:550
 #, kde-format
 msgid "Error: Uninstallation of %1 failed: %2"
-msgstr "त्रुटिः: %1 इत्यस्य विस्थापनं विफलम्: %2"
+msgstr "त्रुटि: %1 की स्थापना रद्द करने में विफलता: %2"
 
 #: kpackagetool/main.cpp:36
 #, kde-format
 msgid "KPackage Manager"
-msgstr "केपैकेज प्रबन्धक"
+msgstr "केपैकेज मैनेजर"
 
 #: kpackagetool/options.h:11
 #, kde-format
 msgctxt "Do not translate <path>"
 msgid "Generate a SHA1 hash for the package at <path>"
-msgstr "<path> इत्यत्र संकुलस्य कृते SHA1 हैशं जनयन्तु"
+msgstr "<path> पर पैकेज के लिए SHA1 हैश उत्पन्न करें"
 
 #: kpackagetool/options.h:18
 #, kde-format
 msgid "For install or remove, operates on packages installed for all users."
 msgstr ""
-"संस्थापनार्थं वा निष्कासयितुं वा, सर्वेषां उपयोक्तृणां कृते संस्थापितेषु संकुलेषु कार्यं करोति ।"
+"इंस्टॉल या हटाने के लिए, सभी उपयोगकर्ताओं के लिए इंस्टॉल किए गए पैकेजों पर काम करता है।"
 
 #: kpackagetool/options.h:27
 #, kde-format
@@ -281,42 +279,42 @@ msgid ""
 "plugin, e.g. KPackage/Generic, Plasma/Theme, Plasma/Wallpaper, Plasma/"
 "Applet, etc."
 msgstr ""
-"संकुलस्य प्रकारः, संकुलप्लगिन् इत्यस्य सेवाप्रकारस्य अनुरूपः, उदा. केपैकेज/सामान्य, प्लाज्मा/थीम, "
-"प्लाज्मा/वॉलपेपर, प्लाज्मा/एप्लेट, आदि।"
+"पैकेज का प्रकार, पैकेज प्लगइन के सेवा प्रकार के अनुरूप, उदाहरणार्थ KPackage/Generic, "
+"Plasma/Theme, Plasma/Wallpaper, Plasma/Applet, आदि।"
 
 #: kpackagetool/options.h:36
 #, kde-format
 msgctxt "Do not translate <path>"
 msgid "Install the package at <path>"
-msgstr "<path> इत्यत्र संकुलं संस्थापयन्तु"
+msgstr "पैकेज को <path> पर स्थापित करें"
 
 #: kpackagetool/options.h:43
 #, kde-format
 msgctxt "Do not translate <name>"
 msgid "Show information of package <name>"
-msgstr "<name> इत्यस्य संकुलस्य सूचनां दर्शयतु"
+msgstr "पैकेज <नाम> की जानकारी दिखाएं"
 
 #: kpackagetool/options.h:50
 #, kde-format
 msgctxt "Do not translate <path>"
 msgid "Upgrade the package at <path>"
-msgstr "<path> इत्यत्र संकुलं उन्नयनं कुर्वन्तु"
+msgstr "पैकेज को <path> पर अपग्रेड करें"
 
 #: kpackagetool/options.h:56
 #, kde-format
 msgid "List installed packages"
-msgstr "संस्थापितानां संकुलानाम् सूचीं कुर्वन्तु"
+msgstr "स्थापित पैकेजों की सूची बनाएं"
 
 #: kpackagetool/options.h:61
 #, kde-format
 msgid "List all known package types that can be installed"
-msgstr "संस्थापनीयानां सर्वेषां ज्ञातानां संकुलप्रकारानाम् सूचीं कुर्वन्तु"
+msgstr "सभी ज्ञात पैकेज प्रकारों की सूची बनाएं जिन्हें स्थापित किया जा सकता है"
 
 #: kpackagetool/options.h:67
 #, kde-format
 msgctxt "Do not translate <name>"
 msgid "Remove the package named <name>"
-msgstr "<name> इति नामकं संकुलं निष्कासयन्तु"
+msgstr "<name> नामक पैकेज को हटाएँ"
 
 #: kpackagetool/options.h:74
 #, kde-format
@@ -324,17 +322,17 @@ msgid ""
 "Absolute path to the package root. If not supplied, then the standard data "
 "directories for this KDE session will be searched instead."
 msgstr ""
-"संकुलमूलस्य निरपेक्षः मार्गः । यदि न आपूर्तिः, तर्हि अस्य KDE सत्रस्य मानकदत्तांशनिर्देशिकाः "
-"तस्य स्थाने अन्वेषिताः भविष्यन्ति ।"
+"पैकेज रूट का पूर्ण पथ। यदि प्रदान नहीं किया गया है, तो इसके बजाय इस KDE सत्र के लिए "
+"मानक डेटा निर्देशिकाएँ खोजी जाएँगी।"
 
 #: kpackagetool/options.h:82
 #, kde-format
 msgctxt "Do not translate <path>"
 msgid "Outputs the metadata for the package <path>"
-msgstr "<path> संकुलस्य कृते मेटाडाटा निर्गच्छति"
+msgstr "पैकेज <path> के लिए मेटाडेटा आउटपुट करता है"
 
 #: kpackagetool/options.h:89
 #, kde-format
 msgctxt "Do not translate <path>"
 msgid "Outputs the metadata for the package into <path>"
-msgstr "संकुलस्य कृते मेटाडाटा <path> इत्यत्र निर्गच्छति"
+msgstr "पैकेज के लिए मेटाडेटा को <path> में आउटपुट करता है"
