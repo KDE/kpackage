@@ -15,7 +15,7 @@ namespace KPackage
 {
 class PackageLoaderPrivate;
 
-/**
+/*!
  * @class PackageLoader kpackage/packageloader.h <KPackage/PackageLoader>
  *
  * This is an abstract base class which defines an interface to which the package
@@ -30,7 +30,7 @@ class PackageLoaderPrivate;
 class KPACKAGE_EXPORT PackageLoader
 {
 public:
-    /**
+    /*!
      * Load a Package plugin.
      *
      * @param packageFormat the format of the package to load
@@ -42,7 +42,7 @@ public:
      **/
     Package loadPackage(const QString &packageFormat, const QString &packagePath = QString());
 
-    /**
+    /*!
      * List all available packages of a certain type
      *
      * @param packageFormat the format of the packages to list
@@ -53,13 +53,13 @@ public:
      */
     QList<KPluginMetaData> listPackages(const QString &packageFormat, const QString &packageRoot = QString());
 
-    /**
+    /*!
      * @overload
      * @since 6.0
      */
     QList<KPluginMetaData> listPackagesMetadata(const QString &packageFormat, const QString &packageRoot = QString());
 
-    /**
+    /*!
      * List all available packages of a certain type. This should be used in case the package structure modifies the metadata or you need to access the
      * contained files of the package.
      *
@@ -71,7 +71,7 @@ public:
      */
     QList<Package> listKPackages(const QString &packageFormat, const QString &packageRoot = QString());
 
-    /**
+    /*!
      * List package of a certain type that match a certain filter function
      *
      * @param packageFormat the format of the packages to list
@@ -87,7 +87,7 @@ public:
                                         const QString &packageRoot = QString(),
                                         std::function<bool(const KPluginMetaData &)> filter = std::function<bool(const KPluginMetaData &)>());
 
-    /**
+    /*!
      * Loads a PackageStructure for a given format. The structure can then be used as
      * paramenter for a Package instance constructor
      *
@@ -98,7 +98,7 @@ public:
      */
     KPackage::PackageStructure *loadPackageStructure(const QString &packageFormat);
 
-    /**
+    /*!
      * Adds a new known package structure that can be used by the functions to load packages such
      * as loadPackage, findPackages etc
      * @param packageFormat the package format, such as "KPackage/GenericQML"
@@ -107,7 +107,7 @@ public:
      */
     void addKnownPackageStructure(const QString &packageFormat, KPackage::PackageStructure *structure);
 
-    /**
+    /*!
      * Return the active plugin loader
      **/
     static PackageLoader *self();

@@ -20,7 +20,7 @@
 
 namespace KPackage
 {
-/**
+/*!
  * @class Package kpackage/package.h <KPackage/Package>
  *
  * @short object representing an installed package
@@ -62,7 +62,7 @@ class PackageStructure;
 class KPACKAGE_EXPORT Package
 {
 public:
-    /**
+    /*!
      * Default constructor
      *
      * @param structure if a null pointer is passed in, this will creates an empty (invalid) Package;
@@ -70,19 +70,19 @@ public:
      */
     explicit Package(PackageStructure *structure = nullptr);
 
-    /**
+    /*!
      * Copy constructor
      */
     Package(const Package &other);
 
     virtual ~Package();
 
-    /**
+    /*!
      * Assignment operator
      */
     Package &operator=(const Package &rhs);
 
-    /**
+    /*!
      * @return true if this package has a valid PackageStructure associatedw it with it.
      * A package may not be valid, but have a valid structure. Useful when dealing with
      * Package objects in a semi-initialized state (e.g. before calling setPath())
@@ -90,23 +90,23 @@ public:
      */
     bool hasValidStructure() const;
 
-    /**
+    /*!
      * @return true if all the required components exist
      **/
     bool isValid() const;
 
-    /**
+    /*!
      * Sets the path to the root of this package
      * @param path an absolute path, or a relative path to the default package root
      */
     void setPath(const QString &path);
 
-    /**
+    /*!
      * @return the path to the root of this particular package
      */
     const QString path() const;
 
-    /**
+    /*!
      * Get the path to a given file based on the key and an optional filename.
      * Example: finding the main script in a scripting package:
      *      filePath("mainscript")
@@ -120,7 +120,7 @@ public:
      **/
     QString filePath(const QByteArray &key, const QString &filename = QString()) const;
 
-    /**
+    /*!
      * Get the url to a given file based on the key and an optional filename, is the file:// or qrc:// format
      * Example: finding the main script in a scripting package:
      *      filePath("mainscript")
@@ -135,7 +135,7 @@ public:
      **/
     QUrl fileUrl(const QByteArray &key, const QString &filename = QString()) const;
 
-    /**
+    /*!
      * Get the list of files of a given type.
      *
      * @param fileType the type of file to look for, as defined in the
@@ -144,34 +144,34 @@ public:
      **/
     QStringList entryList(const QByteArray &key) const;
 
-    /**
+    /*!
      * @return true if the item at path exists and is required
      **/
     bool isRequired(const QByteArray &key) const;
 
-    /**
+    /*!
      * @return the mimeTypes associated with the path, if any
      **/
     QStringList mimeTypes(const QByteArray &key) const;
 
-    /**
+    /*!
      * @return the prefix paths inserted between the base path and content entries, in order of priority.
      *         When searching for a file, all paths will be tried in order.
      */
     QStringList contentsPrefixPaths() const;
 
-    /**
+    /*!
      * @return preferred package root. This defaults to kpackage/generic/
      */
     QString defaultPackageRoot() const;
 
-    /**
+    /*!
      * @return true if paths/symlinks outside the package itself should be followed.
      * By default this is set to false for security reasons.
      */
     bool allowExternalPaths() const;
 
-    /**
+    /*!
      * Sets the metadata for the KPackage. This overwrites the current metadata.
      * This should be used in case a kpackage gets loaded by name, based
      * on the path a C++ plugin which has embedded metadata.
@@ -179,18 +179,18 @@ public:
      */
     void setMetadata(const KPluginMetaData &data);
 
-    /**
+    /*!
      * @return the package metadata object.
      */
     KPluginMetaData metadata() const;
 
-    /**
+    /*!
      * @return a hash digest of the contents of the package in hexadecimal form
      * @since 5.21
      */
     QByteArray cryptographicHash(QCryptographicHash::Algorithm algorithm) const;
 
-    /**
+    /*!
      * Adds a directory to the structure of the package. It is added as
      * a not-required element with no associated mimeTypes.
      * If an entry with the given key already exists, the path
@@ -201,7 +201,7 @@ public:
      */
     void addDirectoryDefinition(const QByteArray &key, const QString &path);
 
-    /**
+    /*!
      * Adds a file to the structure of the package. It is added as
      * a not-required element with no associated mimeTypes.
      * If an entry with the given key already exists, the path
@@ -212,13 +212,13 @@ public:
      */
     void addFileDefinition(const QByteArray &key, const QString &path);
 
-    /**
+    /*!
      * Removes a definition from the structure of the package.
      * @param key the internal label of the file or directory to remove
      */
     void removeDefinition(const QByteArray &key);
 
-    /**
+    /*!
      * Sets whether or not a given part of the structure is required or not.
      * The path must already have been added using addDirectoryDefinition
      * or addFileDefinition.
@@ -228,7 +228,7 @@ public:
      */
     void setRequired(const QByteArray &key, bool required);
 
-    /**
+    /*!
      * Defines the default mimeTypes for any definitions that do not have
      * associated mimeTypes. Handy for packages with only one or predominantly
      * one file type.
@@ -237,7 +237,7 @@ public:
      **/
     void setDefaultMimeTypes(const QStringList &mimeTypes);
 
-    /**
+    /*!
      * Define mimeTypes for a given part of the structure
      * The path must already have been added using addDirectoryDefinition
      * or addFileDefinition.
@@ -247,7 +247,7 @@ public:
      **/
     void setMimeTypes(const QByteArray &key, const QStringList &mimeTypes);
 
-    /**
+    /*!
      * Sets the prefixes that all the contents in this package should
      * appear under. This defaults to "contents/" and is added automatically
      * between the base path and the entries as defined by the package
@@ -259,19 +259,19 @@ public:
      */
     void setContentsPrefixPaths(const QStringList &prefixPaths);
 
-    /**
+    /*!
      * Sets whether or not external paths/symlinks can be followed by a package
      * @param allow true if paths/symlinks outside of the package should be followed,
      *             false if they should be rejected.
      */
     void setAllowExternalPaths(bool allow);
 
-    /**
+    /*!
      * Sets preferred package root.
      */
     void setDefaultPackageRoot(const QString &packageRoot);
 
-    /**
+    /*!
      * Sets the fallback package root path
      * If a file won't be found in this package, it will search it in the package
      * with the same structure identified by path
@@ -280,28 +280,28 @@ public:
      */
     void setFallbackPackage(const KPackage::Package &package);
 
-    /**
+    /*!
      * @return The fallback package root path
      */
     KPackage::Package fallbackPackage() const;
 
     // Content structure description methods
-    /**
+    /*!
      * @return all directories registered as part of this Package's structure
      */
     QList<QByteArray> directories() const;
 
-    /**
+    /*!
      * @return all directories registered as part of this Package's required structure
      */
     QList<QByteArray> requiredDirectories() const;
 
-    /**
+    /*!
      * @return all files registered as part of this Package's structure
      */
     QList<QByteArray> files() const;
 
-    /**
+    /*!
      * @return all files registered as part of this Package's required structure
      */
     QList<QByteArray> requiredFiles() const;
