@@ -1,0 +1,29 @@
+include($KDE_DOCS/global/qt-module-defaults.qdocconf)
+
+project = KPackage
+description = Installation and loading of additional content (ex: scripts, images...) as packages.
+
+documentationinheaders = true
+
+headerdirs += .
+sourcedirs += .
+
+outputformats = HTML
+
+depends += \
+    kde \
+    qtcore
+
+qhp.projects            = KPackage
+
+qhp.KPackage.file                = kpackage.qhp
+qhp.KPackage.namespace           = org.kde.kpackage.$QT_VERSION_TAG
+qhp.KPackage.virtualFolder       = kpackage
+qhp.KPackage.indexTitle          = KPackage
+qhp.KPackage.indexRoot           =
+
+qhp.KPackage.subprojects         = classes
+qhp.KPackage.subprojects.classes.title = C++ Classes
+qhp.KPackage.subprojects.classes.indexTitle = KPackage C++ Classes
+qhp.KPackage.subprojects.classes.selectors = class fake:headerfile
+qhp.KPackage.subprojects.classes.sortPages = true

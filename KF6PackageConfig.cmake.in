@@ -10,8 +10,6 @@ else()
     include("${CMAKE_CURRENT_LIST_DIR}/KF6PackageToolsTargets.cmake")
 endif()
 
-@PACKAGE_INCLUDE_QCHTARGETS@
-
 set(Package_INSTALL_PREFIX "@PACKAGE_CMAKE_INSTALL_PREFIX@")
 set_and_check(Package_INCLUDE_DIR    "@PACKAGE_KDE_INSTALL_INCLUDEDIR_KF@")
 

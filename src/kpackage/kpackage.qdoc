@@ -1,0 +1,9 @@
+/*!
+    \module KPackage
+    \title KPackage C++ Classes
+    \ingroup modules
+    \cmakepackage KF6
+    \cmakecomponent Package
+
+    \brief Installation and loading of additional content (ex: scripts, images...) as packages.
+*/
