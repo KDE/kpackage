@@ -75,6 +75,8 @@ ecm_generate_headers(Package_CamelCase_HEADERS
     PREFIX KPackage
 )
 
+ecm_generate_qdoc(KF6Package kpackage.qdocconf)
+
 install(FILES
         ${Package_HEADERS}
         ${CMAKE_CURRENT_BINARY_DIR}/kpackage/package_export.h

@@ -1,0 +1,25 @@
+/*!
+    \page kcontacts-index.html
+    \title KContacts
+
+    Contacts
+
+    \section1 Using the Module
+
+    \include {module-use.qdocinc} {using the c++ api}
+
+    \section2 Building with CMake
+
+    \include {module-use.qdocinc} {building with cmake} {Widgets}
+
+    \section1 API Reference
+
+    \list
+        \li \l{KContacts C++ Classes}
+        \li \l{KContacts QML Types}
+    \endlist
+
+    \section1 Licenses
+
+    TODO
+*/
