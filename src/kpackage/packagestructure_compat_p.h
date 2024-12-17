@@ -12,9 +12,10 @@ class KDesktopFile;
 namespace KPackagePrivate
 {
 template<typename DesktopFile = KDesktopFile, typename ConfigGroup = KConfigGroup>
-/**
- * @param package KPackage which will have the desktop file metadata set to (if present)
- * @param customValueTypes Additional keys and their types that should be read from the desktop file
+/*!
+ * \internal
+ * \a package KPackage which will have the desktop file metadata set to (if present)
+ * \a customValueTypes Additional keys and their types that should be read from the desktop file
  */
 void convertCompatMetaDataDesktopFile(KPackage::Package *package, const QMap<QString, QMetaType::Type> &customValueTypes = {})
 {

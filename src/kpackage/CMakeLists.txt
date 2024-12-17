@@ -75,6 +75,8 @@ ecm_generate_headers(Package_CamelCase_HEADERS
     PREFIX KPackage
 )
 
+ecm_generate_qdoc(KF6Package kpackage.qdocconf)
+
 install(FILES
         ${Package_HEADERS}
         ${CMAKE_CURRENT_BINARY_DIR}/kpackage/package_export.h
@@ -87,25 +89,4 @@ install(FILES
 install(TARGETS KF6Package EXPORT KF6PackageTargets ${KF_INSTALL_TARGETS_DEFAULT_ARGS})
 if (NOT BUILD_SHARED_LIBS)
     install(TARGETS kpackage_common_STATIC EXPORT KF6PackageTargets ${KF_INSTALL_TARGETS_DEFAULT_ARGS})
-endif()
-
-if(BUILD_QCH)
-    ecm_add_qch(
-        KF6Package_QCH
-        NAME KPackage
-        BASE_NAME KF6Package
-        VERSION ${KF_VERSION}
-        ORG_DOMAIN org.kde
-        SOURCES # using only public headers, to cover only public API
-            ${Package_HEADERS}
-        MD_MAINPAGE "${CMAKE_SOURCE_DIR}/README.md"
-        LINK_QCHS
-            KF6CoreAddons_QCH
-        BLANK_MACROS
-            KPACKAGE_EXPORT
-            "KPACKAGE_DEPRECATED_VERSION(x, y, t)"
-        TAGFILE_INSTALL_DESTINATION ${KDE_INSTALL_QTQCHDIR}
-        QCH_INSTALL_DESTINATION ${KDE_INSTALL_QTQCHDIR}
-        COMPONENT Devel
-    )
 endif()

@@ -5,7 +5,7 @@
     SPDX-License-Identifier: GPL-2.0-or-later
 */
 
-/**
+/*!
  * kpackagetool6 exit codes used in this program
 
     0 No error
