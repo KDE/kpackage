@@ -1,6 +1,6 @@
 /*!
-    \page kcontacts-index.html
-    \title KContacts
+    \page kpackage-index.html
+    \title KPackage
 
     Contacts
 
@@ -15,8 +15,7 @@
     \section1 API Reference
 
     \list
-        \li \l{KContacts C++ Classes}
-        \li \l{KContacts QML Types}
+        \li \l{KPackage C++ Classes}
     \endlist
 
     \section1 Licenses
