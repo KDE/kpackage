@@ -17,7 +17,7 @@
 
 namespace KPackage
 {
-/**
+/*!
  * @class PackageStructure kpackage/packagestructure.h <KPackage/PackageStructure>
  *
  * This class is used to define the filesystem structure of a package type.
@@ -43,7 +43,7 @@ public:
 
     ~PackageStructure() override;
 
-    /**
+    /*!
      * Called when a the PackageStructure should initialize a Package with the initial
      * structure. This allows setting paths before setPath is called.
      *
@@ -56,7 +56,7 @@ public:
      */
     virtual void initPackage(Package *package);
 
-    /**
+    /*!
      * Called whenever the path changes so that subclasses may take
      * package specific actions.
      */
