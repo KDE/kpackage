@@ -2,7 +2,7 @@
 # This file is distributed under the same license as the PACKAGE package.
 # Marce Villarino <mvillarino@kde-espana.es>, 2013, 2014.
 # Adrián Chaves Fernández <adriyetichaves@gmail.com>, 2015, 2016, 2017.
-# SPDX-FileCopyrightText: 2023 Adrián Chaves (Gallaecio) <adrian@chaves.io>
+# SPDX-FileCopyrightText: 2023, 2024 Adrián Chaves (Gallaecio)
 # SPDX-FileCopyrightText: 2023 Adrian Chaves (Gallaecio)
 #
 msgid ""
@@ -10,7 +10,7 @@ msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2023-11-05 12:25+0000\n"
-"PO-Revision-Date: 2023-06-24 10:16+0200\n"
+"PO-Revision-Date: 2024-12-19 22:20+0100\n"
 "Last-Translator: Adrián Chaves (Gallaecio) <adrian@chaves.io>\n"
 "Language-Team: Proxecto Trasno (proxecto@trasno.gal)\n"
 "Language: gl\n"
@@ -18,7 +18,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
-"X-Generator: Lokalize 23.08.4\n"
+"X-Generator: Lokalize 24.12.0\n"
 
 #, kde-format
 msgctxt "NAME OF TRANSLATORS"
@@ -209,13 +209,16 @@ msgstr "Lista dos tipos de servizo: %1 en %2"
 msgid "Error: Plugin %1 is not installed."
 msgstr "Erro: O complemento %1 non está instalado."
 
+# skip-rule: trasno-remove
 #: kpackagetool/kpackagetool.cpp:294
 #, kde-format
 msgctxt ""
 "No option was given, this is the error message telling the user he needs at "
 "least one, do not translate install, remove, upgrade nor list"
 msgid "One of install, remove, upgrade or list is required."
-msgstr "Requírese unha de install, remove, upgrade ou list."
+msgstr ""
+"Requírese unha de install (instalar), remove (desinstalar), upgrade (anovar) "
+"ou list (listar)."
 
 #: kpackagetool/kpackagetool.cpp:347 kpackagetool/kpackagetool.cpp:429
 #, kde-format
