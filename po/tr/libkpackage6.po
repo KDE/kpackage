@@ -144,12 +144,12 @@ msgctxt ""
 "No option was given, this is the error message telling the user he needs at "
 "least one, do not translate install, remove, upgrade nor list"
 msgid "One of install, remove, upgrade or list is required."
-msgstr "install, remove, upgrade veya liste gerekli."
+msgstr "install, remove, upgrade veya list gerekli."
 
 #: kpackagetool/kpackagetool.cpp:255 kpackagetool/kpackagetool.cpp:333
 #, kde-format
 msgid "Error: Can't find plugin metadata: %1\n"
-msgstr "Hata: Eklenti üstverisi bulunamadı: %1\n"
+msgstr "Hata: Eklenti üst verisi bulunamadı: %1\n"
 
 #: kpackagetool/kpackagetool.cpp:259
 #, kde-format
@@ -196,7 +196,7 @@ msgstr ""
 #: kpackagetool/kpackagetool.cpp:457
 #, kde-format
 msgid "KPackage Structure Name"
-msgstr "KPackage Yapı Adı"
+msgstr "KPackage Yapısı Adı"
 
 #: kpackagetool/kpackagetool.cpp:458
 #, kde-format
@@ -336,141 +336,10 @@ msgstr ""
 #, kde-format
 msgctxt "Do not translate <path>"
 msgid "Outputs the metadata for the package <path>"
-msgstr "Paket için üstveri çıktısı verir <path>"
+msgstr "Paket <path>’i için üst veri çıktısı verir"
 
 #: kpackagetool/options.h:89
 #, kde-format
 msgctxt "Do not translate <path>"
 msgid "Outputs the metadata for the package into <path>"
-msgstr "Paket için üstveri çıktısı verir <path>"
-
-#~ msgid "Could not open metadata file: %1"
-#~ msgstr "Üstveri dosyası açılamadı: %1"
-
-#~ msgid "No metadata file in package: %1"
-#~ msgstr "Pakette üstveri dosyası yok: %1"
-
-#~ msgid ""
-#~ "Could not load installer for package of type %1. Error reported was: %2"
-#~ msgstr "%1 paket türü için kurucu yüklenemedi. Bildirilen hata: %2"
-
-#~ msgid "JSON file that describes this package."
-#~ msgstr "Bu paketi tanımlayan JSON dosyası."
-
-#~ msgid "Main Script File"
-#~ msgstr "Ana Betik Dosyası"
-
-#~ msgid "Images"
-#~ msgstr "Görseller"
-
-#~ msgid "Themed Images"
-#~ msgstr "Temalı Görseller"
-
-#~ msgid "Configuration Definitions"
-#~ msgstr "Yapılandırma Tanımlamaları"
-
-#~ msgid "User Interface"
-#~ msgstr "Kullanıcı Arayüzü"
-
-#~ msgid "Data Files"
-#~ msgstr "Veri Dosyaları"
-
-#~ msgid "Executable Scripts"
-#~ msgstr "Çalıştırılabilir Betikler"
-
-#~ msgid "Translations"
-#~ msgstr "Çeviriler"
-
-#~ msgid "Main UI File"
-#~ msgstr "Ana Kullanıcı Arayüzü Dosyası"
-
-#~ msgctxt "package type"
-#~ msgid "wallpaper"
-#~ msgstr "duvar kağıdı"
-
-#~ msgid "   Comment : %1"
-#~ msgstr "  Açıklama : %1"
-
-#~ msgid ""
-#~ "Recreate the plugin index. To be used in conjunction with either the "
-#~ "option -t or -g. Recreates the index for the given type or package root. "
-#~ "Operates in the user directory, unless -g is used"
-#~ msgstr ""
-#~ "Eklenti indeksini yeniden oluştur. -t veya -g seçeneğiyle birlikte "
-#~ "kullanılır. Belirtilen tür veya paket kökü için dizini yeniden oluşturur. "
-#~ "-g kullanılmadığı sürece, kullanıcı dizininde çalışır."
-
-#~ msgid ""
-#~ "Remove the plugin index. To be used in conjunction with either the option "
-#~ "-t or -g. Recreates the index for the given type or package root. "
-#~ "Operates in the user directory, unless -g is used"
-#~ msgstr ""
-#~ "Eklenti indeksini kaldır. -t veya -g seçeneğiyle birlikte kullanılır. "
-#~ "Belirtilen tür veya paket kökü için dizini yeniden oluşturur. -g "
-#~ "kullanılmadığı sürece, kullanıcı dizininde çalışır."
-
-#~ msgid "Accessibility"
-#~ msgstr "Erişilebilirlik"
-
-#~ msgid "Application Launchers"
-#~ msgstr "Uygulama Çalıştırıcılar"
-
-#~ msgid "Astronomy"
-#~ msgstr "Astronomi"
-
-#~ msgid "Date and Time"
-#~ msgstr "Tarih ve Saat"
-
-#~ msgid "Development Tools"
-#~ msgstr "Geliştirme Araçları"
-
-#~ msgid "Education"
-#~ msgstr "Eğitim"
-
-#~ msgid "Environment and Weather"
-#~ msgstr "Çevre ve Hava"
-
-#~ msgid "Examples"
-#~ msgstr "Örnekler"
-
-#~ msgid "File System"
-#~ msgstr "Dosya Sistemi"
-
-#~ msgid "Fun and Games"
-#~ msgstr "Eğlence ve Oyunlar"
-
-#~ msgid "Graphics"
-#~ msgstr "Grafikler"
-
-#~ msgid "Language"
-#~ msgstr "Dil"
-
-#~ msgid "Mapping"
-#~ msgstr "Haritalama"
-
-#~ msgid "Miscellaneous"
-#~ msgstr "Çeşitli"
-
-#~ msgid "Multimedia"
-#~ msgstr "Çoklu Ortam"
-
-#~ msgid "Online Services"
-#~ msgstr "Çevrimiçi Hizmetler"
-
-#~ msgid "Productivity"
-#~ msgstr "Verimlilik"
-
-#~ msgid "System Information"
-#~ msgstr "Sistem Bilgisi"
-
-#~ msgid "Utilities"
-#~ msgstr "Yardımcı Programlar"
-
-#~ msgid "Windows and Tasks"
-#~ msgstr "Pencereler ve Görevler"
-
-#~ msgid "Addon Name"
-#~ msgstr "Eklenti Adı"
-
-#~ msgid "Service Type"
-#~ msgstr "Servis Türü"
+msgstr "Paket <path>’i için üst veri çıktısı verir"
