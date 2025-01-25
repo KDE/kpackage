@@ -10,7 +10,7 @@ portingAid: false
 deprecated: false
 release: true
 libraries:
- - cmake: KF6::Package
+    - cmake: KF6::Package
 cmakename: KF6Package
 
 public_lib: true
