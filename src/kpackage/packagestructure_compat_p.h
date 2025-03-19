@@ -24,6 +24,7 @@ void convertCompatMetaDataDesktopFile(KPackage::Package *package, const QMap<QSt
         QJsonObject kplugin{
             {QLatin1String("Name"), grp.readEntry("Name")},
             {QLatin1String("Description"), grp.readEntry("Comment")},
+            {QLatin1String("Icon"), grp.readEntry("Icon")},
             {QLatin1String("Version"), grp.readEntry("X-KDE-PluginInfo-Version")},
             {QLatin1String("Id"), grp.readEntry("X-KDE-PluginInfo-Name")},
         };
