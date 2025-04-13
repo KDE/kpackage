@@ -16,6 +16,8 @@ set(KPACKAGE_RELATIVE_DATA_INSTALL_DIR "kpackage")
 #       such as myapp, that would go under prefix/share/myapp:
 #       default ${KPACKAGE_RELATIVE_DATA_INSTALL_DIR}
 #
+# @arg SKIP_APPSTREAM to disable the generation of the standalone AppStream metadata.
+#
 # Examples:
 # kpackage_install_package(mywidget org.kde.plasma.mywidget plasmoids) # installs an applet
 # kpackage_install_package(declarativetoolbox org.kde.toolbox packages) # installs a generic package
@@ -26,12 +28,21 @@ set(kpackagedir ${CMAKE_CURRENT_LIST_DIR})
 function(kpackage_install_package dir component)
    set(root ${ARGV2})
    set(install_dir ${ARGV3})
+   set(skip_appstream FALSE)
    if(NOT root)
       set(root packages)
    endif()
    if(NOT install_dir)
       set(install_dir ${KPACKAGE_RELATIVE_DATA_INSTALL_DIR})
    endif()
+
+    set(options SKIP_APPSTREAM)
+    set(oneValueArgs)
+    set(multiValueArgs)
+    cmake_parse_arguments(ARG
+        "${options}" "${oneValueArgs}" "${multiValueArgs}"
+        ${ARGN}
+    )
 
    install(DIRECTORY ${dir}/ DESTINATION ${KDE_INSTALL_DATADIR}/${install_dir}/${root}/${component}
             PATTERN .svn EXCLUDE
@@ -41,7 +52,7 @@ function(kpackage_install_package dir component)
             PATTERN dummydata EXCLUDE)
 
    get_target_property(kpackagetool_cmd KF6::kpackagetool6 LOCATION)
-   if (${component} MATCHES "^.+\\..+\\.") #we make sure there's at least 2 dots
+   if (${component} MATCHES "^.+\\..+\\." AND NOT SKIP_APPSTREAM) #we make sure there's at least 2 dots
         set(APPDATAFILE "${CMAKE_CURRENT_BINARY_DIR}/${component}.appdata.xml")
 
         execute_process(
