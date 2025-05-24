@@ -29,3 +29,5 @@ qhp.KPackage.subprojects.classes.title = C++ Classes
 qhp.KPackage.subprojects.classes.indexTitle = KPackage C++ Classes
 qhp.KPackage.subprojects.classes.selectors = class fake:headerfile
 qhp.KPackage.subprojects.classes.sortPages = true
+
+tagfile = kpackage.tags
