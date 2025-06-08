@@ -192,7 +192,7 @@ QList<KPluginMetaData> PackageLoader::listPackages(const QString &packageFormat,
     }
 
     for (auto const &plugindir : std::as_const(paths)) {
-        QDirIterator it(plugindir, QStringList{QStringLiteral("metadata.json")}, QDir::Files, QDirIterator::Subdirectories);
+        QDirIterator it(plugindir, QStringList{QStringLiteral("metadata.json")}, QDir::Files, QDirIterator::Subdirectories | QDirIterator::FollowSymlinks);
         std::unordered_set<QString> dirs;
         while (it.hasNext()) {
             it.next();
