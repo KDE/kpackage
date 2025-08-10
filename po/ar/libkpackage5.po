@@ -1,13 +1,13 @@
 # Copyright (C) YEAR This_file_is_part_of_KDE
 # This file is distributed under the same license as the libplasma5 package.
 # Safa Alfulaij <safa1996alfulaij@gmail.com>, 2014, 2018.
-# SPDX-FileCopyrightText: 2021, 2022, 2023, 2024 Zayed Al-Saidi <zayed.alsaidi@gmail.com>
+# SPDX-FileCopyrightText: 2021, 2022, 2023, 2024, 2025 Zayed Al-Saidi <zayed.alsaidi@gmail.com>
 msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2023-11-05 12:25+0000\n"
-"PO-Revision-Date: 2022-08-08 23:03+0400\n"
+"PO-Revision-Date: 2025-08-09 22:45+0400\n"
 "Last-Translator: Zayed Al-Saidi <zayed.alsaidi@gmail.com>\n"
 "Language-Team: ar\n"
 "Language: ar\n"
@@ -16,6 +16,7 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=6; plural=n==0 ? 0 : n==1 ? 1 : n==2 ? 2 : n%100>=3 "
 "&& n%100<=10 ? 3 : n%100>=11 ? 4 : 5;\n"
+"X-Generator: Lokalize 23.08.5\n"
 
 #, kde-format
 msgctxt "NAME OF TRANSLATORS"
@@ -400,7 +401,7 @@ msgid ""
 "t or -g. Recreates the index for the given type or package root. Operates in "
 "the user directory, unless -g is used"
 msgstr ""
-"أعد إنشاء فهرس الملحقات. تستخدم مع الخيار -t أو -g. يعيد تكوين الفهرس للنوع "
+"أعد إنشاء فهرس الملحقات. تستخدم مع الخيار -t أو -g. يعيد إنشاء الفهرس للنوع "
 "المحدد أو جذر الحزمة. يعمل في دليل المستخدم ، ما لم يستخدم g- "
 
 #: kpackagetool/options.h:90
@@ -410,7 +411,7 @@ msgid ""
 "or -g. Recreates the index for the given type or package root. Operates in "
 "the user directory, unless -g is used"
 msgstr ""
-"أزل فهرس الملحقات. تستخدم مع الخيار -t أو -g. يعيد تكوين الفهرس للنوع المحدد "
+"أزل فهرس الملحقات. تستخدم مع الخيار -t أو -g. يعيد إنشاء الفهرس للنوع المحدد "
 "أو جذر الحزمة. يعمل في دليل المستخدم ، ما لم يستخدم g- "
 
 #: kpackagetool/options.h:98
