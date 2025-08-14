@@ -253,7 +253,7 @@ msgid ""
 "The packageroot and global options conflict with each other, please select "
 "only one."
 msgstr ""
-"تتعارض خيارات الحزمة والخيارات العامة مع بعضها البعض ، يرجى تحديد خيار واحد "
+"تتعارض خيارات الحزمة والخيارات العامة مع بعضها البعض، يرجى تحديد خيار واحد "
 "فقط."
 
 #: kpackagetool/kpackagetool.cpp:570
@@ -348,8 +348,8 @@ msgid ""
 "plugin, e.g. KPackage/Generic, Plasma/Theme, Plasma/Wallpaper, Plasma/"
 "Applet, etc."
 msgstr ""
-"نوع الحزمة مقارن لنوع خدمة ملحق الحزمة، على سبيل المثال KPackage/عام ، "
-"بلازما/سمة ، بلازما/ورق حائط ، إلخ."
+"نوع الحزمة مقارن لنوع خدمة ملحق الحزمة، على سبيل المثال KPackage/عام، بلازما/"
+"سمة، بلازما/ورق حائط، إلخ."
 
 #: kpackagetool/options.h:36
 #, kde-format
@@ -402,7 +402,7 @@ msgid ""
 "the user directory, unless -g is used"
 msgstr ""
 "أعد إنشاء فهرس الملحقات. تستخدم مع الخيار -t أو -g. يعيد إنشاء الفهرس للنوع "
-"المحدد أو جذر الحزمة. يعمل في دليل المستخدم ، ما لم يستخدم g- "
+"المحدد أو جذر الحزمة. يعمل في دليل المستخدم، ما لم يستخدم g- "
 
 #: kpackagetool/options.h:90
 #, kde-format
@@ -412,7 +412,7 @@ msgid ""
 "the user directory, unless -g is used"
 msgstr ""
 "أزل فهرس الملحقات. تستخدم مع الخيار -t أو -g. يعيد إنشاء الفهرس للنوع المحدد "
-"أو جذر الحزمة. يعمل في دليل المستخدم ، ما لم يستخدم g- "
+"أو جذر الحزمة. يعمل في دليل المستخدم، ما لم يستخدم g- "
 
 #: kpackagetool/options.h:98
 #, kde-format
