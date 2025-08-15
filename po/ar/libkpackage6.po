@@ -78,12 +78,12 @@ msgstr "من المستحيل إزالة التثبيت القديم لـ %1 ا�
 #: kpackage/private/packagejobthread.cpp:286
 #, kde-format
 msgid "Not installing version %1 of %2. Version %3 already installed."
-msgstr "لم يثبت إصدارة %1 من %2. الإصدارة %3 مثبتة بالفعل."
+msgstr "لم يثبت إصدارة %1 من %2. الإصدارة %3 مثبتة فعلًا."
 
 #: kpackage/private/packagejobthread.cpp:290
 #, kde-format
 msgid "%1 already exists"
-msgstr "%1 موجود بالفعل"
+msgstr "%1 موجود فعلًا"
 
 #: kpackage/private/packagejobthread.cpp:311
 #, kde-format
