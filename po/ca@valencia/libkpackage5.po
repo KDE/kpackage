@@ -266,8 +266,8 @@ msgid ""
 "The packageroot and global options conflict with each other, please select "
 "only one."
 msgstr ""
-"Una arrel de paquet i les opcions globals entren en conflicte, seleccioneu-"
-"ne només una."
+"Una arrel de paquet i les opcions globals entren en conflicte, trieu-ne "
+"només una."
 
 #: kpackagetool/kpackagetool.cpp:570
 #, kde-format
