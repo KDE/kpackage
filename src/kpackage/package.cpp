@@ -10,7 +10,7 @@
 #include "package.h"
 
 #include <QResource>
-#include <qtemporarydir.h>
+#include <QTemporaryDir>
 
 #include "kpackage_debug.h"
 #include <KArchive>

@@ -26,8 +26,8 @@
 #include <QProcess>
 #include <QRegularExpression>
 #include <QStandardPaths>
+#include <QTemporaryDir>
 #include <QUrl>
-#include <qtemporarydir.h>
 
 namespace KPackage
 {
