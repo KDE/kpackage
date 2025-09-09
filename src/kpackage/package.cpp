@@ -37,7 +37,7 @@ Package::Package(PackageStructure *structure)
 
     if (d->structure) {
         addFileDefinition("metadata", QStringLiteral("metadata.json"));
-        d->structure.data()->initPackage(this);
+        d->structure->initPackage(this);
     }
 }
 
@@ -464,7 +464,7 @@ void Package::setPath(const QString &path)
         d->path.clear();
         d->discoveries.clear();
         d->valid = false;
-        d->structure.data()->pathChanged(this);
+        d->structure->pathChanged(this);
         return;
     }
 
@@ -526,7 +526,7 @@ void Package::setPath(const QString &path)
         }
 
         // we need to tell the structure we're changing paths ...
-        d->structure.data()->pathChanged(this);
+        d->structure->pathChanged(this);
         // ... and then testing the results for validity
         if (isValid()) {
             break;
@@ -551,7 +551,7 @@ void Package::setPath(const QString &path)
     // to futility.
     if (!d->valid) {
         d->path.clear();
-        d->structure.data()->pathChanged(this);
+        d->structure->pathChanged(this);
     }
 }
 

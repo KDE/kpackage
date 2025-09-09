@@ -24,7 +24,6 @@
 
 #include "package.h"
 #include "packagestructure.h"
-#include "private/packagejobthread_p.h"
 #include "private/packages_p.h"
 
 namespace KPackage
@@ -36,7 +35,7 @@ PackageLoader::PackageLoader()
 
 PackageLoader::~PackageLoader()
 {
-    for (auto wp : std::as_const(d->structures)) {
+    for (auto &wp : std::as_const(d->structures)) {
         delete wp.data();
     }
     delete d;

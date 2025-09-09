@@ -377,7 +377,7 @@ void PackageTool::showAppstreamInfo(const QString &pluginName)
         writer.writeTextElement(QStringLiteral("extends"), parentApp);
     }
 
-    const QJsonObject rootObject = i.rawData()[QStringLiteral("KPlugin")].toObject();
+    const QJsonObject rootObject = i.rawData().value(QStringLiteral("KPlugin")).toObject();
     translateKPluginToAppstream(QStringLiteral("name"), QStringLiteral("Name"), rootObject, writer, false);
     translateKPluginToAppstream(QStringLiteral("summary"), QStringLiteral("Description"), rootObject, writer, false);
     if (!i.website().isEmpty()) {
