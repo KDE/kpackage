@@ -52,7 +52,7 @@ function(kpackage_install_package dir component)
             PATTERN dummydata EXCLUDE)
 endfunction()
 
-function(kpackage_generate_appstream_metadata component)
+function(kpackage_generate_appstream_metadata dir component)
    get_target_property(kpackagetool_cmd KF6::kpackagetool6 LOCATION)
    if (${component} MATCHES "^.+\\..+\\." AND NOT SKIP_APPSTREAM) #we make sure there's at least 2 dots
         set(APPDATAFILE "${CMAKE_CURRENT_BINARY_DIR}/${component}.appdata.xml")
