@@ -324,7 +324,7 @@ void PlasmoidPackageTest::createAndUpdatePackage()
     job = KPackage::PackageJob::update(m_defaultPackageStructure, packagePath, m_packageRoot);
     QSignalSpy spyFail(job, &KJob::finished);
     QVERIFY(spyFail.wait(1000));
-    QVERIFY(job->error() == KPackage::PackageJob::JobError::NewerVersionAlreadyInstalledError);
+    QCOMPARE(job->error(), KPackage::PackageJob::JobError::NewerVersionAlreadyInstalledError);
     qDebug() << job->errorText();
 
     // create a new package with higher version
