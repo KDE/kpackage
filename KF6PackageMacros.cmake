@@ -44,12 +44,22 @@ function(kpackage_install_package dir component)
         ${ARGN}
     )
 
-   install(DIRECTORY ${dir}/ DESTINATION ${KDE_INSTALL_DATADIR}/${install_dir}/${root}/${component}
-            PATTERN .svn EXCLUDE
-            PATTERN *.qmlc EXCLUDE
-            PATTERN CMakeLists.txt EXCLUDE
-            PATTERN Messages.sh EXCLUDE
-            PATTERN dummydata EXCLUDE)
+    set(package_dest ${KDE_INSTALL_DATADIR}/${install_dir}/${root}/${component})
+
+    # Install metadata.json file
+    install(FILES ${dir}/metadata.json
+        DESTINATION ${package_dest}
+    )
+
+    # Install contents subdirectory
+    install(DIRECTORY ${dir}/contents
+        DESTINATION ${package_dest}
+        PATTERN .svn EXCLUDE
+        PATTERN *.qmlc EXCLUDE
+        PATTERN CMakeLists.txt EXCLUDE
+        PATTERN Messages.sh EXCLUDE
+        PATTERN dummydata EXCLUDE
+    )
 endfunction()
 
 function(kpackage_generate_appstream_metadata dir component)
