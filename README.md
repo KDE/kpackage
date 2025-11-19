@@ -26,16 +26,17 @@ A fixed structure is encouraged by the api of Package in order to encourage plug
 An example filesystem structure (that in the end, depends from the PackageStructure) may be:
 
 ```
-
-(root)
-|-- code
-|   `-- main.js
-|-- config
-|   `-- config.xml
-|-- images
-|   `-- background.png
-`-- metadata.json
-
+(root)/
+├── contents
+│   ├── code
+│   │   └── main.js
+│   ├── config
+│   │   └── config.xml
+│   ├── images
+│   │   └── background.png
+│   └── ui
+│       └── main.qml
+└── metadata.json
 ```
 
 The special, main and always required for every package structure file is the "metadata" file, which describes the package with values such as name, description, pluginname etc. It is in the JSON format accepted by KPluginMetadata. The metadata is accessible with Package::metadata().
