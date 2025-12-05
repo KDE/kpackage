@@ -85,7 +85,7 @@ public:
     Package &operator=(const Package &rhs);
 
     /*!
-     * Returns \c true if this package has a valid PackageStructure associatedw it with it.
+     * Returns \c true if this package has a valid PackageStructure associated with it.
      *
      * A package may not be valid, but have a valid structure. Useful when dealing with
      * Package objects in a semi-initialized state (e.g. before calling setPath())
