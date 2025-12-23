@@ -8,7 +8,7 @@
 <title
 >KPackage Yöneticisi</title>
 <date
->2017-01-03</date>
+>2017‒01‒03</date>
 <releaseinfo
 >Frameworks 5.30</releaseinfo>
 <productname
@@ -152,7 +152,7 @@
 ><para
 ><quote
 >yol</quote
->'daki paket için bir SHA1 sağlaması oluşturun.</para
+>’daki paket için bir SHA1 sağlaması oluşturun.</para
 ></listitem>
 </varlistentry>
 <varlistentry>
@@ -188,7 +188,7 @@
 ><para
 ><quote
 >path</quote
->'daki paketi kurun.</para
+>’daki paketi kurun.</para
 ></listitem>
 </varlistentry>
 <varlistentry>
@@ -202,7 +202,7 @@
 ><para
 >Paket <quote
 >ad</quote
->'ı hakkında bilgi gösterin.</para
+>’ı hakkında bilgi gösterin.</para
 ></listitem>
 </varlistentry>
 <varlistentry>
@@ -216,7 +216,7 @@
 ><para
 ><quote
 >yol</quote
->'daki paketi yükseltin.</para
+>’daki paketi yükseltin.</para
 ></listitem>
 </varlistentry>
 <varlistentry>
@@ -250,7 +250,7 @@
 ><para
 >Paket <quote
 >ad</quote
->'ını kaldırın.</para
+>’ını kaldırın.</para
 ></listitem>
 </varlistentry>
 <varlistentry>
@@ -295,7 +295,7 @@
 <para
 >Daha ayrıntılı kullanıcı belgelendirmesine <ulink url="help:/plasma-desktop"
 >help:/plasma-desktop</ulink
-> (ya bu &URL;'yi &konqueror;'a girin ya da <userinput
+> (ya bu &URL;’yi &konqueror;’a girin ya da <userinput
 ><command
 >khelpcenter</command
 > <parameter
