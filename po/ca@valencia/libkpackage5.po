@@ -25,7 +25,7 @@ msgstr ""
 #, kde-format
 msgctxt "NAME OF TRANSLATORS"
 msgid "Your names"
-msgstr "SPDX-FileCopyrightText: 2019 Empar Montoro Martín,Josep M. Ferrer"
+msgstr "Empar Montoro Martín,Josep M. Ferrer"
 
 #, kde-format
 msgctxt "EMAIL OF TRANSLATORS"
@@ -188,7 +188,7 @@ msgstr "Fitxer principal de la IU"
 #: kpackagetool/kpackagetool.cpp:91
 #, kde-format
 msgid "Failed to generate a Package hash for %1"
-msgstr "No s'ha pogut generar un resum de paquet per a %1"
+msgstr "Ha fallat mentre es generava un resum de paquet per a %1"
 
 #: kpackagetool/kpackagetool.cpp:94
 #, kde-format
