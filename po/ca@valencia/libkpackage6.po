@@ -126,7 +126,7 @@ msgstr "No s'ha pogut suprimir el paquet des de: %1"
 #: kpackagetool/kpackagetool.cpp:87
 #, kde-format
 msgid "Failed to generate a Package hash for %1"
-msgstr "No s'ha pogut generar un resum de paquet per a %1"
+msgstr "Ha fallat mentre es generava un resum de paquet per a %1"
 
 #: kpackagetool/kpackagetool.cpp:90
 #, kde-format
