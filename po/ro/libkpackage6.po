@@ -1,13 +1,13 @@
 # Copyright (C) YEAR This_file_is_part_of_KDE
 # This file is distributed under the same license as the PACKAGE package.
-# Sergiu Bivol <sergiu@cip.md>, 2014.
+# SPDX-FileCopyrightText: 2014, 2026 Sergiu Bivol <sergiu@cip.md>
 #
 msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2025-11-17 11:49+0000\n"
-"PO-Revision-Date: 2014-05-02 12:06+0300\n"
+"PO-Revision-Date: 2026-01-28 20:27+0000\n"
 "Last-Translator: Sergiu Bivol <sergiu@cip.md>\n"
 "Language-Team: Romanian <kde-i18n-ro@kde.org>\n"
 "Language: ro\n"
@@ -16,17 +16,17 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=3; plural=n==1 ? 0 : (n==0 || (n%100 > 0 && n%100 < "
 "20)) ? 1 : 2;\n"
+"X-Generator: Lokalize 25.08.1\n"
 
-#, fuzzy, kde-format
-#| msgid "Fun and Games"
+#, kde-format
 msgctxt "NAME OF TRANSLATORS"
 msgid "Your names"
-msgstr "Distracție și jocuri"
+msgstr "Sergiu Bivol"
 
 #, kde-format
 msgctxt "EMAIL OF TRANSLATORS"
 msgid "Your emails"
-msgstr ""
+msgstr "sergiu@cip.md"
 
 #: kpackage/private/packagejobthread.cpp:164
 #, kde-format
@@ -36,7 +36,7 @@ msgstr ""
 #: kpackage/private/packagejobthread.cpp:173
 #, kde-format
 msgid "No such file: %1"
-msgstr ""
+msgstr "Fișierul nu există: %1"
 
 #: kpackage/private/packagejobthread.cpp:203
 #, kde-format
@@ -151,33 +151,32 @@ msgstr ""
 #: kpackagetool/kpackagetool.cpp:259
 #, kde-format
 msgid "Showing info for package: %1"
-msgstr ""
+msgstr "Se arată informații pentru pachet: %1"
 
 #: kpackagetool/kpackagetool.cpp:260
 #, kde-format
 msgid "  Name       : %1"
-msgstr ""
+msgstr "  Denumire   : %1"
 
 #: kpackagetool/kpackagetool.cpp:261
-#, fuzzy, kde-format
-#| msgid "Service Descriptions"
+#, kde-format
 msgid "  Description: %1"
-msgstr "Descriere servicii"
+msgstr "    Descriere: %1"
 
 #: kpackagetool/kpackagetool.cpp:262
 #, kde-format
 msgid "  Plugin     : %1"
-msgstr ""
+msgstr "  Extensie   : %1"
 
 #: kpackagetool/kpackagetool.cpp:268
 #, kde-format
 msgid "  Author     : %1"
-msgstr ""
+msgstr "   Autor     : %1"
 
 #: kpackagetool/kpackagetool.cpp:269
 #, kde-format
 msgid "  Path       : %1"
-msgstr ""
+msgstr "  Cale       : %1"
 
 #: kpackagetool/kpackagetool.cpp:429
 #, kde-format
@@ -197,7 +196,7 @@ msgstr ""
 #: kpackagetool/kpackagetool.cpp:458
 #, kde-format
 msgid "Path"
-msgstr ""
+msgstr "Cale"
 
 #: kpackagetool/kpackagetool.cpp:489
 #, kde-format
@@ -207,63 +206,63 @@ msgstr ""
 #: kpackagetool/kpackagetool.cpp:490
 #, kde-format
 msgid "Built in:"
-msgstr ""
+msgstr "Încorporat:"
 
 #: kpackagetool/kpackagetool.cpp:493
 #, kde-format
 msgid "KPackage/Generic"
-msgstr ""
+msgstr "KPackage/Generic"
 
 #: kpackagetool/kpackagetool.cpp:494
 #, kde-format
 msgid "KPackage/GenericQML"
-msgstr ""
+msgstr "KPackage/GenericQML"
 
 #: kpackagetool/kpackagetool.cpp:502
 #, kde-format
 msgid "Provided by plugins:"
-msgstr ""
+msgstr "Furnizat de către extensii:"
 
 #: kpackagetool/kpackagetool.cpp:524
 #, kde-format
 msgid "Successfully upgraded %1"
-msgstr ""
+msgstr "Actualizat cu succes %1"
 
 #: kpackagetool/kpackagetool.cpp:526
 #, kde-format
 msgid "Successfully installed %1"
-msgstr ""
+msgstr "Instalat cu succes %1"
 
 #: kpackagetool/kpackagetool.cpp:529
 #, kde-format
 msgid "Error: Installation of %1 failed: %2"
-msgstr ""
+msgstr "Eroare: instalarea %1 a eșuat: %2"
 
 #: kpackagetool/kpackagetool.cpp:541
 #, kde-format
 msgid "Upgrading package from file: %1"
-msgstr ""
+msgstr "Se înnoiește pachetul din fișier: %1"
 
 #: kpackagetool/kpackagetool.cpp:548
 #, kde-format
 msgid "Successfully uninstalled %1"
-msgstr ""
+msgstr "Dezinstalat cu succes %1"
 
 #: kpackagetool/kpackagetool.cpp:550
 #, kde-format
 msgid "Error: Uninstallation of %1 failed: %2"
-msgstr ""
+msgstr "Eroare: dezinstalarea %1 a eșuat: %2"
 
 #: kpackagetool/main.cpp:36
 #, kde-format
 msgid "KPackage Manager"
-msgstr ""
+msgstr "Gestionar KPackage"
 
 #: kpackagetool/options.h:11
 #, kde-format
 msgctxt "Do not translate <path>"
 msgid "Generate a SHA1 hash for the package at <path>"
-msgstr ""
+msgstr "Generează sumă de control SHA1 pentru pachetul de la <cale>"
 
 #: kpackagetool/options.h:18
 #, kde-format
@@ -303,18 +302,18 @@ msgstr ""
 #: kpackagetool/options.h:56
 #, kde-format
 msgid "List installed packages"
-msgstr ""
+msgstr "Enumeră pachetele instalate"
 
 #: kpackagetool/options.h:61
 #, kde-format
 msgid "List all known package types that can be installed"
-msgstr ""
+msgstr "Enumeră toate tipurile de pachete ce pot fi instalate"
 
 #: kpackagetool/options.h:67
 #, kde-format
 msgctxt "Do not translate <name>"
 msgid "Remove the package named <name>"
-msgstr ""
+msgstr "Elimină pachetul denumit <denumire>"
 
 #: kpackagetool/options.h:74
 #, kde-format
@@ -322,18 +321,20 @@ msgid ""
 "Absolute path to the package root. If not supplied, then the standard data "
 "directories for this KDE session will be searched instead."
 msgstr ""
+"Calea absolută pentru rădăcina pachetului. Dacă nu este furnizată, vor fi "
+"căutate dosarele KDE standard de date pentru această sesiune."
 
 #: kpackagetool/options.h:82
 #, kde-format
 msgctxt "Do not translate <path>"
 msgid "Outputs the metadata for the package <path>"
-msgstr ""
+msgstr "Arată metadatele pachetului <cale>"
 
 #: kpackagetool/options.h:89
 #, kde-format
 msgctxt "Do not translate <path>"
 msgid "Outputs the metadata for the package into <path>"
-msgstr ""
+msgstr "Scrie metadatele pachetului în <cale>"
 
 #, fuzzy
 #~| msgid "Could not find requested component: %1"
