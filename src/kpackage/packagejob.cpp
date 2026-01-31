@@ -79,7 +79,12 @@ PackageJob::PackageJob(OperationType type, const Package &package, const QString
     }
 }
 
-PackageJob::~PackageJob() = default;
+PackageJob::~PackageJob()
+{
+    // if start() was called the job will be deleted by the QThreadPool and d->thread will already be null
+    // if not we need to delete it ourselves
+    delete d->thread;
+}
 
 void PackageJob::start()
 {
