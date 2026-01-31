@@ -41,21 +41,21 @@ Package::Package(PackageStructure *structure)
     }
 }
 
-Package::Package(const Package &other)
-    : d(other.d)
-{
-}
+Package::Package(const Package &other) = default;
+    // : d(other.d)
+// {
+// }
 
 Package::~Package() = default;
 
-Package &Package::operator=(const Package &rhs)
-{
-    if (&rhs != this) {
-        d = rhs.d;
-    }
-
-    return *this;
-}
+Package &Package::operator=(const Package &rhs) = default;
+// {
+//     if (&rhs != this) {
+//         d = rhs.d;
+//     }
+//
+//     return *this;
+// }
 
 bool Package::hasValidStructure() const
 {
