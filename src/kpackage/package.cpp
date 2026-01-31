@@ -147,7 +147,7 @@ void Package::setFallbackPackage(const KPackage::Package &package)
         return;
     }
 
-    d->fallbackPackage = std::make_unique<Package>(package);
+    d->fallbackPackage = package;
 }
 
 KPackage::Package Package::fallbackPackage() const
@@ -781,9 +781,9 @@ PackagePrivate &PackagePrivate::operator=(const PackagePrivate &rhs)
 
     structure = rhs.structure;
     if (rhs.fallbackPackage) {
-        fallbackPackage = std::make_unique<Package>(*rhs.fallbackPackage);
+        fallbackPackage = rhs.fallbackPackage;
     } else {
-        fallbackPackage = nullptr;
+        fallbackPackage = std::nullopt;
     }
     if (rhs.metadata && rhs.metadata.value().isValid()) {
         metadata = rhs.metadata;
@@ -894,8 +894,8 @@ bool PackagePrivate::hasCycle(const KPackage::Package &package)
             qCWarning(KPACKAGE_LOG) << "Warning: the fallback chain of " << package.metadata().pluginId() << "contains a cyclical dependency.";
             return true;
         }
-        fastPackage = fastPackage->d->fallbackPackage->d->fallbackPackage.get();
-        slowPackage = slowPackage->d->fallbackPackage.get();
+        fastPackage = fastPackage->d->fallbackPackage->d->fallbackPackage ? &fastPackage->d->fallbackPackage->d->fallbackPackage.value() : nullptr;
+        slowPackage = slowPackage->d->fallbackPackage->d->fallbackPackage ? &slowPackage->d->fallbackPackage->d->fallbackPackage.value() : nullptr;
     }
     return false;
 }
