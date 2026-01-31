@@ -17,8 +17,8 @@
 class NoPrefixes : public KPackage::Package
 {
 public:
-    explicit NoPrefixes()
-        : KPackage::Package(new KPackage::PackageStructure)
+    explicit NoPrefixes(QObject *parent)
+        : KPackage::Package(new KPackage::PackageStructure(parent))
     {
         setContentsPrefixPaths(QStringList());
         addDirectoryDefinition("bin", QStringLiteral("bin"));
@@ -118,7 +118,7 @@ void PackageStructureTest::validPackages()
     QVERIFY(ps.isValid());
     QVERIFY(!KPackage::Package().isValid());
     QVERIFY(!KPackage::PackageLoader::self()->loadPackage(QStringLiteral("doesNotExist")).isValid());
-    QVERIFY(NoPrefixes().isValid());
+    QVERIFY(NoPrefixes(this).isValid());
 
     KPackage::Package p = KPackage::PackageLoader::self()->loadPackage(QStringLiteral("KPackage/Generic"));
     p.addFileDefinition("mainscript", QStringLiteral("ui/main.qml"));
@@ -131,11 +131,12 @@ void PackageStructureTest::validPackages()
 
 void PackageStructureTest::wallpaperPackage()
 {
-    KPackage::Package p(new Wallpaper);
+    Wallpaper wallpaper;
+    KPackage::Package p(&wallpaper);
     p.setPath(m_packagePath);
     QVERIFY(p.isValid());
 
-    KPackage::Package p2(new Wallpaper);
+    KPackage::Package p2(&wallpaper);
     p2.setPath(m_packagePath + "/contents/images/empty.png");
     QVERIFY(p2.isValid());
 }
@@ -205,7 +206,7 @@ void PackageStructureTest::mutateAfterCopy()
 
 void PackageStructureTest::emptyContentsPrefix()
 {
-    NoPrefixes package;
+    NoPrefixes package(this);
     QString path(package.filePath("bin", QStringLiteral("ls")));
     if (QFileInfo::exists(QStringLiteral("/bin/ls"))) { // not Windows
         QCOMPARE(path, QStringLiteral("/bin/ls"));
@@ -307,7 +308,8 @@ void PackageStructureTest::mimeTypes()
 
 void PackageStructureTest::customContent()
 {
-    KPackage::Package p(new SimpleContent);
+    SimpleContent structure;
+    KPackage::Package p(&structure);
     p.setPath(QFINDTESTDATA("data/simplecontent"));
     QVERIFY(p.isValid());
     QCOMPARE(p.filePath("customcontentfile"), QString());
