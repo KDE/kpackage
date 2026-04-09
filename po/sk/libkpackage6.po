@@ -14,8 +14,8 @@ msgstr ""
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Generator: Lokalize 20.08.1\n"
 "Plural-Forms: nplurals=3; plural=(n==1) ? 0 : (n>=2 && n<=4) ? 1 : 2;\n"
+"X-Generator: Lokalize 20.08.1\n"
 
 #, kde-format
 msgctxt "NAME OF TRANSLATORS"
@@ -50,17 +50,15 @@ msgstr "Nemôžem otvoriť súbor balíka: %1"
 #: kpackage/private/packagejobthread.cpp:238
 #, kde-format
 msgid "Package is not considered valid"
-msgstr ""
+msgstr "Balík nie je považovaný za platný"
 
 #: kpackage/private/packagejobthread.cpp:248
-#, fuzzy, kde-format
-#| msgid "Package plugin name not specified: %1"
+#, kde-format
 msgid "Package plugin id not specified: %1"
 msgstr "Nie je zadaný názov balíka pluginu: %1"
 
 #: kpackage/private/packagejobthread.cpp:258
-#, fuzzy, kde-format
-#| msgid "Package plugin name %1 contains invalid characters"
+#, kde-format
 msgid "Package plugin id %1 contains invalid characters"
 msgstr "Názov balíka pluginu %1 obsahuje neplatné znaky"
 
@@ -128,8 +126,7 @@ msgid "SHA1 hash for Package at %1: '%2'"
 msgstr "SHA1 hash pre balíček na %1: '%2'"
 
 #: kpackagetool/kpackagetool.cpp:145
-#, fuzzy, kde-format
-#| msgid "Listing service types: %1 in %2"
+#, kde-format
 msgid "Listing KPackageType: %1 in %2"
 msgstr "Vypisujem typy služieb: %1 v %2"
 
@@ -157,32 +154,27 @@ msgid "Showing info for package: %1"
 msgstr "Zobrazujem informácie pre balík: %1"
 
 #: kpackagetool/kpackagetool.cpp:260
-#, fuzzy, kde-format
-#| msgid "      Name : %1"
+#, kde-format
 msgid "  Name       : %1"
 msgstr "      Názov : %1"
 
 #: kpackagetool/kpackagetool.cpp:261
-#, fuzzy, kde-format
-#| msgid "Service Descriptions"
+#, kde-format
 msgid "  Description: %1"
-msgstr "Popisy služby"
+msgstr "  Popis: %1"
 
 #: kpackagetool/kpackagetool.cpp:262
-#, fuzzy, kde-format
-#| msgid "    Plugin : %1"
+#, kde-format
 msgid "  Plugin     : %1"
 msgstr "    Plugin : %1"
 
 #: kpackagetool/kpackagetool.cpp:268
-#, fuzzy, kde-format
-#| msgid "    Author : %1"
+#, kde-format
 msgid "  Author     : %1"
 msgstr "    Autor : %1"
 
 #: kpackagetool/kpackagetool.cpp:269
-#, fuzzy, kde-format
-#| msgid "      Path : %1"
+#, kde-format
 msgid "  Path       : %1"
 msgstr "      Cesta : %1"
 
@@ -201,7 +193,7 @@ msgstr ""
 #: kpackagetool/kpackagetool.cpp:457
 #, kde-format
 msgid "KPackage Structure Name"
-msgstr ""
+msgstr "Názov štruktúry KPackage"
 
 #: kpackagetool/kpackagetool.cpp:458
 #, kde-format
@@ -363,7 +355,6 @@ msgstr "Vytvorí metadáta pre balíček do <path>"
 #~ "%2"
 
 #, fuzzy
-#~| msgid "Desktop file that describes this package."
 #~ msgid "JSON file that describes this package."
 #~ msgstr "Súbor desktop, ktorý popisuje tento balík."
 
@@ -510,7 +501,6 @@ msgstr "Vytvorí metadáta pre balíček do <path>"
 #~ msgstr "Generujem %1/kpluginindex.json"
 
 #, fuzzy
-#~| msgid "Generating %1/kpluginindex.json"
 #~ msgid "Cannot write to %1/kpluginindex.json"
 #~ msgstr "Generujem %1/kpluginindex.json"
 
