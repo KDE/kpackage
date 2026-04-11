@@ -7,7 +7,7 @@ msgstr ""
 "Project-Id-Version: libplasma\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2025-11-17 09:00+0000\n"
-"PO-Revision-Date: 2020-09-08 19:03+0200\n"
+"PO-Revision-Date: 2026-04-10 12:00+0200\n"
 "Last-Translator: Matej Mrenica <matejm98mthw@gmail.com>\n"
 "Language-Team: Slovak <kde-i18n-doc@kde.org>\n"
 "Language: sk\n"
@@ -260,7 +260,7 @@ msgstr ""
 #: kpackagetool/kpackagetool.cpp:570
 #, kde-format
 msgid "KPackage Structure Name"
-msgstr ""
+msgstr "Názov štruktúry KPackage"
 
 #: kpackagetool/kpackagetool.cpp:571
 #, kde-format
