@@ -49,7 +49,7 @@ public:
             return StructureOrErrorJob{nullptr, job};
         }
     }
-    PackageJobThread *thread = nullptr;
+    std::unique_ptr<PackageJobThread> thread;
     Package package;
     QString installPath;
 };
@@ -58,10 +58,10 @@ PackageJob::PackageJob(OperationType type, const Package &package, const QString
     : KJob()
     , d(new PackageJobPrivate)
 {
-    d->thread = new PackageJobThread(type, src, dest, package);
+    d->thread = std::make_unique<PackageJobThread>(type, src, dest, package);
     d->package = package;
 
-    connect(d->thread, &PackageJobThread::installPathChanged, this, [this](const QString &installPath) {
+    connect(d->thread.get(), &PackageJobThread::installPathChanged, this, [this](const QString &installPath) {
         d->package.setPath(installPath);
     });
 
@@ -84,8 +84,7 @@ PackageJob::~PackageJob() = default;
 void PackageJob::start()
 {
     if (d->thread) {
-        QThreadPool::globalInstance()->start(d->thread);
-        d->thread = nullptr;
+        QThreadPool::globalInstance()->start(d->thread.release());
     } else {
         qCWarning(KPACKAGE_LOG) << "The KPackage::PackageJob was already started";
     }
@@ -184,7 +183,7 @@ void PackageJob::setupNotificationsOnJobFinished(const QString &messageName)
         }
         emitResult();
     };
-    connect(d->thread, &PackageJobThread::jobThreadFinished, this, onJobFinished, Qt::QueuedConnection);
+    connect(d->thread.get(), &PackageJobThread::jobThreadFinished, this, onJobFinished, Qt::QueuedConnection);
 }
 
 } // namespace KPackage
