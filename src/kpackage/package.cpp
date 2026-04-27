@@ -46,7 +46,11 @@ Package::Package(const Package &other)
 {
 }
 
-Package::~Package() = default;
+Package::~Package()
+{
+    // explicitly delete fallbackPackage first, in case that holds a reference to ourselves
+    d->fallbackPackage.reset();
+}
 
 Package &Package::operator=(const Package &rhs)
 {
