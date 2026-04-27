@@ -18,7 +18,7 @@ class NoPrefixes : public KPackage::Package
 {
 public:
     explicit NoPrefixes()
-        : KPackage::Package(new KPackage::PackageStructure)
+        : KPackage::Package(new KPackage::PackageStructure(qApp))
     {
         setContentsPrefixPaths(QStringList());
         addDirectoryDefinition("bin", QStringLiteral("bin"));
@@ -32,6 +32,10 @@ class Wallpaper : public KPackage::PackageStructure
 {
     Q_OBJECT
 public:
+    explicit Wallpaper(QObject *parent = nullptr)
+        : KPackage::PackageStructure(parent)
+    {
+    }
     void initPackage(KPackage::Package *package) override
     {
         package->addDirectoryDefinition("images", QStringLiteral("images/"));
@@ -82,6 +86,10 @@ class SimpleContent : public KPackage::PackageStructure
 {
     Q_OBJECT
 public:
+    explicit SimpleContent(QObject *parent = nullptr)
+        : KPackage::PackageStructure(parent)
+    {
+    }
     void initPackage(KPackage::Package *package) override
     {
         package->addDirectoryDefinition("ui", QStringLiteral("ui/"));
@@ -131,11 +139,11 @@ void PackageStructureTest::validPackages()
 
 void PackageStructureTest::wallpaperPackage()
 {
-    KPackage::Package p(new Wallpaper);
+    KPackage::Package p(new Wallpaper(this));
     p.setPath(m_packagePath);
     QVERIFY(p.isValid());
 
-    KPackage::Package p2(new Wallpaper);
+    KPackage::Package p2(new Wallpaper(this));
     p2.setPath(m_packagePath + "/contents/images/empty.png");
     QVERIFY(p2.isValid());
 }
@@ -307,7 +315,7 @@ void PackageStructureTest::mimeTypes()
 
 void PackageStructureTest::customContent()
 {
-    KPackage::Package p(new SimpleContent);
+    KPackage::Package p(new SimpleContent(this));
     p.setPath(QFINDTESTDATA("data/simplecontent"));
     QVERIFY(p.isValid());
     QCOMPARE(p.filePath("customcontentfile"), QString());
