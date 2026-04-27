@@ -144,7 +144,7 @@ msgstr "Obrázky"
 #: kpackage/private/packages.cpp:49
 #, kde-format
 msgid "Themed Images"
-msgstr "Témované obrázky"
+msgstr "Tematické obrázky"
 
 #: kpackage/private/packages.cpp:55
 #, kde-format
