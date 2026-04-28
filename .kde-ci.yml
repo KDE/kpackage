@@ -11,3 +11,4 @@ Options:
  test-before-installing: True
  require-passing-tests-on: ['Linux', 'FreeBSD', 'Windows']
  json-validate-ignore: ['autotests/data/testinvalidmetadata/metadata.json']
+ enable-lsan: True

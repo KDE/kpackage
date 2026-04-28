@@ -349,7 +349,7 @@ void PlasmoidPackageTest::createAndUpdatePackage()
 
 void PlasmoidPackageTest::uncompressPackageWithSubFolder()
 {
-    KPackage::PackageStructure *structure = new KPackage::PackageStructure;
+    KPackage::PackageStructure *structure = new KPackage::PackageStructure(this);
     KPackage::Package package(structure);
     package.setPath(QFINDTESTDATA("data/customcontent.tar.gz"));
 
