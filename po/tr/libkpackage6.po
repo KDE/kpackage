@@ -4,21 +4,21 @@
 # Volkan, 2013.
 # Volkan Gezer <volkangezer@gmail.com>, 2013, 2014, 2015.
 # Kaan Ozdincer <kaanozdincer@gmail.com>, 2014.
-# SPDX-FileCopyrightText: 2022, 2023, 2024, 2025 Emir SARI <emir_sari@icloud.com>
+# SPDX-FileCopyrightText: 2022, 2023, 2024, 2025, 2026 Emir SARI <emir_sari@icloud.com>
 msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2025-11-17 11:49+0000\n"
-"PO-Revision-Date: 2025-06-29 09:04+0300\n"
-"Last-Translator: Emir SARI <emir_sari@îcloud.com>\n"
+"PO-Revision-Date: 2026-05-02 18:52+0300\n"
+"Last-Translator: Emir SARI <emir_sari@icloud.com>\n"
 "Language-Team: Turkish <kde-l10n-tr@kde.org>\n"
 "Language: tr\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=(n > 1);\n"
-"X-Generator: Lokalize 25.04.2\n"
+"X-Generator: Lokalize 25.12.3\n"
 
 #, kde-format
 msgctxt "NAME OF TRANSLATORS"
@@ -70,7 +70,7 @@ msgstr "Paket eklenti adı %1, geçersiz karakterler içeriyor"
 msgid ""
 "The new package has a different type from the old version already installed."
 msgstr ""
-"Yeni paketin halihazırda kurulu olan eski sürümden farklı bir türü var."
+"Yeni paketin hâlihazırda kurulu olan eski sürümden farklı bir türü var."
 
 #: kpackage/private/packagejobthread.cpp:282
 #, kde-format
@@ -81,12 +81,12 @@ msgstr "%2 konumundaki %1 eski kurulumunu kaldırmak olanaksız. Hata: %3"
 #: kpackage/private/packagejobthread.cpp:286
 #, kde-format
 msgid "Not installing version %1 of %2. Version %3 already installed."
-msgstr "%1/%2 sürümü kurulmuyor. %3 sürümü halihazırda kurulu."
+msgstr "%1/%2 sürümü kurulmuyor. %3 sürümü hâlihazırda kurulu."
 
 #: kpackage/private/packagejobthread.cpp:290
 #, kde-format
 msgid "%1 already exists"
-msgstr "%1 halihazırda var"
+msgstr "%1 hâlihazırda var"
 
 #: kpackage/private/packagejobthread.cpp:311
 #, kde-format
