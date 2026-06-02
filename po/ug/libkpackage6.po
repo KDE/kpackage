@@ -8,25 +8,25 @@ msgstr ""
 "Project-Id-Version: libplasma\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2025-11-17 11:49+0000\n"
-"PO-Revision-Date: 2013-09-08 07:05+0900\n"
-"Last-Translator: Gheyret Kenji <gheyret@gmail.com>\n"
+"PO-Revision-Date: 2026-05-31 19:25-0400\n"
+"Last-Translator: Abduqadir Abliz <sahranbay@gmail.com>\n"
 "Language-Team: Uyghur <kde-i18n-doc@kde.org>\n"
 "Language: ug\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=1; plural=0;\n"
+"X-Generator: Poedit 3.9\n"
 
-#, fuzzy, kde-format
-#| msgid "Fun and Games"
+#, kde-format
 msgctxt "NAME OF TRANSLATORS"
 msgid "Your names"
-msgstr "ئويۇن ۋە تاماشا"
+msgstr "ئابدۇقادىر ئابلىز، غەيرەت كەنجى"
 
 #, kde-format
 msgctxt "EMAIL OF TRANSLATORS"
 msgid "Your emails"
-msgstr ""
+msgstr "sahranbay@gmail.com, gheyret@gmail.com"
 
 #: kpackage/private/packagejobthread.cpp:164
 #, kde-format
@@ -36,7 +36,7 @@ msgstr ""
 #: kpackage/private/packagejobthread.cpp:173
 #, kde-format
 msgid "No such file: %1"
-msgstr ""
+msgstr "ئۇنداق ھۆججەت يوق: %1"
 
 #: kpackage/private/packagejobthread.cpp:203
 #, kde-format
@@ -161,10 +161,9 @@ msgid "  Name       : %1"
 msgstr ""
 
 #: kpackagetool/kpackagetool.cpp:261
-#, fuzzy, kde-format
-#| msgid "Service Descriptions"
+#, kde-format
 msgid "  Description: %1"
-msgstr "مۇلازىمەت چۈشەندۈرۈشى"
+msgstr "  چۈشەندۈرۈش: %1"
 
 #: kpackagetool/kpackagetool.cpp:262
 #, kde-format
@@ -182,13 +181,7 @@ msgid "  Path       : %1"
 msgstr ""
 
 #: kpackagetool/kpackagetool.cpp:429
-#, fuzzy, kde-format
-#| msgctxt ""
-#| "The user entered conflicting options packageroot and global, this is the "
-#| "error message telling the user he can use only one"
-#| msgid ""
-#| "The packageroot and global options conflict each other, please select "
-#| "only one."
+#, kde-format
 msgctxt ""
 "The user entered conflicting options packageroot and global, this is the "
 "error message telling the user he can use only one"
@@ -196,7 +189,6 @@ msgid ""
 "The packageroot and global options conflict with each other, please select "
 "only one."
 msgstr ""
-"بوغچا شېخى ۋە ئومۇمىيەت تاللانمىسى ئۆزئارا توقۇنۇشىدۇ، بىرىنىلا تاللاڭ."
 
 #: kpackagetool/kpackagetool.cpp:457
 #, kde-format
@@ -219,16 +211,14 @@ msgid "Built in:"
 msgstr "ئۆزىدىكى:"
 
 #: kpackagetool/kpackagetool.cpp:493
-#, fuzzy, kde-format
-#| msgid "Package"
+#, kde-format
 msgid "KPackage/Generic"
-msgstr "بوغچا"
+msgstr ""
 
 #: kpackagetool/kpackagetool.cpp:494
-#, fuzzy, kde-format
-#| msgid "Package"
+#, kde-format
 msgid "KPackage/GenericQML"
-msgstr "بوغچا"
+msgstr ""
 
 #: kpackagetool/kpackagetool.cpp:502
 #, kde-format
@@ -266,10 +256,9 @@ msgid "Error: Uninstallation of %1 failed: %2"
 msgstr ""
 
 #: kpackagetool/main.cpp:36
-#, fuzzy, kde-format
-#| msgid "Plasma Package Manager"
+#, kde-format
 msgid "KPackage Manager"
-msgstr "پلازما بوغچا باشقۇرغۇچ"
+msgstr ""
 
 #: kpackagetool/options.h:11
 #, kde-format
@@ -315,16 +304,14 @@ msgid "Upgrade the package at <path>"
 msgstr "<path> دىكى بوغچىنى يۈكسەلدۈرۈش"
 
 #: kpackagetool/options.h:56
-#, fuzzy, kde-format
-#| msgid "Wallpaper packages"
+#, kde-format
 msgid "List installed packages"
-msgstr "تام قەغەز بوغچالارى"
+msgstr ""
 
 #: kpackagetool/options.h:61
-#, fuzzy, kde-format
-#| msgid "lists all known Package types that can be installed"
+#, kde-format
 msgid "List all known package types that can be installed"
-msgstr "مەلۇملۇق ئورناتقىلى بولىدىغان ھەممە بوغچا تىپى تىزىمىنى كۆرسىتىدۇ"
+msgstr ""
 
 #: kpackagetool/options.h:67
 #, kde-format
@@ -339,25 +326,20 @@ msgid ""
 "directories for this KDE session will be searched instead."
 msgstr ""
 "بوغچا مۇندەرىجە شېخىنىڭ مۇتلەق يولى.  ئەگەر تەمىنلەنمىسە، ئۇنداقتا بۇ "
-"قېتىملىق KDE ئەڭگىمەنىڭ ئۆلچەملىك سانلىق-مەلۇمات مۇندەرىجىسىنى ئىزدەيدۇ."
+"قېتىملىق KDE جەريانچاقنىڭ ئۆلچەملىك سانلىق مەلۇمات مۇندەرىجىسىنى ئىزدەيدۇ."
 
 #: kpackagetool/options.h:82
-#, fuzzy, kde-format
-#| msgctxt "Do not translate <path>"
-#| msgid "Generate a SHA1 hash for the package at <path>"
+#, kde-format
 msgctxt "Do not translate <path>"
 msgid "Outputs the metadata for the package <path>"
-msgstr "<path> دىكى بوغچا ئۈچۈن SHA1 ئالاھىدىلىك كودى ھاسىل قىلىش"
+msgstr ""
 
 #: kpackagetool/options.h:89
-#, fuzzy, kde-format
-#| msgctxt "Do not translate <path>"
-#| msgid "Generate a SHA1 hash for the package at <path>"
+#, kde-format
 msgctxt "Do not translate <path>"
 msgid "Outputs the metadata for the package into <path>"
-msgstr "<path> دىكى بوغچا ئۈچۈن SHA1 ئالاھىدىلىك كودى ھاسىل قىلىش"
+msgstr ""
 
-#, fuzzy
 #~| msgid "Could not find requested component: %1"
 #~ msgid "Could not open metadata file: %1"
 #~ msgstr "لازىملىق بۆلەكنى تاپالمىدى: %1"
@@ -391,7 +373,6 @@ msgstr "<path> دىكى بوغچا ئۈچۈن SHA1 ئالاھىدىلىك كود
 #~ msgid "Translations"
 #~ msgstr "تەرجىمىسى"
 
-#, fuzzy
 #~| msgid "Main Script File"
 #~ msgid "Main UI File"
 #~ msgstr "ئاساسىي قوليازما ھۆججىتى"
@@ -466,12 +447,10 @@ msgstr "<path> دىكى بوغچا ئۈچۈن SHA1 ئالاھىدىلىك كود
 #~ msgid "Service Type"
 #~ msgstr "مۇلازىمەت تىپى"
 
-#, fuzzy
 #~| msgid "Could not find requested component: %1"
 #~ msgid "Could not remove index file %1"
 #~ msgstr "لازىملىق بۆلەكنى تاپالمىدى: %1"
 
-#, fuzzy
 #~| msgctxt "%1 is the name of the applet"
 #~| msgid "Remove this %1"
 #~ msgid "Removed %1"
@@ -518,7 +497,6 @@ msgstr "<path> دىكى بوغچا ئۈچۈن SHA1 ئالاھىدىلىك كود
 #~ msgid "Miscellaneous"
 #~ msgstr "باشقىلار"
 
-#, fuzzy
 #~| msgctxt "%1 is the name of the applet"
 #~| msgid "%1 Settings"
 #~ msgctxt "%1 is the name of the applet"
@@ -672,7 +650,6 @@ msgstr "<path> دىكى بوغچا ئۈچۈن SHA1 ئالاھىدىلىك كود
 #~ msgid "runner"
 #~ msgstr "ئىجرا قىلغۇچى"
 
-#, fuzzy
 #~| msgid "Wallpaper packages"
 #~ msgctxt "package type"
 #~ msgid "wallpaperplugin"
@@ -697,7 +674,6 @@ msgstr "<path> دىكى بوغچا ئۈچۈن SHA1 ئالاھىدىلىك كود
 #~ msgid "Could not find a suitable installer for package of type %1"
 #~ msgstr "بوغچا تىپى %1 غا ماس كېلىدىغان بوغچا ئورناتقۇچنى تاپالمىدى"
 
-#, fuzzy
 #~| msgid "Data Files"
 #~ msgid "DataEngine"
 #~ msgstr "سانلىق-مەلۇمات ھۆججەتلىرى"
@@ -720,7 +696,6 @@ msgstr "<path> دىكى بوغچا ئۈچۈن SHA1 ئالاھىدىلىك كود
 #~ msgid "Theme"
 #~ msgstr "ئۆرنەك"
 
-#, fuzzy
 #~| msgid "Wallpaper packages"
 #~ msgid "Wallpaper Images"
 #~ msgstr "تام قەغەز بوغچالارى"
@@ -731,48 +706,39 @@ msgstr "<path> دىكى بوغچا ئۈچۈن SHA1 ئالاھىدىلىك كود
 #~ msgid "KWin Window Switcher"
 #~ msgstr "KWin كۆزنەك ئالماشتۇرغۇچ"
 
-#, fuzzy
 #~| msgid "Main Script File"
 #~ msgid "KWin Script"
 #~ msgstr "ئاساسىي قوليازما ھۆججىتى"
 
-#, fuzzy
 #~| msgctxt "%1 is the name of the applet"
 #~| msgid "%1 Settings"
 #~ msgid "%1 Settings"
 #~ msgstr "%1 تەڭشىكى"
 
-#, fuzzy
 #~| msgid "Themed Images"
 #~ msgid "Preview Images"
 #~ msgstr "ئۆرنەكلىك سۈرەتلەر"
 
-#, fuzzy
 #~| msgid "Main Script File"
 #~ msgid "Main Script for Login Manager"
 #~ msgstr "ئاساسىي قوليازما ھۆججىتى"
 
-#, fuzzy
 #~| msgid "Main Script File"
 #~ msgid "Main Script for Logout Dialog"
 #~ msgstr "ئاساسىي قوليازما ھۆججىتى"
 
-#, fuzzy
 #~| msgid "Main Script File"
 #~ msgid "Main Script for Lock Screen"
 #~ msgstr "ئاساسىي قوليازما ھۆججىتى"
 
-#, fuzzy
 #~| msgid "Main Script File"
 #~ msgid "Main Script for User Switcher"
 #~ msgstr "ئاساسىي قوليازما ھۆججىتى"
 
-#, fuzzy
 #~| msgid "Main Script File"
 #~ msgid "Main Script for Splash Screen"
 #~ msgstr "ئاساسىي قوليازما ھۆججىتى"
 
-#, fuzzy
 #~| msgid "Main Script File"
 #~ msgid "Main Script KRunner"
 #~ msgstr "ئاساسىي قوليازما ھۆججىتى"
@@ -780,7 +746,6 @@ msgstr "<path> دىكى بوغچا ئۈچۈن SHA1 ئالاھىدىلىك كود
 #~ msgid "Fetching file type..."
 #~ msgstr "ھۆججەت تىپىغا ئېرىشىۋاتىدۇ…"
 
-#, fuzzy
 #~| msgid "Lock Widgets"
 #~ msgid "Widgets"
 #~ msgstr "Widget قۇلۇپلا"
@@ -788,7 +753,6 @@ msgstr "<path> دىكى بوغچا ئۈچۈن SHA1 ئالاھىدىلىك كود
 #~ msgid "Icon"
 #~ msgstr "سىنبەلگە"
 
-#, fuzzy
 #~| msgid "Wallpaper packages"
 #~ msgid "Wallpaper"
 #~ msgstr "تام قەغەز بوغچالارى"
