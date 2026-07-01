@@ -389,7 +389,7 @@ msgstr "Invia le metadatos per le pacchetto in <path>"
 
 #~ msgctxt "package type"
 #~ msgid "wallpaper"
-#~ msgstr "Tapete de papiro"
+#~ msgstr "Fundo de schermo"
 
 #~ msgid "   Comment : %1"
 #~ msgstr "   Commento : %1"
@@ -518,7 +518,7 @@ msgstr "Invia le metadatos per le pacchetto in <path>"
 #~ "The type of package, e.g. theme, wallpaper, plasmoid, dataengine, runner, "
 #~ "layout-template, etc."
 #~ msgstr ""
-#~ "Le typo de pacchetto, pro ex. thema, tapete de papiro, plasmoid, "
+#~ "Le typo de pacchetto, pro ex. thema, fundo de schermo, plasmoid, "
 #~ "dataengine, runner, patrono de disposition, etc."
 
 #~ msgid "Provided by .desktop files:"
@@ -637,7 +637,7 @@ msgstr "Invia le metadatos per le pacchetto in <path>"
 #~ msgstr "Thema pro le dialogo de clausura de session"
 
 #~ msgid "Wallpaper packages"
-#~ msgstr "Pacchettos de tapete de papiro"
+#~ msgstr "Pacchettos de fundo de schermo"
 
 #~ msgid "Images for widgets"
 #~ msgstr "Imagines per widgets"
@@ -796,10 +796,10 @@ msgstr "Invia le metadatos per le pacchetto in <path>"
 #~ msgstr "Thema"
 
 #~ msgid "Wallpaper Images"
-#~ msgstr "Images de tapete de papiro"
+#~ msgstr "Images de fundo de schermo"
 
 #~ msgid "Animated Wallpaper"
-#~ msgstr "Tapete de papiro animate"
+#~ msgstr "Fundo de schermo animate"
 
 #~ msgid "KWin Effect"
 #~ msgstr "Effecto de KWin"
@@ -919,7 +919,7 @@ msgstr "Invia le metadatos per le pacchetto in <path>"
 #~ msgstr "Icone"
 
 #~ msgid "Wallpaper"
-#~ msgstr "Tapete de papiro"
+#~ msgstr "Fundo de schermo"
 
 #~ msgctxt "%1 is the name of the containment"
 #~ msgid "%1 Options"
