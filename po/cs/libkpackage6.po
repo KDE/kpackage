@@ -10,7 +10,7 @@ msgstr ""
 "Project-Id-Version: plasmapkg\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2025-11-17 11:49+0000\n"
-"PO-Revision-Date: 2026-07-26 12:08+0200\n"
+"PO-Revision-Date: 2026-07-27 23:52+0200\n"
 "Last-Translator: Libor Filípek <libor.filipek@gmail.com>\n"
 "Language-Team: Czech <kde-i18n-doc@kde.org>\n"
 "Language: cs\n"
@@ -18,7 +18,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=3; plural=(n==1) ? 0 : (n>=2 && n<=4) ? 1 : 2;\n"
-"X-Generator: Lokalize 26.04.3\n"
+"X-Generator: Poedit 3.9\n"
 "X-Language: cs_CZ\n"
 "X-Source-Language: en_US\n"
 
@@ -45,7 +45,7 @@ msgstr "Takový soubor neexistuje: %1"
 #: kpackage/private/packagejobthread.cpp:203
 #, kde-format
 msgid "Could not open package file, unsupported archive format: %1 %2"
-msgstr "Nelze otevřít balíček, nepodporovaný formát archivu: %1 %2."
+msgstr "Nelze otevřít balíček, nepodporovaný formát archivu: %1 %2"
 
 #: kpackage/private/packagejobthread.cpp:211
 #, kde-format
