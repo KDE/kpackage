@@ -261,7 +261,7 @@ msgid ""
 "only one."
 msgstr ""
 "Die Option „packageroot“ und die globalen Optionen stehen in Konflikt "
-"zueinander. Bitte benutzen Sie nur eine von beiden."
+"zueinander. Bitte verwenden Sie nur eine von beiden."
 
 #: kpackagetool/kpackagetool.cpp:570
 #, kde-format
@@ -356,7 +356,7 @@ msgid ""
 "plugin, e.g. KPackage/Generic, Plasma/Theme, Plasma/Wallpaper, Plasma/"
 "Applet, etc."
 msgstr ""
-"Der Typ des Pakets, entspricht dem Servicetyp des Paket-Moduls, z. B.  "
+"Der Typ des Pakets, entspricht dem Servicetyp des Paket-Moduls, z. B.  "
 "KPackage/Generic, Plasma/Theme, Plasma/Wallpaper, Plasma/Applet, usw."
 
 #: kpackagetool/options.h:36
@@ -412,7 +412,7 @@ msgstr ""
 "Erstellt den Index der Module neu. Kann zusammen mit den Optionen -t oder -g "
 "verwendet werden. Erstellt den Index für den angegebenen Typ oder "
 "Basisordner des Pakets. Wird im Benutzerordner ausgeführt, wenn nicht die "
-"Option -g benutzt wird."
+"Option -g verwendet wird."
 
 #: kpackagetool/options.h:90
 #, kde-format
@@ -424,7 +424,7 @@ msgstr ""
 "Entfernt den Index der Module. Kann zusammen mit den Optionen -t oder -g "
 "verwendet werden. Erstellt den Index für den angegebenen Typ oder "
 "Basisordner des Pakets. Wird im Benutzerordner ausgeführt, wenn nicht die "
-"Option -g benutzt wird."
+"Option -g verwendet wird."
 
 #: kpackagetool/options.h:98
 #, kde-format
