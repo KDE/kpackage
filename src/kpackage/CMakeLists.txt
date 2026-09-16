@@ -90,3 +90,17 @@ install(TARGETS KF6Package EXPORT KF6PackageTargets ${KF_INSTALL_TARGETS_DEFAULT
 if (NOT BUILD_SHARED_LIBS)
     install(TARGETS kpackage_common_STATIC EXPORT KF6PackageTargets ${KF_INSTALL_TARGETS_DEFAULT_ARGS})
 endif()
+
+ecm_add_installed_library_check(KF6Package
+    PACKAGE_NAME "KF6Package"
+    PACKAGE_TARGET_NAMESPACE "KF6::"
+)
+
+ecm_installed_library_check_include_strings(KF6Package
+    HEADERS ${Package_CamelCase_HEADERS}
+    PREFIX KPackage
+)
+
+ecm_installed_library_check_version_preprocessor_macros(KF6Package
+    PREFIX PACKAGE
+)
