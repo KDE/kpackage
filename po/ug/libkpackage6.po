@@ -8,7 +8,7 @@ msgstr ""
 "Project-Id-Version: libplasma\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2025-11-17 11:49+0000\n"
-"PO-Revision-Date: 2026-05-31 19:25-0400\n"
+"PO-Revision-Date: 2026-09-22 18:03+0900\n"
 "Last-Translator: Abduqadir Abliz <sahranbay@gmail.com>\n"
 "Language-Team: Uyghur <kde-i18n-doc@kde.org>\n"
 "Language: ug\n"
@@ -325,8 +325,6 @@ msgid ""
 "Absolute path to the package root. If not supplied, then the standard data "
 "directories for this KDE session will be searched instead."
 msgstr ""
-"بوغچا مۇندەرىجە شېخىنىڭ مۇتلەق يولى.  ئەگەر تەمىنلەنمىسە، ئۇنداقتا بۇ "
-"قېتىملىق KDE جەريانچاقنىڭ ئۆلچەملىك سانلىق مەلۇمات مۇندەرىجىسىنى ئىزدەيدۇ."
 
 #: kpackagetool/options.h:82
 #, kde-format
