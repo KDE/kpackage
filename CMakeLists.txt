@@ -38,7 +38,7 @@ ecm_setup_version(PROJECT
 
 ################# now find all used packages #################
 
-set (REQUIRED_QT_VERSION 6.9.0)
+set (REQUIRED_QT_VERSION 6.10.0)
 
 find_package(Qt6 ${REQUIRED_QT_VERSION} REQUIRED NO_MODULE COMPONENTS Core)
 
