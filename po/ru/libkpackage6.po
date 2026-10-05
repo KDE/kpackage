@@ -115,12 +115,12 @@ msgstr "Не удалось установить зависимый пакет �
 #: kpackage/private/packagejobthread.cpp:323
 #, kde-format
 msgid "Could not move package to destination: %1"
-msgstr "Не удалось переместить пакет в следующий каталог: %1"
+msgstr "Не удалось переместить пакет в каталог назначения: %1"
 
 #: kpackage/private/packagejobthread.cpp:333
 #, kde-format
 msgid "Could not copy package to destination: %1"
-msgstr "Не удалось скопировать пакет в следующий каталог: %1"
+msgstr "Не удалось скопировать пакет в каталог назначения: %1"
 
 #: kpackage/private/packagejobthread.cpp:368
 #, kde-format
@@ -209,8 +209,7 @@ msgid ""
 "The packageroot and global options conflict with each other, please select "
 "only one."
 msgstr ""
-"Путь к корневому каталогу пакета конфликтует с глобальными параметрами. "
-"Выберите один вариант."
+"Параметры packageroot и global несовместимы, выберите только один из них."
 
 #: kpackagetool/kpackagetool.cpp:457
 #, kde-format
@@ -291,7 +290,9 @@ msgstr "Вычислить хэш SHA1 для пакета в <path>."
 #: kpackagetool/options.h:18
 #, kde-format
 msgid "For install or remove, operates on packages installed for all users."
-msgstr "Установка, просмотр и удаление пакетов Plasma для всех пользователей."
+msgstr ""
+"При установке или удалении работать с пакетами, установленными для всех "
+"пользователей."
 
 # BUGME: is "theme", "тема", ... still accepted? --aspotashev
 #: kpackagetool/options.h:27
@@ -350,8 +351,8 @@ msgid ""
 "Absolute path to the package root. If not supplied, then the standard data "
 "directories for this KDE session will be searched instead."
 msgstr ""
-"Путь к корневому каталогу установленных пакетов. Если не указан, будет "
-"использован стандартный каталог данных KDE."
+"Абсолютный путь к корневому каталогу пакетов. Если не указан, поиск "
+"выполняется в стандартных каталогах данных текущего сеанса KDE."
 
 #: kpackagetool/options.h:82
 #, kde-format
