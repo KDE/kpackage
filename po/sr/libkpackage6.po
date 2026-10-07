@@ -1,13 +1,14 @@
 # Translation of libkpackage5.po into Serbian.
 # Chusslove Illich <caslav.ilic@gmx.net>, 2008, 2009, 2010, 2011, 2012, 2013, 2014, 2015, 2016, 2017.
 # Dalibor Djuric <daliborddjuric@gmail.com>, 2009.
+# Nemanja Hiršl <nemhirsl@gmail.com>, 2026.
 msgid ""
 msgstr ""
 "Project-Id-Version: libkpackage5\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2025-11-17 11:49+0000\n"
-"PO-Revision-Date: 2017-12-15 12:37+0100\n"
-"Last-Translator: Chusslove Illich <caslav.ilic@gmx.net>\n"
+"PO-Revision-Date: 2026-10-06 08:03+0200\n"
+"Last-Translator: Nemanja Hiršl <nemhirsl@gmail.com>\n"
 "Language-Team: Serbian <kde-i18n-sr@kde.org>\n"
 "Language: sr\n"
 "MIME-Version: 1.0\n"
@@ -20,16 +21,15 @@ msgstr ""
 "X-Environment: kde\n"
 
 # >> @item applet category
-#, fuzzy, kde-format
-#| msgid "Fun and Games"
+#, kde-format
 msgctxt "NAME OF TRANSLATORS"
 msgid "Your names"
-msgstr "забава и игре"
+msgstr "Часлав Илић,Далибор Ђурић,Немања Хиршл"
 
 #, kde-format
 msgctxt "EMAIL OF TRANSLATORS"
 msgid "Your emails"
-msgstr ""
+msgstr "caslav.ilic@gmx.net,daliborddjuric@gmail.com,nemhirsl@gmail.com"
 
 #: kpackage/private/packagejobthread.cpp:164
 #, kde-format
@@ -54,19 +54,17 @@ msgstr "Не могу да отворим фајл пакета: %1"
 #: kpackage/private/packagejobthread.cpp:238
 #, kde-format
 msgid "Package is not considered valid"
-msgstr ""
+msgstr "Пакет се не сматра исправним"
 
 #: kpackage/private/packagejobthread.cpp:248
-#, fuzzy, kde-format
-#| msgid "Package plugin name not specified: %1"
+#, kde-format
 msgid "Package plugin id not specified: %1"
-msgstr "Име прикључка пакета није задато: %1"
+msgstr "ИД прикључка пакета није задат: %1"
 
 #: kpackage/private/packagejobthread.cpp:258
-#, fuzzy, kde-format
-#| msgid "Package plugin name %1 contains invalid characters"
+#, kde-format
 msgid "Package plugin id %1 contains invalid characters"
-msgstr "Име прикључка пакета %1 садржи лоше знакове."
+msgstr "ИД прикључка пакета %1 садржи лоше знакове"
 
 #: kpackage/private/packagejobthread.cpp:277
 #, kde-format
@@ -110,7 +108,7 @@ msgstr "Не могу да копирам пакет на одредиште: %1
 #: kpackage/private/packagejobthread.cpp:368
 #, kde-format
 msgid "package path was deleted manually"
-msgstr ""
+msgstr "путања пакета је ручно обрисана"
 
 #: kpackage/private/packagejobthread.cpp:368
 #, kde-format
@@ -133,10 +131,9 @@ msgid "SHA1 hash for Package at %1: '%2'"
 msgstr "СХА‑1 дисперзија за пакет на %1: „%2“"
 
 #: kpackagetool/kpackagetool.cpp:145
-#, fuzzy, kde-format
-#| msgid "Listing service types: %1 in %2"
+#, kde-format
 msgid "Listing KPackageType: %1 in %2"
-msgstr "Набрајам типове сервиса: %1 у %2"
+msgstr "Набрајам тип К‑пакета: %1 у %2"
 
 #: kpackagetool/kpackagetool.cpp:198
 #, kde-format
@@ -163,31 +160,27 @@ msgid "Showing info for package: %1"
 msgstr "Подаци за пакет: %1"
 
 #: kpackagetool/kpackagetool.cpp:260
-#, fuzzy, kde-format
-#| msgid "      Name : %1"
+#, kde-format
 msgid "  Name       : %1"
 msgstr "        Име: %1"
 
 #: kpackagetool/kpackagetool.cpp:261
 #, kde-format
 msgid "  Description: %1"
-msgstr ""
+msgstr "       Опис: %1"
 
 #: kpackagetool/kpackagetool.cpp:262
-#, fuzzy, kde-format
-#| msgid "    Plugin : %1"
+#, kde-format
 msgid "  Plugin     : %1"
 msgstr "  Прикључак: %1"
 
 #: kpackagetool/kpackagetool.cpp:268
-#, fuzzy, kde-format
-#| msgid "    Author : %1"
+#, kde-format
 msgid "  Author     : %1"
 msgstr "      Аутор: %1"
 
 #: kpackagetool/kpackagetool.cpp:269
-#, fuzzy, kde-format
-#| msgid "      Path : %1"
+#, kde-format
 msgid "  Path       : %1"
 msgstr "     Путања: %1"
 
@@ -205,7 +198,7 @@ msgstr ""
 #: kpackagetool/kpackagetool.cpp:457
 #, kde-format
 msgid "KPackage Structure Name"
-msgstr ""
+msgstr "име структуре К‑пакета"
 
 # >> @title:column
 #: kpackagetool/kpackagetool.cpp:458
@@ -358,194 +351,3 @@ msgstr "Испиши метаподатке за пакет у дату пута
 msgctxt "Do not translate <path>"
 msgid "Outputs the metadata for the package into <path>"
 msgstr "Испиши метаподатке за пакет у дату путању"
-
-#~ msgid "Could not open metadata file: %1"
-#~ msgstr "Не могу да отворим фајл метаподатака: %1"
-
-#~ msgid "No metadata file in package: %1"
-#~ msgstr "Нема метаподатака у фајлу пакета: %1"
-
-#~ msgid ""
-#~ "Could not load installer for package of type %1. Error reported was: %2"
-#~ msgstr ""
-#~ "Не могу да учитам инсталатер за пакет типа %1. Пријављена грешка: %2"
-
-#, fuzzy
-#~| msgid "Desktop file that describes this package."
-#~ msgid "JSON file that describes this package."
-#~ msgstr ".Десктоп фајл који описује овај пакет."
-
-# >> @item:intext
-#~ msgid "Main Script File"
-#~ msgstr "главни фајл скрипте"
-
-# >> @item file/directory definition
-#~ msgid "Images"
-#~ msgstr "слике"
-
-# >> @item file/directory definition
-#~ msgid "Themed Images"
-#~ msgstr "тематске слике"
-
-# >> @item file/directory definition
-#~ msgid "Configuration Definitions"
-#~ msgstr "дефиниције поставе"
-
-# >> @item file/directory definition
-#~ msgid "User Interface"
-#~ msgstr "корисничко сучеље"
-
-# >> @item file/directory definition
-#~ msgid "Data Files"
-#~ msgstr "подаци"
-
-# >> @item file/directory definition
-#~ msgid "Executable Scripts"
-#~ msgstr "извршне скрипте"
-
-# >> @item file/directory definition
-#~ msgid "Translations"
-#~ msgstr "преводи"
-
-# >> @item file/directory definition
-#~ msgid "Main UI File"
-#~ msgstr "главни фајл сучеља"
-
-# literal-segment: wallpaper
-#~ msgctxt "package type"
-#~ msgid "wallpaper"
-#~ msgstr "wallpaper"
-
-#~ msgid "   Comment : %1"
-#~ msgstr "   Коментар: %1"
-
-# >> @item applet category
-#~ msgid "Accessibility"
-#~ msgstr "приступачност"
-
-# >> @item applet category
-#~ msgid "Application Launchers"
-#~ msgstr "покретачи програма"
-
-# >> @item applet category
-#~ msgid "Astronomy"
-#~ msgstr "астрономија"
-
-# >> @item applet category
-#~ msgid "Date and Time"
-#~ msgstr "датум и време"
-
-# >> @item applet category
-#~ msgid "Development Tools"
-#~ msgstr "развојне алатке"
-
-# >> @item applet category
-#~ msgid "Education"
-#~ msgstr "образовање"
-
-# >> @item applet category
-#~ msgid "Environment and Weather"
-#~ msgstr "природа и време"
-
-# >> @item applet category
-#~ msgid "Examples"
-#~ msgstr "примери"
-
-# >> @item applet category
-#~ msgid "File System"
-#~ msgstr "фајл систем"
-
-# >> @item applet category
-#~ msgid "Graphics"
-#~ msgstr "графика"
-
-# >> @item applet category
-#~ msgid "Language"
-#~ msgstr "језик"
-
-# >> @item applet category
-#~ msgid "Mapping"
-#~ msgstr "картографија"
-
-# >> @item applet category
-#~ msgid "Miscellaneous"
-#~ msgstr "разно"
-
-# >> @item applet category
-#~ msgid "Multimedia"
-#~ msgstr "мултимедија"
-
-# >> @item applet category
-#~ msgid "Online Services"
-#~ msgstr "сервиси на вези"
-
-# >> @item applet category
-#~ msgid "Productivity"
-#~ msgstr "продуктивност"
-
-# >> @item applet category
-#~ msgid "System Information"
-#~ msgstr "подаци о систему"
-
-# >> @item applet category
-#~ msgid "Utilities"
-#~ msgstr "алатке"
-
-# >> @item applet category
-#~ msgid "Windows and Tasks"
-#~ msgstr "прозори и задаци"
-
-# >> @title:column
-#~ msgid "Addon Name"
-#~ msgstr "име додатка"
-
-# >> @title:column
-#~ msgid "Service Type"
-#~ msgstr "тип сервиса"
-
-#~ msgid "Generating %1%2"
-#~ msgstr "Генеришем %1%2"
-
-#~ msgid "Didn't write %1%2"
-#~ msgstr "Не могу да упишем %1%2"
-
-#~ msgid "Generating %1/%2"
-#~ msgstr "Генеришем %1/%2"
-
-#~ msgid "Cannot write %1/%2"
-#~ msgstr "Не могу да упишем %1/%2"
-
-#~ msgid "Could not remove index file %1"
-#~ msgstr "Не могу да уклоним фајл индекса %1"
-
-# >> Remove (file) %1
-#~ msgid "Removed %1"
-#~ msgstr "Уклоњен %1"
-
-#, fuzzy
-#~| msgid ""
-#~| "Recreate the plugin index. To be used in: conjunction with either the "
-#~| "option -t or -g. Recreates the index for the given type or package root. "
-#~| "Operates in the user directory, unless -g is used"
-#~ msgid ""
-#~ "Recreate the plugin index. To be used in conjunction with either the "
-#~ "option -t or -g. Recreates the index for the given type or package root. "
-#~ "Operates in the user directory, unless -g is used"
-#~ msgstr ""
-#~ "Поново направи индекс прикључака. Намењено употреби уз опцију -t или -g. "
-#~ "Поново прави индекс за дати тип или корен пакета. Ради у корисничкој "
-#~ "фасцикли, осим ако се зада -g."
-
-#, fuzzy
-#~| msgid ""
-#~| "Remove the plugin index. To be used in: conjunction with either the "
-#~| "option -t or -g. Recreates the index for the given type or package root. "
-#~| "Operates in the user directory, unless -g is used"
-#~ msgid ""
-#~ "Remove the plugin index. To be used in conjunction with either the option "
-#~ "-t or -g. Recreates the index for the given type or package root. "
-#~ "Operates in the user directory, unless -g is used"
-#~ msgstr ""
-#~ "Уклони индекс прикључака. Намењено употреби уз опцију -t или -g. Поново "
-#~ "прави индекс за дати тип или корен пакета. Ради у корисничкој фасцикли, "
-#~ "осим ако се зада -g."
