@@ -19,3 +19,25 @@ include(CMakeFindDependencyMacro)
 find_dependency(KF6CoreAddons "@KF_DEP_VERSION@")
 
 include("${CMAKE_CURRENT_LIST_DIR}/KF6PackageMacros.cmake")
+
+# warn about outdated variables
+# KF7 TODO: (or before) remove Package_INSTALL_PREFIX, Package_INCLUDE_DIR, Package_LIBRARIES
+function(_kpackage_deprecate_cmakeconfig_var varname access_type)
+    if(access_type STREQUAL "READ_ACCESS")
+        message(DEPRECATION "\${${varname}} will be gone in future KPackage versions. Use KF6::Package instead, or get in contact.")
+    endif()
+endfunction()
+
+function(_kpackage_deprecate_Package_INSTALL_PREFIX varname access_type)
+    _kpackage_deprecate_cmakeconfig_var(${varname} ${access_type})
+endfunction()
+function(_kpackage_deprecate_Package_LIBRARIES varname access_type)
+    _kpackage_deprecate_cmakeconfig_var(${varname} ${access_type})
+endfunction()
+function(_kpackage_deprecate_Package_INCLUDE_DIRS varname access_type)
+    _kpackage_deprecate_cmakeconfig_var(${varname} ${access_type})
+endfunction()
+
+variable_watch(Package_INSTALL_PREFIX _kpackage_deprecate_Package_INSTALL_PREFIX)
+variable_watch(Package_LIBRARIES _kpackage_deprecate_Package_LIBRARIES)
+variable_watch(Package_INCLUDE_DIR _kpackage_deprecate_Package_INCLUDE_DIRS)
