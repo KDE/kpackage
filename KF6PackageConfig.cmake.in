@@ -18,6 +18,4 @@ set(Package_LIBRARIES KF6::Package)
 include(CMakeFindDependencyMacro)
 find_dependency(KF6CoreAddons "@KF_DEP_VERSION@")
 
-@PACKAGE_SETUP_AUTOMOC_VARIABLES@
-
 include("${CMAKE_CURRENT_LIST_DIR}/KF6PackageMacros.cmake")
