@@ -24,6 +24,7 @@ public Q_SLOTS:
 private Q_SLOTS:
     void createAndInstallPackage();
     void createAndUpdatePackage();
+    void updateExecutesOnceAndDoesNotBlock();
     void uncompressPackageWithSubFolder();
     void isValid();
     void filePath();

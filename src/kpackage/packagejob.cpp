@@ -71,7 +71,6 @@ PackageJob::PackageJob(OperationType type, const Package &package, const QString
         setupNotificationsOnJobFinished(QStringLiteral("packageInstalled"));
     } else if (type == Update) {
         setupNotificationsOnJobFinished(QStringLiteral("packageUpdated"));
-        d->thread->update(src, dest, package);
     } else if (type == Uninstall) {
         setupNotificationsOnJobFinished(QStringLiteral("packageUninstalled"));
     } else {
