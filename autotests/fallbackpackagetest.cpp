@@ -8,7 +8,6 @@
 #include "fallbackpackagetest.h"
 
 #include "packageloader.h"
-#include "packagestructure.h"
 #include <KLocalizedString>
 
 void FallbackPackageTest::initTestCase()

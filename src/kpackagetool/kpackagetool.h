@@ -13,7 +13,6 @@
 #include <QCoreApplication>
 
 class QCommandLineParser;
-class KJob;
 
 namespace KPackage
 {

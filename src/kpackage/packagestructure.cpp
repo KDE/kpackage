@@ -5,9 +5,7 @@
 */
 
 #include "packagestructure.h"
-#include "kpackage_debug.h"
 #include "packagejob.h"
-#include "private/package_p.h"
 
 namespace KPackage
 {
