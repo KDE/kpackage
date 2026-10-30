@@ -26,7 +26,6 @@
 #include "packageloader.h"
 #include "packagestructure.h"
 #include "private/package_p.h"
-#include "private/packageloader_p.h"
 
 namespace KPackage
 {

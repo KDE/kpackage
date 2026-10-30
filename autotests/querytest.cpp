@@ -13,7 +13,6 @@
 
 #include "packagejob.h"
 #include "packageloader.h"
-#include "packagestructure.h"
 
 #include "config.h"
 
