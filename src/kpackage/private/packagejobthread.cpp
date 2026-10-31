@@ -70,6 +70,9 @@ bool copyFolder(QString sourcePath, QString targetPath)
 
 bool removeFolder(QString folderPath)
 {
+    if (QFileInfo(folderPath).isSymLink()) {
+        return QFile::remove(folderPath);
+    }
     QDir folder(folderPath);
     return folder.removeRecursively();
 }
@@ -98,7 +101,7 @@ PackageJobThread::PackageJobThread(PackageJob::OperationType type, const QString
             update(src, dest, package);
         };
     } else if (type == PackageJob::Uninstall) {
-        const QString packagePath = package.path();
+        const QString packagePath = QFileInfo(src).isSymLink() ? src : package.path();
         d->run = [this, packagePath]() {
             uninstall(packagePath);
         };

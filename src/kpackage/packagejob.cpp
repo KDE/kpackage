@@ -146,7 +146,7 @@ PackageJob *PackageJob::uninstall(const QString &packageFormat, const QString &p
         package.setPath(uninstallPath);
 
         PackageLoader::invalidateCache();
-        auto job = new PackageJob(Uninstall, package, QString(), QString());
+        auto job = new PackageJob(Uninstall, package, uninstallPath, QString());
         job->start();
         return job;
     } else {
