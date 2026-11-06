@@ -294,9 +294,7 @@ msgid ""
 "Applet, etc."
 msgstr ""
 "Paketin tyyppi; vastaa pakettiliitännäisen palvelun tyyppiä. Esim. KPackage/"
-"Yleinen, Plasma/Teema, Plasma/Taustakuva, Plasma/Sovelma jne.Paketin tyyppi; "
-"vastaa pakettiliitännäisen palvelun tyyppiä. Esim. KPackage/Yleinen, Plasma/"
-"Teema, Plasma/Taustakuva, Plasma/Sovelma jne."
+"Yleinen, Plasma/Teema, Plasma/Taustakuva, Plasma/Sovelma jne."
 
 #: kpackagetool/options.h:36
 #, kde-format
