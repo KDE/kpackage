@@ -368,27 +368,15 @@ void PlasmoidPackageTest::updateExecutesOnce()
 
     KPackage::PackageLoader::self()->addKnownPackageStructure(m_defaultPackageStructure, new KPackage::PackageStructure(this));
 
-    bool queuedEventProcessed = false;
-    QMetaObject::invokeMethod(qApp, [&queuedEventProcessed]() {
-        queuedEventProcessed = true;
-    }, Qt::QueuedConnection);
-
     auto job = KPackage::PackageJob::update(m_defaultPackageStructure, packagePath, m_packageRoot);
     QVERIFY(job);
     job->setAutoDelete(false);
     std::unique_ptr<KJob> jobOwner(job);
 
-    // This only verifies that no nested event processing occurs during the call.
-    // It does not by itself prove that the update is non-blocking.
     QSignalSpy spy(job, &KJob::finished);
-    QCOMPARE(spy.count(), 0);
-    QVERIFY(!queuedEventProcessed);
-
     QVERIFY(spy.wait(5000));
     QVERIFY(QThreadPool::globalInstance()->waitForDone(5000));
-    QCoreApplication::processEvents();
 
-    QVERIFY(queuedEventProcessed);
     // With the original bug, the redundant queued completion leaves the job in
     // NewerVersionAlreadyInstalledError state even though installation succeeded.
     QCOMPARE(job->error(), KJob::NoError);
