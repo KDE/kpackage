@@ -349,17 +349,14 @@ void PlasmoidPackageTest::createAndUpdatePackage()
     cleanupPackage(QStringLiteral("plasmoid_to_package"));
 }
 
-void PlasmoidPackageTest::updateExecutesOnceAndDoesNotBlock()
+void PlasmoidPackageTest::updateExecutesOnce()
 {
-    qDebug() << "                   ";
-    qDebug() << "   UpdateExecutesOnceAndDoesNotBlock ";
-
     createTestPackage(QStringLiteral("plasmoid_to_package"), QStringLiteral("1.1"));
-    const QString packagePath = m_packageRoot + '/' + "testpackage.plasmoid";
+    const QString packagePath = m_packageRoot + "/testpackage.plasmoid";
 
     KZip creator(packagePath);
     QVERIFY(creator.open(QIODevice::WriteOnly));
-    creator.addLocalDirectory(m_packageRoot + '/' + "plasmoid_to_package", QStringLiteral("."));
+    creator.addLocalDirectory(m_packageRoot + "/plasmoid_to_package", QStringLiteral("."));
     creator.close();
     QDir rootDir(m_packageRoot + "/plasmoid_to_package");
     rootDir.removeRecursively();
