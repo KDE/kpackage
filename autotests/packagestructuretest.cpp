@@ -226,37 +226,17 @@ void PackageStructureTest::directories()
         "config",
         "data",
         "images",
-        "theme",
         "scripts",
+        "theme",
         "translations",
         "ui",
     };
+    QVERIFY(std::ranges::is_sorted(dirs));
 
-    const QList<QByteArray> psDirs = ps.directories();
+    QList<QByteArray> psDirs = ps.directories();
+    std::ranges::sort(psDirs);
 
-    QCOMPARE(dirs.count(), psDirs.count());
-
-    for (const char *dir : psDirs) {
-        bool found = false;
-        for (const char *check : std::as_const(dirs)) {
-            if (qstrcmp(dir, check)) {
-                found = true;
-                break;
-            }
-        }
-        QVERIFY(found);
-    }
-
-    for (const char *dir : std::as_const(dirs)) {
-        bool found = false;
-        for (const char *check : psDirs) {
-            if (qstrcmp(dir, check)) {
-                found = true;
-                break;
-            }
-        }
-        QVERIFY(found);
-    }
+    QCOMPARE(psDirs, dirs);
 }
 
 void PackageStructureTest::requiredDirectories()
@@ -268,23 +248,15 @@ void PackageStructureTest::requiredDirectories()
 void PackageStructureTest::files()
 {
     const QList<QByteArray> files{
-        "mainconfigui",
-        "mainconfigxml",
         "mainscript",
+        "metadata",
     };
+    QVERIFY(std::ranges::is_sorted(files));
 
-    const QList<QByteArray> psFiles = ps.files();
+    QList<QByteArray> psFiles = ps.files();
+    std::ranges::sort(psFiles);
 
-    for (const char *file : psFiles) {
-        bool found = false;
-        for (const char *check : std::as_const(files)) {
-            if (qstrcmp(file, check)) {
-                found = true;
-                break;
-            }
-        }
-        QVERIFY(found);
-    }
+    QCOMPARE(psFiles, files);
 }
 
 void PackageStructureTest::requiredFiles()
