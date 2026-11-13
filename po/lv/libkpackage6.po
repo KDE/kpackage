@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kpackage\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2025-11-17 11:49+0000\n"
+"POT-Creation-Date: 2026-11-13 00:53+0000\n"
 "PO-Revision-Date: 2024-02-20 16:32+0200\n"
 "Last-Translator: Toms Trasuns <toms.trasuns@posteo.net>\n"
 "Language-Team: Latvian <kde-i18n-doc@kde.org>\n"
@@ -116,27 +116,27 @@ msgstr "„%1“ nepastāv"
 msgid "Could not delete package from: %1"
 msgstr "Nevarēja dzēst pakotni no: %1"
 
-#: kpackagetool/kpackagetool.cpp:87
+#: kpackagetool/kpackagetool.cpp:85
 #, kde-format
 msgid "Failed to generate a Package hash for %1"
 msgstr "Neizdevās ģenerēt „%1“ pakotnes jaucējkodu"
 
-#: kpackagetool/kpackagetool.cpp:90
+#: kpackagetool/kpackagetool.cpp:88
 #, kde-format
 msgid "SHA1 hash for Package at %1: '%2'"
 msgstr "SHA1 jaucējkods pakotnei „%1“: „%2“"
 
-#: kpackagetool/kpackagetool.cpp:145
+#: kpackagetool/kpackagetool.cpp:143
 #, kde-format
 msgid "Listing KPackageType: %1 in %2"
 msgstr "Uzskaita „KPackageType“: „%1“, kas atrodas „%2“"
 
-#: kpackagetool/kpackagetool.cpp:198
+#: kpackagetool/kpackagetool.cpp:196
 #, kde-format
 msgid "Error: Plugin %1 is not installed."
 msgstr "Kļūda: spraudnis „%1“ nav instalēts."
 
-#: kpackagetool/kpackagetool.cpp:212
+#: kpackagetool/kpackagetool.cpp:210
 #, kde-format
 msgctxt ""
 "No option was given, this is the error message telling the user he needs at "
@@ -146,42 +146,42 @@ msgstr ""
 "Nepieciešama kāda no opcijām: „install“ (instalēt), „remove“ (noņemt), "
 "„list“ (uzskaitīt)."
 
-#: kpackagetool/kpackagetool.cpp:255 kpackagetool/kpackagetool.cpp:333
+#: kpackagetool/kpackagetool.cpp:253 kpackagetool/kpackagetool.cpp:331
 #, kde-format
 msgid "Error: Can't find plugin metadata: %1\n"
 msgstr "Kļūda: neizdodas atrast spraudņa metadatus: %1\n"
 
-#: kpackagetool/kpackagetool.cpp:259
+#: kpackagetool/kpackagetool.cpp:257
 #, kde-format
 msgid "Showing info for package: %1"
 msgstr "Rāda informāciju pakotnei: „%1“"
 
-#: kpackagetool/kpackagetool.cpp:260
+#: kpackagetool/kpackagetool.cpp:258
 #, kde-format
 msgid "  Name       : %1"
 msgstr "  Nosaukums  : %1"
 
-#: kpackagetool/kpackagetool.cpp:261
+#: kpackagetool/kpackagetool.cpp:259
 #, kde-format
 msgid "  Description: %1"
 msgstr "  Apraksts   : %1"
 
-#: kpackagetool/kpackagetool.cpp:262
+#: kpackagetool/kpackagetool.cpp:260
 #, kde-format
 msgid "  Plugin     : %1"
 msgstr "  Spraudnis  : %1"
 
-#: kpackagetool/kpackagetool.cpp:268
+#: kpackagetool/kpackagetool.cpp:266
 #, kde-format
 msgid "  Author     : %1"
 msgstr "  Autors     : %1"
 
-#: kpackagetool/kpackagetool.cpp:269
+#: kpackagetool/kpackagetool.cpp:267
 #, kde-format
 msgid "  Path       : %1"
 msgstr "  Ceļš       : %1"
 
-#: kpackagetool/kpackagetool.cpp:429
+#: kpackagetool/kpackagetool.cpp:427
 #, kde-format
 msgctxt ""
 "The user entered conflicting options packageroot and global, this is the "
@@ -192,67 +192,67 @@ msgid ""
 msgstr ""
 "Konfliktē „packageroot“ un globālās opcijas. Izvēlieties tikai vienu no tiem."
 
-#: kpackagetool/kpackagetool.cpp:457
+#: kpackagetool/kpackagetool.cpp:455
 #, kde-format
 msgid "KPackage Structure Name"
 msgstr "„KPackage“ struktūras nosaukums"
 
-#: kpackagetool/kpackagetool.cpp:458
+#: kpackagetool/kpackagetool.cpp:456
 #, kde-format
 msgid "Path"
 msgstr "Ceļš"
 
-#: kpackagetool/kpackagetool.cpp:489
+#: kpackagetool/kpackagetool.cpp:487
 #, kde-format
 msgid "Package types that are installable with this tool:"
 msgstr "Ar šo rīku instalējamie pakotņu tipi:"
 
-#: kpackagetool/kpackagetool.cpp:490
+#: kpackagetool/kpackagetool.cpp:488
 #, kde-format
 msgid "Built in:"
 msgstr "Iebūvēti:"
 
-#: kpackagetool/kpackagetool.cpp:493
+#: kpackagetool/kpackagetool.cpp:491
 #, kde-format
 msgid "KPackage/Generic"
 msgstr "KPackage/vispārīgs"
 
-#: kpackagetool/kpackagetool.cpp:494
+#: kpackagetool/kpackagetool.cpp:492
 #, kde-format
 msgid "KPackage/GenericQML"
 msgstr "KPackage/GenericQML"
 
-#: kpackagetool/kpackagetool.cpp:502
+#: kpackagetool/kpackagetool.cpp:500
 #, kde-format
 msgid "Provided by plugins:"
 msgstr "Nodrošina spraudņi:"
 
-#: kpackagetool/kpackagetool.cpp:524
+#: kpackagetool/kpackagetool.cpp:522
 #, kde-format
 msgid "Successfully upgraded %1"
 msgstr "„%1“ ir veiksmīgi atjaunināta"
 
-#: kpackagetool/kpackagetool.cpp:526
+#: kpackagetool/kpackagetool.cpp:524
 #, kde-format
 msgid "Successfully installed %1"
 msgstr "„%1“ ir veiksmīgi ieinstalēta"
 
-#: kpackagetool/kpackagetool.cpp:529
+#: kpackagetool/kpackagetool.cpp:527
 #, kde-format
 msgid "Error: Installation of %1 failed: %2"
 msgstr "Kļūda: „%1“ instalācija neizdevās: %2"
 
-#: kpackagetool/kpackagetool.cpp:541
+#: kpackagetool/kpackagetool.cpp:539
 #, kde-format
 msgid "Upgrading package from file: %1"
 msgstr "Atjaunina pakotni no datnes: %1"
 
-#: kpackagetool/kpackagetool.cpp:548
+#: kpackagetool/kpackagetool.cpp:546
 #, kde-format
 msgid "Successfully uninstalled %1"
 msgstr "„%1“ ir veiksmīgi atinstalēta"
 
-#: kpackagetool/kpackagetool.cpp:550
+#: kpackagetool/kpackagetool.cpp:548
 #, kde-format
 msgid "Error: Uninstallation of %1 failed: %2"
 msgstr "Kļūda: „%1“ atinstalēšana neizdevās: %2"

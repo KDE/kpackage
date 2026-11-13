@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: plasmapkg\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2025-11-17 11:49+0000\n"
+"POT-Creation-Date: 2026-11-13 00:53+0000\n"
 "PO-Revision-Date: 2024-02-09 23:55+0100\n"
 "Last-Translator: Shinjo Park <kde@peremen.name>\n"
 "Language-Team: Korean <kde-kr@kde.org>\n"
@@ -115,27 +115,27 @@ msgstr "%1이(가) 없음"
 msgid "Could not delete package from: %1"
 msgstr "패키지를 다음에서 삭제할 수 없음: %1"
 
-#: kpackagetool/kpackagetool.cpp:87
+#: kpackagetool/kpackagetool.cpp:85
 #, kde-format
 msgid "Failed to generate a Package hash for %1"
 msgstr "%1의 패키지 해시를 생성할 수 없음"
 
-#: kpackagetool/kpackagetool.cpp:90
+#: kpackagetool/kpackagetool.cpp:88
 #, kde-format
 msgid "SHA1 hash for Package at %1: '%2'"
 msgstr "%1에 있는 패키지의 SHA1 해시: '%2'"
 
-#: kpackagetool/kpackagetool.cpp:145
+#: kpackagetool/kpackagetool.cpp:143
 #, kde-format
 msgid "Listing KPackageType: %1 in %2"
 msgstr "KPackageType 표시 중: %2의 %1"
 
-#: kpackagetool/kpackagetool.cpp:198
+#: kpackagetool/kpackagetool.cpp:196
 #, kde-format
 msgid "Error: Plugin %1 is not installed."
 msgstr "오류: 플러그인 %1이(가) 설치되지 않았습니다."
 
-#: kpackagetool/kpackagetool.cpp:212
+#: kpackagetool/kpackagetool.cpp:210
 #, kde-format
 msgctxt ""
 "No option was given, this is the error message telling the user he needs at "
@@ -143,42 +143,42 @@ msgctxt ""
 msgid "One of install, remove, upgrade or list is required."
 msgstr "설치, 삭제, 업그레이드, 표시 중 하나가 필요합니다."
 
-#: kpackagetool/kpackagetool.cpp:255 kpackagetool/kpackagetool.cpp:333
+#: kpackagetool/kpackagetool.cpp:253 kpackagetool/kpackagetool.cpp:331
 #, kde-format
 msgid "Error: Can't find plugin metadata: %1\n"
 msgstr "오류: 플러그인 메타데이터를 찾을 수 없음: %1\n"
 
-#: kpackagetool/kpackagetool.cpp:259
+#: kpackagetool/kpackagetool.cpp:257
 #, kde-format
 msgid "Showing info for package: %1"
 msgstr "패키지 정보 표시 중: %1"
 
-#: kpackagetool/kpackagetool.cpp:260
+#: kpackagetool/kpackagetool.cpp:258
 #, kde-format
 msgid "  Name       : %1"
 msgstr "  이름       : %1"
 
-#: kpackagetool/kpackagetool.cpp:261
+#: kpackagetool/kpackagetool.cpp:259
 #, kde-format
 msgid "  Description: %1"
 msgstr "  설명: %1"
 
-#: kpackagetool/kpackagetool.cpp:262
+#: kpackagetool/kpackagetool.cpp:260
 #, kde-format
 msgid "  Plugin     : %1"
 msgstr "  플러그인   : %1"
 
-#: kpackagetool/kpackagetool.cpp:268
+#: kpackagetool/kpackagetool.cpp:266
 #, kde-format
 msgid "  Author     : %1"
 msgstr "  작성자     : %1"
 
-#: kpackagetool/kpackagetool.cpp:269
+#: kpackagetool/kpackagetool.cpp:267
 #, kde-format
 msgid "  Path       : %1"
 msgstr "  경로       : %1"
 
-#: kpackagetool/kpackagetool.cpp:429
+#: kpackagetool/kpackagetool.cpp:427
 #, kde-format
 msgctxt ""
 "The user entered conflicting options packageroot and global, this is the "
@@ -188,67 +188,67 @@ msgid ""
 "only one."
 msgstr "packageroot와 global 옵션은 서로 충돌하므로 둘 중 하나만 선택하십시오."
 
-#: kpackagetool/kpackagetool.cpp:457
+#: kpackagetool/kpackagetool.cpp:455
 #, kde-format
 msgid "KPackage Structure Name"
 msgstr "KPackage 구조 이름"
 
-#: kpackagetool/kpackagetool.cpp:458
+#: kpackagetool/kpackagetool.cpp:456
 #, kde-format
 msgid "Path"
 msgstr "경로"
 
-#: kpackagetool/kpackagetool.cpp:489
+#: kpackagetool/kpackagetool.cpp:487
 #, kde-format
 msgid "Package types that are installable with this tool:"
 msgstr "이 도구로 설치할 수 있는 패키지 종류:"
 
-#: kpackagetool/kpackagetool.cpp:490
+#: kpackagetool/kpackagetool.cpp:488
 #, kde-format
 msgid "Built in:"
 msgstr "내장됨:"
 
-#: kpackagetool/kpackagetool.cpp:493
+#: kpackagetool/kpackagetool.cpp:491
 #, kde-format
 msgid "KPackage/Generic"
 msgstr "KPackage/일반"
 
-#: kpackagetool/kpackagetool.cpp:494
+#: kpackagetool/kpackagetool.cpp:492
 #, kde-format
 msgid "KPackage/GenericQML"
 msgstr "KPackage/일반 QML"
 
-#: kpackagetool/kpackagetool.cpp:502
+#: kpackagetool/kpackagetool.cpp:500
 #, kde-format
 msgid "Provided by plugins:"
 msgstr "플러그인이 제공함:"
 
-#: kpackagetool/kpackagetool.cpp:524
+#: kpackagetool/kpackagetool.cpp:522
 #, kde-format
 msgid "Successfully upgraded %1"
 msgstr "%1을(를) 업그레이드했습니다"
 
-#: kpackagetool/kpackagetool.cpp:526
+#: kpackagetool/kpackagetool.cpp:524
 #, kde-format
 msgid "Successfully installed %1"
 msgstr "%1을(를) 성공적으로 설치했습니다"
 
-#: kpackagetool/kpackagetool.cpp:529
+#: kpackagetool/kpackagetool.cpp:527
 #, kde-format
 msgid "Error: Installation of %1 failed: %2"
 msgstr "오류: %1 설치 실패: %2"
 
-#: kpackagetool/kpackagetool.cpp:541
+#: kpackagetool/kpackagetool.cpp:539
 #, kde-format
 msgid "Upgrading package from file: %1"
 msgstr "파일에서 패키지 업그레이드 중: %1"
 
-#: kpackagetool/kpackagetool.cpp:548
+#: kpackagetool/kpackagetool.cpp:546
 #, kde-format
 msgid "Successfully uninstalled %1"
 msgstr "%1을(를) 성공적으로 삭제했습니다"
 
-#: kpackagetool/kpackagetool.cpp:550
+#: kpackagetool/kpackagetool.cpp:548
 #, kde-format
 msgid "Error: Uninstallation of %1 failed: %2"
 msgstr "오류: %1 삭제 실패: %2"

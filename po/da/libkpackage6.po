@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2025-11-17 11:49+0000\n"
+"POT-Creation-Date: 2026-11-13 00:53+0000\n"
 "PO-Revision-Date: 2020-10-27 19:19+0100\n"
 "Last-Translator: Martin Schlander <mschlander@opensuse.org>\n"
 "Language-Team: Danish <kde-i18n-doc@kde.org>\n"
@@ -118,28 +118,28 @@ msgstr "%1 findes ikke"
 msgid "Could not delete package from: %1"
 msgstr "Kunne ikke slette pakken fra: %1"
 
-#: kpackagetool/kpackagetool.cpp:87
+#: kpackagetool/kpackagetool.cpp:85
 #, kde-format
 msgid "Failed to generate a Package hash for %1"
 msgstr "Kunne ikke generere pakke-hash for %1"
 
-#: kpackagetool/kpackagetool.cpp:90
+#: kpackagetool/kpackagetool.cpp:88
 #, kde-format
 msgid "SHA1 hash for Package at %1: '%2'"
 msgstr "SHA1-hash for pakken i %1: \"%2\""
 
-#: kpackagetool/kpackagetool.cpp:145
+#: kpackagetool/kpackagetool.cpp:143
 #, fuzzy, kde-format
 #| msgid "Listing service types: %1 in %2"
 msgid "Listing KPackageType: %1 in %2"
 msgstr "Oplister tjenestetyper: %1 i %2"
 
-#: kpackagetool/kpackagetool.cpp:198
+#: kpackagetool/kpackagetool.cpp:196
 #, kde-format
 msgid "Error: Plugin %1 is not installed."
 msgstr "Fejl: Plugin %1 er ikke installeret."
 
-#: kpackagetool/kpackagetool.cpp:212
+#: kpackagetool/kpackagetool.cpp:210
 #, kde-format
 msgctxt ""
 "No option was given, this is the error message telling the user he needs at "
@@ -147,47 +147,47 @@ msgctxt ""
 msgid "One of install, remove, upgrade or list is required."
 msgstr "Enten installér, fjern, opgradér eller vis liste er påkrævet."
 
-#: kpackagetool/kpackagetool.cpp:255 kpackagetool/kpackagetool.cpp:333
+#: kpackagetool/kpackagetool.cpp:253 kpackagetool/kpackagetool.cpp:331
 #, kde-format
 msgid "Error: Can't find plugin metadata: %1\n"
 msgstr "Fejl: Kan ikke finde plugin-metadata: %1\n"
 
-#: kpackagetool/kpackagetool.cpp:259
+#: kpackagetool/kpackagetool.cpp:257
 #, kde-format
 msgid "Showing info for package: %1"
 msgstr "Viser info for pakken: %1"
 
-#: kpackagetool/kpackagetool.cpp:260
+#: kpackagetool/kpackagetool.cpp:258
 #, fuzzy, kde-format
 #| msgid "      Name : %1"
 msgid "  Name       : %1"
 msgstr "      Navn : %1"
 
-#: kpackagetool/kpackagetool.cpp:261
+#: kpackagetool/kpackagetool.cpp:259
 #, fuzzy, kde-format
 #| msgid "Service Descriptions"
 msgid "  Description: %1"
 msgstr "Tjenestebeskrivelser"
 
-#: kpackagetool/kpackagetool.cpp:262
+#: kpackagetool/kpackagetool.cpp:260
 #, fuzzy, kde-format
 #| msgid "    Plugin : %1"
 msgid "  Plugin     : %1"
 msgstr "    Plugin : %1"
 
-#: kpackagetool/kpackagetool.cpp:268
+#: kpackagetool/kpackagetool.cpp:266
 #, fuzzy, kde-format
 #| msgid "    Author : %1"
 msgid "  Author     : %1"
 msgstr "    Ophavsmand : %1"
 
-#: kpackagetool/kpackagetool.cpp:269
+#: kpackagetool/kpackagetool.cpp:267
 #, fuzzy, kde-format
 #| msgid "      Path : %1"
 msgid "  Path       : %1"
 msgstr "      Sti: %1"
 
-#: kpackagetool/kpackagetool.cpp:429
+#: kpackagetool/kpackagetool.cpp:427
 #, kde-format
 msgctxt ""
 "The user entered conflicting options packageroot and global, this is the "
@@ -199,67 +199,67 @@ msgstr ""
 "Pakkeroden og de globale indstillinger er i modstrid med hinanden, vælg "
 "venligst kun én."
 
-#: kpackagetool/kpackagetool.cpp:457
+#: kpackagetool/kpackagetool.cpp:455
 #, kde-format
 msgid "KPackage Structure Name"
 msgstr ""
 
-#: kpackagetool/kpackagetool.cpp:458
+#: kpackagetool/kpackagetool.cpp:456
 #, kde-format
 msgid "Path"
 msgstr "Sti"
 
-#: kpackagetool/kpackagetool.cpp:489
+#: kpackagetool/kpackagetool.cpp:487
 #, kde-format
 msgid "Package types that are installable with this tool:"
 msgstr "Pakketyper der kan installeres med dette værktøj:"
 
-#: kpackagetool/kpackagetool.cpp:490
+#: kpackagetool/kpackagetool.cpp:488
 #, kde-format
 msgid "Built in:"
 msgstr "Indbygget:"
 
-#: kpackagetool/kpackagetool.cpp:493
+#: kpackagetool/kpackagetool.cpp:491
 #, kde-format
 msgid "KPackage/Generic"
 msgstr "KPackage/generisk"
 
-#: kpackagetool/kpackagetool.cpp:494
+#: kpackagetool/kpackagetool.cpp:492
 #, kde-format
 msgid "KPackage/GenericQML"
 msgstr "KPackage/GenericQML"
 
-#: kpackagetool/kpackagetool.cpp:502
+#: kpackagetool/kpackagetool.cpp:500
 #, kde-format
 msgid "Provided by plugins:"
 msgstr "Leveret af plugins:"
 
-#: kpackagetool/kpackagetool.cpp:524
+#: kpackagetool/kpackagetool.cpp:522
 #, kde-format
 msgid "Successfully upgraded %1"
 msgstr "Opgradering af %1 gennemført"
 
-#: kpackagetool/kpackagetool.cpp:526
+#: kpackagetool/kpackagetool.cpp:524
 #, kde-format
 msgid "Successfully installed %1"
 msgstr "Installation af %1 gennemført"
 
-#: kpackagetool/kpackagetool.cpp:529
+#: kpackagetool/kpackagetool.cpp:527
 #, kde-format
 msgid "Error: Installation of %1 failed: %2"
 msgstr "Fejl: Installation af %1 mislykkedes: %2"
 
-#: kpackagetool/kpackagetool.cpp:541
+#: kpackagetool/kpackagetool.cpp:539
 #, kde-format
 msgid "Upgrading package from file: %1"
 msgstr "Opgraderer pakke fra fil: %1"
 
-#: kpackagetool/kpackagetool.cpp:548
+#: kpackagetool/kpackagetool.cpp:546
 #, kde-format
 msgid "Successfully uninstalled %1"
 msgstr "Afinstallation af %1 gennemført"
 
-#: kpackagetool/kpackagetool.cpp:550
+#: kpackagetool/kpackagetool.cpp:548
 #, kde-format
 msgid "Error: Uninstallation of %1 failed: %2"
 msgstr "Fejl: Afinstallation af %1 mislykkedes: %2"

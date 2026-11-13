@@ -10,7 +10,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2025-11-17 11:49+0000\n"
+"POT-Creation-Date: 2026-11-13 00:53+0000\n"
 "PO-Revision-Date: 2024-01-05 04:55+0900\n"
 "Last-Translator: Kisaragi Hiu <mail@kisaragi-hiu.com>\n"
 "Language-Team: Traditional Chinese <zh-l10n@lists.slat.org>\n"
@@ -118,27 +118,27 @@ msgstr "%1 不存在"
 msgid "Could not delete package from: %1"
 msgstr "無法從 %1 中刪除軟體包"
 
-#: kpackagetool/kpackagetool.cpp:87
+#: kpackagetool/kpackagetool.cpp:85
 #, kde-format
 msgid "Failed to generate a Package hash for %1"
 msgstr "產生 %1 的軟體包雜湊失敗"
 
-#: kpackagetool/kpackagetool.cpp:90
+#: kpackagetool/kpackagetool.cpp:88
 #, kde-format
 msgid "SHA1 hash for Package at %1: '%2'"
 msgstr "軟體包於 %1 的 SHA1 雜湊：'%2'"
 
-#: kpackagetool/kpackagetool.cpp:145
+#: kpackagetool/kpackagetool.cpp:143
 #, kde-format
 msgid "Listing KPackageType: %1 in %2"
 msgstr "列出 %2 中的 KPackageType: %1"
 
-#: kpackagetool/kpackagetool.cpp:198
+#: kpackagetool/kpackagetool.cpp:196
 #, kde-format
 msgid "Error: Plugin %1 is not installed."
 msgstr "錯誤：外掛程式 %1 未安裝。"
 
-#: kpackagetool/kpackagetool.cpp:212
+#: kpackagetool/kpackagetool.cpp:210
 #, kde-format
 msgctxt ""
 "No option was given, this is the error message telling the user he needs at "
@@ -146,42 +146,42 @@ msgctxt ""
 msgid "One of install, remove, upgrade or list is required."
 msgstr "至少需要指定 install、remove、upgrade 或 list 其中一個動作。"
 
-#: kpackagetool/kpackagetool.cpp:255 kpackagetool/kpackagetool.cpp:333
+#: kpackagetool/kpackagetool.cpp:253 kpackagetool/kpackagetool.cpp:331
 #, kde-format
 msgid "Error: Can't find plugin metadata: %1\n"
 msgstr "錯誤：找不到外掛程式中介資料：%1\n"
 
-#: kpackagetool/kpackagetool.cpp:259
+#: kpackagetool/kpackagetool.cpp:257
 #, kde-format
 msgid "Showing info for package: %1"
 msgstr "顯示軟體包資訊： %1"
 
-#: kpackagetool/kpackagetool.cpp:260
+#: kpackagetool/kpackagetool.cpp:258
 #, kde-format
 msgid "  Name       : %1"
 msgstr "  名稱       : %1"
 
-#: kpackagetool/kpackagetool.cpp:261
+#: kpackagetool/kpackagetool.cpp:259
 #, kde-format
 msgid "  Description: %1"
 msgstr "  描述       : %1"
 
-#: kpackagetool/kpackagetool.cpp:262
+#: kpackagetool/kpackagetool.cpp:260
 #, kde-format
 msgid "  Plugin     : %1"
 msgstr "  外掛程式   : %1"
 
-#: kpackagetool/kpackagetool.cpp:268
+#: kpackagetool/kpackagetool.cpp:266
 #, kde-format
 msgid "  Author     : %1"
 msgstr "  作者       : %1"
 
-#: kpackagetool/kpackagetool.cpp:269
+#: kpackagetool/kpackagetool.cpp:267
 #, kde-format
 msgid "  Path       : %1"
 msgstr "  路徑       : %1"
 
-#: kpackagetool/kpackagetool.cpp:429
+#: kpackagetool/kpackagetool.cpp:427
 #, kde-format
 msgctxt ""
 "The user entered conflicting options packageroot and global, this is the "
@@ -191,67 +191,67 @@ msgid ""
 "only one."
 msgstr "軟體包根目錄與全域選項衝突。請選擇其中一項。"
 
-#: kpackagetool/kpackagetool.cpp:457
+#: kpackagetool/kpackagetool.cpp:455
 #, kde-format
 msgid "KPackage Structure Name"
 msgstr "KPackage 結構名稱"
 
-#: kpackagetool/kpackagetool.cpp:458
+#: kpackagetool/kpackagetool.cpp:456
 #, kde-format
 msgid "Path"
 msgstr "路徑"
 
-#: kpackagetool/kpackagetool.cpp:489
+#: kpackagetool/kpackagetool.cpp:487
 #, kde-format
 msgid "Package types that are installable with this tool:"
 msgstr "可用此工具安裝的軟體包型態："
 
-#: kpackagetool/kpackagetool.cpp:490
+#: kpackagetool/kpackagetool.cpp:488
 #, kde-format
 msgid "Built in:"
 msgstr "內建："
 
-#: kpackagetool/kpackagetool.cpp:493
+#: kpackagetool/kpackagetool.cpp:491
 #, kde-format
 msgid "KPackage/Generic"
 msgstr "KPackage/一般"
 
-#: kpackagetool/kpackagetool.cpp:494
+#: kpackagetool/kpackagetool.cpp:492
 #, kde-format
 msgid "KPackage/GenericQML"
 msgstr "KPackage/GenericQML"
 
-#: kpackagetool/kpackagetool.cpp:502
+#: kpackagetool/kpackagetool.cpp:500
 #, kde-format
 msgid "Provided by plugins:"
 msgstr "由外掛程式提供的："
 
-#: kpackagetool/kpackagetool.cpp:524
+#: kpackagetool/kpackagetool.cpp:522
 #, kde-format
 msgid "Successfully upgraded %1"
 msgstr "已成功更新 %1"
 
-#: kpackagetool/kpackagetool.cpp:526
+#: kpackagetool/kpackagetool.cpp:524
 #, kde-format
 msgid "Successfully installed %1"
 msgstr "已成功安裝 %1"
 
-#: kpackagetool/kpackagetool.cpp:529
+#: kpackagetool/kpackagetool.cpp:527
 #, kde-format
 msgid "Error: Installation of %1 failed: %2"
 msgstr "錯誤：安裝 %1 失敗：%2"
 
-#: kpackagetool/kpackagetool.cpp:541
+#: kpackagetool/kpackagetool.cpp:539
 #, kde-format
 msgid "Upgrading package from file: %1"
 msgstr "從檔案更新軟體包： %1"
 
-#: kpackagetool/kpackagetool.cpp:548
+#: kpackagetool/kpackagetool.cpp:546
 #, kde-format
 msgid "Successfully uninstalled %1"
 msgstr "已成功解除安裝 %1"
 
-#: kpackagetool/kpackagetool.cpp:550
+#: kpackagetool/kpackagetool.cpp:548
 #, kde-format
 msgid "Error: Uninstallation of %1 failed: %2"
 msgstr "錯誤：%1 解除安裝失敗：%2"

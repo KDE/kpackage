@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: trunk-kf 5\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2025-11-17 11:49+0000\n"
+"POT-Creation-Date: 2026-11-13 00:53+0000\n"
 "PO-Revision-Date: 2024-02-02 13:57+0200\n"
 "Last-Translator: Moo\n"
 "Language-Team: lt\n"
@@ -117,27 +117,27 @@ msgstr "%1 nėra"
 msgid "Could not delete package from: %1"
 msgstr "Nepavyko ištrinti paketo iš: %1"
 
-#: kpackagetool/kpackagetool.cpp:87
+#: kpackagetool/kpackagetool.cpp:85
 #, kde-format
 msgid "Failed to generate a Package hash for %1"
 msgstr "Nepavyko sugeneruoti %1 paketo maišos"
 
-#: kpackagetool/kpackagetool.cpp:90
+#: kpackagetool/kpackagetool.cpp:88
 #, kde-format
 msgid "SHA1 hash for Package at %1: '%2'"
 msgstr "SHA1 maiša paketui, esančiam ties %1: \"%2\""
 
-#: kpackagetool/kpackagetool.cpp:145
+#: kpackagetool/kpackagetool.cpp:143
 #, kde-format
 msgid "Listing KPackageType: %1 in %2"
 msgstr "Išvardijami KPackageType: %1, esantys %2"
 
-#: kpackagetool/kpackagetool.cpp:198
+#: kpackagetool/kpackagetool.cpp:196
 #, kde-format
 msgid "Error: Plugin %1 is not installed."
 msgstr "Klaida: Įskiepis %1 nėra įdiegtas."
 
-#: kpackagetool/kpackagetool.cpp:212
+#: kpackagetool/kpackagetool.cpp:210
 #, kde-format
 msgctxt ""
 "No option was given, this is the error message telling the user he needs at "
@@ -145,42 +145,42 @@ msgctxt ""
 msgid "One of install, remove, upgrade or list is required."
 msgstr "Reikalingas vienas iš šių: install, remove, upgrade ar list."
 
-#: kpackagetool/kpackagetool.cpp:255 kpackagetool/kpackagetool.cpp:333
+#: kpackagetool/kpackagetool.cpp:253 kpackagetool/kpackagetool.cpp:331
 #, kde-format
 msgid "Error: Can't find plugin metadata: %1\n"
 msgstr "Klaida: Nepavyksta rasti įskiepio metaduomenų: %1\n"
 
-#: kpackagetool/kpackagetool.cpp:259
+#: kpackagetool/kpackagetool.cpp:257
 #, kde-format
 msgid "Showing info for package: %1"
 msgstr "Rodoma informacija paketui: %1"
 
-#: kpackagetool/kpackagetool.cpp:260
+#: kpackagetool/kpackagetool.cpp:258
 #, kde-format
 msgid "  Name       : %1"
 msgstr "  Pavadinimas       : %1"
 
-#: kpackagetool/kpackagetool.cpp:261
+#: kpackagetool/kpackagetool.cpp:259
 #, kde-format
 msgid "  Description: %1"
 msgstr "  Aprašas: %1"
 
-#: kpackagetool/kpackagetool.cpp:262
+#: kpackagetool/kpackagetool.cpp:260
 #, kde-format
 msgid "  Plugin     : %1"
 msgstr "  Įskiepis     : %1"
 
-#: kpackagetool/kpackagetool.cpp:268
+#: kpackagetool/kpackagetool.cpp:266
 #, kde-format
 msgid "  Author     : %1"
 msgstr "  Autorius     : %1"
 
-#: kpackagetool/kpackagetool.cpp:269
+#: kpackagetool/kpackagetool.cpp:267
 #, kde-format
 msgid "  Path       : %1"
 msgstr "  Kelias       : %1"
 
-#: kpackagetool/kpackagetool.cpp:429
+#: kpackagetool/kpackagetool.cpp:427
 #, kde-format
 msgctxt ""
 "The user entered conflicting options packageroot and global, this is the "
@@ -192,67 +192,67 @@ msgstr ""
 "Paketo šaknis ir visuotinės parinktys konfliktuoja viena su kita, "
 "pasirinkite kurią nors vieną."
 
-#: kpackagetool/kpackagetool.cpp:457
+#: kpackagetool/kpackagetool.cpp:455
 #, kde-format
 msgid "KPackage Structure Name"
 msgstr "KPackage struktūros pavadinimas"
 
-#: kpackagetool/kpackagetool.cpp:458
+#: kpackagetool/kpackagetool.cpp:456
 #, kde-format
 msgid "Path"
 msgstr "Kelias"
 
-#: kpackagetool/kpackagetool.cpp:489
+#: kpackagetool/kpackagetool.cpp:487
 #, kde-format
 msgid "Package types that are installable with this tool:"
 msgstr "Paketų tipai, kuriuos galima įdiegti naudojant šį įrankį:"
 
-#: kpackagetool/kpackagetool.cpp:490
+#: kpackagetool/kpackagetool.cpp:488
 #, kde-format
 msgid "Built in:"
 msgstr "Įtaisytas:"
 
-#: kpackagetool/kpackagetool.cpp:493
+#: kpackagetool/kpackagetool.cpp:491
 #, kde-format
 msgid "KPackage/Generic"
 msgstr "KPackage/Bendrinis"
 
-#: kpackagetool/kpackagetool.cpp:494
+#: kpackagetool/kpackagetool.cpp:492
 #, kde-format
 msgid "KPackage/GenericQML"
 msgstr "KPackage/BendrinisQML"
 
-#: kpackagetool/kpackagetool.cpp:502
+#: kpackagetool/kpackagetool.cpp:500
 #, kde-format
 msgid "Provided by plugins:"
 msgstr "Teikia šie įskiepiai:"
 
-#: kpackagetool/kpackagetool.cpp:524
+#: kpackagetool/kpackagetool.cpp:522
 #, kde-format
 msgid "Successfully upgraded %1"
 msgstr "%1 sėkmingai atnaujintas"
 
-#: kpackagetool/kpackagetool.cpp:526
+#: kpackagetool/kpackagetool.cpp:524
 #, kde-format
 msgid "Successfully installed %1"
 msgstr "%1 sėkmingai įdiegtas"
 
-#: kpackagetool/kpackagetool.cpp:529
+#: kpackagetool/kpackagetool.cpp:527
 #, kde-format
 msgid "Error: Installation of %1 failed: %2"
 msgstr "Klaida: %1 įdiegimas nepavyko: %2"
 
-#: kpackagetool/kpackagetool.cpp:541
+#: kpackagetool/kpackagetool.cpp:539
 #, kde-format
 msgid "Upgrading package from file: %1"
 msgstr "Naujinamas paketas iš failo: %1"
 
-#: kpackagetool/kpackagetool.cpp:548
+#: kpackagetool/kpackagetool.cpp:546
 #, kde-format
 msgid "Successfully uninstalled %1"
 msgstr "%1 sėkmingai pašalintas"
 
-#: kpackagetool/kpackagetool.cpp:550
+#: kpackagetool/kpackagetool.cpp:548
 #, kde-format
 msgid "Error: Uninstallation of %1 failed: %2"
 msgstr "Klaida: %1 šalinimas nepavyko: %2"

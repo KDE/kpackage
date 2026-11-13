@@ -1,0 +1,325 @@
+<?xml version="1.0" ?>
+<!DOCTYPE refentry PUBLIC "-//KDE//DTD DocBook XML V4.5-Based Variant V1.1//EN" "dtd/kdedbx45.dtd" [
+<!ENTITY % Arabic "INCLUDE">
+]>
+
+<refentry lang="&language;">
+<refentryinfo>
+<title
+>مدير «حزمتك»</title>
+<date
+>2017-01-03</date>
+<releaseinfo
+>أُطر العمل 5.30</releaseinfo>
+<productname
+>إطار كِيدِي</productname>
+</refentryinfo>
+
+<refmeta>
+<refentrytitle
+><command
+>kpackagetool6</command
+></refentrytitle>
+<manvolnum
+>1</manvolnum>
+</refmeta>
+
+<refnamediv>
+<refname
+><command
+>kpackagetool6</command
+></refname>
+<refpurpose
+>انصب، ادرج، أزل حزم &plasma;</refpurpose>
+</refnamediv>
+
+<refsynopsisdiv>
+<cmdsynopsis
+><command
+>kpackagetool6</command
+> <group choice="opt"
+><option
+>-v, --version</option
+></group
+> <group choice="opt"
+><option
+>-h, --help</option
+></group
+> <group choice="opt"
+><option
+>--hash</option
+> <replaceable
+> مسار</replaceable
+></group
+> <group choice="opt"
+><option
+>-g, --global</option
+></group
+> <group choice="opt"
+><option
+>-t, --type</option
+> <replaceable
+> نوع</replaceable
+></group
+> <group choice="opt"
+><option
+>-i, --install</option
+> <replaceable
+> مسار</replaceable
+></group
+> <group choice="opt"
+><option
+>-s, --show</option
+> <replaceable
+> اسم</replaceable
+></group
+> <group choice="opt"
+><option
+>-u, --upgrade</option
+> <replaceable
+> مسار</replaceable
+></group
+> <group choice="opt"
+><option
+>-l, --list</option
+></group
+> <group choice="opt"
+><option
+>--list-types</option
+></group
+> <group choice="opt"
+><option
+>-r, --remove</option
+> <replaceable
+> اسم</replaceable
+></group
+> <group choice="opt"
+><option
+>-p, --packageroot</option
+> <replaceable
+> مسار</replaceable
+></group
+> <group choice="opt"
+><option
+>--generate-index</option
+></group
+> </cmdsynopsis>
+</refsynopsisdiv>
+
+<refsect1>
+<title
+>الوصف</title>
+<para
+><command
+>kpackagetool6</command
+> هي أداة سطر أوامر لانصب، ادرج، أزل حزم &plasma;.</para>
+
+</refsect1>
+
+<refsect1>
+<title
+>خيارات</title>
+
+<variablelist>
+<varlistentry>
+<term
+><option
+>-v, --version</option
+></term>
+<listitem
+><para
+>يعرض معلومات الإصدار.</para
+></listitem>
+</varlistentry>
+<varlistentry>
+<term
+><option
+>-h, --help</option
+></term>
+<listitem
+><para
+>يعرض هذه المساعدة.</para
+></listitem>
+</varlistentry>
+<varlistentry>
+<term
+><option
+>--hash</option
+> <replaceable
+> مسار</replaceable
+></term>
+<listitem
+><para
+>يولد تجزئة SHA1 للحزمة في <quote
+>مسار</quote
+>.</para
+></listitem>
+</varlistentry>
+<varlistentry>
+<term
+><option
+>-g, --global</option
+></term>
+<listitem
+><para
+>للتثبيت أو الإزالة، تعمل على الحزم المثبتة لجميع المستخدمين.</para
+></listitem>
+</varlistentry>
+<varlistentry>
+<term
+><option
+>-t, --type</option
+> <replaceable
+> نوع</replaceable
+></term>
+<listitem
+><para
+>نوع الحزمة، الموافق لنوع خدمة ملحق الحزمة، مثل KPackage/Generic، Plasma/Theme، Plasma/Wallpaper، Plasma/Applet، إلخ.</para
+></listitem>
+</varlistentry>
+<varlistentry>
+<term
+><option
+>-i, --install</option
+> <replaceable
+> مسار</replaceable
+></term>
+<listitem
+><para
+>انصب الحزمة في <quote
+>مسار</quote
+>.</para
+></listitem>
+</varlistentry>
+<varlistentry>
+<term
+><option
+>-s, --show</option
+> <replaceable
+> اسم</replaceable
+></term>
+<listitem
+><para
+>أظهر معلومات الحزمة <quote
+>اسم</quote
+>.</para
+></listitem>
+</varlistentry>
+<varlistentry>
+<term
+><option
+>-u, --upgrade</option
+> <replaceable
+> مسار</replaceable
+></term>
+<listitem
+><para
+>رقّ الحزمة في <quote
+>مسار</quote
+>.</para
+></listitem>
+</varlistentry>
+<varlistentry>
+<term
+><option
+>-l، --list</option
+></term>
+<listitem
+><para
+>اسرد الحزم المثبّتة.</para
+></listitem>
+</varlistentry>
+<varlistentry>
+<term
+><option
+>--list-types</option
+></term>
+<listitem
+><para
+>يسرد جميع أنواع الحزم المعروفة التي يمكن انصابها.</para
+></listitem>
+</varlistentry>
+<varlistentry>
+<term
+><option
+>-r, --remove</option
+> <replaceable
+> اسم</replaceable
+></term>
+<listitem
+><para
+>أزل الحزمة المسماة <quote
+>اسم</quote
+>.</para
+></listitem>
+</varlistentry>
+<varlistentry>
+<term
+><option
+>-p, --packageroot</option
+> <replaceable
+> مسار</replaceable
+></term>
+<listitem
+><para
+>المسار المطلق لجذر الحزمة. إذا لم يُزود، فسيبحث في أدلة البيانات القياسية لهذه الجلسة &plasma; بدلًا من ذلك.</para
+></listitem>
+</varlistentry>
+<varlistentry>
+<term
+><option
+>--generate-index</option
+> <replaceable
+> مسار</replaceable
+></term>
+<listitem
+><para
+>أعد إنشاء فهرس الملحقات. يُستخدم بالتزامن مع الخيار <option
+>-t</option
+> أو <option
+>-g</option
+>. يعيد إنشاء الفهرس للنوع أو جذر الحزمة المعطى. يعمل في دليل المستخدم، ما لم يُستخدم <option
+>-g</option
+>.</para
+></listitem>
+</varlistentry>
+
+</variablelist>
+
+</refsect1>
+
+<refsect1>
+<title
+>انظر أيضًا</title>
+
+<para
+>وثائق المستخدم الأكثر تفصيلًا متاحة من <ulink url="help:/plasma-desktop"
+>help:/plasma-desktop</ulink
+> (إما أدخل هذا &URL; في &konqueror;، أو شغّل <userinput
+><command
+>khelpcenter</command
+> <parameter
+>help:/plasma-desktop</parameter
+></userinput
+>).</para>
+
+</refsect1>
+
+<refsect1>
+<title
+>المؤلفون</title>
+<para
+><command
+>kpackagetool6</command
+> كُتب بواسطة <personname
+><firstname
+>هارون</firstname
+><surname
+>سيغو</surname
+></personname
+> <email
+>aseigo@kde.org</email
+>.</para>
+</refsect1>
+
+</refentry>
