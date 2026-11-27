@@ -2,7 +2,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kdeorg\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2026-11-13 00:53+0000\n"
+"POT-Creation-Date: 2026-11-27 01:00+0000\n"
 "PO-Revision-Date: 2024-04-22 15:58\n"
 "Last-Translator: \n"
 "Language-Team: Chinese Simplified\n"
@@ -27,89 +27,89 @@ msgctxt "EMAIL OF TRANSLATORS"
 msgid "Your emails"
 msgstr "kde-china@kde.org, i@guoyunhe.me, tds00@qq.com"
 
-#: kpackage/private/packagejobthread.cpp:164
+#: kpackage/private/packagejobthread.cpp:167
 #, kde-format
 msgid "Could not create package root directory: %1"
 msgstr "无法创建包根目录：%1"
 
-#: kpackage/private/packagejobthread.cpp:173
+#: kpackage/private/packagejobthread.cpp:176
 #, kde-format
 msgid "No such file: %1"
 msgstr "没有这个文件：%1"
 
-#: kpackage/private/packagejobthread.cpp:203
+#: kpackage/private/packagejobthread.cpp:206
 #, kde-format
 msgid "Could not open package file, unsupported archive format: %1 %2"
 msgstr "无法打开包文件，不支持的压缩格式：%1 %2"
 
-#: kpackage/private/packagejobthread.cpp:211
+#: kpackage/private/packagejobthread.cpp:214
 #, kde-format
 msgid "Could not open package file: %1"
 msgstr "无法打开包文件：%1"
 
-#: kpackage/private/packagejobthread.cpp:238
+#: kpackage/private/packagejobthread.cpp:241
 #, kde-format
 msgid "Package is not considered valid"
 msgstr "软件包无效"
 
-#: kpackage/private/packagejobthread.cpp:248
+#: kpackage/private/packagejobthread.cpp:251
 #, kde-format
 msgid "Package plugin id not specified: %1"
 msgstr "软件包插件 ID 未指定：%1"
 
-#: kpackage/private/packagejobthread.cpp:258
+#: kpackage/private/packagejobthread.cpp:261
 #, kde-format
 msgid "Package plugin id %1 contains invalid characters"
 msgstr "软件包插件 ID %1 包含无效字符"
 
-#: kpackage/private/packagejobthread.cpp:277
+#: kpackage/private/packagejobthread.cpp:280
 #, kde-format
 msgid ""
 "The new package has a different type from the old version already installed."
 msgstr "新包的格式和已安装的旧版本不同。"
 
-#: kpackage/private/packagejobthread.cpp:282
+#: kpackage/private/packagejobthread.cpp:285
 #, kde-format
 msgid ""
 "Impossible to remove the old installation of %1 located at %2. error: %3"
 msgstr "无法删除位于 %2 的 %1 的旧版安装文件。错误：%3"
 
-#: kpackage/private/packagejobthread.cpp:286
+#: kpackage/private/packagejobthread.cpp:289
 #, kde-format
 msgid "Not installing version %1 of %2. Version %3 already installed."
 msgstr "未安装 %1 版本的 %2。已安装版本 %3 。"
 
-#: kpackage/private/packagejobthread.cpp:290
+#: kpackage/private/packagejobthread.cpp:293
 #, kde-format
 msgid "%1 already exists"
 msgstr "%1 已存在"
 
-#: kpackage/private/packagejobthread.cpp:311
+#: kpackage/private/packagejobthread.cpp:314
 #, kde-format
 msgid "Could not install dependency: '%1'"
 msgstr "无法安装依赖：“%1”"
 
-#: kpackage/private/packagejobthread.cpp:323
+#: kpackage/private/packagejobthread.cpp:326
 #, kde-format
 msgid "Could not move package to destination: %1"
 msgstr "无法移动包到目标：%1"
 
-#: kpackage/private/packagejobthread.cpp:333
+#: kpackage/private/packagejobthread.cpp:336
 #, kde-format
 msgid "Could not copy package to destination: %1"
 msgstr "无法复制包到目标：%1"
 
-#: kpackage/private/packagejobthread.cpp:368
+#: kpackage/private/packagejobthread.cpp:371
 #, kde-format
 msgid "package path was deleted manually"
 msgstr "软件包路径已被手动删除"
 
-#: kpackage/private/packagejobthread.cpp:368
+#: kpackage/private/packagejobthread.cpp:371
 #, kde-format
 msgid "%1 does not exist"
 msgstr "%1 不存在"
 
-#: kpackage/private/packagejobthread.cpp:388
+#: kpackage/private/packagejobthread.cpp:391
 #, kde-format
 msgid "Could not delete package from: %1"
 msgstr "无法从位置删除包：%1"

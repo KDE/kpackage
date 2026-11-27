@@ -9,7 +9,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2026-11-13 00:53+0000\n"
+"POT-Creation-Date: 2026-11-27 01:00+0000\n"
 "PO-Revision-Date: 2024-12-19 22:20+0100\n"
 "Last-Translator: Adrián Chaves (Gallaecio) <adrian@chaves.io>\n"
 "Language-Team: Proxecto Trasno (proxecto@trasno.gal)\n"
@@ -30,94 +30,94 @@ msgctxt "EMAIL OF TRANSLATORS"
 msgid "Your emails"
 msgstr "adrian@chaves.gal"
 
-#: kpackage/private/packagejobthread.cpp:164
+#: kpackage/private/packagejobthread.cpp:167
 #, kde-format
 msgid "Could not create package root directory: %1"
 msgstr "Non foi posíbel crear o cartafol raíz do paquete: %1"
 
-#: kpackage/private/packagejobthread.cpp:173
+#: kpackage/private/packagejobthread.cpp:176
 #, kde-format
 msgid "No such file: %1"
 msgstr "Non existe o ficheiro: %1"
 
-#: kpackage/private/packagejobthread.cpp:203
+#: kpackage/private/packagejobthread.cpp:206
 #, kde-format
 msgid "Could not open package file, unsupported archive format: %1 %2"
 msgstr ""
 "Non foi posíbel abrir o ficheiro do paquete, o formato do arquivo non é "
 "compatíbel: %1 %2"
 
-#: kpackage/private/packagejobthread.cpp:211
+#: kpackage/private/packagejobthread.cpp:214
 #, kde-format
 msgid "Could not open package file: %1"
 msgstr "Non foi posíbel abrir o ficheiro do paquete: %1"
 
-#: kpackage/private/packagejobthread.cpp:238
+#: kpackage/private/packagejobthread.cpp:241
 #, kde-format
 msgid "Package is not considered valid"
 msgstr "O paquete non se considera correcto"
 
-#: kpackage/private/packagejobthread.cpp:248
+#: kpackage/private/packagejobthread.cpp:251
 #, kde-format
 msgid "Package plugin id not specified: %1"
 msgstr "Non se indicou o identificador do complemento do paquete: %1"
 
-#: kpackage/private/packagejobthread.cpp:258
+#: kpackage/private/packagejobthread.cpp:261
 #, kde-format
 msgid "Package plugin id %1 contains invalid characters"
 msgstr ""
 "O identificador %1 do complemento do paquete contén caracteres incorrectos"
 
-#: kpackage/private/packagejobthread.cpp:277
+#: kpackage/private/packagejobthread.cpp:280
 #, kde-format
 msgid ""
 "The new package has a different type from the old version already installed."
 msgstr ""
 "O tipo do novo paquete é distinto do da versión anterior que está instalada."
 
-#: kpackage/private/packagejobthread.cpp:282
+#: kpackage/private/packagejobthread.cpp:285
 #, kde-format
 msgid ""
 "Impossible to remove the old installation of %1 located at %2. error: %3"
 msgstr ""
 "Non é posíbel desinstalar a versión anterior de %1 situada en %2. Erro: %3"
 
-#: kpackage/private/packagejobthread.cpp:286
+#: kpackage/private/packagejobthread.cpp:289
 #, kde-format
 msgid "Not installing version %1 of %2. Version %3 already installed."
 msgstr "Non se instalará a versión %1 e %2. A versión %3 xa está instalada."
 
-#: kpackage/private/packagejobthread.cpp:290
+#: kpackage/private/packagejobthread.cpp:293
 #, kde-format
 msgid "%1 already exists"
 msgstr "%1 xa existe"
 
-#: kpackage/private/packagejobthread.cpp:311
+#: kpackage/private/packagejobthread.cpp:314
 #, kde-format
 msgid "Could not install dependency: '%1'"
 msgstr "Non foi posíbel instalar a dependencia: «%1»"
 
-#: kpackage/private/packagejobthread.cpp:323
+#: kpackage/private/packagejobthread.cpp:326
 #, kde-format
 msgid "Could not move package to destination: %1"
 msgstr "Non foi posíbel mover o paquete ao destino: %1"
 
-#: kpackage/private/packagejobthread.cpp:333
+#: kpackage/private/packagejobthread.cpp:336
 #, kde-format
 msgid "Could not copy package to destination: %1"
 msgstr "Non foi posíbel copiar o paquete ao destino: %1"
 
-#: kpackage/private/packagejobthread.cpp:368
+#: kpackage/private/packagejobthread.cpp:371
 #, kde-format
 msgid "package path was deleted manually"
 msgstr "a ruta do paquete eliminouse manualmente"
 
-#: kpackage/private/packagejobthread.cpp:368
+#: kpackage/private/packagejobthread.cpp:371
 #, kde-format
 msgid "%1 does not exist"
 msgstr "%1 non existe"
 
-#: kpackage/private/packagejobthread.cpp:388
+#: kpackage/private/packagejobthread.cpp:391
 #, kde-format
 msgid "Could not delete package from: %1"
 msgstr "Non foi posíbel eliminar o paquete de: %1"

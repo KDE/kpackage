@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: plasmapkg\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2026-11-13 00:53+0000\n"
+"POT-Creation-Date: 2026-11-27 01:00+0000\n"
 "PO-Revision-Date: 2024-10-26 21:50+0700\n"
 "Last-Translator: Wantoyèk <wantoyek@gmail.com>\n"
 "Language-Team: https://t.me/Localizations_KDE_Indonesia\n"
@@ -29,49 +29,49 @@ msgctxt "EMAIL OF TRANSLATORS"
 msgid "Your emails"
 msgstr "wantoyek@gmail.com"
 
-#: kpackage/private/packagejobthread.cpp:164
+#: kpackage/private/packagejobthread.cpp:167
 #, kde-format
 msgid "Could not create package root directory: %1"
 msgstr "Tidak dapat menciptakan paket direktori root: %1"
 
-#: kpackage/private/packagejobthread.cpp:173
+#: kpackage/private/packagejobthread.cpp:176
 #, kde-format
 msgid "No such file: %1"
 msgstr "Tidak ada file seperti: %1"
 
-#: kpackage/private/packagejobthread.cpp:203
+#: kpackage/private/packagejobthread.cpp:206
 #, kde-format
 msgid "Could not open package file, unsupported archive format: %1 %2"
 msgstr "Tidak dapat membuka file paket, format arsip tidak didukung: %1 %2"
 
-#: kpackage/private/packagejobthread.cpp:211
+#: kpackage/private/packagejobthread.cpp:214
 #, kde-format
 msgid "Could not open package file: %1"
 msgstr "Tidak dapat membuka file paket: %1"
 
-#: kpackage/private/packagejobthread.cpp:238
+#: kpackage/private/packagejobthread.cpp:241
 #, kde-format
 msgid "Package is not considered valid"
 msgstr "Paket tidak dianggap valid"
 
-#: kpackage/private/packagejobthread.cpp:248
+#: kpackage/private/packagejobthread.cpp:251
 #, kde-format
 msgid "Package plugin id not specified: %1"
 msgstr "Id plugin paket tidak ditentukan: %1"
 
-#: kpackage/private/packagejobthread.cpp:258
+#: kpackage/private/packagejobthread.cpp:261
 #, kde-format
 msgid "Package plugin id %1 contains invalid characters"
 msgstr "Id plugin paket %1 berisi karakter yang tidak valid"
 
-#: kpackage/private/packagejobthread.cpp:277
+#: kpackage/private/packagejobthread.cpp:280
 #, kde-format
 msgid ""
 "The new package has a different type from the old version already installed."
 msgstr ""
 "Paket baru yang memiliki tipe berbeda dari versi lawas yang sudah terinstal."
 
-#: kpackage/private/packagejobthread.cpp:282
+#: kpackage/private/packagejobthread.cpp:285
 #, kde-format
 msgid ""
 "Impossible to remove the old installation of %1 located at %2. error: %3"
@@ -79,42 +79,42 @@ msgstr ""
 "Tidak mungkin untuk menghapus peginstalan lawas %1 yang berlokasi di %2. "
 "Galat: %3"
 
-#: kpackage/private/packagejobthread.cpp:286
+#: kpackage/private/packagejobthread.cpp:289
 #, kde-format
 msgid "Not installing version %1 of %2. Version %3 already installed."
 msgstr "Tidak menginstal versi %1 dari %2. Versi %3 sudah terinstal."
 
-#: kpackage/private/packagejobthread.cpp:290
+#: kpackage/private/packagejobthread.cpp:293
 #, kde-format
 msgid "%1 already exists"
 msgstr "%1 sudah ada"
 
-#: kpackage/private/packagejobthread.cpp:311
+#: kpackage/private/packagejobthread.cpp:314
 #, kde-format
 msgid "Could not install dependency: '%1'"
 msgstr "Tidak dapat menginstal ketergantungan: '%1'"
 
-#: kpackage/private/packagejobthread.cpp:323
+#: kpackage/private/packagejobthread.cpp:326
 #, kde-format
 msgid "Could not move package to destination: %1"
 msgstr "Tidak dapat memindah paket ke tujuan: %1"
 
-#: kpackage/private/packagejobthread.cpp:333
+#: kpackage/private/packagejobthread.cpp:336
 #, kde-format
 msgid "Could not copy package to destination: %1"
 msgstr "Tidak dapat menyalin paket ke tujuan: %1"
 
-#: kpackage/private/packagejobthread.cpp:368
+#: kpackage/private/packagejobthread.cpp:371
 #, kde-format
 msgid "package path was deleted manually"
 msgstr "alur paket telah dihapus secara manual"
 
-#: kpackage/private/packagejobthread.cpp:368
+#: kpackage/private/packagejobthread.cpp:371
 #, kde-format
 msgid "%1 does not exist"
 msgstr "%1 tidak ada."
 
-#: kpackage/private/packagejobthread.cpp:388
+#: kpackage/private/packagejobthread.cpp:391
 #, kde-format
 msgid "Could not delete package from: %1"
 msgstr "Tidak dapat menghapus paket dari: %1"

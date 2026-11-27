@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kpackage\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2026-11-13 00:53+0000\n"
+"POT-Creation-Date: 2026-11-27 01:00+0000\n"
 "PO-Revision-Date: 2019-09-29 12:45+0500\n"
 "Last-Translator: Victor Ibragimov <victor.ibragimov@gmail.com>\n"
 "Language-Team: English <kde-i18n-doc@kde.org>\n"
@@ -28,44 +28,44 @@ msgctxt "EMAIL OF TRANSLATORS"
 msgid "Your emails"
 msgstr ""
 
-#: kpackage/private/packagejobthread.cpp:164
+#: kpackage/private/packagejobthread.cpp:167
 #, kde-format
 msgid "Could not create package root directory: %1"
 msgstr "Эҷодкунии ҷузвадони бастаи рушагӣ (root) қатъ шуд: %1"
 
-#: kpackage/private/packagejobthread.cpp:173
+#: kpackage/private/packagejobthread.cpp:176
 #, kde-format
 msgid "No such file: %1"
 msgstr "Чунин файл нест: %1"
 
-#: kpackage/private/packagejobthread.cpp:203
+#: kpackage/private/packagejobthread.cpp:206
 #, kde-format
 msgid "Could not open package file, unsupported archive format: %1 %2"
 msgstr "Кушодани файли баста қатъ шуд, шакли бойгонӣ дастгирӣ намешавад: %1 %2"
 
-#: kpackage/private/packagejobthread.cpp:211
+#: kpackage/private/packagejobthread.cpp:214
 #, kde-format
 msgid "Could not open package file: %1"
 msgstr "Кушодани файли баста қатъ шуд: %1"
 
-#: kpackage/private/packagejobthread.cpp:238
+#: kpackage/private/packagejobthread.cpp:241
 #, kde-format
 msgid "Package is not considered valid"
 msgstr ""
 
-#: kpackage/private/packagejobthread.cpp:248
+#: kpackage/private/packagejobthread.cpp:251
 #, fuzzy, kde-format
 #| msgid "Package plugin name not specified: %1"
 msgid "Package plugin id not specified: %1"
 msgstr "Номи васлкунаки баста муайян карда нашуд: %1"
 
-#: kpackage/private/packagejobthread.cpp:258
+#: kpackage/private/packagejobthread.cpp:261
 #, fuzzy, kde-format
 #| msgid "Package plugin name %1 contains invalid characters"
 msgid "Package plugin id %1 contains invalid characters"
 msgstr "Номи васлкунаки бастаи %1 аломатҳои нодурустро дар бар мегирад"
 
-#: kpackage/private/packagejobthread.cpp:277
+#: kpackage/private/packagejobthread.cpp:280
 #, kde-format
 msgid ""
 "The new package has a different type from the old version already installed."
@@ -73,49 +73,49 @@ msgstr ""
 "Бастаи нав дорои навъи дигар аз версияи куҳна мебошад, ки аллакай насб карда "
 "шудааст."
 
-#: kpackage/private/packagejobthread.cpp:282
+#: kpackage/private/packagejobthread.cpp:285
 #, kde-format
 msgid ""
 "Impossible to remove the old installation of %1 located at %2. error: %3"
 msgstr "Тозакунии насби куҳнаи %1 аз макони %2 ғайриимкон аст. Хато: %3"
 
-#: kpackage/private/packagejobthread.cpp:286
+#: kpackage/private/packagejobthread.cpp:289
 #, kde-format
 msgid "Not installing version %1 of %2. Version %3 already installed."
 msgstr ""
 "Версияи %1 аз %2 насб намешавад. Версияи %3 аллакай насб карда шудааст."
 
-#: kpackage/private/packagejobthread.cpp:290
+#: kpackage/private/packagejobthread.cpp:293
 #, kde-format
 msgid "%1 already exists"
 msgstr "%1 аллакай вуҷуд дорад"
 
-#: kpackage/private/packagejobthread.cpp:311
+#: kpackage/private/packagejobthread.cpp:314
 #, kde-format
 msgid "Could not install dependency: '%1'"
 msgstr "Вобастагӣ насб карда намешавад: '%1'"
 
-#: kpackage/private/packagejobthread.cpp:323
+#: kpackage/private/packagejobthread.cpp:326
 #, kde-format
 msgid "Could not move package to destination: %1"
 msgstr "Баста ба ҷойи таъйиноти зерин интиқол дода намешавад: %1"
 
-#: kpackage/private/packagejobthread.cpp:333
+#: kpackage/private/packagejobthread.cpp:336
 #, kde-format
 msgid "Could not copy package to destination: %1"
 msgstr "Баста ба ҷойи таъйиноти зерин нусха бардошта намешавад: %1"
 
-#: kpackage/private/packagejobthread.cpp:368
+#: kpackage/private/packagejobthread.cpp:371
 #, kde-format
 msgid "package path was deleted manually"
 msgstr ""
 
-#: kpackage/private/packagejobthread.cpp:368
+#: kpackage/private/packagejobthread.cpp:371
 #, kde-format
 msgid "%1 does not exist"
 msgstr "%1 вуҷуд надорад"
 
-#: kpackage/private/packagejobthread.cpp:388
+#: kpackage/private/packagejobthread.cpp:391
 #, kde-format
 msgid "Could not delete package from: %1"
 msgstr "Несткунии баста аз макони зерин қатъ шуд: %1"
